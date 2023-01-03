@@ -232,7 +232,7 @@ Assignments
     :end-before: # Solution
 
 .. literalinclude:: assignments/file_read_f.py
-    :caption: :download:`Solution <assignments/file_read_g.py>`
+    :caption: :download:`Solution <assignments/file_read_f.py>`
     :end-before: # Solution
 
 .. literalinclude:: assignments/file_read_g.py

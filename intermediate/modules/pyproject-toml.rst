@@ -16,17 +16,17 @@ to build the package. [#pyproject]_
 .. code-block:: toml
 
     [project]
-    name = "my-project"
+    name = "ares3"
     version = "1.0.0"
     requires-python = ">=3.11"
     license.file = "LICENSE"  # https://peps.python.org/pep-0639/#add-license-files-key
     authors = [{name = "Mark Watney", email = "mwatney@nasa.gov"}]
     dynamic = ["readme"]
 
-    urls.homepage = "https://github.com/AstroMatt/szkolenia-lotnicze"
-    urls.repository = "https://github.com/AstroMatt/szkolenia-lotnicze.git"
-    urls.documentation = "https://github.com/AstroMatt/szkolenia-lotnicze"
-    urls.bugtracker = "https://github.com/AstroMatt/szkolenia-lotnicze/issues"
+    urls.homepage = "https://github.com/nasa/ares3"
+    urls.repository = "https://github.com/nasa/ares3.git"
+    urls.documentation = "https://github.com/nasa/ares3"
+    urls.bugtracker = "https://github.com/nasa/ares3/issues"
 
     keywords = [
         "ares",
@@ -52,7 +52,9 @@ to build the package. [#pyproject]_
         "Topic :: Internet :: WWW/HTTP :: Dynamic Content",
         "Topic :: Internet :: WWW/HTTP :: WSGI :: Application"]
 
+    ## Dependencies
     # https://peps.python.org/pep-0440/#version-specifiers
+
     dependencies = [
         "django == 4.1.*",
         "django-ninja == 0.19.*"]
@@ -65,16 +67,22 @@ to build the package. [#pyproject]_
 
     ## Console scripts
     # Builder will install a shell script named `myapp-cli` in venv's
-    # bin directory: `.venv-py311/bin/myapp-cli`
+    # bin directory: `.venv/bin/myapp-cli`
 
     [project.scripts]
-    myapp-cli = "myapp:cli"
+    ares3-cli = "ares3.manage:main"
 
     [project.gui-scripts]
-    myapp-gui = "myapp:gui"
+    ares3-gui = "ares3.manage:gui"
 
-    [project.entry-points."myapp.run"]
-    run = "myapp:run"
+    # An "entry point" is typically a function (or other callable
+    # function-like object) that a developer or user of your Python
+    # package might want to use. The most popular kind of entry point
+    # is the console_scripts entry point, which points to a function
+    # that you want made available as a command-line tool to whoever
+    # installs your package.
+    [project.entry-points.console_scripts]
+    ares3-run = "ares3.manage:main"
 
 
     ## Build System
@@ -85,29 +93,28 @@ to build the package. [#pyproject]_
 
     [tool.setuptools.packages.find]
     where = ["."]
-    exclude = ["aviation.*.tests*"]
+    exclude = ["ares3.*.tests*"]
 
     [tool.setuptools.dynamic]
     readme.file = "README.rst"
     # version.attr = "aviation.__version__"  ## if 'version' in dynamic
 
 
-
     ## External Tools Configuration
-
 
     # https://ichard26-testblackdocs.readthedocs.io/en/refactor_docs/pyproject_toml.html
     [tool.black]
     line-length = 79
     target_version = ["py311"]
     include = '\.pyi?$'
-    exclude = '''(
-          \.git
-        | \.mypy_cache
-        | \.venv
-        | build
-        | dist
-    )'''
+    exclude = [
+        '*.egg-info',
+        ".git",
+        ".mypy_cache",
+        ".venv",
+        "build",
+        "dist",
+    ]
 
 
     # https://mypy.readthedocs.io/en/stable/config_file.html
@@ -115,7 +122,7 @@ to build the package. [#pyproject]_
     [tool.mypy]
     python_version = "3.11"
     files = ["src"]
-    modules = ["aviation"]
+    modules = ["ares3"]
     exclude = [
         '*.egg-info',
         ".git",
@@ -170,17 +177,33 @@ to build the package. [#pyproject]_
     # show_column_numbers = false
     # show_error_codes = true
 
-
+    # https://pycqa.github.io/isort/docs/configuration/options.html
     [tool.isort]
-    line_length = 79
-    src_paths = ["requests", "test"]
-    combine_as_imports = true
-    skip_gitignore = true
-    honor_noqa = true
-    atomic = true
-    profile = "black"
-    skip_glob = ["tests/*"]
-    known_first_party = ["black", "blackd"]
+    atomic = true                           # Ensures the output doesn't save if the resulting file contains syntax errors
+    combine_as_imports = false              # Combines as imports on the same line
+    combine_star = true                     # Ensures that if a star import is present, nothing else is imported from that namespace
+    ensure_newline_before_comments = true   # Inserts a blank line before a comment following an import
+    force_alphabetical_sort = false         # Force all imports to be sorted as a single section
+    force_alphabetical_sort_within_sections = true  # Force all imports to be sorted alphabetically within a section
+    force_sort_within_sections = true       # Don't sort straight-style imports (like import sys) before from-style imports (like from itertools import groupby). Instead, sort the imports by module, independent of import style
+    group_by_package = false                # If True isort will automatically create section groups by the top-level package they come from
+    honor_noqa = true                       # Tells isort to honor noqa comments to enforce skipping those comments
+    include_trailing_comma = true           # Includes a trailing comma on multi line imports that include parentheses
+    lexicographical = false                 # Lexicographical order is strictly alphabetical order. For example by default isort will sort 1, 10, 2 into 1, 2, 10 - but with lexicographical sorting enabled it will remain 1, 10, 2
+    line_length = 79                        # The max length of an import line (used for wrapping long imports)
+    lines_after_imports = 2                 # The number of blank lines to place after imports
+    lines_between_sections = -1             # The number of lines to place between sections
+    lines_between_types = 0                 # The number of lines to place between direct and from imports
+    multi_line_output = 9                   # Multi line output (0-grid, 1-vertical, 2-hanging, 3-vert-hanging, 4-vert-grid, 5-vert-grid-grouped, 6-deprecated-alias-for-5, 7-noqa, 8-vertical-hanging-indent-bracket, 9-vertical-prefix-from-module-import, 10-hanging-indent-with-parentheses)
+    order_by_type = true                    # Order imports by type, which is determined by case, in addition to alphabetically
+    profile = "black"                       # Base profile type to use for configuration. Profiles include: black, django, pycharm, google, open_stack, plone, attrs, hug, wemake, appnexus
+    py_version=3                            # Tells isort to set the known standard library based on the specified Python version
+    remove_redundant_aliases = true         # Tells isort to remove redundant aliases from imports, such as `import os as os`
+    skip = [".gitignore", ".dockerignore"]  # Files that isort should skip over
+    skip_gitignore = true                   # Treat project as a git repository and ignore files listed in .gitignore
+    skip_glob = ["docs/*"]                  # Files that isort should skip over
+    skip_glob = ["tests/*"]                 # Files that isort should skip over
+    src_paths = ["src", "test"]             # Add an explicitly defined source path (modules within src paths have their imports automatically categorized as first_party). Glob expansion (* and **) is supported for this option
 
 
     # https://github.com/pytest-dev/pytest/blob/main/pyproject.toml
@@ -224,7 +247,7 @@ to build the package. [#pyproject]_
         "too-many-arguments",               # "R0913"
     ]
 
-Verify ``pip install .``
+To verify use: ``pip install .``
 
 
 References
