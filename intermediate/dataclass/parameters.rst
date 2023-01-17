@@ -10,9 +10,6 @@ Dataclass Parameters
 * ``kw_only`` - Mark all fields as keyword-only
 * ``slots`` - Create class with ``__slots__``
 
-
-About
------
 .. csv-table:: Dataclass options
     :header: "Option", "Default", "Description (if True)"
     :widths: 10, 10, 80
@@ -28,11 +25,13 @@ About
     ``slots``,        ``False``,  "Create class with ``__slots__``"
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+
+
 Example
 -------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False,
 ...            frozen=False, match_args=True, kw_only=False, slots=False)
 ... class Astronaut:
@@ -49,9 +48,6 @@ Init
 * ``init=True`` by default
 * Generate ``__init__()`` method
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(init=True)
 ... class Point:
 ...     x: int
@@ -63,9 +59,6 @@ Init
 >>> print(p)
 Point(x=10, y=20)
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(init=False)
 ... class Point:
 ...     x: int
@@ -82,9 +75,6 @@ Repr
 * ``repr=True`` by default
 * Generate ``__repr__()`` for pretty printing
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(repr=True)
 ... class Point:
 ...     x: int
@@ -96,9 +86,6 @@ Repr
 >>> print(p)
 Point(x=10, y=20)
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(repr=False)
 ... class Point:
 ...     x: int
@@ -117,9 +104,6 @@ Frozen
 * Prevents object from modifications
 * Assigning to fields will generate an exception
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(frozen=False)
 ... class Point:
 ...     x: int
@@ -132,9 +116,6 @@ Frozen
 >>> print(p)
 Point(x=30, y=20)
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(frozen=True)
 ... class Point:
 ...     x: int
@@ -153,9 +134,6 @@ Eq
 * when ``eq=False`` compare objects by ``id()`` not values
 * when ``eq=True`` compare objects by value not ``id()``
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(eq=True)
 ... class Astronaut:
 ...     firstname: str
@@ -180,9 +158,6 @@ False
 >>> astro1 != astro3
 True
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass(eq=False)
 ... class Astronaut:
 ...     firstname: str

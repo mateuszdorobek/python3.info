@@ -8,6 +8,11 @@ Dataclass Helpers
 * ``is_dataclass()`` - checks if argument is a dataclass
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+
+
 Fields
 ------
 * ``fields(class_or_instance)``
@@ -17,9 +22,12 @@ Class. Accepts either a Data Class, or an instance of a Data Class. Raises
 ValueError if not passed a Data Class or instance of one. Does not return
 pseudo-fields which are ClassVar or InitVar.
 
->>> from dataclasses import dataclass, fields
->>>
->>>
+Import:
+
+>>> from dataclasses import fields
+
+Definition:
+
 >>> @dataclass
 ... class Mission:
 ...     year: int
@@ -30,9 +38,11 @@ pseudo-fields which are ClassVar or InitVar.
 ...     firstname: str
 ...     lastname: str
 ...     missions: list[Mission]
->>>
->>>
+
+Use:
+
 >>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>>
 >>> fields(Astronaut)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 (Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
  Field(name='lastname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
@@ -46,9 +56,12 @@ As Dict
 Converts the Data Class instance to a dict (by using the factory function
 dict_factory). As dict does the conversion recursively.
 
->>> from dataclasses import dataclass, asdict
->>>
->>>
+Import:
+
+>>> from dataclasses import asdict
+
+Definition:
+
 >>> @dataclass
 ... class Mission:
 ...     year: int
@@ -62,17 +75,19 @@ dict_factory). As dict does the conversion recursively.
 >>>
 >>>
 >>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
->>>
+
+Use:
+
 >>> asdict(astro)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'missions': [{'year': 2035, 'name': 'Ares3'}]}
->>>
+
 >>> vars(astro)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'missions': [Mission(year=2035, name='Ares3')]}
->>>
+
 >>> dict(astro)
 Traceback (most recent call last):
 TypeError: 'Astronaut' object is not iterable
@@ -86,9 +101,12 @@ Converts the Data Class instance to a tuple (by using the factory function
 tuple_factory). Each Data Class is converted to a tuple of its field
 values. Data Classes, dicts, lists, and tuples are recursed into.
 
->>> from dataclasses import dataclass, astuple
->>>
->>>
+Import:
+
+>>> from dataclasses import astuple
+
+Definition:
+
 >>> @dataclass
 ... class Mission:
 ...     year: int
@@ -99,8 +117,9 @@ values. Data Classes, dicts, lists, and tuples are recursed into.
 ...     firstname: str
 ...     lastname: str
 ...     missions: list[Mission]
->>>
->>>
+
+Use:
+
 >>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
 >>>
 >>> astuple(astro)
@@ -132,9 +151,12 @@ Is Dataclass
 Returns True if its parameter is a dataclass or an instance of one,
 otherwise returns False.
 
->>> from dataclasses import dataclass, is_dataclass
->>>
->>>
+Import:
+
+>>> from dataclasses import is_dataclass
+
+Use:
+
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -149,9 +171,8 @@ True
 >>> is_dataclass(astro)
 True
 
->>> from dataclasses import is_dataclass
->>>
->>>
+Normal class:
+
 >>> class Astronaut:
 ...     firstname: str
 ...     lastname: str

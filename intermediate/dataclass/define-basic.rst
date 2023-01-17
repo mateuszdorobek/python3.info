@@ -2,11 +2,13 @@ Dataclass Define Basic
 ======================
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+
+
 Required Fields
 ---------------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -15,9 +17,6 @@ Required Fields
 
 Default Fields
 --------------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -27,9 +26,6 @@ Default Fields
 
 Lists
 -----
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str

@@ -1,4 +1,5 @@
 {
-    "excluded": ["**/__pycache__"],
-  "toolchains": []
+  "excluded": ["**/__pycache__"],
+  "toolchains": [],
+  "editor.guides": [79]
 }

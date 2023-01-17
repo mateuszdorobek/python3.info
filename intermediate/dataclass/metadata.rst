@@ -18,12 +18,13 @@ Dataclass Metadata
               compare: bool = True,
               metadata: dict = None) -> None
 
+SetUp
+-----
+>>> from dataclasses import dataclass, field
+
 
 Syntax
 ------
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -36,9 +37,6 @@ Syntax
 
 Validation
 ----------
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
