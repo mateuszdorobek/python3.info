@@ -43,6 +43,6 @@ Assignments
     :caption: :download:`Solution <assignments/dataclass_define_basic_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/dataclass_define_basic_b.py
-    :caption: :download:`Solution <assignments/dataclass_define_basic_b.py>`
+.. literalinclude:: assignments/dataclass_define_basic_c.py
+    :caption: :download:`Solution <assignments/dataclass_define_basic_c.py>`
     :end-before: # Solution
