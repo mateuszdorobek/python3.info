@@ -8,6 +8,15 @@ About
 
     LICENSE.rst
     about/versions.rst
+
+
+Install
+*******
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Install
+
     install.rst
     install/python.rst
     install/git.rst
@@ -15,15 +24,6 @@ About
     install/ide.rst
     install/project.rst
     install/doctest.rst
-
-About
-*****
-.. toctree::
-    :maxdepth: 1
-
-    LICENSE.rst
-    install.rst
-    about/versions.rst
 
 
 Python Basics
