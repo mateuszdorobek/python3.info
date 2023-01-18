@@ -250,3 +250,14 @@ Note, the `nd` in word `landed`:
 
 >>> re.findall(r'[stndrdth]', TEXT)
 ['r', 't', 'n', 'r', 's', 'n', 'd', 'd', 'n', 'r', 's', 'n', 't', 'h', 't']
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_qualifier_a.py
+    :caption: :download:`Solution <assignments/re_syntax_qualifier_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_qualifier_b.py
+    :caption: :download:`Solution <assignments/re_syntax_qualifier_b.py>`
+    :end-before: # Solution

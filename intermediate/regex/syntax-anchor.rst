@@ -109,3 +109,18 @@ when ``re.MULTILINE`` flag is present.
 Use Case - 0x01
 ---------------
 * ``abc.e`` - text `abc` then any character followed by letter `e`
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_anchor_a.py
+    :caption: :download:`Solution <assignments/re_syntax_anchor_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_anchor_b.py
+    :caption: :download:`Solution <assignments/re_syntax_anchor_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_anchor_c.py
+    :caption: :download:`Solution <assignments/re_syntax_anchor_c.py>`
+    :end-before: # Solution

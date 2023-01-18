@@ -197,3 +197,22 @@ Use Case - 0x04
 
 >>> re.findall(r'\d\s', TEXT)
 ['3 ', '5 ', '7 ']
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_identifier_a.py
+    :caption: :download:`Solution <assignments/re_syntax_identifier_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_identifier_b.py
+    :caption: :download:`Solution <assignments/re_syntax_identifier_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_identifier_c.py
+    :caption: :download:`Solution <assignments/re_syntax_identifier_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_identifier_d.py
+    :caption: :download:`Solution <assignments/re_syntax_identifier_d.py>`
+    :end-before: # Solution

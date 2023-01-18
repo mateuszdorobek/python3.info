@@ -225,3 +225,22 @@ Use Case - 0x09
 >>> tag = r'<.+?>'
 >>> re.findall(tag, HTML)
 ['<p>', '</p>']
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_quantifier_a.py
+    :caption: :download:`Solution <assignments/re_syntax_quantifier_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_quantifier_b.py
+    :caption: :download:`Solution <assignments/re_syntax_quantifier_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_quantifier_c.py
+    :caption: :download:`Solution <assignments/re_syntax_quantifier_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_quantifier_d.py
+    :caption: :download:`Solution <assignments/re_syntax_quantifier_d.py>`
+    :end-before: # Solution

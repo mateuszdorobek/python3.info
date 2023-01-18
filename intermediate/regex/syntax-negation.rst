@@ -49,3 +49,14 @@ Compare
 
 >>> re.findall(r'^[^A-Z]', TEXT)
 []
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_negation_a.py
+    :caption: :download:`Solution <assignments/re_syntax_negation_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_negation_b.py
+    :caption: :download:`Solution <assignments/re_syntax_negation_b.py>`
+    :end-before: # Solution

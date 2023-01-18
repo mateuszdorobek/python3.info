@@ -369,3 +369,18 @@ Use Case - 0x08
 >>>
 >>> re.findall(r'<(?P<tag>.*?)>(.*?)</(?P=tag)>', HTML)
 [('p', 'Hello World')]
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/re_syntax_group_a.py
+    :caption: :download:`Solution <assignments/re_syntax_group_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_group_b.py
+    :caption: :download:`Solution <assignments/re_syntax_group_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/re_syntax_group_c.py
+    :caption: :download:`Solution <assignments/re_syntax_group_c.py>`
+    :end-before: # Solution

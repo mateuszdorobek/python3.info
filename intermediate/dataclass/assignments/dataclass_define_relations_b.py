@@ -65,8 +65,6 @@ Tests:
     'Address.region has invalid type annotation, expected: str'
     >>> assert address['country'] is str, \
     'Address.country has invalid type annotation, expected: str'
-
-TODO: Add support for Python 3.10 Optional and Union syntax
 """
 from dataclasses import dataclass, field
 from typing import Optional

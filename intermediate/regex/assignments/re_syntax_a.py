@@ -60,7 +60,7 @@ result_b = re.findall(r'[a-z0-9]', TEXT)
 ['p', 'o', 'l', 'l', 'o', '1', '1', 'w', 'a', 's', 't', 'h', 'e', 'm', 'e', 'r', 'i', 'c', 'a', 'n', 's', 'p', 'a', 'c', 'e', 'f', 'l', 'i', 'g', 'h', 't', 't', 'h', 'a', 't', 'f', 'i', 'r', 's', 't', 'l', 'a', 'n', 'd', 'e', 'd', 'h', 'u', 'm', 'a', 'n', 's', 'o', 'n', 't', 'h', 'e', 'o', 'o', 'n', 'o', 'm', 'm', 'a', 'n', 'd', 'e', 'r', 'e', 'i', 'l', 'r', 'm', 's', 't', 'r', 'o', 'n', 'g', 'a', 'n', 'd', 'l', 'u', 'n', 'a', 'r', 'm', 'o', 'd', 'u', 'l', 'e', 'p', 'i', 'l', 'o', 't', 'u', 'z', 'z', 'l', 'd', 'r', 'i', 'n', 'l', 'a', 'n', 'd', 'e', 'd', 't', 'h', 'e', 'p', 'o', 'l', 'l', 'o', 'u', 'n', 'a', 'r', 'o', 'd', 'u', 'l', 'e', 'a', 'g', 'l', 'e', 'o', 'n', 'u', 'l', 'y', '2', '0', 't', 'h', '1', '9', '6', '9', 'a', 't', '2', '0', '1', '7', 'a', 'n', 'd', 'r', 'm', 's', 't', 'r', 'o', 'n', 'g', 'b', 'e', 'c', 'a', 'm', 'e', 't', 'h', 'e', 'f', 'i', 'r', 's', 't', 'p', 'e', 'r', 's', 'o', 'n', 't', 'o', 's', 't', 'e', 'p', 'o', 'n', 't', 'o', 't', 'h', 'e', 'o', 'o', 'n', 's', 's', 'u', 'r', 'f', 'a', 'c', 'e', '6', 'h', 'o', 'u', 'r', 's', '3', '9', 'm', 'i', 'n', 'u', 't', 'e', 's', 'l', 'a', 't', 'e', 'r', 'o', 'n', 'u', 'l', 'y', '2', '1', 's', 't', '1', '9', '6', '9', 'a', 't', '0', '2', '5', '6', '1', '5', 'l', 'd', 'r', 'i', 'n', 'j', 'o', 'i', 'n', 'e', 'd', 'h', 'i', 'm', '1', '9', 'm', 'i', 'n', 'u', 't', 'e', 's', 'l', 'a', 't', 'e', 'r', 'h', 'e', 'y', 's', 'p', 'e', 'n', 't', '2', 'h', 'o', 'u', 'r', 's', '3', '1', 'm', 'i', 'n', 'u', 't', 'e', 's', 'e', 'x', 'p', 'l', 'o', 'r', 'i', 'n', 'g', 't', 'h', 'e', 's', 'i', 't', 'e', 't', 'h', 'e', 'y', 'h', 'a', 'd', 'n', 'a', 'm', 'e', 'd', 'r', 'a', 'n', 'q', 'u', 'i', 'l', 'i', 't', 'y', 'a', 's', 'e', 'u', 'p', 'o', 'n', 'l', 'a', 'n', 'd', 'i', 'n', 'g', 'r', 'm', 's', 't', 'r', 'o', 'n', 'g', 'a', 'n', 'd', 'l', 'd', 'r', 'i', 'n', 'c', 'o', 'l', 'l', 'e', 'c', 't', 'e', 'd', '4', '7', '5', 'p', 'o', 'u', 'n', 'd', 's', '2', '1', '5', 'k', 'g', 'o', 'f', 'l', 'u', 'n', 'a', 'r', 'm', 'a', 't', 'e', 'r', 'i', 'a', 'l', 't', 'o', 'b', 'r', 'i', 'n', 'g', 'b', 'a', 'c', 'k', 't', 'o', 'a', 'r', 't', 'h', 'a', 's', 'p', 'i', 'l', 'o', 't', 'i', 'c', 'h', 'a', 'e', 'l', 'o', 'l', 'l', 'i', 'n', 's', 'f', 'l', 'e', 'w', 't', 'h', 'e', 'o', 'm', 'm', 'a', 'n', 'd', 'o', 'd', 'u', 'l', 'e', 'o', 'l', 'u', 'm', 'b', 'i', 'a', 'i', 'n', 'l', 'u', 'n', 'a', 'r', 'o', 'r', 'b', 'i', 't', 'a', 'n', 'd', 'w', 'e', 'r', 'e', 'o', 'n', 't', 'h', 'e', 'o', 'o', 'n', 's', 's', 'u', 'r', 'f', 'a', 'c', 'e', 'f', 'o', 'r', '2', '1', 'h', 'o', 'u', 'r', 's', '3', '6', 'm', 'i', 'n', 'u', 't', 'e', 's', 'b', 'e', 'f', 'o', 'r', 'e', 'l', 'i', 'f', 't', 'i', 'n', 'g', 'o', 'f', 'f', 't', 'o', 'r', 'e', 'j', 'o', 'i', 'n', 'o', 'l', 'u', 'm', 'b', 'i', 'a']
 
 
-# Find uppercase letter at the beginning of a string
+# Find uppercase letter at the beginning of a line
 # Example: 'A'
 # type: list[str]
 result_b = re.findall(r'^[A-Z]', TEXT)
@@ -72,13 +72,13 @@ result_b = re.findall(r'^[A-Z]', TEXT)
 result_b = re.findall(r'^[A-Z]', TEXT, flags=re.MULTILINE)
 ['A', 'C', 'T']
 
-# Find unique non letters and digit characters
+# Find unique: non-letters and non-digit characters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: list[str]
 result_b = set(re.findall(r'[^a-zA-Z0-9]', TEXT))
 {'\n', ' ', "'", '(', ')', ',', '.', ':'}
 
-# Find any character at the beginning of a string
+# Find any character at the beginning of a text
 # Example: 'A'
 # type: list[str]
 result_b = re.findall(r'\A.', TEXT)
@@ -90,7 +90,7 @@ result_b = re.findall(r'\A.', TEXT)
 result_b = re.findall(r'^.', TEXT, flags=re.MULTILINE)
 ['A', 'C', 'T']
 
-# Find any character at the end of a string
+# Find any character at the end of a line
 # Example: '.'
 # type: list[str]
 result_b = re.findall(r'.\Z', TEXT, flags=re.MULTILINE)
@@ -109,7 +109,7 @@ result_b = re.findall(r'.$', TEXT, flags=re.MULTILINE)
 result_b = re.findall(r'[A-Z]{3}', TEXT)
 ['CDR', 'LMP', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP']
 
-# Find all integers in text
+# Find all integers in text (as long as possible)
 # Example: '11', '20', '1969', ...
 # type: list[str]
 result_b = re.findall(r'[0-9]+', TEXT)

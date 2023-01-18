@@ -62,4 +62,4 @@ Example
 
 Assignments
 -----------
-.. todo:: Create Assignments
+.. todo:: Assignments
