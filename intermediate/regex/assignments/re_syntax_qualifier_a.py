@@ -1,5 +1,5 @@
 """
-* Assignment: RE Syntax Patterns
+* Assignment: RE Syntax Qualifier
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 3 min

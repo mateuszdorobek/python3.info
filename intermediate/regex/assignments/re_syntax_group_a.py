@@ -1,5 +1,5 @@
 """
-* Assignment: RE Syntax Patterns
+* Assignment: RE Syntax Group
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 3 min

@@ -1,5 +1,5 @@
 """
-* Assignment: RE Syntax Patterns
+* Assignment: RE Syntax Negation
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 5 min
