@@ -1,13 +1,25 @@
 Operator Right
 ==============
-* ``+`` - radd
-* ``-`` - rsub
-* ``*`` - rmul
-* ``/`` - rtruediv
-* ``//`` - rfloordiv
-* ``**`` - rpow
-* ``%`` - rmod
-* ``@`` - rmatmul
+* ``x + y`` - if method "add" on object ``x`` fails, then call "radd" on object ``y`` (``y.__radd__(x)``)
+* ``x - y`` - if method "sub" on object ``x`` fails, then call "rsub" on object ``y`` (``y.__rsub__(x)``)
+* ``x * y`` - if method "mul" on object ``x`` fails, then call "rmul" on object ``y`` (``y.__rmul__(x)``)
+* ``x ** y`` - if method "pow" on object ``x`` fails, then call "rpow" on object ``y`` (``y.__rpow__(x)``)
+* ``x @ y`` - if method "matmul" on object ``x`` fails, then call "rmatmul" on object ``y`` (``y.__rmatmul__(x)``)
+* ``x / y`` - if method "truediv" on object ``x`` fails, then call "rtruediv" on object ``y`` (``y.__rtruediv__(x)``)
+* ``x // y`` - if method "floordiv" on object ``x`` fails, then call "rfloordiv" on object ``y`` (``y.__rfloordiv__(x)``)
+* ``x % y`` - if method "mod" on object ``x`` fails, then call "rmod" on object ``y`` (``y.__rmod__(x)``)
+
+.. csv-table:: Numerical Operator Overload
+    :header: "Operator", "Method"
+
+    "``obj + other``",     "``other.__radd__(obj)``"
+    "``obj - other``",     "``other.__rsub__(obj)``"
+    "``obj * other``",     "``other.__rmul__(obj)``"
+    "``obj ** other``",    "``other.__rpow__(obj)``"
+    "``obj @ other``",     "``other.__rmatmul__(obj)``"
+    "``obj / other``",     "``other.__rtruediv__(obj)``"
+    "``obj // other``",    "``other.__rfloordiv__(obj)``"
+    "``obj % other``",     "``other.__rmod__(obj)``"
 
 
 SetUp
@@ -16,30 +28,12 @@ SetUp
 >>> from functools import reduce
 
 
-About
------
-.. csv-table:: Numerical Operator Overload
-    :header: "Operator", "Method"
-
-    "``obj + other``",     "``obj.__radd__(other)``"
-    "``obj - other``",     "``obj.__rsub__(other)``"
-    "``obj * other``",     "``obj.__rmul__(other)``"
-    "``obj / other``",     "``obj.__rtruediv__(other)``"
-    "``obj // other``",    "``obj.__rfloordiv__(other)``"
-    "``obj ** other``",    "``obj.__rpow__(other)``"
-    "``obj % other``",     "``obj.__rmod__(other)``"
-    "``obj @ other``",     "``obj.__rmatmul__(other)``"
-
-
-Example
--------
->>> class Vector:
-...     def __init__(self, x, y):
-...         self.x = x
-...         self.y = y
-...
-...     def __repr__(self):
-...         return f'Vector(x={self.x}, y={self.y})'
+Syntax
+------
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
 ...
 ...     def __radd__(self, other): ...              # x + y     if fails, then calls y.__radd__(x)
 ...     def __rsub__(self, other): ...              # x - y     if fails, then calls y.__rsub__(x)
@@ -49,28 +43,6 @@ Example
 ...     def __rtruediv__(self, other): ...          # x / y     if fails, then calls y.__rtruediv__(x)
 ...     def __rfloordiv__(self, other): ...         # x // y    if fails, then calls y.__rfloordiv__(x)
 ...     def __rmod__(self, other): ...              # x % y     if fails, then calls y.__rmod__(x)
-
-
-Left Operation
---------------
->>> @dataclass
-... class Vector:
-...     x: int
-...     y: int
-...
-...     def __add__(self, other):
-...         new_x = self.x + other.x
-...         new_y = self.y + other.y
-...         return Vector(new_x, new_y)
-...
->>>
->>>
->>> a = Vector(x=1, y=2)
->>> b = Vector(x=3, y=4)
->>> c = Vector(x=5, y=6)
->>>
->>> (a+b) + c
-Vector(x=9, y=12)
 
 
 Left Operation
@@ -94,8 +66,8 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'Right' and 'Left'
 
 
-Right Operation
----------------
+Example
+-------
 >>> class Left:
 ...     def __add__(self, other):
 ...         return 'left'

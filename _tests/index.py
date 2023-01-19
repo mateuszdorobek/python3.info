@@ -13,12 +13,15 @@ class PyBookTest(IsolatedAsyncioTestCase):
     async def test_index(self):
         resp = await request('GET', '/index.html')
         self.assertEqual(resp.status_code, 200)
+        self.assertIn('Python 3: From None to Machine Learning', resp.text)
+        self.assertIn('Matt Harasymczuk', resp.text)
+        self.assertIn('Creative Commons Attribution-ShareAlike 4.0 International License', resp.text)
 
     async def test_license(self):
         resp = await request('GET', '/LICENSE.html')
         self.assertEqual(resp.status_code, 200)
-        text = 'Creative Commons Attribution-ShareAlike 4.0 International Public License'
-        self.assertIn(text, resp.text)
+        self.assertIn('Attribution-ShareAlike 4.0 International', resp.text)
+        self.assertIn('Creative Commons Attribution-ShareAlike 4.0 International Public License', resp.text)
 
     async def test_install(self):
         resp = await request('GET', '/install.html')

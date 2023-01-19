@@ -1,14 +1,25 @@
 Operator Increment
 ==================
-* ``x += y`` - will call ``x.__iadd__(y)``
-* ``x -= y`` - will call ``x.__isub__(y)``
-* ``x *= y`` - will call ``x.__imul__(y)``
-* ``x /= y`` - will call ``x.__idiv__(y)``
-* ``x //= y`` - will call ``x.__itruediv__(y)``
-* ``x **= y`` - will call ``x.__ipow__(y)``
-* ``x %= y`` - will call ``x.__imod__(y)``
-* ``x @= y`` - will call ``x.__imatmul__(y)``
+* ``x += y`` - will call method "iadd" on object ``x`` (``x.__iadd__(y)``)
+* ``x -= y`` - will call method "isub" on object ``x`` (``x.__isub__(y)``)
+* ``x *= y`` - will call method "imul" on object ``x`` (``x.__imul__(y)``)
+* ``x **= y`` - will call method "ipow" on object ``x`` (``x.__ipow__(y)``)
+* ``x @= y`` - will call method "imatmul" on object ``x`` (``x.__imatmul__(y)``)
+* ``x /= y`` - will call method "itruediv" on object ``x`` (``x.__itruediv__(y)``)
+* ``x //= y`` - will call method "ifloordiv" on object ``x`` (``x.__ifloordiv__(y)``)
+* ``x %= y`` - will call method "imod" on object ``x`` (``x.__imod__(y)``)
 
+.. csv-table:: Numerical Operator Overload
+    :header: "Operator", "Method"
+
+    "``obj += other``",     "``obj.__iadd__(other)``"
+    "``obj -= other``",     "``obj.__isub__(other)``"
+    "``obj *= other``",     "``obj.__imul__(other)``"
+    "``obj **= other``",    "``obj.__ipow__(other)``"
+    "``obj @= other``",     "``obj.__imatmul__(other)``"
+    "``obj /= other``",     "``obj.__itruediv__(other)``"
+    "``obj //= other``",    "``obj.__ifloordiv__(other)``"
+    "``obj %= other``",     "``obj.__imod__(other)``"
 
 >>> x = [1, 2, 3]
 >>> id(x)  # doctest: +SKIP
@@ -18,16 +29,17 @@ Operator Increment
 >>> id(x)  # doctest: +SKIP
 4343115776
 
+SetUp
+-----
+>>> from dataclasses import dataclass
 
-Example
--------
->>> class Vector:
-...     def __init__(self, x, y):
-...         self.x = x
-...         self.y = y
-...
-...     def __repr__(self):
-...         return f'Vector(x={self.x}, y={self.y})'
+
+Syntax
+------
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
 ...
 ...     def __iadd__(self, other): ...              # x += y    calls x.__iadd__(y)
 ...     def __isub__(self, other): ...              # x -= y    calls x.__isub__(y)
@@ -39,10 +51,8 @@ Example
 ...     def __imod__(self, other): ...              # x %= y    calls x.__imod__(y)
 
 
-Increment Operation
--------------------
->>> from dataclasses import dataclass
-
+Example
+-------
 >>> @dataclass
 ... class Vector:
 ...     x: int

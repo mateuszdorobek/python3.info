@@ -106,10 +106,8 @@ Fill NaN (dtype=np.int64):
 ...               [7, 8, 9]], dtype=np.int64)
 >>>
 >>> a[:, 0].fill(np.nan)
->>> a
-array([[-9223372036854775808,                    2,                    3],
-       [-9223372036854775808,                    5,                    6],
-       [-9223372036854775808,                    8,                    9]])
+Traceback (most recent call last):
+ValueError: cannot convert float NaN to integer
 
 Fill NaN (dtype=np.float):
 

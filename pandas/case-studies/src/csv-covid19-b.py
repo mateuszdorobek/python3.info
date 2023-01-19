@@ -115,25 +115,25 @@ def get(country=None):
     >>> get('United Kingdom').loc['2021-08-04']
     confirmed    5980830
     recovered      24693
-    deaths        157198
+    deaths        157209
     Name: 2021-08-04 00:00:00, dtype: int64
 
     >>> get('United Kingdom').loc['2021-08-05']
     confirmed    6010860
     recovered          0
-    deaths        157303
+    deaths        157314
     Name: 2021-08-05 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-04']
-    confirmed    200756407
+    confirmed    200755876
     recovered    130899061
-    deaths         4283077
+    deaths         4283088
     Name: 2021-08-04 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-05']
-    confirmed    201442015
+    confirmed    201441484
     recovered            0
-    deaths         4294068
+    deaths         4294079
     Name: 2021-08-05 00:00:00, dtype: int64
     """
     return pd.concat((

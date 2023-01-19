@@ -26,7 +26,7 @@ Tests:
     Commander:
     Melissa Lewis
 
-    >>> mark = Astronaut('Mark Watney', experience=[
+    >>> mark = Astronaut('Mark Watney', missions=[
     ...     Mission(2035, 'Ares 3')])
     >>> print(f'Space Pirate: \\n{mark}\\n')  # doctest: +NORMALIZE_WHITESPACE
     Space Pirate:
@@ -34,12 +34,12 @@ Tests:
           2035: Ares 3]
 
     >>> crew = Crew([
-    ...     Astronaut('Pan Twardowski', experience=[
+    ...     Astronaut('Pan Twardowski', missions=[
     ...         Mission(1969, 'Apollo 11'),
     ...         Mission(2024, 'Artemis 3'),
     ...     ]),
     ...     Astronaut('José Jiménez'),
-    ...     Astronaut('Mark Watney', experience=[
+    ...     Astronaut('Mark Watney', missions=[
     ...         Mission(2035, 'Ares 3'),
     ...     ]),
     ... ])
@@ -56,14 +56,14 @@ Tests:
 
 
 class Crew:
-    def __init__(self, members=()):
-        self.members = list(members)
+    def __init__(self, members):
+        self.members = members
 
 
 class Astronaut:
-    def __init__(self, name, experience=()):
+    def __init__(self, name, missions=None):
         self.name = name
-        self.experience = list(experience)
+        self.missions = missions if missions else []
 
 
 class Mission:
@@ -74,22 +74,23 @@ class Mission:
 
 # Solution
 class Crew:
-    def __init__(self, members=()):
-        self.members = list(members)
+    def __init__(self, members):
+        self.members = members
 
     def __str__(self):
-        return '\n'.join(str(x) for x in self.members)
+        return '\n'.join(map(str, self.members))
 
 
 class Astronaut:
-    def __init__(self, name, experience=()):
+    def __init__(self, name, missions=()):
         self.name = name
-        self.experience = list(experience)
+        self.missions = missions if missions else []
 
     def __str__(self):
-        if not self.experience:
+        if self.missions:
+            return f'{self.name} veteran of {self.missions}'
+        else:
             return f'{self.name}'
-        return f'{self.name} veteran of {self.experience}'
 
     def __repr__(self):
         return self.__str__()

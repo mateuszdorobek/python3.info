@@ -1,13 +1,25 @@
 Operator Left
 =============
-* ``x + y`` - will call "add" on object x (``x.__add__(y)``)
-* ``x - y`` - will call "sub" on object x (``x.__sub__(y)``)
-* ``x * y`` - will call "mul" on object x (``x.__mul__(y)``)
-* ``x / y`` - will call "truediv" on object x (``x.__truediv__(y)``)
-* ``x // y`` - will call "floordiv" on object x (``x.__floordiv__(y)``)
-* ``x ** y`` - will call "pow" on object x (``x.__pow__(y)``)
-* ``x % y`` - will call "mod" on object x (``x.__mod__(y)``)
-* ``x @ y`` - will call "matmul" on object x (``x.__matmul__(y)``)
+* ``x + y`` - will call method "add" on object ``x`` (``x.__add__(y)``)
+* ``x - y`` - will call method "sub" on object ``x`` (``x.__sub__(y)``)
+* ``x * y`` - will call method "mul" on object ``x`` (``x.__mul__(y)``)
+* ``x ** y`` - will call method "pow" on object ``x`` (``x.__pow__(y)``)
+* ``x @ y`` - will call method "matmul" on object ``x`` (``x.__matmul__(y)``)
+* ``x / y`` - will call method "truediv" on object ``x`` (``x.__truediv__(y)``)
+* ``x // y`` - will call method "floordiv" on object ``x`` (``x.__floordiv__(y)``)
+* ``x % y`` - will call method "mod" on object ``x`` (``x.__mod__(y)``)
+
+.. csv-table:: Numerical Operator Overload
+    :header: "Operator", "Method"
+
+    "``obj + other``",     "``obj.__add__(other)``"
+    "``obj - other``",     "``obj.__sub__(other)``"
+    "``obj * other``",     "``obj.__mul__(other)``"
+    "``obj ** other``",    "``obj.__pow__(other)``"
+    "``obj @ other``",     "``obj.__matmul__(other)``"
+    "``obj / other``",     "``obj.__truediv__(other)``"
+    "``obj // other``",    "``obj.__floordiv__(other)``"
+    "``obj % other``",     "``obj.__mod__(other)``"
 
 
 SetUp
@@ -16,15 +28,12 @@ SetUp
 >>> from functools import reduce
 
 
-Example
--------
->>> class Vector:
-...     def __init__(self, x, y):
-...         self.x = x
-...         self.y = y
-...
-...     def __repr__(self):
-...         return f'Vector(x={self.x}, y={self.y})'
+Syntax
+------
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
 ...
 ...     def __add__(self, other): ...               # x + y     calls x.__add__(y)
 ...     def __sub__(self, other): ...               # x - y     calls x.__sub__(y)
@@ -36,8 +45,8 @@ Example
 ...     def __mod__(self, other): ...               # x % y     calls x.__mod__(y)
 
 
-Left Operation
---------------
+Example
+-------
 >>> @dataclass
 ... class Vector:
 ...     x: int
@@ -56,30 +65,6 @@ Left Operation
 >>>
 >>> (a+b) + c
 Vector(x=9, y=12)
-
-
-Increment Operation
--------------------
->>> @dataclass
-... class Vector:
-...     x: int
-...     y: int
-...
-...     def __iadd__(self, other):
-...         self.x += other.x
-...         self.y += other.y
-...         return self
-...
->>>
->>>
->>> a = Vector(x=1, y=2)
->>> b = Vector(x=3, y=4)
->>> c = Vector(x=5, y=6)
->>>
->>>
->>> a += Vector(x=10, y=20)
->>> print(a)
-Vector(x=11, y=22)
 
 
 Use Case - 0x01
