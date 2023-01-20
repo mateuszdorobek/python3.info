@@ -1,5 +1,6 @@
 """
 >>> import sys; sys.tracebacklimit = 0
+>>> assert sys.version_info >= (3,11), 'Python 3.11+ required'
 >>> from random import seed; seed(0)
 
 >>> wawelski = Dragon(name='Wawelski', position_x=50, position_y=120)
@@ -48,9 +49,8 @@ class Dragon:
         self.set_position(position_x, position_y)
 
     def set_position(self, x, y):
-        if self.is_alive():
-            self.position_x = x
-            self.position_y = y
+        self.position_x = x
+        self.position_y = y
 
     def get_position(self):
         return self.position_x, self.position_y
@@ -62,14 +62,11 @@ class Dragon:
         self.set_position(x, y)
 
     def make_damage(self):
-        if self.is_alive():
-            return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
+        return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
 
     def make_drop(self):
-        drop = {'gold': self.gold,
-                'position': self.get_position()}
-        self.gold = 0
-        return drop
+        gold, self.gold = self.gold, 0
+        return {'gold': gold, 'position': self.get_position()}
 
     def make_dead(self):
         self.status = Status.DEAD
@@ -85,12 +82,8 @@ class Dragon:
         return self.status == Status.DEAD
 
     def take_damage(self, damage):
-        if self.is_dead():
-            return None
-
         self.current_health -= damage
         self.update_status()
-
         if self.is_dead():
             return self.make_dead()
 

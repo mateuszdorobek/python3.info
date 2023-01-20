@@ -69,11 +69,13 @@ Option 4
 --------
 >>> dragon.set_position_xy(10, 20)
 
+* Good: verbose
+* Good: does not require knowledge of an API what are the values provided as arguments
 * Good: easy to use
 * Good: encapsulation
 * Good: easy to add validation if needed
-* Bad: name ``set_position_xy()`` ties you to 2D point
-* Decision: rejected, could be done better
+* Bad: name ``set_position_xy()`` ties to 2D point
+* Decision: rejected, ties to 2D point
 
 
 Option 5
@@ -96,9 +98,16 @@ Option 6
 * Good: arguments are explicit
 * Good: easy to add validation if needed
 * Bad: ``set()`` is to generic
-* Bad: gateway to abuse
+* Bad: possibility of abuse
 * Bad: encapsulation is in question
 * Decision: rejected, possibility of abuse
+
+Problem:
+
+>>> dragon.set(position_x=10, position_y=20)
+>>> dragon.set(health=50)
+>>> dragon.set(gold=100)
+>>> dragon.set(name='Wawelski')
 
 
 Option 7
@@ -115,7 +124,7 @@ Option 7
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, bad names, violates encapsulation
+* Decision: rejected, violates OOP principles
 
 Example:
 
@@ -136,7 +145,7 @@ Option 8
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates encapsulation
+* Decision: rejected, violates OOP principles
 
 Example:
 
@@ -157,7 +166,7 @@ Option 9
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates encapsulation
+* Decision: rejected, violates OOP principles
 
 
 Option 10
@@ -173,12 +182,11 @@ Option 10
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates encapsulation
+* Decision: rejected, violates OOP principles
 
 
 Option 11
 ---------
->>> dragon.position @ (10, 20)
 >>> dragon.position @ Point(x=10, y=20)
 
 * Good: easy to use
@@ -191,7 +199,7 @@ Option 11
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates encapsulation, misleading
+* Decision: rejected, violates OOP principles, misleading for non-English speakers
 
 
 Option 12
@@ -213,7 +221,7 @@ Option 12
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates encapsulation and convention
+* Decision: rejected, violates OOP principles and Python convention (PEP 20)
 
 
 Decision

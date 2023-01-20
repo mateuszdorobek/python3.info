@@ -133,6 +133,6 @@ Decision
 >>> dmg = dragon.make_damage()
 
 * Good: clear intent
-* Good: dragon --> enemy
+* Good: dragon <-- enemy
 * Good: readability
 * Good: encapsulation

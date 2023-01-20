@@ -25,24 +25,24 @@ English
 3. Dragon can (methods):
 
     a. have position set to any place on the screen
-    b. make damage in range from 5 to 20
-    c. take damage
-    d. move in any direction by specified value
+    b. move in any direction by specified value
+    c. make damage in range from 5 to 20
+    d. take damage
 
-4. Assume left-top screen corner as an initial coordinates position:
-
-    a. going right add to ``x``
-    b. going left subtract from ``x``
-    c. going up subtract from ``y``
-    d. going down add to ``y``
-
-5. When health points drop to, or below zero:
+4. When health points drop to, or below zero:
 
     a. Dragon has status ``dead``
     b. Change texture file name to  ``img/dragon/dead.png``
     c. Print ``NAME is dead``, where ``NAME`` is the dragon's name
     d. Print how much gold dragon dropped (random integer from 1 to 100)
     e. Print position where dragon died
+
+5. Assume left-top screen corner as an initial coordinates position:
+
+    a. going right add to ``x``
+    b. going left subtract from ``x``
+    c. going up subtract from ``y``
+    d. going down add to ``y``
 
 6. Run the game:
 
@@ -108,24 +108,24 @@ Polish
 3. Smok może (metody):
 
     a. być ustawiony w dowolne miejsce ekranu
-    b. zadawać komuś losowe obrażenia z przedziału od 5 do 20
-    c. otrzymywać obrażenia
-    d. być przesuwany w którymś z kierunków o zadaną wartość
+    b. być przesuwany w którymś z kierunków o zadaną wartość
+    c. zadawać komuś losowe obrażenia z przedziału od 5 do 20
+    d. otrzymywać obrażenia
 
-4. Przyjmij górny lewy róg ekranu za punkt początkowy:
-
-    a. idąc w prawo dodajesz ``x``
-    b. idąc w lewo odejmujesz ``x``
-    c. idąc w górę odejmujesz ``y``
-    d. idąc w dół dodajesz ``y``
-
-5. Kiedy punkty życia Smoka spadną do lub poniżej zera:
+4. Kiedy punkty życia Smoka spadną do lub poniżej zera:
 
     a. Smok ma status ``dead``
     b. Zmień nazwę pliku tekstury na ``img/dragon/dead.png``
     c. Wypisz ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
     d. Wypisz ile złota smok wyrzucił (losowa liczba od 1 do 100)
     e. Wypisz pozycję gdzie smok zginął
+
+5. Przyjmij górny lewy róg ekranu za punkt początkowy:
+
+    a. idąc w prawo dodajesz ``x``
+    b. idąc w lewo odejmujesz ``x``
+    c. idąc w górę odejmujesz ``y``
+    d. idąc w dół dodajesz ``y``
 
 6. Przeprowadź grę:
 
@@ -221,5 +221,5 @@ Solution
 * EN: Note, that this will spoil your fun and learning
 * PL: Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
 * :download:`Basic <assignments/dragon_alpha_basic.py>`
-* :download:`Intermediate <assignments/dragon_alpha_intermediate.py>`
+* :download:`Intermediate <assignments/dragon_alpha_intermediate3.py>`
 * :download:`Advanced <assignments/dragon_alpha_advanced.py>`

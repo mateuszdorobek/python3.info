@@ -1,9 +1,10 @@
 """
->>> from random import seed; seed(0)
 >>> import sys; sys.tracebacklimit = 0
->>> assert sys.version_info >= (3, 10), 'Python 3.10+ required'
+>>> assert sys.version_info >= (3,11), 'Python 3.11+ required'
+>>> from random import seed; seed(0)
 
-Stwórz smoka w pozycji x=50, y=120 i nazwij go "Wawelski"
+Stwórz smoka o nazwie "Wawelski"
+Ustaw inicjalną pozycję smoka na x=50, y=120
 >>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
 
 Ustaw nową pozycję na x=10, y=20
@@ -21,14 +22,14 @@ Przesuń smoka w prawo o 15 i w górę o 5
 Przesuń smoka w dół o 5
 >>> dragon.position_change(down=5)
 
-Smok zadaje obrażenia
+Smok zadaje obrażenia (5-20)
 >>> dmg = dragon.make_damage()
 
 >>> try:
 ...     dragon.take_damage(10)  # Zadaj 10 obrażeń smokowi
-...     dragon.take_damage(5)  # Zadaj 5 obrażeń smokowi
-...     dragon.take_damage(3)  # Zadaj 3 obrażeń smokowi
-...     dragon.take_damage(2)  # Zadaj 2 obrażeń smokowi
+...     dragon.take_damage(5)   # Zadaj 5 obrażeń smokowi
+...     dragon.take_damage(3)   # Zadaj 3 obrażenia smokowi
+...     dragon.take_damage(2)   # Zadaj 2 obrażenia smokowi
 ...     dragon.take_damage(15)  # Zadaj 15 obrażeń smokowi
 ...     dragon.take_damage(25)  # Zadaj 25 obrażeń smokowi
 ...     dragon.take_damage(75)  # Zadaj 75 obrażeń smokowi
@@ -41,7 +42,7 @@ Wawelski is dead
 Gold: 98
 Position: (20, 40)
 
-Smok powinien zginąć na pozycji: x=20, y=40
+Smok powinien zginąć na pozycji: x=20, y=40 i zostawić złoto (1-100)
 """
 from enum import Enum
 from random import randint

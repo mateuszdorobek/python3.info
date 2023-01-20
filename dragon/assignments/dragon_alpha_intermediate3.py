@@ -27,9 +27,9 @@ Smok zadaje obrażenia (5-20)
 
 >>> try:
 ...     dragon.take_damage(10)  # Zadaj 10 obrażeń smokowi
-...     dragon.take_damage(5)  # Zadaj 5 obrażeń smokowi
-...     dragon.take_damage(3)  # Zadaj 3 obrażenia smokowi
-...     dragon.take_damage(2)  # Zadaj 2 obrażenia smokowi
+...     dragon.take_damage(5)   # Zadaj 5 obrażeń smokowi
+...     dragon.take_damage(3)   # Zadaj 3 obrażenia smokowi
+...     dragon.take_damage(2)   # Zadaj 2 obrażenia smokowi
 ...     dragon.take_damage(15)  # Zadaj 15 obrażeń smokowi
 ...     dragon.take_damage(25)  # Zadaj 25 obrażeń smokowi
 ...     dragon.take_damage(75)  # Zadaj 75 obrażeń smokowi
@@ -44,16 +44,9 @@ Position: (20, 40)
 
 Smok powinien zginąć na pozycji: x=20, y=40 i zostawić złoto (1-100)
 """
-
-from enum import Enum
 from random import randint
 from typing import ClassVar, NamedTuple
 from unittest import TestCase
-
-
-class Status(Enum):
-    ALIVE: ClassVar[str] = 'alive'
-    DEAD: ClassVar[str] = 'dead'
 
 
 class Drop(NamedTuple):
@@ -73,13 +66,13 @@ class HasPosition:
         self.position_x = x
         self.position_y = y
 
-    def position_change(self, *, right: int = 0, left: int = 0,
-                        down: int = 0, up: int = 0) -> None:
-            current_x, current_y = self.position_get()
-            self.position_set(x=current_x + right - left,
-                              y=current_y + down - up)
+    def position_change(self, *,
+                        left: int = 0, right: int = 0,
+                        up: int = 0, down: int = 0) -> None:
+        self.position_x += right - left
+        self.position_y += down - up
 
-    def position_get(self) -> tuple[int, int]:
+    def position_get(self) -> tuple[int,int]:
         return self.position_x, self.position_y
 
 
@@ -90,50 +83,68 @@ class Dragon(HasPosition):
     GOLD_MIN: ClassVar[int] = 1
     HEALTH_MAX: ClassVar[int] = 100
     HEALTH_MIN: ClassVar[int] = 50
+    STATUS_ALIVE: ClassVar[str] = 'alive'
+    STATUS_DEAD: ClassVar[str] = 'dead'
     TEXTURE_ALIVE: ClassVar[str] = 'img/dragon/alive.png'
     TEXTURE_DEAD: ClassVar[str] = 'img/dragon/dead.png'
 
     name: str
-    status: Status
+    status: str
     texture: str
     gold: int
-    health: int
+    _health: int
+    health = property()
 
     def __init__(self, name: str, /,
                  *, position_x: int = 0, position_y: int = 0) -> None:
         self.name = name
         self.health = randint(self.HEALTH_MIN, self.HEALTH_MAX)
-        self.status = Status.ALIVE
-        self.texture = self.TEXTURE_ALIVE
         self.gold = randint(self.GOLD_MIN, self.GOLD_MAX)
         self.position_set(x=position_x, y=position_y)
+        self.update_status()
+        self.update_texture()
+
+    class IsAlive(Exception):
+        pass
 
     class IsDead(Exception):
         pass
 
-    def position_set(self, *, x: int, y: int) -> None:
-        if self.is_alive():
-            super().position_set(x=x, y=y)
+    @health.getter
+    def health(self) -> int:
+        return self._health
 
-    def _make_dead(self):
-        self.status = Status.DEAD
-        self.texture = self.TEXTURE_ALIVE
-        raise self.IsDead()
+    @health.setter
+    def health(self, hit_points: int) -> None:
+        self._health = hit_points
+        self.update_texture()
+        self.update_status()
+        if self.is_dead():
+            raise self.IsDead
+
+    def update_texture(self) -> None:
+        if self.is_alive():
+            self.texture = self.TEXTURE_ALIVE
+        else:
+            self.texture = self.TEXTURE_DEAD
+
+    def update_status(self) -> None:
+        if self.is_alive():
+            self.status = self.STATUS_ALIVE
+        else:
+            self.status = self.STATUS_DEAD
 
     def get_drop(self) -> Drop:
-        if self.is_dead():
-            gold, self.gold = self.gold, 0
-            return Drop(gold=gold, position=self.position_get())
+        if self.is_alive():
+            raise self.IsAlive
+        gold, self.gold = self.gold, 0
+        return Drop(gold=gold, position=self.position_get())
 
     def make_damage(self) -> int:
-        if self.is_alive():
-            return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
+        return randint(self.DAMAGE_MIN, self.DAMAGE_MAX)
 
-    def take_damage(self, damage, /):
-        if self.is_alive():
-            self.health -= damage
-            if self.is_dead():
-                self._make_dead()
+    def take_damage(self, damage, /) -> None:
+        self.health -= damage
 
     def is_alive(self) -> bool:
         return not self.is_dead()
@@ -170,6 +181,11 @@ class DragonInitTest(TestCase):
 class PositionTest(TestCase):
     def setUp(self) -> None:
         self.position = HasPosition(position_x=10, position_y=20)
+
+    def test_position_get(self):
+        x, y = self.position.position_get()
+        self.assertEqual(x, 10)
+        self.assertEqual(y, 20)
 
     def test_position_set_positional(self):
         with self.assertRaises(TypeError):
@@ -260,11 +276,13 @@ class DragonHealthTest(TestCase):
         self.assertTrue(self.dragon.is_alive())
 
     def test_health_isalive_when_health_zero(self):
-        self.dragon.health = 0
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = 0
         self.assertFalse(self.dragon.is_alive())
 
     def test_health_isalive_when_health_negative(self):
-        self.dragon.health = -1
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = -1
         self.assertFalse(self.dragon.is_alive())
 
     def test_health_isdead_when_health_positive(self):
@@ -272,11 +290,13 @@ class DragonHealthTest(TestCase):
         self.assertFalse(self.dragon.is_dead())
 
     def test_health_isdead_when_health_zero(self):
-        self.dragon.health = 0
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = 0
         self.assertTrue(self.dragon.is_dead())
 
     def test_health_isdead_when_health_negative(self):
-        self.dragon.health = -1
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = -1
         self.assertTrue(self.dragon.is_dead())
 
 
@@ -285,7 +305,7 @@ class DragonGoldTest(TestCase):
         self.dragon = Dragon('Wawelski')
 
     def test_gold_init(self):
-        self.assertIn(self.dragon.gold, range(1,101))
+        self.assertIn(self.dragon.gold, range(1, 101))
 
 
 class DragonDamageTest(TestCase):
@@ -295,9 +315,9 @@ class DragonDamageTest(TestCase):
     def test_damage_make(self):
         dmg = self.dragon.make_damage()
         self.assertIsInstance(dmg, int)
-        self.assertIn(dmg, range(5,21))
+        self.assertIn(dmg, range(5, 21))
 
-    def test_damage_take_kwargs(self):
+    def test_damage_take_keyword(self):
         with self.assertRaises(TypeError):
             self.dragon.take_damage(damage=1)  # noqa
 
@@ -315,3 +335,55 @@ class DragonDamageTest(TestCase):
         self.dragon.health = 2
         with self.assertRaises(self.dragon.IsDead):
             self.dragon.take_damage(3)
+
+
+class DragonTextureTest(TestCase):
+    def setUp(self) -> None:
+        self.dragon = Dragon('Wawelski')
+
+    def test_texture_init(self):
+        self.assertEqual(self.dragon.texture, 'img/dragon/alive.png')
+
+    def test_texture_when_alive(self):
+        self.dragon.health = 1
+        self.assertEqual(self.dragon.texture, 'img/dragon/alive.png')
+
+    def test_texture_when_dead(self):
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = -1
+        self.assertEqual(self.dragon.texture, 'img/dragon/dead.png')
+
+
+class DragonStatusTest(TestCase):
+    def setUp(self) -> None:
+        self.dragon = Dragon('Wawelski')
+
+    def test_status_init(self):
+        self.assertEqual(self.dragon.status, 'alive')
+
+    def test_status_when_alive(self):
+        self.dragon.health = 1
+        self.assertEqual(self.dragon.status, 'alive')
+
+    def test_status_when_dead(self):
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = -1
+        self.assertEqual(self.dragon.status, 'dead')
+
+
+class DragonDropTest(TestCase):
+    def setUp(self) -> None:
+        self.dragon = Dragon('Wawelski')
+
+    def test_drop_when_alive(self):
+        self.dragon.health = 1
+        with self.assertRaises(self.dragon.IsAlive):
+            self.dragon.get_drop()
+
+    def test_drop_when_dead(self):
+        with self.assertRaises(self.dragon.IsDead):
+            self.dragon.health = -1
+        drop = self.dragon.get_drop()
+        self.assertIn(drop.gold, range(1, 101))
+        self.assertEqual(drop.position, (0, 0))
+

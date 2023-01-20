@@ -134,9 +134,9 @@ Option 6
 * Good: data is stored together (``x`` and ``y`` coordinates)
 * Good: simple, easy to use
 * Good: you can assign ``None`` to set default ``pos``
+* Good: can set only one axis to ``None``
 * Good: always has to pass both ``x`` and ``y`` coordinates together
 * Bad: always has to pass both ``x`` and ``y`` coordinates together
-* Bad: cannot set only one axis to ``None``
 * Bad: you have to know that first is ``x`` and second is ``y``
 * Bad: order is important, you cannot change it
 * Bad: unpacking
@@ -159,9 +159,9 @@ Option 7
 * Good: data is stored together (``x`` and ``y`` coordinates)
 * Good: simple, easy to use
 * Good: you can assign ``None`` to set default ``position``
+* Good: can set only one axis to ``None``
 * Good: always has to pass both ``x`` and ``y`` coordinates together
 * Bad: always has to pass both ``x`` and ``y`` coordinates together
-* Bad: cannot set only one axis to ``None``
 * Bad: you have to know that first is ``x`` and second is ``y``
 * Bad: order is important, you cannot change it
 * Bad: unpacking
@@ -174,6 +174,16 @@ Problem:
 >>> dragon = Dragon('Wawelski', position=[None, None])   # maybe
 
 * ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
+
+
+Example:
+
+>>> pt = (50, 120)
+>>>
+>>> pt[0]
+50
+>>> pt[1]
+120
 
 
 Option 8
@@ -197,6 +207,15 @@ Problem:
 
 * ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
 
+Example:
+
+>>> pt = (50, 120)
+>>>
+>>> pt[0]
+50
+>>> pt[1]
+120
+
 
 Option 9
 --------
@@ -217,6 +236,15 @@ Option 9
 Problem:
 
 * ``pattern = r'\{\s*"x"\s*:\s*(?:\d+|None)\s*,\s*"y"\s*:\s*(?:\d+|None)\s*\}'``
+
+Example:
+
+>>> pt = {'x':50, 'y':120}
+>>>
+>>> pt['x']
+50
+>>> pt['y']
+120
 
 
 Option 10
@@ -240,6 +268,15 @@ Option 10
 * Bad: always has to pass both ``x`` and ``y``
 * Bad: not extensible, ``position`` will always be 2D
 * Decision: rejected, could be done better
+
+Example:
+
+>>> pt = Point(x=50, y=120)
+>>>
+>>> pt.x
+50
+>>> pt.y
+120
 
 
 Option 11
@@ -265,6 +302,15 @@ Option 11
 * Good: keyword argument is not required, class name is verbose enough
 * Good: lightweight, in the end this is a tuple
 * Decision: candidate
+
+Example:
+
+>>> pt = Point(x=50, y=120)
+>>>
+>>> pt.x
+50
+>>> pt.y
+120
 
 
 Option 12
@@ -297,6 +343,15 @@ Future:
 * Will include ``Required`` and ``NotRequired``
 * Will support default values
 * Re-evaluate then
+
+Example:
+
+>>> pt = Point(x=50, y=120)
+>>>
+>>> pt['x']
+50
+>>> pt['y']
+120
 
 
 Option 13

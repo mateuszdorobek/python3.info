@@ -22,7 +22,7 @@ Option 1
 * Good: move by relative shifting (left, right, up, down)
 * Good: encapsulation, object knows current position, state and does the move
 * Bad: method names are too use-case specific
-* Decision: rejected, bad method names
+* Decision: rejected, method names too use-case specific
 
 Problem:
 
@@ -39,13 +39,14 @@ Option 2
 * Good: move by relative shifting (left, right, up, down)
 * Good: encapsulation, object knows current position and moves
 * Bad: the method names are a bit too complex for
-* Decision: candidate, method names are a bit too complex for
+* Decision: candidate, method names are a bit too complex for now
 
 
 Option 3
 --------
 >>> dragon.move(left=10, down=20)
 >>> dragon.move(right=10, up=20)
+>>> dragon.move(right=10, left=20)
 
 * Good: extensible to 3D
 * Good: move by relative shifting (left, right, up, down)
@@ -252,7 +253,7 @@ Example:
 
 Option 13
 ---------
->>> dragon.move([
+>>> dragon.move_to([
 ...     (10, -20),
 ...     (50, -120),
 ...     (5)])
@@ -273,9 +274,9 @@ Example:
 
 Option 14
 ---------
->>> dragon.move({'x':50, 'y':-120})
+>>> dragon.move_to({'x':50, 'y':-120})
 
->>> dragon.move([
+>>> dragon.move_to([
 ...     {'x':10, 'y':-20},
 ...     {'x':10, 'y':-15}])
 
@@ -603,7 +604,7 @@ Why not?:
 Use Case 0x02:
 
 >>> read_csv('iris.csv', ';', 'utf-8', True)
->>> read_csv('iris.csv', encoding='utf-8', delimiter=';', verbose=True)
+>>> read_csv('iris.csv', delimiter=';', encoding='utf-8', verbose=True)
 
 >>> read_csv_with_encoding('iris.csv', 'utf-8')
 >>> read_csv_with_delimiter('iris.csv', ';')
@@ -611,18 +612,18 @@ Use Case 0x02:
 >>> read_csv_with_delimiter_encoding_verbose('iris.csv', ';', 'utf-8', True)
 
 >>> file = ReadCSV('iris.csv')  # encapsulation?!
->>> file.set_encoding('utf-8')
 >>> file.set_delimiter(';')
+>>> file.set_encoding('utf-8')
 >>> file.set_verbose(True)
 
 >>> file = ReadCSV('iris.csv') \
-...               .withEncoding('utf-8') \
 ...               .withDelimiter(';') \
+...               .withEncoding('utf-8') \
 ...               .withVerbose(True)
 
 >>> file = read_csv('iris.csv',
-...                 encoding='utf-8',
 ...                 delimiter=';',
+...                 encoding='utf-8',
 ...                 verbose=True)
 
 * Bad: not extensible

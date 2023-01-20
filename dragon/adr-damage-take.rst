@@ -52,6 +52,7 @@ Option 3
 >>> dragon.receive_damage(DMG)
 
 * Good: Explicit relation ``dragon --> enemy``
+* Good: Consistent with ``deal_damage()``
 * Bad: ``hurt_self()`` is too use-case specific
 * Bad: Inconsistent with ``make_damage()``
 * Decision: rejected, method names are too use-case specific
