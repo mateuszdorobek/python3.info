@@ -184,7 +184,6 @@ Functions
     function/arguments.rst
     function/scope.rst
     function/generators.rst
-    function/lambda.rst
 
 
 Object Oriented Programming

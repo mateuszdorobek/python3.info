@@ -41,7 +41,6 @@ Functional Programming
     :caption: Functions
 
     funcprog/about.rst
-    funcprog/lambda.rst
     funcprog/scope.rst
     funcprog/pure-function.rst
     funcprog/recurrence.rst
@@ -51,9 +50,13 @@ Functional Programming
     funcprog/referential-transparency.rst
     funcprog/namespace.rst
     funcprog/function-attributes.rst
-    funcprog/callable.rst
-    funcprog/closures.rst
     funcprog/functools.rst
+    funcprog/callable.rst
+    funcprog/pattern-closure.rst
+    funcprog/pattern-callback.rst
+    funcprog/pattern-lambda.rst
+    funcprog/pattern-mapreduce.rst
+    funcprog/pattern-maybe.rst
 
 
 Decorators

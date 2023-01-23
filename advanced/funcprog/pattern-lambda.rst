@@ -5,25 +5,25 @@ FuncProg Lambda
 * When function is short
 * You don't need to name it (therefore anonymous)
 
->>> lambda x: x+1  # doctest: +ELLIPSIS
-<function <lambda> at 0x...>
-
 .. glossary::
 
     lambda
         Anonymous function
 
+>>> lambda x: x+1  # doctest: +ELLIPSIS
+<function <lambda> at 0x...>
+
 Lambda Expressions:
 
->>> f = lambda x: x+1
->>> f = lambda x,y: x+y
+>>> a = lambda x: x+1
+>>> b = lambda x,y: x+y
 
 Equivalent functions:
 
->>> def f(x):
+>>> def a(x):
 ...     return x+1
 
->>> def f(x,y):
+>>> def b(x,y):
 ...     return x+y
 
 
@@ -197,20 +197,24 @@ Use Case - 0x05
 
 Use Case - 0x06
 ---------------
->>> def http_request(url, on_success, on_error):
+>>> from urllib.request import urlopen
+>>>
+>>> def fetch(url: str,
+...           on_success = lambda result: ...,
+...           on_error = lambda error: ...,
+...           ) -> None:
 ...     try:
-...         result = ...
+...         result = urlopen(url).read()
 ...     except Exception as error:
 ...         return on_error(error)
 ...     else:
 ...         return on_success(result)
 >>>
->>>
->>> http_request(
+>>> # doctest: +SKIP
+... fetch(
 ...     url = 'https://python.astrotech.io',
 ...     on_success = lambda result: print(result),
 ...     on_error = lambda error: print(error))
-Ellipsis
 
 
 Use Case - 0x07

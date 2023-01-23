@@ -538,6 +538,7 @@ Use Case - 0x04
  ('Melissa', 'Rick', 'Alex'),
  ('Mark', 'Melissa', 'Rick', 'Alex')]
 
+
 Use Case - 0x05
 ---------------
 >>> from itertools import starmap
@@ -592,6 +593,46 @@ Saving to database... success
 Saving to database... success
 Saving to database... success
 Saving to database... success
+
+
+Use Case - 0x06
+---------------
+>>> from unittest import TestCase
+>>> from itertools import permutations
+>>>
+>>>
+>>> def click(button1, button2, button3, button4):
+...     return ...
+>>>
+>>>
+>>> class PayerTest(TestCase):
+...     def test_buttons(self):
+...         buttons = ['play', 'stop', 'rev', 'fwd']
+...         for order in permutations(buttons):
+...             with self.subTest(order):
+...                 result = click(*order)
+...                 self.assertEqual(result, ...)
+
+
+Use Case - 0x07
+---------------
+>>> from unittest import TestCase
+>>> from itertools import product
+>>>
+>>>
+>>> def parse(encoding, delimiter, lineterminator):
+...     return ...
+>>>
+>>>
+>>> class ParserTest(TestCase):
+...     def test_parse(self):
+...         encoding = ['utf-8', 'cp1250', 'iso-8859-2', 'utf-16', 'utf-32']
+...         delimiter = [',', ';']
+...         lineterminator = ['\n', '\r\n']
+...         for option in product(encoding, delimiter, lineterminator):
+...             with self.subTest(option):
+...                 result = parse(*option)
+...                 self.assertEqual(result, ...)
 
 
 Assignments
