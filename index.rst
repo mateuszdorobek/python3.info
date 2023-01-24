@@ -15,7 +15,7 @@ Agenda
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Install
+    :caption: Agenda
 
     _agenda/python-basics.rst
     _agenda/python-intermediate-1.rst
