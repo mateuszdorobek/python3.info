@@ -66,6 +66,61 @@ Further Reading
 * The Functional Programmer's Toolkit - Scott Wlaschin - https://www.youtube.com/watch?v=Nrp_LZ-XGsY
 
 
+Example: Procedural
+-------------------
+* Hard to test
+
+>>> result = []
+>>>
+>>> with open('/tmp/myfile.log') as file:  # doctest: +SKIP
+...     for row in file:
+...         d, t, lvl, msg = line.strip().split(', ', maxsplit=3)
+...         d = date.fromisoformat(d)
+...         t = time.fromisoformat(t)
+...         dt = datetime.combine(d,t)
+...         result.append({'when':dt, 'level':lvl, 'message':msg})
+
+
+Example: Functional
+-------------------
+* Much easier to test
+* Function is type annotated
+* Function could be reused
+
+>>> def parse(line: str) -> dict:
+...     d, t, lvl, msg = line.strip().split(', ', maxsplit=3)
+...     d = date.fromisoformat(d)
+...     t = time.fromisoformat(t)
+...     dt = datetime.combine(d,t)
+...     return {'when':dt, 'level':lvl, 'message':msg}
+>>>
+>>>
+>>> with open('/tmp/myfile.log') as file:  # doctest: +SKIP
+...     for row in map(parse, file):
+...         print(row)
+
+
+Doctests
+--------
+>>> def parse(line: str) -> dict:
+...     """
+...     >>> parse('1969-07-14, 21:00:00, INFO, Terminal countdown started')
+...     {'when': datetime.datetime(1969, 7, 14, 21, 0),
+...      'level': 'INFO',
+...      'message': 'Terminal countdown started'}
+...
+...     >>> parse('1969-07-24, 17:29, INFO, Crew egress')
+...     {'when': datetime.datetime(1969, 7, 24, 17, 29),
+...      'level': 'INFO',
+...      'message': 'Crew egress'}
+...     """
+...     d, t, lvl, msg = line.strip().split(', ', maxsplit=3)
+...     d = date.fromisoformat(d)
+...     t = time.fromisoformat(t)
+...     dt = datetime.combine(d,t)
+...     return {'when':dt, 'level':lvl, 'message':msg}
+
+
 References
 ----------
 .. [#WikipediaFunc] Functional programming. Retrieved: 2020-10-09. URL: https://en.wikipedia.org/wiki/Functional_programming

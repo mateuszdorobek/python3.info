@@ -68,86 +68,86 @@ NameError: name 'say_goodbye' is not defined
 Classes Inside Function
 -----------------------
 >>> def run():
-...     class Astronaut:
+...     class Admin:
 ...         pass
 ...
-...     class Cosmonaut:
+...     class Guest:
 ...         pass
 
->>> Astronaut()
+>>> Admin()
 Traceback (most recent call last):
-NameError: name 'Astronaut' is not defined
+NameError: name 'Admin' is not defined
 >>>
->>> Cosmonaut()
+>>> Guest()
 Traceback (most recent call last):
-NameError: name 'Cosmonaut' is not defined
+NameError: name 'Guest' is not defined
 
 >>> run()
 >>>
->>> Astronaut()
+>>> Admin()
 Traceback (most recent call last):
-NameError: name 'Astronaut' is not defined
+NameError: name 'Admin' is not defined
 >>>
->>> Cosmonaut()
+>>> Guest()
 Traceback (most recent call last):
-NameError: name 'Cosmonaut' is not defined
+NameError: name 'Guest' is not defined
 
 
 Methods Inside Function
 -----------------------
 >>> def run():
-...     class Astronaut:
+...     class Admin:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     class Cosmonaut:
+...     class Guest:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 
->>> Astronaut('Mark', 'Watney')
+>>> Admin('Mark', 'Watney')
 Traceback (most recent call last):
-NameError: name 'Astronaut' is not defined
+NameError: name 'Admin' is not defined
 >>>
->>> Cosmonaut('Pan', 'Twardowski')
+>>> Guest('Melissa', 'Lewis')
 Traceback (most recent call last):
-NameError: name 'Cosmonaut' is not defined
+NameError: name 'Guest' is not defined
 
 >>> run()
 >>>
->>> Astronaut('Mark', 'Watney')
+>>> Admin('Mark', 'Watney')
 Traceback (most recent call last):
-NameError: name 'Astronaut' is not defined
+NameError: name 'Admin' is not defined
 >>>
->>> Cosmonaut('Pan', 'Twardowski')
+>>> Guest('Melissa', 'Lewis')
 Traceback (most recent call last):
-NameError: name 'Cosmonaut' is not defined
+NameError: name 'Guest' is not defined
 
 
 Instances Inside Function
 -------------------------
 >>> def run():
-...     class Astronaut:
+...     class Admin:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     class Cosmonaut:
+...     class Guest:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     mark = Astronaut('Mark', 'Watney')
-...     pan = Cosmonaut('Pan', 'Twardowski')
+...     mark = Admin('Mark', 'Watney')
+...     melissa = Guest('Melissa', 'Lewis')
 
 >>> mark
 Traceback (most recent call last):
 NameError: name 'mark' is not defined
 >>>
->>> pan
+>>> melissa
 Traceback (most recent call last):
-NameError: name 'pan' is not defined
+NameError: name 'melissa' is not defined
 
 >>> run()
 >>>
@@ -155,9 +155,9 @@ NameError: name 'pan' is not defined
 Traceback (most recent call last):
 NameError: name 'mark' is not defined
 >>>
->>> pan
+>>> melissa
 Traceback (most recent call last):
-NameError: name 'pan' is not defined
+NameError: name 'melissa' is not defined
 
 
 All Together
@@ -172,18 +172,18 @@ All Together
 ...     def say_goodbye():
 ...         print('Goodbye')
 ...
-...     class Astronaut:
+...     class Admin:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     class Cosmonaut:
+...     class Guest:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     mark = Astronaut('Mark', 'Watney')
-...     pan = Cosmonaut('Pan', 'Twardowski')
+...     mark = Admin('Mark', 'Watney')
+...     melissa = Guest('Melissa', 'Lewis')
 
 
 Execute
@@ -274,12 +274,12 @@ Hello
 Goodbye
 
 >>> def run():
-...     class Astronaut:
+...     class Admin:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     return Astronaut('Mark', 'Watney')
+...     return Admin('Mark', 'Watney')
 >>>
 >>>
 >>> mark = run()
@@ -300,18 +300,18 @@ Locals
 ...     def say_goodbye():
 ...         print('Goodbye')
 ...
-...     class Astronaut:
+...     class Admin:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     class Cosmonaut:
+...     class Guest:
 ...         def __init__(self, firstname, lastname):
 ...             self.firstname = firstname
 ...             self.lastname = lastname
 ...
-...     mark = Astronaut('Mark', 'Watney')
-...     pan = Cosmonaut('Pan', 'Twardowski')
+...     mark = Admin('Mark', 'Watney')
+...     melissa = Guest('Melissa', 'Lewis')
 ...
 ...     print(locals())
 
@@ -320,7 +320,7 @@ Locals
  'lastname': 'Watney',
  'say_hello': <function run.<locals>.say_hello at 0x...>,
  'say_goodbye': <function run.<locals>.say_goodbye at 0x...>,
- 'Astronaut': <class '__main__.run.<locals>.Astronaut'>,
- 'Cosmonaut': <class '__main__.run.<locals>.Cosmonaut'>,
- 'mark': <__main__.run.<locals>.Astronaut object at 0x...>,
- 'pan': <__main__.run.<locals>.Cosmonaut object at 0x...>}
+ 'Admin': <class '__main__.run.<locals>.Admin'>,
+ 'Guest': <class '__main__.run.<locals>.Guest'>,
+ 'mark': <__main__.run.<locals>.Admin object at 0x...>,
+ 'melissa': <__main__.run.<locals>.Guest object at 0x...>}

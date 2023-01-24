@@ -10,6 +10,33 @@ About
     about/versions.rst
 
 
+Agenda
+******
+.. toctree::
+    :maxdepth: 2
+    :numbered:
+    :caption: Install
+
+    _agenda/python-basics.rst
+    _agenda/python-intermediate-1.rst
+    _agenda/python-intermediate-2.rst
+    _agenda/python-advanced.rst
+
+    _agenda/python-design-patterns.rst
+    _agenda/python-tdd.rst
+    _agenda/python-devops-cicd.rst
+    _agenda/python-optymalizacja.rst
+
+    _agenda/python-analiza-numeryczna.rst
+
+    _agenda/python-http-rest-microservice.rst
+    _agenda/python-django.rst
+    _agenda/python-fastapi.rst
+    _agenda/python-flask.rst
+
+    _agenda/python-gui.rst
+
+
 Install
 *******
 .. toctree::
