@@ -17,26 +17,8 @@ Agenda
     :numbered:
     :caption: Agenda
 
-    _agenda/python-basics.rst
-    _agenda/python-intermediate-1.rst
-    _agenda/python-intermediate-2.rst
-    _agenda/python-advanced.rst
+    _agenda/index.rst
 
-    _agenda/python-design-patterns.rst
-    _agenda/python-tdd.rst
-    _agenda/python-devops-cicd.rst
-    _agenda/python-performance.rst
-
-    _agenda/python-data-analysis.rst
-    _agenda/python-numpy.rst
-    _agenda/python-pandas.rst
-
-    _agenda/python-microservices.rst
-    _agenda/python-django.rst
-    _agenda/python-fastapi.rst
-    _agenda/python-flask.rst
-
-    _agenda/python-gui.rst
 
 
 Install
