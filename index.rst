@@ -20,7 +20,6 @@ Agenda
     _agenda/index.rst
 
 
-
 Install
 *******
 .. toctree::

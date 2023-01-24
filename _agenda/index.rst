@@ -1,8 +1,7 @@
 Agenda
 ******
 .. toctree::
-    :maxdepth: 2
-    :numbered:
+    :maxdepth: 1
     :caption: Agenda
 
     python-basics.rst
