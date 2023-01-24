@@ -25,11 +25,11 @@ Agenda
     _agenda/python-design-patterns.rst
     _agenda/python-tdd.rst
     _agenda/python-devops-cicd.rst
-    _agenda/python-optymalizacja.rst
+    _agenda/python-performance.rst
 
-    _agenda/python-analiza-numeryczna.rst
+    _agenda/python-data-analysis.rst
 
-    _agenda/python-http-rest-microservice.rst
+    _agenda/python-microservices.rst
     _agenda/python-django.rst
     _agenda/python-fastapi.rst
     _agenda/python-flask.rst
