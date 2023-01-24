@@ -28,6 +28,8 @@ Agenda
     _agenda/python-performance.rst
 
     _agenda/python-data-analysis.rst
+    _agenda/python-numpy.rst
+    _agenda/python-pandas.rst
 
     _agenda/python-microservices.rst
     _agenda/python-django.rst
