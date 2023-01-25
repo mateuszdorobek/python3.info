@@ -32,7 +32,7 @@ Syntax
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 
 You cannot create instance of a class ``Account`` as of
@@ -45,42 +45,58 @@ TypeError: Can't instantiate abstract class Account with abstract method login
 
 Implement Abstract Methods
 --------------------------
+* All abstract methods must be covered
+* Abstract base class can have regular (not abstract) methods
+* Regular methods will be inherited as normal
+* Regular methods does not need to be overwritten
+
 Abstract base class:
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def logout(self):
+...     def logout(self) -> None:
 ...         raise NotImplementedError
+...
+...     def say_hello(self):
+...         return 'hello'
 
 Implementation:
 
 >>> class User(Account):
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         print('Logging-in')
 ...
-...     def logout(self):
+...     def logout(self) -> None:
 ...         print('Logging-out')
 
 Use:
 
 >>> mark = User()
 >>>
->>> mark.login()
+>>> mark.login(username='mwatney', password='Ares3')
 Logging-in
 >>>
 >>> mark.logout()
 Logging-out
+>>>
+>>> mark.say_hello()
+'hello'
 
 Mind, that all abstract methods must be covered, otherwise it will raise
-an error.
+an error. Regular methods (non-abstract) will be inherited as normal and
+they does not need to be overwritten in an implementing class.
 
 
 ABCMeta
 -------
+* Uses ``metaclass=ABCMeta``
+* Not recommended since Python 3.4
+* Use inheriting ``ABC`` instead
+
 There is also an alternative (older) way of defining abstract base classes.
 It uses ``metaclass=ABCMeta`` specification during class creation.
 This method is not recommended since Python 3.4 when ``ABC`` class was
@@ -88,7 +104,7 @@ introduce to simplify the process.
 
 >>> class Account(metaclass=ABCMeta):
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 
 
@@ -144,34 +160,37 @@ method. Otherwise it won't prevent from instantiating:
 
 >>> class Account(ABC):
 ...     pass
-
-The code above will allo to create ``mark`` from ``Account`` because
-this class did not have any abstract methods.
-
+>>>
+>>>
 >>> mark = Account()
 >>> mark  # doctest: +ELLIPSIS
 <__main__.Account object at 0x...>
 
+The code above will allo to create ``mark`` from ``Account`` because
+this class did not have any abstract methods.
+
 
 Problem: Base Class Does Not Inherit From ABC
 ---------------------------------------------
-The ``Human`` class does not inherits from ``ABC`` or has ``metaclass=ABCMeta``:
+In order to use Abstract Base Class you must inherit from ``ABC`` in your
+base class. Otherwise it won't prevent from instantiating:
 
 >>> class Account:
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 >>>
 >>>
 >>> class User(Account):
 ...     pass
-
-This code above will allow to create ``mark`` from ``User`` because
-``Account`` class does not inherit from ``ABC``.
-
+>>>
+>>>
 >>> mark = User()
 >>> mark  # doctest: +ELLIPSIS
 <__main__.User object at 0x...>
+
+This code above will allow to create ``mark`` from ``User`` because
+``Account`` class does not inherit from ``ABC``.
 
 
 Problem: All Abstract Methods are not Implemented
@@ -180,24 +199,25 @@ Must implement all abstract methods:
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def logout(self):
+...     def logout(self) -> None:
 ...         raise NotImplementedError
 >>>
 >>>
 >>> class User(Account):
 ...     pass
+>>>
+>>>
+>>> mark = User()
+Traceback (most recent call last):
+TypeError: Can't instantiate abstract class User with abstract methods login, logout
 
 The code above will prevent from creating ``User`` instance,
 because class ``User`` does not overwrite all abstract methods.
 In fact it does not overwrite any abstract method at all.
-
->>> mark = User()
-Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract methods login, logout
 
 
 Problem: Some Abstract Methods are not Implemented
@@ -206,26 +226,27 @@ All abstract methods must be implemented in child class:
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def logout(self):
+...     def logout(self) -> None:
 ...         raise NotImplementedError
 >>>
 >>>
 >>> class User(Account):
-...     def login(self):
+...     def login(self, username: str, password: str) -> None:
 ...         print('Logging-in')
-
-The code above will prevent from creating ``User`` instance,
-because class ``User`` does not overwrite all abstract methods.
-The ``.login()`` method is not overwritten. In order abstract class
-to work, all methods must be covered.
-
+>>>
+>>>
 >>> mark = User()
 Traceback (most recent call last):
 TypeError: Can't instantiate abstract class User with abstract method logout
+
+The code above will prevent from creating ``User`` instance, because class
+``User`` does not overwrite all abstract methods. The ``.login()`` method
+is not overwritten. In order abstract class to work, all methods must be
+covered.
 
 
 Problem: Child Class has no Abstract Property
@@ -244,10 +265,15 @@ Problem: Child Class has no Abstract Property
 >>>
 >>> class User(Account):
 ...     AGE_MIN: int = 18
-
+>>>
+>>>
 >>> mark = User()
 Traceback (most recent call last):
 TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
+
+The code above will prevent from creating ``User`` instance, because class
+``User`` does not overwrite all abstract properties. The ``AGE_MAX`` is
+not covered.
 
 
 Problem: Child Class has no Abstract Properties
@@ -268,10 +294,15 @@ Problem: Child Class has no Abstract Properties
 >>>
 >>> class User(Account):
 ...     AGE_MIN: int = 18
-
+>>>
+>>>
 >>> mark = User()
 Traceback (most recent call last):
 TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
+
+The code above will prevent from creating ``User`` instance, because class
+``User`` does not overwrite all abstract properties. The ``AGE_MAX`` is
+not covered.
 
 
 Problem: Invalid Order of Decorators
