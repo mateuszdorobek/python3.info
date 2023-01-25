@@ -19,37 +19,77 @@ OOP Abstract Class
         Static method which must be implemented in a subclass
 
 
+SetUp
+-----
+>>> from abc import ABC, ABCMeta, abstractmethod, abstractproperty
+
+
 Syntax
 ------
-* New class ``ABC`` has ``ABCMeta`` as its meta class
-* Using ``ABC`` as a base class has essentially the same effect as specifying ``metaclass=abc.ABCMeta``, but is simpler to type and easier to read
-* ``abc.ABC`` basically just an extra layer over ``metaclass=abc.ABCMeta``
-* ``abc.ABC`` implicitly defines the metaclass for you
+* Inherit from ``ABC``
+* At least one method must be ``abstractmethod`` or ``abstractproperty``
+* Body of the method is not important, it could be ``raise NotImplementedError`` or ``pass``
 
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class MyClass(ABC):
+>>> class Account(ABC):
+...     @abstractmethod
+...     def login(self):
+...         raise NotImplementedError
+
+You cannot create instance of a class ``Account`` as of
+this is the abstract class:
+
+>>> mark = Account()
+Traceback (most recent call last):
+TypeError: Can't instantiate abstract class Account with abstract method login
+
+
+Implement Abstract Methods
+--------------------------
+Abstract base class:
+
+>>> class Account(ABC):
+...     @abstractmethod
+...     def login(self):
+...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def mymethod(self):
-...         pass
+...     def logout(self):
+...         raise NotImplementedError
+
+Implementation:
+
+>>> class User(Account):
+...     def login(self):
+...         print('Logging-in')
+...
+...     def logout(self):
+...         print('Logging-out')
+
+Use:
+
+>>> mark = User()
+>>>
+>>> mark.login()
+Logging-in
+>>>
+>>> mark.logout()
+Logging-out
+
+Mind, that all abstract methods must be covered, otherwise it will raise
+an error.
 
 
-Abstract Method
----------------
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Astronaut(ABC):
+ABCMeta
+-------
+There is also an alternative (older) way of defining abstract base classes.
+It uses ``metaclass=ABCMeta`` specification during class creation.
+This method is not recommended since Python 3.2 when ``ABC`` class was
+introduce to simplify the process.
+
+>>> class Account(metaclass=ABCMeta):
 ...     @abstractmethod
-...     def say_hello(self):
-...         pass
->>>
->>>
->>> astro = Astronaut()
-Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Astronaut with abstract method say_hello
+...     def login(self):
+...         raise NotImplementedError
 
 
 Abstract Property
@@ -57,188 +97,211 @@ Abstract Property
 * ``abc.abstractproperty`` is deprecated since Python 3.3
 * Use ``property`` with ``abc.abstractmethod`` instead
 
->>> from abc import ABC, abstractproperty
->>>
->>>
->>> class Monster(ABC):
+>>> class Account(ABC):
 ...     @abstractproperty
-...     def DAMAGE(self) -> int:
-...         pass
->>>
->>>
->>> class Dragon(Monster):
-...     DAMAGE: int = 10
-
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Monster(ABC):
-...     @property
-...     @abstractmethod
-...     def DAMAGE(self) -> int:
-...         pass
->>>
->>>
->>> class Dragon(Monster):
-...     DAMAGE: int = 10
-
->>> from abc import ABC, abstractproperty
->>>
->>>
->>> class Monster(ABC):
-...     @abstractproperty
-...     def DAMAGE_MIN(self):
-...         pass
+...     def AGE_MIN(self) -> int:
+...         raise NotImplementedError
 ...
 ...     @abstractproperty
-...     def DAMAGE_MAX(self):
-...         pass
+...     def AGE_MAX(self) -> int:
+...         raise NotImplementedError
 >>>
 >>>
->>> class Dragon(Monster):
-...     DAMAGE_MIN: int = 10
-...     DAMAGE_MAX: int = 20
+>>> class User(Account):
+...     AGE_MIN: int = 18
+...     AGE_MAX: int = 65
+
+Since 3.3 instead of ``@abstractproperty`` using both ``@property``
+and ``@abstractmethod`` is recommended.
+
+>>> class Account(ABC):
+...     @property
+...     @abstractmethod
+...     def AGE_MIN(self) -> int:
+...         raise NotImplementedError
+...
+...     @property
+...     @abstractmethod
+...     def AGE_MAX(self) -> int:
+...         raise NotImplementedError
+>>>
+>>>
+>>> class User(Account):
+...     AGE_MIN: int = 18
+...     AGE_MAX: int = 65
+
+Mind that the order here is important and it cannot be the other way around.
+Decorator closest to the method must be ``@abstractmethod`` and then
+``@property`` at the most outer level. This is because ``@abstractmethod``
+sets special attribute on the method and then this method with attribute
+is turned to the property. This does not work if you reverse the order.
 
 
-Common Problems
----------------
-In order to use Abstract Base Class you must create abstract method. Otherwise it won't prevent from instantiating:
+Problem: Base Class Has No Abstract Method
+------------------------------------------
+In order to use Abstract Base Class you must create at least one abstract
+method. Otherwise it won't prevent from instantiating:
 
->>> from abc import ABC
->>>
->>>
->>> class Astronaut(ABC):
+>>> class Account(ABC):
 ...     pass
->>>
->>>
->>> astro = Astronaut()   # It will not raise an error, because there are no abstractmethods
->>>
->>> print('no errors')
-no errors
 
+The code above will allo to create ``mark`` from ``Account`` because
+this class did not have any abstract methods.
+
+>>> mark = Account()
+>>> mark  # doctest: +ELLIPSIS
+<__main__.Account object at 0x...>
+
+
+Problem: Base Class Does Not Inherit From ABC
+---------------------------------------------
 The ``Human`` class does not inherits from ``ABC`` or has ``metaclass=ABCMeta``:
 
->>> from abc import abstractmethod
->>>
->>>
->>> class Human:
+>>> class Account:
 ...     @abstractmethod
-...     def get_name(self):
-...         pass
+...     def login(self):
+...         raise NotImplementedError
 >>>
 >>>
->>> class Astronaut(Human):
+>>> class User(Account):
 ...     pass
->>>
->>>
->>> astro = Astronaut()  # None abstractmethod is implemented in child class
->>>
->>> print('no errors')
-no errors
 
+This code above will allow to create ``mark`` from ``User`` because
+``Account`` class does not inherit from ``ABC``.
+
+>>> mark = User()
+>>> mark  # doctest: +ELLIPSIS
+<__main__.User object at 0x...>
+
+
+Problem: All Abstract Methods are not Implemented
+-------------------------------------------------
 Must implement all abstract methods:
 
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Human(ABC):
+>>> class Account(ABC):
 ...     @abstractmethod
-...     def get_name(self):
-...         pass
+...     def login(self):
+...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def set_name(self):
-...         pass
+...     def logout(self):
+...         raise NotImplementedError
 >>>
 >>>
->>> class Astronaut(Human):
+>>> class User(Account):
 ...     pass
->>>
->>>
->>> astro = Astronaut()  # None abstractmethod is implemented in child class
-Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Astronaut with abstract methods get_name, set_name
 
+The code above will prevent from creating ``User`` instance,
+because class ``User`` does not overwrite all abstract methods.
+In fact it does not overwrite any abstract method at all.
+
+>>> mark = User()
+Traceback (most recent call last):
+TypeError: Can't instantiate abstract class User with abstract methods login, logout
+
+
+Problem: Some Abstract Methods are not Implemented
+--------------------------------------------------
 All abstract methods must be implemented in child class:
 
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Human(ABC):
+>>> class Account(ABC):
 ...     @abstractmethod
-...     def get_name(self):
-...         pass
+...     def login(self):
+...         raise NotImplementedError
 ...
 ...     @abstractmethod
-...     def set_name(self):
-...         pass
+...     def logout(self):
+...         raise NotImplementedError
 >>>
 >>>
->>> class Astronaut(Human):
-...     def get_name(self):
-...         return 'Mark Watney'
->>>
->>>
->>> astro = Astronaut()  # There are abstractmethods without implementation
+>>> class User(Account):
+...     def login(self):
+...         print('Logging-in')
+
+The code above will prevent from creating ``User`` instance,
+because class ``User`` does not overwrite all abstract methods.
+The ``.login()`` method is not overwritten. In order abstract class
+to work, all methods must be covered.
+
+>>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Astronaut with abstract method set_name
+TypeError: Can't instantiate abstract class User with abstract method logout
 
-Problem - Child class has no abstract attribute (using ``abstractproperty``):
 
->>> from abc import ABC, abstractproperty
->>>
->>>
->>> class Monster(ABC):
+Problem: Child Class has no Abstract Property
+---------------------------------------------
+* Using ``abstractproperty``
+
+>>> class Account(ABC):
 ...     @abstractproperty
-...     def DAMAGE(self) -> int:
-...         pass
+...     def AGE_MIN(self) -> int:
+...         raise NotImplementedError
+...
+...     @abstractproperty
+...     def AGE_MAX(self) -> int:
+...         raise NotImplementedError
 >>>
->>> class Dragon(Monster):
-...     pass
 >>>
->>>
->>> d = Dragon()
+>>> class User(Account):
+...     AGE_MIN: int = 18
+
+>>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Dragon with abstract method DAMAGE
+TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
 
-Problem - Child class has no abstract attribute (using ``property`` and ``abstractmethod``):
 
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Monster(ABC):
+Problem: Child Class has no Abstract Properties
+-----------------------------------------------
+* Using ``property`` and ``abstractmethod``
+
+>>> class Account(ABC):
 ...     @property
 ...     @abstractmethod
-...     def DAMAGE(self) -> int:
-...         pass
->>>
->>> class Dragon(Monster):
-...     pass
->>>
->>>
->>> d = Dragon()
-Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Dragon with abstract method DAMAGE
-
-Problem - Despite having defined property, the order of decorators (``abstractmethod`` and ``property`` is invalid). Should be reversed: first ``@property`` then ``@abstractmethod``:
-
->>> from abc import ABC, abstractmethod
->>>
->>>
->>> class Monster(ABC):
+...     def AGE_MIN(self) -> int:
+...         raise NotImplementedError
+...
 ...     @property
 ...     @abstractmethod
-...     def DAMAGE(self) -> int:
-...         pass
+...     def AGE_MAX(self) -> int:
+...         raise NotImplementedError
 >>>
 >>>
->>> class Dragon(Monster):
-...     DAMAGE: int = 10
->>>
->>>
->>> d = Dragon()
+>>> class User(Account):
+...     AGE_MIN: int = 18
 
-``abc`` is common name and it is very easy to create file, variable lub module with the same name as the library, hence overwrite it. In case of error. Check all entries in ``sys.path`` or ``sys.modules['abc']`` to find what is overwriting it:
+>>> mark = User()
+Traceback (most recent call last):
+TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
+
+
+Problem: Invalid Order of Decorators
+------------------------------------
+* Invalid order of decorators: ``@property`` and ``@abstractmethod``
+* Should be: first ``@property`` then ``@abstractmethod``
+
+>>> class Account(ABC):
+...     @abstractmethod
+...     @property
+...     def AGE_MIN(self) -> int:
+...         raise NotImplementedError
+...
+...     @abstractmethod
+...     @property
+...     def AGE_MAX(self) -> int:
+...         raise NotImplementedError
+...
+Traceback (most recent call last):
+AttributeError: attribute '__isabstractmethod__' of 'property' objects is not writable
+
+Note, that this will not even allow to define ``User`` class at all.
+
+
+Problem: Overwrite ABC File
+---------------------------
+``abc`` is common name and it is very easy to create file, variable
+or module with the same name as the library, hence overwriting it.
+In case of error check all entries in ``sys.path`` or ``sys.modules['abc']``
+to find what is overwriting it:
 
 >>> from pprint import pprint
 >>> import sys
@@ -249,15 +312,15 @@ Problem - Despite having defined property, the order of decorators (``abstractme
 >>>
 >>> pprint(sys.path)  # doctest: +SKIP
 ['/Users/watney/myproject',
- '/Applications/PyCharm 2022.1.app/Contents/plugins/python/helpers/pydev',
- '/Applications/PyCharm 2022.1.app/Contents/plugins/python/helpers/pycharm_display',
- '/Applications/PyCharm 2022.1.app/Contents/plugins/python/helpers/third_party/thriftpy',
- '/Applications/PyCharm 2022.1.app/Contents/plugins/python/helpers/pydev',
- '/Applications/PyCharm 2022.1.app/Contents/plugins/python/helpers/pycharm_matplotlib_backend',
- '/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python310.zip',
- '/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10',
- '/usr/local/Cellar/python@3.10/3.10.2/Frameworks/Python.framework/Versions/3.10/lib/python3.10/lib-dynload',
- '/Users/watney/myproject/venv-3.10/lib/python3.10/site-packages']
+ '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/pydev',
+ '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/pycharm_display',
+ '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/third_party/thriftpy',
+ '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/pydev',
+ '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/pycharm_matplotlib_backend',
+ '/usr/local/Cellar/python@3.11/3.11.1/Frameworks/Python.framework/Versions/3.11/lib/python311.zip',
+ '/usr/local/Cellar/python@3.11/3.11.1/Frameworks/Python.framework/Versions/3.11/lib/python3.11',
+ '/usr/local/Cellar/python@3.11/3.11.1/Frameworks/Python.framework/Versions/3.11/lib/python3.11/lib-dynload',
+ '/Users/watney/myproject/venv-3.11/lib/python3.11/site-packages']
 
 
 Use Case - 0x01
@@ -278,17 +341,21 @@ Abstract Class:
 >>>
 >>> class PDFDocument(Document):
 ...     def display(self):
-...         """display file content as PDF Document"""
+...         print('Display file content as PDF Document')
 >>>
 >>> class WordDocument(Document):
 ...     def display(self):
-...         """display file content as Word Document"""
->>>
->>>
->>> file1 = PDFDocument('myfile.pdf')
->>> file1.display()
->>>
->>> file2 = Document('myfile.txt')
+...         print('Display file content as Word Document')
+
+>>> file = PDFDocument('myfile.pdf')
+>>> file.display()
+Display file content as PDF Document
+
+>>> file = WordDocument('myfile.pdf')
+>>> file.display()
+Display file content as Word Document
+
+>>> file = Document('myfile.txt')
 Traceback (most recent call last):
 TypeError: Can't instantiate abstract class Document with abstract method display
 

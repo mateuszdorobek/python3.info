@@ -2,9 +2,8 @@ OOP Attribute Mutable/Immutable
 ===============================
 * Function and method arguments should not be mutable
 
+Immutable Types:
 
-Immutable Types
----------------
 * ``int``
 * ``float``
 * ``complex``
@@ -16,9 +15,8 @@ Immutable Types
 * ``frozenset``
 * ``mappingproxy``
 
+Mutable Types:
 
-Mutable Types
--------------
 * ``list``
 * ``set``
 * ``dict``
@@ -28,113 +26,159 @@ Problem
 -------
 Let's define a class:
 
->>> class Astronaut:
-...     def __init__(self, name, missions=[]):
-...         self.name = name
-...         self.missions = missions
+>>> class User:
+...     def __init__(self, firstname, lastname, groups=[]):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.groups = groups
 
 Now, we create an instance of a class:
 
->>> watney = Astronaut('Mark Watney')
->>> lewis = Astronaut('Melissa Lewis')
+>>> mark = User('Mark', 'Watney')
+>>> melissa = User('Melissa', 'Lewis')
 
-Check missions for both Astronauts:
+Check groups for both Users:
 
->>> watney.missions
+>>> mark.groups
 []
 >>>
->>> lewis.missions
+>>> melissa.groups
 []
 
-We will send Mark Watney to three missions: Ares1, Ares2, Ares3:
+We will assign Mark Watney to three groups: admins, staff, editors:
 
->>> watney.missions.append('Ares1')
->>> watney.missions.append('Ares2')
->>> watney.missions.append('Ares3')
+>>> mark.groups.append('admins')
+>>> mark.groups.append('staff')
+>>> mark.groups.append('editors')
 
-Now, check the missions once again:
+Now, check the groups once again:
 
->>> watney.missions
-['Ares1', 'Ares2', 'Ares3']
+>>> mark.groups
+['admins', 'staff', 'editors']
 >>>
->>> lewis.missions
-['Ares1', 'Ares2', 'Ares3']
+>>> melissa.groups
+['admins', 'staff', 'editors']
 
-This is not a mistake. Both astronauts Mark and Melissa has the same missions
-despite the fact, that we set values only for Mark! This is because both
-both Mark and Melissa has attribute missions pointing to the same memory
+This is not a mistake! Both users Mark and Melissa has the same groups
+despite the fact, that we set values only for Mark. This is because both
+both Mark and Melissa has attribute ``groups`` pointing to the same memory
 address:
 
->>> watney.missions == lewis.missions
-True
+>>> hex(id(mark.groups))  # doctest: +SKIP
+'0x10e732500'
 >>>
->>> watney.missions is lewis.missions
-True
+>>> hex(id(melissa.groups))  # doctest: +SKIP
+'0x10e732500'
+
+This is the same object!
+
+>>> from inspect import signature
+>>>
+>>>
+>>> signature(User.__init__)
+<Signature (self, firstname, lastname, groups=['admins', 'staff', 'editors'])>
+>>>
+>>> signature(User.__init__).parameters.get('groups').default
+['admins', 'staff', 'editors']
+>>>
+>>> hex(id(signature(User.__init__).parameters.get('groups').default))  # doctest: +SKIP
+'0x10e732500'
 
 
-Why?
-----
+Rationale
+---------
 Note, You should not set mutable objects as a default function argument.
 More information in `Argument Mutability`. This is how all dynamically typed
-languages work (including PHP, Ruby, Perl etc).
+languages work (including JavaScript, PHP, Ruby, Perl etc).
 
 The problem lays in ``__init__()`` method signature. It consist a reference
 to the mutable object: ``list``. Python will create a new ``list`` instance
-on class creation, not an instance creation. Therefore each astronaut will
+on class creation, not an instance creation! Therefore each user will
 reference to the same ``list`` which was created when Python interpreted class.
 
->>> class Astronaut:
-...     def __init__(self, name, missions=[]):
-...         self.name = name
-...         self.missions = missions
+>>> class User:
+...     def __init__(self, firstname, lastname, groups=[]):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.groups = groups
 
 However method body is not interpreted on class creation. This is done in a
 runtime. Creating a new ``list`` in method's body will instantiate a new
 sequence each time the new instance is created. Consider the following code:
 
->>> class Astronaut:
-...     def __init__(self, name, missions=None):
-...         self.name = name
-...         self.missions = missions if missions else []
+>>> class User:
+...     def __init__(self, firstname, lastname, groups=None):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.groups = groups if groups else []
 
 ``None`` object is a singleton, which can be reused. Also is not a problematic,
 because we will not append or modify anything to the ``None`` itself. As soon
 as the new instance is created, the ``__init__()`` body is evaluated and
-``self.missions`` is assigned to newly created ``list`` instance.
+``self.groups`` is assigned to newly created ``list`` instance.
 
 
-Fix
----
->>> class Astronaut:
-...     def __init__(self, name, missions=None):
-...         self.name = name
-...         self.missions = missions if missions else []
+Solution
+--------
+>>> class User:
+...     def __init__(self, firstname, lastname, groups=None):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.groups = groups if groups else []
+
+Now, we create an instance of a class:
+
+>>> mark = User('Mark', 'Watney')
+>>> melissa = User('Melissa', 'Lewis')
+
+Check groups for both Users:
+
+>>> mark.groups
+[]
+>>>
+>>> melissa.groups
+[]
+
+We will assign Mark Watney to three groups: admins, staff, editors:
+
+>>> mark.groups.append('admins')
+>>> mark.groups.append('staff')
+>>> mark.groups.append('editors')
+
+Now, check the groups once again:
+
+>>> mark.groups
+['admins', 'staff', 'editors']
+>>>
+>>> melissa.groups
+[]
+
+This time their addresses are differs:
+
+>>> hex(id(mark.groups))  # doctest: +SKIP
+'0x108ca7ac0'
+>>>
+>>> hex(id(melissa.groups))  # doctest: +SKIP
+'0x109a88540'
+
+And they are not the same object:
+
+>>> from inspect import signature
 >>>
 >>>
->>> watney = Astronaut('Mark Watney')
->>> lewis = Astronaut('Melissa Lewis')
+>>> signature(User.__init__)
+<Signature (self, firstname, lastname, groups=None)>
 >>>
->>> print(f'Name: {watney.name}, Missions: {watney.missions}')
-Name: Mark Watney, Missions: []
+>>> signature(User.__init__).parameters.get('groups').default
 >>>
->>> print(f'Name: {lewis.name}, Missions: {lewis.missions}')
-Name: Melissa Lewis, Missions: []
->>>
->>> watney.missions.append('Ares1')
->>> watney.missions.append('Ares2')
->>> watney.missions.append('Ares3')
->>>
->>> print(f'Name: {watney.name}, Missions: {watney.missions}')
-Name: Mark Watney, Missions: ['Ares1', 'Ares2', 'Ares3']
->>>
->>> print(f'Name: {lewis.name}, Missions: {lewis.missions}')
-Name: Melissa Lewis, Missions: []
->>>
->>> watney.missions == lewis.missions
-False
->>>
->>> watney.missions is lewis.missions
-False
+>>> hex(id(signature(User.__init__).parameters.get('groups').default))  # doctest: +SKIP
+'0x106ef4948'
+
+This mechanism works the same, but this time points to the immutable object
+which as the name says, cannot be changed, so we are safe now:
+
+>>> hex(id(None))  # doctest: +SKIP
+'0x106ef4948'
 
 
 Assignments

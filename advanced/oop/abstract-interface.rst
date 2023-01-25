@@ -54,6 +54,141 @@ write any of the actual code. Of course Python allows you to be sloppy
 and not write test cases at all.
 
 
+Problem
+-------
+>>> class DatabaseCache:
+...     def insert(self, key, value): ...
+...     def select(self, key): ...
+...     def ok(self, key): ...
+>>>
+>>>
+>>> class MemoryCache:
+...     def store(self, value, key): ...
+...     def retrieve(self, key): ...
+...     def valid(self, key): ...
+>>>
+>>>
+>>> class FilesystemCache:
+...     def write(self, key, value): ...
+...     def read(self, key): ...
+...     def exists(self, key): ...
+
+Each of those classes has different names for methods which eventually
+does the same job. This is lack of consistency and common interface:
+
+>>> mycache = DatabaseCache()
+>>> mycache.insert('firstname', 'Mark')
+>>> mycache.insert('lastname', 'Watney')
+>>>
+>>> if mycache.ok('firstname'):
+...     fname = mycache.select('firstname')
+>>>
+>>> if mycache.ok('lastname'):
+...     lname = mycache.select('lastname')
+
+>>> mycache = MemoryCache()
+>>> mycache.store('firstname', 'Mark')
+>>> mycache.store('lastname', 'Watney')
+>>>
+>>> if mycache.valid('firstname'):
+...     fname = mycache.retrieve('firstname')
+>>>
+>>> if mycache.valid('lastname'):
+...     lname = mycache.retrieve('lastname')
+
+>>> mycache = FilesystemCache()
+>>> mycache.write('firstname', 'Mark')
+>>> mycache.write('lastname', 'Watney')
+>>>
+>>> if mycache.exists('firstname'):
+...     fname = mycache.read('firstname')
+>>>
+>>> if mycache.exists('lastname'):
+...     lname = mycache.read('lastname')
+
+
+Solution
+--------
+class CacheInterface:
+    ...
+
+
+class CacheIface:
+    ...
+
+
+class ICache:
+    ...
+
+
+# specyfikują publiczne elementy klasy
+# w Javie, C#, C++, ...
+# atrybuty (pola klasy) są zawsze protected lub private
+# dlatego nie ma ich w interfejsie
+# ...
+# w Python atrybuty są publiczne więc... powinny być w interfejsie
+# ponieważ można nimi publicznie manipulować
+
+class ICache:
+    def set_duration(self, days): raise NotImplementedError
+    def set(self, key: str, value: str) -> None: raise NotImplementedError
+    def get(self, key: str) -> str: raise NotImplementedError
+    def valid(self, key: str) -> bool: raise NotImplementedError
+    def clear(self) -> None: raise NotImplementedError
+
+
+class DatabaseCache(ICache):
+    duration = timedelta(days=30)
+
+    def set(self, key: str, value: str) -> None:
+        pass
+
+    def get(self, key: str) -> str:
+        pass
+
+    def valid(self, key: str) -> bool:
+        pass
+
+
+class FilesystemCache(ICache):
+    def set(self, key: str, value: str) -> None:
+        pass
+
+    def get(self, key: str) -> str:
+        pass
+
+    def valid(self, key: str) -> bool:
+        pass
+
+
+class MemoryCache(ICache):
+    def set(self, key: str, value: str) -> None:
+        pass
+
+    def get(self, key: str) -> str:
+        pass
+
+    def valid(self, key: str) -> bool:
+        pass
+
+
+# S.O.L.I.D.
+# DIP - Dependency Inversion Principle
+
+mycache: ICache = MemoryCache()
+mycache.set_duration(days=30)
+
+mycache.set('firstname', 'Mark')
+mycache.set('lastname', 'Watney')
+
+if mycache.valid('firstname'):
+    fname = mycache.get('firstname')
+
+if mycache.valid('lastname'):
+    lname = mycache.get('lastname')
+
+
+
 Syntax
 ------
 * Names: ``Cache``, ``CacheInterface``, ``ICache``, ``CacheIface``

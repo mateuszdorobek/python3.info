@@ -11,7 +11,7 @@ all members on it results in types compatible with the protocol members.
 
 All things protocol related resides in typing library in ``Protocol`` class:
 
->>> from typing import Protocol, Self, runtime_checkable
+>>> from typing import Protocol, Self, runtime_checkable, NamedTuple
 
 Typical protocol implementation looks like that:
 
@@ -324,6 +324,37 @@ delegate, and contravariant type parameters can be used as parameter types.
 
     Invariance. Type must be the same and you cannot replace it.
     Animal cannot be substituted for Cat and vice versa. [#Langa2022]_
+
+
+Example:
+
+By default type annotation checkers works in covariant mode:
+
+>>> def print_coordinates(point: tuple):
+...     x, y, z = point
+...     print(f'{x=}, {y=}, {z=}')
+
+This means, that the ``point`` argument to the ``print_coordinates`` function
+could be either ``tuple`` or any object which inherits from ``tuple``.
+
+In the following example ``pt`` is **invariant** type as it is exactly as
+required, that is ``tuple``:
+
+>>> pt = (1, 2, 3)
+>>> print_coordinates(pt)
+x=1, y=2, z=3
+
+``NamedTuple`` inherits from ``tuple``, so it could be used as **covariant**
+type:
+
+>>> class Point(NamedTuple):
+...     x: int
+...     y: int
+...     z: int
+>>>
+>>> pt = Point(1,2,3)
+>>> print_coordinates(pt)
+x=1, y=2, z=3
 
 
 Default Value
