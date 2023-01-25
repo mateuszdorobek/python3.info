@@ -21,7 +21,7 @@ as C++ and Java describes the prototypes for the methods and functions
 of the module. Many feel that compile-time enforcement of interface
 specifications helps in the construction of large programs.
 
-Python 2.6 adds an abc module that lets you define Abstract Base Classes
+Python 3.0 adds an abc module that lets you define Abstract Base Classes
 (ABCs). You can then use isinstance() and issubclass() to check whether
 an instance or a class implements a particular ABC. The collections.abc
 module defines a set of useful ABCs such as Iterable, Container, and
@@ -59,173 +59,169 @@ Problem
 >>> class DatabaseCache:
 ...     def insert(self, key, value): ...
 ...     def select(self, key): ...
-...     def ok(self, key): ...
+...     def delete(self): ...
 >>>
 >>>
 >>> class MemoryCache:
 ...     def store(self, value, key): ...
 ...     def retrieve(self, key): ...
-...     def valid(self, key): ...
+...     def purge(self): ...
 >>>
 >>>
 >>> class FilesystemCache:
 ...     def write(self, key, value): ...
 ...     def read(self, key): ...
-...     def exists(self, key): ...
+...     def remove(self): ...
 
 Each of those classes has different names for methods which eventually
 does the same job. This is lack of consistency and common interface:
 
->>> mycache = DatabaseCache()
->>> mycache.insert('firstname', 'Mark')
->>> mycache.insert('lastname', 'Watney')
->>>
->>> if mycache.ok('firstname'):
-...     fname = mycache.select('firstname')
->>>
->>> if mycache.ok('lastname'):
-...     lname = mycache.select('lastname')
+>>> cache = DatabaseCache()
+>>> cache.insert('firstname', 'Mark')
+>>> cache.insert('lastname', 'Watney')
+>>> cache.select('firstname')
+>>> cache.select('lastname')
+>>> cache.delete()
 
->>> mycache = MemoryCache()
->>> mycache.store('firstname', 'Mark')
->>> mycache.store('lastname', 'Watney')
->>>
->>> if mycache.valid('firstname'):
-...     fname = mycache.retrieve('firstname')
->>>
->>> if mycache.valid('lastname'):
-...     lname = mycache.retrieve('lastname')
+>>> cache = MemoryCache()
+>>> cache.store('firstname', 'Mark')
+>>> cache.store('lastname', 'Watney')
+>>> cache.retrieve('firstname')
+>>> cache.retrieve('lastname')
+>>> cache.purge()
 
->>> mycache = FilesystemCache()
->>> mycache.write('firstname', 'Mark')
->>> mycache.write('lastname', 'Watney')
->>>
->>> if mycache.exists('firstname'):
-...     fname = mycache.read('firstname')
->>>
->>> if mycache.exists('lastname'):
-...     lname = mycache.read('lastname')
+>>> cache = FilesystemCache()
+>>> cache.write('firstname', 'Mark')
+>>> cache.write('lastname', 'Watney')
+>>> cache.read('firstname')
+>>> cache.read('lastname')
+>>> cache.remove()
 
 
 Solution
 --------
-class CacheInterface:
-    ...
+* S.O.L.I.D.
+* DIP - Dependency Inversion Principle
+* Always depend on an abstraction not con
+
+.. epigraph::
+
+    The principle states: High-level modules should not import anything from
+    low-level modules. Both should depend on abstractions (e.g., interfaces).
+    Abstractions should not depend on details. Details (concrete
+    implementations) should depend on abstractions.
+
+    -- SOLID, Dependency Inversion Principle, Robert C. Martin
+
+>>> class ICache:
+...     def set(self, key: str, value: str) -> None: raise NotImplementedError
+...     def get(self, key: str) -> str: raise NotImplementedError
+...     def clear(self) -> None: raise NotImplementedError
+>>>
+>>>
+>>> class DatabaseCache(ICache):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+>>>
+>>>
+>>> class FilesystemCache(ICache):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+>>>
+>>>
+>>> class MemoryCache(ICache):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+
+>>> cache: ICache = DatabaseCache()
+>>> cache.set('firstname', 'Mark')
+>>> cache.set('lastname', 'Watney')
+>>> cache.get('firstname')
+>>> cache.get('lastname')
+>>> cache.clear()
+
+>>> cache: ICache = FilesystemCache()
+>>> cache.set('firstname', 'Mark')
+>>> cache.set('lastname', 'Watney')
+>>> cache.get('firstname')
+>>> cache.get('lastname')
+>>> cache.clear()
+
+>>> cache: ICache = MemoryCache()
+>>> cache.set('firstname', 'Mark')
+>>> cache.set('lastname', 'Watney')
+>>> cache.get('firstname')
+>>> cache.get('lastname')
+>>> cache.clear()
 
 
-class CacheIface:
-    ...
+Interface Names
+---------------
+* ``Cache``
+* ``CacheInterface``
+* ``CacheIface``
+* ``ICache``
 
-
-class ICache:
-    ...
-
-
-# specyfikują publiczne elementy klasy
-# w Javie, C#, C++, ...
-# atrybuty (pola klasy) są zawsze protected lub private
-# dlatego nie ma ich w interfejsie
-# ...
-# w Python atrybuty są publiczne więc... powinny być w interfejsie
-# ponieważ można nimi publicznie manipulować
-
-class ICache:
-    def set_duration(self, days): raise NotImplementedError
-    def set(self, key: str, value: str) -> None: raise NotImplementedError
-    def get(self, key: str) -> str: raise NotImplementedError
-    def valid(self, key: str) -> bool: raise NotImplementedError
-    def clear(self) -> None: raise NotImplementedError
-
-
-class DatabaseCache(ICache):
-    duration = timedelta(days=30)
-
-    def set(self, key: str, value: str) -> None:
-        pass
-
-    def get(self, key: str) -> str:
-        pass
-
-    def valid(self, key: str) -> bool:
-        pass
-
-
-class FilesystemCache(ICache):
-    def set(self, key: str, value: str) -> None:
-        pass
-
-    def get(self, key: str) -> str:
-        pass
-
-    def valid(self, key: str) -> bool:
-        pass
-
-
-class MemoryCache(ICache):
-    def set(self, key: str, value: str) -> None:
-        pass
-
-    def get(self, key: str) -> str:
-        pass
-
-    def valid(self, key: str) -> bool:
-        pass
-
-
-# S.O.L.I.D.
-# DIP - Dependency Inversion Principle
-
-mycache: ICache = MemoryCache()
-mycache.set_duration(days=30)
-
-mycache.set('firstname', 'Mark')
-mycache.set('lastname', 'Watney')
-
-if mycache.valid('firstname'):
-    fname = mycache.get('firstname')
-
-if mycache.valid('lastname'):
-    lname = mycache.get('lastname')
-
-
-
-Syntax
-------
-* Names: ``Cache``, ``CacheInterface``, ``ICache``, ``CacheIface``
+>>> class Cache:
+...     ...
 
 >>> class CacheInterface:
+...     ...
+
+>>> class CacheIface:
+...     ...
+
+>>> class ICache:
+...     ...
+
+
+Alternative Notation
+--------------------
+>>> class ICache:
 ...     def set(self, key: str, value: str) -> None:
 ...         raise NotImplementedError
 ...
 ...     def get(self, key: str) -> str:
 ...         raise NotImplementedError
 ...
-...     def is_valid(self, key: str) -> bool:
+...     def clear(self) -> None:
 ...         raise NotImplementedError
 
+Interfaces do not have any implementation, so you can write them as
+one-liners. It is a bit more easier to read. You will also focus more
+on method names and attribute types.
 
-Alternative Notation
---------------------
->>> class CacheInterface:
+>>> class ICache:
 ...     def set(self, key: str, value: str) -> None: raise NotImplementedError
 ...     def get(self, key: str) -> str: raise NotImplementedError
-...     def is_valid(self, key: str) -> bool: raise NotImplementedError
+...     def clear(self) -> None: raise NotImplementedError
 
-Sometimes you may get a shorter code, but it will not raise an error.
+Sometimes you may get a shorter code, but it will not raise an error
+in case of implementing class do not cover the name.
 
->>> class CacheInterface:
+>>> class ICache:
 ...     def set(self, key: str, value: str) -> None: pass
 ...     def get(self, key: str) -> str: pass
-...     def is_valid(self, key: str) -> bool: pass
+...     def clear(self) -> None: pass
 
-As of three dots (``...``) is a valid Python object (Ellipsis) you can write that:
+As of three dots (``...``) is a valid Python object (Ellipsis) you can write
+that:
 
->>> class CacheInterface:
+>>> class ICache:
 ...     def set(self, key: str, value: str) -> None: ...
 ...     def get(self, key: str) -> str: ...
-...     def is_valid(self, key: str) -> bool: ...
+...     def clear(self) -> None: ...
 
-The following code is not a valid Python syntax...
+
+Not Existing Notation
+---------------------
+* This currently does not exists in Python
+* In fact it is not even a valid Python syntax
+* But it could greatly improve readability
+
 How nice it would be to write:
 
 >>> @interface # doctest: +SKIP
@@ -245,43 +241,24 @@ How nice it would be to write:
 ...     def is_valid(self, key: str) -> bool
 
 
-Example
--------
->>> class ICache:
-...     def set(self, key: str, value: str) -> None: ...
-...     def get(self, key: str) -> str: ...
-...     def is_valid(self, key: str) -> bool: ...
->>>
->>>
->>> class DatabaseCache(ICache):
-...      ...
->>>
->>> class InMemoryCache(ICache):
-...      ...
->>>
->>> class FilesystemCache(ICache):
-...      ...
-
->>> mycache: ICache = DatabaseCache()
->>> mycache.set('firstname', 'Mark')
->>> mycache.is_valid('firstname')
->>> mycache.is_valid('lastname')
->>> mycache.get('firstname')
-
->>> mycache: ICache = InMemoryCache()
->>> mycache.set('firstname', 'Mark')
->>> mycache.is_valid('firstname')
->>> mycache.is_valid('lastname')
->>> mycache.get('firstname')
-
->>> mycache: ICache = FilesystemCache()
->>> mycache.set('firstname', 'Mark')
->>> mycache.is_valid('firstname')
->>> mycache.is_valid('lastname')
->>> mycache.get('firstname')
-
-
 Use Case - 0x01
+---------------
+>>> class Account:
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
+>>>
+>>>
+>>> class Guest(Account):
+...      ...
+>>>
+>>> class User(Account):
+...      ...
+>>>
+>>> class Admin(Account):
+...      ...
+
+
+Use Case - 0x02
 ---------------
 * Cache
 
@@ -294,41 +271,41 @@ File ``cache_iface.py``:
 ...     def set(self, key: str, value: str) -> None:
 ...         raise NotImplementedError
 ...
-...     def is_valid(self, key: str) -> bool:
+...     def clear(self) -> None:
 ...         raise NotImplementedError
 
 File ``cache_impl.py``:
 
 >>> class DatabaseCache(ICache):
-...     def is_valid(self, key: str) -> bool:
-...         ...
-...
 ...     def get(self, key: str) -> str:
 ...         ...
 ...
 ...     def set(self, key: str, value: str) -> None:
+...         ...
+...
+...     def clear(self) -> None:
 ...         ...
 >>>
 >>>
 >>> class InMemoryCache(ICache):
-...     def is_valid(self, key: str) -> bool:
-...         ...
-...
 ...     def get(self, key: str) -> str:
 ...         ...
 ...
 ...     def set(self, key: str, value: str) -> None:
+...         ...
+...
+...     def clear(self) -> None:
 ...         ...
 >>>
 >>>
 >>> class FilesystemCache(ICache):
-...     def is_valid(self, key: str) -> bool:
-...         ...
-...
 ...     def get(self, key: str) -> str:
 ...         ...
 ...
 ...     def set(self, key: str, value: str) -> None:
+...         ...
+...
+...     def clear(self) -> None:
 ...         ...
 
 File ``settings.py``
@@ -347,81 +324,68 @@ File ``myapp.py``:
 >>>
 >>>
 >>> cache: ICache = DefaultCache()
->>> cache.set('name', 'Mark Watney')
->>> cache.is_valid('name')
->>> cache.get('name')
+>>> cache.set('firstname', 'Mark')
+>>> cache.set('lastname', 'Watney')
+>>> cache.get('firstname')
+>>> cache.get('lastname')
+>>> cache.clear()
 
 Note, that myapp doesn't know which cache is being used. It only depends
 on configuration in settings file.
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 .. figure:: img/oop-interface-gimp.jpg
 
     GIMP (GNU Image Manipulation Project) window with tools and canvas [#GIMP]_
 
->>> class Tool:
+Interface definition with all event handler specification:
+
+>>> class ITool:
 ...     def on_mouse_over(self): raise NotImplementedError
 ...     def on_mouse_out(self): raise NotImplementedError
-...     def on_mouse_click_leftbutton(self): raise NotImplementedError
-...     def on_mouse_unclick_leftbutton(self): raise NotImplementedError
-...     def on_mouse_click_rightbutton(self): raise NotImplementedError
-...     def on_mouse_unclick_rightbutton(self): raise NotImplementedError
+...     def on_mouse_leftbutton(self): raise NotImplementedError
+...     def on_mouse_rightbutton(self): raise NotImplementedError
 ...     def on_key_press(self): raise NotImplementedError
 ...     def on_key_unpress(self): raise NotImplementedError
+
+Implementation:
+
+>>> class Pencil(ITool):
+...     def on_mouse_over(self): ...
+...     def on_mouse_out(self): ...
+...     def on_mouse_leftbutton(self): ...
+...     def on_mouse_rightbutton(self): ...
+...     def on_key_press(self): ...
+...     def on_key_unpress(self): ...
 >>>
 >>>
->>> class Pencil(Tool):
-...     def on_mouse_over(self):
-...         ...
-...
-...     def on_mouse_out(self):
-...         ...
-...
-...     def on_mouse_click_leftbutton(self):
-...         ...
-...
-...     def on_mouse_unclick_leftbutton(self):
-...         ...
-...
-...     def on_mouse_click_rightbutton(self):
-...         ...
-...
-...     def on_mouse_unclick_rightbutton(self):
-...         ...
-...
-...     def on_key_press(self):
-...         ...
-...
-...     def on_key_unpress(self):
-...         ...
+>>> class Pen(ITool):
+...     def on_mouse_over(self): ...
+...     def on_mouse_out(self): ...
+...     def on_mouse_leftbutton(self): ...
+...     def on_mouse_rightbutton(self): ...
+...     def on_key_press(self): ...
+...     def on_key_unpress(self): ...
 >>>
 >>>
->>> class Pen(Tool):
-...     def on_mouse_over(self):
-...         ...
-...
-...     def on_mouse_out(self):
-...         ...
-...
-...     def on_mouse_click_leftbutton(self):
-...         ...
-...
-...     def on_mouse_unclick_leftbutton(self):
-...         ...
-...
-...     def on_mouse_click_rightbutton(self):
-...         ...
-...
-...     def on_mouse_unclick_rightbutton(self):
-...         ...
-...
-...     def on_key_press(self):
-...         ...
-...
-...     def on_key_unpress(self):
-...         ...
+>>> class Brush(ITool):
+...     def on_mouse_over(self): ...
+...     def on_mouse_out(self): ...
+...     def on_mouse_leftbutton(self): ...
+...     def on_mouse_rightbutton(self): ...
+...     def on_key_press(self): ...
+...     def on_key_unpress(self): ...
+>>>
+>>>
+>>> class Eraser(ITool):
+...     def on_mouse_over(self): ...
+...     def on_mouse_out(self): ...
+...     def on_mouse_leftbutton(self): ...
+...     def on_mouse_rightbutton(self): ...
+...     def on_key_press(self): ...
+...     def on_key_unpress(self): ...
 
 
 References

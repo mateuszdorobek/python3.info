@@ -83,7 +83,7 @@ ABCMeta
 -------
 There is also an alternative (older) way of defining abstract base classes.
 It uses ``metaclass=ABCMeta`` specification during class creation.
-This method is not recommended since Python 3.2 when ``ABC`` class was
+This method is not recommended since Python 3.4 when ``ABC`` class was
 introduce to simplify the process.
 
 >>> class Account(metaclass=ABCMeta):
