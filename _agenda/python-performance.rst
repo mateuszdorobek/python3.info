@@ -1,4 +1,4 @@
-Python: performance optimization
+Python: Performance Optimization
 ================================
 * https://www.sages.pl/szkolenia/python-optymalizacja
 

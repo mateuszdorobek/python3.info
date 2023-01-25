@@ -1,5 +1,5 @@
-Python: Data Analysis
-=====================
+Python: Data Science and Analysis
+=================================
 * https://www.sages.pl/szkolenia/analiza-numeryczna-w-python
 
 

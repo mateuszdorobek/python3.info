@@ -139,44 +139,51 @@ To list all the attributes once again we can use `vars()`:
 
 Name Mangling
 -------------
->>> @dataclass
-... class English:
-...     greeting: str = 'Hello'
->>>
->>>
->>> @dataclass
-... class American(English):
-...     greeting: str = 'Howdy'
->>>
->>>
->>> mark = American()
->>>
->>> print(mark.greeting)
-Howdy
+Name mangling is a mechanism which adds the class name to the field name.
+It is particularly useful when we have an inheritance and the child class
+is overwriting parent field, which we eventually want to get:
 
->>> @dataclass
-... class English:
-...     __greeting: str = 'Hello'
+>>> class FormalEnglish:
+...     __greeting: str = 'Good Morning'
+...     __farewell: str = 'Goodbye'
+...     greeting = __greeting
+...     farewell = __farewell
 >>>
 >>>
->>> @dataclass
-... class American(English):
-...     __greeting: str = 'Howdy'
+>>> class SlangEnglish(FormalEnglish):
+...     __greeting: str = 'Wassup'
+...     __farewell: str = 'Cya'
+...     greeting = __greeting
+...     farewell = __farewell
 >>>
 >>>
->>> mark = American()
->>>
->>> print(mark._English__greeting)
-Hello
->>>
->>> print(mark._American__greeting)
-Howdy
+>>> lang = SlangEnglish()
 
-To list all the attributes once again we can use `vars()`:
+As expected, when accessing field we will get the latest value.
+The previous value was overwritten by inheritance.
 
->>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
-{'_English__greeting': 'Hello',
- '_American__greeting': 'Howdy'}
+>>> lang.greeting
+'Wassup'
+>>>
+>>> lang.farewell
+'Cya'
+
+However thanks to the name mangling we have an additional access to both
+``FormalEnglish`` and ``SlangEnglish`` fields:
+
+>>> lang._FormalEnglish__greeting
+'Good Morning'
+>>>
+>>> lang._FormalEnglish__farewell
+'Goodbye'
+>>>
+>>> lang._SlangEnglish__greeting
+'Wassup'
+>>>
+>>> lang._SlangEnglish__farewell
+'Cya'
+
+Name mangling works for both class variables and instance variables.
 
 
 Name Collision
