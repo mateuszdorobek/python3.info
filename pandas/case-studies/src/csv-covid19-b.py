@@ -125,13 +125,13 @@ def get(country=None):
     Name: 2021-08-05 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-04']
-    confirmed    200755908
+    confirmed    200755907
     recovered    130899061
     deaths         4283088
     Name: 2021-08-04 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-05']
-    confirmed    201441516
+    confirmed    201441515
     recovered            0
     deaths         4294079
     Name: 2021-08-05 00:00:00, dtype: int64
