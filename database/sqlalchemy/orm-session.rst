@@ -117,5 +117,5 @@ Example
  (2, 'Rick', 'Martinez', 822182400000),
  (3, 'Alex', 'Vogel', 784857600000),
  (4, 'Chris', 'Beck', 933552000000),
- (5, 'Beth', 'Johansen', 822182400000),
+ (5, 'Beth', 'Johanssen', 822182400000),
  (6, 'Mark', 'Watney', 781920000000)]

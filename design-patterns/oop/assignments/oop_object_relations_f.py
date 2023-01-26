@@ -28,14 +28,7 @@ Tests:
     >>> assert all(type(x) is dict for x in result)
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [{'firstname': 'Pan',
-      'lastname': 'Twardowski',
-      'address1_street': 'Kamienica Pod św. Janem Kapistranem',
-      'address1_city': 'Kraków',
-      'address1_post_code': '31-008',
-      'address1_region': 'Małopolskie',
-      'address1_country': 'Poland'},
-     {'firstname': 'Mark',
+    [{'firstname': 'Mark',
       'lastname': 'Watney',
       'address1_street': '2101 E NASA Pkwy',
       'address1_city': 'Houston',
@@ -64,7 +57,7 @@ Tests:
      {'firstname': 'Alex',
       'lastname': 'Vogel',
       'address1_street': 'Linder Hoehe',
-      'address1_city': 'Köln',
+      'address1_city': 'Cologne',
       'address1_post_code': 51147,
       'address1_region': 'North Rhine-Westphalia',
       'address1_country': 'Germany'}]
@@ -74,9 +67,6 @@ Tests:
 import json
 
 DATA = """[
-    {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków", "post_code": "31-008", "region": "Małopolskie", "country": "Poland"}]},
-
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
         {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
         {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
@@ -88,7 +78,7 @@ DATA = """[
     {"firstname": "Rick", "lastname": "Martinez", "addresses": []},
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
+        {"street": "Linder Hoehe", "city": "Cologne", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
 ]"""
 
 # Flatten data, each address field prefixed with address and number

@@ -32,10 +32,7 @@ Tests:
     >>> assert all(type(x) is dict for x in result)
 
     >>> pprint(result, width=112, sort_dicts=False)  # doctest: +NORMALIZE_WHITESPACE
-    [{'firstname': 'Pan',
-      'lastname': 'Twardowski',
-      'addresses': 'Kamienica Pod św. Janem Kapistranem,Kraków,31008,Małopolskie,Poland'},
-     {'firstname': 'Mark',
+    [{'firstname': 'Mark',
       'lastname': 'Watney',
       'addresses': '2101 E NASA Pkwy,Houston,77058,Texas,USA;,Kennedy Space Center,32899,Florida,USA'},
      {'firstname': 'Melissa',
@@ -44,19 +41,12 @@ Tests:
      {'firstname': 'Rick', 'lastname': 'Martinez', 'addresses': ''},
      {'firstname': 'Alex',
       'lastname': 'Vogel',
-      'addresses': 'Linder Hoehe,Köln,51147,North Rhine-Westphalia,Germany'}]
+      'addresses': 'Linder Hoehe,Cologne,51147,North Rhine-Westphalia,Germany'}]
 
 """
 
 
 DATA = [
-    {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem",
-         "city": "Kraków",
-         "postcode": 31008,
-         "region": "Małopolskie",
-         "country": "Poland"}]},
-
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
         {"street": "2101 E NASA Pkwy",
          "city": "Houston",
@@ -85,7 +75,7 @@ DATA = [
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
         {"street": "Linder Hoehe",
-         "city": "Köln",
+         "city": "Cologne",
          "postcode": 51147,
          "region": "North Rhine-Westphalia",
          "country": "Germany"}]}

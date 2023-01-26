@@ -1,10 +1,11 @@
 OOP Abstract Interface
 ======================
-* Python don't have interfaces
-* Cannot instantiate
-* Inheriting class must implement all methods
-* Only method declaration
-* Since Python 3.8: :pep:`544` -- Protocols: Structural subtyping (static duck typing)
+* Python don't have interfaces, although you can achieve similar effect
+* Since Python 3.8 there are Protocols, which effectively are interfaces
+* Interfaces cannot be instantiated
+* Interfaces can be implemented
+* Implemented class must define all interface methods (implement interface)
+* Only public method declaration
 
 .. glossary::
 
@@ -12,9 +13,10 @@ OOP Abstract Interface
         Software entity with public methods and attribute declaration
 
     implement
-        Class implements interface if has all public fields and methods from interface
+        Class implements interface if has all public fields and methods
+        from interface
 
-How do you specify and enforce an interface spec in Python? [#PyDocIFace]_
+How do you specify and enforce an interface spec in Python?
 
 An interface specification for a module as provided by languages such
 as C++ and Java describes the prototypes for the methods and functions
@@ -22,29 +24,29 @@ of the module. Many feel that compile-time enforcement of interface
 specifications helps in the construction of large programs.
 
 Python 3.0 adds an abc module that lets you define Abstract Base Classes
-(ABCs). You can then use isinstance() and issubclass() to check whether
-an instance or a class implements a particular ABC. The collections.abc
-module defines a set of useful ABCs such as Iterable, Container, and
-MutableMapping.
+(ABCs). You can then use ``isinstance()`` and ``issubclass()`` to check
+whether an instance or a class implements a particular ``ABC``. The
+``collections.abc`` module defines a set of useful abstract base classes
+such as ``Iterable``, ``Container``, and ``MutableMapping``.
 
 For Python, many of the advantages of interface specifications can be
 obtained by an appropriate test discipline for components.
 
 A good test suite for a module can both provide a regression test and serve
 as a module interface specification and a set of examples. Many Python
-modules can be run as a script to provide a simple “self test.” Even
+modules can be run as a script to provide a simple "self test". Even
 modules which use complex external interfaces can often be tested in
-isolation using trivial “stub” emulations of the external interface.
-The doctest and unittest modules or third-party test frameworks can be
-used to construct exhaustive test suites that exercise every line of code
-in a module.
+isolation using trivial "stub" emulations of the external interface.
+The ``doctest`` and ``unittest`` modules or third-party test frameworks
+can be used to construct exhaustive test suites that exercise every line
+of code in a module.
 
 An appropriate testing discipline can help build large complex applications
 in Python as well as having interface specifications would. In fact, it can
 be better because an interface specification cannot test certain properties
-of a program. For example, the append() method is expected to add new
-elements to the end of some internal list; an interface specification
-cannot test that your append() implementation will actually do this
+of a program. For example, the ``append()`` method is expected to add new
+elements to the end of some internal ``list``; an interface specification
+cannot test that your ``append()`` implementation will actually do this
 correctly, but it's trivial to check this property in a test suite.
 
 Writing test suites is very helpful, and you might want to design your code
@@ -52,6 +54,8 @@ to make it easily tested. One increasingly popular technique, test-driven
 development, calls for writing parts of the test suite first, before you
 write any of the actual code. Of course Python allows you to be sloppy
 and not write test cases at all.
+
+.. note:: Source [#PyDocIFace]_
 
 
 Problem

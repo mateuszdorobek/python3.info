@@ -172,10 +172,7 @@ Use Case - 0x02
 ---------------
 .. code-block:: json
 
-    [{"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków", "post_code": "31-008", "region": "Małopolskie", "country": "Poland"}]},
-
-     {"firstname": "Mark", "lastname": "Watney", "addresses": [
+    [{"firstname": "Mark", "lastname": "Watney", "addresses": [
         {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
         {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
 
@@ -186,4 +183,4 @@ Use Case - 0x02
      {"firstname": "Rick", "lastname": "Martinez", "addresses": []},
 
      {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}]
+        {"street": "Linder Hoehe", "city": "Cologne", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}]

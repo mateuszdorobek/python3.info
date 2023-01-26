@@ -10,13 +10,19 @@ OOP Abstract Class
 .. glossary::
 
     abstract class
-        Class which can only be inherited, not instantiated
+        Class which can only be inherited, not instantiated. Abstract
+        classes can have regular methods which will be inherited normally.
+        Some methods can be marked as abstract, and those has to be
+        overwritten in subclasses.
 
     abstract method
-        Method must be implemented in a subclass
+        Method which has to be present (implemented) in a subclass.
 
     abstract static method
-        Static method which must be implemented in a subclass
+        Static method which must be implemented in a subclass.
+
+    abstract property
+        Class variable which has to be present in a subclass.
 
 
 SetUp
@@ -336,11 +342,10 @@ to find what is overwriting it:
 
 >>> from pprint import pprint
 >>> import sys
->>>
->>>
+
 >>> sys.modules['abc']  # doctest: +ELLIPSIS
 <module 'abc' (frozen)>
->>>
+
 >>> pprint(sys.path)  # doctest: +SKIP
 ['/Users/watney/myproject',
  '/Applications/PyCharm 2022.3.app/Contents/plugins/python/helpers/pydev',
@@ -359,8 +364,7 @@ Use Case - 0x01
 Abstract Class:
 
 >>> from abc import ABC, abstractmethod
->>>
->>>
+
 >>> class Document(ABC):
 ...     def __init__(self, filename):
 ...         self.filename = filename
@@ -394,8 +398,7 @@ TypeError: Can't instantiate abstract class Document with abstract method displa
 Use Case - 0x02
 ---------------
 >>> from abc import ABC, abstractmethod
->>>
->>>
+
 >>> class UIElement(ABC):
 ...     def __init__(self, name):
 ...         self.name = name
@@ -405,6 +408,10 @@ Use Case - 0x02
 ...         pass
 >>>
 >>>
+>>> def render(component: list[UIElement]):
+...     for element in component:
+...         element.render()
+
 >>> class TextInput(UIElement):
 ...     def render(self):
 ...         print(f'Rendering {self.name} TextInput')
@@ -413,13 +420,7 @@ Use Case - 0x02
 >>> class Button(UIElement):
 ...     def render(self):
 ...         print(f'Rendering {self.name} Button')
->>>
->>>
->>> def render(component: list[UIElement]):
-...     for element in component:
-...         element.render()
->>>
->>>
+
 >>> login_window = [
 ...     TextInput(name='Username'),
 ...     TextInput(name='Password'),
@@ -448,13 +449,11 @@ Use Case - 0x03
 ...         if not self.AGE_MIN <= age < self.AGE_MAX:
 ...             raise ValueError('Age is out of bounds')
 ...         self.age = age
->>>
->>>
+
 >>> class Astronaut(Person):
 ...     AGE_MIN = 30
 ...     AGE_MAX = 50
->>>
->>>
+
 >>> mark = Astronaut(age=40)
 
 

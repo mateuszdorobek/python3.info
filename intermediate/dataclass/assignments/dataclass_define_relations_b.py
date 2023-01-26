@@ -66,15 +66,10 @@ Tests:
     >>> assert address['country'] is str, \
     'Address.country has invalid type annotation, expected: str'
 """
-from dataclasses import dataclass, field
-from typing import Optional
+from dataclasses import dataclass
 
 
 DATA = [
-    {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków",
-         "post_code": 31008, "region": "Małopolskie", "country": "Poland"}]},
-
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
         {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058,
          "region": "Texas", "country": "USA"},
@@ -90,7 +85,7 @@ DATA = [
     {"firstname": "Rick", "lastname": "Martinez"},
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147,
+        {"street": "Linder Hoehe", "city": "Cologne", "post_code": 51147,
          "region": "North Rhine-Westphalia", "country": "Germany"}]}
 ]
 

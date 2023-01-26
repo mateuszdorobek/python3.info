@@ -29,10 +29,7 @@ Tests:
     ...            for addr in astro.addresses)
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(firstname='Pan',
-               lastname='Twardowski',
-               addresses=[Address(street='Kamienica Pod św. Janem Kapistranem', city='Kraków', postcode='31-008', region='Małopolskie', country='Poland')]),
-     Astronaut(firstname='José',
+    [Astronaut(firstname='José',
                lastname='Jiménez',
                addresses=[Address(street='2101 E NASA Pkwy', city='Houston', postcode=77058, region='Texas', country='USA'),
                           Address(street=None, city='Kennedy Space Center', postcode=32899, region='Florida', country='USA')]),
@@ -49,15 +46,13 @@ Tests:
                addresses=[]),
      Astronaut(firstname='Alex',
                lastname='Vogel',
-               addresses=[Address(street='Linder Hoehe', city='Köln', postcode=51147, region='North Rhine-Westphalia', country='Germany')])]
+               addresses=[Address(street='Linder Hoehe', city='Cologne', postcode=51147, region='North Rhine-Westphalia', country='Germany')])]
 """
 
 from dataclasses import dataclass
 
 
 DATA = [
-    {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków", "postcode": "31-008", "region": "Małopolskie", "country": "Poland"}]},
     {"firstname": "José", "lastname": "Jiménez", "addresses": [
         {"street": "2101 E NASA Pkwy", "city": "Houston", "postcode": 77058, "region": "Texas", "country": "USA"},
         {"street": None, "city": "Kennedy Space Center", "postcode": 32899, "region": "Florida", "country": "USA"}]},
@@ -69,7 +64,7 @@ DATA = [
         {"street": None, "city": "Звёздный городо́к", "postcode": 141160, "region": "Московская область", "country": "Россия"}]},
     {"firstname": "Melissa", "lastname": "Lewis", "addresses": []},
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "postcode": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
+        {"street": "Linder Hoehe", "city": "Cologne", "postcode": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
 ]
 
 class Astronaut:

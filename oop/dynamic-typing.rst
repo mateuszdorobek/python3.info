@@ -236,9 +236,6 @@ Example
 .. code-block:: python
 
     DATA = [
-        {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-            {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków", "postcode": "31-008", "region": "Małopolskie", "country": "Poland"}]},
-
         {"firstname": "Mark", "lastname": "Watney", "addresses": [
             {"street": "2101 E NASA Pkwy", "city": "Houston", "postcode": 77058, "region": "Texas", "country": "USA"},
             {"street": "", "city": "Kennedy Space Center", "postcode": 32899, "region": "Florida", "country": "USA"}]},
@@ -250,7 +247,7 @@ Example
         {"firstname": "Rick", "lastname": "Martinez", "addresses": []},
 
         {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-            {"street": "Linder Hoehe", "city": "Köln", "postcode": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
+            {"street": "Linder Hoehe", "city": "Cologne", "postcode": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
     ]
 
 
@@ -270,11 +267,10 @@ Example
 
 
     print(result)
-    # [Container('Pan', 'Twardowski', [{'street': 'Kamienica Pod św. Janem Kapistranem', 'city': 'Kraków', 'postcode': '31-008', 'region': 'Małopolskie', 'country': 'Poland'}]),
-    #  Container('Mark', 'Watney', [{'street': '2101 E NASA Pkwy', 'city': 'Houston', 'postcode': 77058, 'region': 'Texas', 'country': 'USA'}, {'street': '', 'city': 'Kennedy Space Center', 'postcode': 32899, 'region': 'Florida', 'country': 'USA'}]),
+    # [Container('Mark', 'Watney', [{'street': '2101 E NASA Pkwy', 'city': 'Houston', 'postcode': 77058, 'region': 'Texas', 'country': 'USA'}, {'street': '', 'city': 'Kennedy Space Center', 'postcode': 32899, 'region': 'Florida', 'country': 'USA'}]),
     #  Container('Melissa', 'Lewis', [{'street': '4800 Oak Grove Dr', 'city': 'Pasadena', 'postcode': 91109, 'region': 'California', 'country': 'USA'}, {'street': '2825 E Ave P', 'city': 'Palmdale', 'postcode': 93550, 'region': 'California', 'country': 'USA'}]),
     #  Container('Rick', 'Martinez', []),
-    #  Container('Alex', 'Vogel', [{'street': 'Linder Hoehe', 'city': 'Köln', 'postcode': 51147, 'region': 'North Rhine-Westphalia', 'country': 'Germany'}])]
+    #  Container('Alex', 'Vogel', [{'street': 'Linder Hoehe', 'city': 'Cologne', 'postcode': 51147, 'region': 'North Rhine-Westphalia', 'country': 'Germany'}])]
 
 
 .. todo:: Assignments

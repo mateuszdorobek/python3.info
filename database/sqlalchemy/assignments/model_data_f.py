@@ -83,10 +83,6 @@ from typing import Optional
 
 
 DATA = [
-    {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
-        {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków",
-         "post_code": 31008, "region": "Małopolskie", "country": "Poland"}]},
-
     {"firstname": "José", "lastname": "Jiménez", "addresses": [
         {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058,
          "region": "Texas", "country": "USA"},
@@ -108,7 +104,7 @@ DATA = [
     {"firstname": "Melissa", "lastname": "Lewis"},
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147,
+        {"street": "Linder Hoehe", "city": "Cologne", "post_code": 51147,
          "region": "North Rhine-Westphalia", "country": "Germany"}]}
 ]
 

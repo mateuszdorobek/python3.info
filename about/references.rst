@@ -88,7 +88,7 @@ CSV
 ... mlewis@nasa.gov,shipment,Kamienica Pod św. Janem Kapistranem,Kraków,31008,Małopolskie,Poland
 ... rmartinez@nasa.gov,billing,,Звёздный городо́к,141160,Московская область,Россия
 ... rmartinez@nasa.gov,shipment,,Космодро́м Байкону́р,,Кызылординская область,Қазақстан
-... avogel@esa.int,shipment,Linder Hoehe,Köln,51147,North Rhine-Westphalia,Germany
+... avogel@esa.int,shipment,Linder Hoehe,Cologne,51147,North Rhine-Westphalia,Germany
 ... bjohanssen@nasa.gov,shipment,2825 E Ave P,Palmdale,93550,California,USA
 ... cbeck@nasa.gov,shipment,4800 Oak Grove Dr,Pasadena,91109,California,USA"""
 
@@ -170,11 +170,11 @@ Addresses
     "Kennedy Space Center", None, "Cape Canaveral", "32899", "Floryda", "USA"
     "NASA Jet Propulsion Laboratory", "4800 Oak Grove Dr", "Pasadena", "91109", "California", "USA"
     "NASA Armstrong Research Center", "2825 E Ave P", "Palmdale", 93550, "California", "USA"
-    "ESA EAC", "Linder Hoehe", "Köln", "51147", "North Rhine-Westphalia", "Germany"
+    "ESA EAC", "Linder Hoehe", "Cologne", "51147", "North Rhine-Westphalia", "Germany"
 
-.. code-block:: python
+.. code-block:: json
 
-    DATA = [
+    [
         {"firstname": "Pan", "lastname": "Twardowski", "addresses": [
             {"street": "Kamienica Pod św. Janem Kapistranem", "city": "Kraków", "post_code": "31-008", "region": "Małopolskie", "country": "Poland"}]},
 
@@ -182,18 +182,50 @@ Addresses
             {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
             {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
 
-        {"firstname": "Mark", "lastname": "Watney", "addresses": [
-            {"street": "4800 Oak Grove Dr", "city": "Pasadena", "post_code": 91109, "region": "California", "country": "USA"},
-            {"street": "2825 E Ave P", "city": "Palmdale", "post_code": 93550, "region": "California", "country": "USA"}]},
-
         {"firstname": "Иван", "lastname": "Иванович", "addresses": [
             {"street": "", "city": "Космодро́м Байкону́р", "post_code": "", "region": "Кызылординская область", "country": "Қазақстан"},
-            {"street": "", "city": "Звёздный городо́к", "post_code": 141160, "region": "Московская область", "country": "Россия"}]},
+            {"street": "", "city": "Звёздный городо́к", "post_code": 141160, "region": "Московская область", "country": "Россия"}]}
+    ]
 
-        {"firstname": "Melissa", "lastname": "Lewis"},
+.. code-block:: json
 
-        {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-            {"street": "Linder Hoehe", "city": "Köln", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
+    [
+      {"firstname": "Mark",
+       "lastname": "Watney", "addresses": [
+        {"street": "2101 E NASA Pkwy",
+          "city": "Houston",
+          "postcode": 77058,
+          "region": "Texas",
+          "country": "USA"},
+        {"street": "",
+          "city": "Kennedy Space Center",
+          "postcode": 32899,
+          "region": "Florida",
+          "country": "USA"}]},
+
+      {"firstname": "Melissa", "lastname": "Lewis", "addresses": [
+        {"street": "4800 Oak Grove Dr",
+          "city": "Pasadena",
+          "postcode": 91109,
+          "region": "California",
+          "country": "USA"}]},
+
+      {"firstname": "Rick", "lastname": "Martinez", "addresses": [
+        {"street": "2825 E Ave P",
+          "city": "Palmdale",
+          "postcode": 93550,
+          "region": "California",
+          "country": "USA"}]},
+
+      {"firstname": "Alex", "lastname": "Vogel", "addresses": [
+        {"street": "Linder Hoehe",
+          "city": "Cologne",
+          "postcode": 51147,
+          "region": "North Rhine-Westphalia",
+          "country": "Germany"}]},
+
+      {"firstname": "Beth", "lastname": "Johanssen", "addresses": []},
+      {"firstname": "Cris", "lastname": "Beck", "addresses": []}
     ]
 
 

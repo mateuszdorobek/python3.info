@@ -164,7 +164,7 @@ ADDRESSES = [
      'city': 'Космодро́м Байкону́р', 'postcode': '',
      'region': 'Кызылординская область', 'country': 'Қазақстан'},
     {'customer': 'avogel@esa.int', 'type': 'shipping',
-     'street': 'Linder Hoehe', 'city': 'Köln', 'postcode': '51147',
+     'street': 'Linder Hoehe', 'city': 'Cologne', 'postcode': '51147',
      'region': 'North Rhine-Westphalia', 'country': 'Germany'},
     {'customer': 'bjohanssen@nasa.gov', 'type': 'shipping',
      'street': '2825 E Ave P', 'city': 'Palmdale', 'postcode': '93550',

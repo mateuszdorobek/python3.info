@@ -58,7 +58,7 @@ Tests:
      {'id': 2, 'firstname': 'Mark', 'lastname': 'Watney', 'astronaut_id': 2, 'street': '4800 Oak Grove Dr', 'city': 'Pasadena', 'state': 'California', 'code': 91109, 'country': 'USA'},
      {'id': 2, 'firstname': 'Mark', 'lastname': 'Watney', 'astronaut_id': 2, 'street': '2825 E Ave P', 'city': 'Palmdale', 'state': 'California', 'code': 93550, 'country': 'USA'},
      {'id': 3, 'firstname': 'Иван', 'lastname': 'Иванович', 'astronaut_id': 3, 'street': '', 'city': 'Космодро́м Байкону́р', 'state': 'Кызылординская область', 'code': None, 'country': 'Қазақстан'},
-     {'id': 5, 'firstname': 'Alex', 'lastname': 'Vogel', 'astronaut_id': 5, 'street': 'Linder Hoehe', 'city': 'Köln', 'state': None, 'code': 51147, 'country': 'Germany'}]
+     {'id': 5, 'firstname': 'Alex', 'lastname': 'Vogel', 'astronaut_id': 5, 'street': 'Linder Hoehe', 'city': 'Cologne', 'state': None, 'code': 51147, 'country': 'Germany'}]
 """
 
 import sqlite3
@@ -80,7 +80,7 @@ DATA = [
     {"firstname": "Melissa", "lastname": "Lewis", "addresses": []},
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Köln", "code": 51147, "state": None, "country": "Germany"}]}
+        {"street": "Linder Hoehe", "city": "Cologne", "code": 51147, "state": None, "country": "Germany"}]}
 ]
 
 SQL_CREATE_TABLE_ASTRONAUTS = """

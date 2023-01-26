@@ -9,8 +9,8 @@ The deprecated default adapters and converters consist of:
 
 * An adapter for datetime.date objects to strings in ISO 8601 format.
 * An adapter for datetime.datetime objects to strings in ISO 8601 format.
-* A converter for declared “date” types to datetime.date objects.
-* A converter for declared “timestamp” types to datetime.datetime objects. Fractional parts will be truncated to 6 digits (microsecond precision).
+* A converter for declared "date" types to datetime.date objects.
+* A converter for declared "timestamp" types to datetime.datetime objects. Fractional parts will be truncated to 6 digits (microsecond precision).
 
 The default "timestamp" converter ignores UTC offsets in the database
 and always returns a naive datetime.datetime object. To preserve UTC

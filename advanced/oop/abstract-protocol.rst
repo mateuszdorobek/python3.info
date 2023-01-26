@@ -506,6 +506,54 @@ decorator that provides the same semantics for class and instance checks
 as for ``collections.abc`` classes, essentially making them 'runtime
 protocols':
 
+>>> class Message(Protocol):
+...     recipient: str
+...     body: str
+>>>
+>>>
+>>> class Email:
+...     sender: str
+...     recipient: str
+...     subject: str
+...     body: str
+>>>
+>>>
+>>> isinstance(Email, Message)
+Traceback (most recent call last):
+TypeError: Instance and class checks can only be used with @runtime_checkable protocols
+
+>>> @runtime_checkable
+... class Message(Protocol):
+...     recipient: str
+...     body: str
+>>>
+>>>
+>>> class Email:
+...     sender: str
+...     recipient: str
+...     subject: str
+...     body: str
+>>>
+>>>
+>>> isinstance(Email, Message)
+False
+
+
+>>> class Person(Protocol):
+...     firstname: str
+...     lastname: str
+>>>
+>>>
+>>> class Astronaut:
+...     firstname: str = 'Mark'
+...     lastname: str = 'Watney'
+...     job: str = 'astronaut'
+>>>
+>>>
+>>> isinstance(Astronaut, Person)
+Traceback (most recent call last):
+TypeError: Instance and class checks can only be used with @runtime_checkable protocols
+
 >>> @runtime_checkable
 ... class Person(Protocol):
 ...     firstname: str
@@ -520,56 +568,6 @@ protocols':
 >>>
 >>> isinstance(Astronaut, Person)
 True
-
->>> class Message(Protocol):
-...     recipient: str
-...     body: str
->>>
->>>
->>> class Email(Message):
-...     sender: str
-...     recipient: str
-...     subject: str
-...     body: str
->>>
->>>
->>> email = Email()
->>> isinstance(email, Message)  # doctest: +SKIP
-Traceback (most recent call last):
-TypeError: Instance and class checks can only be used with @runtime_checkable protocols
-
->>> from typing import Protocol, runtime_checkable
->>>
->>>
->>> @runtime_checkable
-... class Message(Protocol):
-...     recipient: str
-...     body: str
->>>
->>>
->>> class Email(Message):
-...     sender: str
-...     recipient: str
-...     subject: str
-...     body: str
->>>
->>>
->>> email = Email()
->>> isinstance(email, Message)
-True
-
->>> from typing import Protocol, runtime_checkable
->>>
->>>
->>> @runtime_checkable
-... class SupportsClose(Protocol):
-...     def close(self): ...
->>>
->>>
->>> file = open('/tmp/myfile.txt', mode='w')
->>> isinstance(file, SupportsClose)
-True
->>> file.close()
 
 
 Use Case - 0x01

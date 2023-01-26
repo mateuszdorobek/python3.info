@@ -32,9 +32,9 @@ obtained by an appropriate test discipline for components.
 
 A good test suite for a module can both provide a regression test and serve
 as a module interface specification and a set of examples. Many Python
-modules can be run as a script to provide a simple “self test.” Even
+modules can be run as a script to provide a simple "self test." Even
 modules which use complex external interfaces can often be tested in
-isolation using trivial “stub” emulations of the external interface.
+isolation using trivial "stub" emulations of the external interface.
 The doctest and unittest modules or third-party test frameworks can be
 used to construct exhaustive test suites that exercise every line of code
 in a module.

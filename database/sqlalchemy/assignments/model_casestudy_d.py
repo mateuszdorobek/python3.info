@@ -114,7 +114,7 @@ mwatney@nasa.gov,shipment,,Kennedy Space Center,32899,Florida,USA
 mlewis@nasa.gov,shipment,Kamienica Pod św. Janem Kapistranem,Kraków,31008,Małopolskie,Poland
 rmartinez@nasa.gov,billing,,Звёздный городо́к,141160,Московская область,Россия
 rmartinez@nasa.gov,shipment,,Космодро́м Байкону́р,,Кызылординская область,Қазақстан
-avogel@esa.int,shipment,Linder Hoehe,Köln,51147,North Rhine-Westphalia,Germany
+avogel@esa.int,shipment,Linder Hoehe,Cologne,51147,North Rhine-Westphalia,Germany
 bjohanssen@nasa.gov,shipment,2825 E Ave P,Palmdale,93550,California,USA
 cbeck@nasa.gov,shipment,4800 Oak Grove Dr,Pasadena,91109,California,USA"""
 
