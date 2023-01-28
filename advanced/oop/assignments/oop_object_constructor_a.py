@@ -8,13 +8,18 @@ English:
     1. Define class `Point` with methods:
         a. `__new__()` returning new `Point` class instances
         b. `__init__()` taking `x` and `y` and stores them as attributes
+        c. Use `object.__new__(cls)`
     2. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj klasę `Point` z metodami:
         a. `__new__()` zwraca nową instancję klasy `Point`
         b. `__init__()` przyjmuje `x` i `y` i zapisuje je jako atrybuty
+        c. Użyj `object.__new__(cls)`
     2. Uruchom doctesty - wszystkie muszą się powieść
+
+Hint:
+    * Despite PyCharm suggestion, __new__ and __init__ signatures are different
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -30,10 +35,21 @@ Tests:
     >>> assert pt.y == 2
 """
 
+
+# Define class `Point` with methods:
+# - `__new__()` returning new `Point` class instances
+# - `__init__()` taking `x` and `y` and stores them as attributes
+# - Use `object.__new__(cls)`
+# - Despite PyCharm suggestion, __new__ and __init__ signatures are different
+# type: Type
+class Point:
+    ...
+
+
 # Solution
 class Point:
-    def __new__(cls, *args, **kwargs):
-        return super().__new__(cls, *args, **kwargs)
+    def __new__(cls):
+        return object.__new__(cls)
 
     def __init__(self, x, y):
         self.x = x

@@ -1,7 +1,7 @@
 """
 * Assignment: Protocol Iterator Range
 * Complexity: medium
-* Lines of code: 14 lines
+* Lines of code: 9 lines
 * Time: 8 min
 
 English:

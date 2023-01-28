@@ -101,8 +101,7 @@ Integer Caching
 >>>
 >>> id(256)  # doctest: +SKIP
 4514832592
->>>
->>>
+
 >>> id(257)  # doctest: +SKIP
 4561903248
 >>>
@@ -120,8 +119,7 @@ Integer Caching
 >>>
 >>> id(-5)  # doctest: +SKIP
 4423729200
->>>
->>>
+
 >>> id(-6)  # doctest: +SKIP
 4463320144
 >>>
