@@ -208,6 +208,7 @@ Modules and Packages
     :maxdepth: 1
     :caption: Modules and Packages
 
+    modules/layout.rst
     modules/venv.rst
     modules/pip.rst
     modules/pyproject-toml.rst

@@ -49,10 +49,17 @@ StackOverflow Survey:
 * https://stackoverflow.blog/2012/02/survey-results/
 * https://stackoverflow.blog/2011/01/11/survey-says/
 
+Python Ecosystem Survey:
+
+* https://www.jetbrains.com/lp/devecosystem-2022/python/
+* https://www.jetbrains.com/lp/devecosystem-2021/python/
+* https://www.jetbrains.com/lp/devecosystem-2020/python/
+
 Development Ecosystem Survey:
 
+* https://www.jetbrains.com/lp/devecosystem-2022/
 * https://www.jetbrains.com/lp/devecosystem-2021/
-* https://www.jetbrains.com/lp/devecosystem-2020/python/
+* https://www.jetbrains.com/lp/devecosystem-2020/
 
 Django Survey:
 
