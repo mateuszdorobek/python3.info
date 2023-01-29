@@ -12,11 +12,13 @@ PROCENT = 1
 
 #%%
 
-CONFIRMED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+# CONFIRMED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+# RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
+# DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
 
-RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
-
-DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
+CONFIRMED = 'https://python.astrotech.io/_static/covid19-confirmed.csv'
+RECOVERED = 'https://python.astrotech.io/_static/covid19-recovered.csv'
+DEATHS = 'https://python.astrotech.io/_static/covid19-deaths.csv'
 
 
 confirmed = pd.read_csv(CONFIRMED).convert_dtypes()
@@ -125,15 +127,15 @@ def get(country=None):
     Name: 2021-08-05 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-04']
-    confirmed    200755907
+    confirmed    200758580
     recovered    130899061
-    deaths         4283088
+    deaths         4283131
     Name: 2021-08-04 00:00:00, dtype: int64
 
     >>> get().loc['2021-08-05']
-    confirmed    201441515
+    confirmed    201444202
     recovered            0
-    deaths         4294079
+    deaths         4294122
     Name: 2021-08-05 00:00:00, dtype: int64
     """
     return pd.concat((
