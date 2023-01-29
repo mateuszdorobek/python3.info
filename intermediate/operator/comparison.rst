@@ -103,7 +103,3 @@ Assignments
 .. literalinclude:: assignments/operator_comparison_a.py
     :caption: :download:`Solution <assignments/operator_comparison_a.py>`
     :end-before: # Solution
-
-.. literalinclude:: assignments/operator_comparison_b.py
-    :caption: :download:`Solution <assignments/operator_comparison_b.py>`
-    :end-before: # Solution

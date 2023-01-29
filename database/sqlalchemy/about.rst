@@ -79,6 +79,7 @@ Architecture
 1.x vs 2.x
 ----------
 * ``future=True`` flag to ``create_engine()``
+* On 2023-01-26 SQLAlchemy 2.0 has been released [#sqlalchemy20]_
 
 For SQLAlchemy 1.4, the ``RemovedIn20Warning`` deprecation class is emitted
 only when an environment variable ``SQLALCHEMY_WARN_20`` is set to either of
@@ -127,3 +128,4 @@ References
 .. [#PythonDeveloperSurvey2020] JetBrains s.r.o. https://www.jetbrains.com/lp/python-developers-survey-2020/#FrameworksLibraries
 .. [#Phan2019] Phan, Manh. Unit of Work Pattern. Year: 2019. Retrieved: 2022-01-30. URL: https://ducmanhphan.github.io/
 .. [#Laskar2021] Ashif Iqbal Laskar. Unit-of-Work-Design-Pattern. Year: 2021. Retrieved: 2022-01-30. URL: http://www.ashifiqbal.com/technology/entity-framework/unit-of-work-design-pattern/
+.. [#sqlalchemy20] Bayer, Mike. SQLAlchemy 2.0.0 Released. Year: 2023. Retrieved: 2023-01-26. URL: https://www.sqlalchemy.org/blog/2023/01/26/sqlalchemy-2.0.0-released/

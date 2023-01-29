@@ -71,6 +71,7 @@ Decorators
     decorator/about-object.rst
     decorator/about-arguments.rst
     decorator/decorate-function.rst
+    decorator/decorate-stacked.rst
     decorator/decorate-method.rst
     decorator/decorate-class.rst
     decorator/decorator-function.rst
@@ -137,6 +138,7 @@ Performance
     performance/casestudy-memoize.rst
     performance/casestudy-strconcat.rst
     performance/casestudy-uniquekeys.rst
+    performance/casestudy-comprehension.rst
     performance/profiling.rst
     performance/compilers.rst
 

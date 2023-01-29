@@ -181,33 +181,33 @@ release = f'#{sha1}, {today}'
 copyright = f'{year}, CC-BY-SA-4.0, {author} <{email}>, last update: {today}'
 
 exclude_patterns = [
-    '.github',              '*/.github',
-    '.idea',                '*/.idea',
-    '.run',                 '*/.run',
-    '_bin',                 '*/_bin',
-    '_build',               '*/_build',
-    '_contrib',             '*/_contrib',
-    '_extensions',          '*/_extensions',
-    '_i18n',                '*/_i18n',
-    '_img',                 '*/_img',
-    '_slides',              '*/_slides',
-    '_static',              '*/_static',
-    '_themes',              '*/_themes',
-    '_tmp',                 '*/_tmp',
-    '__TODO',               '*/__TODO',
-    '.*',                   '*/.*',
-    'venv*',                '*/venv*',
-    'virtualenv*',          '*/virtualenv*',
-    '.virtualenv*',         '*/.virtualenv*',
-    '.venv*',               '*/.venv*',
-    'README.rst',           '*/README.rst',
-    'TODO.rst',             '*/TODO.rst',
-    'Thumbs.db',            '*/Thumbs.db',
-    '.DS_Store',            '*/.DS_Store',
-    'assignments',          '*/assignments',
-    '_template.rst',        '*/_template.rst',
-    '*.ipynb_checkpoints',  '*/*.ipynb_checkpoints',
-    '*/index.rst',
+    '.github',                    '*/.github',
+    '.idea',                      '*/.idea',
+    '.run',                       '*/.run',
+    '_bin',                       '*/_bin',
+    '_build',                     '*/_build',
+    '_contrib',                   '*/_contrib',
+    '_extensions',                '*/_extensions',
+    '_i18n',                      '*/_i18n',
+    '_img',                       '*/_img',
+    '_slides',                    '*/_slides',
+    '_static',                    '*/_static',
+    '_themes',                    '*/_themes',
+    '_tmp',                       '*/_tmp',
+    '__TODO',                     '*/__TODO',
+    '.*',                         '*/.*',
+    'venv*',                      '*/venv*',
+    'virtualenv*',                '*/virtualenv*',
+    '.virtualenv*',               '*/.virtualenv*',
+    '.venv*',                     '*/.venv*',
+    'README.rst',                 '*/README.rst',
+    'TODO.rst',                   '*/TODO.rst',
+    'Thumbs.db',                  '*/Thumbs.db',
+    '.DS_Store',                  '*/.DS_Store',
+    'assignments',                '*/assignments',
+    '_template.rst',              '*/_template.rst',
+    '*.ipynb_checkpoints',        '*/*.ipynb_checkpoints',
+    '_about/donation-failed.rst', '_about/donation-success.rst',
 ]
 
 html_show_sphinx = False
@@ -286,3 +286,20 @@ man_pages = [
 
 texinfo_documents = [
     (master_doc, project_slug, project, author, project, '', 'Miscellaneous')]
+
+#%%
+# https://github.com/sphinx-doc/sphinx/blob/cc314f13e8a98393ab018d83d8957a724a6f338a/doc/extdev/appapi.rst
+
+# def on_missing_reference(app, env, node, contnode):
+#     if node['reftype'] == 'any':
+#         return contnode
+#     else:
+#         return None
+#
+# def on_duplicate_term(app, env, node, contnode):
+#         return None
+#
+#
+# def setup(app):
+#     app.connect('missing-reference', on_missing_reference)
+#     app.connect('duplicate-term', on_duplicate_term)

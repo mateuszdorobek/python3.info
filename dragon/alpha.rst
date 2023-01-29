@@ -75,21 +75,21 @@ Non-functional requirements:
 
 Post notes:
 
-    b. Trainer acts as Product Owner with little technical knowledge
-    c. You are the software engineer who need to decide and live with
+    a. Trainer acts as Product Owner with little technical knowledge
+    b. You are the software engineer who need to decide and live with
        consequences of your choices
-    d. Task is a narrative story telling to demonstrate OOP
+    c. Task is a narrative story telling to demonstrate OOP
        and good engineering practices
-    e. Calculated last position of the game should be x=20, y=40
-    f. You can introduce new fields, methods, functions, variables,
+    d. Calculated last position of the game should be x=20, y=40
+    e. You can introduce new fields, methods, functions, variables,
        constants, classes, objects, whatever you want
-    g. Don't use modules form outside the Python Standard Library
-    h. Task is business requirement specification, not a technical
+    f. Don't use modules form outside the Python Standard Library
+    g. Task is business requirement specification, not a technical
        documentation, i.e., "what Dragon has to do, not how to do it"
-    i. You don't have to keep order of specification while writing code
-    j. This is `alpha` version, so no new functionality like
+    h. You don't have to keep order of specification while writing code
+    i. This is `alpha` version, so no new functionality like
        negative position checking etc
-    l. You can create tests, i.e.: unittest, doctest
+    j. You can create tests, i.e.: unittest, doctest
     k. Do not read solution or any future iterations of this exercise;
        if you read future tasks, you will spoil fun and learning
 

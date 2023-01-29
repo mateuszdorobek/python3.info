@@ -68,6 +68,8 @@ Type Annotation
     type-annotation/type-sequence.rst
     type-annotation/type-mapping.rst
     type-annotation/type-nested.rst
+    type-annotation/type-typeddict.rst
+    type-annotation/type-namedtuple.rst
     type-annotation/type-callable.rst
     type-annotation/type-type.rst
     type-annotation/extra.rst

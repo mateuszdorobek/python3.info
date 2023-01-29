@@ -248,7 +248,7 @@ Example:
 
 
 Option 10
---------
+---------
 >>> from collections import namedtuple
 >>>
 >>>

@@ -283,7 +283,7 @@ URL Create
 ... )
 >>>
 >>> print(DATABASE)
-mssql+pyodbc://myusername:mypassword@myhost:49242/mydatabase?authentication=ActiveDirectoryIntegrated&driver=ODBC+Driver+17+for+SQL+Server
+mssql+pyodbc://myusername:***@myhost:49242/mydatabase?authentication=ActiveDirectoryIntegrated&driver=ODBC+Driver+17+for+SQL+Server
 
 
 Good Practice

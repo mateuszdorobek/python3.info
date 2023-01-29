@@ -39,6 +39,7 @@ Polish
     zmieniają z poziomem
 11. Przeprowadź symulację walki. Kto zginie pierwszy?
 12. Wymagania niefunkcjonalne:
+
     a. Zadanie jest symulacją procesu developmentu
     b. Trener zachowuje się jak Product Owner z niewielką techniczną wiedzą
     c. Ty jesteś inżynierem oprogramowania, który musi podejmować decyzje i

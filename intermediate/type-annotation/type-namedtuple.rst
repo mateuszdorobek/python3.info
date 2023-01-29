@@ -2,41 +2,40 @@ Type Annotation NamedTuple
 ==========================
 
 
-NamedTuple
-----------
-SetUp:
-
+SetUp
+-----
 >>> from typing import NamedTuple
 
-Problem:
 
+Problem
+-------
 >>> def hello_astronaut(astronaut):
 ...     result = f'Hello {astronaut[0]} {astronaut[1]}'
->>>
->>>
+
 >>> mark = ('Mark', 'Watney', 40)
 >>> hello_astronaut(mark)
->>>
+
 >>> iris = ('Iris', 'Setosa')
 >>> hello_astronaut(iris)
 
-Solution 1 - tuple:
 
+Solution 1 - tuple
+------------------
 >>> def hello_astronaut(astronaut: tuple[str,str,int]):
 ...     result = f'Hello {astronaut[0]} {astronaut[1]}'
->>>
->>>
+
 >>> mark = ('Mark', 'Watney', 40)
 >>> hello_astronaut(mark) # ok
->>>
+
 >>> iris = ('Iris', 'Setosa')
 >>> hello_astronaut(iris)  # error (missing int)
->>>
+
 >>> iris = ('Iris', 'Setosa', 1)
 >>> hello_astronaut(iris)  # ok
 
-Solution 2 - NamedTuple:
 
+Solution 2 - NamedTuple
+-----------------------
 >>> class Astronaut(NamedTuple):
 ...     firstname: str
 ...     lastname: str
@@ -45,17 +44,19 @@ Solution 2 - NamedTuple:
 >>>
 >>> def hello_astronaut(astronaut: Astronaut):
 ...     result = f'Hello {astronaut[0]} {astronaut[1]}'
->>>
->>>
+
 >>> mark = Astronaut('Mark', 'Watney', 40)
 >>> hello_astronaut(mark) # ok
->>>
+
 >>> mark = Astronaut(firstname='Mark', lastname='Watney', age=40)
 >>> hello_astronaut(mark) # ok
->>>
+
 >>> iris = ('Iris', 'Setosa', 1)
 >>> hello_astronaut(iris)  # ok
 
+
+Attributes
+----------
 Using ``NamedTuple`` we can also make ``hello_astronaut()`` function
 more readable by using attributes ``astronaut.firstname`` and
 ``astronaut.lastname`` instead of indexes, such as: ``astronaut[0]``
@@ -64,6 +65,9 @@ and ``astronaut[1]``.
 >>> def hello_astronaut(astronaut: Astronaut):
 ...     result = f'Hello {astronaut.firstname} {astronaut.lastname}'
 
+
+IsInstance
+----------
 Note, that ``NamedTuple`` is still a tuple and you can compare both!
 
 >>> class Astronaut(NamedTuple):
@@ -106,6 +110,9 @@ True
 >>> c == d
 True
 
+
+Size
+----
 >>> from sys import getsizeof
 >>>
 >>> getsizeof(a)

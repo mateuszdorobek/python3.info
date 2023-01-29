@@ -9,5 +9,5 @@ HTML Livescores Standings
 
 Code
 ----
-.. literalinclude:: src/standings-livescores.py
+.. literalinclude:: src/html-livescores.py
     :language: python
