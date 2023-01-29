@@ -36,13 +36,18 @@ import sys
 from datetime import date
 
 
+# https://www.sphinx-doc.org/en/master/usage/configuration.html#confval-suppress_warnings
 suppress_warnings = [
     # 'app.add_node',
     # 'app.add_directive',
     # 'app.add_role',
     # 'app.add_generic_role',
     # 'app.add_source_parser',
+    # 'autosectionlabel.*',
     # 'download.not_readable',
+    # 'epub.unknown_project_files',
+    # 'epub.duplicated_toc_entry',
+    # 'i18n.inconsistent_references',
     # 'image.not_readable',
     # 'ref.term',
     # 'ref.ref',
@@ -55,9 +60,9 @@ suppress_warnings = [
     # 'ref.python',
     # 'misc.highlighting_failure',
     # 'toc.circular',
+    # 'toc.excluded',
+    # 'toc.not_readable',
     'toc.secnum',
-    # 'epub.unknown_project_files',
-    # 'autosectionlabel.*',
 ]
 
 sys.path.insert(0, os.path.abspath('_extensions'))

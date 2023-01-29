@@ -41,12 +41,8 @@ Parameters
 * Full List [#saDocsCreateEngine]_
 
 
-1.x Style
+2.x Style
 ---------
-Creating engine with ``create_engine()`` factory will create it in the
-legacy mode (compatible with 1.x). The underlying object is the same as in
-the previous versions:
-
 >>> from sqlalchemy import create_engine
 >>>
 >>>
@@ -55,22 +51,6 @@ the previous versions:
 >>>
 >>> type(engine)
 <class 'sqlalchemy.engine.base.Engine'>
-
-
-2.x Style
----------
-In order to turn on the future compatibility mode, set the ``future=True``
-flag to the ``create_engine()`` factory. This will change the underlying
-object to the ``future.engine``:
-
->>> from sqlalchemy import create_engine
->>>
->>>
->>> DATABASE = 'sqlite:///:memory:'
->>> engine = create_engine(DATABASE, future=True)
->>>
->>> type(engine)
-<class 'sqlalchemy.future.engine.Engine'>
 
 
 Establishing Connection
@@ -116,7 +96,7 @@ Show Parameters
 >>>
 >>> kwargs  # doctest: +NORMALIZE_WHITESPACE
 {'host': 'localhost',
- 'database': 'ares3',
+ 'dbname': 'ares3',
  'user': 'mwatney',
  'password': 'nasa',
  'port': 5432,
