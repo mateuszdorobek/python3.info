@@ -4,7 +4,7 @@ References in the Book
 
 Assignment levels
 -----------------
-* Easy - taks is almost identical to listings described in this section, changes are only in variable names and values
+* Easy - task is almost identical to listings described in this section, changes are only in variable names and values
 * Medium - task uses knowledge and skills acquired prior to this chapter
 * Hard - task requires extra skills or Python stdlib and ecosystem knowledge (check hints section below assignment)
 * Sub-project - task is part of bigger project completed over whole chapter

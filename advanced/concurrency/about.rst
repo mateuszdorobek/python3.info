@@ -86,7 +86,7 @@ Thread
 * Even if you lock resource, there is no protection if other parts of the system do not even try to acquire the lock
 * Threads switch preemptively
 * Preemptively means that the thread manager decides to switch tasks for you (you don't have to explicitly say to do so). Programmer has to do very little.
-* This is convenient because you dont need to add explicit code to cause a task switch
+* This is convenient because you don't need to add explicit code to cause a task switch
 * The cost of this convenience is that you have to assume a switch can happen at any time
 * Accordingly, critical sections have to be a guarded with locks
 * The limit on threads is total CPU power minus the cost of tasks switches and synchronization overhead
