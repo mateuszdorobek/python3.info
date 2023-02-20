@@ -342,6 +342,37 @@ Use Case - 0x09
 ...     TEST = 'test', _('Test')
 
 
+Use Case - 0x0A
+---------------
+* https://www.euvat.org/vat-returns-poland/
+* https://www.infor.pl/akt-prawny/DZU.2019.084.0000816,rozporzadzenie-ministra-finansow-w-sprawie-kas-rejestrujacych.html
+* §6 pkt. 5 - Rozporządzenie Ministra Finansów z dnia 29 kwietnia 2019 r. w sprawie kas rejestrujących. Dziennik Ustaw - rok 2019 poz. 816
+* PTU - Podatek od Towarów i Usług (Services and Goods Tax)
+
+>>> class PTU(Enum):
+...     A = 1.23   # VAT 23%
+...     B = 1.08   # VAT 8%
+...     C = 1.05   # VAT 5%
+...     D = 1.00   # VAT 0%
+...     E = 1.00   # VAT Exempt
+>>>
+>>> PLN = 1
+
+>>> shopping_cart = [
+...     {'name': 'Bread',   'price': 3.99*PLN, 'ptu': PTU.C},
+...     {'name': 'Butter',  'price': 2.69*PLN, 'ptu': PTU.B},
+...     {'name': 'Ham',     'price': 5.99*PLN, 'ptu': PTU.A},
+...     {'name': 'Cheese',  'price': 4.19*PLN, 'ptu': PTU.B},
+... ]
+
+>>> total = sum(product['price'] * product['ptu'].value
+...             for product in shopping_cart)
+
+>>> print(f'Total is: {total:.2f} PLN')
+Total is: 18.99 PLN
+
+.. todo:: Assignments
+
 
 References
 ----------

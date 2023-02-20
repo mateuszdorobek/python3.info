@@ -23,7 +23,7 @@ Polish:
     7. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * `isinstance(obj, (type1, type2))`
+    * `isinstance(obj, type1|type2)`
     * `type(obj)`
     * `len()`
 
