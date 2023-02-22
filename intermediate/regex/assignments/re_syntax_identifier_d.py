@@ -60,7 +60,6 @@ Columbia."""
 # type: str
 result_a = ...
 
-
 # Find all three-letter conjunctives in text (three-letter words)
 # Example: 'was', 'the', 'the', 'and', ...
 # type: str

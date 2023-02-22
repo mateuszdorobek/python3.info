@@ -52,12 +52,12 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find any character at the end of a text
+# Find character at the end of a text
 # Example: '.'
 # type: str
 result_a = ...
 
-# Find any character at the end of each line
+# Find characters at the end of each line
 # Example: 'd', 'e', 'n', 'n', ',', '.', 'y', ')', ')', 'e', 'n', '.'
 # type: str
 result_b = ...

@@ -5,11 +5,17 @@
 * Time: 3 min
 
 English:
-    1. Use regular expressions find in text
+    1. Use regular expressions find in text:
+       a. times (hours and minutes)
+       b. dates in US long format
+       c. durations in text
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście
+    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+       a. czasy (godziny z minutami)
+       b. daty w formacie amerykańskim długim
+       c. okresy
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 References:

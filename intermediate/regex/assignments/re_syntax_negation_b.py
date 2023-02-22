@@ -55,12 +55,12 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find unique: non-letters
+# Find all non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: str
 result_a = ...
 
-# Find unique: non-digits and non-letters
+# Find all non-digits and non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: str
 result_b = ...

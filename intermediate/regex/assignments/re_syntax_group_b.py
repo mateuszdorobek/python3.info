@@ -6,13 +6,13 @@
 
 English:
     1. Use regular expressions find in text:
-        a. durations in list[tuple] format
+        a. duration values
            example: 6 hours 39 minutes -> [('6', '39'), ...]
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. okresy w formacie list[tuple]
+        a. wartości okresów
            przykład: 6 hours 39 minutes -> [('6', '39'), ...]
     2. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -50,7 +50,7 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find durations from text in list[tuple] format
+# Find all duration values from text
 # Example: [('6', '39'), ('2', '31'), ('21', '36')]
 # type: str
 result = ...

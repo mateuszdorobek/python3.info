@@ -52,12 +52,12 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find uppercase letter at the beginning of a text
+# Find all uppercase letter at the beginning of a text
 # Example: 'A'
 # type: str
 result_a = ...
 
-# Find uppercase letter at the beginning of each line
+# Find all uppercase letter at the beginning of each line
 # Example: 'A', 'J', 'T', 'B', 'M', 'C'
 # type: str
 result_b = ...

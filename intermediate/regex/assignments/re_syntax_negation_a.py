@@ -68,17 +68,17 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find non-digits
+# Find all non-digits
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: str
 result_a = ...
 
-# Find non-lowercase-letters
+# Find all non-lowercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
 # type: str
 result_b = ...
 
-# Find non-uppercase-letters
+# Find all non-uppercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
 # type: str
 result_c = ...
