@@ -1,10 +1,8 @@
 """
 * Assignment: RE Syntax Quantifier
 * Complexity: easy
-* Lines of code: 4 lines
-* Time: 5 min
-
-TODO: This assignment is not ready yet.
+* Lines of code: 2 lines
+* Time: 3 min
 
 English:
     1. Use regular expressions find in text

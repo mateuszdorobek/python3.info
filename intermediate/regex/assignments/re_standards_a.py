@@ -5,14 +5,17 @@
 * Time: 5 min
 
 English:
-    TODO: English Translation
-    X. Run doctests - all must succeed
+    1. Write implementation of `is_pesel_valid`:
+       a. Pesel validation using regex is too complex
+       b. Use simplified pattern: r'^\d{11}$'
+       c. This pattern will allow to avoid 80% of accidental mistakes
+    2. Run doctests - all must succeed
 
 Polish:
     1. Napisz implementację `is_pesel_valid`
-       a. Temat walidacji Pesel jest zbyt trudny dla Regex
-       b. W tej funkcji użujemy prostego sprawdzenia r'^\d{11}$'
-       c. Już tylko taki kawałek kodu pozwoli na uniknięcie 80% błędów
+       a. Walidacja Pesel za pomocą regex jest zbyt skomplikowana
+       b. Użyj uproszczonego wzorca: r'^\d{11}$'
+       c. Ten wzorzec pozwoli na uniknięcie 80% przypadkowych błędów
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:

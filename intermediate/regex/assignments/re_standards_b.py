@@ -5,10 +5,13 @@
 * Time: 5 min
 
 English:
-    TODO: English Translation
+    1. Write implementation of `is_pesel_woman`:
+       a. Pesel belongs to a woman if second to last digit is even
+       b. Do not use regex
+    2. Run doctests - all must succeed
 
 Polish:
-    1. Napisz implementację `is_pesel_woman`
+    1. Napisz implementację `is_pesel_woman`:
        a. Pesel należy do kobiety, jeżeli przed ostatnia cyfra jest parzysta
        a. Nie korzystaj z regex
     2. Uruchom doctesty - wszystkie muszą się powieść
