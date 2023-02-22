@@ -16,9 +16,6 @@ Polish:
         b. wszystkie trzy literowe akronimy (słowo z trzech dużych liter)
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -31,10 +28,12 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['1969', '1969']
 
-    >>> pprint(result_b, compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['CDR', 'LMP', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP']
 
 """
@@ -56,15 +55,15 @@ Columbia."""
 
 # Find all years (four digits together)
 # Example: '1969', '1969'
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find all three letter acronyms (standalone word with three uppercase letters)
 # Example: 'CDR', 'LMP', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP'
-# type: list[str]
+# type: str
 result_b = ...
 
 
 # Solution
-result_a = re.findall(r'[0-9]{4}', TEXT)
-result_b = re.findall(r'[A-Z]{3}', TEXT)
+result_a = r'[0-9]{4}'
+result_b = r'[A-Z]{3}'

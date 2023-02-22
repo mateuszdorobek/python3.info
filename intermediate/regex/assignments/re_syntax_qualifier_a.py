@@ -18,9 +18,6 @@ Polish:
         c. wszystkie małe litery
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -33,18 +30,21 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['1', '1', '2', '0', '1', '9', '6', '9', '2', '0', '1', '7', '6', '3',
      '9', '2', '1', '1', '9', '6', '9', '0', '2', '5', '6', '1', '5', '1',
      '9', '2', '3', '1', '4', '7', '5', '2', '1', '5', '2', '1', '3', '6']
 
-    >>> pprint(result_b, compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['A', 'A', 'M', 'C', 'C', 'D', 'R', 'N', 'A', 'L', 'M', 'P', 'B', 'A',
      'A', 'L', 'M', 'L', 'M', 'E', 'J', 'U', 'T', 'C', 'A', 'E', 'V', 'A',
      'M', 'E', 'V', 'A', 'J', 'U', 'T', 'C', 'A', 'T', 'T', 'B', 'A', 'A',
      'E', 'M', 'C', 'C', 'M', 'P', 'C', 'M', 'C', 'M', 'C', 'M', 'C']
 
-    >>> pprint(result_c, compact=True, width=72)
+    >>> result = re.findall(result_c, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['p', 'o', 'l', 'l', 'o', 'w', 'a', 's', 't', 'h', 'e', 'm', 'e', 'r',
      'i', 'c', 'a', 'n', 's', 'p', 'a', 'c', 'e', 'f', 'l', 'i', 'g', 'h',
      't', 't', 'h', 'a', 't', 'f', 'i', 'r', 's', 't', 'l', 'a', 'n', 'd',
@@ -102,20 +102,20 @@ Columbia."""
 
 # Find all digits in text
 # Example: '1', '1', '2', '0', '1', '9', '6', ...
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find all uppercase letters in text
 # Example: 'A', 'A', 'M', 'C', 'C', 'D', 'R', ...
-# type: list[str]
+# type: str
 result_b = ...
 
 # Find all lowercase letters in text
 # Example: 'p', 'o', 'l', 'l', 'o', ...
-# type: list[str]
+# type: str
 result_c = ...
 
 # Solution
-result_a = re.findall(r'[0-9]', TEXT)
-result_b = re.findall(r'[A-Z]', TEXT)
-result_c = re.findall(r'[a-z]', TEXT)
+result_a = r'[0-9]'
+result_b = r'[A-Z]'
+result_c = r'[a-z]'

@@ -12,9 +12,6 @@ Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -27,18 +24,21 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['Apollo', 'American', 'Moon', 'Commander', 'Neil', 'Armstrong', 'Buzz',
      'Aldrin', 'Apollo', 'Lunar', 'Module', 'Eagle', 'July', 'Armstrong',
      'Moon', 'July', 'Aldrin', 'They', 'Tranquility', 'Base', 'Armstrong',
      'Aldrin', 'Earth', 'Michael', 'Collins', 'Command', 'Module',
      'Columbia', 'Moon', 'Columbia']
 
-    >>> pprint(result_b, compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['Neil Armstrong', 'Buzz Aldrin', 'Apollo Lunar', 'Michael Collins',
      'Command Module']
 
-    >>> pprint(result_c, compact=True, width=72)
+    >>> result = re.findall(result_c, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['Apollo 11', 'July 20', 'July 21']
 
 """
@@ -61,21 +61,21 @@ Columbia."""
 
 # Find all capitalized words
 # Example: 'Apollo', 'Moon', 'Commander', 'Neil', 'Armstrong', ...
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find all names (two capitalized words) in text
 # Example: 'Neil Armstrong', 'Buzz Aldrin', 'Apollo Lunar', 'Tranquility Base', ...
-# type: list[str]
+# type: str
 result_b = ...
 
 # Find all names with numbers (capitalized word followed by number)
 # Example: 'Apollo 11', 'July 20', 'July 21'
-# type: list[str]
+# type: str
 result_c = ...
 
 
 # Solution
-result_a = re.findall(r'[A-Z][a-z]+', TEXT)
-result_b = re.findall(r'[A-Z][a-z]+ [A-Z][a-z]+', TEXT)
-result_c = re.findall(r'[A-Z][a-z]+ [0-9]+', TEXT)
+result_a = r'[A-Z][a-z]+'
+result_b = r'[A-Z][a-z]+ [A-Z][a-z]+'
+result_c = r'[A-Z][a-z]+ [0-9]+'

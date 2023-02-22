@@ -16,9 +16,6 @@ Polish:
            przykład: 6 hours 39 minutes -> [('6', '39'), ...]
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -31,8 +28,11 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result)
-    [('6', '39'), ('2', '31'), ('21', '36')]
+    >>> result = re.findall(result, TEXT)
+    >>> pprint(result, compact=True, width=20)
+    [('6', '39'),
+     ('2', '31'),
+     ('21', '36')]
 """
 
 import re
@@ -52,9 +52,8 @@ Columbia."""
 
 # Find durations from text in list[tuple] format
 # Example: [('6', '39'), ('2', '31'), ('21', '36')]
-# type: list[str]
+# type: str
 result = ...
 
 # Solution
-pattern = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'
-result = re.findall(pattern, TEXT)
+result = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'

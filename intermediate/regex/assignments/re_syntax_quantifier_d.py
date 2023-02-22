@@ -12,9 +12,6 @@ Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -27,13 +24,16 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['20:17', '02:56']
 
-    >>> pprint(result_b, compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['July 20, 1969', 'July 21, 1969']
 
-    >>> pprint(result_c, compact=True, width=72)
+    >>> result = re.findall(result_c, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['6 hours 39 minutes', '2 hours 31 minutes', '21 hours 36 minutes']
 
 """
@@ -56,20 +56,20 @@ Columbia."""
 
 # Find all times in text
 # Example: '20:17', '02:56'
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find all dates in US long format
 # Example: 'July 20, 1969', 'July 21, 1969'
-# type: list[str]
+# type: str
 result_b = ...
 
 # Find all durations in text
 # Example: '6 hours 39 minutes', '2 hours 31 minutes', '21 hours 36 minutes'
-# type: list[str]
+# type: str
 result_c = ...
 
 # Solution
-result_a = re.findall(r'[0-9]+:[0-9]+', TEXT)
-result_b = re.findall(r'[A-Z][a-z]+ [0-9]+, [0-9]+', TEXT)
-result_c = re.findall(r'[0-9]+ hours [0-9]+ minutes', TEXT)
+result_a = r'[0-9]+:[0-9]+'
+result_b = r'[A-Z][a-z]+ [0-9]+, [0-9]+'
+result_c = r'[0-9]+ hours [0-9]+ minutes'

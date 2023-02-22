@@ -6,19 +6,15 @@
 
 English:
     1. Use regular expressions find in text:
-        a. unique non-letters
-        b. unique non-digits and non-letters
+        a. non-letters
+        b. non-digits and non-letters
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. unikalne nie-litery
-        b. unikalne nie-cyfry i nie-litery
+        a. nie-litery
+        b. nie-cyfry i nie-litery
     2. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * `re.findall()`
-    * `set()`
 
 References:
     [1] Authors: Wikipedia contributors
@@ -32,11 +28,15 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(sorted(result_a), compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
     ['\\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', '4', '5', '6',
      '7', '9', ':']
 
-    >>> pprint(sorted(result_b), compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
     ['\\n', ' ', "'", '(', ')', ',', '.', ':']
 """
 
@@ -57,14 +57,14 @@ Columbia."""
 
 # Find unique: non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find unique: non-digits and non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
-# type: list[str]
+# type: str
 result_b = ...
 
 # Solution
-result_a = set(re.findall(r'[^a-zA-Z]', TEXT))
-result_b = set(re.findall(r'[^a-zA-Z0-9]', TEXT))
+result_a = r'[^a-zA-Z]'
+result_b = r'[^a-zA-Z0-9]'

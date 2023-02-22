@@ -6,20 +6,15 @@
 
 English:
     1. Use regular expressions find in text:
-        a. all word characters, use \w
-        b. unique word characters
-        c. unique non-word characters
+        a. word characters
+        b. non-word characters
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. znaki słów, użyj \w
-        b. znaki słów
-        c. nie-znaki słów
+        a. znaki słów
+        b. nie-znaki słów
     2. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * `re.findall()`
 
 References:
     [1] Authors: Wikipedia contributors
@@ -33,7 +28,8 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['A', 'p', 'o', 'l', 'l', 'o', '1', '1', 'w', 'a', 's', 't', 'h', 'e',
      'A', 'm', 'e', 'r', 'i', 'c', 'a', 'n', 's', 'p', 'a', 'c', 'e', 'f',
      'l', 'i', 'g', 'h', 't', 't', 'h', 'a', 't', 'f', 'i', 'r', 's', 't',
@@ -79,14 +75,20 @@ Tests:
      'f', 'f', 't', 'o', 'r', 'e', 'j', 'o', 'i', 'n', 'C', 'o', 'l', 'u',
      'm', 'b', 'i', 'a']
 
-    >>> pprint(sorted(result_b), compact=True, width=72)
-    ['0', '1', '2', '3', '4', '5', '6', '7', '9', 'A', 'B', 'C', 'D', 'E',
-     'J', 'L', 'M', 'N', 'P', 'R', 'T', 'U', 'V', 'a', 'b', 'c', 'd', 'e',
-     'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-     't', 'u', 'w', 'x', 'y', 'z']
-
-    >>> pprint(sorted(result_c), compact=True, width=72)
-    ['\\n', ' ', "'", '(', ')', ',', '.', ':']
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
+    [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\n', ' ', ' ', ' ', '.', ' ',
+     ' ', '(', ')', ' ', ' ', ' ', ' ', ' ', '\\n', ' ', '(', ')', ' ', ' ',
+     ' ', ' ', ' ', ' ', ' ', ' ', '(', ')', ' ', ' ', '\\n', ' ', ',', ' ',
+     ' ', ' ', ':', ' ', ',', ' ', ' ', ' ', ' ', ' ', ' ', '\\n', ' ', ' ',
+     '(', ')', ' ', ' ', ' ', "'", ' ', ' ', '(', ')', ' ', ' ', ' ', ' ',
+     ' ', ',', '\\n', ' ', ' ', ',', ' ', ' ', ' ', ':', ':', ' ', '.', ' ',
+     ' ', ' ', ' ', ' ', ' ', '.', '\\n', ' ', ' ', ' ', ' ', ' ', ' ', ' ',
+     ' ', ' ', ' ', ' ', ' ', '\\n', ' ', ' ', '.', ' ', ' ', ' ', ' ', ' ',
+     '.', ' ', ' ', '(', '.', ' ', ')', '\\n', ' ', ' ', ' ', ' ', ' ', ' ',
+     ' ', ' ', ' ', ' ', ' ', ' ', '(', ')', '\\n', ' ', ' ', ' ', ' ', '(',
+     ')', ' ', ' ', ' ', ' ', ',', ' ', ' ', ' ', ' ', '\\n', "'", ' ', ' ',
+     ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', '\\n', '.']
 """
 
 import re
@@ -106,20 +108,14 @@ Columbia."""
 
 # Find all word characters in text, use \w
 # Example: 'A', 'A', 'M', 'C', 'C', 'D', 'R', ...
-# type: list[str]
+# type: str
 result_a = ...
 
-# Find unique word characters in text
-# Example: 'g', '9', 'w', 'J', 'E', '5', 'f', ...
-# type: list[str]
+# Find all non-word characters in text
+# Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
+# type: str
 result_b = ...
 
-# Find unique non-word characters in text
-# Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
-# type: list[str]
-result_c = ...
-
 # Solution
-result_a = re.findall(r'\w', TEXT)
-result_b = set(re.findall(r'\w', TEXT))
-result_c = set(re.findall(r'\W', TEXT))
+result_a = r'\w'
+result_b = r'\W'

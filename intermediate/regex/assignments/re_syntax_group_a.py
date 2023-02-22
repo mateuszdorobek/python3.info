@@ -15,7 +15,6 @@ Polish:
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
-    * `re.findall()`
     * After day there is an ordinal: st, nd, rd, th (you can use: ..)
 
 References:
@@ -30,6 +29,7 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
+    >>> result = re.findall(result, TEXT)
     >>> pprint(result, compact=True)
     ['July 20', 'July 21']
 """
@@ -52,8 +52,8 @@ Columbia."""
 # Find all dates (month name followed by day number)
 # Note: after day there is an ordinal: st, nd, rd, th (you can use: ..)
 # Example: 'July 20', 'July 21'
-# type: list[str]
+# type: str
 result = ...
 
 # Solution
-result = re.findall(r'([A-Z][a-z]+ \d{1,2}).., \d{4}', TEXT)
+result = r'([A-Z][a-z]+ \d{1,2}).., \d{4}'

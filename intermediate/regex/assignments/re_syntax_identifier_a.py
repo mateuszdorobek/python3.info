@@ -6,18 +6,15 @@
 
 English:
     1. Use regular expressions find in text:
-        a. all digits, use \d
-        b. unique digits
+        a. all digits
+        b. all non-digits
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. wszystkie cyfry, użyj \d
-        b. unikalne cyfry
+        a. wszystkie cyfry
+        b. wszystkie nie-cyfry
     2. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * `re.findall()`
 
 References:
     [1] Authors: Wikipedia contributors
@@ -31,13 +28,19 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> pprint(result, compact=True, width=72)
     ['1', '1', '2', '0', '1', '9', '6', '9', '2', '0', '1', '7', '6', '3',
      '9', '2', '1', '1', '9', '6', '9', '0', '2', '5', '6', '1', '5', '1',
      '9', '2', '3', '1', '4', '7', '5', '2', '1', '5', '2', '1', '3', '6']
 
-    >>> sorted(result_b)
-    ['0', '1', '2', '3', '4', '5', '6', '7', '9']
+    >>> result = re.findall(result_b, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
+    ['\\n', ' ', "'", '(', ')', ',', '.', ':', 'A', 'B', 'C', 'D', 'E', 'J',
+     'L', 'M', 'N', 'P', 'R', 'T', 'U', 'V', 'a', 'b', 'c', 'd', 'e', 'f',
+     'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
+     'u', 'w', 'x', 'y', 'z']
 """
 
 import re
@@ -55,16 +58,16 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find all digits in text, use \d
+# Find all digits in text
 # Example: '1', '1', '2', '0', '1', '9', '6', ...
-# type: list[str]
+# type: str
 result_a = ...
 
-# Find unique digits in text
+# Find all non-digits in text
 # Example: '0', '1', '2', '3', '4', '5', '6', '7', '9'
-# type: list[str]
+# type: str
 result_b = ...
 
 # Solution
-result_a = re.findall(r'\d', TEXT)
-result_b = set(re.findall(r'\d', TEXT))
+result_a = r'\d'
+result_b = r'\D'

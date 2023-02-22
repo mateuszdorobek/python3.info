@@ -6,21 +6,17 @@
 
 English:
     1. Use regular expressions find in text:
-        a. unique non-digits
-        b. unique non-lowercase-letters
-        c. unique non-uppercase-letters
+        a. non-digits
+        b. non-lowercase-letters
+        c. non-uppercase-letters
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. unikalne nie-cyfry
-        b. unikalne nie-małe-litery
-        c. unikalne nie-duże-litery
+        a. nie-cyfry
+        b. nie-małe-litery
+        c. nie-duże-litery
     2. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * `re.findall()`
-    * `set()`
 
 References:
     [1] Authors: Wikipedia contributors
@@ -34,18 +30,24 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(sorted(result_a), compact=True, width=72)
+    >>> result = re.findall(result_a, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
     ['\\n', ' ', "'", '(', ')', ',', '.', ':', 'A', 'B', 'C', 'D', 'E', 'J',
      'L', 'M', 'N', 'P', 'R', 'T', 'U', 'V', 'a', 'b', 'c', 'd', 'e', 'f',
      'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't',
      'u', 'w', 'x', 'y', 'z']
 
-    >>> pprint(sorted(result_b), compact=True, width=72)
+    >>> result = re.findall(result_b, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
     ['\\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', '4', '5', '6',
      '7', '9', ':', 'A', 'B', 'C', 'D', 'E', 'J', 'L', 'M', 'N', 'P', 'R',
      'T', 'U', 'V']
 
-    >>> pprint(sorted(result_c), compact=True, width=72)
+    >>> result = re.findall(result_c, TEXT)
+    >>> result = sorted(set(result))
+    >>> pprint(result, compact=True, width=72)
     ['\\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', '4', '5', '6',
      '7', '9', ':', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k',
      'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'w', 'x', 'y', 'z']
@@ -66,22 +68,22 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find unique: non-digits
+# Find non-digits
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
-# type: list[str]
+# type: str
 result_a = ...
 
-# Find unique: non-lowercase-letters
+# Find non-lowercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
-# type: list[str]
+# type: str
 result_b = ...
 
-# Find unique: non-uppercase-letters
+# Find non-uppercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
-# type: list[str]
+# type: str
 result_c = ...
 
 # Solution
-result_a = set(re.findall(r'[^0-9]', TEXT))
-result_b = set(re.findall(r'[^a-z]', TEXT))
-result_c = set(re.findall(r'[^A-Z]', TEXT))
+result_a = r'[^0-9]'
+result_b = r'[^a-z]'
+result_c = r'[^A-Z]'

@@ -16,9 +16,6 @@ Polish:
         b. dowolny znak na końcu każdej linii
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -31,10 +28,12 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result_a, compact=True)
+    >>> result = re.findall(result_a, TEXT, flags=re.MULTILINE)
+    >>> pprint(result, compact=True)
     ['.']
 
-    >>> pprint(result_b, compact=True)
+    >>> result = re.findall(result_b, TEXT, flags=re.MULTILINE)
+    >>> pprint(result, compact=True)
     ['d', 'e', 'n', 'n', ',', '.', 'y', ')', ')', 'e', 'n', '.']
 """
 
@@ -55,14 +54,14 @@ Columbia."""
 
 # Find any character at the end of a text
 # Example: '.'
-# type: list[str]
+# type: str
 result_a = ...
 
 # Find any character at the end of each line
 # Example: 'd', 'e', 'n', 'n', ',', '.', 'y', ')', ')', 'e', 'n', '.'
-# type: list[str]
+# type: str
 result_b = ...
 
 # Solution
-result_a = re.findall(r'.\Z', TEXT)
-result_b = re.findall(r'.$', TEXT, flags=re.MULTILINE)
+result_a = r'.\Z'
+result_b = r'.$'

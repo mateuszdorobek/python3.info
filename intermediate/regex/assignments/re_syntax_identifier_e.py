@@ -1,17 +1,19 @@
 """
-* Assignment: RE Syntax Qualifier
+* Assignment: RE Syntax Identifier
 * Complexity: easy
-* Lines of code: 1 lines
+* Lines of code: 2 lines
 * Time: 3 min
 
 English:
     1. Use regular expressions find in text:
-        a. all digits and uppercase letters
+        a. all conjunctives (both two- and three-letter words)
+        b. all acronyms (standalone words with two or three uppercase letters)
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. wszystkie cyfry i duże litery
+        a. wszystkie spójniki (zarówno dwu jak i trzy literowe słowa)
+        b. wszystkie akronimy (słowa pisane dwoma lub trzemi dużymi literami)
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 References:
@@ -26,15 +28,15 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> result = re.findall(result, TEXT)
+    >>> result = re.findall(result_a, TEXT)
     >>> pprint(result, compact=True, width=72)
-    ['A', '1', '1', 'A', 'M', 'C', 'C', 'D', 'R', 'N', 'A', 'L', 'M', 'P',
-     'B', 'A', 'A', 'L', 'M', 'L', 'M', 'E', 'J', '2', '0', '1', '9', '6',
-     '9', '2', '0', '1', '7', 'U', 'T', 'C', 'A', 'E', 'V', 'A', 'M', 'E',
-     'V', 'A', '6', '3', '9', 'J', '2', '1', '1', '9', '6', '9', '0', '2',
-     '5', '6', '1', '5', 'U', 'T', 'C', 'A', '1', '9', 'T', '2', '3', '1',
-     'T', 'B', 'A', 'A', '4', '7', '5', '2', '1', '5', 'E', 'M', 'C', 'C',
-     'M', 'P', 'C', 'M', 'C', 'M', 'C', 'M', '2', '1', '3', '6', 'C']
+    ['was', 'the', 'on', 'the', 'and', 'the', 'on', 'at', 'and', 'the',
+     'to', 'the', 'on', 'at', 'him', 'the', 'had', 'and', 'kg', 'of', 'to',
+     'to', 'as', 'the', 'in', 'and', 'on', 'the', 'for', 'off', 'to']
+
+    >>> result = re.findall(result_b, TEXT)
+    >>> pprint(result, compact=True, width=72)
+    ['CDR', 'LMP', 'LM', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP', 'CM']
 """
 
 import re
@@ -52,10 +54,17 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find all digits and uppercase letters in text
-# Example: 'A', '1', '1', 'A', 'M', 'C', 'C', 'D', 'R', ...
+# Find all conjunctives in text (both two- and three-letter words)
+# Example: 'was', 'the', 'on', 'the', 'and', ...
 # type: str
-result = ...
+result_a = ...
+
+# Find all acronyms in text (standalone words with two or three uppercase letters)
+# Example: 'CDR', 'LMP', 'LM', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP', 'CM'
+# type: str
+result_b = ...
+
 
 # Solution
-result = r'[A-Z0-9]'
+result_a = r'\b[a-z][a-z]\b|\b[a-z][a-z][a-z]\b'
+result_b = r'\b[A-Z][A-Z]\b|\b[A-Z][A-Z][A-Z]\b'

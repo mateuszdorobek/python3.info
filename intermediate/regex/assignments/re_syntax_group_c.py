@@ -16,9 +16,6 @@ Polish:
            przykład: 6 hours 39 minutes -> [{'hours': '6', 'minutes': '39'}, ...]
     2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * `re.findall()`
-
 References:
     [1] Authors: Wikipedia contributors
         Title: Apollo 11
@@ -31,7 +28,9 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> pprint(result)
+    >>> result = re.finditer(result, TEXT)
+    >>> result = [x.groupdict() for x in result]
+    >>> pprint(result, compact=True, width=50)
     [{'hours': '6', 'minutes': '39'},
      {'hours': '2', 'minutes': '31'},
      {'hours': '21', 'minutes': '36'}]
@@ -54,9 +53,9 @@ Columbia."""
 
 # Extract duration values from text in list[dict] format
 # Example: [{'hours': '6', 'minutes': '39'}, {'hours': '2', 'minutes': '31'}, ...]
-# type: list[str]
+# type: str
 result = ...
 
 # Solution
-pattern = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'
-result = [x.groupdict() for x in re.finditer(pattern, TEXT)]
+result = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'
+
