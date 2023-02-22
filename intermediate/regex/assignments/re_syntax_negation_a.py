@@ -20,6 +20,7 @@ Polish:
 
 Hint:
     * `re.findall()`
+    * `set()`
 
 References:
     [1] Authors: Wikipedia contributors

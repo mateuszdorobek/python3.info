@@ -6,18 +6,19 @@
 
 English:
     1. Use regular expressions find in text:
-        a. unique non-letters (non-lowercase and non-uppercase)
-        b. unique non-digits and non-letters (all caps)
+        a. unique non-letters
+        b. unique non-digits and non-letters
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. unikalne nie-litery (małe i duże)
-        b. unikalne nie-cyfry i nie-litery (małe i duże)
+        a. unikalne nie-litery
+        b. unikalne nie-cyfry i nie-litery
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * `re.findall()`
+    * `set()`
 
 References:
     [1] Authors: Wikipedia contributors
@@ -54,12 +55,12 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find unique: non-letters (non-lowercase and non-uppercase)
+# Find unique: non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: list[str]
 result_a = ...
 
-# Find unique: non-digits and non-letters (all caps)
+# Find unique: non-digits and non-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # type: list[str]
 result_b = ...
