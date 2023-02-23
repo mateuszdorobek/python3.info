@@ -21,6 +21,22 @@ Operator Increment
     "``obj //= other``",    "``obj.__ifloordiv__(other)``"
     "``obj %= other``",     "``obj.__imod__(other)``"
 
+>>> x = 0
+>>> id(x)  # doctest: +SKIP
+4406492680
+>>>
+>>> x += 1
+>>> id(x)  # doctest: +SKIP
+4406492712
+
+>>> x = 1
+>>> id(x)  # doctest: +SKIP
+4406492712
+>>>
+>>> x += 0
+>>> id(x)  # doctest: +SKIP
+4406492712
+
 >>> x = [1, 2, 3]
 >>> id(x)  # doctest: +SKIP
 4343115776
@@ -29,9 +45,10 @@ Operator Increment
 >>> id(x)  # doctest: +SKIP
 4343115776
 
+
 SetUp
 -----
->>> from dataclasses import dataclass
+>>> from dataclasses import dataclass, field
 
 
 Syntax
@@ -66,20 +83,70 @@ Example
 >>>
 >>>
 >>> a = Vector(x=1, y=2)
->>> b = Vector(x=3, y=4)
->>> c = Vector(x=5, y=6)
->>>
 >>>
 >>> a += Vector(x=10, y=20)
 >>> print(a)
 Vector(x=11, y=22)
 
 
+Add vs Iadd
+-----------
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
+...
+...     def __add__(self, other):
+...         return Vector(
+...             x = self.x + other.x,
+...             y = self.y + other.y)
+>>>
+>>>
+>>> a = Vector(x=1, y=2)
+>>>
+>>> id(a)  # doctest: +SKIP
+4435911632
+>>>
+>>> a += Vector(x=10, y=20)
+>>> id(a)  # doctest: +SKIP
+4435972432
+>>>
+>>> print(a)
+Vector(x=11, y=22)
+
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
+...
+...     def __iadd__(self, other):
+...         self.x += other.x
+...         self.y += other.y
+...         return self
+>>>
+>>>
+>>> a = Vector(x=1, y=2)
+>>>
+>>> id(a)  # doctest: +SKIP
+4437201808
+>>>
+>>> a += Vector(x=10, y=20)
+>>> id(a)  # doctest: +SKIP
+4437201808
+>>>
+>>> print(a)
+Vector(x=11, y=22)
+
+
 Use Case - 0x01
 ---------------
+Imports:
+
 >>> from dataclasses import dataclass, field
->>>
->>>
+>>> from pprint import pprint
+
+Definition:
+
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -93,15 +160,17 @@ Use Case - 0x01
 ...     def __iadd__(self, other):
 ...         self.members.append(other)
 ...         return self
->>>
->>>
+
+Usage:
+
 >>> ares3 = Crew()
 >>> ares3 += Astronaut('Mark', 'Watney')
 >>> ares3 += Astronaut('Melissa', 'Lewis')
->>>
->>> print(ares3)
-Crew(members=[Astronaut(firstname='Mark', lastname='Watney'), Astronaut(firstname='Melissa', lastname='Lewis')])
->>>
+
+>>> pprint(ares3)
+Crew(members=[Astronaut(firstname='Mark', lastname='Watney'),
+              Astronaut(firstname='Melissa', lastname='Lewis')])
+
 >>> for member in ares3.members:
 ...     print(member)
 Astronaut(firstname='Mark', lastname='Watney')

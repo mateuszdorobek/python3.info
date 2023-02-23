@@ -50,12 +50,6 @@ Regex Cheatsheet
 * ``re.DEBUG`` - display debugging information during pattern compilation
 
 
-SetUp
------
->>> import re
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
-
-
 Literals
 --------
 * Also known as "Literal Characters"
@@ -74,7 +68,7 @@ Example:
 
 Classes
 -------
-* Also known as "Character classes"
+* Also known as "Character Classes"
 * One out of several characters
 
 Syntax:
