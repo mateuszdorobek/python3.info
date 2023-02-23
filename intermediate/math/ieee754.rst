@@ -51,6 +51,8 @@ False
 >>> 0.1 + 0.2
 0.30000000000000004
 
+.. figure:: img/math-ieee754-joke.png
+
 
 Problem
 -------
@@ -169,24 +171,24 @@ Read from memory:
              I used simplified formula, to demonstrate how it could be done.
              Actual formula varies from above example.
 
-.. figure:: img/float-anatomy.png
+.. figure:: img/math-ieee754-parts.png
 
     What is ``float`` as defined by IEEE 754 standard
 
-.. figure:: img/float-expression.png
+.. figure:: img/math-ieee754-expression.png
 
     Points chart
 
-.. figure:: img/float-mantissa-1.png
+.. figure:: img/math-ieee754-mantissa-1.png
 
     How computer store ``float``?
     As defined by IEEE 754 standard
 
-.. figure:: img/float-mantissa-2.png
+.. figure:: img/math-ieee754-mantissa-2.png
 
     How to read/write ``float`` from/to memory?
 
-.. figure:: img/float-normalized.png
+.. figure:: img/math-ieee754-normalized.png
 
     Normalized Line
 
