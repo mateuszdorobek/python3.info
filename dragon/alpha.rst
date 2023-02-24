@@ -15,14 +15,14 @@ English
 -------
 1. In your directory create file ``dragon_alpha.py`` with class representing Dragon
 
-2. Dragon has (attributes):
+2. Dragon has:
 
     a. name
     b. position on the screen
     c. texture file name, default ``img/dragon/alive.png``
     d. health points, default random ``int`` in range from 50 to 100
 
-3. Dragon can (methods):
+3. Dragon can:
 
     a. have position set to any place on the screen
     b. move in any direction by specified value
@@ -98,14 +98,14 @@ Polish
 ------
 1. W swoim katalogu stwórz plik ``dragon_alpha.py`` a w nim klasę reprezentującą Smoka
 
-2. Smok ma (atrybuty):
+2. Smok ma:
 
     a. nazwę
     b. pozycję na ekranie
     c. nazwę pliku tekstury, domyślnie ``img/dragon/alive.png``
     d. punkty życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
-3. Smok może (metody):
+3. Smok może:
 
     a. być ustawiony w dowolne miejsce ekranu
     b. być przesuwany w którymś z kierunków o zadaną wartość
