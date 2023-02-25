@@ -8,7 +8,7 @@ Excel AATC Sensors
 Todo
 ----
 1. zaczytać dane z Excel (plik, arkusz)
-2. Wybrać odpowiednie dane (Luminance dla 24 września)
+2. Wybrać odpowiednie dane (Luminance)
 3. Wykres aktywności ludzi tego dnia
 
 Zwróć uwagę, że niektóre urządzenia elektroniczne emitują światło (zegarki,
@@ -23,5 +23,12 @@ nazywamy sygnałem.
 
 Code
 ----
-.. literalinclude:: src/excel-aatc-sensors-optima.py
+.. literalinclude:: src/excel-sensors.py
     :language: python
+
+
+Plots
+-----
+.. figure:: img/excel-sensors-actinogram.png
+.. figure:: img/excel-sensors-activity.png
+.. figure:: img/excel-sensors-illuminance.png

@@ -110,7 +110,7 @@ Case Studies
     case-studies/api-gmail-stats.rst
     case-studies/csv-covid19.rst
     case-studies/csv-phones.rst
-    case-studies/excel-aatc-sensors.rst
+    case-studies/excel-sensors.rst
     case-studies/html-apollo11.rst
     case-studies/html-esa-astronauts.rst
     case-studies/html-espn.rst
