@@ -29,6 +29,7 @@ Option 1
 Problem:
 
 >>> dragon.fly(10, 20)
+>>> dragon.walk(10, 20)    # code duplication
 >>> hero.walk(10, 20)    # code duplication
 >>> rock.slide(10, 20)   # code duplication
 
@@ -49,6 +50,7 @@ Option 2
 Problem:
 
 >>> dragon.fly(x=10, y=20)
+>>> dragon.walk(x=10, y=20)
 >>> hero.walk(x=10, y=20)    # code duplication
 >>> rock.slide(x=10, y=20)   # code duplication
 

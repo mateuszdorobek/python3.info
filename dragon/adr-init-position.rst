@@ -146,6 +146,8 @@ Option 6
 Problem:
 
 >>> dragon = Dragon('Wawelski', pos=[0, 0])         # ok
+>>> dragon = Dragon('Wawelski', pos=[None, 0])      # maybe
+>>> dragon = Dragon('Wawelski', pos=[0, None])      # maybe
 >>> dragon = Dragon('Wawelski', pos=[None, None])   # maybe
 
 * ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
@@ -171,6 +173,8 @@ Option 7
 Problem:
 
 >>> dragon = Dragon('Wawelski', position=[0, 0])         # ok
+>>> dragon = Dragon('Wawelski', position=[None, 0])      # maybe
+>>> dragon = Dragon('Wawelski', position=[0, None])      # maybe
 >>> dragon = Dragon('Wawelski', position=[None, None])   # maybe
 
 * ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
@@ -209,12 +213,10 @@ Problem:
 
 Example:
 
->>> pt = (50, 120)
+>>> pt = Point(x=50, y=120)
 >>>
->>> pt[0]
-50
->>> pt[1]
-120
+>>> pt[0], pt[1]
+(50, 120)
 
 
 Option 9
@@ -273,10 +275,11 @@ Example:
 
 >>> pt = Point(x=50, y=120)
 >>>
->>> pt.x
-50
->>> pt.y
-120
+>>> pt[0], pt[1]
+(50, 120)
+>>>
+>>> pt.x, pt.y
+(50, 120)
 
 
 Option 11
@@ -307,10 +310,11 @@ Example:
 
 >>> pt = Point(x=50, y=120)
 >>>
->>> pt.x
-50
->>> pt.y
-120
+>>> pt[0], pt[1]
+(50, 120)
+>>>
+>>> pt.x, pt.y
+(50, 120)
 
 
 Option 12
@@ -356,6 +360,48 @@ Example:
 
 Option 13
 ---------
+>>> from typing import TypedDict, Required, NotRequired
+>>>
+>>>
+>>> class Point(TypedDict):
+...     x: Required[int]
+...     y: Required[int]
+...     z: NotRequired[int]
+>>>
+>>>
+>>> pt1 = Point(x=50, y=120)
+>>> pt2: Point = {'x': 50, 'y': 120}
+>>>
+>>> dragon = Dragon('Wawelski', position=pt1)
+>>> dragon = Dragon('Wawelski', position=pt2)
+
+* Good: data is stored together (``x`` and ``y`` coordinates)
+* Good: simple
+* Good: you can assign ``position=None`` by default to set default ``position``
+* Good: relatively easy to extend to 3D
+* Good: keyword argument is not required, class name is verbose enough
+* Bad: before Python 3.11 ``TypeDict`` does not support default values
+* Decision: rejected, re-evaluate in future with Python >= 3.11
+
+Future:
+
+* API will change in Python 3.11
+* Will include ``Required`` and ``NotRequired``
+* Will support default values
+* Re-evaluate then
+
+Example:
+
+>>> pt = Point(x=50, y=120)
+>>>
+>>> pt['x']
+50
+>>> pt['y']
+120
+
+
+Option 14
+---------
 >>> class Point:
 ...     x: int
 ...     y: int
@@ -382,7 +428,7 @@ Option 13
 * Bad: allows for attribute mutation
 * Decision: maybe, has some limitation
 
-Bad:
+Example:
 
 >>> pt = Point(x=1, y=2)
 >>> pt.x = 1             # will pass
@@ -390,7 +436,7 @@ Bad:
 >>> pt.notexisting = 10  # will pass
 
 
-Option 14
+Option 15
 ---------
 >>> class Point:
 ...     __slots__ = ('x', 'y')
@@ -418,13 +464,15 @@ Option 14
 * Bad: allows for attribute mutation
 * Decision: maybe, too complex for now
 
+Example:
+
 >>> pt = Point(x=1, y=2)
 >>> pt.x = 1             # will pass
 >>> pt.y = 2             # will pass
 >>> pt.notexisting = 10  # will throw error
 
 
-Option 15
+Option 16
 ---------
 >>> from dataclasses import dataclass
 >>>
@@ -450,7 +498,7 @@ Option 15
 * Bad: allows for attribute mutation
 * Decision: maybe, has some limitation
 
-Bad:
+Example:
 
 >>> pt = Point(x=1, y=2)
 >>> pt.x = 1             # will pass
@@ -458,7 +506,7 @@ Bad:
 >>> pt.notexisting = 10  # will pass
 
 
-Option 16
+Option 17
 ---------
 >>> from dataclasses import dataclass
 >>>
@@ -486,7 +534,7 @@ Option 16
 * Bad: more complicated than mutable dataclasses
 * Decision: candidate
 
-Good:
+Example:
 
 >>> pt = Point(x=1, y=2)
 >>> pt.x = 1             # will throw error

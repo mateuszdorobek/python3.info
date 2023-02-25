@@ -67,6 +67,7 @@ Option 4
 * Good: easy ``.move()``
 * Bad: you have to know, which axis is ``left`` and with is ``right``
 * Bad: requires knowledge of business logic (inverted y-axis)
+* Bad: controller must know other variables, such as speed factor (snail is slower than a dragon), surface on which the dragon is moving (solid is faster than water or ice), injuries (if dragon is not injured with his for example left foot)
 * Bad: you cannot prevent negative shifting (i.e.: ``x=-10``)
 * Bad: the user must know the internals, how to calculate the position, which way is up or down (positive or negative shifting), note that ``y=-20`` means go up by 20 (we have inverted ``y`` axis)
 * Bad: violates abstraction (OOP Principle)
@@ -92,6 +93,9 @@ Option 6
 --------
 >>> dragon.move_x(10)
 >>> dragon.move_y(-20)
+
+>>> dragon.move_horizontal(10)
+>>> dragon.move_vertical(-20)
 
 * Good: extensible to 3D, just add another method
 * Bad: require knowledge of an API
