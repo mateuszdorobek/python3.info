@@ -8,6 +8,10 @@ pd.set_option('display.max_rows', 100)
 pd.set_option('display.min_rows', 10)
 pd.set_option('display.max_seq_items', 100)
 
+data: pd.DataFrame
+fig: plt.Figure
+axes: plt.Axes
+
 #%%
 
 DATA = 'https://python.astrotech.io/_static/sensors-optima.xlsx'
@@ -69,11 +73,28 @@ df['value'].hist(bins=20)
 plt.show()  # doctest: +SKIP
 
 
-#%% Luminance during each day of a mission
-data: pd.DataFrame
-fig: plt.Figure
-axes: plt.Axes
+#%% Illuminance
+data = (
+    df
+    .loc[:, 'value']
+    .resample('H')
+    .mean()
+    .round()
+    .astype('int16'))
 
+ax = data.plot(
+    kind='line',
+    title='Changes in illuminance during analog mission',
+    xlabel='Mission Day',
+    ylabel='Illuminance [lux]',
+    figsize=(8,8))
+
+ax.set_xticklabels(range(0,7), minor=True)
+ax.set_xmargin(0)
+plt.show()  # doctest: +SKIP
+
+
+#%% Activity
 # np.sign()
 # - zwraca -1, jeżeli wartość jest mniejsza niż 0
 # - zwraca 0, jeżeli wartość jest równa 0
@@ -101,27 +122,30 @@ for day, dane in data.groupby(level=0):
             title=f'Day {day}',
             legend=None,
             yticks=[0,1],
-            xticks=range(0,25))
+            xticks=range(0,25),
+            ylabel=None)
 
 for ax in axes.flatten():
     ax.set_xmargin(0)
     ax.set_yticklabels(['sleep', 'awake'])
-    ax.set_xticklabels(range(0,25))
+    ax.set_xticklabels([f'{hour:02}:00' for hour in range(0,25)])
     ax.xaxis.set_tick_params(labelbottom=True)
     ax.yaxis.set_tick_params(labelleft=True)
+    ax.set_xlabel(None)
+    ax.set_ylabel(None)
+    plt.setp(ax.get_xticklabels(), rotation=90, ha='right', rotation_mode='anchor')
 
 fig.tight_layout(pad=5.0)
-fig.suptitle('Luminance chart during mission', fontsize=16)
-fig.supxlabel('Hour', fontsize=16)
-fig.supylabel('Luminance [lux]', fontsize=16)
+fig.suptitle('Changes in activity during analog mission', fontsize=20)
+fig.supxlabel('Time of a day [UTC]', fontsize=16)
+fig.supylabel('Activity [sleep/awake]', fontsize=16)
+fig.subplots_adjust(top=0.925, bottom=0.075)
+
+plt.setp(ax.get_xticklabels(), rotation=90, ha='right', rotation_mode='anchor')
 plt.show()  # doctest: +SKIP
 
 
-
 #%% Actinogram
-ax: plt.Axes
-fig: plt.Figure
-
 data = (
     df
     .loc[:, ['day', 'hour', 'value']]
