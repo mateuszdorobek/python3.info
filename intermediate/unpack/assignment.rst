@@ -178,6 +178,21 @@ Traceback (most recent call last):
 TypeError: cannot unpack non-iterable int object
 
 
+Swap
+----
+* Swap two variables
+
+>>> a = 1
+>>> b = 2
+>>>
+>>> a, b = b, a
+>>>
+>>> a
+2
+>>> b
+1
+
+
 Unpacking
 ---------
 >>> def get_user():
