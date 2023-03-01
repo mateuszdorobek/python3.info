@@ -90,27 +90,27 @@ TEXT = ("Apollo 11 was the spaceflight that first landed humans on the Moon. "
 
 
 # use re.search() to get 'Neil Armstrong' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 a = ...
 
 # use re.search() to get 'Buzz Aldrin' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 b = ...
 
 # use re.search() to get 'Michael Collins' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 c = ...
 
 # use re.search() to get 'July 21 at 02:56 UTC' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 d = ...
 
 # use re.search() to get 'Tranquility Base' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 e = ...
 
 # use re.search() to get 'Mark Watney' a (start, end) position or None
-# tuple[int,int]
+# type: tuple[int,int] | None
 f = ...
 
 

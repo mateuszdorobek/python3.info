@@ -2,16 +2,16 @@
 * Assignment: RE Syntax Quantifier
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. all years (four digits together)
         b. all three letter acronyms (standalone word with three uppercase letters)
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. wszystkie lata (cztery cyfry razem)
         b. wszystkie trzy literowe akronimy (słowo z trzech dużych liter)
     2. Uruchom doctesty - wszystkie muszą się powieść

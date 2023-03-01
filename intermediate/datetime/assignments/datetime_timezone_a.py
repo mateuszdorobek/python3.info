@@ -54,6 +54,7 @@ Hints:
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
+    >>> from datetime import datetime
 
     >>> assert utc is not Ellipsis, \
     'Assign value to variable `utc` has instead of Ellipsis (...)'
@@ -109,32 +110,36 @@ Tests:
     >>> assert isinstance(south_pole, ZoneInfo), \
     'Variable `south_pole` has invalid type, must be a ZoneInfo'
 
-    >>> utc.key
-    'UTC'
-    >>> london.key
-    'Europe/London'
-    >>> buenos_aires.key
-    'America/Argentina/Buenos_Aires'
-    >>> warsaw.key
-    'Europe/Warsaw'
-    >>> tokyo.key
-    'Asia/Tokyo'
-    >>> sydney.key
-    'Australia/Sydney'
-    >>> auckland.key
-    'Pacific/Auckland'
-    >>> new_york.key
-    'America/New_York'
-    >>> cape_canaveral.key
-    'America/New_York'
-    >>> houston.key
-    'America/Chicago'
-    >>> bajkonur.key
-    'Asia/Almaty'
-    >>> north_pole.key
-    'Arctic/Longyearbyen'
-    >>> south_pole.key
-    'Europe/Warsaw'
+    >>> def utcoffset(tz: ZoneInfo):
+    ...     dt = datetime(2023, 1, 1)
+    ...     return tz.utcoffset(dt).total_seconds()
+    >>>
+    >>> assert utcoffset(utc) == 0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(london) == 0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(buenos_aires) == -10800.0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(warsaw) == 3600, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(tokyo) == 32400, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(sydney) == 39600, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(auckland) == 46800, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(new_york) == -18000.0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(cape_canaveral) == -18000.0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(houston) == -21600.0, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(bajkonur) == 21600, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(north_pole) == 3600, \
+    'Invalid time zone, check IANA Time Zone Database'
+    >>> assert utcoffset(south_pole) == 3600, \
+    'Invalid time zone, check IANA Time Zone Database'
 """
 
 from zoneinfo import ZoneInfo

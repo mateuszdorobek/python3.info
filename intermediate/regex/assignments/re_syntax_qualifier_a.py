@@ -2,17 +2,17 @@
 * Assignment: RE Syntax Qualifier
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. all digits
         b. all uppercase letters
         c. all lowercase letters
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. wszystkie cyfry
         b. wszystkie duże litery
         c. wszystkie małe litery

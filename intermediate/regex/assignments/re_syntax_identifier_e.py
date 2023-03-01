@@ -2,16 +2,16 @@
 * Assignment: RE Syntax Identifier
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. all conjunctives (both two- and three-letter words)
         b. all acronyms (standalone words with two or three uppercase letters)
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. wszystkie spójniki (zarówno dwu jak i trzy literowe słowa)
         b. wszystkie akronimy (słowa pisane dwoma lub trzemi dużymi literami)
     2. Uruchom doctesty - wszystkie muszą się powieść

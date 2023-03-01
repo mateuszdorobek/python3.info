@@ -58,7 +58,8 @@ TEXT = ("Apollo 11 was the spaceflight that first landed humans on the Moon. "
 pattern = ...
 
 # use re.search() to find pattern in TEXT, get result text
-# type: re.Match
+# use .group() to get the value from re.Match object
+# type: str
 result = ...
 
 

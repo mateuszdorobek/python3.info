@@ -2,16 +2,16 @@
 * Assignment: RE Syntax Identifier
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. whitespace characters
         b. non-whitespace characters
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. białe-znaki
         b. nie-białe-znaki
     2. Uruchom doctesty - wszystkie muszą się powieść

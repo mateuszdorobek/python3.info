@@ -2,16 +2,16 @@
 * Assignment: RE Syntax Anchor
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. any character at the beginning of a text
         b. any character at the beginning of each line
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. dowolny znak na początku tekstu
         b. dowolny znak na początku każdej linii
     2. Uruchom doctesty - wszystkie muszą się powieść

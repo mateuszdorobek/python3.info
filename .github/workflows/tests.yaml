@@ -5,7 +5,7 @@ jobs:
 
   Everything:
     runs-on: ubuntu-22.04
-    container: python:3.11.1
+    container: python:3.11.2
     steps:
       - uses: actions/checkout@v3
       - run: python run.py --install
@@ -13,7 +13,7 @@ jobs:
 
   Chapter:
     runs-on: ubuntu-22.04
-    container: python:3.11.1
+    container: python:3.11.2
     strategy:
       fail-fast: false
       matrix:

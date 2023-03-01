@@ -11,3 +11,9 @@ indent_size=2
 
 [*.json]
 indent_size=2
+
+[*.py]
+max_line_length = 79
+
+[*.txt]
+max_line_length = 79

@@ -98,7 +98,7 @@ TEXT = ("In the late 1950s and early 1960s, the United States was engaged in "
 
 
 # Use re.findall() to get dates in US format, i.e. "April 12, 1961"
-# type: re.Match
+# type: list[str]
 result = ...
 
 

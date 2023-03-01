@@ -2,17 +2,17 @@
 * Assignment: RE Syntax Negation
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Use regular expressions find in text:
-        a. non-letters
+    1. Define `result: str` with regular expression to find:
+        a. non-letters (any case)
         b. non-digits and non-letters
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
-        a. nie-litery
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
+        a. nie-litery (nie-małe i nie-duże)
         b. nie-cyfry i nie-litery
     2. Uruchom doctesty - wszystkie muszą się powieść
 

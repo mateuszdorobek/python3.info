@@ -5,13 +5,13 @@
 * Time: 3 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. durations in list[dict] format
            example: 6 hours 39 minutes -> [{'hours': '6', 'minutes': '39'}, ...]
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. okresy w formacie list[dict]
            przykład: 6 hours 39 minutes -> [{'hours': '6', 'minutes': '39'}, ...]
     2. Uruchom doctesty - wszystkie muszą się powieść

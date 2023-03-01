@@ -2,7 +2,7 @@
 * Assignment: RE Syntax Quantifier
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Use regular expressions find in text

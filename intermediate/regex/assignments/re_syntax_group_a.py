@@ -5,12 +5,12 @@
 * Time: 3 min
 
 English:
-    1. Use regular expressions find in text:
+    1. Define `result: str` with regular expression to find:
         a. all dates (month name followed by day number)
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
         a. wszyskie daty (miesiąc po którym jest dzień)
     2. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -57,3 +57,6 @@ result = ...
 
 # Solution
 result = r'([A-Z][a-z]+ \d{1,2}).., \d{4}'
+
+# Alternative solution
+result = '([A-Z][a-z]+ \d+)(?:st|nd|rd|th)'

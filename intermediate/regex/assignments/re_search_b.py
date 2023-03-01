@@ -71,6 +71,7 @@ TEXT = ("<h1>TEXT OF PRESIDENT JOHN KENNEDY'S RICE STADIUM MOON SPEECH</h1>\n"
 
 
 # use re.search() to get paragraph starting with "We choose..."
+# use .group(1) to get the value from re.Match object
 # type: str
 result = ...
 
