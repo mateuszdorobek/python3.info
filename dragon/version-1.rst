@@ -13,7 +13,7 @@ Dragon v1.0
 
 English
 -------
-1. In your directory create file ``dragon_alpha.py`` with class representing Dragon
+1. In your directory create file ``dragon_v1.py`` with class representing Dragon
 
 2. Dragon has:
 
@@ -96,7 +96,7 @@ Post notes:
 
 Polish
 ------
-1. W swoim katalogu stwórz plik ``dragon_alpha.py`` a w nim klasę reprezentującą Smoka
+1. W swoim katalogu stwórz plik ``dragon_v1.py`` a w nim klasę reprezentującą Smoka
 
 2. Smok ma:
 
@@ -220,6 +220,6 @@ Solution
 --------
 * EN: Note, that this will spoil your fun and learning
 * PL: Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Basic <assignments/dragon_alpha_basic.py>`
-* :download:`Intermediate <assignments/dragon_alpha_intermediate3.py>`
-* :download:`Advanced <assignments/dragon_alpha_advanced.py>`
+* :download:`Basic <assignments/dragon_v1_basic.py>`
+* :download:`Intermediate <assignments/dragon_v1_intermediate.py>`
+* :download:`Advanced <assignments/dragon_v1_advanced.py>`

@@ -1,5 +1,5 @@
 from enum import Enum
-from dragon_alpha_advanced import Dragon, Status, Point, Direction
+from dragon_v1_advanced import Dragon, Status, Point, Direction
 
 
 class Status(Enum):

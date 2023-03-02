@@ -46,7 +46,7 @@ Smok powinien zginąć na pozycji: x=20, y=40
 """
 from enum import Enum
 from random import randint
-from typing import ClassVar, NamedTuple, TypedDict
+from typing import ClassVar, NamedTuple
 from unittest import TestCase
 
 
