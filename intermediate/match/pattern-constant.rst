@@ -7,6 +7,18 @@ possible ambiguity with a capture pattern. It looks like ``Color.RED``
 and only matches values equal to the corresponding value. It never
 binds.
 
+>>> from http import HTTPStatus
+>>> import requests
+>>>
+>>>
+>>> resp = requests.get('https://python.astrotech.io')
+>>>
+>>> match resp.status_code:
+...     case HTTPStatus.OK:             print('ok')
+...     case HTTPStatus.REDIRECT:       print('redirect')
+...     case HTTPStatus.SERVER_ERROR:   print('error')
+...
+ok
 
 
 Use Case - 0x06

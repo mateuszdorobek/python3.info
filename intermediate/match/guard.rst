@@ -19,14 +19,15 @@ Use Case:
 >>> action = ['make_damage', 5]
 >>>
 >>> match action:
-...     case ['make_damage', value] if value < 0:
-...         raise ValueError('Damage cannot be negative')
+...
+...     case ['make_damage', value] if value >= 10:
+...         hero.make_critical_damage(value)
 ...
 ...     case ['make_damage', value] if 0 <= value < 10:
 ...         hero.make_normal_damage(value)
 ...
-...     case ['make_damage', value] if value >= 10:
-...         hero.make_critical_damage(value)
+...     case ['make_damage', value] if value < 0:
+...         raise ValueError('Damage cannot be negative')
 
 
 Use Case - 0x02
@@ -76,3 +77,5 @@ Use Case:
 ...
 ...     case ['move', direction, value] if direction in ['up','down','left','right']:
 ...         hero.move(direction, value)
+
+

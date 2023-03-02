@@ -8,31 +8,45 @@ matches only sequences of appropriate length, as long as all the
 sub-patterns also match. It makes all the bindings of its sub-patterns.
 
 
+
+Use Case - 0x02
+---------------
+>>> def range(*args):
+...     match len(args):
+...         case 3: start, stop, step = args
+...         case 2: [start, stop], step = args, 1
+...         case 1: start, [stop], step = 0, args, 1
+...         case 0: raise TypeError('myrange expected at least 1 argument, got 0')
+...         case _: raise TypeError(f'myrange expected at most 3 arguments, got {len(args)}')
+...     ...
+
+
 Use Case - 0x03
 ---------------
-* HTTP Request
+>>> def range(*args):
+...     match args:
+...         case [start, stop, step]: pass
+...         case [start, stop]: step = 1
+...         case [stop]: start = 0; step = 1
+...         case []: raise TypeError('myrange expected at least 1 argument, got 0')
+...         case _: raise TypeError(f'myrange expected at most 3 arguments, got {len(args)}')
 
-Test Setup:
 
->>> def handle_get(path):
-...     ...
-...
->>> def handle_post(path):
-...     ...
-...
->>> def handle_put(path):
-...     ...
-...
->>> def handle_delete(path):
-...     ...
-...
+Use Case - 0x04
+---------------
+>>> def range(*args):
+...     match args:
+...         case [stop]:
+...             start = 0
+...             step = 1
+...         case [start, stop]:
+...             step = 1
+...         case [start, stop, step]:
+...             pass
+...         case []:
+...             msg = 'myrange expected at least 1 argument, got 0'
+...             raise TypeError(msg)
+...         case _:
+...             msg = f'myrange expected at most 3 arguments, got {len(args)}'
+...             raise TypeError(msg)
 
-Use Case:
-
->>> request = 'GET /index.html HTTP/2.0'
->>>
->>> match request.split():
-...     case ['GET', path, 'HTTP/2.0']:     handle_get(path)
-...     case ['POST', path, 'HTTP/2.0']:    handle_post(path)
-...     case ['PUT', path, 'HTTP/2.0']:     handle_put(path)
-...     case ['DELETE', path, 'HTTP/2.0']:  handle_delete(path)

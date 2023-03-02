@@ -268,11 +268,11 @@ Flags
 
 Python
 ------
-* ``re.findall()`` - all matches at once
-* ``re.finditer()`` - all matches one at a time
-* ``re.search()`` - whether text contains (does not search after first match)
-* ``re.match()`` - whether text matches pattern (validation, np. email, ssn, tax id, phone)
-* ``re.split()`` - splits text by pattern
-* ``re.sub()`` - replaces group matches in text (works best with named groups)
-* ``re.compile()`` - prepares pattern for further use (match against it)
+* ``re.findall()`` - all matches at once, returns ``list[str]``
+* ``re.finditer()`` - all matches one at a time, returns ``Iterator[re.Match]``
+* ``re.search()`` - whether text contains (stop after first match), returns ``re.Match | None``
+* ``re.match()`` - whether text matches pattern (validation, np. email, ssn, tax id, phone), returns ``re.Match | None``
+* ``re.split()`` - splits text by pattern, returns ``list[str]``
+* ``re.sub()`` - replaces group matches in text (works best with named groups), returns ``str``
+* ``re.compile()`` - prepares pattern for further use (match against it), returns ``re.Pattern``
 
