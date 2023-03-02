@@ -14,19 +14,19 @@ Numeric
 * ``\d`` - digit
 * ``\D`` - anything but digit
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'[0-9]', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '7']
+['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
 
 >>> re.findall(r'\d', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '7']
+['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
 
 >>> re.findall(r'\D', TEXT)  # doctest: +NORMALIZE_WHITESPACE
 ['M', 'a', 'r', 'k', ' ', 'W', 'a', 't', 'n', 'e', 'y', ' ', 'o', 'f',
  ' ', 'A', 'r', 'e', 's', ' ', ' ', 'l', 'a', 'n', 'd', 'e', 'd', ' ',
  'o', 'n', ' ', 'M', 'a', 'r', 's', ' ', 'o', 'n', ':', ' ', 'N', 'o',
- 'v', ' ', 't', 'h', ',', ' ', ' ', 'a', 't', ' ', ':', ' ', 'p', 'm']
+ 'v', ' ', 't', 'h', ',', ' ', ' ', 'a', 't', ' ', ':']
 
 
 Whitespaces
@@ -41,16 +41,16 @@ Whitespaces
 * ``\v`` - vertical space
 * ``\f`` - form feed
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'\s', TEXT)
-[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 >>> re.findall(r'\S', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r',
- 'e', 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r',
- 's', 'o', 'n', ':', 'N', 'o', 'v', '7', 't', 'h', ',', '2', '0', '3',
- '5', 'a', 't', '1', ':', '3', '7', 'p', 'm']
+['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
+ 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
+ 'n', ':', 'N', 'o', 'v', '7', 't', 'h', ',', '2', '0', '3', '5', 'a', 't',
+ '1', '3', ':', '3', '7']
 
 >>> re.findall(r'\n', TEXT)
 []
@@ -73,13 +73,14 @@ Examples:
     * ``\babc\b`` - performs a "whole words only" search
     * ``\Babc\B`` - pattern is fully surrounded by word characters
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'[a-z][a-z]', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['ar', 'at', 'ne', 'of', 're', 'la', 'nd', 'ed', 'on', 'ar', 'on', 'ov', 'th', 'at', 'pm']
+['ar', 'at', 'ne', 'of', 're', 'la', 'nd', 'ed', 'on', 'ar', 'on', 'ov',
+ 'th', 'at']
 
 >>> re.findall(r'\b[a-z][a-z]\b', TEXT)
-['of', 'on', 'on', 'at', 'pm']
+['of', 'on', 'on', 'at']
 
 >>> re.findall('\b[a-z][a-z]\b', TEXT)  # without raw-string
 []
@@ -102,26 +103,27 @@ Valid characters are the same as allowed in variable/modules names in Python:
 >>> imię1 = 'Mark'
 >>> Imię_1 = 'Mark'
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'\w', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r',
- 'e', 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r',
- 's', 'o', 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a',
- 't', '1', '3', '7', 'p', 'm']
+['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
+ 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
+ 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a', 't', '1', '3',
+ '3', '7']
 
->>> re.findall(r'\W', TEXT)
-[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ':', ' ', ' ', ',', ' ', ' ', ' ', ':', ' ']
+>>> re.findall(r'\W', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ':', ' ', ' ', ',', ' ', ' ',
+ ' ', ':']
 
 Mind, that following code gives similar output to ``\w`` but it is not
 completely true. ``\w`` would extract also unicode characters while this
 ``[a-zA-Z0-9]`` will not.
 
 >>> re.findall(r'[a-zA-Z0-9]', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r',
- 'e', 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r',
- 's', 'o', 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a',
- 't', '1', '3', '7', 'p', 'm']
+['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
+ 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
+ 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a', 't', '1', '3',
+ '3', '7']
 
 Example:
 
@@ -190,13 +192,13 @@ Use Case - 0x04
 ---------------
 * Number and Spaces
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'[0-9]\s', TEXT)
-['3 ', '5 ', '7 ']
+['3 ', '5 ']
 
 >>> re.findall(r'\d\s', TEXT)
-['3 ', '5 ', '7 ']
+['3 ', '5 ']
 
 
 Assignments

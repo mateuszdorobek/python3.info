@@ -6,10 +6,10 @@ Syntax Quantifier
 * Lazy
 
 >>> import re
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'\d', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '7']
+['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
 
 >>> re.findall(r'\d\d\d\d', TEXT)
 ['2035']
@@ -20,13 +20,13 @@ Exact
 * Exact match
 * ``{n}`` - exactly `n` repetitions
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'[0-9]{2}', TEXT)
-['20', '35', '37']
+['20', '35', '13', '37']
 
 >>> re.findall(r'\d{2}', TEXT)
-['20', '35', '37']
+['20', '35', '13', '37']
 
 
 Greedy
@@ -42,10 +42,10 @@ Greedy
 * ``+`` - minimum 1 repetitions, no maximum, prefer longer (alias to ``{1,}``)
 * ``?`` - minimum 0 repetitions, maximum 1 repetitions, prefer longer  (alias to ``{0,1}``)
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'\d{2,4}', TEXT)
-['2035', '37']
+['2035', '13', '37']
 
 
 Lazy
@@ -61,21 +61,21 @@ Lazy
 * ``+?`` - minimum 1 repetitions, no maximum, prefer shorter (alias to ``{1,}?``)
 * ``??`` - minimum 0 repetitions, maximum 1 repetition, prefer shorter (alias to ``{0,1}?``)
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 >>> re.findall(r'\d{2,4}?', TEXT)
-['20', '35', '37']
+['20', '35', '13', '37']
 
 
 Greedy vs. Lazy
 ---------------
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 >>>
 >>> re.findall('\d+', TEXT)
-['3', '7', '2035', '1', '37']
+['3', '7', '2035', '13', '37']
 >>>
 >>> re.findall('\d+?', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '7']
+['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
 
 >>> TEXT = 'Mark Watney is an astronaut. Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37.'
 >>>
@@ -114,13 +114,10 @@ Use Case - 0x02
 ---------------
 * Time
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
->>>
->>> re.findall(r'\d\d:\d\d', TEXT)
-[]
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 >>>
 >>> re.findall(r'\d\d?:\d\d', TEXT)
-['1:37']
+['13:37']
 
 
 Use Case - 0x03
@@ -130,7 +127,7 @@ Use Case - 0x03
 >>> import re
 >>> from datetime import datetime
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 >>>
 >>> result = re.findall(r'\w{3} \d{1,2}th, \d{4}', TEXT)
 >>>

@@ -19,7 +19,7 @@ W3C HTML5 Standard [#w3cemailregex]_ regexp for email field
 
 SetUp
 -----
-* ``TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'``
+* ``TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'``
 * TEXT is short
 * TEXT has firstname and lastname
 * TEXT has date
@@ -31,7 +31,31 @@ SetUp
 
 >>> import re
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+
+>>> ARES = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+
+>>> JFK = """We choose to go to the moon.
+... We choose to go to the moon in this decade and do the other things,
+... not because they are easy, but because they are hard,
+... because that goal will serve to organize and measure the best of our energies and skills,
+... because that challenge is one that we are willing to accept,
+... one we are unwilling to postpone,
+... and one which we intend to win,
+... and the others, too."""
+
+>>> APOLLO = """Apollo 11 was the American spaceflight that first landed
+... humans on the Moon. Commander (CDR) Neil Armstrong and lunar module
+... pilot (LMP) Buzz Aldrin landed the Apollo Lunar Module (LM) Eagle on
+... July 20th, 1969 at 20:17 UTC, and Armstrong became the first person
+... to step (EVA) onto the Moon's surface (EVA) 6 hours 39 minutes later,
+... on July 21st, 1969 at 02:56:15 UTC. Aldrin joined him 19 minutes later.
+... They spent 2 hours 31 minutes exploring the site they had named Tranquility
+... Base upon landing. Armstrong and Aldrin collected 47.5 pounds (21.5 kg)
+... of lunar material to bring back to Earth as pilot Michael Collins (CMP)
+... flew the Command Module (CM) Columbia in lunar orbit, and were on the
+... Moon's surface for 21 hours 36 minutes before lifting off to rejoin
+... Columbia."""
 
 
 Syntax
@@ -156,9 +180,61 @@ the normal new line function, which is used as a paragraph separator
 [#stackVT2]_.
 
 
+String Modifiers
+----------------
+>>> text = f'hello'
+>>> text = b'hello'
+>>> text = u'hello'
+>>> text = r'hello'
+
+>>> text = F'hello'
+>>> text = B'hello'
+>>> text = U'hello'
+>>> text = R'hello'
+
+>>> text = 'cześć'
+>>> text.encode()
+b'cze\xc5\x9b\xc4\x87'
+>>>
+>>> text = b'cze\xc5\x9b\xc4\x87'
+>>> text.decode()
+'cześć'
+
+>>> print('hello world')
+hello world
+>>>
+>>>
+>>> print('hello\tworld')  # doctest: +SKIP
+hello	world
+>>>
+>>> print('hello\nworld')
+hello
+world
+>>>
+>>>
+>>> print(r'hello\nworld')
+hello\nworld
+>>>
+>>> print(r'hello\tworld')
+hello\tworld
+
+
 Raw Strings
 -----------
 * Recap information about raw strings ``r'...'``
+* Since Python 3.12 ``r-string`` is required https://docs.python.org/dev/whatsnew/3.12.html#other-language-changes
+
+Since Python 3.12 `gh-98401 <https://github.com/python/cpython/issues/98401>`_:
+
+.. epigraph::
+
+    A backslash-character pair that is not a valid escape sequence now
+    generates a ``SyntaxWarning``, instead of ``DeprecationWarning``.
+    For example, ``re.compile("\d+")`` now emits a ``SyntaxWarning``
+    ("\d" is an invalid escape sequence), use raw strings for regular
+    expression: ``re.compile(r"\d+")``. In a future Python version,
+    ``SyntaxError`` will eventually be raised, instead of ``SyntaxWarning``.
+
 
 >>> print('hello\nworld')
 hello

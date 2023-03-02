@@ -44,8 +44,7 @@ ASCII
 * Works for ``\w``, ``\W``, ``\b``, ``\B``, ``\d``, ``\D``, ``\s`` and ``\S``
 * ASCII only search is faster, but does not include unicode characters
 
->>> TEXT = 'cześć'  # in Polish language means hello
->>>
+>>> TEXT = 'cześć'  # 'hello' in Polish
 >>> re.findall(r'\w', TEXT)
 ['c', 'z', 'e', 'ś', 'ć']
 >>>
@@ -54,6 +53,8 @@ ASCII
 
 Mind that range character class ``[a-z]`` is always ASCII:
 
+>>> TEXT = 'cześć'  # 'hello' in Polish
+>>>
 >>> re.findall(r'[a-z]', TEXT)
 ['c', 'z', 'e']
 >>>
@@ -68,10 +69,8 @@ IGNORECASE
 * Case-insensitive search
 * Has Unicode support i.e. ``Ą`` and ``ą``
 
->>> import re
->>>
->>>
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 >>>
 >>> re.findall(r'mars', TEXT)
 []

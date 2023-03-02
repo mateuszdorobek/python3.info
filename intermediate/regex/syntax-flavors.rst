@@ -26,19 +26,27 @@ Enclosing
 * In Python we use raw-string (``r'...'``)
 * In JavaScript we use ``/pattern/flags`` or ``new RegExp(pattern, flags)``
 
->>> data = '+48 123 456 789'
->>> result = re.match(r'[0-9]+', data)
+Inline:
+
+>>> result = re.search(r'[0-9]+', 'Ares3')
 
 .. code-block:: javascript
 
-    const data = '+48 123 456 789'
-    const result = str.search(/[0-9]+/, data)
+    result = /[0-9]+/.exec('Ares3')
 
 .. code-block:: javascript
 
-    const data = '+48 123 456 789'
-    const pattern = new RegExp('[0-9]+');
-    const result = data.search(pattern)
+    result = 'Ares3'.match(/[0-9]+/)
+
+Compilation:
+
+>>> pattern = re.compile(r'[0-9]+')
+>>> result = pattern.search('Ares3')
+
+.. code-block:: javascript
+
+    pattern = new RegExp('[0-9]+')
+    pattern.exec('Ares3')
 
 
 Named Ranges
@@ -96,11 +104,41 @@ re.error: bad character range a-9 at position 1
 
 Group Backreference
 -------------------
-* ``$1`` == ``\1``
+* ``$1`` - grep, egrep, Jetbrains IDE
+* ``\1``
+* ``\g<1>`` - Python
+* ``\g<name>`` - Python
+
+In JavaScript name groups don't have ``?P`` but only ``?``:
+
+.. code-block:: python
+
+    '(?P<name>\d+)'
+
+.. code-block:: javascript
+
+    '(?<name>\d+)'
+
 
 >>> HTML = '<span>Hello World</span>'
 >>> re.findall(r'<(?P<tag>.+)>(?:.+)</(?P=tag)>', HTML)
 ['span']
+
+>>> ARES = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>>
+>>> year = r'(?P<year>\d{4})'
+>>> month = r'(?P<month>[A-Z][a-z]+)'
+>>> day = r'(?P<day>\d{1,2})'
+>>> date = f'{month} {day}(?:st|nd|rd|th), {year}'
+>>>
+>>> re.search(date, ARES).groupdict()
+{'month': 'Nov', 'day': '7', 'year': '2035'}
+>>>
+>>> re.sub(date, '\g<year> \g<month> \g<day>', ARES)
+'Mark Watney of Ares 3 landed on Mars on: 2035 Nov 7 at 13:37'
+>>>
+>>> re.sub(date, '\g<3> \g<1> \g<2>', ARES)
+'Mark Watney of Ares 3 landed on Mars on: 2035 Nov 7 at 13:37'
 
 
 References
