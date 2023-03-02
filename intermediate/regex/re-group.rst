@@ -29,7 +29,7 @@ Example:
 SetUp
 -----
 >>> import re
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 
 
 Positional Groups
@@ -117,7 +117,7 @@ Use Case - 0x01
 
 Use Case - 0x02
 ---------------
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 1:37 pm'
+>>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
 >>>
 >>> year = r'(?P<year>\d{4})'
 >>> month = r'(?P<month>\w+)'

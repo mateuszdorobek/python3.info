@@ -1,6 +1,6 @@
-Dragon (version release candidate)
-==================================
-* Assignment: Dragon (version release candidate)
+Dragon v3.0
+===========
+* Assignment: Dragon v3.0
 * Complexity: hard
 * Lines of code: 50 lines
 * Time: 21 min

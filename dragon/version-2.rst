@@ -1,6 +1,6 @@
-Dragon (version beta)
-=====================
-* Assignment: Dragon (version beta)
+Dragon v2.0
+===========
+* Assignment: Dragon v2.0
 * Complexity: medium
 * Lines of code: 120 lines
 * Time: 60 min (±10 min), then 30 min live coding with instructor

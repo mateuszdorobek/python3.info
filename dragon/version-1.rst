@@ -1,6 +1,6 @@
-Dragon (version alpha)
-======================
-* Assignment: Dragon (version alpha)
+Dragon v1.0
+===========
+* Assignment: Dragon v1.0
 * Complexity: medium
 * Lines of code: 100 lines
 * Time: 89 min, then 144 min live coding with instructor
@@ -33,9 +33,9 @@ English
 
     a. Dragon has status ``dead``
     b. Change texture file name to  ``img/dragon/dead.png``
-    c. Print ``NAME is dead``, where ``NAME`` is the dragon's name
-    d. Print how much gold dragon dropped (random integer from 1 to 100)
-    e. Print position where dragon died
+    c. Display ``NAME is dead``, where ``NAME`` is the dragon's name
+    d. Display how much gold dragon dropped (random integer from 1 to 100)
+    e. Display position where dragon died
 
 5. Assume left-top screen corner as an initial coordinates position:
 
@@ -116,9 +116,9 @@ Polish
 
     a. Smok ma status ``dead``
     b. Zmień nazwę pliku tekstury na ``img/dragon/dead.png``
-    c. Wypisz ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
-    d. Wypisz ile złota smok wyrzucił (losowa liczba od 1 do 100)
-    e. Wypisz pozycję gdzie smok zginął
+    c. Wyświetl ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
+    d. Wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
+    e. Wyświetl pozycję gdzie smok zginął
 
 5. Przyjmij górny lewy róg ekranu za punkt początkowy:
 
@@ -175,7 +175,7 @@ Wymagania niefunkcjonalne:
        Możesz wprowadzać dodatkowe pola, metody, funkcje, zmienne, stałe,
        klasy, obiekty, unittest lub doctest, type annotation - co tylko
        chcesz, ale `nie korzystaj z modułów spoza biblioteki standardowej`.
-       Wyjątkiem może być framework do testów.
+       Wyjątkiem są frameworki do testów (``pytest``, ``hypothesis``, itp).
 
     e. **Ty - programista, Prowadzący - Product Owner.**
 
@@ -211,7 +211,7 @@ Powodzenia i miłej zabawy!
 
 Hints
 -----
-* Shortest possible solution could have 24 lines of code
+* Shortest solution has 24 lines of code
 * ``from random import randint``
 * ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
 
