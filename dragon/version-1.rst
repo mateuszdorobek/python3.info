@@ -37,7 +37,7 @@ English
 
 Non-functional requirements:
 
-    1. In your directory create empty file ``dragon_v1.py``:
+    1. In your directory create an empty file ``dragon_v1.py``
     2. Add file to the version control system (should be automatic)
     3. Commit and push changes to the repository
     4. In this file write a solution to the assignment
@@ -49,7 +49,7 @@ Functional requirements:
 
         a. name
         b. position on the screen
-        c. texture file name, default ``img/dragon/alive.png``
+        c. path to the texture file, default ``img/dragon/alive.png``
         d. health points, default random ``int`` in range from 50 to 100
 
     2. Dragon can:
@@ -118,28 +118,29 @@ Good luck, have fun!
 
 Polish
 ------
-**Zadanie jest symulacją procesu wytwarzania oprogramowania.** Motyw Smoka
-z zadania jest tylko narracją do demonstracji obiektowego paradygmatu
-programowania i dobrych praktyk programistycznych. Nie piszemy gry i nie
-będziemy omawiali specyfiki game-dev! Siłą rzeczy poruszymy kilka kwestii
-z związanych ze specyfiką gier (np. to że smok zieje ogniem itp), ale całość
-dyskusji znajdzie zastosowanie do dowolnego rodzaju projektów informatycznych
-i problemów inżynierii oprogramowania w każdej domenie biznesowej.
+**Zadanie jest symulacją procesu wytwarzania oprogramowania.**
+Motyw Smoka z zadania jest tylko narracją do demonstracji obiektowego
+paradygmatu programowania i dobrych praktyk programistycznych. Nie piszemy
+gry i nie będziemy omawiali specyfiki game-dev! Siłą rzeczy poruszymy kilka
+kwestii z związanych ze specyfiką gier (np. to że smok zieje ogniem itp),
+ale całość dyskusji znajdzie zastosowanie do dowolnego rodzaju projektów
+informatycznych i problemów inżynierii oprogramowania w każdej domenie
+biznesowej.
 
-**Ty - programista, Prowadzący - Product Owner.** Przy tym zadaniu wcielisz
-się w rolę inżyniera oprogramowania (programisty), a Prowadzący będzie
-zachowywał się jak Product Owner z niewielką wiedzą techniczną - 10 lat temu
-był programistą, a teraz większość czasu spędza w arkuszu kalkulacyjnym i na
-spotkaniach. Pamiętaj, że doświadczenie Product Ownera rzutuje na sposób w
-jaki pisze kryteria akceptacyjne. Jego kariera programisty może powodować,
-że w specyfikacji wymagań pojawią się kwestie techniczne i sugestie jak dany
-problem rozwiązać. Musisz to odfiltrować z treści zadania. Niestety to bardzo
-częsty scenariusz w branży IT.
+**Ty - programista, Prowadzący - Product Owner.**
+Przy tym zadaniu wcielisz się w rolę inżyniera oprogramowania (programisty),
+a Prowadzący będzie zachowywał się jak Product Owner z niewielką wiedzą
+techniczną - 10 lat temu był programistą, a teraz większość czasu spędza
+w arkuszu kalkulacyjnym i na spotkaniach. Pamiętaj, że doświadczenie Product
+Ownera rzutuje na sposób w jaki pisze kryteria akceptacyjne. Jego kariera
+programisty może powodować, że w specyfikacji wymagań pojawią się kwestie
+techniczne i sugestie jak dany problem rozwiązać. Musisz to odfiltrować
+z treści zadania. Niestety to bardzo częsty scenariusz w branży IT.
 
 Wymagania niefunkcjonalne:
 
-    1. W swoim katalogu stwórz pusty plik ``dragon_v1.py``:
-    2. Dodaj plik go do systemu kontroli wersji
+    1. W swoim katalogu stwórz pusty plik ``dragon_v1.py``
+    2. Dodaj plik do systemu kontroli wersji
     3. Zapisz i wypchnij zmiany do repozytorium (commit and push)
     4. W pliku zapisz kod do rozwiązania zadania
     5. Po skończeniu zadania zapisz i wypchnij zmiany do repozytorium
@@ -150,7 +151,7 @@ Wymagania funkcjonalne:
 
         a. nazwą
         b. pozycją na ekranie
-        c. nazwą pliku tekstury, domyślnie ``img/dragon/alive.png``
+        c. ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
         d. punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
 
     2. Smok może:
@@ -197,19 +198,16 @@ Wymagania funkcjonalne:
 Informacje dodatkowe:
 
     a. **Zadanie jest specyfikacją wymagań biznesowych.**
-
        Nie jest to dokumentacja techniczna. Zadanie opisuje "co ma być",
        a nie "jak to robić". Zwróć na to uwagę, bo to ważna różnica!
 
     b. **Sposób implementacji jest dowolny.**
-
        Możesz wprowadzać dodatkowe pola, metody, funkcje, zmienne, stałe,
        klasy, obiekty, unittest lub doctest, type annotation - co tylko
        chcesz, ale `nie korzystaj z modułów spoza biblioteki standardowej`.
        Wyjątkiem są frameworki do testów (``pytest``, ``hypothesis``, itp).
 
     c. **Rozwiązanie musi spełniać kryteria akceptacyjne.**
-
        Pamiętaj, że jest to wersja `1.0` więc nie wprowadzaj dodatkowych
        niezamówionych funkcjonalności (np. dodatkowych postaci, sprawdzania
        wychodzenia poza planszę itp.). Z tego powodu nie musisz trzymać się
@@ -217,7 +215,6 @@ Informacje dodatkowe:
        inaczej niż jest napisane. Masz pełną dowolność.
 
     d. **Product Owner nie doradzi Ci w sprawie decyzji architektonicznych.**
-
        Nie podpowie Ci czy lepiej będzie zrobić to w jakiś konkretny sposób,
        albo czy jak zastosujesz to pewne rozwiązanie to jaki będzie wpływ na
        przyszłość. Zadanie polega na tym, że to Ty musisz podejmować decyzje
@@ -229,9 +226,8 @@ Informacje dodatkowe:
        i over-engineering.
 
     e. **Nie przeglądaj rozwiązań ani treści kolejnych części zadania.**
-
-       Jeżeli zaglądniesz w przód, to zepsujesz sobie zabawę i naukę. To
-       zadanie ma niesamowity potencjał edukacyjny. Nie niszcz go.
+       Jeżeli zaglądniesz w przód, to zepsujesz sobie zabawę i naukę.
+       To zadanie ma niesamowity potencjał edukacyjny. Nie niszcz go.
 
 Powodzenia i miłej zabawy!
 
