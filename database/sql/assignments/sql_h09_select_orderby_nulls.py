@@ -37,6 +37,8 @@ result = """
 
 SELECT datetime, category, event
 FROM apollo11
+ORDER BY category DESC,
+         datetime ASC
 
 """
 

@@ -29,8 +29,8 @@ import sqlite3
 # type: str
 result = """
 
--- replace this comment
--- with your sql query
+SELECT *
+FROM apollo11
 
 """
 

@@ -35,8 +35,8 @@ import sqlite3
 # result: str
 result = """
 
--- replace this comment
--- with your sql query
+SELECT datetime, category, event
+FROM apollo11
 
 """
 

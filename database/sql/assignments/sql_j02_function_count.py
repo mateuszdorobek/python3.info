@@ -31,7 +31,7 @@ import sqlite3
 # - what: count number of rows
 result = """
 
-SELECT *
+SELECT category
 FROM apollo11
 
 """

@@ -34,7 +34,7 @@ import sqlite3
 # - use: MIN()
 result = """
 
-SELECT *
+SELECT date
 FROM apollo11
 
 """

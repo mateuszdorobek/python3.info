@@ -39,6 +39,7 @@ result = """
 
 SELECT category
 FROM apollo11
+GROUP BY category
 
 """
 

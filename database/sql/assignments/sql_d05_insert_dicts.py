@@ -32,8 +32,8 @@ import sqlite3
 # type: str
 result = """
 
--- replace this comment
--- with your sql query
+INSERT INTO contacts (firstname, lastname)
+VALUES ()
 
 """
 

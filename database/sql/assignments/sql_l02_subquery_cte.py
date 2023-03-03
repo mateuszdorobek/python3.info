@@ -37,6 +37,12 @@ result = """
 
 SELECT datetime, category, event
 FROM apollo11
+WHERE category IN (
+    SELECT category
+    FROM apollo11
+    GROUP BY category
+    HAVING COUNT(event) < 50
+)
 
 """
 
