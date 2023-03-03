@@ -10,8 +10,13 @@ Dragon ADR Damage Take
 
 Problem
 -------
-* Make DMG points damage to the dragon
-
+* Make 10 points damage to the dragon
+* Make 5 points damage to the dragon
+* Make 3 points damage to the dragon
+* Make 2 points damage to the dragon
+* Make 15 points damage to the dragon
+* Make 25 points damage to the dragon
+* Make 75 points damage to the dragon
 
 Option 1
 --------
@@ -35,6 +40,8 @@ Option 2
 * Bad: Indication of direction is too weak ``dragon <-> enemy``
 * Decision: rejected, indication of direction is too weak
 
+>>> dragon.hit(10)
+
 Rationale:
 
 .. code-block:: text
@@ -56,6 +63,16 @@ Option 3
 * Bad: ``hurt_self()`` is too use-case specific
 * Bad: Inconsistent with ``make_damage()``
 * Decision: rejected, method names are too use-case specific
+
+Problem:
+
+>>> dragon.hurt_self(DMG)
+>>> chair.hurt_self(DMG)
+>>> barrel.hurt_self(DMG)
+
+>>> dragon.receive_damage(DMG)
+>>> chair.receive_damage(DMG)
+>>> barrel.receive_damage(DMG)
 
 
 Option 4

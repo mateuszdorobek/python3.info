@@ -28,35 +28,16 @@ Option 1
 
 Problem:
 
->>> dragon.fly(10, 20)
->>> dragon.walk(10, 20)    # code duplication
->>> hero.walk(10, 20)    # code duplication
->>> rock.slide(10, 20)   # code duplication
+>>> dragon.fly(10, 20)     # does the same, but different name
+>>> hero.walk(10, 20)      # does the same, but different name
+>>> snake.slide(10, 20)    # does the same, but different name
 
 
 Option 2
 --------
->>> dragon.fly(x=10, y=20)
->>> dragon.teleport(x=10, y=20)
-
-* Good: easy to use
-* Good: arguments are explicit
-* Good: encapsulation
-* Good: easy to add validation if needed
-* Good: easy to extend to 3D - add parameter with default value ``0``
-* Bad: method names are too use-case specific
-* Decision: rejected, too use-case specific names
-
-Problem:
-
->>> dragon.fly(x=10, y=20)
->>> dragon.walk(x=10, y=20)
->>> hero.walk(x=10, y=20)    # code duplication
->>> rock.slide(x=10, y=20)   # code duplication
-
-
-Option 3
---------
+>>> def set_position(x, y, /):
+...     pass
+...
 >>> dragon.set_position(10, 20)
 
 * Good: easy to use
@@ -67,8 +48,11 @@ Option 3
 * Decision: maybe, could be done better
 
 
-Option 4
+Option 3
 --------
+>>> def set_position_xy(x, y, /):
+...     pass
+...
 >>> dragon.set_position_xy(10, 20)
 
 * Good: verbose
@@ -80,8 +64,11 @@ Option 4
 * Decision: rejected, ties to 2D point
 
 
-Option 5
+Option 4
 --------
+>>> def set_position(*, x, y):
+...     pass
+...
 >>> dragon.set_position(x=10, y=20)
 
 * Good: easy to use
@@ -92,15 +79,17 @@ Option 5
 * Decision: candidate
 
 
-Option 6
+Option 5
 --------
+>>> def set_position(**kwargs):
+...     pass
+...
 >>> dragon.set(position_x=10, position_y=20)
 
 * Good: easy to use
 * Good: arguments are explicit
 * Good: easy to add validation if needed
-* Bad: ``set()`` is to generic
-* Bad: possibility of abuse
+* Bad: ``set()`` is too generic and allows for abuse
 * Bad: encapsulation is in question
 * Decision: rejected, possibility of abuse
 
@@ -112,12 +101,15 @@ Problem:
 >>> dragon.set(name='Wawelski')
 
 
-Option 7
+Option 6
 --------
 >>> dragon.x = 10
 >>> dragon.y = 20
-
 >>> dragon.x, dragon.y = 10, 20
+
+>>> dragon.position_x = 10
+>>> dragon.position_y = 20
+>>> dragon.position_x, dragon.position_y = 10, 20
 
 * Good: easy to use
 * Good: arguments are explicit
@@ -128,83 +120,14 @@ Option 7
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles
 
-Example:
+Problem:
 
->>> knn = KNearestNeighbors(k=3)
+>>> knn = KNearestNeighbors()
+>>> knn.k = 3
 >>> knn.w = [1, 2, 3]
 
 
-Option 8
---------
->>> dragon.position_x = 10
->>> dragon.position_y = 20
-
->>> dragon.position_x, dragon.position_y = 10, 20
-
-* Good: easy to use
-* Good: arguments are explicit
-* Good: can use ``@property`` for validation if needed in future
-* Bad: violates abstraction (OOP Principle)
-* Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles
-
-Example:
-
->>> knn = KNearestNeighbors(k=3)
->>> knn.weights = [1, 2, 3]
-
-
-Option 9
---------
->>> dragon.position = (10, 20)
-
-* Good: easy to use
-* Good: can use ``@property`` for validation if needed
-* Bad: arguments are implicit
-* Bad: require knowledge of an API
-* Bad: always 2D
-* Bad: not extensible, hard to refactor to 3D
-* Bad: violates abstraction (OOP Principle)
-* Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles
-
-
-Option 10
----------
->>> dragon.position = Point(x=10, y=20)
-
-* Good: easy to use
-* Good: can use ``@property`` for validation if needed
-* Good: arguments are explicit
-* Good: readability
-* Bad: require knowledge of an API
-* Bad: extensible, easy to refactor to 3D
-* Bad: violates abstraction (OOP Principle)
-* Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles
-
-
-Option 11
----------
->>> dragon.position @ Point(x=10, y=20)
-
-* Good: easy to use
-* Good: using ``@`` (matmul) it is easy to validation
-* Bad: ``@`` (at) makes sense only in English
-* Bad: arguments are implicit
-* Bad: require knowledge of an API
-* Bad: always 2D
-* Bad: not extensible, hard to refactor to 3D
-* Bad: violates abstraction (OOP Principle)
-* Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles, misleading for non-English speakers
-
-
-Option 12
+Option 7
 ---------
 >>> dragon.position.x = 10
 >>> dragon.position.y = 20
@@ -224,6 +147,76 @@ Option 12
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles and Python convention (PEP 20)
+
+Problem:
+
+>>> knn = KNearestNeighbors()
+>>> knn.params.k = 3
+>>> knn.params.w = [1, 2, 3]
+
+
+Option 8
+--------
+>>> dragon.position = (10, 20)
+
+* Good: easy to use
+* Good: can use ``@property`` for validation if needed
+* Bad: arguments are implicit
+* Bad: require knowledge of an API
+* Bad: always 2D
+* Bad: not extensible, hard to refactor to 3D
+* Bad: violates abstraction (OOP Principle)
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles
+
+Problem:
+
+>>> knn = KNearestNeighbors()
+>>> knn.args = (3, [1, 2, 3])
+
+
+Option 9
+---------
+>>> dragon.position = Point(x=10, y=20)
+
+* Good: easy to use
+* Good: can use ``@property`` for validation if needed
+* Good: arguments are explicit
+* Good: readability
+* Bad: require knowledge of an API
+* Bad: extensible, easy to refactor to 3D
+* Bad: violates abstraction (OOP Principle)
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles
+
+Problem:
+
+>>> knn = KNearestNeighbors()
+>>> knn.args = Params(k=3, w=[1, 2, 3])
+
+
+Option 10
+---------
+>>> dragon.position @ Point(x=10, y=20)
+
+* Good: easy to use
+* Good: using ``@`` (matmul) it is easy to validation
+* Bad: ``@`` (at) makes sense only in English
+* Bad: arguments are implicit
+* Bad: require knowledge of an API
+* Bad: always 2D
+* Bad: not extensible, hard to refactor to 3D
+* Bad: violates abstraction (OOP Principle)
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles, misleading for non-English speakers
+
+Problem:
+
+>>> knn = KNearestNeighbors()
+>>> knn << Params(k=3, w=[1, 2, 3])
 
 
 Decision

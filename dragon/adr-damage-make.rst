@@ -37,6 +37,10 @@ Option 2
 * Bad: not directed, all methods could mean making damage or receiving damage
 * Decision: rejected, bad method names
 
+Problem:
+
+>>> dragon.hit()
+
 Rationale:
 
 Some method names has stronger emphasis on who is making damage to whom.
@@ -70,6 +74,11 @@ Option 4
 * Bad: ``hurt_someone()`` method name is too use-case specific
 * Decision: rejected, method names are too use-case specific
 
+Problem:
+
+>>> dragon.deal_damage()
+>>> explosion.deal_damage()
+
 
 Option 5
 --------
@@ -78,6 +87,11 @@ Option 5
 * Good: Strong indication of direction ``dragon --> enemy``
 * Good: Name indicates intent
 * Decision: candidate
+
+Problem:
+
+>>> dragon.make_damage()
+>>> explosion.make_damage()
 
 
 Option 6
@@ -133,6 +147,6 @@ Decision
 >>> dmg = dragon.make_damage()
 
 * Good: clear intent
-* Good: dragon <-- enemy
+* Good: ``dragon <-- enemy``
 * Good: readability
 * Good: encapsulation

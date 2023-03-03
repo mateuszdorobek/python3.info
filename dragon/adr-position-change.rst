@@ -11,6 +11,9 @@ Dragon ADR Position Change
 Problem
 -------
 * Move dragon left by 10 and down by 20
+* Move dragon left by 10 and right by 15
+* Move dragon right by 15 and up by 5
+* Move dragon down by 5
 
 
 Option 1
@@ -32,18 +35,6 @@ Problem:
 
 Option 2
 --------
->>> dragon.change_position(left=10, down=20)
->>> dragon.position_change(left=10, down=20)
-
-* Good: extensible to 3D
-* Good: move by relative shifting (left, right, up, down)
-* Good: encapsulation, object knows current position and moves
-* Bad: the method names are a bit too complex for
-* Decision: candidate, method names are a bit too complex for now
-
-
-Option 3
---------
 >>> dragon.move(left=10, down=20)
 >>> dragon.move(right=10, up=20)
 >>> dragon.move(right=10, left=20)
@@ -55,6 +46,18 @@ Option 3
 * Good: easy ``.move()``
 * Good: you can prevent negative shifting (i.e.: ``left=-10``)
 * Decision: candidate
+
+
+Option 3
+--------
+>>> dragon.change_position(left=10, down=20)
+>>> dragon.position_change(left=10, down=20)
+
+* Good: extensible to 3D
+* Good: move by relative shifting (left, right, up, down)
+* Good: encapsulation, object knows current position and moves
+* Bad: the method names are a bit too complex for
+* Decision: candidate, method names are a bit too complex for now
 
 
 Option 4
@@ -192,7 +195,7 @@ Example:
 
 Problem:
 
-* ``check(True, False, None)``
+>>> run(True, False, None)  # doctest: +SKIP
 
 .. code-block:: css
 

@@ -29,10 +29,8 @@ Problems:
 >>> dragon = Dragon('Wawelski', None, None)
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 50, 120)
 
->>> pt = Point(1, 2)                # maybe
->>> pt = PointXY(1, 2)              # ok, but the name is overkill
->>> pt = CartesianAxisPoint(1, 2)   # ok
->>> pt = GPSPoint(1, 2)             # bad
+>>> current = Point(1, 2)                   # ok
+>>> current = GPSPoint(1, 2)                # maybe
 
 >>> knn = KNearestNeighbors(3)              # ok
 >>> knn = KNearestNeighbors(3, [1,2,3])     # bad
@@ -50,16 +48,14 @@ Option 2
 * Bad: It does suggest, that x and y are some parameters to texture (for example width and height of a texture image)
 * Decision: rejected, not explicit enough
 
-Problems:
+Problem:
 
 >>> dragon = Dragon('Wawelski', x=0, y=0)
 >>> dragon = Dragon('Wawelski', x=None, y=None)
 >>> dragon = Dragon('Wawelski', texture='img/dragon/alive.png', x=50, y=120)
 
->>> pt = Point(x=1, y=2)                        # ok
->>> pt = PointXY(x=1, y=2)                      # ok, but the name is overkill
->>> pt = CartesianAxisPoint(x=1, y=2)           # ok
->>> pt = GPSPoint(x=1, y=2)                     # bad, GPS uses lon, lat
+>>> current = Point(x=1, y=2)                   # ok
+>>> current = GPSPoint(...)                     # both longitude and latitude starts with letter "l"
 
 >>> knn = KNearestNeighbors(k=3)                # ok
 >>> knn = KNearestNeighbors(k=3, w=[1,2,3])     # bad
@@ -78,13 +74,16 @@ Option 3
 * Bad: not verbose
 * Decision: rejected, not explicit enough
 
-Problem:
+Example:
 
 >>> dragon = Dragon('Wawelski', posx=0, posy=0)         # maybe, bad
 >>> dragon = Dragon('Wawelski', pos_x=None, pos_y=None) # maybe, bad
 
->>> pt = GPSPoint(lo=1, la=2)       # bad
->>> pt = GPSPoint(lon=1, lat=2)     # ok
+Problem:
+
+>>> current = Point(x=1, y=2)                   # ok
+>>> current = GPSPoint(lon=1, lat=2)            # ok
+
 
 >>> knn = KNearestNeighbors(k=3, wgt=[1,2,3])           # bad
 
@@ -101,8 +100,10 @@ Option 4
 
 Example:
 
->>> pt = GPSPoint(longitude=1, latitude=2)         # ok
->>> knn = KNearestNeighbors(k=3, weights=[1,2,3])  # ok
+>>> current = Point(x=1, y=2)                        # ok
+>>> current = GPSPoint(longitude=1, latitude=2)      # ok
+
+>>> knn = KNearestNeighbors(k=3, weights=[1,2,3])    # ok
 
 Problem:
 
@@ -114,12 +115,12 @@ Option 5
 >>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
 
 * Good: simple, easy to use
-* Good: you can assign ``None`` by default to set default point
+* Good: you can assign ``None`` by default to set initial point
 * Good: extensible, easy to add ``position_z`` with default value ``0``
 * Good: backward compatible
 * Decision: candidate
 
-Solution:
+Example:
 
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # ok
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y_axis=True) # ok
@@ -179,15 +180,12 @@ Problem:
 
 * ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
 
-
 Example:
 
 >>> pt = (50, 120)
 >>>
->>> pt[0]
-50
->>> pt[1]
-120
+>>> pt[0], pt[1]
+(50, 120)
 
 
 Option 8
@@ -213,7 +211,7 @@ Problem:
 
 Example:
 
->>> pt = Point(x=50, y=120)
+>>> pt = (50, 120)
 >>>
 >>> pt[0], pt[1]
 (50, 120)
@@ -288,8 +286,8 @@ Option 11
 >>>
 >>>
 >>> class Point(NamedTuple):
-...     x: int = 0
-...     y: int = 0
+...     x: int
+...     y: int
 >>>
 >>>
 >>> dragon = Dragon('Wawelski', Point(50, 120))
@@ -338,14 +336,13 @@ Option 12
 * Good: you can assign ``position=None`` by default to set default ``position``
 * Good: relatively easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
-* Bad: before Python 3.11 ``TypeDict`` does not support default values
-* Decision: rejected, re-evaluate in future with Python >= 3.11
+* Bad: ``TypeDict`` does not support default values
+* Decision: rejected, better than dict, does not support default values
 
 Future:
 
 * API will change in Python 3.11
 * Will include ``Required`` and ``NotRequired``
-* Will support default values
 * Re-evaluate then
 
 Example:
@@ -380,14 +377,13 @@ Option 13
 * Good: you can assign ``position=None`` by default to set default ``position``
 * Good: relatively easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
-* Bad: before Python 3.11 ``TypeDict`` does not support default values
-* Decision: rejected, re-evaluate in future with Python >= 3.11
+* Bad: ``TypeDict`` does not support default values
+* Decision: rejected, does not support default values
 
 Future:
 
 * API will change in Python 3.11
 * Will include ``Required`` and ``NotRequired``
-* Will support default values
 * Re-evaluate then
 
 Example:
@@ -431,9 +427,13 @@ Option 14
 Example:
 
 >>> pt = Point(x=1, y=2)
->>> pt.x = 1             # will pass
->>> pt.y = 2             # will pass
->>> pt.notexisting = 10  # will pass
+>>>
+>>> pt.x, pt.y
+(1, 2)
+>>>
+>>> pt.x = 10            # ok
+>>> pt.y = 20            # ok
+>>> pt.notexisting = 30  # ok
 
 
 Option 15
@@ -467,9 +467,13 @@ Option 15
 Example:
 
 >>> pt = Point(x=1, y=2)
->>> pt.x = 1             # will pass
->>> pt.y = 2             # will pass
->>> pt.notexisting = 10  # will throw error
+>>>
+>>> pt.x, pt.y
+(1, 2)
+>>>
+>>> pt.x = 10             # ok
+>>> pt.y = 20             # ok
+>>> pt.notexisting = 30   # error
 
 
 Option 16
@@ -479,8 +483,8 @@ Option 16
 >>>
 >>> @dataclass
 ... class Point:
-...     x: int = 0
-...     y: int = 0
+...     x: int
+...     y: int
 >>>
 >>>
 >>> dragon = Dragon('Wawelski', Point(50, 120))
@@ -501,9 +505,13 @@ Option 16
 Example:
 
 >>> pt = Point(x=1, y=2)
->>> pt.x = 1             # will pass
->>> pt.y = 2             # will pass
->>> pt.notexisting = 10  # will pass
+>>>
+>>> pt.x, pt.y
+(1, 2)
+>>>
+>>> pt.x = 10             # ok
+>>> pt.y = 20             # ok
+>>> pt.notexisting = 30   # ok
 
 
 Option 17
@@ -537,9 +545,13 @@ Option 17
 Example:
 
 >>> pt = Point(x=1, y=2)
->>> pt.x = 1             # will throw error
->>> pt.y = 2             # will throw error
->>> pt.notexisting = 10  # will throw error
+>>>
+>>> pt.x, pt.y
+(1, 2)
+>>>
+>>> pt.x = 10             # error
+>>> pt.y = 20             # error
+>>> pt.notexisting = 30   # error
 
 
 Decision
