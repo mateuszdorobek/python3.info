@@ -246,7 +246,6 @@ Dragon
     :numbered:
     :caption: Dragon
 
-    dragon/agenda.rst
     dragon/version-1.rst
     dragon/version-2.rst
     dragon/version-3.rst
