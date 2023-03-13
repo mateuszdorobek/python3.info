@@ -23,6 +23,26 @@ UML
     uml/sequence-diagram.rst
 
 
+Idioms
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Idioms
+
+    idiom/about.rst
+    idiom/range.rst
+    idiom/enumerate.rst
+    idiom/zip.rst
+    idiom/map.rst
+    idiom/filter.rst
+    idiom/reduce.rst
+    idiom/all.rst
+    idiom/any.rst
+    idiom/syntax-switch.rst
+    idiom/syntax-match.rst
+    idiom/patterns.rst
+
+
 Type Annotation
 ***************
 .. toctree::
@@ -91,26 +111,6 @@ Object Oriented Programming
     oop/abstract-polymorphism.rst
     oop/object-identity.rst
     oop/object-constructor.rst
-
-
-Idioms
-******
-.. toctree::
-    :maxdepth: 1
-    :caption: Idioms
-
-    idiom/about.rst
-    idiom/range.rst
-    idiom/enumerate.rst
-    idiom/zip.rst
-    idiom/map.rst
-    idiom/filter.rst
-    idiom/reduce.rst
-    idiom/all.rst
-    idiom/any.rst
-    idiom/syntax-switch.rst
-    idiom/syntax-match.rst
-    idiom/patterns.rst
 
 
 Protocols
