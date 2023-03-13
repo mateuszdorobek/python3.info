@@ -48,19 +48,19 @@ Example
 -------
 >>> class Astronaut:
 ...     def __new__(cls, *args, **kwargs):
-...         print('Before instantiating')
+...         print('New: before instantiating')
 ...         result = super().__new__(cls, *args, **kwargs)
-...         print('After instantiating')
+...         print('New: after instantiating')
 ...         return result
 ...
 ...     def __init__(self):
-...         print('Initializing')
+...         print('Init: initializing')
 >>>
 >>>
 >>> astro = Astronaut()
-Before instantiating
-After instantiating
-Initializing
+New: before instantiating
+New: after instantiating
+Init: initializing
 
 
 New Method
@@ -70,17 +70,30 @@ New Method
 * ``cls`` as it's first parameter
 * when calling ``__new__()`` you actually don't have an instance yet,
   therefore no ``self`` exists at that moment
-* Source: [#pydocDatamodelNew]_
 
-Called to create a new instance of class cls. __new__() is a static method (special-cased so you need not declare it as such) that takes the class of which an instance was requested as its first argument. The remaining arguments are those passed to the object constructor expression (the call to the class). The return value of __new__() should be the new object instance (usually an instance of cls).
+Called to create a new instance of class ``cls``. ``__new__()`` is a static
+method (special-cased so you need not declare it as such) that takes the
+class of which an instance was requested as its first argument. The remaining
+arguments are those passed to the object constructor expression (the call
+to the class). The return value of ``__new__()`` should be the new object
+instance (usually an instance of ``cls``) [#pydocDatamodelNew]_.
 
-Typical implementations create a new instance of the class by invoking the superclass's __new__() method using super().__new__(cls[, ...]) with appropriate arguments and then modifying the newly-created instance as necessary before returning it.
+Typical implementations create a new instance of the class by invoking the
+superclass's ``__new__()`` method using ``super().__new__(cls[, ...])`` with
+appropriate arguments and then modifying the newly-created instance as
+necessary before returning it [#pydocDatamodelNew]_.
 
-If __new__() is invoked during object construction and it returns an instance of cls, then the new instance's __init__() method will be invoked like __init__(self[, ...]), where self is the new instance and the remaining arguments are the same as were passed to the object constructor.
+If ``__new__()`` is invoked during object construction and it returns an
+instance of ``cls``, then the new instance's ``__init__()`` method will be
+invoked like ``__init__(self[, ...])``, where ``self`` is the new instance and
+the remaining arguments are the same as were passed to the object constructor.
+If ``__new__()`` does not return an instance of ``cls``, then the new
+instance's ``__init__()`` method will not be invoked [#pydocDatamodelNew]_.
 
-If __new__() does not return an instance of cls, then the new instance's __init__() method will not be invoked.
-
-__new__() is intended mainly to allow subclasses of immutable types (like int, str, or tuple) to customize instance creation. It is also commonly overridden in custom metaclasses in order to customize class creation.
+``__new__()`` is intended mainly to allow subclasses of immutable types
+(like ``int``, ``str``, or ``tuple``) to customize instance creation.
+It is also commonly overridden in custom metaclasses in order to customize
+class creation [#pydocDatamodelNew]_.
 
 >>> class Astronaut:
 ...     def __new__(cls):
@@ -101,11 +114,13 @@ Init Method
   is in place, so you can use ``self`` with it
 * it's purpose is just to alter the fresh state of the newly created
   instance
-* [#pydocDatamodelInit]_
 
-Called after the instance has been created (by __new__()), but before it is returned to the caller. The arguments are those passed to the class constructor expression. If a base class has an __init__() method, the derived class's __init__() method, if any, must explicitly call it to ensure proper initialization of the base class part of the instance; for example: super().__init__([args...]).
-
-Because __new__() and __init__() work together in constructing objects (__new__() to create it, and __init__() to customize it), no non-None value may be returned by __init__(); doing so will cause a TypeError to be raised at runtime.
+Called after the instance has been created (by ``__new__()``), but before
+it is returned to the caller. The arguments are those passed to the
+class constructor expression. If a base class has an ``__init__()`` method,
+the derived class's ``__init__()`` method, if any, must explicitly call it
+to ensure proper initialization of the base class part of the instance;
+for example: ``super().__init__([args...])`` [#pydocDatamodelInit]_.
 
 >>> class Astronaut:
 ...     def __init__(self):
@@ -114,6 +129,21 @@ Because __new__() and __init__() work together in constructing objects (__new__(
 >>>
 >>> astro = Astronaut()
 Initializing object
+
+Because ``__new__()`` and ``__init__()`` work together in constructing objects
+(``__new__()`` to create it, and ``__init__()`` to customize it), no non-None
+value may be returned by ``__init__()``; doing so will cause a ``TypeError``
+to be raised at runtime.
+
+>>> class Astronaut:
+...     def __init__(self):
+...         print('Initializing object')
+...         return True
+>>>
+>>>
+>>> astro = Astronaut()
+Traceback (most recent call last):
+TypeError: __init__() should return None, not 'bool'
 
 
 Return
@@ -262,6 +292,7 @@ Use Case - 0x01
 * Iris Factory
 
 >>> from dataclasses import dataclass, field
+>>> from itertools import starmap
 >>>
 >>>
 >>> DATA = [
@@ -298,8 +329,8 @@ Use Case - 0x01
 ...     pass
 >>>
 >>>
->>> result = [Iris(*row) for row in DATA]
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> result = starmap(Iris, DATA)
+>>> list(result)  # doctest: +NORMALIZE_WHITESPACE
 [Virginica(sepal_length=5.8, sepal_width=2.7, petal_length=5.1, petal_width=1.9),
  Setosa(sepal_length=5.1, sepal_width=3.5, petal_length=1.4, petal_width=0.2),
  Versicolor(sepal_length=5.7, sepal_width=2.8, petal_length=4.1, petal_width=1.3),
@@ -462,6 +493,7 @@ and it will work. No reloads nor restarts. That's it.
 Traceback (most recent call last):
 NotImplementedError: No plugin for this filetype
 >>>
+>>>
 >>> class Plaintext(Document):
 ...     EXTENSIONS = ['txt']
 ...
@@ -476,7 +508,7 @@ Displaying Plaintext file myfile.txt
 
 Use Case - 0x06
 ---------------
->>> from datetime import datetime
+>>> from datetime import datetime, timezone
 >>> import logging
 >>> from uuid import uuid4
 >>> from abc import ABC, abstractmethod
@@ -485,7 +517,7 @@ Use Case - 0x06
 >>> class BaseClass(ABC):
 ...     def __new__(cls, *args, **kwargs):
 ...         obj = object.__new__(cls)
-...         obj._since = datetime.now()
+...         obj._since = datetime.now(timezone.utc)
 ...         obj._uuid = str(uuid4())
 ...         obj._logger = logging.getLogger(cls.__name__)
 ...         return obj
@@ -516,7 +548,8 @@ Use Case - 0x06
  '_uuid': '83cefe23-3491-4661-b1f4-3ca570feab0a',
  '_log': <Logger Astronaut (WARNING)>}
 >>>
->>> astro._error(1234, 'An error occurred')  # doctest: +SKIP
+>>> astro._error(123456, 'An error occurred')  # doctest: +SKIP
+1969-07-21T02:56:15Z [ERROR:123456] An error occurred
 
 
 References

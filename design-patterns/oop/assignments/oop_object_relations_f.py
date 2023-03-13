@@ -1,85 +1,85 @@
 """
 * Assignment: OOP ObjectRelations Nested
 * Complexity: medium
-* Lines of code: 7 lines
+* Lines of code: 4 lines
 * Time: 13 min
 
 English:
-    1. Convert `DATA` to format with one column per each attribute for example:
-       a. `address1_street`, `address2_street`,
-       b. `address1_city`, `address2_city`
-       c. `address1_city`, `address2_city`
-    2. Note, that enumeration starts with one
-    3. Run doctests - all must succeed
+    1. Write data with relations to CSV format
+    2. Convert `DATA` to `resul: list[dict[str,str]]`
+    3. Non-functional requirements:
+        a. Use `,` to separate fields
+        b. Use `;` to separate instances
+    4. Contact has zero or many addresses
+    5. Run doctests - all must succeed
 
 Polish:
-    1. Przekonwertuj `DATA` do formatu z jedną kolumną dla każdego atrybutu, np:
-       a. `address1_street`, `address2_street`,
-       b. `address1_city`, `address2_city`
-       c. `address1_city`, `address2_city`
-    2. Zwróć uwagę, że enumeracja zaczyna się od jeden
-    3. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zapisz dane relacyjne do formatu CSV
+    2. Przekonwertuj `DATA` do `result: list[dict[str,str]]`
+    3. Wymagania niefunkcjonalne:
+        b. Użyj `,` do oddzielenia pól
+        b. Użyj `;` do oddzielenia instancji
+    4. Kontakt ma zero lub wiele adresów
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
+    >>> from pprint import pprint
 
+    >>> result = list(result)
     >>> assert type(result) is list
     >>> assert len(result) > 0
     >>> assert all(type(x) is dict for x in result)
 
-    >>> result  # doctest: +NORMALIZE_WHITESPACE
+    >>> pprint(result, width=112, sort_dicts=False)  # doctest: +NORMALIZE_WHITESPACE
     [{'firstname': 'Mark',
       'lastname': 'Watney',
-      'address1_street': '2101 E NASA Pkwy',
-      'address1_city': 'Houston',
-      'address1_post_code': 77058,
-      'address1_region': 'Texas',
-      'address1_country': 'USA',
-      'address2_street': '',
-      'address2_city': 'Kennedy Space Center',
-      'address2_post_code': 32899,
-      'address2_region': 'Florida',
-      'address2_country': 'USA'},
+      'addresses': '2101 E NASA Pkwy,Houston,77058,Texas,USA;,Kennedy Space Center,32899,Florida,USA'},
      {'firstname': 'Melissa',
       'lastname': 'Lewis',
-      'address1_street': '4800 Oak Grove Dr',
-      'address1_city': 'Pasadena',
-      'address1_post_code': 91109,
-      'address1_region': 'California',
-      'address1_country': 'USA',
-      'address2_street': '2825 E Ave P',
-      'address2_city': 'Palmdale',
-      'address2_post_code': 93550,
-      'address2_region': 'California',
-      'address2_country': 'USA'},
-     {'firstname': 'Rick',
-      'lastname': 'Martinez'},
+      'addresses': '4800 Oak Grove Dr,Pasadena,91109,California,USA;2825 E Ave P,Palmdale,93550,California,USA'},
+     {'firstname': 'Rick', 'lastname': 'Martinez', 'addresses': ''},
      {'firstname': 'Alex',
       'lastname': 'Vogel',
-      'address1_street': 'Linder Hoehe',
-      'address1_city': 'Cologne',
-      'address1_post_code': 51147,
-      'address1_region': 'North Rhine-Westphalia',
-      'address1_country': 'Germany'}]
+      'addresses': 'Linder Hoehe,Cologne,51147,North Rhine-Westphalia,Germany'}]
+
 """
 
 
-import json
-
-DATA = """[
+DATA = [
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
-        {"street": "2101 E NASA Pkwy", "city": "Houston", "post_code": 77058, "region": "Texas", "country": "USA"},
-        {"street": "", "city": "Kennedy Space Center", "post_code": 32899, "region": "Florida", "country": "USA"}]},
+        {"street": "2101 E NASA Pkwy",
+         "city": "Houston",
+         "postcode": 77058,
+         "region": "Texas",
+         "country": "USA"},
+        {"street": "",
+         "city": "Kennedy Space Center",
+         "postcode": 32899,
+         "region": "Florida",
+         "country": "USA"}]},
 
     {"firstname": "Melissa", "lastname": "Lewis", "addresses": [
-        {"street": "4800 Oak Grove Dr", "city": "Pasadena", "post_code": 91109, "region": "California", "country": "USA"},
-        {"street": "2825 E Ave P", "city": "Palmdale", "post_code": 93550, "region": "California", "country": "USA"}]},
+        {"street": "4800 Oak Grove Dr",
+         "city": "Pasadena",
+         "postcode": 91109,
+         "region": "California",
+         "country": "USA"},
+        {"street": "2825 E Ave P",
+         "city": "Palmdale",
+         "postcode": 93550,
+         "region": "California",
+         "country": "USA"}]},
 
     {"firstname": "Rick", "lastname": "Martinez", "addresses": []},
 
     {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe", "city": "Cologne", "post_code": 51147, "region": "North Rhine-Westphalia", "country": "Germany"}]}
-]"""
+        {"street": "Linder Hoehe",
+         "city": "Cologne",
+         "postcode": 51147,
+         "region": "North Rhine-Westphalia",
+         "country": "Germany"}]}
+]
 
 # Flatten data, each address field prefixed with address and number
 # type: list[dict]
@@ -87,11 +87,9 @@ result = ...
 
 
 # Solution
-result: list = []
+def convert(astronaut: dict):
+    addresses = [','.join(map(str, x.values()))
+                 for x in astronaut.pop('addresses')]
+    return astronaut | {'addresses': ';'.join(addresses)}
 
-for astronaut in json.loads(DATA):
-    for i, address in enumerate(astronaut.pop('addresses'), start=1):
-        for field,value in address.items():
-            column_name = f'address{i}_{field}'
-            astronaut[column_name] = value
-    result.append(astronaut)
+result = map(convert, DATA)

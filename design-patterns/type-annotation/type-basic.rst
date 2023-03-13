@@ -1,5 +1,5 @@
-Type Annotation Primitives
-==========================
+Type Annotation Basics
+======================
 * Also known as: "type annotations", "type hints", "gradual typing"
 * Types are not required, and never will be
 * Good IDE will give you hints
@@ -130,139 +130,6 @@ Example:
 >>> data = None     # ok
 
 
-Union
------
-* Used to inform static type checker that the variable should either X or Y
-* Since Python 3.10: :pep:`604` -- Allow writing union types as X | Y
-* ``int | str == str | int``
-
-Declaration:
-
->>> data: int | float
-
->>> data: int | float = 1337
->>> data: int | float = 1.337
-
-Example:
-
->>> data: int | float
->>>
->>> data = 1337     # ok
->>> data = 1.337    # ok
->>> data = 'hello'  # error
-
-Result of this expression would then be valid in ``isinstance()``
-and ``issubclass()``:
-
->>> isinstance(1337, int|float)
-True
-
-
-Optional
---------
-* Used to inform static type checker that the variable should be X or None
-* ``int | None == None | int``
-
-Declaration:
-
->>> data: int | None
-
->>> data: int | None = 1337
->>> data: int | None = None
-
-Example:
-
->>> number: int | None
->>>
->>> number = 1337    # ok
->>> number = None    # ok
->>> number = 1.0     # error
-
-Result of this expression would then be valid in ``isinstance()``
-and ``issubclass()``:
-
->>> isinstance(1337, int|None)
-True
-
-
-Alias
------
-* Used to make types more readable
-
-Declaration:
-
->>> data = int | float
-
-Example:
-
->>> number = int | float
->>>
->>> age: number = 10      # ok
->>> age: number = 10.5    # ok
->>> age: number = None    # error
-
-
-Final
------
-* Used to inform static type checker the value should not change
-* Used to define constants
-* Since Python 3.8: :pep:`591` -- Adding a final qualifier to typing
-
-In Python there is not such thing as constants. All values can be changed
-during the runtime. However using ``Final`` we can achieve similar effect.
-Static type checker will ensure that the value should not change during
-the program.
-
-SetUp:
-
->>> from typing import Final
-
-Declaration:
-
->>> data: Final
->>> data: Final[int]
->>> data: Final[float]
->>> data: Final[bool]
->>> data: Final[str]
-
-Definition:
-
->>> pressure: Final[float] = 1013.25    # ok
->>> pressure = 1024.00                  # error
-
-
-Literal
--------
-* Since Python 3.8: :pep:`586` -- Literal Types
-* Literal de-duplicates parameters
-* Equality comparisons of Literal objects are not order dependent
-* https://docs.python.org/3/library/typing.html#typing.Literal
-
-SetUp:
-
->>> from typing import Literal
-
-Declaration:
-
->>> data: Literal['one', 'two', 'three']
-
-Problem:
-
->>> agency: str
->>>
->>> agency = 'NASA'         # ok
->>> agency = 'ESA'          # ok
->>> agency = 'Not existing' # ok
-
-Solution:
-
->>> agency: Literal['NASA', 'ESA', 'POLSA']
->>>
->>> agency = 'NASA'          # ok
->>> agency = 'ESA'           # ok
->>> agency = 'Not existing'  # error
-
-
 Errors
 ------
 * Types are not Enforced
@@ -279,18 +146,6 @@ Use Case - 0x01
 >>> lastname: str = 'Watney'
 >>> age: int = 40
 >>> adult: bool = True
->>> agency: Literal['NASA', 'ESA', 'POLSA'] = 'NASA'
->>> height: int | float = 185
->>> weight: int | float = 75.5
->>> job: str | None = None
-
-
-Use Case - 0x02
----------------
->>> SECOND: Final[int] = 1
->>> MINUTE: Final[int] = 60 * SECOND
->>> HOUR: Final[int] = 60 * MINUTE
->>> DAY: Final[int] = 24 * HOUR
 
 
 Further Reading

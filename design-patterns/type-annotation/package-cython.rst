@@ -1,6 +1,11 @@
 Type Annotation Cython
 ======================
 * https://cython.readthedocs.io/en/latest/src/tutorial/cython_tutorial.html
+* https://youtu.be/kFKRbo9tFNw?t=1244
+
+.. figure:: img/typeannotation-cython.png
+
+    Cython algorithm [#Langa2022]_
 
 
 Example
@@ -36,3 +41,8 @@ Example
 ...     # Let's copy the result into a Python list:
 ...     result_as_list = [prime for prime in p[:len_p]]
 ...     return result_as_list
+
+
+References
+----------
+.. [#Langa2022] Langa, Ł. Use typing to speed up your apps with mypyc. Year: 2022. Retrieved: 2022-11-03. URL: https://youtu.be/kFKRbo9tFNw?t=1244

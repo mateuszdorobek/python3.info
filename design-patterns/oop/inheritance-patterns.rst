@@ -21,118 +21,94 @@ OOP Inheritance Patterns
 
 No Inheritance
 --------------
->>> class Parent:
+>>> class Vehicle:
 ...     pass
 >>>
 >>>
->>> class Child:
+>>> class Car:
 ...     pass
 
 
 Single Inheritance
 ------------------
->>> class Parent:
+>>> class Vehicle:
 ...     pass
 >>>
 >>>
->>> class Child(Parent):
+>>> class Car(Vehicle):
 ...     pass
 
 
 Multilevel Inheritance
 ----------------------
->>> class Grandparent:
+>>> class Vehicle:
 ...     pass
 >>>
 >>>
->>> class Parent(Grandparent):
+>>> class VehicleWithWindows(Vehicle):
 ...     pass
 >>>
 >>>
->>> class Child(Parent):
+>>> class Car(VehicleWithWindows):
 ...     pass
 
 
 Multiple Inheritance
 --------------------
-* ``Mother`` and ``Father`` are Mixin Classes
+* ``HasEngine`` and ``HasWindows`` are Mixin Classes
+* Such classes are usually called: ``EngineMixin``, ``WindowsMixin``
 
->>> class Mother:
+>>> class Vehicle:
+...     pass
+>>>
+>>> class HasEngine:
+...     pass
+>>>
+>>> class HasWindows:
 ...     pass
 >>>
 >>>
->>> class Father:
+>>> class Car(Vehicle, HasEngine, HasWindows):
 ...     pass
->>>
->>>
->>> class Child(Mother, Father):
-...     pass
+...
 
 
 Composition
 -----------
-Static version:
-
->>> class Mother:
+>>> class Vehicle:
 ...     pass
 >>>
->>> class Father:
+>>> class Engine:
 ...     pass
->>>
->>> class Child:
-...     mother = Mother
-...     father = Father
-
-Dynamic version:
-
->>> class Mother:
-...     pass
->>>
->>> class Father:
-...     pass
->>>
->>>
->>> class Child:
-...     mother: Mother
-...     father: Father
 ...
-...     def __init__(self, mother=Mother(), father=Father()):
-...         self.mother = mother
-...         self.father = father
+>>> class Windows:
+...     pass
+...
+>>>
+>>> class Car(Vehicle):
+...     engine = Engine
+...     windows = Windows
 
 
 Aggregation
 -----------
-Static version:
-
->>> class Mother:
+>>> class Vehicle:
 ...     pass
->>>
->>> class Father:
-...     pass
->>>
->>> class Child:
-...     parents = [Father, Mother]
-
-Dynamic version:
-
->>> class Mother:
-...     pass
->>>
->>> class Father:
-...     pass
->>>
->>>
->>> class Child:
-...     parents: list[Mother|Father]
 ...
-...     def __init__(self, mother=Mother(), father=Father()):
-...         self.parents = []
-...         self.parents.append(mother)
-...         self.parents.append(father)
+>>> class Engine:
+...     pass
+...
+>>> class Windows:
+...     pass
+...
+>>>
+>>> class Car(Vehicle):
+...     parts = [Engine, Windows]
 
-Why?
-----
+
+
+Why Composition?
+----------------
 >>> class Mother:
 ...     pass
 >>>
@@ -156,54 +132,187 @@ Why?
 
 Use Case - 0x01
 ---------------
->>> class Mother:
-...     def say_hello(self):
-...         pass
->>>
->>> class Father:
-...     def say_hello(self):
-...         pass
+Following example is simple and easy to understand, but not totally
+accurate. Inheritance means, that a class is a specialized form of
+its base. This results in a subclass being an instance of a superclass.
+Which is weird when we think, that a ``Child`` might be its ``Parent``
+in the same time.
+
+No Inheritance:
+
+>>> class Parent:
+...     pass
 >>>
 >>>
 >>> class Child:
-...     father: Father
-...     mother: Mother
-...
-...     def __init__(self, mother: Mother = Mother(), father: Father = Father()):
-...         self.mother = mother
-...         self.father = father
-...
-...     def father_say_hello(self):
-...         self.father.say_hello()
-...
-...     def mother_say_hello(self):
-...         self.mother.say_hello()
+...     pass
+
+Single Inheritance:
+
+>>> class Parent:
+...     pass
+>>>
+>>>
+>>> class Child(Parent):
+...     pass
+
+
+Multilevel Inheritance:
+
+>>> class Grandparent:
+...     pass
+>>>
+>>> class Parent(Grandparent):
+...     pass
+>>>
+>>>
+>>> class Child(Parent):
+...     pass
+
+Multiple Inheritance:
+
+>>> class Mother:
+...     pass
+>>>
+>>> class Father:
+...     pass
+>>>
+>>>
+>>> class Child(Mother, Father):
+...     pass
+
+Composition:
+
+>>> class Mother:
+...     pass
+>>>
+>>> class Father:
+...     pass
+>>>
+>>> class Child:
+...     mother = Mother
+...     father = Father
+
+Aggregation:
+
+>>> class Mother:
+...     pass
+>>>
+>>> class Father:
+...     pass
+>>>
+>>> class Child:
+...     parents = [Father, Mother]
 
 
 Use Case - 0x02
 ---------------
->>> from json import JSONEncoder, JSONDecoder
+>>> class Mother:
+...     pass
+>>>
+>>> class Father:
+...     pass
 >>>
 >>>
->>> class User:
-...     json_encoder: JSONEncoder
-...     json_decoder: JSONDecoder
+>>> class Child:
+...     mother: Mother
+...     father: Father
 ...
-...     def __init__(self,
-...                  json_encoder: JSONEncoder = JSONEncoder(),
-...                  json_decoder: JSONDecoder = JSONDecoder(),
-...                  ) -> None:
-...         self.json_encoder = json_encoder
-...         self.json_decoder = json_decoder
-...
-...     def json_encode(self, data):
-...         self.json_encoder.encode(data)
-...
-...     def json_decoder(self, data):
-...         self.json_decoder.decode(data)
+...     def __init__(self, mother=Mother(), father=Father()):
+...         self.mother = mother
+...         self.father = father
 
 
 Use Case - 0x03
+---------------
+>>> class Vehicle:
+...     engine: Engine
+...     windows: Windows | None
+>>>
+>>> class Engine:
+...     def engine_start(self): ...
+...     def engine_stop(self): ...
+...
+>>> class Windows:
+...     def window_open(self): ...
+...     def window_close(self): ...
+...
+>>>
+>>> class Car(Vehicle):
+...     engine: Engine
+...     windows: Windows
+...
+...     def __init__(self, windows=Windows(), engine=Engine()):
+...         self.windows = windows
+...         self.engine = engine
+...
+...     def engine_start(self):
+...         if self.engine:
+...             return self.engine.engine_start()
+...
+...     def engine_stop(self):
+...         if self.engine:
+...             return self.engine.engine_stop()
+...
+...     def window_open(self):
+...         if self.windows:
+...             return self.windows.windows_open()
+...
+...     def window_close(self):
+...         if self.windows:
+...             return self.windows.windows_close()
+
+
+Use Case - 0x04
+---------------
+>>> class Encoder:
+...     def encode(self, data):
+...         ...
+>>>
+>>> class Decoder:
+...     def decode(self, data):
+...         ...
+>>>
+>>>
+>>> class JSONSerializer:
+...     encoder: Encoder
+...     decoder: Decoder
+...
+...     def __init__(self,
+...                  encoder: Encoder = Encoder(),
+...                  decoder: Decoder = Decoder(),
+...                  ) -> None:
+...         self.encoder = encoder
+...         self.decoder = decoder
+...
+...     def encode(self, data):
+...        return self.encoder.encode(data)
+...
+...     def decode(self, data):
+...         return self.decoder.decode(data)
+>>>
+>>>
+>>> DATA = {'firstname': 'Mark', 'lastname': 'Watney'}
+
+Now, if you want to serialize your data, just create an instance
+and call method ``.encode()`` on it.
+
+>>> json = JSONSerializer()
+>>> result = json.encode(DATA)
+
+If you want to use your better version of encoder (for example which
+can encode ``datetime`` object. You can create a class which inherits
+from default ``Encoder`` and overwrite ``.encode()`` method.
+
+>>> class MyBetterEncoder(Encoder):
+...     def encode(self):
+...         ...
+>>>
+>>> json = JSONSerializer(encoder=MyBetterEncoder)
+>>> result = json.encode(DATA)
+
+
+Use Case - 0x05
 ---------------
 >>> from datetime import date
 >>> import json
@@ -236,6 +345,7 @@ Further Reading
 * https://github.com/django/django/blob/main/django/views/generic/base.py
 * https://github.com/pandas-dev/pandas/blob/main/pandas/core/frame.py
 * https://github.com/scikit-learn/scikit-learn/blob/main/sklearn/linear_model/_base.py#L533
+
 
 Assignments
 -----------

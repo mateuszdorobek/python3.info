@@ -4,9 +4,15 @@ Type Annotation Mypyc
 * It uses standard Python type hints to generate fast code.
 * Source: https://mypyc.readthedocs.io/en/latest/
 
+.. figure:: img/typeannotation-mypy.png
+
+    Mypyc algorithm [#Langa2022]_
+
 
 About
 -----
+* Source [#MypycDocs]_
+
 Mypyc compiles Python modules to C extensions.
 It uses standard Python type hints to generate fast code.
 
@@ -28,9 +34,51 @@ Code tuned for mypyc can be 5x to 10x faster.
 Mypyc currently aims to speed up non-numeric code, such as server
 applications. Mypyc is also used to compile itself (and mypy).
 
+Mypyc advantages:
+
+- Easy to get started
+- Expressive types
+- Python ecosystem
+- Fast program startup
+- Migration path for existing code
+- Compilation is optional
+- Runtime and static type safety
+
+Mypyc vs Cython:
+
+- No need for non-standard syntax
+- First-class static typing support
+- Powerful type inference
+- Strict enforcement of types at runtime = easier debugging
+
+How is mypyc fast?
+- No interpreter overhead
+- Type checks only at static typing boundaries
+- Unboxed ints and bools (value types)
+- Final attributes, and functions and classes are immutable
+- Name references are resolved at compile time (no monkey patching)
+
+Mypyc limitations:
+
+- Classes support single inheritance
+- Classes are "native classes"
+- Most metaclasses are not supported
+- Most class decorators are not supported
+- Attributes are slotted
+- No dict
+- No operator overloading
+- No custom descriptors
+
+Required changes:
+- Type everything, including blib2to3
+- Make the types really true
+- Use dataclasses instead of attrs
+- Restructure code that initializes variables to None
+
 
 Differences from Cython
 -----------------------
+* Source [#MypycDocs]_
 * https://mypyc.readthedocs.io/en/latest/introduction.html#differences-from-cython
 * https://mypyc.readthedocs.io/en/latest/differences_from_python.html#differences-from-python
 
@@ -60,6 +108,8 @@ or speeding up numeric code.
 
 How does it work
 ----------------
+* Source [#MypycDocs]_
+
 Mypyc uses several techniques to produce fast code:
 
 * Mypyc uses ahead-of-time compilation to native code. This removes CPython
@@ -93,33 +143,34 @@ or to work around issues you will encounter.
 
 Example
 -------
->>> import time
->>>
->>>
->>> def fib(n: int) -> int:
+* Source [#MypycDocs]_
+
+>>> # doctest: +SKIP
+... def fib(n: int) -> int:
 ...     if n <= 1:
 ...         return n
 ...     else:
 ...         return fib(n-2) + fib(n-1)
->>>
->>> start = time.time()
->>> result = fib(32)  # doctest: +SKIP
->>> stop = time.time()
->>>
->>> duration = stop - start
->>> print(duration)  # doctest: +SKIP
-0.4125328063964844
+...
+...
+... import time
+...
+... start = time.time()
+... fib(32)
+... stop = time.time()
+...
+... print('Duration in seconds:', stop-start)
 
 .. code-block:: console
 
     $ python3 fib.py
-    0.4125328063964844
+    Duration in seconds: 0.4125328063964844
 
 .. code-block:: console
 
     $ mypyc fib.py
     $ python3 -c "import fib"
-    0.04097270965576172
+    Duration in seconds: 0.04097270965576172
 
 After compilation, the program is about 10x faster.
 
@@ -254,6 +305,8 @@ type checked:
 
 Final values
 ------------
+* Source [#MypycDocs]_
+
 Compiled code replaces a reference to an attribute declared ``Final``
 with the value of the attribute computed at compile time. This is
 an example of early binding. Example:
@@ -284,6 +337,8 @@ and are equivalent to the second code listing.
 
 Recommended Workflow
 --------------------
+* Source [#MypycDocs]_
+
 A simple way to use mypyc is to always compile your code after any code
 changes, but this can get tedious, especially if you have a lot of code.
 Instead, you can do most development in interpreted mode. This development
@@ -322,4 +377,5 @@ Further Reading
 
 References
 ----------
-* https://mypyc.readthedocs.io/en/latest/
+.. [#MypycDocs] Mypyc team. Mypyc Documentation. Year: 2022. Retrieved: 2022-11-15. URL: https://mypyc.readthedocs.io/en/latest/
+.. [#Langa2022] Langa, Ł. Use typing to speed up your apps with mypyc. Year: 2022. Retrieved: 2022-11-03. URL: https://youtu.be/kFKRbo9tFNw?t=1244

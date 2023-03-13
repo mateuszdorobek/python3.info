@@ -4,6 +4,12 @@ Type Annotation Callable
 * Since Python 3.9: :pep:`585` -- Type Hinting Generics In Standard Collections
 
 
+Return
+------
+>>> def say_hello() -> str:
+...     return 'My name... José Jiménez'
+
+
 Parameters
 ----------
 Required:
@@ -25,6 +31,31 @@ Union
 ...     return a + b
 
 
+Optional
+--------
+>>> def find(character, text) -> int | None:
+...     position = text.find(character)
+...     if position == -1:
+...         return None
+...     return position
+
+
+Exception
+---------
+>>> def on_timeout() -> Exception:
+...     raise TimeoutError
+
+>>> def on_timeout() -> TimeoutError:
+...     raise TimeoutError
+
+>>> def find(character, text) -> int | ValueError:
+...     position = text.find(character)
+...     if position == -1:
+...         raise ValueError
+...     return position
+
+
+
 Alias
 -----
 * Since Python 3.10: :pep:`604` -- Allow writing union types as X | Y
@@ -33,38 +64,6 @@ Alias
 >>>
 >>> def add(a: number, b: number) -> number:
 ...     return a + b
-
-
-Return
-------
-Type:
-
->>> def say_hello() -> str:
-...     return 'My name... José Jiménez'
-
-Optional:
-
->>> def find(character, text) -> int | None:
-...     position = text.find(character)
-...     if position == -1:
-...         return None
-...     return position
-
-Exception:
-
->>> def on_timeout() -> Exception:
-...     raise TimeoutError
-
->>> def on_timeout() -> TimeoutError:
-...     raise TimeoutError
-
-Unions:
-
->>> def find(character, text) -> int | ValueError:
-...     position = text.find(character)
-...     if position == -1:
-...         raise ValueError
-...     return position
 
 
 Literal

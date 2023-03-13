@@ -3,6 +3,7 @@ Type Annotation Types
 * All classes are types
 * Since 3.11: :pep:`673` - Self Type
 * Since 3.7: ``from __future__ import annotations``
+* https://peps.python.org/pep-0649/
 
 >>> class Point:
 ...     x: int

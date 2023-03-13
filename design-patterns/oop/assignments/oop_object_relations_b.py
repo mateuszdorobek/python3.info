@@ -1,118 +1,104 @@
 """
-* Assignment: OOP ObjectRelations Model
-* Complexity: easy
-* Lines of code: 10 lines
+* Assignment: OOP ObjectRelations HasPosition
+* Complexity: medium
+* Lines of code: 18 lines
 * Time: 8 min
 
 English:
-    1. In `DATA` we have two classes
-    2. Model data using classes and relations
-    3. Create instances dynamically based on `DATA`
-    4. Run doctests - all must succeed
+    1. Define class `Point`
+    2. Class `Point` has attributes `x: int = 0` and `y: int = 0`
+    3. Define class `HasPosition`
+    4. In `HasPosition` define method `get_position(self) -> Point`
+    5. In `HasPosition` define method `set_position(self, x: int, y: int) -> None`
+    6. In `HasPosition` define method `change_position(self, left: int = 0, right: int = 0, up: int = 0, down: int = 0) -> None`
+    7. Assume left-top screen corner as a initial coordinates position:
+        a. going right add to `x`
+        b. going left subtract from `x`
+        c. going up subtract from `y`
+        d. going down add to `y`
+    8. Run doctests - all must succeed
 
 Polish:
-    1. W `DATA` mamy dwie klasy
-    2. Zamodeluj problem wykorzystując klasy i relacje między nimi
-    3. Twórz instancje dynamicznie na podstawie `DATA`
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj klasę `Point`
+    2. Klasa `Point` ma atrybuty `x: int = 0` oraz `y: int = 0`
+    3. Zdefiniuj klasę `HasPosition`
+    4. W `HasPosition` zdefiniuj metodę `get_position(self) -> Point`
+    5. W `HasPosition` zdefiniuj metodę `set_position(self, x: int, y: int) -> None`
+    6. W `HasPosition` zdefiniuj metodę `change_position(self, left: int = 0, right: int = 0, up: int = 0, down: int = 0) -> None`
+    7. Przyjmij górny lewy róg ekranu za punkt początkowy:
+        a. idąc w prawo dodajesz `x`
+        b. idąc w lewo odejmujesz `x`
+        c. idąc w górę odejmujesz `y`
+        d. idąc w dół dodajesz `y`
+    8. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
+    >>> from inspect import isclass, ismethod
 
-    >>> assert type(result) is list
+    >>> assert isclass(Point)
+    >>> assert isclass(HasPosition)
+    >>> assert hasattr(Point, 'x')
+    >>> assert hasattr(Point, 'y')
+    >>> assert hasattr(HasPosition, 'get_position')
+    >>> assert hasattr(HasPosition, 'set_position')
+    >>> assert hasattr(HasPosition, 'change_position')
+    >>> assert ismethod(HasPosition().get_position)
+    >>> assert ismethod(HasPosition().set_position)
+    >>> assert ismethod(HasPosition().change_position)
 
-    >>> assert all(type(astro) is Astronaut
-    ...            for astro in result)
+    >>> class Astronaut(HasPosition):
+    ...     pass
 
-    >>> assert all(type(addr) is Address
-    ...            for astro in result
-    ...            for addr in astro.addresses)
+    >>> astro = Astronaut()
 
-    >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(firstname='Mark', lastname='Watney',
-               addresses=[Address(street='2101 E NASA Pkwy', city='Houston', postcode=77058, region='Texas', country='USA'),
-                          Address(street=None, city='Kennedy Space Center', postcode=32899, region='Florida', country='USA')]),
-     Astronaut(firstname='Melissa', lastname='Lewis',
-               addresses=[Address(street='4800 Oak Grove Dr', city='Pasadena', postcode=91109, region='California', country='USA'),
-                          Address(street='2825 E Ave P', city='Palmdale', postcode=93550, region='California', country='USA')]),
-     Astronaut(firstname='Rick', lastname='Martinez',
-               addresses=[]),
-     Astronaut(firstname='Alex',  lastname='Vogel',
-               addresses=[Address(street='Linder Hoehe', city='Cologne', postcode=51147, region='North Rhine-Westphalia', country='Germany')])]
+    >>> astro.set_position(x=1, y=2)
+    >>> astro.get_position()
+    Point(x=1, y=2)
+
+    >>> astro.set_position(x=1, y=1)
+    >>> astro.change_position(right=1)
+    >>> astro.get_position()
+    Point(x=2, y=1)
+
+    >>> astro.set_position(x=1, y=1)
+    >>> astro.change_position(left=1)
+    >>> astro.get_position()
+    Point(x=0, y=1)
+
+    >>> astro.set_position(x=1, y=1)
+    >>> astro.change_position(down=1)
+    >>> astro.get_position()
+    Point(x=1, y=2)
+
+    >>> astro.set_position(x=1, y=1)
+    >>> astro.change_position(up=1)
+    >>> astro.get_position()
+    Point(x=1, y=0)
 """
 
 from dataclasses import dataclass
 
 
-DATA = [
-    {"firstname": "Mark", "lastname": "Watney", "addresses": [
-        {"street": "2101 E NASA Pkwy",
-         "city": "Houston",
-         "postcode": 77058,
-         "region": "Texas",
-         "country": "USA"},
-        {"street": None,
-         "city": "Kennedy Space Center",
-         "postcode": 32899,
-         "region": "Florida",
-         "country": "USA"}]},
-
-    {"firstname": "Melissa", "lastname": "Lewis", "addresses": [
-        {"street": "4800 Oak Grove Dr",
-         "city": "Pasadena",
-         "postcode": 91109,
-         "region": "California",
-         "country": "USA"},
-        {"street": "2825 E Ave P",
-         "city": "Palmdale",
-         "postcode": 93550,
-         "region": "California",
-         "country": "USA"}]},
-
-    {"firstname": "Rick", "lastname": "Martinez", "addresses": []},
-
-    {"firstname": "Alex", "lastname": "Vogel", "addresses": [
-        {"street": "Linder Hoehe",
-         "city": "Cologne",
-         "postcode": 51147,
-         "region": "North Rhine-Westphalia",
-         "country": "Germany"}]}
-]
-
-
-class Astronaut:
-    ...
-
-
-class Address:
-    ...
-
-
-# Iterate over `DATA` and create instances
-# type: list[Astronaut]
-result = ...
-
-
 # Solution
-@dataclass
-class Address:
-    street: str | None
-    city: str
-    postcode: int | None
-    region: str
-    country: str
+@dataclass(frozen=True)
+class Point:
+    x: int = 0
+    y: int = 0
 
 
 @dataclass
-class Astronaut:
-    firstname: str
-    lastname: str
-    addresses: list[Address] | None
+class HasPosition:
+    _position: Point = Point()
 
+    def set_position(self, x, y):
+        self._position = Point(x, y)
 
-result = []
+    def get_position(self):
+        return self._position
 
-for row in DATA:
-    addresses = [Address(**x) for x in row.pop('addresses')]
-    astro = Astronaut(**row, addresses=addresses)
-    result.append(astro)
+    def change_position(self, right=0, left=0, up=0, down=0):
+        current = self.get_position()
+        new_x = current.x + right - left
+        new_y = current.y + down - up
+        self.set_position(new_x, new_y)

@@ -29,14 +29,18 @@ Type Annotation
     :maxdepth: 1
     :caption: Type Annotation
 
-    type-annotation/type-primitive.rst
+    type-annotation/type-basic.rst
+    type-annotation/type-annotations.rst
     type-annotation/type-sequence.rst
     type-annotation/type-mapping.rst
+    type-annotation/type-nested.rst
+    type-annotation/type-typeddict.rst
+    type-annotation/type-namedtuple.rst
     type-annotation/type-callable.rst
     type-annotation/type-type.rst
     type-annotation/extra.rst
     type-annotation/deprecated.rst
-    type-annotation/package-validate.rst
+    type-annotation/package-check.rst
     type-annotation/package-annotate.rst
     type-annotation/package-cython.rst
     type-annotation/package-mypyc.rst
@@ -82,15 +86,11 @@ Object Oriented Programming
     oop/inheritance-super.rst
     oop/inheritance-mro.rst
     oop/abstract-interface.rst
-    oop/abstract-protocol.rst
     oop/abstract-class.rst
+    oop/abstract-protocol.rst
     oop/abstract-polymorphism.rst
-    oop/paradigm-principles.rst
-    oop/paradigm-solid.rst
-    oop/paradigm-polymorphism.rst
+    oop/object-identity.rst
     oop/object-constructor.rst
-    oop/class-factory.rst
-    oop/class-metaclass.rst
 
 
 Idioms

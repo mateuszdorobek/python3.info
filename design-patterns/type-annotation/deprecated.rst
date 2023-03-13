@@ -1,7 +1,6 @@
 Type Annotation Deprecated
 ==========================
 
-
 The redundant types are deprecated as of Python 3.9 but no deprecation
 warnings will be issued by the interpreter. It is expected that type
 checkers will flag the deprecated types when the checked program targets

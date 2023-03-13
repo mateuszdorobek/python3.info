@@ -759,6 +759,48 @@ Code:
  Setosa(4.6, 3.1, 1.5, 0.2)]
 
 
+Use Case - 0x11
+---------------
+>>> DATA = [
+...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
+...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+...     (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+...     (4.7, 3.2, 1.3, 0.2, 'arctica'),
+...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...
+>>> header, *rows = DATA
+...
+>>> globals()['Iris'] = type('Iris', (), {
+...     '__init__': lambda self, **kwargs: self.__dict__.update(kwargs),
+...     '__str__': lambda self: f'{self.__class__.__name__}{tuple(vars(self).values())}',
+... })
+...
+>>> def factory(row):
+...     *values, species = row
+...     clsname = species.capitalize()
+...     if clsname not in globals():
+...         globals()[clsname] = type(clsname, (globals()['Iris'],), {})
+...     cls = globals()[clsname]
+...     kwargs = dict(zip(header, values))
+...     return cls(**kwargs)
+...
+>>> for iris in map(factory, rows):
+...     print(iris)
+...
+Virginica(5.8, 2.7, 5.1, 1.9)
+Setosa(5.1, 3.5, 1.4, 0.2)
+Versicolor(5.7, 2.8, 4.1, 1.3)
+Virginica(6.3, 2.9, 5.6, 1.8)
+Versicolor(6.4, 3.2, 4.5, 1.5)
+Arctica(4.7, 3.2, 1.3, 0.2)
+Versicolor(7.0, 3.2, 4.7, 1.4)
+Virginica(7.6, 3.0, 6.6, 2.1)
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/oop_class_factory_a.py

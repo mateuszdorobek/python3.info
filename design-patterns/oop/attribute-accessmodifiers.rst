@@ -2,7 +2,7 @@ OOP Attribute Access Modifiers
 ==============================
 * Attributes and methods are always public
 * No protected and private keywords
-* Protecting is only by convention [#pydocprivatevar]_
+* Private and protected is only by convention [#pydocprivatevar]_
 * ``name`` - public attribute
 * ``_name`` - protected attribute (non-public by convention)
 * ``__name`` - private attribute (name mangling)
@@ -12,16 +12,16 @@ OOP Attribute Access Modifiers
 >>> class Astronaut:
 ...     firstname: str          # public
 ...     lastname: str           # public
-...     _salary: int            # protected
-...     _address: int           # protected
-...     __username: str         # private
-...     __password: str         # private
-...     id_: int                # public, avoid name collision
-...     type_: str              # public, avoid name collision
-...     __doc__: str            # (dunder) special system
-...     __module__: str         # (dunder) special system
-...     __version__ = '1.0.0'    # (dunder) special convention
-...     __author__ = 'mwatney'   # (dunder) special convention
+...     _height: int            # public, but... protected by convention
+...     _weight: int            # public, but... protected by convention
+...     __salary: str           # public, but... private by convention (name mangling)
+...     __address: str          # public, but... private by convention (name mangling)
+...     id_: int                # public, but... public, avoid name collision
+...     type_: str              # public, but... public, avoid name collision
+...     __doc__: str            # public, but... special meaning built-in (dunder)
+...     __module__: str         # public, but... special meaning built-in (dunder)
+...     __version__: str        # public, but... special meaning custom made (dunder)
+...     __author__: str         # public, but... special meaning custom made (dunder)
 
 
 SetUp
@@ -31,22 +31,20 @@ SetUp
 
 Example
 -------
->>> @dataclass
-... class Public:
-...     firstname: str
-...     lastname: str
->>>
->>>
->>> @dataclass
-... class Protected:
-...     _firstname: str
-...     _lastname: str
->>>
->>>
->>> @dataclass
-... class Private:
-...     __firstname: str
-...     __lastname: str
+>>> class Astronaut:
+...     def __init__(self):
+...         self.firstname = 'Mark'
+...         self.lastname = 'Watney'
+...         self._salary = 10_000
+...         self._address = '2101 E NASA Pkwy, Houston 77058, Texas, USA'
+...         self.__username = 'mwatney'
+...         self.__password = 'ares3'
+...         self.id_ = 1337
+...         self.type_ = 'astronaut'
+...         self.__doc__ = 'Class representing an Astronaut'
+...         self.__module__ = '__main__'
+...         self.__version__ = '1.0.0'
+...         self.__author__ = 'Mark Watney <mwatney@nasa.gov>'
 
 
 Public Attribute
@@ -59,19 +57,19 @@ Public Attribute
 ...     lastname: str
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 
 To print attributes directly:
 
->>> print(astro.firstname)
+>>> print(mark.firstname)
 Mark
 >>>
->>> print(astro.lastname)
+>>> print(mark.lastname)
 Watney
 
 To list all the attributes once again we can use `vars()`:
 
->>> vars(astro)
+>>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney'}
 
 
@@ -85,20 +83,20 @@ Protected Attribute
 ...     _lastname: str
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 
 Python will allow the following statement, however your IDE should
 warn you "Access to a protected member _firstname of a class":
 
->>> print(astro._firstname)
+>>> print(mark._firstname)
 Mark
 >>>
->>> print(astro._lastname)
+>>> print(mark._lastname)
 Watney
 
 To list all the attributes once again we can use `vars()`:
 
->>> vars(astro)
+>>> vars(mark)
 {'_firstname': 'Mark', '_lastname': 'Watney'}
 
 
@@ -106,82 +104,86 @@ Private Attribute
 -----------------
 * ``__name`` - private attribute (name mangling)
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     __firstname: str
 ...     __lastname: str
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 
 There are no attributes with names ``__firstname`` and ``__lastname``:
 
->>> print(astro.__firstname)
+>>> print(mark.__firstname)
 Traceback (most recent call last):
 AttributeError: 'Astronaut' object has no attribute '__firstname'
 >>>
->>> print(astro.__lastname)
+>>> print(mark.__lastname)
 Traceback (most recent call last):
 AttributeError: 'Astronaut' object has no attribute '__lastname'
 
 To print attributes directly:
 
->>> print(astro._Astronaut__firstname)
+>>> print(mark._Astronaut__firstname)
 Mark
 >>>
->>> print(astro._Astronaut__lastname)
+>>> print(mark._Astronaut__lastname)
 Watney
 
 To list all the attributes once again we can use `vars()`:
 
->>> vars(astro)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'_Astronaut__firstname': 'Mark',
  '_Astronaut__lastname': 'Watney'}
 
 
 Name Mangling
 -------------
->>> @dataclass
-... class English:
-...     greeting: str = 'Hello'
->>>
->>>
->>> @dataclass
-... class Texan(English):
-...     greeting: str = 'Howdy'
->>>
->>>
->>> mark = Texan()
->>>
->>> print(mark.greeting)
-Howdy
+Name mangling is a mechanism which adds the class name to the field name.
+It is particularly useful when we have an inheritance and the child class
+is overwriting parent field, which we eventually want to get:
 
->>> @dataclass
-... class English:
-...     __greeting: str = 'Hello'
+>>> class FormalEnglish:
+...     __greeting: str = 'Good Morning'
+...     __farewell: str = 'Goodbye'
+...     greeting = __greeting
+...     farewell = __farewell
 >>>
 >>>
->>> @dataclass
-... class Texan(English):
-...     __greeting: str = 'Howdy'
+>>> class SlangEnglish(FormalEnglish):
+...     __greeting: str = 'Wassup'
+...     __farewell: str = 'Cya'
+...     greeting = __greeting
+...     farewell = __farewell
 >>>
 >>>
->>> mark = Texan()
->>>
->>> print(mark._English__greeting)
-Hello
->>>
->>> print(mark._Texan__greeting)
-Howdy
+>>> lang = SlangEnglish()
 
-To list all the attributes once again we can use `vars()`:
+As expected, when accessing field we will get the latest value.
+The previous value was overwritten by inheritance.
 
->>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
-{'_English__greeting': 'Hello',
- '_Texan__greeting': 'Howdy'}
+>>> lang.greeting
+'Wassup'
+>>>
+>>> lang.farewell
+'Cya'
+
+However thanks to the name mangling we have an additional access to both
+``FormalEnglish`` and ``SlangEnglish`` fields:
+
+>>> lang._FormalEnglish__greeting
+'Good Morning'
+>>>
+>>> lang._FormalEnglish__farewell
+'Goodbye'
+>>>
+>>> lang._SlangEnglish__greeting
+'Wassup'
+>>>
+>>> lang._SlangEnglish__farewell
+'Cya'
+
+Name mangling works for both class variables and instance variables.
 
 
 Name Collision
@@ -218,21 +220,21 @@ System Attributes
 ...     lastname: str
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 
->>> astro.__class__
+>>> mark.__class__
 <class '__main__.Astronaut'>
 >>>
->>> astro.__dict__
+>>> mark.__dict__
 {'firstname': 'Mark', 'lastname': 'Watney'}
 >>>
->>> astro.__doc__
+>>> mark.__doc__
 'Astronaut(firstname: str, lastname: str)'
 >>>
->>> astro.__annotations__
+>>> mark.__annotations__
 {'firstname': <class 'str'>, 'lastname': <class 'str'>}
 >>>
->>> astro.__module__
+>>> mark.__module__
 '__main__'
 
 
@@ -250,17 +252,17 @@ Show Attributes
 ...         self.__password = 'ares3'
 ...         self.id_ = 1337
 ...         self.type_ = 'astronaut'
-...         self.__doc__ = 'Astronaut Class'
+...         self.__doc__ = 'Class representing an Astronaut'
 ...         self.__module__ = '__main__'
 ...         self.__version__ = '1.0.0'
 ...         self.__author__ = 'Mark Watney <mwatney@nasa.gov>'
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 
 All attributes:
 
->>> vars(astro)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  '_salary': 10000,
@@ -269,7 +271,7 @@ All attributes:
  '_Astronaut__password': 'ares3',
  'id_': 1337,
  'type_': 'astronaut',
- '__doc__': 'Astronaut Class',
+ '__doc__': 'Class representing an Astronaut',
  '__module__': '__main__',
  '__version__': '1.0.0',
  '__author__': 'Mark Watney <mwatney@nasa.gov>'}
@@ -279,12 +281,12 @@ Public attributes:
 >>> def get_public_attributes(obj):
 ...     return {attrname: attrvalue
 ...             for attrname in dir(obj)
-...             if (attrvalue := getattr(astro, attrname))
+...             if (attrvalue := getattr(mark, attrname))
 ...             and not callable(attrvalue)
 ...             and not attrname.startswith('_')}
 >>>
 >>>
->>> get_public_attributes(astro)
+>>> get_public_attributes(mark)
 {'firstname': 'Mark', 'id_': 1337, 'lastname': 'Watney', 'type_': 'astronaut'}
 
 Protected attributes:
@@ -299,7 +301,7 @@ Protected attributes:
 ...             and not attrname.endswith('_')}
 >>>
 >>>
->>> get_protected_attributes(astro)
+>>> get_protected_attributes(mark)
 {'_address': '2101 E NASA Pkwy, Houston 77058, Texas, USA', '_salary': 10000}
 
 Private attributes:
@@ -312,7 +314,7 @@ Private attributes:
 ...             and attrname.startswith(f'_{obj.__class__.__name__}_')}
 >>>
 >>>
->>> get_private_attributes(astro)
+>>> get_private_attributes(mark)
 {'_Astronaut__password': 'ares3', '_Astronaut__username': 'mwatney'}
 
 System attributes:
@@ -326,10 +328,10 @@ System attributes:
 ...             and attrname.endswith('__')}
 >>>
 >>>
->>> get_system_attributes(astro)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+>>> get_system_attributes(mark)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 {'__author__': 'Mark Watney <mwatney@nasa.gov>',
  '__dict__': {...},
- '__doc__': 'Astronaut Class',
+ '__doc__': 'Class representing an Astronaut',
  '__module__': '__main__',
  '__version__': '1.0.0'}
 

@@ -17,14 +17,13 @@ Polish:
     4. Jeżeli UID jest:
        a. poniżej 1000, to konto jest systemowe (`SystemAccount`)
        b. 1000 lub więcej, to konto użytkownika (`UserAccount`)
-    5. Stwórz metodę ``__repr__`` wyświetlającą informacje o klasie w formacie:
-       `SystemAccount(username='root', uid=0)`
-    6. Uruchom doctesty - wszystkie muszą się powieść
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * `str.splitlines()`
     * `str.split()`
     * `str.strip()`
+    * `map()`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -55,11 +54,6 @@ watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash
 lewis:x:1001:1001:Melissa Lewis:/home/lewis:/bin/bash
 martinez:x:1002:1002:Rick Martinez:/home/martinez:/bin/bash"""
 
-# Parse DATA and convert to UserAccount or SystemAccount
-# type: list[Account]
-result = ...
-
-# Solution
 from dataclasses import dataclass
 
 
@@ -74,6 +68,11 @@ class UserAccount:
     uid: int
 
 
+# Parse DATA and convert to UserAccount or SystemAccount
+# type: list[Account]
+result = ...
+
+# Solution
 class Account:
     def __new__(cls, records):
         username, _, uid, *_ = records.split(':')

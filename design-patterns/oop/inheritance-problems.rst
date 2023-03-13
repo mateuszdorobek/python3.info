@@ -66,11 +66,9 @@ Inheritance Problem
 ...     def window_open(self): ...
 ...     def window_close(self): ...
 >>>
->>>
 >>> class Truck(Vehicle):
 ...     def window_open(self): ...
 ...     def window_close(self): ...
->>>
 >>>
 >>> class Motorcycle(Vehicle):
 ...     pass
@@ -122,6 +120,7 @@ Multilevel Inheritance
 Problem
 -------
 * Code duplication or another multilevel inheritance
+* For simplicity imagine if ``Truck`` cannot have passengers
 
 >>> class Vehicle:
 ...     def engine_start(self): ...
@@ -133,20 +132,21 @@ Problem
 >>>
 >>>
 >>> class Car(VehicleWithWindows):
-...     pass
+...     def passenger_load(self): ...
+...     def passenger_unload(self): ...
 >>>
 >>> class Truck(VehicleWithWindows):
-...     def cbradio_on(self): ...
-...     def cbradio_off(self): ...
+...     pass
 >>>
 >>> class Motorcycle(Vehicle):
-...     def cbradio_on(self): ...
-...     def cbradio_off(self): ...
+...     def passenger_load(self): ...
+...     def passenger_unload(self): ...
 
 
 Solution With Multilevel Inheritance
 ------------------------------------
-* Tuck is both ``VehicleWithWindows`` and ``VehicleWithCBRadio``
+* For simplicity imagine if ``Truck`` cannot have passengers
+* ``Car`` is both ``VehicleWithWindows`` and ``VehicleWithPassengers``
 * Causes more problem
 * This is why in other languages composition is preferred over inheritance
 
@@ -158,18 +158,18 @@ Solution With Multilevel Inheritance
 ...     def window_open(self): ...
 ...     def window_close(self): ...
 >>>
->>> class VehicleWithCBRadio(Vehicle):
-...     def cbradio_on(self): ...
-...     def cbradio_off(self): ...
+>>> class VehicleWithPassengers(Vehicle):
+...     def passenger_load(self): ...
+...     def passenger_unload(self): ...
 >>>
 >>>
->>> class Car(VehicleWithWindows):
+>>> class Car():  # both: VehicleWithWindows and VehicleWithPassengers
 ...     pass
 >>>
->>> class Truck():  # both: VehicleWithWindows and VehicleWithCBRadio
+>>> class Truck(VehicleWithWindows):
 ...     pass
 >>>
->>> class Motorcycle(VehicleWithCBRadio):
+>>> class Motorcycle(VehicleWithPassengers):
 ...     pass
 
 
@@ -177,32 +177,6 @@ Solution With Mixin Classes
 ---------------------------
 * This is the Pythonic solution
 
->>> class Vehicle:
-...     def engine_start(self): ...
-...     def engine_stop(self): ...
->>>
->>> class HasWindows:
-...     def window_open(self): ...
-...     def window_close(self): ...
->>>
->>> class HasCBRadio:
-...     def cbradio_on(self): ...
-...     def cbradio_off(self): ...
->>>
->>>
->>>
->>> class Car(Vehicle, HasWindows):
-...     pass
->>>
->>> class Truck(Vehicle, HasWindows, HasCBRadio):
-...     pass
->>>
->>> class Motorcycle(Vehicle, HasCBRadio):
-...     pass
-
-
-Cleanup
---------
 >>> class Vehicle:
 ...     pass
 >>>
@@ -214,18 +188,18 @@ Cleanup
 ...     def window_open(self): ...
 ...     def window_close(self): ...
 >>>
->>> class HasCBRadio:
-...     def cbradio_on(self): ...
-...     def cbradio_off(self): ...
+>>> class HasPassengers:
+...     def passenger_load(self): ...
+...     def passenger_unload(self): ...
 >>>
 >>>
->>> class Car(Vehicle, HasEngine, HasWindows):
+>>> class Car(Vehicle, HasEngine, HasWindows, HasPassengers):
 ...     pass
 >>>
->>> class Truck(Vehicle, HasEngine, HasWindows, HasCBRadio):
+>>> class Truck(Vehicle, HasEngine, HasWindows):
 ...     pass
 >>>
->>> class Motorcycle(Vehicle, HasEngine, HasCBRadio):
+>>> class Motorcycle(Vehicle, HasEngine, HasPassengers):
 ...     pass
 
 .. figure:: img/uml-relations-mixin.png

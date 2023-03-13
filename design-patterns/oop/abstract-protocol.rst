@@ -11,7 +11,7 @@ all members on it results in types compatible with the protocol members.
 
 All things protocol related resides in typing library in ``Protocol`` class:
 
->>> from typing import Protocol, Self, runtime_checkable
+>>> from typing import Protocol, Self, runtime_checkable, NamedTuple
 
 Typical protocol implementation looks like that:
 
@@ -326,6 +326,37 @@ delegate, and contravariant type parameters can be used as parameter types.
     Animal cannot be substituted for Cat and vice versa. [#Langa2022]_
 
 
+Example:
+
+By default type annotation checkers works in covariant mode:
+
+>>> def print_coordinates(point: tuple):
+...     x, y, z = point
+...     print(f'{x=}, {y=}, {z=}')
+
+This means, that the ``point`` argument to the ``print_coordinates`` function
+could be either ``tuple`` or any object which inherits from ``tuple``.
+
+In the following example ``pt`` is **invariant** type as it is exactly as
+required, that is ``tuple``:
+
+>>> pt = (1, 2, 3)
+>>> print_coordinates(pt)
+x=1, y=2, z=3
+
+``NamedTuple`` inherits from ``tuple``, so it could be used as **covariant**
+type:
+
+>>> class Point(NamedTuple):
+...     x: int
+...     y: int
+...     z: int
+>>>
+>>> pt = Point(1,2,3)
+>>> print_coordinates(pt)
+x=1, y=2, z=3
+
+
 Default Value
 -------------
 >>> class Astronaut(Protocol):
@@ -475,6 +506,60 @@ decorator that provides the same semantics for class and instance checks
 as for ``collections.abc`` classes, essentially making them 'runtime
 protocols':
 
+>>> class Message(Protocol):
+...     recipient: str
+...     body: str
+>>>
+>>>
+>>> class Email:
+...     sender: str
+...     recipient: str
+...     subject: str
+...     body: str
+>>>
+>>>
+>>> isinstance(Email, Message)
+Traceback (most recent call last):
+TypeError: Instance and class checks can only be used with @runtime_checkable protocols
+
+>>> @runtime_checkable
+... class Message(Protocol):
+...     recipient: str
+...     body: str
+>>>
+>>>
+>>> class Email:
+...     sender: str
+...     recipient: str
+...     subject: str
+...     body: str
+>>>
+>>>
+>>> isinstance(Email, Message)
+False
+
+The above example returns ``False`` because ``Email`` class defines only
+type annotations not fields (fields does not exist and therefore it is not
+and instance of a protocol). With methods is easier. Methods always exists.
+
+Example below shows class with already filled information and therefore
+those fields exists.
+
+>>> class Person(Protocol):
+...     firstname: str
+...     lastname: str
+>>>
+>>>
+>>> class Astronaut:
+...     firstname: str = 'Mark'
+...     lastname: str = 'Watney'
+...     job: str = 'astronaut'
+>>>
+>>>
+>>> isinstance(Astronaut, Person)
+Traceback (most recent call last):
+TypeError: Instance and class checks can only be used with @runtime_checkable protocols
+
 >>> @runtime_checkable
 ... class Person(Protocol):
 ...     firstname: str
@@ -489,56 +574,6 @@ protocols':
 >>>
 >>> isinstance(Astronaut, Person)
 True
-
->>> class Message(Protocol):
-...     recipient: str
-...     body: str
->>>
->>>
->>> class Email(Message):
-...     sender: str
-...     recipient: str
-...     subject: str
-...     body: str
->>>
->>>
->>> email = Email()
->>> isinstance(email, Message)  # doctest: +SKIP
-Traceback (most recent call last):
-TypeError: Instance and class checks can only be used with @runtime_checkable protocols
-
->>> from typing import Protocol, runtime_checkable
->>>
->>>
->>> @runtime_checkable
-... class Message(Protocol):
-...     recipient: str
-...     body: str
->>>
->>>
->>> class Email(Message):
-...     sender: str
-...     recipient: str
-...     subject: str
-...     body: str
->>>
->>>
->>> email = Email()
->>> isinstance(email, Message)
-True
-
->>> from typing import Protocol, runtime_checkable
->>>
->>>
->>> @runtime_checkable
-... class SupportsClose(Protocol):
-...     def close(self): ...
->>>
->>>
->>> file = open('/tmp/myfile.txt', mode='w')
->>> isinstance(file, SupportsClose)
-True
->>> file.close()
 
 
 Use Case - 0x01
@@ -606,6 +641,118 @@ File ``main.py``
 >>>
 >>> import myapp.view  # doctest: +SKIP
 >>> view: HttpView = myapp.view  # doctest: +SKIP
+
+
+Use Case - 0x04
+---------------
+This use case demonstrate how ``mypy`` display information about invalid
+method. ``Cache`` protocol defines ``.clear()`` method which is not present
+in the ``DatabaseCache`` implementation. ``mypy`` will raise and error and
+fail CI/CD build.
+
+>>> class Cache(Protocol):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+
+>>> class DatabaseCache:
+...     def set(self, key: str, value: str) -> None:
+...         ...
+...
+...     def get(self, key: str) -> str:
+...         return '...'
+>>>
+>>>
+>>> mycache: Cache = DatabaseCache()
+>>> mycache.set('firstname', 'Mark')
+>>> mycache.set('lastname', 'Watney')
+>>> fname = mycache.get('firstname')
+>>> lname = mycache.get('lastname')
+
+.. code-block:: console
+
+    $ python3 -m mypy myfile.py
+    myfile.py:16: error: Incompatible types in assignment (expression has type "DatabaseCache", variable has type "Cache")  [assignment]
+    myfile.py:16: note: "DatabaseCache" is missing following "Cache" protocol member:
+    myfile.py:16: note:     clear
+    Found 1 error in 1 file (checked 1 source file)
+
+
+Use Case - 0x05
+---------------
+This use case demonstrate how ``mypy`` display information about invalid
+argument type to the ``.set()`` method. In ``Cache`` protocol ``.set()``
+method has ``value: str``. In the implementation ``.set()`` method has
+``value: int``. Despite this is only type annotation change, ``mypy``
+will raise an error and fail CI/CD build.
+
+>>> class Cache(Protocol):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+
+>>> class DatabaseCache:
+...     def set(self, key: str, value: int) -> None:
+...         ...
+...
+...     def get(self, key: str) -> str:
+...         return '...'
+...
+...     def clear(self) -> None:
+...         ...
+>>>
+>>>
+>>> mycache: Cache = DatabaseCache()
+>>> mycache.set('firstname', 'Mark')
+>>> mycache.set('lastname', 'Watney')
+>>> fname = mycache.get('firstname')
+>>> lname = mycache.get('lastname')
+>>> mycache.clear()
+
+.. code-block:: console
+
+    $ python -m mypy myfile.py
+    myfile.py:25: error: Incompatible types in assignment (expression has type "DatabaseCache", variable has type "Cache")  [assignment]
+    myfile.py:25: note: Following member(s) of "DatabaseCache" have conflicts:
+    myfile.py:25: note:     Expected:
+    myfile.py:25: note:         def set(self, key: str, value: str) -> None
+    myfile.py:25: note:     Got:
+    myfile.py:25: note:         def set(self, key: str, value: int) -> None
+    Found 1 error in 1 file (checked 1 source file)
+
+
+Use Case - 0x06
+---------------
+This time example is valid and does not contain any errors. This will allow
+for success build in CI/CD system.
+
+>>> class Cache(Protocol):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def clear(self) -> None: ...
+
+>>> class DatabaseCache:
+...     def set(self, key: str, value: str) -> None:
+...         ...
+...
+...     def get(self, key: str) -> str:
+...         return '...'
+...
+...     def clear(self) -> None:
+...         ...
+>>>
+>>>
+>>> mycache: Cache = DatabaseCache()
+>>> mycache.set('firstname', 'Mark')
+>>> mycache.set('lastname', 'Watney')
+>>> fname = mycache.get('firstname')
+>>> lname = mycache.get('lastname')
+>>> mycache.clear()
+
+.. code-block:: console
+
+    $ python -m mypy myfile.py
+    Success: no issues found in 1 source file
 
 
 References

@@ -1,104 +1,70 @@
 """
-* Assignment: OOP ObjectRelations HasPosition
+* Assignment: OOP ObjectRelations Nested
 * Complexity: medium
-* Lines of code: 18 lines
-* Time: 8 min
+* Lines of code: 7 lines
+* Time: 13 min
 
 English:
-    1. Define class `Point`
-    2. Class `Point` has attributes `x: int = 0` and `y: int = 0`
-    3. Define class `HasPosition`
-    4. In `HasPosition` define method `get_position(self) -> Point`
-    5. In `HasPosition` define method `set_position(self, x: int, y: int) -> None`
-    6. In `HasPosition` define method `change_position(self, left: int = 0, right: int = 0, up: int = 0, down: int = 0) -> None`
-    7. Assume left-top screen corner as a initial coordinates position:
-        a. going right add to `x`
-        b. going left subtract from `x`
-        c. going up subtract from `y`
-        d. going down add to `y`
-    8. Run doctests - all must succeed
+    1. Convert `DATA` to format with one column per each attrbute for example:
+       a. `mission1_year`, `mission2_year`,
+       b. `mission1_name`, `mission2_name`
+    2. Note, that enumeration starts with one
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę `Point`
-    2. Klasa `Point` ma atrybuty `x: int = 0` oraz `y: int = 0`
-    3. Zdefiniuj klasę `HasPosition`
-    4. W `HasPosition` zdefiniuj metodę `get_position(self) -> Point`
-    5. W `HasPosition` zdefiniuj metodę `set_position(self, x: int, y: int) -> None`
-    6. W `HasPosition` zdefiniuj metodę `change_position(self, left: int = 0, right: int = 0, up: int = 0, down: int = 0) -> None`
-    7. Przyjmij górny lewy róg ekranu za punkt początkowy:
-        a. idąc w prawo dodajesz `x`
-        b. idąc w lewo odejmujesz `x`
-        c. idąc w górę odejmujesz `y`
-        d. idąc w dół dodajesz `y`
-    8. Uruchom doctesty - wszystkie muszą się powieść
+    1. Przekonweruj `DATA` do formatu z jedną kolumną dla każdego atrybutu, np:
+       a. `mission1_year`, `mission2_year`,
+       b. `mission1_name`, `mission2_name`
+    2. Zwróć uwagę, że enumeracja zaczyna się od jeden
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from inspect import isclass, ismethod
+    >>> from pprint import pprint
 
-    >>> assert isclass(Point)
-    >>> assert isclass(HasPosition)
-    >>> assert hasattr(Point, 'x')
-    >>> assert hasattr(Point, 'y')
-    >>> assert hasattr(HasPosition, 'get_position')
-    >>> assert hasattr(HasPosition, 'set_position')
-    >>> assert hasattr(HasPosition, 'change_position')
-    >>> assert ismethod(HasPosition().get_position)
-    >>> assert ismethod(HasPosition().set_position)
-    >>> assert ismethod(HasPosition().change_position)
+    >>> result = list(result)
+    >>> assert type(result) is list
+    >>> assert len(result) > 0
+    >>> assert all(type(x) is dict for x in result)
 
-    >>> class Astronaut(HasPosition):
-    ...     pass
-
-    >>> astro = Astronaut()
-
-    >>> astro.set_position(x=1, y=2)
-    >>> astro.get_position()
-    Point(x=1, y=2)
-
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(right=1)
-    >>> astro.get_position()
-    Point(x=2, y=1)
-
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(left=1)
-    >>> astro.get_position()
-    Point(x=0, y=1)
-
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(down=1)
-    >>> astro.get_position()
-    Point(x=1, y=2)
-
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(up=1)
-    >>> astro.get_position()
-    Point(x=1, y=0)
+    >>> pprint(result, width=30)  # doctest: +NORMALIZE_WHITESPACE
+    [{'firstname': 'Mark',
+      'lastname': 'Watney',
+      'mission1_name': 'Ares3',
+      'mission1_year': 2035},
+     {'firstname': 'Melissa',
+      'lastname': 'Lewis',
+      'mission1_name': 'Ares1',
+      'mission1_year': 2030,
+      'mission2_name': 'Ares3',
+      'mission2_year': 2035},
+     {'firstname': 'Rick',
+      'lastname': 'Martinez'}]
 """
 
-from dataclasses import dataclass
+DATA = [
+    {"firstname": "Mark", "lastname": "Watney", "missions": [
+        {"name": "Ares3", "year": 2035}]},
+
+    {"firstname": "Melissa", "lastname": "Lewis", "missions": [
+        {"name": "Ares1", "year": 2030},
+        {"name": "Ares3", "year": 2035}]},
+
+    {"firstname": "Rick", "lastname": "Martinez", "missions": []}
+]
+
+# Flatten data, each mission field prefixed with mission and number
+# type: list[dict]
+result = ...
 
 
 # Solution
-@dataclass(frozen=True)
-class Point:
-    x: int = 0
-    y: int = 0
+def convert(astronaut: dict):
+    for i, mission in enumerate(astronaut.pop('missions'), start=1):
+        for field,value in mission.items():
+            column_name = f'mission{i}_{field}'
+            astronaut[column_name] = value
+    return astronaut
 
 
-@dataclass
-class HasPosition:
-    _position: Point = Point()
-
-    def set_position(self, x, y):
-        self._position = Point(x, y)
-
-    def get_position(self):
-        return self._position
-
-    def change_position(self, right=0, left=0, up=0, down=0):
-        current = self.get_position()
-        new_x = current.x + right - left
-        new_y = current.y + down - up
-        self.set_position(new_x, new_y)
+result = map(convert, DATA)

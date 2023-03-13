@@ -2,6 +2,11 @@ OOP Abstract Polymorphism
 =========================
 
 
+SetUp
+-----
+>>> from abc import ABCMeta, abstractmethod
+
+
 Procedural Polymorphism
 -----------------------
 * UNIX ``getchar()`` function used function lookup table with pointers
@@ -82,18 +87,23 @@ It quickly grows into multiple ``elif``:
 Hello
 
 
-Switch
-------
-In other languages you may find ``switch`` statement (note that this is
-not a valid Python code):
+Match: Switch Pattern
+---------------------
+* Since Python 3.10: :pep:`636` -- Structural Pattern Matching: Tutorial
+* More information :ref:`Match About` [#pybookSyntaxMatch]_
 
->>> switch(language):  # doctest: +SKIP
-...     case 'English':  result = 'Hello'; break;
-...     case 'Polish':   result = 'Witaj'; break;
-...     case 'Spanish':  result = 'Hola'; break;
-...     default:         result = 'Unknown language'; break;
+In other languages you may find ``switch`` statement. Since Python 3.10
+there is a ``match`` statement which can do the similar thing:
 
-Problem is that, ``switch`` moves business logic to the execution place.
+>>> language = 'English'
+>>>
+>>> match language:
+...     case 'English':  result = 'Hello'
+...     case 'Polish':   result = 'Witaj'
+...     case 'Spanish':  result = 'Hola'
+...     case _:          result = 'Unknown language'
+
+Problem is that, ``match`` moves business logic to the execution place.
 You can write it in a function using ``dict`` and ``.get()`` method with
 default value. It's a bit cleaner, but essentially the same...
 
@@ -110,27 +120,10 @@ default value. It's a bit cleaner, but essentially the same...
 'Hola'
 
 
-Pattern Matching
-----------------
-* Since Python 3.10: :pep:`636` -- Structural Pattern Matching: Tutorial
-* More information :ref:`Match About` [#pybookSyntaxMatch]_
-
->>> language = 'English'
->>>
->>> match language:
-...     case 'English':  result = 'Hello'
-...     case 'Polish':   result = 'Witaj'
-...     case 'Spanish':  result = 'Hola'
-...     case _:          result = 'Unknown language'
-
-
 Polymorphism
 ------------
 .. todo:: Example compatible with code above (elif, switch, pattern matching)
 
->>> from abc import ABCMeta, abstractmethod
->>>
->>>
 >>> class UIElement(metaclass=ABCMeta):
 ...     def __init__(self, name):
 ...         self.name = name
@@ -140,6 +133,10 @@ Polymorphism
 ...         pass
 >>>
 >>>
+>>> def render(component: list[UIElement]):
+...     for element in component:
+...         element.render()
+
 >>> class TextInput(UIElement):
 ...     def render(self):
 ...         print(f'Rendering {self.name} TextInput')
@@ -148,13 +145,7 @@ Polymorphism
 >>> class Button(UIElement):
 ...     def render(self):
 ...         print(f'Rendering {self.name} Button')
->>>
->>>
->>> def render(component: list[UIElement]):
-...     for element in component:
-...         element.render()
->>>
->>>
+
 >>> login_window = [
 ...     TextInput(name='Username'),
 ...     TextInput(name='Password'),
