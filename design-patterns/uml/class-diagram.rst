@@ -246,7 +246,8 @@ Rationale
 
 Django
 ------
-* GraphViz + Dot
+* GraphViz: https://graphviz.org/
+* Dot: https://graphviz.org/doc/info/lang.html
 * Django Extensions: https://django-extensions.readthedocs.io/en/latest/graph_models.html#example-usage
 
 .. code-block:: console
