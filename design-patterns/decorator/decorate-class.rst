@@ -226,6 +226,4 @@ Some warning...
 >>> melissa._log.warning('Some warning...')  # doctest: +SKIP
 Some warning...
 
-Assignments
------------
 .. todo:: Assignments

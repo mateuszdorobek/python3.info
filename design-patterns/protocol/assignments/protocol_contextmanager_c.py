@@ -58,21 +58,7 @@ from threading import Timer
 
 
 class File:
-    filename: str
-    buffer: list[str]
-
-    def __init__(self, filename):
-        self.filename = filename
-        self.buffer = []
-
-    def append(self, line):
-        self.buffer.append(line + '\n')
-
-    def write(self, mode='a'):
-        to_write = self.buffer.copy()
-        self.buffer = []
-        with open(self.filename, mode=mode) as file:
-            file.writelines(to_write)
+    ...
 
 
 # Solution

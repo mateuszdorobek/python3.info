@@ -113,6 +113,7 @@ Object Oriented Programming
     oop/object-constructor.rst
 
 
+
 Protocols
 *********
 .. toctree::
@@ -139,6 +140,7 @@ Decorators
     decorator/about-object.rst
     decorator/about-arguments.rst
     decorator/decorate-function.rst
+    decorator/decorate-stacked.rst
     decorator/decorate-method.rst
     decorator/decorate-class.rst
     decorator/decorator-function.rst

@@ -7,14 +7,18 @@ Dataclass Postinit
 * Hence you have to take care about negative cases (errors)
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+>>> from typing import ClassVar
+>>> from datetime import date, datetime
+
+
 Initial Validation in Classes
 -----------------------------
 * Init serves not only for fields initialization
 * It could be also used for value validation
 
->>> from typing import ClassVar
->>>
->>>
 >>> class Astronaut:
 ...     firstname: str
 ...     lastname: str
@@ -49,10 +53,6 @@ Initial Validation in Dataclasses
 * No need to assign it once again
 * You can focus only on bailing-out (checking only negative path - errors)
 
->>> from dataclasses import dataclass
->>> from typing import ClassVar
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -79,10 +79,6 @@ Date and Time Conversion
 * ``__post_init__()`` can also be used to convert data
 * Example str ``1969-07-21`` to date object ``date(1969, 7, 21)``
 
->>> from dataclasses import dataclass
->>> from datetime import date
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -97,10 +93,6 @@ Date and Time Conversion
 Astronaut(firstname='Mark', lastname='Watney',
           born=datetime.date(1961, 4, 12))
 
->>> from dataclasses import dataclass
->>> from datetime import datetime
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str

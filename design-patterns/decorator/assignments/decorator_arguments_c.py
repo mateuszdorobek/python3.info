@@ -15,11 +15,12 @@ Polish:
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * `echo.__annotations__`
+    * https://docs.python.org/3/howto/annotations.html
+    * `inspect.get_annotations()`
+    * `function.__code__.co_varnames`
     * `dict(zip(...))`
-    * `kwargs.items()`
-    * `list(kwargs.items())[:-1]`
-    * `dict1 | dict2` - merging dicts since Python 3.9
+    * `dict.items()`
+    * `dict1 | dict2` - merging dicts
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

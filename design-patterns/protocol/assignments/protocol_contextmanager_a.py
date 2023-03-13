@@ -1,7 +1,7 @@
 """
 * Assignment: Protocol ContextManager File
 * Complexity: easy
-* Lines of code: 13 lines
+* Lines of code: 14 lines
 * Time: 8 min
 
 English:
@@ -55,18 +55,7 @@ Tests:
 """
 
 class File:
-    filename: str
-    buffer: list[str]
-
-    def __init__(self, filename):
-        self.filename = filename
-        self.buffer = []
-
-    def append(self, line):
-        self.buffer.append(line + '\n')
-
-    def write(self, mode):
-        ...
+    ...
 
 
 # Solution
@@ -74,21 +63,16 @@ class File:
     filename: str
     buffer: list[str]
 
-    def __init__(self, filename):
+    def __init__(self, filename: str) -> None:
         self.filename = filename
         self.buffer = []
 
-    def append(self, line):
+    def append(self, line: str) -> None:
         self.buffer.append(line + '\n')
-
-    def write(self, mode):
-        to_write = self.buffer.copy()
-        self.buffer = []
-        with open(self.filename, mode) as file:
-            file.writelines(to_write)
 
     def __enter__(self):
         return self
 
-    def __exit__(self, exc_type, exc_val, exc_tb):
-        self.write(mode='w')
+    def __exit__(self, *args):
+        with open(self.filename, mode='w') as file:
+            file.writelines(self.buffer)

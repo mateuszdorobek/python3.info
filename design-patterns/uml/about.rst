@@ -40,7 +40,6 @@ Rationale
 .. figure:: img/about-description-2.jpg
 
 
-
 Class Diagram
 -------------
 * Class relationship

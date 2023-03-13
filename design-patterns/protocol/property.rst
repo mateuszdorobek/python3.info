@@ -6,6 +6,35 @@ Protocol Property
 * Raise exceptions such as ``ValueError`` or ``TypeError``
 * Check argument type
 
+SetUp:
+
+>>> from dataclasses import dataclass
+>>> from datetime import date
+
+Definition:
+
+>>> @dataclass
+... class Astronaut:
+...     firstname: str
+...     lastname: str
+...     birthday: date
+...
+...     @property
+...     def age(self):
+...         diff = date.today() - self.birthday
+...         years = diff.days / 365.25
+...         return round(years, 1)
+
+Usage:
+
+>>> mark = Astronaut('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark.age  # doctest: +SKIP
+53.4
+
+>>> mark.age = 40
+Traceback (most recent call last):
+AttributeError: property 'age' of 'Astronaut' object has no setter
+
 
 Problem
 -------
@@ -480,11 +509,11 @@ Use Case - 0x02
 ... class Astronaut:
 ...     firstname: str
 ...     lastname: str
-...     date_of_birth: date
+...     birthday: date
 ...
 ...     @property
 ...     def age(self):
-...         age = TODAY - self.date_of_birth
+...         age = TODAY - self.birthday
 ...         return round(age.days/YEAR, 1)
 >>>
 >>>

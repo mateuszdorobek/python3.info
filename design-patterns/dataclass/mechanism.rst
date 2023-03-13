@@ -8,6 +8,7 @@ SetUp
 >>> from datetime import date
 >>> from typing import ClassVar, Literal
 
+
 Input
 -----
 >>> @dataclass

@@ -21,23 +21,22 @@ Dataclass Field
               metadata: dict[str,Any] = None,
               kw_only: bool) -> None
 
+SetUp
+-----
+>>> from dataclasses import dataclass, field
+>>> from typing import ClassVar
+
 
 Default
 -------
 * ``default`` - Default value for the field
 
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
 ...     lastname: str
 ...     mission: str = 'Ares3'
 
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -51,9 +50,6 @@ Default Factory
 
 The following code will not work:
 
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -66,9 +62,6 @@ If you want to create a list with default values, you have to create a field
 with ``default_factory=lambda: ['Ares3', 'Apollo18']``. Lambda expression
 will be evaluated on field initialization.
 
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -82,10 +75,6 @@ Astronaut(firstname='Mark', lastname='Watney', missions=['Ares3', 'Apollo18'])
 
 Init
 ----
->>> from dataclasses import dataclass, field
->>> from typing import ClassVar
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -101,10 +90,6 @@ Astronaut(firstname='Mark', lastname='Watney', age=44)
 
 Repr
 ----
->>> from dataclasses import dataclass, field
->>> from typing import ClassVar
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -125,9 +110,6 @@ kw_only
 If true, this field will be marked as keyword-only. This is used when the
 generated __init__() method's parameters are computed.
 
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str

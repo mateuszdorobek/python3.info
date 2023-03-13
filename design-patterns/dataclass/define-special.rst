@@ -2,24 +2,14 @@ Dataclass Define Special
 ========================
 
 
-Literal Field
--------------
+SetUp
+-----
 >>> from dataclasses import dataclass, field
->>> from typing import Literal
->>>
->>>
->>> @dataclass
-... class Astronaut:
-...     firstname: str
-...     lastname: str
-...     agency: Literal['NASA', 'ESA', 'POLSA']
+>>> from typing import Literal, Final
 
 
 Union Fields
 ------------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -29,9 +19,6 @@ Union Fields
 
 Optional Fields
 ---------------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -39,14 +26,31 @@ Optional Fields
 ...     agency: str | None = None
 
 
+Literal Field
+-------------
+Import:
+
+>>> from typing import Literal
+
+Define class:
+
+>>> @dataclass
+... class Astronaut:
+...     firstname: str
+...     lastname: str
+...     agency: Literal['NASA', 'ESA', 'POLSA']
+
+
 Final Fields
 ------------
 * In Python there is no constants
 
->>> from dataclasses import dataclass
+Import:
+
 >>> from typing import Final
->>>
->>>
+
+Define class:
+
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: Final[str]
@@ -66,7 +70,11 @@ If a field is a ``ClassVar``, it is excluded from consideration as a field
 and is ignored by the dataclass mechanisms. Such ``ClassVar`` pseudo-fields
 are not returned by the module-level ``fields()`` function.
 
+Import:
+
 >>> from typing import ClassVar
+
+Define Class:
 
 >>> @dataclass
 ... class Astronaut:
@@ -82,14 +90,17 @@ Keyword Arguments Only
 * Since Python 3.10
 * ``from dataclasses import KW_ONLY``
 
-Any fields after a pseudo-field with the type of KW_ONLY are marked as
-keyword-only fields. Note that a pseudo-field of type KW_ONLY is otherwise
-completely ignored. This includes the name of such a field. By convention, a
-name of _ is used for a KW_ONLY field.
+Any fields after a pseudo-field with the type of ``KW_ONLY`` are marked
+as keyword-only fields. Note that a pseudo-field of type ``KW_ONLY`` is
+otherwise completely ignored. This includes the name of such a field.
+By convention, a name of ``_`` is used for a ``KW_ONLY`` field.
 
->>> from dataclasses import dataclass, KW_ONLY
->>>
->>>
+Import:
+
+>>> from dataclasses import KW_ONLY
+
+Define class:
+
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str

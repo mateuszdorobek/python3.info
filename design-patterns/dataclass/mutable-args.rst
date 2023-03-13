@@ -7,6 +7,11 @@ Dataclass Mutable Attrs
 * Discussion: https://github.com/ericvsmith/dataclasses/issues/3
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass, field
+
+
 Problem
 -------
 Note, You should not set mutable objects as a default function argument.
@@ -54,9 +59,6 @@ Name: Melissa Lewis, Missions: []
 
 List of Strings
 ---------------
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -71,9 +73,6 @@ Astronaut(firstname='Mark', lastname='Watney', missions=[])
 
 List of Objects
 ---------------
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Mission:
 ...     year: int
@@ -94,9 +93,6 @@ Astronaut(firstname='Mark', lastname='Watney', missions=[])
 
 Dict
 ----
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str
@@ -111,9 +107,6 @@ Astronaut(firstname='Mark', lastname='Watney', missions={})
 
 Default Values
 --------------
->>> from dataclasses import dataclass, field
->>>
->>>
 >>> @dataclass
 ... class Astronaut:
 ...     firstname: str

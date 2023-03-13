@@ -6,11 +6,13 @@ Dataclass Inheritance
   (all parameters from parent and child will be set)
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+
+
 Inheritance
 -----------
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Person:
 ...     firstname: str
@@ -48,9 +50,6 @@ Post Init
 When a child class define ``__post_init__()`` method it will overwrite
 this method from a parent class:
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Person:
 ...     firstname: str
@@ -78,9 +77,6 @@ Using ``super()`` allows a child class to call ``__post_init__()`` from
 a superclass. Note that all the parameters are already assigned, no need
 to pass them like for ``__init__()`` function.
 
->>> from dataclasses import dataclass
->>>
->>>
 >>> @dataclass
 ... class Person:
 ...     firstname: str

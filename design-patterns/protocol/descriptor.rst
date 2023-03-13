@@ -426,6 +426,229 @@ ValueError: Astronaut.email value: invalid-email@nasa.gov does not match pattern
 
 Use Case - 0x05
 ---------------
+>>> import re
+>>> from abc import ABC, abstractmethod, abstractproperty
+>>> from dataclasses import dataclass, InitVar
+>>>
+>>>
+>>> class Validator(ABC):
+...     attrname: str
+...
+...     @abstractproperty
+...     def error_message(self) -> str: ...
+...
+...     def __set_name__(self, owner, attrname):
+...         self.attrname = f'_{attrname}'
+...
+...     def __get__(self, instance, owner):
+...         return getattr(instance, self.attrname)
+...
+...     def __set__(self, instance, value):
+...         if self.is_valid(value):
+...             setattr(instance, self.attrname, value)
+...         else:
+...             raise ValueError(self.error_message.format(**vars(self)))
+...
+...     @abstractmethod
+...     def is_valid(self, value) -> bool:
+...         raise NotImplementedError
+>>>
+>>>
+>>> @dataclass
+... class MaxLength(Validator):
+...     maxlength: int
+...     error_message: str = ('Attribute {attrname} is invalid. '
+...                           'Value is longer than {maxlength}')
+...
+...     def is_valid(self, value):
+...         return len(value) <= self.maxlength
+>>>
+>>>
+>>> @dataclass
+... class Between(Validator):
+...     min: int
+...     max: int
+...     error_message: str = ('Attribute {attrname} is invalid. '
+...                           'Value not between {min} and {max}.')
+...
+...     def is_valid(self, value):
+...         return self.min <= value < self.max
+>>>
+>>> @dataclass
+... class Matches(Validator):
+...     pattern: InitVar[str]
+...     regex: re.Pattern | None = None
+...     error_message: str = ('Attribute {attrname} is invalid. '
+...                           'Value does not match pattern `{regex.pattern}`')
+...
+...     def __post_init__(self, pattern):
+...         self.regex = re.compile(pattern)
+...
+...     def is_valid(self, value):
+...         return self.regex.match(value)
+>>>
+>>>
+>>> @dataclass
+... class Astronaut:
+...     firstname: str = MaxLength(50)
+...     lastname: str = MaxLength(50)
+...     age: int = Between(min=30, max=50)
+...     height: float = Between(min=150, max=210)
+...     weight: float = Between(min=50, max=90)
+...     email: str = Matches('^[a-z]+@nasa.gov$')
+
+>>> astro = Astronaut(
+...     firstname = 'Mark',
+...     lastname = 'Watney',
+...     age = 40,
+...     height = 175,
+...     weight = 80,
+...     email = 'mwatney@nasa.gov',
+... )
+
+Use Case - 0x06
+---------------
+>>> from abc import ABC, abstractmethod, abstractproperty
+>>> from dataclasses import dataclass, InitVar
+>>> import re
+>>> from typing import ClassVar
+...
+...
+>>> @dataclass
+... class Validator(ABC):
+...     attrname: str | None = None
+...
+...     def __set_name__(self, owner, name):
+...         self.attrname = f'_{name}'
+...
+...     def __get__(self, instance, owner):
+...         return getattr(instance, self.attrname)
+...
+...     def __delete__(self, instance):
+...         delattr(instance, self.attrname, None)
+...
+...     def __set__(self, instance, value):
+...         if not self.is_valid(value):
+...             raise ValueError(self.ERROR_MSG.format(value=value, **self.__dict__))
+...         setattr(instance, self.attrname, value)
+...
+...     @abstractmethod
+...     def is_valid(self, value) -> bool:
+...         ...
+...
+...     @abstractproperty
+...     def ERROR_MSG(self) -> str:
+...         ...
+...
+...
+>>> @dataclass
+... class String(Validator):
+...     max_length: int = 30
+...     ERROR_MSG: ClassVar[str] = '{attrname} {value} is longer than {max_length}'
+...
+...     def is_valid(self, value) -> bool:
+...         return len(value) <= self.max_length
+...
+...
+>>> @dataclass
+... class Email(Validator):
+...     domain: str = ''
+...     ERROR_MSG: ClassVar[str] = '{attrname} value "{value}" is not in domain {domain}'
+...
+...     def is_valid(self, value) -> bool:
+...         return value.endswith(self.domain)
+...
+...
+>>> @dataclass
+... class Integer(Validator):
+...     min: int = 0
+...     max: int = 256
+...     ERROR_MSG: ClassVar[str] = '{attrname} value "{value}" is not between {min} and {max}'
+...
+...     def is_valid(self, value) -> bool:
+...         return self.min <= value < self.max
+...
+...
+>>> @dataclass
+... class Phone(Validator):
+...     regex: InitVar[str] = r'.*'
+...     pattern: re.Pattern | None = None
+...     ERROR_MSG: ClassVar[str] = '{attrname} value "{value}" does not match {pattern}'
+...
+...     def __post_init__(self, regex):
+...         self.pattern = re.compile(regex)
+...
+...     def is_valid(self, value) -> bool:
+...         return True if self.pattern.match(value) else False
+
+>>> class Astronaut:
+...     firstname: str = String(max_length=20)
+...     lastname: str = String(max_length=30)
+...     email: str = Email(domain='@nasa.gov')
+...     phone: str = Phone(regex=r'^\+48 \d{3} \d{3} \d{3}$')
+...     age: int = Integer(min=30, max=50)
+
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 40
+>>> mark.email = 'mwantey@nasa.gov'
+>>> mark.phone = '+48 123 456 789'
+
+>>> mark.firstname = 'WatneyWatneyWatneyWatneyWatneyWatney'
+Traceback (most recent call last):
+ValueError: _firstname WatneyWatneyWatneyWatneyWatneyWatney is longer than 20
+
+>>> mark.age = 20
+Traceback (most recent call last):
+ValueError: _age value "20" is not between 30 and 50
+
+>>> mark.age = 60
+Traceback (most recent call last):
+ValueError: _age value "60" is not between 30 and 50
+
+>>> mark.phone = '+48 12 3456 789'
+Traceback (most recent call last):
+ValueError: _phone value "+48 12 3456 789" does not match re.compile('^\\+48 \\d{3} \\d{3} \\d{3}$')
+
+>>> mark.phone = '+49 123 456 789'
+Traceback (most recent call last):
+ValueError: _phone value "+49 123 456 789" does not match re.compile('^\\+48 \\d{3} \\d{3} \\d{3}$')
+
+>>> mark.email = 'mwantey@nasa.com'
+Traceback (most recent call last):
+ValueError: _email value "mwantey@nasa.com" is not in domain @nasa.gov
+
+>>> mark.email = 'mwantey@nasa.gov.pl'
+Traceback (most recent call last):
+ValueError: _email value "mwantey@nasa.gov.pl" is not in domain @nasa.gov
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'_firstname': 'Mark',
+ '_lastname': 'Watney',
+ '_age': 40,
+ '_email': 'mwantey@nasa.gov',
+ '_phone': '+48 123 456 789'}
+
+>>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__annotations__': {'firstname': <class 'str'>,
+                                  'lastname': <class 'str'>,
+                                  'email': <class 'str'>,
+                                  'phone': <class 'str'>,
+                                  'age': <class 'int'>},
+              'firstname': String(attrname='_firstname', max_length=20),
+              'lastname': String(attrname='_lastname', max_length=30),
+              'email': Email(attrname='_email', domain='@nasa.gov'),
+              'phone': Phone(attrname='_phone', pattern=re.compile('^\\+48 \\d{3} \\d{3} \\d{3}$')),
+              'age': Integer(attrname='_age', min=30, max=50),
+              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
+'__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+'__doc__': None})
+
+
+Use Case - 0x07
+---------------
 * Timezone Converter Descriptor
 
 .. figure:: img/protocol-descriptor-timezone.png

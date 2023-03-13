@@ -11,7 +11,7 @@ all members on it results in types compatible with the protocol members.
 
 All things protocol related resides in typing library in ``Protocol`` class:
 
->>> from typing import Protocol
+>>> from typing import Protocol, Self, runtime_checkable
 
 Typical protocol implementation looks like that:
 
@@ -20,7 +20,7 @@ Typical protocol implementation looks like that:
 ...     body: str
 ...
 ...     def send() -> None: ...
-...     def receive() -> 'Message': ...
+...     def receive() -> Self: ...
 
 
 Example
@@ -158,14 +158,10 @@ Explicit Subtyping
 If a class includes a protocol in its MRO, the class is called an explicit
 subclass of the protocol.
 
->>> from typing import Protocol
->>>
->>>
 >>> class Message(Protocol):
 ...     recipient: str
 ...     body: str
->>>
->>>
+
 >>> class Email(Message):
 ...     sender: str
 ...     recipient: str
@@ -203,14 +199,10 @@ an implicit subtype of the protocol. (Note that one can explicitly subclass
 a protocol and still not implement it if a protocol attribute is set to
 None in the subclass, see Python data-model for details.) [#PEP544]_
 
->>> from typing import Protocol
->>>
->>>
 >>> class Message(Protocol):
 ...     recipient: str
 ...     body: str
->>>
->>>
+
 >>> class Email:
 ...     sender: str
 ...     recipient: str
@@ -250,20 +242,15 @@ steering committee states that protocols are completely optional [#PEP544]_:
 * Programmers are free to not use them even if they use type annotations.
 * There is no intent to make protocols non-optional in the future.
 
->>> from typing import Protocol
->>>
->>>
 >>> class SMS(Protocol):
 ...     recipient: str
 ...     body: str
->>>
 >>>
 >>> class MMS(Protocol):
 ...     recipient: str
 ...     body: str
 ...     mimetype: str
->>>
->>>
+
 >>> class MyMessage:
 ...     recipient: str
 ...     body: str
@@ -341,9 +328,6 @@ delegate, and contravariant type parameters can be used as parameter types.
 
 Default Value
 -------------
->>> from typing import Protocol
->>>
->>>
 >>> class Astronaut(Protocol):
 ...     firstname: str
 ...     lastname: str
@@ -383,36 +367,23 @@ Recursive Protocols
 * Since 3.7 ``from __future__ import annotations``
 * Future :pep:`563` -- Postponed Evaluation of Annotations
 
->>> from typing import Protocol, Iterable
+>>> from typing import Protocol, Iterable, Self
 
 Traversing Graph nodes:
 
 >>> class Graph(Protocol):
-...     def get_node(self) -> Iterable['Graph']:
+...     def get_node(self) -> Iterable[Self]:
 ...         ...
 
 Traversing Tree nodes:
 
 >>> class Tree(Protocol):
-...     def get_node(self) -> Iterable['Tree']:
-...         ...
-
-Since Python 3.11:
-
->>> # doctest: +SKIP
-... from typing import Self
-...
-...
-... class Graph(Protocol):
 ...     def get_node(self) -> Iterable[Self]:
 ...         ...
 
 
 Unions
 ------
->>> from typing import Protocol
->>>
->>>
 >>> class Exitable(Protocol):
 ...     def exit(self) -> int:
 ...         ...
@@ -420,8 +391,7 @@ Unions
 >>> class Quittable(Protocol):
 ...     def quit(self) -> int | None:
 ...         ...
->>>
->>>
+
 >>> def finish(task: Exitable | Quittable) -> None:
 ...     task.exit()
 ...     task.quit()
@@ -505,9 +475,6 @@ decorator that provides the same semantics for class and instance checks
 as for ``collections.abc`` classes, essentially making them 'runtime
 protocols':
 
->>> from typing import Protocol, runtime_checkable
->>>
->>>
 >>> @runtime_checkable
 ... class Person(Protocol):
 ...     firstname: str
@@ -519,12 +486,10 @@ protocols':
 ...     lastname: str = 'Watney'
 ...     job: str = 'astronaut'
 >>>
+>>>
 >>> isinstance(Astronaut, Person)
 True
 
->>> from typing import Protocol
->>>
->>>
 >>> class Message(Protocol):
 ...     recipient: str
 ...     body: str
@@ -535,6 +500,7 @@ True
 ...     recipient: str
 ...     subject: str
 ...     body: str
+>>>
 >>>
 >>> email = Email()
 >>> isinstance(email, Message)  # doctest: +SKIP
@@ -555,6 +521,7 @@ TypeError: Instance and class checks can only be used with @runtime_checkable pr
 ...     recipient: str
 ...     subject: str
 ...     body: str
+>>>
 >>>
 >>> email = Email()
 >>> isinstance(email, Message)

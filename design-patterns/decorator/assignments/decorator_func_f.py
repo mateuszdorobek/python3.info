@@ -25,18 +25,12 @@ Polish:
     5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * Merge dict since Python 3.9: `dict1 | dict2`
-    * Merge dict in Python 3.7, 3.8: `{**dict1, **dict2)}`
-    * Convert args into dict: `dict(zip(func.__annotations__.keys(), args))`
-    * `echo.__annotations__`
-    # {'a': <class 'str'>,
-    #  'b': <class 'int'>,
-    #  'c': <class 'float'>,
-    #  'return': <class 'bool'>}
+    * https://docs.python.org/3/howto/annotations.html
+    * `inspect.get_annotations()`
+    * `function.__code__.co_varnames`
     * `dict(zip(...))`
-    * `kwargs.items()`
-    * `list(kwargs.items())[:-1]`
-    * `dict1 | dict2` - merging dicts since Python 3.9
+    * `dict.items()`
+    * `dict1 | dict2` - merging dicts
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -94,6 +88,7 @@ Tests:
     Traceback (most recent call last):
     TypeError: "return" is <class 'str'>, but <class 'bool'> was expected
 """
+from inspect import get_annotations
 
 
 # type: Callable[[Callable], Callable]
@@ -106,7 +101,7 @@ def typecheck(func):
 
 # Solution
 def typecheck(func):
-    annotations = func.__annotations__
+    annotations = get_annotations(func)
 
     def merge(args, kwargs) -> dict:
         return kwargs | dict(zip(annotations, args))

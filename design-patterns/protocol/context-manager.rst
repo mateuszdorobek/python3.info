@@ -38,23 +38,41 @@ Type Annotations
 
 Example
 -------
->>> class MyClass:
+>>> class Astronaut:
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...
 ...     def __enter__(self):
 ...         print('Entering the block')
 ...         return self
 ...
 ...     def __exit__(self, *args):
 ...         print('Exiting the block')
-...         return None
 ...
-...     def do_something(self):
-...         print('I am inside')
->>>
->>>
->>> with MyClass() as my:
-...     my.do_something()
+...     def say_hello(self):
+...         print(f'Hello {self.firstname} {self.lastname}')
+
+Now we can use context manager:
+
+>>> with Astronaut('Mark', 'Watney') as mark:
+...     mark.say_hello()
+...
 Entering the block
-I am inside
+Hello Mark Watney
+Exiting the block
+
+Is equivalent to:
+
+>>> mark = Astronaut('Mark', 'Watney')
+>>>
+>>> mark = mark.__enter__()
+Entering the block
+>>>
+>>> mark.say_hello()
+Hello Mark Watney
+>>>
+>>> mark.__exit__()
 Exiting the block
 
 
@@ -167,6 +185,7 @@ Use Case - 0x01
 >>>
 >>> with html_tag('p'):
 ...     print('We choose to go to the Moon.')
+...
 <p>
 We choose to go to the Moon.
 </p>
@@ -258,6 +277,7 @@ Use Case - 0x03
 ...
 ...     for row in db.execute(SQL_SELECT):
 ...         print(dict(row))
+...
 <sqlite3.Cursor object at 0x...>
 <sqlite3.Cursor object at 0x...>
 {'id': 1, 'firstname': 'Pan', 'lastname': 'Twardowski', 'age': 44}
@@ -283,6 +303,7 @@ True
 ...     print('Critical section 2')
 ... finally:
 ...     lock.release()
+...
 Critical section 1
 Critical section 2
 
@@ -291,22 +312,55 @@ With context manager:
 >>> from threading import Lock
 >>>
 >>>
->>> lock = Lock()
+>>> mylock = Lock()
 >>>
->>> with lock:
+>>> with mylock:
 ...     print('Critical section 1')
 ...     print('Critical section 2')
+...
 Critical section 1
 Critical section 2
 
 
 Use Case - 0x05
 ---------------
+SetUp:
+
+>>> from threading import Lock
+
+Define decorator to automatically use context manager with lock:
+
+>>> def lock(mylock: Lock):
+...     def decorator(func):
+...         def wrapper(*args, **kwargs):
+...             with mylock:
+...                 return func(*args, **kwargs)
+...         return wrapper
+...     return decorator
+
+Usage:
+
+>>> mylock = Lock()
+>>>
+>>> @lock(mylock)
+... def write(file, content):
+...     print(f'Writing "{content}" to {file}')
+>>>
+>>>
+>>> write(file='/tmp/myfile.txt', content='hello')
+Writing "hello" to /tmp/myfile.txt
+
+
+Use Case - 0x06
+---------------
 * Microbenchmark
 
+SetUp:
+
 >>> from time import time
->>>
->>>
+
+Define Context Manager to measure start, stop times and calculate duration:
+
 >>> class Timeit:
 ...     def __enter__(self):
 ...         self.start = time()
@@ -352,8 +406,6 @@ Duration: 4.1019 seconds
 
 Microbenchmark for concatenation using ``str.format()`` method:
 
-Microbenchmark for concatenation using ``str.format()`` method:
-
 >>> with Timeit():  # doctest: +SKIP
 ...     for _ in range(repetitions):
 ...         '{}{}'.format(firstname, lastname)
@@ -372,8 +424,103 @@ Microbenchmark for concatenation using ``str.format()`` method:
 Duration: 5.3505 seconds
 
 
+Use Case - 0x07
+---------------
+>>> from unittest import IsolatedAsyncioTestCase
+>>> import httpx as httpx  # doctest: +SKIP
+>>>
+>>> BASE_URL = 'https://python.astrotech.io'
+>>>
+>>>
+>>> async def request(method='GET', path='/', data=None):
+...     async with httpx.AsyncClient(base_url=BASE_URL) as client:
+...         return await client.request(method=method, url=path, data=data)
+...
+...
+>>> class MyAppTest(IsolatedAsyncioTestCase):
+...     async def test_index(self):
+...         resp = await request('GET', '/index.html')
+...         self.assertEqual(resp.status_code, 200)
+...
+...     async def test_license(self):
+...         resp = await request('GET', '/LICENSE.html')
+...         self.assertEqual(resp.status_code, 200)
+...         text = 'Creative Commons Attribution-ShareAlike 4.0 International Public License'
+...         self.assertIn(text, resp.text)
+...
+...     async def test_install(self):
+...         resp = await request('GET', '/install.html')
+...         self.assertEqual(resp.status_code, 200)
+...
+...         with self.subTest(msg='Python Version'):
+...             self.assertIn('3.11', resp.text)
+...             self.assertIn('3.10', resp.text)
+...             self.assertIn('3.9', resp.text)
+...             self.assertNotIn('3.8', resp.text)
+...             self.assertNotIn('3.7', resp.text)
+...             self.assertNotIn('3.6', resp.text)
+...
+...         with self.subTest(msg='PyCharm Version'):
+...             self.assertIn('2022.1', resp.text)
+...             with self.assertRaises(AssertionError):
+...                 self.assertIn('2022.0', resp.text)
+
+
+Use Case - 0x08
+---------------
+* Source [#sqlalchemySessions]_
+
+In the most general sense, the Session establishes all conversations with
+the database and represents a 'holding zone' for all the objects which
+you've loaded or associated with it during its lifespan. It provides the
+interface where SELECT and other queries are made that will return and
+modify ORM-mapped objects. The ORM objects themselves are maintained
+inside the Session, inside a structure called the identity map - a data
+structure that maintains unique copies of each object, where 'unique'
+means 'only one object with a particular primary key'.
+
+>>> # doctest: +SKIP
+... from sqlalchemy import create_engine
+... from sqlalchemy.orm import Session
+...
+... engine = create_engine("postgresql+psycopg2://scott:tiger@localhost/")
+
+Create session and add objects:
+
+>>> # doctest: +SKIP
+... with Session(engine) as session:
+...     session.add(some_object)
+...     session.add(some_other_object)
+...     session.commit()
+
+The long-form sequence of operations illustrated above can be achieved more
+succinctly by making use of the SessionTransaction object returned by the
+Session.begin() method, which provides a context manager interface for the
+same sequence of operations:
+
+>>> # doctest: +SKIP
+... with Session(engine) as session:
+...     with session.begin():
+...         session.add(some_object)
+...         session.add(some_other_object)
+
+Create session and add objects. Inner context calls session.commit(),
+if there were no exceptions. Outer context calls session.close()
+
+There could be several context managers entered at the same time:
+
+>>> # doctest: +SKIP
+... with Session(engine) as session, session.begin():
+...     session.add(some_object)
+...     session.add(some_other_object)
+
+Create session and add objects. Inner context calls session.commit(),
+if there were no exceptions. Outer context calls session.close()
+
+
 References
 ----------
+.. [#sqlalchemySessions] SQLAlchemy authors and contributors. Session Basics. Year: 2022. Retrieved: 2022-11-25. URL: https://docs.sqlalchemy.org/en/20/orm/session_basics.html
 .. [#pydocpython310] Python Software Foundation. Parenthesized context managers. Year: 2022. Retrieved: 2022-12-03. URL: https://docs.python.org/dev/whatsnew/3.10.html#parenthesized-context-managers
 
 

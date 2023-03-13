@@ -53,6 +53,15 @@ Example
 
 Use Case - 0x01
 ---------------
+>>> #doctest: +SKIP
+... @setup(...)
+... @teardown(...)
+... def test():
+...     ...
+
+
+Use Case - 0x02
+---------------
 * Deprecated
 
 >>> import warnings
@@ -82,7 +91,7 @@ Use Case - 0x01
 It will be removed in 2.0
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 * Timeout (SIGALRM)
 
@@ -142,7 +151,7 @@ Timeout
     ...     return self.returncode
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 * Timeout (Timer)
 
@@ -183,7 +192,7 @@ Traceback (most recent call last):
 TimeoutError: Timeout
 
 
-Use Case - 0x04
+Use Case - 0x05
 ---------------
 File ``settings.py``:
 
@@ -219,7 +228,6 @@ File ``main.py``:
 >>>
 >>>
 >>> users = get_users()  # doctest: +SKIP
-
 
 
 Assignments
