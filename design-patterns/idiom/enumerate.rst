@@ -72,7 +72,7 @@ Dict Conversion
 {'01': 'January', '02': 'February', '03': 'March'}
 
 
-Using in a loop
+Using in a Loop
 ---------------
 >>> months = ['January', 'February', 'March']
 >>>

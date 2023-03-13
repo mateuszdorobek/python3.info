@@ -2,6 +2,11 @@ All
 ===
 * Return True if all elements of the iterable are true (or if the iterable is empty).
 
+>>> DATA = [True, False, True]
+>>>
+>>> all(DATA)
+False
+
 
 Solution
 --------
@@ -14,11 +19,14 @@ Solution
 ...     return True
 
 
-Use Case
---------
+Use Case - 0x01
+---------------
 >>> all(x for x in range(0,5))
 False
 
+
+Use Case - 0x02
+---------------
 >>> DATA = [{'is_astronaut': True,  'name': 'Pan Twardowski'},
 ...         {'is_astronaut': True,  'name': 'Mark Watney'},
 ...         {'is_astronaut': False, 'name': 'José Jiménez'},
@@ -32,6 +40,9 @@ False
 ...     print('Not everyone is astronaut')
 Not everyone is astronaut
 
+
+Use Case - 0x03
+---------------
 >>> DATA = [
 ...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
@@ -47,10 +58,4 @@ Not everyone is astronaut
 ...     for *values, species in DATA[1:]
 ...     for value in values
 ...     if isinstance(value, float))
-False
->>>
->>> all(x > 1.0
-...     for *X,y in DATA[1:]
-...     for x in X
-...     if isinstance(x, float))
 False

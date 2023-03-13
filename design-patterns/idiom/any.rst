@@ -3,6 +3,11 @@ Any
 * Return True if any element of the iterable is true.
 * If the iterable is empty, return False.
 
+>>> DATA = [True, False, True]
+>>>
+>>> any(DATA)
+True
+
 
 Solution
 --------
@@ -15,11 +20,14 @@ Solution
 ...     return False
 
 
-Use Case
---------
+Use Case - 0x01
+---------------
 >>> any(x for x in range(0,5))
 True
 
+
+Use Case - 0x02
+---------------
 >>> DATA = [{'is_astronaut': True,  'name': 'Pan Twardowski'},
 ...         {'is_astronaut': True,  'name': 'Mark Watney'},
 ...         {'is_astronaut': False, 'name': 'José Jiménez'},

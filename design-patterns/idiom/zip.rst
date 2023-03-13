@@ -157,7 +157,7 @@ Unzip
 ('Watney', 'Lewis', 'Vogel')
 
 
-Future
+Strict
 ------
 * ``zip(*iterables, strict=False)``
 * Since Python 3.10: :pep:`618` -- Add Optional Length-Checking To zip [#pep618]_

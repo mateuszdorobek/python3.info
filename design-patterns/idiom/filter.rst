@@ -84,8 +84,19 @@ Traceback (most recent call last):
 StopIteration
 
 
-Rationale
----------
+Performance
+-----------
+>>> # %%timeit -r 10 -n 100_000
+>>> # result = (x for x in range(0,5) if x%2==0)
+>>> # 490 ns ± 44 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
+
+>>> # %%timeit -r 10 -n 100_000
+>>> # result = filter(lambda x: x%2==0, range(0,5))
+>>> # 384 ns ± 34.2 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
+
+
+Use Case - 0x01
+---------------
 >>> people = [
 ...     {'age': 21, 'name': 'Pan Twardowski'},
 ...     {'age': 25, 'name': 'Mark Watney'},
@@ -101,6 +112,9 @@ Rationale
 [{'age': 21, 'name': 'Pan Twardowski'},
  {'age': 25, 'name': 'Mark Watney'}]
 
+
+Use Case - 0x02
+---------------
 >>> people = [
 ...     {'is_astronaut': False, 'name': 'Pan Twardowski'},
 ...     {'is_astronaut': True, 'name': 'Mark Watney'},
@@ -116,6 +130,9 @@ Rationale
 [{'is_astronaut': True, 'name': 'Mark Watney'},
  {'is_astronaut': True, 'name': 'Melissa Lewis'}]
 
+
+Use Case - 0x03
+---------------
 >>> astronauts = ['Mark Watney', 'Melissa Lewis']
 >>> people = ['Mark Watney', 'Melissa Lewis', 'Jimenez']
 >>>
@@ -127,17 +144,6 @@ Rationale
 >>> result = filter(is_astronaut, people)
 >>> list(result)
 ['Mark Watney', 'Melissa Lewis']
-
-
-Performance
------------
->>> # %%timeit -r 10 -n 100_000
->>> # result = (x for x in range(0,5) if x%2==0)
->>> # 490 ns ± 44 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
-
->>> # %%timeit -r 10 -n 100_000
->>> # result = filter(lambda x: x%2==0, range(0,5))
->>> # 384 ns ± 34.2 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
 
 
 Assignments
