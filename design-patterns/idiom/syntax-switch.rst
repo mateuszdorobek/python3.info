@@ -1,5 +1,5 @@
-OOP Switch
-==========
+Idiom Switch
+============
 
 
 SetUp

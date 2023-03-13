@@ -1,5 +1,5 @@
-Zip
-===
+Idiom Zip
+=========
 * Combine two sequences
 * Generator (lazy evaluated)
 * Built-in

@@ -1,5 +1,5 @@
-Idioms
-======
+Idiom About
+===========
 * comprehension, generator expression
 * any, all, min, max, sum
 * zip, enumerate, chain

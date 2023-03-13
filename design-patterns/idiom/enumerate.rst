@@ -1,5 +1,5 @@
-Enumerate
-=========
+Idiom Enumerate
+===============
 * Enumerate sequences
 * Generator (lazy evaluated)
 * Built-in

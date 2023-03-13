@@ -1,5 +1,5 @@
-Map
-===
+Idiom Map
+=========
 * Map (convert) elements in sequence
 * Generator (lazy evaluated)
 * Built-in

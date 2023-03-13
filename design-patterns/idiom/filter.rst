@@ -1,5 +1,5 @@
-Filter
-======
+Idiom Filter
+============
 * Select elements from sequence
 * Generator (lazy evaluated)
 * Built-in

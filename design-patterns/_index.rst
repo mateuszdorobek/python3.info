@@ -23,11 +23,11 @@ UML
     uml/sequence-diagram.rst
 
 
-Idioms
-******
+Idiom
+*****
 .. toctree::
     :maxdepth: 1
-    :caption: Idioms
+    :caption: Idiom
 
     idiom/about.rst
     idiom/range.rst

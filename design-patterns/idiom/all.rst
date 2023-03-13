@@ -1,5 +1,5 @@
-All
-===
+Idiom All
+=========
 * Return True if all elements of the iterable are true (or if the iterable is empty).
 
 >>> DATA = [True, False, True]
