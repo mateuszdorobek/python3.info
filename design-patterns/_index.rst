@@ -87,6 +87,33 @@ Dataclass
     dataclass/introspect.rst
 
 
+Operator
+********
+.. toctree::
+    :maxdepth: 1
+    :caption: Operator
+
+    operator/string-about.rst
+    operator/string-str.rst
+    operator/string-repr.rst
+    operator/string-format.rst
+    operator/string-operators.rst
+
+    operator/about.rst
+    operator/left.rst
+    operator/increment.rst
+    operator/right.rst
+
+    operator/equality.rst
+    operator/comparison.rst
+    operator/contains.rst
+    operator/boolean.rst
+    operator/module.rst
+    operator/builtin.rst
+    operator/accessors.rst
+    operator/other.rst
+
+
 Object Oriented Programming
 ***************************
 .. toctree::

@@ -164,7 +164,7 @@ Python PEP
 * Context manager ``with logging.DEBUG:``
 * print('cośtam', level='warning')
 * log('cośtam', level='warning')
-
+* NamedTuple oraz TypedDict scalić z tuple i dict
 
 Pydantic
 --------
