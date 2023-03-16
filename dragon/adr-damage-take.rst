@@ -18,9 +18,12 @@ Problem
 * Make 25 points damage to the dragon
 * Make 75 points damage to the dragon
 
+
 Option 1
 --------
 >>> dragon.set_damage(DMG)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: clear intent
@@ -37,8 +40,12 @@ Option 2
 >>> dragon.hit(DMG)         # dragon <-> enemy
 >>> dragon.damage(DMG)      # dragon  -> enemy
 
+Pros and Cons:
+
 * Bad: Indication of direction is too weak ``dragon <-> enemy``
 * Decision: rejected, indication of direction is too weak
+
+Problem:
 
 >>> dragon.hit(10)
 
@@ -58,6 +65,8 @@ Option 3
 >>> dragon.hurt_self(DMG)
 >>> dragon.receive_damage(DMG)
 
+Pros and Cons:
+
 * Good: Explicit relation ``dragon --> enemy``
 * Good: Consistent with ``deal_damage()``
 * Bad: ``hurt_self()`` is too use-case specific
@@ -70,6 +79,8 @@ Problem:
 >>> chair.hurt_self(DMG)
 >>> barrel.hurt_self(DMG)
 
+Example:
+
 >>> dragon.receive_damage(DMG)
 >>> chair.receive_damage(DMG)
 >>> barrel.receive_damage(DMG)
@@ -79,15 +90,25 @@ Option 4
 --------
 >>> dragon.take_damage(DMG)
 
+Pros and Cons:
+
 * Good: Explicit relation ``dragon --> enemy``
 * Good: Consistent with ``make_damage()``
 * Decision: candidate
+
+Example:
+
+>>> dragon.take_damage(DMG)
+>>> chair.take_damage(DMG)
+>>> barrel.take_damage(DMG)
 
 
 Option 5
 --------
 >>> dragon.health - DMG
 >>> dragon.health -= DMG
+
+Pros and Cons:
 
 * Good: simple
 * Good: can use ``@property`` for validation if needed
@@ -101,6 +122,8 @@ Option 6
 >>> dragon.health - Damage(20)
 >>> dragon.health -= Damage(20)
 
+Pros and Cons:
+
 * Good: simple
 * Good: can use ``@property`` for validation if needed
 * Bad: requires knowledge of API
@@ -113,6 +136,8 @@ Option 7
 >>> dragon - DMG
 >>> dragon -= DMG
 
+Pros and Cons:
+
 * Good: simple
 * Good: can use ``.__sub__()`` for validation if needed
 * Bad: requires knowledge of API
@@ -123,6 +148,8 @@ Option 8
 --------
 >>> dragon - Damage(20)
 >>> dragon -= Damage(20)
+
+Pros and Cons:
 
 * Good: simple
 * Good: can use ``.__sub__()`` for validation if needed
@@ -135,6 +162,8 @@ Option 9
 >>> dragon < Damage(20)
 >>> dragon <= Damage(20)
 
+Pros and Cons:
+
 * Good: simple
 * Good: can use ``.__lt__()``, ``.__le__()`` for validation if needed
 * Bad: requires knowledge of API
@@ -146,6 +175,8 @@ Option 10
 >>> dragon.__sub__(DMG)
 >>> dragon.__isub__(DMG)
 
+Pros and Cons:
+
 * Good: provides encapsulation
 * Bad: not Pythonic way
 * Bad: not simple
@@ -155,7 +186,13 @@ Option 10
 
 Decision
 --------
+>>> class Dragon:
+...     def take_damage(damage: int, /) -> None: ...
+>>>
+>>>
 >>> dragon.take_damage(DMG)
+
+Pros and Cons:
 
 * Good: provides encapsulation
 * Good: easy to use

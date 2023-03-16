@@ -50,8 +50,8 @@ Functional requirements:
 
         a. name
         b. position on the screen
-        c. path to the texture file, default ``img/dragon/alive.png``
-        d. health points, default random ``int`` in range from 50 to 100
+        c. health points, default random ``int`` in range from 50 to 100
+        d. path to the texture file, default ``img/dragon/alive.png``
 
     2. Dragon can:
 
@@ -60,20 +60,20 @@ Functional requirements:
         c. make damage in range from 5 to 20
         d. take damage
 
-    3. When health points drop to, or below zero:
+    3. Assume left-top screen corner as an initial coordinates position:
+
+        a. going right add to ``x``
+        b. going left subtract from ``x``
+        c. going up subtract from ``y``
+        d. going down add to ``y``
+
+    4. When health points drop to, or below zero:
 
         a. Dragon has status ``dead``
         b. Change texture file name to  ``img/dragon/dead.png``
         c. Display ``NAME is dead``, where ``NAME`` is the dragon's name
         d. Display how much gold dragon dropped (random integer from 1 to 100)
         e. Display position where dragon died
-
-    4. Assume left-top screen corner as an initial coordinates position:
-
-        a. going right add to ``x``
-        b. going left subtract from ``x``
-        c. going up subtract from ``y``
-        d. going down add to ``y``
 
     5. Run the game:
 
@@ -153,8 +153,8 @@ Wymagania funkcjonalne:
 
         a. nazwą
         b. pozycją na ekranie
-        c. ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
-        d. punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
+        c. punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
+        d. ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
 
     2. Smok może:
 
@@ -163,20 +163,20 @@ Wymagania funkcjonalne:
         c. zadawać komuś losowe obrażenia z przedziału od 5 do 20
         d. otrzymywać obrażenia
 
-    3. Kiedy punkty życia Smoka spadną do lub poniżej zera:
-
-        a. Smok ma status ``dead``
-        b. Zmień nazwę pliku tekstury na ``img/dragon/dead.png``
-        c. Wyświetl ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
-        d. Wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
-        e. Wyświetl pozycję gdzie smok zginął
-
-    4. Przyjmij górny lewy róg ekranu za punkt początkowy:
+    3. Przyjmij górny lewy róg ekranu za punkt początkowy:
 
         a. idąc w prawo dodajesz ``x``
         b. idąc w lewo odejmujesz ``x``
         c. idąc w górę odejmujesz ``y``
         d. idąc w dół dodajesz ``y``
+
+    4. Kiedy punkty życia Smoka spadną do lub poniżej zera:
+
+        a. smok ma status ``dead``
+        b. zmień nazwę pliku tekstury na ``img/dragon/dead.png``
+        c. wyświetl ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
+        d. wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
+        e. wyświetl pozycję gdzie smok zginął
 
     5. Przeprowadź grę:
 

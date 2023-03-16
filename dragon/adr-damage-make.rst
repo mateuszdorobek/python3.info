@@ -17,6 +17,8 @@ Option 1
 --------
 >>> dragon.get_damage()
 
+Pros and Cons:
+
 * Good: easy use
 * Good: readability
 * Good: clear intent
@@ -33,13 +35,17 @@ Option 2
 >>> dragon.damage()  # dragon <-  enemy
 >>> dragon.wound()   # dragon <-  enemy
 
+Pros and Cons:
+
 * Bad: Indication of direction is too weak ``dragon <-> enemy``
 * Bad: not directed, all methods could mean making damage or receiving damage
 * Decision: rejected, bad method names
 
 Problem:
 
->>> dragon.hit()
+>>> dragon.attack()  # dragon  -> enemy
+>>> dragon.hit()     # dragon <-> enemy
+>>> dragon.hurt()    # dragon <-  enemy
 
 Rationale:
 
@@ -60,6 +66,8 @@ Option 3
 --------
 >>> dragon.take_damage()    # dragon <-- enemy
 
+Pros and Cons:
+
 * Good: Simple
 * Bad: Relation is other way around ``dragon <-- enemy``
 * Decision: rejected, relation is other way around
@@ -69,6 +77,9 @@ Option 4
 --------
 >>> dragon.deal_damage()    # dragon --> enemy
 >>> dragon.hurt_someone()   # dragon --> enemy
+>>> dragon.attack_enemy()   # dragon --> enemy
+
+Pros and Cons:
 
 * Good: Strong indication of direction ``dragon --> enemy``
 * Bad: ``hurt_someone()`` method name is too use-case specific
@@ -76,13 +87,15 @@ Option 4
 
 Problem:
 
->>> dragon.deal_damage()
->>> explosion.deal_damage()
+>>> dragon.attack_enemy()
+>>> explosion.attack_enemy()
 
 
 Option 5
 --------
 >>> dragon.make_damage()    # dragon --> enemy
+
+Pros and Cons:
 
 * Good: Strong indication of direction ``dragon --> enemy``
 * Good: Name indicates intent
@@ -101,15 +114,12 @@ Option 6
 >>> dragon.hit(ENEMY)
 >>> dragon.wound(ENEMY)
 >>> dragon.make_damage(ENEMY)
->>> dragon.take_damage(ENEMY)
+
+Pros and Cons:
 
 * Bad: violates Model-View-Controller (MVC)
 * Bad: each ENEMY will get different (random) damage
 * Decision: rejected, violates Model-View-Controller (MVC)
-
-.. figure:: img/dragon-firkraag-01.jpg
-.. figure:: img/designpatterns-mvc-10.png
-.. figure:: img/designpatterns-mvc-usecase-10.png
 
 Problem:
 
@@ -121,10 +131,18 @@ Problem:
 * Bad: this is not how bank transfers are done (especially between banks)
 * Bad: other bank of will not share their source code with you, to make a transfer
 
+Rationale:
+
+.. figure:: img/dragon-firkraag-01.jpg
+.. figure:: img/designpatterns-mvc-10.png
+.. figure:: img/designpatterns-mvc-usecase-10.png
+
 
 Option 7
 --------
 >>> hero.health -= dragon.damage()
+
+Pros and Cons:
 
 * Good: simple
 * Good: can use ``@property`` for validation if needed
@@ -136,6 +154,8 @@ Option 8
 --------
 >>> hero.wound(dragon.hit())
 
+Pros and Cons:
+
 * Bad: readability
 * Bad: requires knowledge of API
 * Bad: this is responsibility of a controller
@@ -144,9 +164,15 @@ Option 8
 
 Decision
 --------
+>>> class Dragon:
+...     def make_damage(self) -> int: ...
+>>>
+>>>
 >>> dmg = dragon.make_damage()
 
+Pros and Cons:
+
 * Good: clear intent
-* Good: ``dragon <-- enemy``
+* Good: ``dragon --> enemy``
 * Good: readability
 * Good: encapsulation

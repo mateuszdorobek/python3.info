@@ -15,7 +15,20 @@ Problem
 
 Option 1
 --------
+>>> dragon = Dragon('Wawelski')
+
+Pros and Cons:
+
+* Good: easy to use
+* Bad: less verbose than keyword arguments
+* Decision: candidate
+
+
+Option 2
+--------
 >>> dragon = Dragon(name='Wawelski')
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: more verbose than positional arguments
@@ -23,18 +36,15 @@ Option 1
 * Decision: rejected, too verbose for such simple example
 
 
-Option 2
---------
->>> dragon = Dragon('Wawelski')
-
-* Good: easy to use
-* Bad: less verbose than keyword arguments
-* Decision: candidate
-
-
 Decision
 --------
+>>> class Dragon:
+...     def __init__(self, name: str, /) -> None: ...
+>>>
+>>>
 >>> dragon = Dragon('Wawelski')
 
-* Because: easy to use
-* Because: verbose enough for now
+Pros and Cons:
+
+* Easy to use
+* Verbose enough

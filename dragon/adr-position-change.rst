@@ -21,6 +21,8 @@ Option 1
 >>> dragon.shift(left=10, down=20)
 >>> dragon.fly(left=10, down=20)
 
+Pros and Cons:
+
 * Good: extensible to 3D
 * Good: move by relative shifting (left, right, up, down)
 * Good: encapsulation, object knows current position, state and does the move
@@ -29,15 +31,41 @@ Option 1
 
 Problem:
 
->>> dragon.fly(left=10, down=20)
->>> hero.walk(left=10, down=20)     # code duplication
+>>> dragon.fly(left=10, down=20)     # does the same, but different name
+>>> hero.walk(left=10, down=20)      # does the same, but different name
+>>> snake.slide(left=10, down=20)    # does the same, but different name
+
+Use Cases:
+
+>>> locmem.store(key='...', value='..')
+>>> locmem.retrieve(key='...')
+>>> database.insert(column='...', value='...')
+>>> database.select(column='...')
+>>> filesystem.write(filename='...', content='...')
+>>> filesystem.read(filename='...')
 
 
 Option 2
 --------
+>>> dragon.change_position(left=10, down=20)
+>>> dragon.position_change(left=10, down=20)
+
+Pros and Cons:
+
+* Good: extensible to 3D
+* Good: move by relative shifting (left, right, up, down)
+* Good: encapsulation, object knows current position and moves
+* Bad: the method names are a bit too complex for
+* Decision: candidate, method names are a bit too complex for now
+
+
+Option 3
+--------
 >>> dragon.move(left=10, down=20)
 >>> dragon.move(right=10, up=20)
 >>> dragon.move(right=10, left=20)
+
+Pros and Cons:
 
 * Good: extensible to 3D
 * Good: move by relative shifting (left, right, up, down)
@@ -48,21 +76,11 @@ Option 2
 * Decision: candidate
 
 
-Option 3
---------
->>> dragon.change_position(left=10, down=20)
->>> dragon.position_change(left=10, down=20)
-
-* Good: extensible to 3D
-* Good: move by relative shifting (left, right, up, down)
-* Good: encapsulation, object knows current position and moves
-* Bad: the method names are a bit too complex for
-* Decision: candidate, method names are a bit too complex for now
-
-
 Option 4
 --------
 >>> dragon.move(x=10, y=-20)
+
+Pros and Cons:
 
 * Good: extensible to 3D
 * Good: move by relative shifting (left, right, up, down)
@@ -81,6 +99,8 @@ Option 4
 Option 5
 --------
 >>> dragon.move_to(x=10, y=20)
+
+Pros and Cons:
 
 * Good: extensible to 3D
 * Bad: Move by setting absolute position which is similar to ``.set_position()``, but it differs from it where in ``move()`` you can make an animation of movement, and with ``set_position()`` it happens instantly
@@ -101,6 +121,8 @@ Option 6
 >>> dragon.move_horizontal(10)
 >>> dragon.move_vertical(-20)
 
+Pros and Cons:
+
 * Good: extensible to 3D, just add another method
 * Bad: require knowledge of an API
 * Bad: Move by setting absolute position
@@ -116,6 +138,8 @@ Option 7
 --------
 >>> dragon.move_xy(10, -20)
 
+Pros and Cons:
+
 * Bad: Move by setting absolute position
 * Bad: controller must know other variables, such as speed factor (snail is slower than a dragon), surface on which the dragon is moving (solid is faster than water or ice), injuries (if dragon is not injured with his for example left foot)
 * Bad: the user must know the internals, how to calculate the position, which way is up or down (positive or negative shifting), note that ``y=-20`` means go up by 20 (we have inverted ``y`` axis)
@@ -125,10 +149,16 @@ Option 7
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
+Problem:
+
+>>> console.run_command('pwd', True, False, None)
+
 
 Option 8
 --------
 >>> dragon.move(10, -20)
+
+Pros and Cons:
 
 * Good: extensible to 3D
 * Bad: require knowledge of an API
@@ -140,11 +170,17 @@ Option 8
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
+Problem:
+
+>>> run('ls', True, False, None)
+
 
 Option 9
 --------
 >>> dragon.move((10, -20))
 >>> dragon.move_xy((10, -20))
+
+Pros and Cons:
 
 * Bad: require knowledge of an API
 * Bad: Move by setting absolute position
@@ -156,11 +192,17 @@ Option 9
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
+Problem:
+
+>>> run(('ls', True, False, None))
+
 
 Option 10
 ---------
 >>> dragon.move(dx=10, dy=-20)
 >>> dragon.move(horizontal=10, vertical=-20)
+
+Pros and Cons:
 
 * Good: encapsulation, object knows current position and moves
 * Bad: controller computes final offset
@@ -173,13 +215,15 @@ Option 10
 
 Option 11
 ---------
->>> dragon.move(0, 10, 0, 20)
+>>> dragon.move(0, 10, 0, -20)
 
->>> dragon.move((0, 10, 0, 20))
+>>> dragon.move((0, 10, 0, -20))
 
 >>> dragon.move([
-...     (0, 10, 0, 20),
-...     (0, 10, 0, 20)])
+...     (0, 10, 0, -20),
+...     (0, 10, 0, -20)])
+
+Pros and Cons:
 
 * Good: there is only one method ``move()`` responsible for moving
 * Bad: Python has keyword arguments, so use it
@@ -245,6 +289,8 @@ Option 12
 ...     (10, -20),
 ...     (10, -15)])
 
+Pros and Cons:
+
 * Good: move by relative offset
 * Bad: require knowledge of an API
 * Bad: not extensible to 3D
@@ -265,6 +311,8 @@ Option 13
 ...     (10, -20),
 ...     (50, -120),
 ...     (5)])
+
+Pros and Cons:
 
 * Bad: move by setting absolute position
 * Bad: require knowledge of an API
@@ -288,6 +336,8 @@ Option 14
 ...     {'x':10, 'y':-20},
 ...     {'x':10, 'y':-15}])
 
+Pros and Cons:
+
 * Bad: require knowledge of an API
 * Bad: not extensible to 3D
 * Bad: requires knowledge of business logic (inverted y-axis)
@@ -306,10 +356,13 @@ Option 15
 ...     {'left':50, 'right':120},
 ...     {'down':50}])
 
+Pros and Cons:
+
 * Bad: require knowledge of an API
 * Bad: not extensible to 3D
 * Bad: requires knowledge of business logic (inverted y-axis)
 * Bad: violates abstraction (OOP Principle)
+* Bad: **kwargs can convert to keyword arguments
 * Decision: rejected
 
 
@@ -321,10 +374,7 @@ Option 16
 ...     {'dx': -10, 'dy': 20},
 ...     {'dx': -10, 'dy': 0}])
 
->>> dragon.move([
-...     {'dx': -10, 'dy': 20},
-...     {'dx': -10, 'dy': 20},
-...     {'dx': -10, 'dy': 20}])
+Pros and Cons:
 
 * Bad: require knowledge of an API
 * Bad: not extensible to 3D
@@ -337,9 +387,7 @@ Option 16
 
 Option 17
 ---------
->>> dragon.move([
-...     Point(x=10, y=20),
-...     Point(x=10, y=15)])
+>>> dragon.move(Point(x=10, y=20))
 
 >>> path = [
 ...     Point(x=10, y=20),
@@ -347,6 +395,8 @@ Option 17
 ... ]
 >>>
 >>> dragon.move(path)
+
+Pros and Cons:
 
 * Good: Move by setting absolute position on a path
 * Good: This is how they do it in games
@@ -363,6 +413,8 @@ Option 18
 ...     {'direction': 'left', 'distance': 10},
 ...     {'direction': 'right', 'distance': 20}])
 
+Pros and Cons:
+
 * Good: extensible to 3D
 * Bad: require knowledge of an API
 * Decision: rejected
@@ -374,6 +426,8 @@ Option 19
 ...     Left(20),
 ...     Left(10),
 ...     Right(20)])
+
+Pros and Cons:
 
 * Good: extensible to 3D
 * Bad: require knowledge of an API
@@ -393,6 +447,8 @@ Option 20
 ...     Direction('left', distance=10),
 ...     Direction('right', distance=20)])
 
+Pros and Cons:
+
 * Good: extensible to 3D
 * Bad: require knowledge of an API
 * Bad: additional entities
@@ -401,22 +457,18 @@ Option 20
 
 Option 21
 ---------
->>> x = dragon.x
->>> y = dragon.y
->>> dragon.move(x=x-10, y=y+20)
-
->>> current = dragon.position
->>> dragon.set_position(x=current.x-10, y=current.y+20)
-
->>> x = dragon.x - 10
->>> y = dragon.y + 20
->>> dragon.move(x=x, y=y)
-
->>> dragon.x -= 10
->>> dragon.y += 20
-
 >>> dragon.position_x -= 10
 >>> dragon.position_y += 20
+
+>>> x = dragon.position_x - 10
+>>> y = dragon.position_y + 20
+>>> dragon.set_position(x=x, y=y)
+
+>>> x = dragon.position_x
+>>> y = dragon.position_y
+>>> dragon.set_position(x=x-10, y=y+20)
+
+Pros and Cons:
 
 * Good: extensible to 3D, just add ``z`` attribute
 * Bad: require knowledge of an API
@@ -433,6 +485,8 @@ Option 22
 >>> dragon.move(dx=-10, dy=+20)
 >>> dragon.change_position(left=-10, down=20)
 
+Pros and Cons:
+
 * Good: extensible to 3D
 * Bad: business login in controller
 * Bad: the user must know the internals, how to calculate the position, which way is up or down (positive or negative shifting), note that ``dy=-20`` means go up by 20 (we have inverted ``y`` axis)
@@ -445,122 +499,38 @@ Option 23
 ---------
 >>> dragon.move('left', 20)
 >>> dragon.move('right', 5)
-
-* Good: extensible
-* Good: extensible to 3D
-* Bad: not possible to do movement in opposite directions in the same time
-* Decision: rejected
-
-
-Option 24
----------
 >>> dragon.move('left', distance=20)
 >>> dragon.move('right', distance=5)
-
-* Good: extensible
-* Good: extensible to 3D
-* Bad: not possible to do movement in opposite directions in the same time
-* Decision: rejected
-
-
-Option 25
----------
 >>> dragon.move(direction='left', distance=20)
 >>> dragon.move(direction='right', distance=5)
 
-* Good: explicit
-* Good: verbose
+>>> dragon.move('l', 20)
+>>> dragon.move('r', 5)
+>>> dragon.move('l', distance=20)
+>>> dragon.move('r', distance=5)
+>>> dragon.move(direction='l', distance=20)
+>>> dragon.move(direction='r', distance=5)
+
+Pros and Cons:
+
 * Good: extensible
 * Good: extensible to 3D
-* Bad: to complex for now
 * Bad: not possible to do movement in opposite directions in the same time
 * Decision: rejected
 
+Problem:
 
-Option 26
----------
->>> LEFT = 61  # keyboard key code
->>> RIGHT = 62
->>> UP = 63
->>> DOWN = 64
->>>
->>> dragon.move(direction=LEFT, distance=20)
+>>> plt.plot(x, y, color='cyan')
+>>> plt.plot(x, y, color='c')
 
-* Good: explicit
-* Good: verbose
-* Good: extensible
-* Bad: to chaotic
-* Bad: to complex for now
-* Bad: there is no easy way to know which are possible directions
-* Bad: not possible to do movement in opposite directions in the same time
-* Decision: rejected, complex
+Usecase:
+
+>>> df.plot(kind='line')
+>>> df.interpolate('polynomial')
+>>> plt.plot(x, y, color='red')
 
 
-Option 27
----------
->>> DIRECTION_LEFT = 61  # keyboard key code
->>> DIRECTION_RIGHT = 62
->>> DIRECTION_UP = 63
->>> DIRECTION_DOWN = 64
->>>
->>> dragon.move(direction=DIRECTION_LEFT, distance=20)
-
-* Good: explicit
-* Good: verbose
-* Good: extensible
-* Bad: there is no easy way to know which are possible directions
-* Bad: less, but still chaotic
-* Bad: to complex for now
-* Bad: not possible to do movement in opposite directions in the same time
-* Decision: rejected, complex
-
-
-Option 28
----------
->>> class Direction(Enum):
-...     LEFT = 61
-...     RIGHT = 62
-...     UP = 63
-...     DOWN = 64
->>>
->>>
->>> dragon.move(Direction.LEFT, distance=5)
->>> dragon.move(direction=Direction.LEFT, distance=5)
-
-* Good: explicit
-* Good: verbose
-* Good: extensible
-* Good: ordered
-* Good: there is a enumeration of possible choices for directions
-* Bad: to complex for now
-* Bad: not possible to do movement in opposite directions in the same time
-* Decision: rejected, complex
-
-
-Option 29
----------
->>> KEY_BINDING = {
-...     'ARROW_UP': dragon.move_up,
-...     'ARROW_DOWN': dragon.move_down,
-...     'ARROW_LEFT': dragon.move_left,
-...     'ARROW_RIGHT': dragon.move_right}
->>>
->>>
->>> def action(key, time):
-...     return KEY_BINDING.get(key)(time)
->>>
->>>
->>> action('ARROW_UP', 5)
-
-* Good: explicit
-* Good: verbose
-* Good: extensible
-* Good: there is a enumeration of possible choices for directions
-* Bad: to complex for now
-* Decision: rejected, complex
-
-
-Option 30
+Option 24
 ---------
 >>> dragon.move_left(10)
 >>> dragon.move_right(10)
@@ -570,22 +540,14 @@ Option 30
 >>> dragon.move_upleft(10)
 >>> dragon.move_left_down(10, 20)
 
-Example:
+Pros and Cons:
 
->>> class Key(Enum):
-...     LEFT = 61
-...     RIGHT = 62
-...     UP = 63
-...     DOWN = 64
->>>
->>>
->>> game.bind_key(Key.ARROW_LEFT, dragon.move_left)     # good
->>> game.bind_key(Key.ARROW_RIGHT, dragon.move_right)   # good
->>>
->>> game.bind_key(..., dragon.move_downright)           # bad
->>> game.bind_key(..., dragon.move_downleft)            # bad
+* Bad: not extensible
+* Bad: to complex for now
+* Bad: not possible to do movement in opposite directions in the same time
+* Decision: rejected, complex
 
-Use Case 0x01:
+Problem:
 
 >>> db.execute_select(SQL)
 >>> db.execute_select_where(SQL)
@@ -605,11 +567,11 @@ Use Case 0x01:
 >>> db.execute_create_index(SQL)
 >>> db.execute_create_database(SQL)
 
-Why not?:
+Example:
 
 >>> db.execute(SQL)
 
-Use Case 0x02:
+Use Case:
 
 >>> read_csv('iris.csv', ';', 'utf-8', True)
 >>> read_csv('iris.csv', delimiter=';', encoding='utf-8', verbose=True)
@@ -634,6 +596,101 @@ Use Case 0x02:
 ...                 encoding='utf-8',
 ...                 verbose=True)
 
+
+Option 25
+---------
+>>> LEFT = 0x61  # keyboard key code
+>>> RIGHT = 0x62
+>>> UP = 0x63
+>>> DOWN = 0x64
+>>>
+>>> dragon.move(direction=LEFT, distance=20)
+
+>>> DIRECTION_LEFT = 0x61  # keyboard key code
+>>> DIRECTION_RIGHT = 0x62
+>>> DIRECTION_UP = 0x63
+>>> DIRECTION_DOWN = 0x64
+>>>
+>>> dragon.move(direction=DIRECTION_LEFT, distance=20)
+
+Pros and Cons:
+
+* Good: explicit
+* Good: verbose
+* Good: extensible
+* Bad: to chaotic
+* Bad: to complex for now
+* Bad: there is no easy way to know which are possible directions
+* Bad: not possible to do movement in opposite directions in the same time
+* Decision: rejected, complex
+
+
+Option 26
+---------
+>>> KEY_BINDING = {
+...     'ARROW_UP': dragon.move_up,
+...     'ARROW_DOWN': dragon.move_down,
+...     'ARROW_LEFT': dragon.move_left,
+...     'ARROW_RIGHT': dragon.move_right}
+>>>
+>>>
+>>> def action(key, time):
+...     return KEY_BINDING.get(key)(time)
+>>>
+>>>
+>>> action('ARROW_UP', 5)
+
+Pros and Cons:
+
+* Good: explicit
+* Good: verbose
+* Good: extensible
+* Good: there is a enumeration of possible choices for directions
+* Bad: to complex for now
+* Decision: rejected, complex
+
+
+Option 27
+---------
+>>> class Direction(IntEnum):
+...     LEFT = 0x61
+...     RIGHT = 0x62
+...     UP = 0x63
+...     DOWN = 0x64
+>>>
+>>>
+>>> dragon.move(Direction.LEFT, distance=5)
+>>> dragon.move(direction=Direction.LEFT, distance=5)
+
+Pros and Cons:
+
+* Good: explicit
+* Good: verbose
+* Good: extensible
+* Good: ordered
+* Good: there is a enumeration of possible choices for directions
+* Bad: to complex for now
+* Bad: not possible to do movement in opposite directions in the same time
+* Decision: rejected, complex
+
+
+Option 28
+---------
+>>> class Key(IntEnum):
+...     LEFT = 0x61
+...     RIGHT = 0x62
+...     UP = 0x63
+...     DOWN = 0x64
+>>>
+>>>
+>>> game.bind_key(Key.ARROW_LEFT, dragon.move_left)     # good
+>>> game.bind_key(Key.ARROW_RIGHT, dragon.move_right)   # good
+>>>
+>>> game.bind_key(..., dragon.move_downright)           # bad
+>>> game.bind_key(..., dragon.move_downleft)            # bad
+
+Pros and Cons:
+
 * Bad: not extensible
 * Bad: to complex for now
 * Bad: not possible to do movement in opposite directions in the same time
@@ -642,16 +699,32 @@ Use Case 0x02:
 
 Decision
 --------
+>>> class Dragon:
+...     def move(self, *,
+...              left: int = 0, right: int = 0,
+...              down: int = 0, up: int = 0,
+...              ) -> None: ...
+>>>
 >>> dragon.move(left=10, down=20)
+
+Pros and Cons:
 
 * Good: easy
 * Good: verbose
 * Good: extensible (easy to convert to 3D)
 * Good: encapsulation
 
-Alternative, maybe in future:
+Re-evaluate in future:
 
+>>> class Dragon:
+...     def change_position(self, *,
+...                         left: int = 0, right: int = 0,
+...                         down: int = 0, up: int = 0,
+...                         ) -> None: ...
+>>>
 >>> dragon.change_position(left=10, down=20)
+
+Pros and Cons:
 
 * Good: consistent with ``set_position()`` and ``get_position()``
 * Good: verbose

@@ -18,6 +18,8 @@ Option 1
 >>> dragon.fly(10, 20)
 >>> dragon.teleport(10, 20)
 
+Pros and Cons:
+
 * Good: easy to use
 * Good: encapsulation
 * Good: easy to add validation if needed
@@ -32,13 +34,21 @@ Problem:
 >>> hero.walk(10, 20)      # does the same, but different name
 >>> snake.slide(10, 20)    # does the same, but different name
 
+Use Cases:
+
+>>> locmem.store()
+>>> locmem.retrieve()
+>>> database.insert()
+>>> database.select()
+>>> filesystem.write()
+>>> filesystem.read()
+
 
 Option 2
 --------
->>> def set_position(x, y, /):
-...     pass
-...
 >>> dragon.set_position(10, 20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: encapsulation
@@ -50,10 +60,9 @@ Option 2
 
 Option 3
 --------
->>> def set_position_xy(x, y, /):
-...     pass
-...
 >>> dragon.set_position_xy(10, 20)
+
+Pros and Cons:
 
 * Good: verbose
 * Good: does not require knowledge of an API what are the values provided as arguments
@@ -63,13 +72,17 @@ Option 3
 * Bad: name ``set_position_xy()`` ties to 2D point
 * Decision: rejected, ties to 2D point
 
+Problem:
+
+>>> dragon.set_position_xy(10, 20)
+>>> dragon.set_position_xyz(10, 20, 30)
+
 
 Option 4
 --------
->>> def set_position(*, x, y):
-...     pass
-...
 >>> dragon.set_position(x=10, y=20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: arguments are explicit
@@ -78,13 +91,17 @@ Option 4
 * Good: easy to extend to 3D - add parameter with default value ``0``
 * Decision: candidate
 
+Example:
+
+>>> dragon.set_position(x=10, y=20)
+>>> dragon.set_position(x=10, y=20, z=30)
+
 
 Option 5
 --------
->>> def set_position(**kwargs):
-...     pass
-...
 >>> dragon.set(position_x=10, position_y=20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: arguments are explicit
@@ -98,23 +115,21 @@ Problem:
 >>> dragon.set(position_x=10, position_y=20)
 >>> dragon.set(health=50)
 >>> dragon.set(gold=100)
+>>> dragon.set(damage=10)
 >>> dragon.set(name='Wawelski')
 
 
 Option 6
 --------
->>> dragon.x = 10
->>> dragon.y = 20
->>> dragon.x, dragon.y = 10, 20
-
 >>> dragon.position_x = 10
 >>> dragon.position_y = 20
 >>> dragon.position_x, dragon.position_y = 10, 20
 
+Pros and Cons:
+
 * Good: easy to use
 * Good: arguments are explicit
 * Good: can use ``@property`` for validation if needed
-* Bad: names ``x`` and ``y`` are weakly related to ``dragon``
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
@@ -124,7 +139,9 @@ Problem:
 
 >>> knn = KNearestNeighbors()
 >>> knn.k = 3
->>> knn.w = [1, 2, 3]
+
+>>> knn = KNearestNeighbors()
+>>> knn.k = 3
 
 
 Option 7
@@ -133,6 +150,8 @@ Option 7
 >>> dragon.position.y = 20
 
 >>> dragon.position.x, dragon.position.y = 10, 20
+
+Pros and Cons:
 
 * Good: more or less easy to use (Simple is better than complex)
 * Good: arguments are explicit
@@ -159,6 +178,8 @@ Option 8
 --------
 >>> dragon.position = (10, 20)
 
+Pros and Cons:
+
 * Good: easy to use
 * Good: can use ``@property`` for validation if needed
 * Bad: arguments are implicit
@@ -175,10 +196,17 @@ Problem:
 >>> knn = KNearestNeighbors()
 >>> knn.args = (3, [1, 2, 3])
 
+>>> model.predict()
+(0.9712637, [1.123123, 2.123123, 3.123123], 1.17823)
+
+>>> (score, coef_, c) = model.predict()
+
 
 Option 9
 ---------
->>> dragon.position = Point(x=10, y=20)
+>>> dragon.position = Position(x=10, y=20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: can use ``@property`` for validation if needed
@@ -199,7 +227,9 @@ Problem:
 
 Option 10
 ---------
->>> dragon.position @ Point(x=10, y=20)
+>>> dragon.position @ Position(x=10, y=20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: using ``@`` (matmul) it is easy to validation
@@ -221,7 +251,14 @@ Problem:
 
 Decision
 --------
+>>> class Dragon:
+...     def set_position(self, *, x: int, y: int) -> None:
+...         ...
+>>>
+>>>
 >>> dragon.set_position(x=10, y=20)
+
+Pros and Cons:
 
 * Good: easy to use
 * Good: arguments are explicit
