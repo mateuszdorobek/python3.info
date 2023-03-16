@@ -246,9 +246,9 @@ Dragon
     :numbered:
     :caption: Dragon
 
-    dragon/version-1.rst
-    dragon/version-2.rst
-    dragon/version-3.rst
+    dragon/version-v1.rst
+    dragon/version-v2.rst
+    dragon/version-v3.rst
     dragon/adr-template.rst
     dragon/adr-init-name.rst
     dragon/adr-init-position.rst

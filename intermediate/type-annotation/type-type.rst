@@ -336,7 +336,7 @@ Use Case - 0x02
 >>> class DatabaseCache(ICache):
 ...     pass
 >>>
->>> class MemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     pass
 >>>
 >>> class FilesystemCache(ICache):
@@ -344,7 +344,7 @@ Use Case - 0x02
 >>>
 >>>
 >>> db: ICache = DatabaseCache()
->>> mem: ICache = MemoryCache()
+>>> mem: ICache = LocmemCache()
 >>> fs: ICache = FilesystemCache()
 
 >>> class ICache:
@@ -375,7 +375,7 @@ Use Case - 0x02
 ...         pass
 >>>
 >>>
->>> class MemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     def get(self, key: str) -> str:
 ...         pass
 ...

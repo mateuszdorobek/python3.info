@@ -11,7 +11,7 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
-class Cache:
+class ICache:
     def __init__(self, expiration: timedelta = timedelta(days=1), location: str = '') -> None:
         self.location = location
         self.expiration = expiration
@@ -26,7 +26,7 @@ class Cache:
         raise NotImplementedError
 
 
-class CacheFilesystem(Cache):
+class FilesystemCache(ICache):
     def __init__(self, location: str = 'tmp', *args, **kwargs) -> None:
         self.location = location
         super().__init__(*args, **kwargs)
@@ -68,7 +68,7 @@ class CacheFilesystem(Cache):
 
 @dataclass
 class HTTPGateway:
-    cache: Cache
+    cache: ICache
 
     def get(self, url):
         if not self.cache.is_valid(url):
@@ -80,9 +80,9 @@ class HTTPGateway:
 
 
 if __name__ == '__main__':
-    cache = CacheFilesystem(expiration=timedelta(seconds=2), location='tmp')
-    # cache = CacheDatabase(expiration=timedelta(minutes=2), location='database.sqlite')
-    # cache = CacheMemory(expiration=timedelta(minutes=2))
+    cache = FilesystemCache(expiration=timedelta(seconds=2), location='tmp')
+    # cache = DatabaseCache(expiration=timedelta(minutes=2), location='database.sqlite')
+    # cache = LocmemCache(expiration=timedelta(minutes=2))
 
     http = HTTPGateway(cache=cache)
     html = http.get('https://python.astrotech.io')

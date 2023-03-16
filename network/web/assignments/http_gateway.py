@@ -12,7 +12,7 @@ logging.basicConfig(
 log = logging.getLogger(__name__)
 
 
-class Cache:
+class ICache:
     def __init__(self, expiration: timedelta = timedelta(days=1), location: str = '') -> None:
         self.location = location
         self.expiration = expiration
@@ -27,7 +27,7 @@ class Cache:
         raise NotImplementedError
 
 
-class CacheFilesystem(Cache):
+class FilesystemCache(ICache):
     def __init__(self, location: str = 'tmp', *args, **kwargs) -> None:
         super().__init__(*args, **kwargs)
         self.location = location
@@ -77,23 +77,21 @@ class CacheFilesystem(Cache):
 
 @dataclass
 class HTTPGateway:
-    _cache: Cache
+    _cache: ICache
 
     def get(self, url):
-
         if not self._cache.is_valid(url):
             log.info('Downloading...')
             html = requests.get(url).text
             self._cache.set(url, html)
             log.info('Done.')
-
         return self._cache.get(url)
 
 
 if __name__ == '__main__':
-    cache = CacheFilesystem(expiration=timedelta(seconds=2), location='tmp')
-    # cache = CacheDatabase(expiration=timedelta(minutes=2), location='database.sqlite')
-    # cache = CacheMemory(expiration=timedelta(minutes=2))
+    cache = FilesystemCache(expiration=timedelta(seconds=2), location='tmp')
+    # cache = DatabaseCache(expiration=timedelta(minutes=2), location='database.sqlite')
+    # cache = MemoryCache(expiration=timedelta(minutes=2))
 
     http = HTTPGateway(cache)
 

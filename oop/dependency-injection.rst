@@ -22,7 +22,7 @@ Dependency injection:
 
 
     @dataclass
-    class CacheInterface:
+    class ICache:
         expiration: timedelta = timedelta(days=30)
         location: str | None = None
 
@@ -36,15 +36,15 @@ Dependency injection:
             raise NotImplementedError
 
 
-    class CacheFilesystem(CacheInterface):
+    class CacheFilesystem(ICache):
         """Cache using files"""
 
 
-    class CacheMemory(CacheInterface):
+    class CacheMemory(ICache):
         """Cache using memory"""
 
 
-    class CacheDatabase(CacheInterface):
+    class CacheDatabase(ICache):
         """Cache using database"""
 
 

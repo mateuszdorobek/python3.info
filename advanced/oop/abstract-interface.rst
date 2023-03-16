@@ -66,7 +66,7 @@ Problem
 ...     def delete(self): ...
 >>>
 >>>
->>> class MemoryCache:
+>>> class LocmemCache:
 ...     def store(self, value, key): ...
 ...     def retrieve(self, key): ...
 ...     def purge(self): ...
@@ -87,7 +87,7 @@ does the same job. This is lack of consistency and common interface:
 >>> cache.select('lastname')
 >>> cache.delete()
 
->>> cache = MemoryCache()
+>>> cache = LocmemCache()
 >>> cache.store('firstname', 'Mark')
 >>> cache.store('lastname', 'Watney')
 >>> cache.retrieve('firstname')
@@ -135,7 +135,7 @@ Solution
 ...     def clear(self) -> None: ...
 >>>
 >>>
->>> class MemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     def set(self, key: str, value: str) -> None: ...
 ...     def get(self, key: str) -> str: ...
 ...     def clear(self) -> None: ...
@@ -154,7 +154,7 @@ Solution
 >>> cache.get('lastname')
 >>> cache.clear()
 
->>> cache: ICache = MemoryCache()
+>>> cache: ICache = LocmemCache()
 >>> cache.set('firstname', 'Mark')
 >>> cache.set('lastname', 'Watney')
 >>> cache.get('firstname')
@@ -291,7 +291,7 @@ File ``cache_impl.py``:
 ...         ...
 >>>
 >>>
->>> class InMemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     def get(self, key: str) -> str:
 ...         ...
 ...
@@ -316,11 +316,11 @@ File ``settings.py``
 
 >>> from myapp.cache_iface import ICache  # doctest: +SKIP
 >>> from myapp.cache_impl import DatabaseCache  # doctest: +SKIP
->>> from myapp.cache_impl import InMemoryCache  # doctest: +SKIP
+>>> from myapp.cache_impl import LocmemCache  # doctest: +SKIP
 >>> from myapp.cache_impl import FilesystemCache  # doctest: +SKIP
 >>>
 >>>
->>> DefaultCache = InMemoryCache
+>>> DefaultCache = LocmemCache
 
 File ``myapp.py``:
 

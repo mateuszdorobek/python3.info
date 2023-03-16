@@ -10,6 +10,7 @@ Protocol Context Manager
 * Network streams
 * HTTP sessions
 * Since Python 3.10: Parenthesized context managers [#pydocpython310]_
+* gh-106 - (exc, val, tb) triplet to one value https://github.com/faster-cpython/ideas/issues/106
 
 
 Protocol
