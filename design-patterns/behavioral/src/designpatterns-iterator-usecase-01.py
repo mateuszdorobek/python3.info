@@ -1,4 +1,6 @@
+from urllib.request import urlopen
 from dataclasses import dataclass, field
+from typing import Self
 
 
 @dataclass
@@ -6,10 +8,10 @@ class Browser:
     history: list[str] = field(default_factory=list)
 
     def open(self, url: str) -> None:
-        ...
         self.history.append(url)
+        # return urlopen(url).read()
 
-    def __iter__(self) -> 'Browser':
+    def __iter__(self) -> Self:
         self._current = 0
         return self
 

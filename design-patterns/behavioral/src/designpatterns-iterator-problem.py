@@ -9,7 +9,7 @@ class BrowseHistory:
         self.urls.append(url)
 
     def pop(self) -> str:
-        self.urls.pop()
+        return self.urls.pop()
 
     def get_urls(self) -> list[str]:
         return self.urls

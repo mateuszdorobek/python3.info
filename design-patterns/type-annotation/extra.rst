@@ -20,22 +20,22 @@ Numeric:
 >>> int8 = Annotated[int, ValueRange(-128, 127), ctype('int8')]  # doctest: +SKIP
 >>> uint8 = Annotated[int, ValueRange(0, 255), ctype('uint8')]    # doctest: +SKIP
 >>> kelvin = Annotated[float, ValueRange(0.0, float('inf'))]  # doctest: +SKIP
->>> vector = Annotated[list[int], MaxLen(10)]  # doctest: +SKIP
+>>> vector = Annotated[list[int], MaxLen(3)]  # doctest: +SKIP
 
 Character:
 
->>> weekday = Annotated[str, Literal['Monday', 'Tuesday', 'Wednesday', ...])  # doctest: +SKIP
->>> month = Annotated[str, Literal['January', 'February', 'March', ...])  # doctest: +SKIP
+>>> firstname = Annotated[str, MaxLen(10)]  # doctest: +SKIP
+>>> lastname = Annotated[str, MinLen(2), MaxLen(10)]  # doctest: +SKIP
 
 Patterns:
 
->>> jira_issuekey = Annotated[str, MatchesRegex('[A-Z]{2,10}-[0-9]{1,6}')]  # doctest: +SKIP
->>> email = Annotated[str, MatchesRegex('[a-z]{1,20}@nasa.gov')]  # doctest: +SKIP
+>>> jira_issuekey = Annotated[str, MatchesRegex('^[A-Z]{2,10}-[0-9]{1,6}$')]  # doctest: +SKIP
+>>> email = Annotated[str, MatchesRegex('^[a-z]{1,20}@nasa.gov$')]  # doctest: +SKIP
 
 Example:
 
 >>> # doctest: +SKIP
-... EmailAddress = Annotated[str, MatchesRegex('[a-z]{1,20}@nasa.gov')]
+... EmailAddress = Annotated[str, MatchesRegex('^[a-z]{1,20}@nasa.gov$')]
 ...
 ... def send_email(recipient: EmailAddress):
 ...     ...
@@ -45,7 +45,7 @@ Example:
 ... send_email('avogel@esa.int')    # error
 
 >>> # doctest: +SKIP
-... IssueKey = Annotated[str, MatchesRegex('[A-Z]{2,10}-[0-9]{1,6}')]
+... IssueKey = Annotated[str, MatchesRegex('^[A-Z]{2,10}-[0-9]{1,6}$')]
 ...
 ... def comment(issuekey: IssueKey, text: str):
 ...     ...

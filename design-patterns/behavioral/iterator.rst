@@ -51,6 +51,14 @@ Use Case - 0x02
 
 Assignments
 -----------
-.. literalinclude:: assignments/designpatterns_iterator.py
-    :caption: :download:`Solution <assignments/designpatterns_iterator.py>`
+.. literalinclude:: assignments/designpatterns_iterator_a.py
+    :caption: :download:`Solution <assignments/designpatterns_iterator_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/designpatterns_iterator_b.py
+    :caption: :download:`Solution <assignments/designpatterns_iterator_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/designpatterns_iterator_c.py
+    :caption: :download:`Solution <assignments/designpatterns_iterator_c.py>`
     :end-before: # Solution

@@ -161,6 +161,73 @@ Admin(firstname='Mark', lastname='Watney')
 
 Use Case - 0x03
 ---------------
+File ``myapp/database.py``:
+
+>>> from dataclasses import dataclass
+>>>
+>>>
+>>> @dataclass
+... class Database:
+...     dbtype: str | None = None
+...     dbname: str | None = None
+...     host: str | None = None
+...     port: str | None = None
+...     username: str | None = None
+...     password: str | None = None
+...
+...     @classmethod
+...     def connect(cls, host, port, dbname, username, password):
+...         driver = cls.driver
+...         return driver.connect(host, port, dbname, username, password)
+...
+...     def execute(self, sql: str):
+...         return ...
+>>>
+>>> @dataclass
+... class PostgreSQL(Database):
+...     driver: str = 'psycopg3'
+...     port: int = 5432
+>>>
+>>> @dataclass
+... class MySQL(Database):
+...     driver: str = 'pymysql'
+...     port: int = 3306
+>>>
+>>> @dataclass
+... class Oracle(Database):
+...     driver: str = 'oracledb'
+...     port: int = 1521
+
+File ``myapp/settings.py``:
+
+>>> # doctest: +SKIP
+... from myapp.database import *
+...
+... database = PostgreSQL
+
+File ``myapp/main.py``:
+
+>>> # doctest: +SKIP
+... from myapp.settings import db
+...
+... connection = database.connect(
+...     host='localhost',
+...     port=5432,
+...     dbname='nasa',
+...     username='mwatney',
+...     password='Ares3',
+... )
+...
+... connection.execute('SELECT * FROM astronauts')
+
+
+Use Case - 0x04
+---------------
+* STAGE: prod / test
+
+
+Use Case - 0x04
+---------------
 * Interplanetary time
 
 >>> # myapp/time.py

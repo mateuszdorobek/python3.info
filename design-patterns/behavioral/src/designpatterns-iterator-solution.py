@@ -20,7 +20,7 @@ class BrowseHistory:
         self.urls.append(url)
 
     def pop(self) -> str:
-        self.urls.pop()
+        return self.urls.pop()
 
     def get_urls(self) -> list[str]:
         return self.urls
@@ -54,6 +54,7 @@ if __name__ == '__main__':
         url = iterator.current()
         print(url)
         iterator.next()
+
     # https://a.example.com
     # https://b.example.com
     # https://c.example.com

@@ -135,6 +135,20 @@ Solution:
 >>> agency = 'Not existing'  # error
 
 
+Any
+---
+SetUp:
+
+>>> from typing import Any
+
+Declaration:
+
+>>> x: Any = 1
+>>> x: Any = 'one'
+>>> x: Any = None
+>>> x: Any = [1,2,3]
+
+
 Use Case - 0x01
 ---------------
 >>> firstname: str = 'Mark'
