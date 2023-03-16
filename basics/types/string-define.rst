@@ -53,9 +53,9 @@ This is the behavior of Python console:
 HTML and XML uses double quotes to enclose attribute values, hence it's
 better to use single quotes for the string:
 
->>> data = '<a href="http://python.astrotech.io">Python and Machine Learning</a>'
+>>> data = '<a href="https://python.astrotech.io">Python and Machine Learning</a>'
 >>> data
-'<a href="http://python.astrotech.io">Python and Machine Learning</a>'
+'<a href="https://python.astrotech.io">Python and Machine Learning</a>'
 
 :pep:`257` -- Docstring Conventions: For multiline ``str`` always use three
 double quote (``"""``) characters

@@ -159,8 +159,8 @@ Runtime
     and with the help of the community develop language specific kernels
     which are found in their own discrete repos.
 
-    * http://jupyter.org/
-    * http://jupyter.readthedocs.io/en/latest/install.html
+    * https://jupyter.org/
+    * https://docs.jupyter.org/en/latest/install.html
     * https://github.com/jupyter/notebook
 
 
@@ -184,7 +184,7 @@ Data Analysis
     data-types can be defined. This allows NumPy to seamlessly and speedily
     integrate with a wide variety of databases.
 
-    * http://www.numpy.org/
+    * https://numpy.org/
 
 ``Pandas``
     pandas is a Python package providing fast, flexible, and expressive data
@@ -220,7 +220,7 @@ Data Analysis
           frequency conversion, moving window statistics, moving window linear
           regressions, date shifting and lagging, etc.
 
-    * http://pandas.pydata.org/
+    * https://pandas.pydata.org/
 
 ``SciPy``
     SciPy (pronounced "Sigh Pie") is open-source software for mathematics,
@@ -269,7 +269,7 @@ Data Visualization
     use is discouraged. SciPy makes use of matplotlib.
 
     * https://github.com/matplotlib/matplotlib
-    * http://matplotlib.org/
+    * https://matplotlib.org/
 
 
 Machine Learning
@@ -290,7 +290,7 @@ Machine Learning
         * Open source, commercially usable - BSD license
 
     * `Scikit-learn Github <https://github.com/scikit-learn/scikit-learn>`_
-    * `Scikit-learn Website <http://scikit-learn.org>`_
+    * `Scikit-learn Website <https://scikit-learn.org/>`_
     * `Przykłady <https://github.com/scikit-learn/scikit-learn/tree/master/examples>`_
 
 ``PyMC3``
@@ -300,8 +300,7 @@ Machine Learning
     extensibility make it applicable to a large suite of problems.
 
     * `PyMC3 Github <https://github.com/pymc-devs/pymc3>`_
-    * `PyMC3 tutorial <http://pymc-devs.github.io/pymc3/notebooks/getting_started.html>`_
-    * `Quick start <http://pymc-devs.github.io/pymc3/notebooks/api_quickstart.html>`_
+    * `PyMC3 examples <https://www.pymc.io/projects/examples/en/latest/gallery.html>`_
 
 
 Neural Networks

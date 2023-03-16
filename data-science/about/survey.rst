@@ -36,10 +36,10 @@ Survey
 
 #. Potwierdzam zapoznanie się z programem szkolenia:
 
-    * http://www.sages.com.pl/Podstawy-analizy-danych-numerycznych-w-jezyku-Python#training-program
+    * https://www.sages.pl/szkolenia/analiza-numeryczna-w-python
     * tak (wymagane)
 
 #. PS. Szkolenie będzie prowadzone wg. materiałów zamieszczonych w internecie na stronie:
 
-    * http://python.astrotech.io/numerical-analysis/index.html
+    * https://python.astrotech.io/
 

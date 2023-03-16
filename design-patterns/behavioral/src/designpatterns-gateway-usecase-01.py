@@ -30,7 +30,6 @@ class CacheFilesystem(Cache):
     def __init__(self, location: str = 'tmp', *args, **kwargs) -> None:
         self.location = location
         super().__init__(*args, **kwargs)
-
         if not os.path.isdir(self.location):
             if os.path.isfile(self.location):
                 os.remove(self.location)
@@ -42,32 +41,25 @@ class CacheFilesystem(Cache):
 
     def get(self, key: str) -> str:
         filename = self._get_cache_path(key)
-
         if not os.path.isfile(filename):
             raise FileNotFoundError
-
         with open(filename, mode='r', encoding='utf-8') as file:
             return file.read()
 
     def set(self, key: str, value: str) -> None:
         filename = self._get_cache_path(key)
-
         if value is None:
             raise ValueError('Value cannot be None')
-
         with open(filename, mode='w', encoding='utf-8') as file:
             file.write(value)
 
     def is_valid(self, key):
         filename = self._get_cache_path(key)
-
         if not os.path.isfile(filename):
             return False
-
         last_modification = os.path.getmtime(filename)
         last_modification = datetime.fromtimestamp(last_modification)
         now = datetime.now()
-
         if (now - last_modification) > self.expiration:
             return False
         else:
@@ -84,7 +76,6 @@ class HTTPGateway:
             html = requests.get(url).text
             self.cache.set(url, html)
             log.info('Done.')
-
         return self.cache.get(url)
 
 
@@ -94,6 +85,6 @@ if __name__ == '__main__':
     # cache = CacheMemory(expiration=timedelta(minutes=2))
 
     http = HTTPGateway(cache=cache)
-    html = http.get('http://python.astrotech.io')
+    html = http.get('https://python.astrotech.io')
 
     print(html)

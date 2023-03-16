@@ -245,7 +245,7 @@ Use Case - 0x03
 ... from atlassian import Jira
 ...
 ... jira = Jira(
-...     url='http://example.com:8080',
+...     url='https://example.com:8080',
 ...     username='myusername',
 ...     password='mypassword')
 ...
@@ -258,7 +258,7 @@ Use Case - 0x03
 ... from atlassian import Confluence
 ...
 ... confluence = Confluence(
-...     url='http://example.com:8090',
+...     url='https://example.com:8090',
 ...     username='myusername',
 ...     password='mypassword')
 ...

@@ -48,5 +48,5 @@ The Graphviz layout programs take descriptions of graphs in a simple text langua
 Further Reading
 ---------------
 * https://github.com/carlos-jenkins/pydotplus
-* http://pydotplus.readthedocs.io/
-* http://www.graphviz.org/
+* https://pydotplus.readthedocs.io/
+* https://www.graphviz.org/

@@ -625,7 +625,7 @@ Passwords and secrets
 
 Allegro Tipboard
 ----------------
-* http://allegro.tech/tipboard/
+* https://allegro.tech/tipboard/
 * https://github.com/allegro/tipboard
 
 Tipboard is a system for creating dashboards, written in JavaScript and Python. Its widgets ('tiles' in Tipboard's terminology) are completely separated from data sources, which provides great flexibility and relatively high degree of possible customizations.

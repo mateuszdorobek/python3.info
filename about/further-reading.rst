@@ -281,26 +281,26 @@ Books
 -----
 Algorithms:
 
-* http://www.amazon.com/Introduction-Algorithms-Edition-Thomas-Cormen/dp/0262033844/
-* http://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X/
+* https://www.amazon.com/Introduction-Algorithms-Edition-Thomas-Cormen/dp/0262033844/
+* https://www.amazon.com/Algorithms-4th-Edition-Robert-Sedgewick/dp/032157351X/
 
 Databases:
 
-* http://www.amazon.com/Database-Design-Mere-Mortals-Hands-/dp/0321884493/
-* http://www.amazon.com/SQL-Antipatterns-Programming-Pragmatic-Programmers/dp/1934356557/
-* http://www.amazon.com/C.-J.-Date/e/B000AQ6OJA/
+* https://www.amazon.com/Database-Design-Mere-Mortals-Hands-/dp/0321884493/
+* https://www.amazon.com/SQL-Antipatterns-Programming-Pragmatic-Programmers/dp/1934356557/
+* https://www.amazon.com/C.-J.-Date/e/B000AQ6OJA/
 
 
 Software Engineering Practises:
 
-* http://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/
-* http://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/
-* http://www.amazon.com/The-Mythical-Man-Month-Engineering-Anniversary/dp/0201835959/
+* https://www.amazon.com/Pragmatic-Programmer-Journeyman-Master/dp/020161622X/
+* https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670/
+* https://www.amazon.com/The-Mythical-Man-Month-Engineering-Anniversary/dp/0201835959/
 
 Design pattern:
 
 * Design Patterns: Elements of Reusable Object-Oriented Software
-* http://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/
+* https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented/dp/0201633612/
 * https://helion.pl/ksiazki/wzorce-projektowe-elementy-oprogramowania-obiektowego-wielokrotnego-uzytku-erich-gamma-richard-helm-ralph-johnson-john-vli,wzoelv.htm
 
 Refactoring:
@@ -315,15 +315,15 @@ Clean Code by Uncle Bob:
 
 Python:
 
-* http://www.amazon.com/Learning-Python-Edition-Mark-Lutz/dp/1449355730/
-* http://www.amazon.com/Python-Programming-Introduction-Computer-Science/dp/1590282418/
+* https://www.amazon.com/Learning-Python-Edition-Mark-Lutz/dp/1449355730/
+* https://www.amazon.com/Python-Programming-Introduction-Computer-Science/dp/1590282418/
 * http://inventwithpython.com/
-* http://www.amazon.com/Python-Cookbook-David-Beazley/dp/1449340377/
+* https://www.amazon.com/Python-Cookbook-David-Beazley/dp/1449340377/
 * https://www.jeffknupp.com/writing-idiomatic-python-ebook/
-* http://www.amazon.com/Python-Practice-Concurrency-Libraries-Developers/dp/0321905636/
+* https://www.amazon.com/Python-Practice-Concurrency-Libraries-Developers/dp/0321905636/
 * http://learnpythonthehardway.org/book/
 * http://anandology.com/python-practice-book/index.html
-* http://www.amazon.com/Python-3-Object-Oriented-Programming/dp/1849511268/
+* https://www.amazon.com/Python-3-Object-Oriented-Programming/dp/1849511268/
 * http://shop.oreilly.com/product/0636920032519.do
 
 

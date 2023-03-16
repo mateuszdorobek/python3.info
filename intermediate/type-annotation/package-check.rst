@@ -12,7 +12,7 @@ Python
 MyPy
 ----
 * Type Checking
-* http://mypy-lang.org/
+* https://mypy-lang.org/
 * https://github.com/python/mypy
 
 .. code-block:: console

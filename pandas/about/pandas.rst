@@ -69,7 +69,6 @@ Workflow
 
 Read More
 ---------
-* http://pandas.pydata.org/
-* http://pandas.pydata.org/pandas-docs/stable/10min.html
-* http://pandas.pydata.org/pandas-docs/stable/index.html
+* https://pandas.pydata.org/
+* https://pandas.pydata.org/pandas-docs/stable/
 * https://github.com/pandas-dev/pandas/blob/master/doc/cheatsheet/Pandas_Cheat_Sheet.pdf

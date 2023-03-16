@@ -267,7 +267,7 @@ Single or double quotes?
 
 .. code-block:: python
 
-    print('<a href="http://python.astrotech.io">Python and Machine Learning</a>')
+    print('<a href="https://python.astrotech.io">Python and Machine Learning</a>')
 
 Trailing Commas
 ---------------

@@ -18,7 +18,7 @@ Auth JSON Web Token
 
      {"iss":"joe",
       "exp":1300819380,
-      "http://example.com/is_root":true}
+      "https://example.com/is_root":true}
 
 Base64url encoding the octets of the UTF-8 representation of the JWT
    Claims Set yields this encoded JWS Payload (with line breaks for

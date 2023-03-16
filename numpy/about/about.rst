@@ -15,7 +15,7 @@ multi-dimensional container of generic data. Arbitrary data-types can be
 defined. This allows NumPy to seamlessly and speedily integrate with a wide
 variety of databases.
 
-* http://www.numpy.org/
+* https://www.numpy.org/
 
 
 Installation

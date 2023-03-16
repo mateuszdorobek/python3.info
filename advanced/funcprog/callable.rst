@@ -90,7 +90,7 @@ Downloading from https://python.astrotech.io
 >>>
 >>>
 >>> fetch(  # doctest: +SKIP
-...     url='http://python.astrotech.io/',
+...     url='https://python.astrotech.io/',
 ...     on_success=lambda result: print(result),
 ...     on_error=lambda error: print(error))
 <Response [200]>

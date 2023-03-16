@@ -4,7 +4,7 @@ Dynamic Typing
 
 Duck typing
 -----------
-* `The Unreasonable Effectiveness of Dynamic Typing for Practical Programs by Robert Smallshire <http://www.infoq.com/presentations/dynamic-static-typing>`_
+* `The Unreasonable Effectiveness of Dynamic Typing for Practical Programs by Robert Smallshire <https://www.infoq.com/presentations/dynamic-static-typing/>`_
 
 Syntax similarities:
 

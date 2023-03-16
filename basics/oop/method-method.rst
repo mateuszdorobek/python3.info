@@ -137,7 +137,7 @@ Examples
 ... from atlassian import Jira
 ...
 ... jira = Jira(
-...     url='http://example.com:8080',
+...     url='https://example.com:8080',
 ...     username='myusername',
 ...     password='mypassword')
 ...
@@ -150,7 +150,7 @@ Examples
 ... from atlassian import Confluence
 ...
 ... confluence = Confluence(
-...     url='http://example.com:8090',
+...     url='https://example.com:8090',
 ...     username='myusername',
 ...     password='mypassword')
 ...

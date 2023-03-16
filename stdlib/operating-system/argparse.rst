@@ -257,7 +257,6 @@ Examples
 ``docopt``
 ----------
 * http://docopt.org/
-* http://try.docopt.org/
 * https://github.com/docopt
 
 .. code-block:: python

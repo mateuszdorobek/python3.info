@@ -32,7 +32,7 @@ Solution
 >>>
 >>> # doctest: +SKIP
 ... http_request(
-...     url='http://python.astrotech.io',
+...     url='https://python.astrotech.io',
 ...     on_success=success,
 ...     on_error=error,
 ... )

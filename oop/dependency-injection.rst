@@ -70,13 +70,13 @@ Dependency injection:
         memory = CacheMemory(expiration=timedelta(hours=2))
 
         http1 = HTTP(_cache=database)
-        http1.get('http://python.astrotech.io')
+        http1.get('https://python.astrotech.io')
 
         http2 = HTTP(_cache=filesystem)
-        http2.get('http://python.astrotech.io')
+        http2.get('https://python.astrotech.io')
 
         http3 = HTTP(_cache=memory)
-        http3.get('http://python.astrotech.io')
+        http3.get('https://python.astrotech.io')
 
 
 .. code-block:: python

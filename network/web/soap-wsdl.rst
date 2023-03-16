@@ -140,7 +140,7 @@ WSDL Binding to SOAP
        <soap:binding style="document"
        transport="http://schemas.xmlsoap.org/soap/http" />
        <operation>
-         <soap:operation soapAction="http://example.com/getTerm"/>
+         <soap:operation soapAction="https://example.com/getTerm"/>
          <input><soap:body use="literal"/></input>
          <output><soap:body use="literal"/></output>
       </operation>
@@ -260,7 +260,7 @@ Example WADL
 
     from suds.client import Client
 
-    client = Client("http://example.com/foo.wsdl")
+    client = Client("https://example.com/foo.wsdl")
     client.service.someMethod(someParameter)
 
 .. code-block:: python
@@ -268,11 +268,11 @@ Example WADL
     from suds.client import Client
 
     # The service URL
-    soap_url = 'http://myapp.example.com/path/to/soap'
+    soap_url = 'https://myapp.example.com/path/to/soap'
 
     # The WSDL URL, we wont' use this but just illustrating for example. This
     # would be the file you download to your system and save as wsdl_file
-    wsdl_url = 'http://myapp.example.com/path/to/soap?wsdl'
+    wsdl_url = 'https://myapp.example.com/path/to/soap?wsdl'
 
     # The full path to the downloaded WSDL file on your local system
     wsdl_file = '/path/to/myapp.wsdl'
