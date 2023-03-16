@@ -108,8 +108,8 @@ Option 6
 * Decision: rejected, violates Model-View-Controller (MVC)
 
 .. figure:: img/dragon-firkraag-01.jpg
-.. figure:: img/oop-architecture-mvc.png
-.. figure:: img/oop-architecture-mvc-example.png
+.. figure:: img/designpatterns-mvc-10.png
+.. figure:: img/designpatterns-mvc-usecase-10.png
 
 Problem:
 

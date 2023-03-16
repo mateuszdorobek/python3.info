@@ -89,7 +89,8 @@ Option 5
 * Bad: violates abstraction (OOP Principle)
 * Decision: rejected, violates Model-View-Controller (MVC)
 
-.. figure:: img/oop-architecture-mvc.png
+.. figure:: img/designpatterns-mvc-10.png
+.. figure:: img/designpatterns-mvc-usecase-10.png
 
 
 Option 6

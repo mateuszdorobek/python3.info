@@ -60,7 +60,15 @@ Problem:
 >>> knn = KNearestNeighbors(k=3)                # ok
 >>> knn = KNearestNeighbors(k=3, w=[1,2,3])     # bad
 
-.. figure:: img/knn.png
+.. figure:: img/ml-knn-1.png
+.. figure:: img/ml-knn-2.png
+.. figure:: img/ml-knn-3.png
+.. figure:: img/ml-knn-4.png
+.. figure:: img/ml-knn-5.png
+.. figure:: img/ml-knn-6.png
+.. figure:: img/ml-knn-7.png
+.. figure:: img/ml-knn-8.png
+.. figure:: img/ml-knn-9.png
 
 
 Option 3
