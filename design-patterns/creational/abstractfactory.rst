@@ -49,8 +49,8 @@ Solution
 
 Assignments
 -----------
-.. literalinclude:: assignments/designpatterns_factorymethod_a.py
-    :caption: :download:`Solution <assignments/designpatterns_factorymethod_a.py>`
+.. literalinclude:: assignments/designpatterns_abstractfactory_a.py
+    :caption: :download:`Solution <assignments/designpatterns_abstractfactory_a.py>`
     :end-before: # Solution
 
 .. todo:: Assignments

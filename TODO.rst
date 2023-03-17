@@ -21,6 +21,7 @@ Intermediate
 
 Advanced
 --------
+* Move Interface, ABC, Protocol to Protocols
 * Funcprog: Monads, Bridges, Atoms
 * Add exception groups (3.11)
 * OOP: Add staticmethod assignments
@@ -138,8 +139,8 @@ Machine Learning
 Python PEP
 ----------
 * vars() should handle slots
-* from datetime import parse(str, format)
 * Simple interface for HTTP requests (similar to requests)
+* http.get() http.post(), http.put(), http.delete()
 * słowo kluczowe interface Cache
 * dekorator interface
 * metaklasa interface
@@ -147,12 +148,17 @@ Python PEP
 * classlib interface
 * classlib abstract
 * monthlen
-* input(default=...)
+* input(default=..., type=int)
 * dict.get(default=...)
 * str.isfloat()
 * str.isint()
+* str.isnumeric() -> is int or float
 * Path.rmtree() # skasowanie katalogu z podkatalogami
 * datetime.time.now()
+* datetime.parse()
+* datetime.format()
+* from datetime import parse(str, format)
+* dataclass(strict=True) - walidacja typów
 * type_check decorator, sprawdzający ``function.__annotations__``
 * dict(keys=[...], values=[...])
 * from pprint import pprint, print(pretty=True) (albo podawanie formatter)
@@ -164,6 +170,7 @@ Python PEP
 * print('cośtam', level='warning')
 * log('cośtam', level='warning')
 * NamedTuple oraz TypedDict scalić z tuple i dict
+
 
 Pydantic
 --------
