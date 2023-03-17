@@ -1,8 +1,8 @@
 """
 * Assignment: DesignPatterns Creational BuilderEmail
 * Complexity: easy
-* Lines of code: 21 lines
-* Time: 21 min
+* Lines of code: 15 lines
+* Time: 13 min
 
 English:
     1. Create class `Email`
