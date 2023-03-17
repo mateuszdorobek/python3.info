@@ -78,7 +78,7 @@ Task 3:
         * method ``.clone()``
 
     3. Method ``.clone()`` returns another ``Dragon`` with the same values
-
+    4. Use ``random.randint()`` to generate pseudorandom numbers
 
 .. todo:: Assignments
           You're building a video editor similar to Adobe Premier.

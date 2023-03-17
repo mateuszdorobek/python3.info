@@ -1,7 +1,7 @@
 """
 * Assignment: DesignPatterns Creational FactoryMethod
-* Complexity: medium
-* Lines of code: 8 lines
+* Complexity: easy
+* Lines of code: 6 lines
 * Time: 8 min
 
 English:

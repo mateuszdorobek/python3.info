@@ -2,7 +2,7 @@
 * Assignment: DesignPatterns Behavioral Iterator
 * Complexity: easy
 * Lines of code: 9 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Implement Iterator pattern

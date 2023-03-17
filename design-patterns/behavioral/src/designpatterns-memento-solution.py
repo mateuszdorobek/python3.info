@@ -1,13 +1,9 @@
 from dataclasses import dataclass, field
-from typing import Final
 
 
-@dataclass
+@dataclass(frozen=True)
 class EditorState:
-    content: Final[str]
-
-    def get_content(self):
-        return self.content
+    content: str
 
 
 @dataclass
@@ -34,7 +30,7 @@ class Editor:
         return EditorState(self.content)
 
     def restore_state(self, state: EditorState):
-        self.content = state.get_content()
+        self.content = state.content
 
 
 if __name__ == '__main__':
@@ -42,19 +38,18 @@ if __name__ == '__main__':
     history = History()
 
     editor.set_content('a')
-    history.push(editor.create_state())
-    print(editor.get_content())
+    print(editor.content)
     # a
 
     editor.set_content('b')
     history.push(editor.create_state())
-    print(editor.get_content())
+    print(editor.content)
     # b
 
     editor.set_content('c')
-    print(editor.get_content())
+    print(editor.content)
     # c
 
     editor.restore_state(history.pop())
-    print(editor.get_content())
+    print(editor.content)
     # b
