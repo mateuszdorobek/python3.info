@@ -35,14 +35,19 @@ Tests:
 
     >>> GeographicCoordinate(90, 0, 0)
     GeographicCoordinate(latitude=90, longitude=0, elevation=0)
+
     >>> GeographicCoordinate(-90, 0, 0)
     GeographicCoordinate(latitude=-90, longitude=0, elevation=0)
+
     >>> GeographicCoordinate(0, +180, 0)
     GeographicCoordinate(latitude=0, longitude=180, elevation=0)
+
     >>> GeographicCoordinate(0, -180, 0)
     GeographicCoordinate(latitude=0, longitude=-180, elevation=0)
+
     >>> GeographicCoordinate(0, 0, +8848)
     GeographicCoordinate(latitude=0, longitude=0, elevation=8848)
+
     >>> GeographicCoordinate(0, 0, -10994)
     GeographicCoordinate(latitude=0, longitude=0, elevation=-10994)
 
@@ -75,11 +80,9 @@ from dataclasses import dataclass
 
 @dataclass
 class GeographicCoordinate:
-    """
-    latitude - min: -90.0, max: 90.0
-    longitude - min: -180.0, max: 180.0
-    elevation - min: -10994.0, max: 8848.0
-    """
+    latitude: float = ...   # min=-90.0, max=90.0
+    longitude: float = ...  # min=-180.0, max=180.0
+    elevation: float = ...  # min=-10994.0, max=8848.0
 
 
 # Solution

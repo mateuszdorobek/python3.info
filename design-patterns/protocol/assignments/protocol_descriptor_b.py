@@ -51,9 +51,9 @@ class Number:
 class Astronaut:
     firstname: str
     lastname: str
-    age: int
-    height: float
-    weight: float
+    age: int = ...
+    height: float = ...
+    weight: float = ...
 
 
 # Solution
