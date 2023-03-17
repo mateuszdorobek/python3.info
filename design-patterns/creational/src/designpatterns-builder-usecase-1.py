@@ -19,10 +19,11 @@ class ReadCSV:
         self.encoding = value
         return self
 
+
 if __name__ == '__main__':
     data = (
         ReadCSV('myfile.csv')
-            .withChunksize(10_1000)
-            .withDelimiter(',')
-            .withEncoding('UTF-8')
+        .withChunksize(10_1000)
+        .withDelimiter(',')
+        .withEncoding('UTF-8')
     )

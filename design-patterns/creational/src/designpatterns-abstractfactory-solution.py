@@ -1,5 +1,9 @@
 #%% Interfaces
-class Widget:
+from abc import ABC, abstractmethod
+
+
+class Widget(ABC):
+    @abstractmethod
     def render(self) -> None:
         raise NotImplementedError
 
@@ -9,10 +13,12 @@ class Button(Widget):
 class Textbox(Widget):
     pass
 
-class WidgetFactory:
+class Theme(ABC):
+    @abstractmethod
     def create_button(self) -> Button:
         raise NotImplementedError
 
+    @abstractmethod
     def create_textbox(self) -> Textbox:
         raise NotImplementedError
 
@@ -26,7 +32,7 @@ class MaterialTextbox(Textbox):
     def render(self) -> None:
         print('Material Textbox')
 
-class MaterialWidgetFactory(WidgetFactory):
+class MaterialTheme(Theme):
     def create_button(self) -> Button:
         return MaterialButton()
 
@@ -34,30 +40,38 @@ class MaterialWidgetFactory(WidgetFactory):
         return MaterialTextbox()
 
 
-#%% Ant Theme
-class AntButton(Button):
+#%% Flat Theme
+class FlatButton(Button):
     def render(self) -> None:
-        print('Ant Button')
+        print('Flat Button')
 
-class AntTextbox(Textbox):
+class FlatTextbox(Textbox):
     def render(self) -> None:
-        print('Ant Textbox')
+        print('Flat Textbox')
 
-class AntWidgetFactory(WidgetFactory):
+class FlatTheme(Theme):
     def create_button(self) -> Button:
-        return AntButton()
+        return FlatButton()
 
     def create_textbox(self) -> Textbox:
-        return AntTextbox()
+        return FlatTextbox()
 
 
 #%% Main
 class ContactForm:
-    def render(self, factory: WidgetFactory) -> None:
-        factory.create_textbox().render()
-        factory.create_button().render()
+    def render(self, theme: Theme) -> None:
+        theme.create_textbox().render()
+        theme.create_button().render()
 
 
 if __name__ == '__main__':
-    theme = MaterialWidgetFactory()
+
+    theme = FlatTheme()
     ContactForm().render(theme)
+    # Flat Textbox
+    # Flat Button
+
+    theme = MaterialTheme()
+    ContactForm().render(theme)
+    # Material Textbox
+    # Material Button

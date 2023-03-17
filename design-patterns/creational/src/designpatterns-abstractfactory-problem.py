@@ -1,8 +1,10 @@
+from abc import ABC, abstractmethod
 from enum import Enum
 
 
 #%% Interfaces
-class Widget:
+class Widget(ABC):
+    @abstractmethod
     def render(self) -> None:
         raise NotImplementedError
 
@@ -41,9 +43,21 @@ class Theme(Enum):
 
 class ContactForm:
     def render(self, theme: Theme) -> None:
-        if self.theme == Theme.MATERIAL:
-            MaterialTextbox().render()
-            MaterialButton().render()
-        elif self.theme == Theme.FLAT:
-            FlatTextbox().render()
-            FlatButton().render()
+        match theme:
+            case Theme.MATERIAL:
+                MaterialTextbox().render()
+                MaterialButton().render()
+            case Theme.FLAT:
+                FlatTextbox().render()
+                FlatButton().render()
+
+
+if __name__ == '__main__':
+
+    ContactForm().render(Theme.FLAT)
+    # Flat Textbox
+    # Flat Button
+
+    ContactForm().render(Theme.MATERIAL)
+    # Material Textbox
+    # Material Button
