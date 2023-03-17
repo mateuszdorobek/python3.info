@@ -39,6 +39,30 @@ Solution
     :language: python
 
 
+Use Case - 0x01
+---------------
+.. literalinclude:: src/designpatterns-prototype-usecase-1.py
+    :language: python
+
+
+Use Case - 0x02
+---------------
+.. literalinclude:: src/designpatterns-prototype-usecase-2.py
+    :language: python
+
+
+Use Case - 0x03
+---------------
+.. literalinclude:: src/designpatterns-prototype-usecase-3.py
+    :language: python
+
+
+Use Case - 0x04
+---------------
+.. literalinclude:: src/designpatterns-prototype-usecase-4.py
+    :language: python
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/designpatterns_prototype_a.py
