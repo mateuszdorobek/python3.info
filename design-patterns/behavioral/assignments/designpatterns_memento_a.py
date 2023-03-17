@@ -80,8 +80,9 @@ class Account:
     history: History = field(default_factory=History)
 
     def deposit(self, amount: float) -> None:
-        self.balance += amount
-        self.history.push(Transaction(amount))
+        transaction = Transaction(amount)
+        self.balance += transaction.amount
+        self.history.push(transaction)
 
     def undo(self):
         transaction = self.history.pop()
