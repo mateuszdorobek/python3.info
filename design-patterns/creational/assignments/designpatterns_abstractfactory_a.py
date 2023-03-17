@@ -132,6 +132,7 @@ class Platform(Enum):
 
 
 def main(platform: Platform):
-    platform.value.create_textbox('username').render()
-    platform.value.create_textbox('password').render()
-    platform.value.create_button('submit').render()
+    os = platform.value
+    os.create_textbox('username').render()
+    os.create_textbox('password').render()
+    os.create_button('submit').render()
