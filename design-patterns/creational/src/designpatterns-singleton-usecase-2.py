@@ -1,11 +1,13 @@
+from typing import Self
+
 class Singleton:
-    instance = None
+    instance: Self | None = None
 
     def __new__(cls, *args, **kwargs):
-        if not cls.instance:
-            cls.instance = super().__new__(*args, **kwargs)
+        if cls.instance is None:
+            cls.instance = object.__new__(cls)
         obj = cls.instance
-        obj.__init__()
+        obj.__init__(*args, **kwargs)
         return obj
 
 

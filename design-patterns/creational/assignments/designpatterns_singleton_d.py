@@ -19,11 +19,11 @@ Tests:
     >>> class Queue(Singleton):
     ...     pass
 
-    # >>> result_a = Queue()
-    # >>> result_b = Queue()
-#
-    # >>> result_a is result_b
-    # True
+    >>> result_a = Queue()
+    >>> result_b = Queue()
+
+    >>> result_a is result_b
+    True
 """
 from typing import Self
 
@@ -36,9 +36,9 @@ class Singleton:
 class Singleton:
     instance: Self
 
-    def __new__(cls):
+    def __new__(cls, *args, **kwargs):
         if not hasattr(cls, 'instance'):
-            cls.instance = object.__new__()
+            cls.instance = object.__new__(cls)
         obj = cls.instance
-        obj.__init__()
+        obj.__init__(*args, **kwargs)
         return obj
