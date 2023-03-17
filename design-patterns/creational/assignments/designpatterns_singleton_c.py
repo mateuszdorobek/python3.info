@@ -1,6 +1,6 @@
 """
 * Assignment: DesignPatterns Creational SingletonQueue
-* Complexity: easy
+* Complexity: medium
 * Lines of code: 7 lines
 * Time: 5 min
 
