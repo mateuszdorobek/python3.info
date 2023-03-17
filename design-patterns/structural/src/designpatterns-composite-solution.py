@@ -12,12 +12,15 @@ class Component(ABC):
         pass
 
 
+@dataclass
 class Shape(Component):
+    name: str
+
     def move(self) -> None:
-        print('Move Shape')
+        print(f'Move {self.name}')
 
     def render(self) -> None:
-        print('Render Shape')
+        print(f'Render {self.name}')
 
 
 @dataclass
@@ -38,15 +41,25 @@ class Group(Component):
 
 if __name__ == '__main__':
     group1 = Group()
-    group1.add(Shape())  # square
-    group1.add(Shape())  # square
+    group1.add(Shape('square'))
+    group1.add(Shape('rectangle'))
 
     group2 = Group()
-    group2.add(Shape())  # circle
-    group2.add(Shape())  # circle
+    group2.add(Shape('circle'))
+    group2.add(Shape('ellipse'))
 
-    group = Group()
-    group.add(group1)
-    group.add(group2)
-    group.render()
-    group.move()
+    everything = Group()
+    everything.add(group1)
+    everything.add(group2)
+
+    everything.render()
+    # Render square
+    # Render rectangle
+    # Render circle
+    # Render ellipse
+
+    everything.move()
+    # Move square
+    # Move rectangle
+    # Move circle
+    # Move ellipse

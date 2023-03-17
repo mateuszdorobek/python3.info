@@ -47,6 +47,6 @@ Solution
 
 Assignments
 -----------
-.. literalinclude:: assignments/designpatterns_mediator.py
-    :caption: :download:`Solution <assignments/designpatterns_mediator.py>`
+.. literalinclude:: assignments/designpatterns_mediator_a.py
+    :caption: :download:`Solution <assignments/designpatterns_mediator_a.py>`
     :end-before: # Solution

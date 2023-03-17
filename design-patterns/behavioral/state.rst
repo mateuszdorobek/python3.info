@@ -118,6 +118,6 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/designpatterns_state.py
-    :caption: :download:`Solution <assignments/designpatterns_state.py>`
+.. literalinclude:: assignments/designpatterns_state_a.py
+    :caption: :download:`Solution <assignments/designpatterns_state_a.py>`
     :end-before: # Solution

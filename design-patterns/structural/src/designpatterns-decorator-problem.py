@@ -1,3 +1,6 @@
+from hashlib import sha256
+
+
 class CloudStream:
     def write(self, data: str) -> None:
         print(f'Storing: "{data}"')
@@ -9,7 +12,7 @@ class EncryptedCloudStream(CloudStream):
         super().write(encrypted)
 
     def _encrypt(self, data: str) -> str:
-        return '3817f443b81e986d8e2771c6bf5e744e7ec0e844'
+        return sha256(data.encode()).hexdigest()
 
 
 class CompressedCloudStream(CloudStream):
@@ -18,14 +21,20 @@ class CompressedCloudStream(CloudStream):
         super().write(compressed)
 
     def _compress(self, data: str) -> str:
-        return data[0:10]
+        return data[0:9]
 
 
 if __name__ == '__main__':
-    cloud_steam = CloudStream()
-    cloud_steam.write('Data')
-    # Storing: "Data"
+    credit_card = '1234-1234-1234-1234'
 
-    cloud_steam = EncryptedCloudStream()
-    cloud_steam.write('Data')
-    # Storing: "3817f443b81e986d8e2771c6bf5e744e7ec0e844"
+    cloud = CloudStream()
+    cloud.write(credit_card)
+    # Storing: "1234-1234-1234-1234"
+
+    cloud = EncryptedCloudStream()
+    cloud.write(credit_card)
+    # Storing: "3eada3ce701aea4c21f117e1e95b32b2acd0a01dd03e7e57b02d141f5f9c7808"
+
+    cloud = CompressedCloudStream()
+    cloud.write(credit_card)
+    # Storing: "1234-1234"

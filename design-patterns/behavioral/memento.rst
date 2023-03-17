@@ -40,6 +40,6 @@ Solution
 
 Assignments
 -----------
-.. literalinclude:: assignments/designpatterns_memento.py
-    :caption: :download:`Solution <assignments/designpatterns_memento.py>`
+.. literalinclude:: assignments/designpatterns_memento_a.py
+    :caption: :download:`Solution <assignments/designpatterns_memento_a.py>`
     :end-before: # Solution
