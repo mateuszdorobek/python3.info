@@ -1,91 +1,87 @@
 """
-* Assignment: Protocol Descriptor ValueRange
+* Assignment: Protocol Descriptor Number
 * Complexity: easy
 * Lines of code: 9 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
-    1. Define descriptor class `ValueRange` with attributes:
-        a. `name: str`
-        b. `min: float`
-        c. `max: float`
-        d. `value: float`
-    2. Define class `Astronaut` with attributes:
-        a. `age = ValueRange('Age', min=28, max=42)`
-        b. `height = ValueRange('Height', min=150, max=200)`
-    3. Setting `Astronaut` attribute should invoke boundary check of `ValueRange`
+    1. Define descriptor class `Number` with attributes:
+        a. `min: float`
+        b. `max: float`
+    2. Modify class `Astronaut` and add attributes:
+        a. `age: int = Number(min=30, max=50)`
+        b. `height: float = Number(min=150, max=200)`
+        c. `weight: float = Number(min=50, max=100)`
+    3. Setting `Astronaut` attribute should invoke boundary check
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę-deskryptor `ValueRange` z atrybutami:
-        a. `name: str`
-        b. `min: float`
-        c. `max: float`
-        d. `value: float`
-    2. Zdefiniuj klasę `Astronaut` z atrybutami:
-        a. `age = ValueRange('Age', min=28, max=42)`
-        b. `height = ValueRange('Height', min=150, max=200)`
-    3. Ustawianie atrybutu `Astronaut` powinno wywołać sprawdzanie zakresu z `ValueRange`
-    6. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj klasę-deskryptor `Number` z atrybutami:
+        a. `min: float`
+        b. `max: float`
+    2. Zmodyfikuj klasę `Astronaut` i dodaj atrybuty:
+        a. `age: int = Number(min=30, max=50)`
+        b. `height: float = Number(min=150, max=200)`
+        c. `weight: float = Number(min=50, max=100)`
+    3. Ustawianie atrybutu `Astronaut` powinno wywołać sprawdzanie zakresu
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> mark = Astronaut('Mark Watney', 36, 170)
+    >>> mark = Astronaut('Mark', 'Watney', age=36, height=185, weight=75)
 
-    >>> melissa = Astronaut('Melissa Lewis', 44, 170)
+    >>> melissa = Astronaut('Melissa', 'Lewis', age=52, height=170, weight=55)
     Traceback (most recent call last):
-    ValueError: Age is not between 28 and 42
+    ValueError: Age is not between 30 and 50
 
-    >>> alex = Astronaut('Alex Vogel', 40, 201)
+    >>> alex = Astronaut('Alex', 'Vogel', age=44, height=201, weight=85)
     Traceback (most recent call last):
     ValueError: Height is not between 150 and 200
 """
-
-class ValueRange:
-    name: str
-    min: float
-    max: float
-
-    def __init__(self, name, min, max):
-        pass
+from dataclasses import dataclass, field
 
 
+@dataclass
+class Number:
+    ...
+
+
+@dataclass
 class Astronaut:
-    age = ValueRange('Age', min=28, max=42)
-    height = ValueRange('Height', min=150, max=200)
+    firstname: str
+    lastname: str
+    age: int
+    height: float
+    weight: float
 
 
 # Solution
-class ValueRange:
-    name: str
+@dataclass
+class Number:
     min: float
     max: float
-    value: float
+    attrname: str = field(init=False)
+    field: str = field(init=False)
 
-    def __init__(self, name, min, max):
-        self.name = name
-        self.min = min
-        self.max = max
+    def __set_name__(self, owner, name):
+        self.attrname = f'_{name}'
+        self.field = name.capitalize()
 
-    def __set__(self, parent, value):
-        if value not in range(self.min, self.max):
-            err = f'{self.name} is not between {self.min} and {self.max}'
-            raise ValueError(err)
-        self.value = value
+    def __set__(self, instance, value):
+        if not self.min <= value < self.max:
+            error = f'{self.field} is not between {self.min} and {self.max}'
+            raise ValueError(error)
+        setattr(instance, self.attrname, value)
+
+    def __get__(self, instance, owner):
+        return getattr(instance, self.attrname)
 
 
+@dataclass
 class Astronaut:
-    age = ValueRange('Age', min=28, max=42)
-    height = ValueRange('Height', min=150, max=200)
-
-    def __init__(self, name, age, height):
-        self.name = name
-        self.height = height
-        self.age = age
-
-    def __repr__(self):
-        name = self.name
-        age = self.age.value
-        height = self.height.value
-        return f'Astronaut({name=}, {age=}, {height=})'
+    firstname: str
+    lastname: str
+    age: int = Number(min=30, max=50)
+    height: float = Number(min=150, max=200)
+    weight: float = Number(min=50, max=100)

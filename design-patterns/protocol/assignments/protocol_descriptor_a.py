@@ -1,8 +1,8 @@
 """
 * Assignment: Protocol Descriptor Simple
 * Complexity: easy
-* Lines of code: 9 lines
-* Time: 13 min
+* Lines of code: 7 lines
+* Time: 5 min
 
 English:
     1. Define descriptor class `Kelvin`
@@ -42,7 +42,6 @@ class Kelvin:
     def __set__(self, parent, new_value):
         if new_value < 0:
             raise ValueError('Negative temperature')
-        else:
-            parent._value = new_value
+        parent._value = new_value
 
 

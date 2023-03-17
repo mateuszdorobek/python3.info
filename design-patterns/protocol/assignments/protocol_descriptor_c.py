@@ -1,7 +1,7 @@
 """
 * Assignment: Protocol Descriptor Inheritance
 * Complexity: medium
-* Lines of code: 25 lines
+* Lines of code: 47 lines
 * Time: 21 min
 
 English:
@@ -19,32 +19,32 @@ Tests:
 
     >>> place1 = GeographicCoordinate(50, 120, 8000)
     >>> place1
-    Latitude: 50, Longitude: 120, Elevation: 8000
+    GeographicCoordinate(latitude=50, longitude=120, elevation=8000)
 
     >>> place2 = GeographicCoordinate(22, 33, 44)
     >>> place2
-    Latitude: 22, Longitude: 33, Elevation: 44
+    GeographicCoordinate(latitude=22, longitude=33, elevation=44)
 
     >>> place1.latitude = 1
     >>> place1.longitude = 2
     >>> place1
-    Latitude: 1, Longitude: 2, Elevation: 8000
+    GeographicCoordinate(latitude=1, longitude=2, elevation=8000)
 
     >>> place2
-    Latitude: 22, Longitude: 33, Elevation: 44
+    GeographicCoordinate(latitude=22, longitude=33, elevation=44)
 
     >>> GeographicCoordinate(90, 0, 0)
-    Latitude: 90, Longitude: 0, Elevation: 0
+    GeographicCoordinate(latitude=90, longitude=0, elevation=0)
     >>> GeographicCoordinate(-90, 0, 0)
-    Latitude: -90, Longitude: 0, Elevation: 0
+    GeographicCoordinate(latitude=-90, longitude=0, elevation=0)
     >>> GeographicCoordinate(0, +180, 0)
-    Latitude: 0, Longitude: 180, Elevation: 0
+    GeographicCoordinate(latitude=0, longitude=180, elevation=0)
     >>> GeographicCoordinate(0, -180, 0)
-    Latitude: 0, Longitude: -180, Elevation: 0
+    GeographicCoordinate(latitude=0, longitude=-180, elevation=0)
     >>> GeographicCoordinate(0, 0, +8848)
-    Latitude: 0, Longitude: 0, Elevation: 8848
+    GeographicCoordinate(latitude=0, longitude=0, elevation=8848)
     >>> GeographicCoordinate(0, 0, -10994)
-    Latitude: 0, Longitude: 0, Elevation: -10994
+    GeographicCoordinate(latitude=0, longitude=0, elevation=-10994)
 
     >>> GeographicCoordinate(-91, 0, 0)
     Traceback (most recent call last):
@@ -70,22 +70,16 @@ Tests:
     Traceback (most recent call last):
     ValueError: Out of bounds
 """
+from dataclasses import dataclass
 
+
+@dataclass
 class GeographicCoordinate:
-    def __str__(self):
-        return f'Latitude: {self.latitude}, ' +\
-               f'Longitude: {self.longitude}, ' +\
-               f'Elevation: {self.elevation}'
-
-    def __repr__(self):
-        return self.__str__()
-
-
-"""
-latitude - min: -90.0, max: 90.0
-longitude - min: -180.0, max: 180.0
-elevation - min: -10994.0, max: 8848.0
-"""
+    """
+    latitude - min: -90.0, max: 90.0
+    longitude - min: -180.0, max: 180.0
+    elevation - min: -10994.0, max: 8848.0
+    """
 
 
 # Solution
@@ -131,20 +125,8 @@ class Elevation(GEOProperty):
     MAX: float = +8848.0
 
 
+@dataclass
 class GeographicCoordinate:
-    latitude = Latitude()
-    longitude = Longitude()
-    elevation = Elevation()
-
-    def __init__(self, latitude, longitude, elevation):
-        self.latitude = latitude
-        self.longitude = longitude
-        self.elevation = elevation
-
-    def __str__(self):
-        return f'Latitude: {self.latitude}, ' + \
-               f'Longitude: {self.longitude}, ' + \
-               f'Elevation: {self.elevation}'
-
-    def __repr__(self):
-        return self.__str__()
+    latitude: float = Latitude()
+    longitude: float = Longitude()
+    elevation: float = Elevation()

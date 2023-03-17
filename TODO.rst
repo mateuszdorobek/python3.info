@@ -170,6 +170,7 @@ Python PEP
 * print('cośtam', level='warning')
 * log('cośtam', level='warning')
 * NamedTuple oraz TypedDict scalić z tuple i dict
+* cykliczny timer (scheduler) zamiast Trampoline
 
 
 Pydantic

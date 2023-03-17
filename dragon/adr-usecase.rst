@@ -1,4 +1,4 @@
-ADR Template
+ADR Use Case
 ============
 
 Summary
