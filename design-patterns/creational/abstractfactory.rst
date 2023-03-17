@@ -49,6 +49,10 @@ Solution
 
 Assignments
 -----------
+.. literalinclude:: assignments/designpatterns_factorymethod_a.py
+    :caption: :download:`Solution <assignments/designpatterns_factorymethod_a.py>`
+    :end-before: # Solution
+
 .. todo:: Assignments
           You’re building a weight loss app. Your app currently supports
           two kinds of goals: Weight Loss and Build Muscle. There’s a plan
@@ -59,7 +63,3 @@ Assignments
           see a different mean plan and workout routine. What are the problems
           with this design? Refactor this design using the abstract factory
           pattern.
-
-.. literalinclude:: assignments/designpatterns_factorymethod_a.py
-    :caption: :download:`Solution <assignments/designpatterns_factorymethod_a.py>`
-    :end-before: # Solution

@@ -191,28 +191,25 @@ Assignments
 -----------
 Task 1:
 
-* Create file ``designpatterns_builder_a.py``
-* Create class ``Texture``
-* Use builder pattern to set:
+    1. Create file ``designpatterns_builder_a.py``
+    2. Create class ``Texture``
+    3. Use builder pattern to set:
 
-    * ``width: int`` value greater than 0
-    * ``height: int`` value greater than 0
-    * ``quality: int`` from 0 to 100 percent
+        * ``width: int`` value greater than 0
+        * ``height: int`` value greater than 0
+        * ``quality: int`` from 0 to 100 percent
 
 Task 2:
 
-* Create file ``designpatterns_builder_b.py``
-* Create class ``Email``
-* Use builder pattern to set:
+    1. Create file ``designpatterns_builder_b.py``
+    2. Create class ``Email``
+    3. Use builder pattern to set:
 
-    * ``recipient: str`` verify email address using regex
-    * ``sender: str`` verify email address using regex
-    * ``subject: str`` encode to bytes
-    * ``body: str`` encode to bytes
-    * ``attachment: bytes`` base64 encoded
-
-
-
+        * ``recipient: str`` verify email address using regex
+        * ``sender: str`` verify email address using regex
+        * ``subject: str`` encode to bytes
+        * ``body: str`` encode to bytes
+        * ``attachment: bytes`` base64 encoded
 
 .. todo:: Assignments
           You’re building a word processor similar to Word. The user can

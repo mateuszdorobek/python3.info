@@ -69,20 +69,20 @@ Assignments
 -----------
 Task 1:
 
-* Create file ``designpatterns_singleton_a.py``
-* Create singleton class ``Settings``
+    1. Create file ``designpatterns_singleton_a.py``
+    2. Create singleton class ``Settings``
 
 Task 2:
 
-* Create file ``designpatterns_singleton_b.py``
-* Create singleton class ``Logger``
+    1. Create file ``designpatterns_singleton_b.py``
+    2. Create singleton class ``Logger``
 
 Task 3:
 
-* Create file ``designpatterns_singleton_c.py``
-* Create singleton class ``DatabaseConnection``
+    1. Create file ``designpatterns_singleton_c.py``
+    2. Create singleton class ``DatabaseConnection``
 
 Task 4:
 
-* Create file ``designpatterns_singleton_d.py``
-* Create singleton class ``Queue``
+    1. Create file ``designpatterns_singleton_d.py``
+    2. Create singleton class ``Queue``

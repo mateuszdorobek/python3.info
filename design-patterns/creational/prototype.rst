@@ -43,15 +43,42 @@ Assignments
 -----------
 Task 1:
 
-* Create file ``designpatterns_prototype_a.py``
-* Create class ``Date`` with method ``.clone()``
-* Method ``.clone()`` returns the same date
+    1. Create file ``designpatterns_prototype_a.py``
+    2. Create class ``Date`` with:
+
+        * ``year: int``
+        * ``month: int``
+        * ``day: int``
+        * method ``.clone()``
+
+    3. Method ``.clone()`` returns another ``Date`` with the same values
 
 Task 2:
 
-* Create file ``designpatterns_prototype_a.py``
-* Create class ``Time`` with method ``.clone()``
-* Method ``.clone()`` returns the same date
+    1. Create file ``designpatterns_prototype_b.py``
+    2. Create class ``Time`` with:
+
+        * ``hour: int``
+        * ``minute: int``
+        * ``second: int``
+        * ``microsecond: int``
+        * method ``.clone()``
+
+    3. Method ``.clone()`` returns another ``Time`` with the same values
+
+Task 3:
+
+    1. Create file ``designpatterns_prototype_c.py``
+    2. Create class ``Dragon`` with:
+
+        * ``name: str``
+        * ``health: int`` random from 50 to 100
+        * ``gold: int`` random from 1 to 100
+        * ``position: tuple[int,int]`` default ``(0, 0)``
+        * method ``.clone()``
+
+    3. Method ``.clone()`` returns another ``Dragon`` with the same values
+
 
 .. todo:: Assignments
           You're building a video editor similar to Adobe Premier.
