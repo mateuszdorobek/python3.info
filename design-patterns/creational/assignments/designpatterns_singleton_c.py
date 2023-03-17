@@ -1,12 +1,12 @@
 """
-* Assignment: DesignPatterns Creational SingletonDatabaseConnection
+* Assignment: DesignPatterns Creational SingletonQueue
 * Complexity: easy
 * Lines of code: 7 lines
 * Time: 5 min
 
 English:
-    1. Create singleton class ``Database``
-    2. Use `connect()` classmethod
+    1. Create singleton class ``Singleton``
+    2. Use `__new__()` object constructor
     3. Run doctests - all must succeed
 
 Polish:
@@ -16,8 +16,11 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> result_a = Database.connect()
-    >>> result_b = Database.connect()
+    >>> class Queue(Singleton):
+    ...     pass
+
+    >>> result_a = Queue()
+    >>> result_b = Queue()
 
     >>> result_a is result_b
     True
@@ -25,16 +28,17 @@ Tests:
 from typing import Self
 
 
-class Database:
+class Singleton:
     pass
 
 
 # Solution
-class Database:
+class Singleton:
     instance: Self
 
-    @classmethod
-    def connect(cls):
+    def __new__(cls, *args, **kwargs):
         if not hasattr(cls, 'instance'):
             cls.instance = object.__new__(cls)
-        return cls.instance
+        obj = cls.instance
+        obj.__init__(*args, **kwargs)
+        return obj

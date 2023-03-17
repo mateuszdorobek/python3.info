@@ -6,7 +6,7 @@
 
 English:
     1. Create singleton class ``Settings``
-    2. Use `get_instance()` method
+    2. Use `get_instance()` classmethod
     3. Run doctests - all must succeed
 
 Polish:

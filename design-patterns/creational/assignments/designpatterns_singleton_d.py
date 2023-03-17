@@ -1,12 +1,12 @@
 """
-* Assignment: DesignPatterns Creational SingletonQueue
+* Assignment: DesignPatterns Creational SingletonLogger
 * Complexity: easy
 * Lines of code: 7 lines
 * Time: 5 min
 
 English:
     1. Create singleton class ``Singleton``
-    2. Use `__new__()` object constructor
+    2. Use `Metaclass`
     3. Run doctests - all must succeed
 
 Polish:
@@ -16,11 +16,11 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> class Queue(Singleton):
+    >>> class Logger(metaclass=Singleton):
     ...     pass
 
-    >>> result_a = Queue()
-    >>> result_b = Queue()
+    >>> result_a = Logger()
+    >>> result_b = Logger()
 
     >>> result_a is result_b
     True
@@ -28,17 +28,15 @@ Tests:
 from typing import Self
 
 
-class Singleton:
+class Singleton(type):
     pass
 
 
 # Solution
-class Singleton:
-    instance: Self
+class Singleton(type):
+    instances = {}
 
-    def __new__(cls, *args, **kwargs):
-        if not hasattr(cls, 'instance'):
-            cls.instance = object.__new__(cls)
-        obj = cls.instance
-        obj.__init__(*args, **kwargs)
-        return obj
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls.instances:
+            cls.instances[cls] = super().__call__(*args, **kwargs)
+        return cls.instances[cls]
