@@ -5,7 +5,7 @@
 * Time: 5 min
 
 English:
-    1. Create singleton class ``Singleton``
+    1. Create singleton class `Singleton`
     2. Use `Metaclass`
     3. Run doctests - all must succeed
 

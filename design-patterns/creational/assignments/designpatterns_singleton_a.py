@@ -5,7 +5,7 @@
 * Time: 5 min
 
 English:
-    1. Create singleton class ``Settings``
+    1. Create singleton class `Settings`
     2. Use `get_instance()` classmethod
     3. Run doctests - all must succeed
 

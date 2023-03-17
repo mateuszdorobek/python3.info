@@ -18,7 +18,6 @@ English:
 Polish:
     TODO: Polish translation
 
-
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint

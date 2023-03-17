@@ -5,7 +5,7 @@
 * Time: 5 min
 
 English:
-    1. Create singleton class ``Database``
+    1. Create singleton class `Database`
     2. Use `connect()` classmethod
     3. Run doctests - all must succeed
 
