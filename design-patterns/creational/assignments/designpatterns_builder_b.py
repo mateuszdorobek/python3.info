@@ -18,7 +18,24 @@ Polish:
     TODO: Polish translation
 
 Tests:
-    TODO: Tests
+    >>> import sys; sys.tracebacklimit = 0
+    >>> from pprint import pprint
+
+    >>> result = (
+    ...     Email()
+    ...     .with_recipient('mwatney@nasa.gov')
+    ...     .with_sender('mlewis@nasa.gov')
+    ...     .with_subject('Hello from Mars')
+    ...     .with_body('Greetings from Red Planet')
+    ...     .with_attachment('myfile.txt'.encode())
+    ... )
+
+    >>> pprint(vars(result), width=72, sort_dicts=False)
+    {'recipient': 'mwatney@nasa.gov',
+     'sender': 'mlewis@nasa.gov',
+     'subject': 'Hello from Mars',
+     'body': 'Greetings from Red Planet',
+     'attachment': b'bXlmaWxlLnR4dA=='}
 """
 from base64 import b64encode
 
