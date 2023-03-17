@@ -1,7 +1,7 @@
 """
 * Assignment: DesignPatterns Creational PrototypeDragon
 * Complexity: easy
-* Lines of code: 15 lines
+* Lines of code: 6 lines
 * Time: 8 min
 
 English:
@@ -54,16 +54,8 @@ class Dragon:
 class Dragon:
     name: str
     position: tuple[int,int] = (0,0)
-    health: int = field(init=False)
-    gold: int = field(init=False)
-
-    def __post_init__(self):
-        self.health = randint(50, 100)
-        self.gold = randint(1, 100)
+    health: int = field(default_factory=lambda: randint(50, 100))
+    gold: int = field(default_factory=lambda: randint(1, 100))
 
     def clone(self):
-        new = Dragon(name=self.name)
-        new.position = self.position
-        new.health = self.health
-        new.gold = self.gold
-        return new
+        return Dragon(**vars(self))

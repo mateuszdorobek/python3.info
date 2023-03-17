@@ -1,16 +1,18 @@
-class Singleton:
-    instance = None
+from typing import Self
+
+
+class Database:
+    connection: Self | None = None
 
     @classmethod
-    def get_instance(cls):
-        if not cls.instance:
-            cls.instance = ...
-        return cls.instance
+    def connect(cls):
+        if not cls.connection:
+            cls.connection = ...  # connect to database
+        return cls.connection
 
 
-# Creating first instance for the first time
-first = Singleton.get_instance()
+db1 = Database.connect()
+db2 = Database.connect()
 
-# Connecting for the second time
-# Will use existing instance
-second = Singleton.get_instance()
+db1 is db2
+# True

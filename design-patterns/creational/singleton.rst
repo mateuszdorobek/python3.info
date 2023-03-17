@@ -59,12 +59,6 @@ Use Case - 0x03
     :language: python
 
 
-Use Case - 0x04
----------------
-.. literalinclude:: src/designpatterns-singleton-usecase-4.py
-    :language: python
-
-
 Assignments
 -----------
 .. literalinclude:: assignments/designpatterns_singleton_a.py

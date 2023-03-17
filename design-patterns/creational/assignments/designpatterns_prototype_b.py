@@ -1,8 +1,8 @@
 """
 * Assignment: DesignPatterns Creational PrototypeTime
 * Complexity: easy
-* Lines of code: 6 lines
-* Time: 5 min
+* Lines of code: 2 lines
+* Time: 3 min
 
 English:
     1. Create class `Time` with:
@@ -12,7 +12,8 @@ English:
         d. `microsecond: int`
         e. method `.clone()`
     2. Method `.clone()` returns another `Time` with the same values
-    3. Run doctests - all must succeed
+    3. Use `vars(self)`
+    4. Run doctests - all must succeed
 
 Polish:
     TODO: Polish translation
@@ -39,7 +40,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Time:
-    ...
+    hour: int
+    minute: int
+    second: int
+    microsecond: int
 
 
 # Solution
@@ -51,8 +55,4 @@ class Time:
     microsecond: int = 0
 
     def clone(self):
-        return Time(
-            hour = self.hour,
-            minute = self.minute,
-            second = self.second,
-            microsecond = self.microsecond)
+        return Time(**vars(self))

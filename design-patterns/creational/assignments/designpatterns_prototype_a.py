@@ -1,7 +1,7 @@
 """
 * Assignment: DesignPatterns Creational PrototypeDate
 * Complexity: easy
-* Lines of code: 2 lines
+* Lines of code: 5 lines
 * Time: 3 min
 
 English:
