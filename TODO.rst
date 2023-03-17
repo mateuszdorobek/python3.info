@@ -1,6 +1,7 @@
 TODO
 ====
 * Newsletter, once a month, what changed in the book
+* Move webinars (description, scaffolding generation) to the book
 
 
 Basics
@@ -25,11 +26,6 @@ Advanced
 * OOP: Add staticmethod assignments
 * OOP: improve classmethod assignments
 * Add more parallelism, concurrency (async) to Advanced
-
-
-Machine Learning
-----------------
-* Complete rewrite
 
 
 Case Study
@@ -104,13 +100,10 @@ Pandas
 * ``pd.pipe()`` - create intermediate variable from chain
 * ``pd.pipe(lambda df: display(df) or df)`` - use display from IPython
 * ``.memory_usage(deep=True)``
-* Zrobić rozpiskę, które funkcje zwracają ``np.array`` a które robią inplace
 * poprawić przykłady z ``pd.DataFrame.fill()``, ``bfill`` oraz ``ffill``
 * ``df.read_csv('filename.csv', chunksize=5)`` # five rows at a time, przydatne gdy czytasz plik np. 20GB
 * ``for df in df.read_csv('filename.csv', chunksize=5): print(df)``
-* ``df[~...]`` # ~ - zaprzeczenie warunku
 * ``df.loc[df['col'].str.contains('a|b', regex=True, flags=re.I)]``
-* ROC Curve - stosunek True Positive do False Positive
 * ``pd.to_datetime(df['Timestamp Column'], unit='s')``
 * ``df.resample('d')`` # d - day; m - minute; to taki groupby dla indeksów dat
 * ``df['column'].shift(-1)`` # previous column
@@ -134,6 +127,12 @@ Pandas
 * ``df[(df.index.hour > 12) & (df.index.hour <= 12)]["temperature"].plot()``
 * data report by day "D" or "5T" - 5 minute intervals;
 * ``df.resample("D").max().head()dr["temperature"].resample("D").agg(["min", "max"]).plot()``
+
+
+Machine Learning
+----------------
+* Complete rewrite
+* ROC Curve - stosunek True Positive do False Positive
 
 
 Python PEP
