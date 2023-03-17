@@ -67,22 +67,18 @@ Use Case - 0x04
 
 Assignments
 -----------
-Task 1:
+.. literalinclude:: assignments/designpatterns_singleton_a.py
+    :caption: :download:`Solution <assignments/designpatterns_singleton_a.py>`
+    :end-before: # Solution
 
-    1. Create file ``designpatterns_singleton_a.py``
-    2. Create singleton class ``Settings``
+.. literalinclude:: assignments/designpatterns_singleton_b.py
+    :caption: :download:`Solution <assignments/designpatterns_singleton_b.py>`
+    :end-before: # Solution
 
-Task 2:
+.. literalinclude:: assignments/designpatterns_singleton_c.py
+    :caption: :download:`Solution <assignments/designpatterns_singleton_c.py>`
+    :end-before: # Solution
 
-    1. Create file ``designpatterns_singleton_b.py``
-    2. Create singleton class ``Logger``
-
-Task 3:
-
-    1. Create file ``designpatterns_singleton_c.py``
-    2. Create singleton class ``DatabaseConnection``
-
-Task 4:
-
-    1. Create file ``designpatterns_singleton_d.py``
-    2. Create singleton class ``Queue``
+.. literalinclude:: assignments/designpatterns_singleton_d.py
+    :caption: :download:`Solution <assignments/designpatterns_singleton_d.py>`
+    :end-before: # Solution

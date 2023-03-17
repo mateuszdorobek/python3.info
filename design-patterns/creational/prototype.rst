@@ -41,51 +41,18 @@ Solution
 
 Assignments
 -----------
-Task 1:
+.. literalinclude:: assignments/designpatterns_prototype_a.py
+    :caption: :download:`Solution <assignments/designpatterns_prototype_a.py>`
+    :end-before: # Solution
 
-    1. Create file ``designpatterns_prototype_a.py``
-    2. Create class ``Date`` with:
+.. literalinclude:: assignments/designpatterns_prototype_b.py
+    :caption: :download:`Solution <assignments/designpatterns_prototype_b.py>`
+    :end-before: # Solution
 
-        * ``year: int``
-        * ``month: int``
-        * ``day: int``
-        * method ``.clone()``
+.. literalinclude:: assignments/designpatterns_prototype_c.py
+    :caption: :download:`Solution <assignments/designpatterns_prototype_c.py>`
+    :end-before: # Solution
 
-    3. Method ``.clone()`` returns another ``Date`` with the same values
-
-Task 2:
-
-    1. Create file ``designpatterns_prototype_b.py``
-    2. Create class ``Time`` with:
-
-        * ``hour: int``
-        * ``minute: int``
-        * ``second: int``
-        * ``microsecond: int``
-        * method ``.clone()``
-
-    3. Method ``.clone()`` returns another ``Time`` with the same values
-
-Task 3:
-
-    1. Create file ``designpatterns_prototype_c.py``
-    2. Create class ``Dragon`` with:
-
-        * ``name: str``
-        * ``health: int`` random from 50 to 100
-        * ``gold: int`` random from 1 to 100
-        * ``position: tuple[int,int]`` default ``(0, 0)``
-        * method ``.clone()``
-
-    3. Method ``.clone()`` returns another ``Dragon`` with the same values
-    4. Use ``random.randint()`` to generate pseudorandom numbers
-
-.. todo:: Assignments
-          You're building a video editor similar to Adobe Premier.
-          The editor contains a timeline of various types of components
-          such as text, clips, audio, and so on. The user should be able
-          to duplicate any component. The duplicated component should be
-          added to the timeline. Look at the implementation of the ContextMenu
-          class in the prototype package of the Exercises project. What are
-          the problems in the current implementation?Refactor the code using
-          the prototype pattern. What have you achieved?
+.. literalinclude:: assignments/designpatterns_prototype_d.py
+    :caption: :download:`Solution <assignments/designpatterns_prototype_d.py>`
+    :end-before: # Solution
