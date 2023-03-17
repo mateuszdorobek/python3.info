@@ -1,4 +1,5 @@
-from __future__ import annotations
+from dataclasses import dataclass
+from typing import Self
 from abc import ABC, abstractmethod
 
 
@@ -7,27 +8,29 @@ class Component(ABC):
     def render(self) -> None: ...
 
     @abstractmethod
-    def clone(self) -> Component: ...
+    def clone(self) -> Self: ...
 
 
+@dataclass
 class Circle(Component):
-    radius: int
+    radius: int | None = None
+    color: str | None = None
 
-    def set_radius(self, value: int) -> None:
-        self.radius = value
-
-    def get_radius(self) -> int:
-        return self.radius
-
-    def clone(self) -> Component:
-        new_circle = Circle()
-        new_circle.set_radius(self.radius)
-        return new_circle
+    def clone(self) -> Self:
+        new = Circle()
+        new.radius = self.radius
+        new.color = self.color
+        return new
 
     def render(self) -> None:
         print('Rendering circle')
 
 
-class ContextMenu:
-    def duplicate(self, component: Component) -> None:
-        new_component = component.clone()
+if __name__ == '__main__':
+    a = Circle(radius=3, color='red')
+    b = a.clone()
+
+    print(f'A: radius={a.radius}, color={a.color}')
+    print(f'B: radius={b.radius}, color={b.color}')
+    # A: radius=3, color=red
+    # B: radius=3, color=red
