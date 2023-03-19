@@ -16,7 +16,7 @@ class Caretaker {
     + pop()
 }
 
-Memento <-down[plain]-* Caretaker : aggregates
-Originator -right[dashed]-> Memento : depends
+Memento -down[plain]-* Caretaker : composition
+Originator -right[dashed]-> Memento : dependency
 
 ```

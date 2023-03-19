@@ -16,7 +16,7 @@ class History {
     + pop()
 }
 
-EditorState <-down[plain]-* History : aggregates
-Editor -right[dashed]-> EditorState : depends
+EditorState -down[plain]-* History : composition
+Editor -right[dashed]-> EditorState : dependency
 
 ```

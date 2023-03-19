@@ -43,21 +43,21 @@ Types
     types/string-normalization.rst
 
 
-Sequences
+Iterables
 *********
 .. toctree::
     :maxdepth: 1
-    :caption: Sequences
+    :caption: Iterables
 
-    sequences/tuple.rst
-    sequences/list.rst
-    sequences/set.rst
-    sequences/comparison.rst
-    sequences/nested.rst
-    sequences/unpack-getitem.rst
-    sequences/unpack-slice.rst
-    sequences/unpack-assignment.rst
-    sequences/unpack-star.rst
+    iterables/tuple.rst
+    iterables/list.rst
+    iterables/set.rst
+    iterables/comparison.rst
+    iterables/nested.rst
+    iterables/unpack-getitem.rst
+    iterables/unpack-slice.rst
+    iterables/unpack-assignment.rst
+    iterables/unpack-star.rst
 
 
 Mappings
