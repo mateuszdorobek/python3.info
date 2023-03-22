@@ -11,6 +11,9 @@ Exception Raise
 
 Raising Exceptions
 ------------------
+* Exceptions can have message
+* You choose which exception best represent error
+
 Raise Exception without message:
 
 >>> raise RuntimeError
@@ -28,26 +31,17 @@ Example
 -------
 We want to check if Kelvin temperature given by user is not negative.
 Note that Kelvin temperatures below zero doesn't exist, hence it's an
-absolute scale.
+absolute scale. In order to do so, we need to ask user to input value.
+Let's assume user input ``-1``.
 
-Simulate user input (for test automation):
+>>> temperature = -1  # User input this value
 
->>> from unittest.mock import MagicMock
->>> input = MagicMock(side_effect=['-1'])
-
-In order to do so, we need to ask user to input value. Let's assume user
-input ``-1``. Remember, ``input()`` function always returns ``str`` and
-you have to convert it manually.
-
-We need to check if the temperature is not negative. If temperature is 0 or
-above, it is ok, and we can proceed with program execution. However if the
-temperature is below zero... Then we should warn user about problem and exit
-program. This is why we have exceptions. We can break execution of a program
+Now we need to check if the temperature is not negative. If temperature is 0
+or above we can proceed with program execution. However if the temperature
+is below zero... Then we should warn user about problem and exit the program.
+This is why we have exceptions. We can break execution of a program
 in erroneous situations.
 
->>> temperature = input('Type temperature: ')  # User inputs: '-1'
->>> temperature = float(temperature)
->>>
 >>> if temperature > 0.0:
 ...     print('Temperature is valid')
 ... else:
