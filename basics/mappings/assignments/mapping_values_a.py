@@ -6,22 +6,16 @@
 * Time: 2 min
 
 English:
-    1. Define `keys: list[str]` with list of `DATA` keys
-    2. Define `values: list[str]` with list of `DATA` values
-    3. Define `items: list[tuple]` with list of `DATA` key-value pairs
+    1. Define `result: list[str]` with list of `DATA` values
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `keys: list[str]` z listą kluczy z `DATA`
-    2. Zdefiniuj `values: list[str]` z listą wartości z `DATA`
-    3. Zdefiniuj `items: list[tuple]` z listą par klucz-wartość z `DATA`
+    2. Zdefiniuj `result: list[str]` z listą wartości z `DATA`
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * `list()`
-    * `dict.keys()`
     * `dict.values()`
-    * `dict.items()`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

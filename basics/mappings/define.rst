@@ -111,7 +111,8 @@ Use Case - 0x1
 ...    '895444a6': 'commit/3',
 ...    'aef731b5': 'commit/4',
 ...    '4a92bc79': 'branch/master',
-...    'b3bbd85a': 'tag/v1.0'}
+...    'b3bbd85a': 'tag/v1.0',
+... }
 
 
 Assignments
@@ -119,3 +120,5 @@ Assignments
 .. literalinclude:: assignments/mapping_define_a.py
     :caption: :download:`Solution <assignments/mapping_define_a.py>`
     :end-before: # Solution
+
+.. todo:: Assignment with dict define

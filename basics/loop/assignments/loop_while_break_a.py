@@ -8,17 +8,17 @@
 English:
     1. Use `input` in `while True` loop to ask user about number
     2. Compare user's number with `HIDDEN`:
-       a. If number is greater, print `Above`
-       b. If number is lower, print `Below`
-       c. If number is equal, print `Exactly` and break game
+       a. If number is equal, print `Exactly` and break game
+       b. If number is greater, print `Above`
+       c. If number is lower, print `Below`
     3. Run doctests - all must succeed
 
 Polish:
     1. Użyj `input` w pętli `while True` do pytania użytkownika o liczbę
     2. Porównaj liczbę wprowadzoną przez użytkownika z `HIDDEN`:
-       a. Jeżeli jest większa, to wypisz `Above`
-       b. Jeżeli jest mniejsza, to wypisz `Below`
-       c. Jeżeli jest taka sama, to wypisz `Exactly` i zakończ grę
+       a. Jeżeli jest taka sama, to wypisz `Exactly` i zakończ grę
+       b. Jeżeli jest większa, to wypisz `Above`
+       c. Jeżeli jest mniejsza, to wypisz `Below`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -37,12 +37,12 @@ HIDDEN = 4
 
 # Solution
 while True:
-    guess = input('\nType number: ')
+    guess = int(input('\nType number: '))
 
-    if int(guess) > HIDDEN:
-        print('Above')
-    elif int(guess) < HIDDEN:
-        print('Below')
-    else:
+    if guess == HIDDEN:
         print('Exactly')
         break
+    elif guess > HIDDEN:
+        print('Above')
+    elif guess < HIDDEN:
+        print('Below')

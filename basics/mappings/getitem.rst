@@ -5,6 +5,20 @@ Mapping Getitem
 * ``.get()`` returns ``None`` if key not found
 * ``.get()`` can have default value, if key not found
 
+>>> hello = {
+...    'English': 'Hello',
+...    'German': 'Guten Tag',
+...    'Polish': 'Witaj',
+... }
+>>>
+>>>
+>>> hello.get('English')
+'Hello'
+>>>
+>>> hello.get('Polish')
+'Witaj'
+
+
 
 Getitem Method
 --------------
@@ -142,7 +156,103 @@ Traceback (most recent call last):
 KeyError: -2
 
 
+Dict Switch
+-----------
+Simulate user input (for test automation):
+
+>>> from unittest.mock import MagicMock
+>>> input = MagicMock(side_effect=['French'])
+
+>>> hello = {
+...     'English': 'Hello',
+...     'German': 'Guten Tag',
+...     'Polish': 'Witaj',
+...     'default': "I don't speak this language",
+... }
+>>>
+>>>
+>>> language = input('What is your language?: ')  #input: 'French'
+>>> result = hello.get(language, hello['default'])
+>>>
+>>> print(result)
+I don't speak this language
+
+
+
 Use Case - 0x01
+---------------
+>>> MONTHS = {
+...     1: 'January',
+...     2: 'February',
+...     3: 'March',
+... }
+>>>
+>>> MONTHS[1]
+'January'
+>>>
+>>> MONTHS['1']
+Traceback (most recent call last):
+KeyError: '1'
+>>>
+>>> MONTHS['01']
+Traceback (most recent call last):
+KeyError: '01'
+
+
+Use Case - 0x02
+---------------
+>>> MONTHS = {
+...     1: 'January',
+...     2: 'February',
+...     3: 'March',
+... }
+>>>
+>>> MONTHS.get(1)
+'January'
+>>>
+>>> MONTHS.get(13)
+>>>
+>>> MONTHS.get(13, 'invalid month')
+'invalid month'
+
+
+Use Case - 0x03
+---------------
+>>> MONTHS = {
+...     1: 'January',
+...     2: 'February',
+...     3: 'March',
+...     4: 'April',
+...     5: 'May',
+...     6: 'June',
+...     7: 'July',
+...     8: 'August',
+...     9: 'September',
+...     10: 'October',
+...     11: 'November',
+...     12: 'December'
+... }
+>>>
+>>> DATE = '1961-04-12'
+>>>
+>>> year, month, day = DATE.split('-')
+>>>
+>>> year
+'1961'
+>>> month
+'04'
+>>> day
+'12'
+>>>
+>>> MONTHS[month]
+Traceback (most recent call last):
+KeyError: '04'
+>>>
+>>> MONTHS[int(month)]
+'April'
+
+
+Use Case - 0x04
 ---------------
 >>> PAYROLL = [
 ...     {'name': 'Mark Watney',   '2000-01': 2000, '2000-02': 2000, '2000-03': 2000},
@@ -214,4 +324,17 @@ Rick Martinez                          2500
 Alex Vogel            2500      2500   2500
 <BLANKLINE>
 
-.. todo:: Assignments
+
+Assignments
+-----------
+.. literalinclude:: assignments/mapping_getitem_a.py
+    :caption: :download:`Solution <assignments/mapping_getitem_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/mapping_getitem_b.py
+    :caption: :download:`Solution <assignments/mapping_getitem_b.py>`
+    :end-before: # Solution
+
+.. todo:: Assignment with dict get item []
+.. todo:: Assignment with dict get item .get()
+.. todo:: Assignment with dict get item .get() with default value

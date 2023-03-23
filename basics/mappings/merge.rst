@@ -91,4 +91,7 @@ Increment Merge Operator
  'engineer': 'Beth Johanssen'}
 
 
-.. todo:: Assignments
+.. todo:: Assignment with merging dict using |
+.. todo:: Assignment with merging dict using |=
+.. todo:: Assignment with merging dict using update()
+

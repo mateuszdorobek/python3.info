@@ -60,4 +60,5 @@ Update Method
  'pilot': 'Rick Martinez'}
 
 
-.. todo:: Assignments
+.. todo:: Assignment with dict set item using []
+.. todo:: Assignment with dict set item using update()

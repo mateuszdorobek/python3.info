@@ -57,4 +57,7 @@ Del Keyword
 {'commander': 'Melissa Lewis', 'botanist': 'Mark Watney'}
 
 
-.. todo:: Assignments
+.. todo:: Assignment with delitem
+.. todo:: Assignment with .clear()
+.. todo:: Assignment with .pop()
+.. todo:: Assignment with .popitem()

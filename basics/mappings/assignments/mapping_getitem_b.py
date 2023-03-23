@@ -28,11 +28,17 @@ Hints:
 Example:
     | Input | Output |
     |-------|--------|
+    |   a   |    a   |
     |   A   |    a   |
-    |   x   |    x   |
-    |   Ł   |    ł   |
-    |   ś   |    s   |
-    |   Ź   |    z   |
+    |   ą   |    a   |
+    |   Ą   |    a   |
+    |   b   |    b   |
+    |   B   |    B   |
+    |   c   |    c   |
+    |   C   |    c   |
+    |   ć   |    c   |
+    |   Ć   |    c   |
+    |  ...  |   ...  |
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
