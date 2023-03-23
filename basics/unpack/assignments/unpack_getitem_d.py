@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence GetItem Select
+* Assignment: Iterable GetItem Select
 * Required: yes
 * Complexity: easy
 * Lines of code: 4 lines

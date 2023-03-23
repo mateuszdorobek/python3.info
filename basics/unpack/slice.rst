@@ -402,22 +402,22 @@ Use Case - 0x03
 
 Assignments
 -----------
-.. literalinclude:: assignments/sequence_slice_a.py
-    :caption: :download:`Solution <assignments/sequence_slice_a.py>`
+.. literalinclude:: assignments/unpack_slice_a.py
+    :caption: :download:`Solution <assignments/unpack_slice_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_slice_b.py
-    :caption: :download:`Solution <assignments/sequence_slice_b.py>`
+.. literalinclude:: assignments/unpack_slice_b.py
+    :caption: :download:`Solution <assignments/unpack_slice_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_slice_c.py
-    :caption: :download:`Solution <assignments/sequence_slice_c.py>`
+.. literalinclude:: assignments/unpack_slice_c.py
+    :caption: :download:`Solution <assignments/unpack_slice_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_slice_d.py
-    :caption: :download:`Solution <assignments/sequence_slice_d.py>`
+.. literalinclude:: assignments/unpack_slice_d.py
+    :caption: :download:`Solution <assignments/unpack_slice_d.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_slice_e.py
-    :caption: :download:`Solution <assignments/sequence_slice_e.py>`
+.. literalinclude:: assignments/unpack_slice_e.py
+    :caption: :download:`Solution <assignments/unpack_slice_e.py>`
     :end-before: # Solution

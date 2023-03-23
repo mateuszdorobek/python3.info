@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Slice Header/Rows
+* Assignment: Iterable Slice Header/Rows
 * Required: yes
 * Complexity: easy
 * Lines of code: 2 lines

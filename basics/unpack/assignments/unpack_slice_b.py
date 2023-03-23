@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Slice Substr
+* Assignment: Iterable Slice Substr
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines

@@ -3,7 +3,7 @@
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Separate ip address and host name
@@ -34,11 +34,11 @@ Tests:
 
 DATA = ['10.13.37.1', 'nasa.gov']
 
-# String with IP address: 10.13.37.1
+# IP address: 10.13.37.1
 # type: str
 ip = ...
 
-# String with host name: nasa.gov
+# Host name: nasa.gov
 # type: str
 host = ...
 

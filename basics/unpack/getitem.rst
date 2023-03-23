@@ -249,22 +249,22 @@ TypeError: 'set' object is not subscriptable
 
 Assignments
 -----------
-.. literalinclude:: assignments/sequence_getitem_a.py
-    :caption: :download:`Solution <assignments/sequence_getitem_a.py>`
+.. literalinclude:: assignments/unpack_getitem_a.py
+    :caption: :download:`Solution <assignments/unpack_getitem_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_getitem_b.py
-    :caption: :download:`Solution <assignments/sequence_getitem_b.py>`
+.. literalinclude:: assignments/unpack_getitem_b.py
+    :caption: :download:`Solution <assignments/unpack_getitem_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_getitem_c.py
-    :caption: :download:`Solution <assignments/sequence_getitem_c.py>`
+.. literalinclude:: assignments/unpack_getitem_c.py
+    :caption: :download:`Solution <assignments/unpack_getitem_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_getitem_d.py
-    :caption: :download:`Solution <assignments/sequence_getitem_d.py>`
+.. literalinclude:: assignments/unpack_getitem_d.py
+    :caption: :download:`Solution <assignments/unpack_getitem_d.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/sequence_getitem_e.py
-    :caption: :download:`Solution <assignments/sequence_getitem_e.py>`
+.. literalinclude:: assignments/unpack_getitem_e.py
+    :caption: :download:`Solution <assignments/unpack_getitem_e.py>`
     :end-before: # Solution

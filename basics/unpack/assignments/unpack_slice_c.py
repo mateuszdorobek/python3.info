@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Slice Sequence
+* Assignment: Iterable Slice Sequence
 * Required: yes
 * Complexity: easy
 * Lines of code: 2 lines

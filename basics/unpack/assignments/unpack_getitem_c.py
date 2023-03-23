@@ -1,14 +1,14 @@
 """
-* Assignment: Sequence GetItem Positive
+* Assignment: Iterable GetItem Negative
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 3 min
 
 English:
-    1. Define `result_a: tuple` with row from `DATA` at index 2
-    2. Define `result_b: tuple` with row from `DATA` at index 4
-    3. Define `result_c: tuple` with row from `DATA` at index 6
+    1. Define `result_a: tuple` with row from `DATA` at index -5
+    2. Define `result_b: tuple` with row from `DATA` at index -3
+    3. Define `result_c: tuple` with row from `DATA` at index -1
     4. Non-functional requirements:
        a. Use only indexes (`getitem`)
        b. Do not use `str.split()`, `slice`, `for`, `while` or any other
@@ -16,9 +16,9 @@ English:
     5. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result_a: tuple` z wierszem z `DATA` o indeksie 2
-    2. Zdefiniuj `result_b: tuple` z wierszem z `DATA` o indeksie 4
-    3. Zdefiniuj `result_c: tuple` z wierszem z `DATA` o indeksie 6
+    1. Zdefiniuj `result_a: tuple` z wierszem z `DATA` o indeksie -5
+    2. Zdefiniuj `result_b: tuple` z wierszem z `DATA` o indeksie -3
+    3. Zdefiniuj `result_c: tuple` z wierszem z `DATA` o indeksie -1
     4. Wymagania niefunkcjonalne:
        a. Korzystaj tylko z indeksów (`getitem`)
        b. Nie używaj `str.split()`, `slice`, `for`, `while` lub
@@ -69,19 +69,19 @@ DATA = [
     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ]
 
-# Row from `DATA` at index 2
+# Row from `DATA` at index -5
 # type: tuple[float|str]
 result_a = ...
 
-# Row from `DATA` at index 4
+# Row from `DATA` at index -3
 # type: tuple[float|str]
 result_b = ...
 
-# Row from `DATA` at index 6
+# Row from `DATA` at index -1
 # type: tuple[float|str]
 result_c = ...
 
 # Solution
-result_a = DATA[2]
-result_b = DATA[4]
-result_c = DATA[6]
+result_a = DATA[-5]
+result_b = DATA[-3]
+result_c = DATA[-1]

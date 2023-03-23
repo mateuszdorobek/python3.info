@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Slice Text
+* Assignment: Iterable Slice Text
 * Required: yes
 * Complexity: easy
 * Lines of code: 8 lines

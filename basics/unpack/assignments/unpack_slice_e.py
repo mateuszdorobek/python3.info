@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Slice Train/Test
+* Assignment: Iterable Slice Train/Test
 * Required: yes
 * Complexity: easy
 * Lines of code: 4 lines

@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence GetItem Header
+* Assignment: Iterable GetItem Header
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines

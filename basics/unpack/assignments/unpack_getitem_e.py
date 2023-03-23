@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence GetItem Header/Data
+* Assignment: Iterable GetItem Header/Data
 * Required: yes
 * Complexity: easy
 * Lines of code: 11 lines
