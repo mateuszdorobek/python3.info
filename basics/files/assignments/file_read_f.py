@@ -82,6 +82,17 @@ with open(FILE, mode='w') as file:
 # type: list[dict]
 result = []
 
+with open(FILE) as file:
+    for line in file:
+        line = line.strip()
+        if len(line) == 0:
+            continue
+        if line.startswith('#'):
+            continue
+        ip, *hosts = line.split()
+
+
+
 # Solution
 result = []
 
