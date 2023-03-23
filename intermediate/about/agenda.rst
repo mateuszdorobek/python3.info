@@ -7,21 +7,19 @@ Agenda
 
 Day 1
 -----
-* 15 min - Kwestie organizacyjne: przedstawienie się, przerwy, spreadsheet
-* 75 min - Przygotowanie środowiska do pracy: github, git, python, doctest
+* 10 min - Intro: Welcome message, course introduction, agenda, spreadsheet
+* 80 min - Setup: IDE, Git, repository, Python, doctest
 * 30 min - Zadania testowe ewaluujące umiejętności użytkownika
 * 60 min - Live Coding rozwiązań zadań i demonstracja funkcji IDE, tj. debugging, praca z VCS, refactoring, dokumentacja i typy, sygnatury funkcji
-* 45 min - Unpacking assignment
-* 45 min - Unpacking parameters
-* 60 min - Unpacking arguments
+* 180 min - Star: assignment, parameters, arguments, signature
 * 30 min - Enumeracja (enum)
-* 60 min - Pattern Matching (match case)
+* 30 min - Pattern Matching (match, case)
 
 
 Day 2
 -----
-* 120 min - Anotacje typów (typing)
-* 100 min - Data-klasy (dataclasses)
+* 120 min - Type Annotation: types, iterables, mappings, callables, types
+* 100 min - Dataclasses: definition, relations, post_init, metadata
 * 100 min - Praca z plikami JSON (dane nierelacyjne i relacyjne, daty i czas, zagnieżdżone dane relacyjne)
 * 100 min - Praca z plikami CSV (konwersja formatów danych)
 

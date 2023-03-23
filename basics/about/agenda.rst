@@ -7,74 +7,50 @@ Agenda
 
 Day 1
 -----
-* 10m - Welcome message, course introduction, agenda
-* 50m - Python and IDE setup, features and debugging
-* 45m - Python basic syntax, operators, builtins
-* 60m - Type Int
-* 60m - Type Float
-* 45m - Type Bool
-* 15m - Type None
-* 75m - Type Str
-* 60m - Type Str Methods
+* 10 min - Intro: Welcome message, course introduction, agenda, spreadsheet
+* 80 min - Setup: IDE, Git, repository, Python, doctest
+* 60 min - Syntax: variables, comments, operators, builtins
+* 100 min - Numeric types: int, float
+* 90 min - Logic types: bool, None
+* 120 min - String types: str
 
 
 Day 2
 -----
-* 45m - Sequence List
-* 45m - Sequence Tuple
-* 30m - Sequence Set
-* 30m - Sequence Nested
-* 30m - Sequence GetItem
-* 60m - Sequence Slice
-* 30m - Sequence Unpack
-* 50m - Mapping Dict
-* 50m - Mapping Generate
-* 50m - Mapping Nested
+* 150 min - Iterable types: list, tuple, set
+* 120 min - Mapping types: dict
+* 30 min - Nested types: list[tuple], list[list], list[dict]
+* 60 min - Unpacking: assignment, getitem (index), slice
+* 60 min - Conditionals: if, elif, else, conditional assignment
+* 30 min - Operators: comparison, logic, membership
 
 
 Day 3
 -----
-* 15m - Conditional Operators
-* 15m - Conditional Membership
-* 45m - Conditional Statements
-* 45m - Conditional Expressions
-* 45m - Exceptions
-* 45m - Loop While
-* 45m - Loop For
-* 45m - Loop Nested
-* 30m - Loop Unpack
-* 45m - Loop Dict
-* 45m - Comprehensions
+* 120 min - Loop: While
+* 60 min - Loop: For
+* 60 min - Loop: nested, unpacking, dict iteration
+* 75 min - Comprehensions: list, tuple, set, dict, nested
 
 
 Day 4
 -----
-* 20m - File Path
-* 15m - File Access Modes
-* 45m - File Write
-* 45m - File Read
-* 5m - File Append
-* 10m - File Encoding
-* 10m - File Binary
-* 30m - Function Definition
-* 30m - Function Return
-* 60m - Function Parameters
-* 60m - Function Arguments
-* 30m - Function Scope
-* 15m - Function Recurrence
-* 30m - Function Generator
-* 15m - Function Lambda
+* 30 min - Files: path, encoding, access modes (text and binary)
+* 135 min - Files: write, read, append
+* 45 min - Functions: definition, return, scope
+* 120 min - Functions: parameters, arguments
+* 90 min - Exceptions: raise, catching, hierarchy, assertion, definition
 
 
 Day 5
 -----
-* 45m - OOP Classes and Instances
-* 45m - OOP Attributes
-* 45m - OOP Initializer Method
-* 45m - OOP Methods
-* 45m - OOP Methods and Attributes
-* 45m - OOP Inheritance
-* 45m - OOP Overload
-* 45m - OOP Stringify Objects
-* 45m - OOP Architecture
-* 15m - Recap, Certificates and Survey
+* 45 min - OOP Classes and Instances
+* 45 min - OOP Attributes
+* 45 min - OOP Initializer Method
+* 45 min - OOP Methods
+* 45 min - OOP Methods and Attributes
+* 45 min - OOP Inheritance
+* 45 min - OOP Overload
+* 45 min - OOP Stringify Objects
+* 45 min - OOP Architecture
+* 15 min - Recap, Certificates and Survey
