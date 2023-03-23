@@ -450,18 +450,18 @@ Sum stdin (standard input):
 
 Assignments
 -----------
-.. literalinclude:: assignments/function_generators_a.py
-    :caption: :download:`Solution <assignments/function_generators_a.py>`
+.. literalinclude:: assignments/idiom_generators_a.py
+    :caption: :download:`Solution <assignments/idiom_generators_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/function_generators_b.py
-    :caption: :download:`Solution <assignments/function_generators_b.py>`
+.. literalinclude:: assignments/idiom_generators_b.py
+    :caption: :download:`Solution <assignments/idiom_generators_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/function_generators_c.py
-    :caption: :download:`Solution <assignments/function_generators_c.py>`
+.. literalinclude:: assignments/idiom_generators_c.py
+    :caption: :download:`Solution <assignments/idiom_generators_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/function_generators_d.py
-    :caption: :download:`Solution <assignments/function_generators_d.py>`
+.. literalinclude:: assignments/idiom_generators_d.py
+    :caption: :download:`Solution <assignments/idiom_generators_d.py>`
     :end-before: # Solution
