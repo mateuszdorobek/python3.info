@@ -7,7 +7,6 @@ Unpack Star
 * ``_`` is regular variable name, not a special Python syntax
 * ``_`` by convention is used for data we don't want to access in future
 
-
 .. figure:: img/unpack-assignment,args,params.png
 
 
@@ -253,6 +252,66 @@ avg=3.88, species='virginica'
 
 Use Case - 0x07
 ---------------
+>>> line = '1969-07-21, 02:56:15, WARNING, Neil Armstrong first words on the Moon'
+>>> d, t, lvl, *msg = line.split(', ')
+>>>
+>>> d
+'1969-07-21'
+>>> t
+'02:56:15'
+>>> lvl
+'WARNING'
+>>> msg
+['Neil Armstrong first words on the Moon']
+
+
+Use Case - 0x08
+---------------
+>>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
+>>> username, password, uid, *others = line.split(':')
+>>>
+>>> username
+'watney'
+>>> password
+'x'
+>>> uid
+'1000'
+>>> others
+['1000', 'Mark Watney', '/home/watney', '/bin/bash']
+
+
+Use Case - 0x09
+---------------
+>>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
+>>> username, _, uid, *_ = line.split(':')
+>>>
+>>> username
+'watney'
+>>> uid
+'1000'
+
+Use Case - 0x0A
+---------------
+>>> line = '4.9,3.1,1.5,0.1,setosa'
+>>> *values, species = line.split(',')
+>>> values
+['4.9', '3.1', '1.5', '0.1']
+>>> species
+'setosa'
+
+
+Use Case - 0x0B
+---------------
+>>> data = (5.8, 2.7, 5.1, 1.9, 'virginica')
+>>> *values, species = data
+>>> values
+[5.8, 2.7, 5.1, 1.9]
+>>> species
+'virginica'
+
+
+Use Case - 0x0C
+---------------
 * Iris 2D
 
 >>> DATA = [
@@ -270,24 +329,25 @@ avg=2.55 species='setosa'
 avg=3.48 species='versicolor'
 
 
+
 Assignments
 -----------
-.. literalinclude:: assignments/unpack_star_a.py
-    :caption: :download:`Solution <assignments/unpack_star_a.py>`
+.. literalinclude:: assignments/star_assignment_a.py
+    :caption: :download:`Solution <assignments/star_assignment_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_star_b.py
-    :caption: :download:`Solution <assignments/unpack_star_b.py>`
+.. literalinclude:: assignments/star_assignment_b.py
+    :caption: :download:`Solution <assignments/star_assignment_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_star_c.py
-    :caption: :download:`Solution <assignments/unpack_star_c.py>`
+.. literalinclude:: assignments/star_assignment_c.py
+    :caption: :download:`Solution <assignments/star_assignment_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_star_d.py
-    :caption: :download:`Solution <assignments/unpack_star_d.py>`
+.. literalinclude:: assignments/star_assignment_d.py
+    :caption: :download:`Solution <assignments/star_assignment_d.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_star_e.py
-    :caption: :download:`Solution <assignments/unpack_star_e.py>`
+.. literalinclude:: assignments/star_assignment_e.py
+    :caption: :download:`Solution <assignments/star_assignment_e.py>`
     :end-before: # Solution
