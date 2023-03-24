@@ -1,5 +1,6 @@
 """
 * Assignment: Unpack Star List
+* Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

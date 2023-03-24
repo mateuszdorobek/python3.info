@@ -1,5 +1,6 @@
 """
 * Assignment: Unpack Star Nested
+* Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

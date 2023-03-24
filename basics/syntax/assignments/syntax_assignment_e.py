@@ -27,7 +27,7 @@ Tests:
 """
 
 # With value None
-# type: None
+# type: NoneType
 result = ...
 
 

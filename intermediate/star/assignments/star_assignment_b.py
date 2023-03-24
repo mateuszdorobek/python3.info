@@ -1,5 +1,6 @@
 """
 * Assignment: Unpack Star Func
+* Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

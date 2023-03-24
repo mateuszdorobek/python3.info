@@ -9,7 +9,7 @@ English:
     1. Define function `divide`
     2. Function takes two arguments
     3. Function returns result of the division of both arguments
-    4. If division cannot be made, raise `ValueError` with
+    4. If division cannot be made, stop function and print:
        "Argument `b` cannot be zero"
     5. Run doctests - all must succeed
 
@@ -17,7 +17,7 @@ Polish:
     1. Zdefiniuj funkcję `divide`
     2. Funkcja przyjmuje dwa argumenty
     3. Funkcja zwraca wynik dzielenia dwóch argumentów
-    4. Jeżeli nie można podzielić, podnieś `ValueError` z
+    4. Jeżeli nie można podzielić zakończ funkcję i wypisz:
        "Argument `b` cannot be zero"
     5. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -31,8 +31,7 @@ Tests:
     'Object `divide` must be a function'
 
     >>> divide(4, 0)
-    Traceback (most recent call last):
-    ValueError: Argument `b` cannot be zero
+    Argument `b` cannot be zero
 
     >>> divide(4, 2)
     2.0
@@ -42,5 +41,6 @@ Tests:
 # Solution
 def divide(a, b):
     if b == 0:
-        raise ValueError('Argument `b` cannot be zero')
+        print('Argument `b` cannot be zero')
+        return None
     return a / b

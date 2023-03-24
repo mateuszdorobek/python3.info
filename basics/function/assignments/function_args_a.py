@@ -7,12 +7,12 @@
 
 English:
     1. Define function which takes sequence of integers as an argument
-    2. Sum only even numbers
+    2. Sum only even numbers, use `even()`
     3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj funkcję biorącą sekwencję liczb całkowitych jako argument
-    2. Zsumuj tylko parzyste liczby
+    2. Zsumuj tylko parzyste liczby, użyj `even()`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -32,7 +32,9 @@ Tests:
     2550
 """
 
+def even(x):
+    return x % 2 == 0
 
 # Solution
 def total(sequence):
-    return sum(x for x in sequence if x % 2 == 0)
+    return sum(x for x in sequence if even(x))

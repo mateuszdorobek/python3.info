@@ -1,5 +1,6 @@
 """
 * Assignment: Unpack Star Nested
+* Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min
@@ -44,7 +45,6 @@ Tests:
      (6.3, 2.9, 5.6, 1.8, 'virginica'),
      (6.4, 3.2, 4.5, 1.5, 'versicolor'),
      (4.7, 3.2, 1.3, 0.2, 'setosa')]
-
 """
 
 DATA = [
@@ -57,10 +57,12 @@ DATA = [
     (4.7, 3.2, 1.3, 0.2, 'setosa')]
 
 # first line from DATA
+# example: ('Sepal length', 'Sepal width', ...)
 # type: tuple[str]
 header = ...
 
 # all the other lines from DATA, beside first line
+# example: [(5.8, 2.7, 5.1, 1.9, 'virginica'),  ...]
 # type: list[tuple]
 rows = ...
 
