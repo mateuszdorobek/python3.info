@@ -49,7 +49,7 @@ Tests:
     123.0
 """
 
-PLN = 1
+PLN = 1.00
 VAT_23 = 23 / 100
 
 # 100.0 PLN, without tax
