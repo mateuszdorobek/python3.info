@@ -1,4 +1,4 @@
-Sequence List
+Iterable List
 =============
 * Mutable - can add, remove, and modify items
 * Stores elements of any type
@@ -90,8 +90,8 @@ Get Item
 * Returns a value at given index
 * Note, that Python start counting at zero (zero based indexing)
 * Raises ``IndexError`` if the index is out of range
-* More information in `Sequence GetItem`
-* More information in `Sequence Slice`
+* More information in `Iterable GetItem`
+* More information in `Iterable Slice`
 
 >>> colors = ['red', 'green', 'blue']
 >>>

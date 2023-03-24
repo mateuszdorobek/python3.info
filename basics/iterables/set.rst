@@ -1,4 +1,4 @@
-Sequence Set
+Iterable Set
 ============
 * Only unique values
 * Mutable - can add, remove, and modify items

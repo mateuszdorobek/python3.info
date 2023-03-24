@@ -1,4 +1,4 @@
-Sequence Comparison
+Iterable Comparison
 ===================
 * ``tuple`` - fast and memory efficient
 * ``list`` - extensible and flexible
@@ -15,16 +15,38 @@ of two or three numbers.
 
 Lists, on the other hand, are more like arrays in other languages. They
 tend to hold a varying number of objects all of which have the same type
-and which are operated on one-by-one. For example, os.listdir('.') returns
-a list of strings representing the files in the current directory. Functions
-which operate on this output would generally not break if you added another
-file or two to the directory.
+and which are operated on one-by-one. For example, ``os.listdir('.')``
+returns a list of strings representing the files in the current directory.
+Functions which operate on this output would generally not break if you
+added another file or two to the directory.
 
 Tuples are immutable, meaning that once a tuple has been created, you can't
 replace any of its elements with a new value. Lists are mutable, meaning
 that you can always change a list's elements. Only immutable elements can
 be used as dictionary keys, and hence only tuples and not lists can be used
 as keys.
+
+>>> data = [1, 2, 3]
+>>> id(data)  # doctest: +SKIP
+4441671808
+>>>
+>>> data += [4, 5, 6]
+>>> id(data)  # doctest: +SKIP
+4441671808
+>>>
+>>> data
+[1, 2, 3, 4, 5, 6]
+
+>>> data = (1, 2, 3)
+>>> id(data)  # doctest: +SKIP
+4437523008
+>>>
+>>> data += (4, 5, 6)
+>>> id(data)  # doctest: +SKIP
+4450573696
+>>>
+>>> data
+(1, 2, 3, 4, 5, 6)
 
 
 Tuple
@@ -66,8 +88,8 @@ Memory Footprint
 >>> getsizeof( (1,2,3) )
 64
 >>>
->>> getsizeof( [1,2,3] )  # doctest: +SKIP
-120
+>>> getsizeof( [1,2,3] )
+88
 >>>
 >>> getsizeof( {1,2,3} )
 216

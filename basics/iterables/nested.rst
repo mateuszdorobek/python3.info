@@ -1,8 +1,8 @@
-Sequence Nested
+Iterable Nested
 ===============
-* Sequence is an object
-* Sequence element is an object too
-* Therefore an element of a sequence could be another sequence
+* Iterable is an object
+* Iterable element is an object too
+* Therefore an element of a Iterable could be another sequence
 * There is no limit how nested it could be
 
 >>> obj = 1
@@ -195,6 +195,18 @@ TypeError: object of type 'NoneType' has no len()
 
 Append vs Extend
 ----------------
+>>> data = [1,2,3]
+>>> data.extend([4,5,6])
+>>>
+>>> data
+[1, 2, 3, 4, 5, 6]
+
+>>> data = [1,2,3]
+>>> data.append([4,5,6])
+>>>
+>>> data
+[1, 2, 3, [4, 5, 6]]
+
 Append elements using ``list.append()``:
 
 >>> data = [
