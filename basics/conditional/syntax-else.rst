@@ -67,7 +67,57 @@ Inner block, true statement, second line
 
 Value Check
 -----------
->>> number = 3
+>>> age = 40
+>>>
+>>> if age >= 18:
+...     print('adult')
+... else:
+...     print('minor')
+...
+adult
+
+Note, that in Poland you are an adult when above 18 years old.
+
+
+Conditional Assignment
+----------------------
+>>> age = 40
+>>>
+>>> if age >= 18:
+...     adult = True
+... else:
+...     adult = False
+>>>
+>>> print(adult)
+True
+
+Note, that in Poland you are an adult when above 18 years old.
+
+
+Checking If Empty
+-----------------
+>>> age = input('What is your age?: ')  #input: '' (nothing)
+>>>
+>>> if not age:
+...     print('Did you enter your age correctly?')
+...
+Did you enter your age correctly?
+
+
+Membership
+----------
+>>> admins = ['mwatney', 'mlewis', 'rmartinez']
+>>> login = 'avogel'
+
+>>> if login in admins:
+...     is_admin = True
+... else:
+...     is_admin = False
+
+
+Use Case - 0x01
+---------------
+>>> number = 5
 >>>
 >>> if number % 2 == 0:
 ...     print('even')
@@ -76,35 +126,9 @@ Value Check
 odd
 
 
-Conditional Assignment
-----------------------
->>> number = 3
->>>
->>> if number % 2 == 0:
-...     status = 'even'
-... else:
-...     status = 'odd'
->>>
->>> print(status)
-odd
-
-
-Checking If Empty
------------------
->>> name = input('What is your name?: ')  #input: '' (nothing)
->>>
->>> if name:
-...     print(f'My name is... {name}')
-... else:
-...     print('Did you forget to type your name?')
-Did you forget to type your name?
-
-
 Use Case - 0x01
 ---------------
-* Cosmonaut
-
->>> country = 'Russia'
+>>> country = 'USA'
 >>>
 >>> if country == 'USA':
 ...     job = 'astronaut'
@@ -112,32 +136,30 @@ Use Case - 0x01
 ...     job = 'cosmonaut'
 >>>
 >>> print(job)
-cosmonaut
+astronaut
 
 
 Use Case - 0x02
 ---------------
-* Any
-
 >>> data = [True, False, True]
 >>>
 >>> if any(data):
 ...     print('Yes')
 ... else:
 ...     print('No')
+...
 Yes
 
 
 Use Case - 0x03
 ---------------
-* All
-
 >>> data = [True, False, True]
 >>>
 >>> if all(data):
 ...     print('Yes')
 ... else:
 ...     print('No')
+...
 No
 
 
