@@ -1,5 +1,9 @@
 Exception Hierarchy
 ===================
+* All exceptions derives from ``BaseException``
+* There are three most important exceptions: ``KeyboardInterrupt``, ``SystemExit``, ``GeneratorExit``
+* All others exceptions derive from ``Exception``
+* There are also warnings, which derives from ``Warning``
 
 .. figure:: img/exception-hierarchy.png
 
@@ -8,6 +12,9 @@ Exception Hierarchy
     ``BaseException`` and 56 other classes derived directly or indirectly
     from ``Exception``. Source [#Halterman2018]_
 
+
+Hierarchy Diagram
+-----------------
 .. code-block:: text
 
     BaseException

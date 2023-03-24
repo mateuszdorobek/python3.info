@@ -126,3 +126,7 @@ Assignments
 .. literalinclude:: assignments/exception_custom_a.py
     :caption: :download:`Solution <assignments/exception_custom_a.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/exception_custom_b.py
+    :caption: :download:`Solution <assignments/exception_custom_b.py>`
+    :end-before: # Solution
