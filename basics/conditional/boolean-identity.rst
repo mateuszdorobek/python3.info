@@ -3,11 +3,6 @@ Boolean Identity
 * ``=`` assignment
 * ``==`` checks for object equality
 * ``is`` checks for object identity
-
-
-Identity Check
---------------
-* ``is`` checks for object identity
 * ``is`` compares ``id()`` output for both objects
 * CPython: compares the memory address a object resides in
 * Testing strings with ``is`` only works when the strings are interned
@@ -18,66 +13,70 @@ Since Python 3.8 - Compiler produces a ``SyntaxWarning`` when identity checks
 by the language spec. The warning advises users to use equality tests
 (``==`` and ``!=``) instead.
 
->>> data = None
->>>
->>> data is None
-True
->>> data is not None
-False
 
-Is empty:
+Has Value
+---------
+Has value:
+
+>>> x = 1
+>>>
+>>> if x:
+...     print('Has value')
+Has value
+>>>
+>>> if x is not None:
+...     print('Has value')
+Has value
+
+
+Is Empty
+--------
+>>> x = None
+>>>
+>>> x is None
+True
+>>>
+>>> x == None
+True
+
+Example:
 
 >>> data = None
 >>>
 >>> if not data:
 ...     print('Empty')
 Empty
-
->>> data = None
 >>>
 >>> if data is None:
 ...     print('Empty')
 Empty
 
-Has value:
 
->>> data = 1
->>>
->>> if data:
-...     print('Has value')
-Has value
-
->>> data = 1
->>>
->>> if data is not None:
-...     print('Has value')
-Has value
-
-
-Bool Identity
--------------
+Is True of False
+----------------
 * `True` and `False` are singletons
 * Comparing identity is faster
 * Comparing values will yield the same result
 
->>> name = None
+>>> x = False
 >>>
->>> name is None
+>>> x == False
 True
->>> name is False
-False
+>>>
+>>> x is False
+True
 
->>> found = True
+>>> x = True
 >>>
->>> found == True
+>>> x == True
 True
->>> found is True
+>>>
+>>> x is True
 True
 
 Example:
 
 >>> adult = True
->>>
 >>>
 >>> if adult:
 ...     print('Yes')
@@ -91,60 +90,176 @@ Yes
 ...     print('Yes')
 Yes
 
+>>> x = True
+>>>
+>>> id(x)  # doctest: +SKIP
+4385159736
+>>>
+>>> id(True)  # doctest: +SKIP
+4385159736
 
-String Identity
----------------
+
+Is Numeric
+----------
+* Type ``int`` caches value from -5 to 256
+* For those values identity check is ``True``
+* For values lower than -5 or greater than 256 identity check is ``False``
+
+>>> x = 256
+>>>
+>>> x == 256
+True
+>>>
+>>> x is 256  # doctest: +SKIP
+<...>: SyntaxWarning: "is" with a literal. Did you mean "=="?
+True
+
+>>> x = 257
+>>>
+>>> x == 257
+True
+>>>
+>>> x is 257  # doctest: +SKIP
+<...>: SyntaxWarning: "is" with a literal. Did you mean "=="?
+False
+
+
+Is String
+---------
 * String instances differs
 * You cannot compare their identity
 * There is a caching mechanism in Python, which sometimes yield the same result
 * In order to compare strings, you should compare their values, not identities
 
->>> a = 'Mark Watney'
->>> b = 'Mark Watney'
+>>> name = 'Mark Watney'
 >>>
->>> a == b
+>>> name == 'Mark Watney'
 True
->>> a is b
+>>> name is 'Mark Watney'  # doctest: +SKIP
+<...>: SyntaxWarning: "is" with a literal. Did you mean "=="?
+True
+
+
+Is Type or Instance
+-------------------
+* ``type()``
+* ``isinstance()``
+
+Int:
+
+>>> x = 1
+>>>
+>>> type(x) is int
+True
+>>>
+>>> isinstance(x, int)
+True
+
+Float:
+
+>>> x = 1.0
+>>>
+>>> type(x) is float
+True
+>>>
+>>> isinstance(x, float)
+True
+
+Numeric:
+
+>>> x = 1.0
+>>>
+>>> type(x) in (int, float)
+True
+>>>
+>>> isinstance(x, int | float)
+True
+
+Bool:
+
+>>> x = True
+>>>
+>>> type(x) is bool
+True
+>>>
+>>> isinstance(x, bool)
+True
+
+>>> x = True
+>>>
+>>> type(x) is int
 False
+>>>
+>>> isinstance(x, int)
+True
+>>>
+>>> bool.mro()  # bool inherits from int
+[<class 'bool'>, <class 'int'>, <class 'object'>]
 
->>> 'Mark Watney' is 'Mark Watney'  # doctest: +SKIP
-<...>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+String:
+
+>>> x = 'Mark Watney'
+>>>
+>>> type(x) is str
+True
+>>>
+>>> isinstance(x, str)
+True
+
+List:
+
+>>> x = [1, 2, 3]
+>>>
+>>> type(x) is list
+True
+>>>
+>>> isinstance(x, list)
+True
+
+Iterable:
+
+>>> x = [1, 2, 3]
+>>>
+>>> type(x) in (list, tuple, set)
+True
+>>>
+>>> isinstance(x, list | tuple | set)
+True
+
+Dict:
+
+>>> x = {'firstname': 'Mark', 'lastname': 'Watney'}
+>>>
+>>> type(x) is dict
+True
+>>>
+>>> isinstance(x, dict)
 True
 
 
-Type Checking
--------------
->>> data = 1337
->>>
->>> if type(data) is int:
-...     print('Integer')
-Integer
->>>
->>> if type(data) in (int, float):
-...     print('Numeric')
-Numeric
+Performance
+-----------
+* Tested on Python 3.11.2
 
->>> data = 'Mark'
->>>
->>> if type(data) is str:
-...     print('String')
-String
+SetUp:
 
->>> data = []
->>>
->>> if type(data) is list:
-...     print('List')
-List
->>>
->>> if type(data) in (list, tuple, set):
-...     print('Sequence')
-Sequence
+>>> x = True
 
->>> data = {}
->>>
->>> if type(data) is dict:
-...     print('Dict')
-Dict
+Value comparison:
+
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x == True
+...
+52 ns ± 23.8 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Identity check:
+
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x is True
+...
+39.5 ns ± 18.7 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+
 
 
 .. todo:: Assignments
