@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence List Many
+* Assignment: Iterable List Many
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines

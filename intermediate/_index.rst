@@ -15,10 +15,20 @@ Unpack
     :maxdepth: 1
     :caption: Unpack
 
-    unpack/assignment.rst
-    unpack/star.rst
-    unpack/parameters.rst
-    unpack/arguments.rst
+    star/assignment.rst
+    star/star.rst
+    star/parameters.rst
+    star/arguments.rst
+    star/signature.rst
+
+
+Idiom
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Idiom
+
+    idiom/generators.rst
 
 
 Enum

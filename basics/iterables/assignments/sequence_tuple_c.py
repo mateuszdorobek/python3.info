@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Tuple Mean
+* Assignment: Iterable Tuple Mean
 * Required: no
 * Complexity: medium
 * Lines of code: 8 lines

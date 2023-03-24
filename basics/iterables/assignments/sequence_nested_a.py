@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Nested Create
+* Assignment: Iterable Nested Create
 * Required: yes
 * Complexity: easy
 * Lines of code: 4 lines

@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence List Modify
+* Assignment: Iterable List Modify
 * Required: no
 * Complexity: easy
 * Lines of code: 3 lines

@@ -15,56 +15,50 @@ Values Leaking
 --------------
 * Values defined in function does not leak out
 
->>> def run(a, b=1):
-...     c = 2
+>>> def login():
+...     username = 'mwatney'
+...     password = 'nasa'
 >>>
 >>>
->>> print(a)
+>>> print(username)
 Traceback (most recent call last):
-NameError: name 'a' is not defined
+NameError: name 'username' is not defined
 >>>
->>> print(b)
+>>> print(password)
 Traceback (most recent call last):
-NameError: name 'b' is not defined
+NameError: name 'password' is not defined
 >>>
->>> print(c)
+>>>
+>>> login()
+>>>
+>>> print(username)
 Traceback (most recent call last):
-NameError: name 'c' is not defined
+NameError: name 'username' is not defined
 >>>
->>> run(0)
->>>
->>> print(a)
+>>> print(password)
 Traceback (most recent call last):
-NameError: name 'a' is not defined
->>>
->>> print(b)
-Traceback (most recent call last):
-NameError: name 'b' is not defined
->>>
->>> print(c)
-Traceback (most recent call last):
-NameError: name 'c' is not defined
+NameError: name 'password' is not defined
 
 
 Outer Scope
 -----------
 * Functions has access to global values
 
->>> data = [1, 2, 3]
+>>> user = ('Mark', 'Watney')
 >>>
 >>>
->>> def run():
-...     print(data)
+>>> def login():
+...     print(user)
 >>>
 >>>
->>> print(data)
-[1, 2, 3]
+>>> print(user)
+('Mark', 'Watney')
 >>>
->>> run()
-[1, 2, 3]
+>>> login()
+('Mark', 'Watney')
 >>>
->>> print(data)
-[1, 2, 3]
+>>> print(user)
+('Mark', 'Watney')
 
 
 Shadowing
@@ -75,22 +69,22 @@ Shadowing
 * After function return, the original value of a shadowed variable
   is restored
 
->>> data = [1, 2, 3]
+>>> user = ('Mark', 'Watney')
 >>>
 >>>
->>> def run():
-...     data = [10, 20, 30]  # Shadows name 'data' from outer scope
-...     print(data)
+>>> def login():
+...     user = ('Melissa', 'Lewis')  # Shadows name 'user' from outer scope
+...     print(user)
 >>>
 >>>
->>> print(data)
-[1, 2, 3]
+>>> print(user)
+('Mark', 'Watney')
 >>>
->>> run()
-[10, 20, 30]
+>>> login()
+('Melissa', 'Lewis')
 >>>
->>> print(data)
-[1, 2, 3]
+>>> print(user)
+('Mark', 'Watney')
 
 
 Global
@@ -98,23 +92,23 @@ Global
 * ``global`` keyword allows modification of global variable
 * Using ``global`` keyword is considered as a bad practice
 
->>> data = [1, 2, 3]
+>>> user = ('Mark', 'Watney')
 >>>
 >>>
->>> def run():
-...     global data
-...     data = [10, 20, 30]
-...     print(data)
+>>> def login():
+...     global user
+...     user = ('Melissa', 'Lewis')
+...     print(user)
 >>>
 >>>
->>> print(data)
-[1, 2, 3]
+>>> print(user)
+('Mark', 'Watney')
 >>>
->>> run()
-[10, 20, 30]
+>>> login()
+('Melissa', 'Lewis')
 >>>
->>> print(data)
-[10, 20, 30]
+>>> print(user)
+('Melissa', 'Lewis')
 
 
 Global Scope
@@ -142,10 +136,9 @@ Global Scope
  'firstname': 'Mark',
  'lastname': 'Watney'}
 
->>> class Astronaut:
-...    pass
+>>> def login():
+...     pass
 >>>
->>> mark = Astronaut()
 >>>
 >>> globals()  # doctest: +SKIP +ELLIPSIS
 {'__name__': '__main__',
@@ -155,8 +148,7 @@ Global Scope
  '__spec__': None,
  '__annotations__': {},
  '__builtins__': <module 'builtins' (built-in)>,
- 'Astronaut': <class '__main__.Astronaut'>,
- 'mark': <__main__.Astronaut object at 0x...>}
+ 'login': <function __main__.login()>}
 
 
 Local Scope
@@ -174,25 +166,21 @@ Local Scope
  '__annotations__': {},
  '__builtins__': <module 'builtins' (built-in)>}
 
->>> def echo():
-...     a = 1
+>>> def login():
+...     username = 'mwatney'
+...     password = 'nasa'
 ...     print(locals())
 >>>
 >>>
->>> echo()
-{'a': 1}
-
->>> def echo(a, b=2):
-...     c = 3
-...     print(locals())
->>>
->>>
->>> echo(1)
-{'a': 1, 'b': 2, 'c': 3}
+>>> login()
+{'username': 'mwatney', 'password': 'nasa'}
 
 If outside the function, will return the same as ``globals()``:
 
 >>> locals() == globals()
+True
+>>>
+>>> locals() is globals()
 True
 
 

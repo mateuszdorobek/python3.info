@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Set Create
+* Assignment: Iterable Set Create
 * Required: yes
 * Complexity: easy
 * Lines of code: 5 lines

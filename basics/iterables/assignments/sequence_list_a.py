@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence List Create
+* Assignment: Iterable List Create
 * Required: yes
 * Complexity: easy
 * Lines of code: 5 lines

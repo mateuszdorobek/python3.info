@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Set Many
+* Assignment: Iterable Set Many
 * Required: yes
 * Complexity: easy
 * Lines of code: 9 lines

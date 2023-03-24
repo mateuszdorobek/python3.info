@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Tuple Select
+* Assignment: Iterable Tuple Select
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines
@@ -39,7 +39,7 @@ Tests:
     >>> assert result.count('virginica') == 2, \
     'Result should have 2 elements of virginica'
     >>> assert result.count('setosa') == 1, \
-    'Result should have 1 elements of setosa'
+    'Result should have 1 element of setosa'
     >>> assert result.count('versicolor') == 2, \
     'Result should have 2 elements of versicolor'
 

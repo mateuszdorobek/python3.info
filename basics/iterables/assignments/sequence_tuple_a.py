@@ -1,5 +1,5 @@
 """
-* Assignment: Sequence Tuple Create
+* Assignment: Iterable Tuple Create
 * Required: yes
 * Complexity: easy
 * Lines of code: 5 lines
@@ -84,7 +84,7 @@ result_c = ...
 # type: tuple[str]
 result_d = ...
 
-# Tuple with elements: True, False, True
+# Tuple with elements: True, False
 # type: tuple[bool]
 result_e = ...
 

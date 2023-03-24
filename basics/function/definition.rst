@@ -14,8 +14,8 @@ Function Definition
     function
     func
     fn
-        A set of instructions which has common name. Function will execute all of
-        those instructions each time it is called.
+        A set of instructions which has common name. Function will execute
+        all of those instructions each time it is called.
 
     call
     function call
@@ -23,12 +23,12 @@ Function Definition
         Run a function.
 
     procedure
-        The same as function. Way back in history there was a distinction that
-        the procedures don't take an arguments and functions does. Now this
-        blurred completely. Hardly anyone is talking about procedures now, so the
-        same stuck, but it is very rarely used. Most common old-school programmers
-        whill use that word. You may find this also in documentation of aged
-        projects.
+        The same as function. Way back in history there was a distinction
+        that the procedures don't take an arguments and functions does.
+        Now this blurred completely. Hardly anyone is talking about procedures
+        now, so the same stuck, but it is very rarely used. Most common
+        old-school programmers whill use that word. You may find this also
+        in documentation of aged projects.
 
 
 Syntax
@@ -101,27 +101,33 @@ This is ``snake_case()`` name. It is Pythonic way:
 
 Choosing Good Name
 ------------------
-People, especially those who uses simple IDEs or notepads without sophisticated
-autocompletion will tend to create function with shorter names in order to save
-couple of characters each time when it is called. This at the beginning could
-be a good idea, but in the long run will lead to disaster. Coming back to your
-code after a year or two will require you to rediscover the code and read it
-once again.
+People, especially those who uses simple IDEs or notepads without
+sophisticated autocompletion will tend to create function with shorter
+names in order to save couple of characters each time when it is called.
+This at the beginning could be a good idea, but in the long run will lead
+to disaster. Coming back to your code after a year or two will require you
+to rediscover the code and read it once again.
 
 >>> def var(data, m):
 ...     return sum((Xi-m) ** 2 for Xi in data) / len(data)
+>>>
+>>> var([1,2,3,4], 1)  # doctest: +SKIP
+>>> vars([1,2,3,4])  # doctest: +SKIP
 
-Function name ``var()`` is very similar to built-in function ``vars()`` which does
-something completely different. It shows all the attributes of an object passed
-to it. A single misspell, such as forgetting about letter ``s`` at the end of a
-name may lead to printing all the internal information about object publicly.
-This is very dangerous for publicly accessed systems.
+Function name ``var()`` is very similar to built-in function ``vars()`` which
+does something completely different. It shows all the attributes of an object
+passed to it. A single misspell, such as forgetting about letter ``s`` at the
+end of a name may lead to printing all the internal information about object
+publicly. This is very dangerous for publicly accessed systems.
 
-More verbose names, such as ``variance()`` will distinguish this function from
-built-in ``vars()`` far better:
+More verbose names, such as ``variance()`` will distinguish this function
+from built-in ``vars()`` far better:
 
 >>> def variance(data, m):
 ...     return sum((Xi-m) ** 2 for Xi in data) / len(data)
+>>>
+>>> variance([1,2,3,4], 1)  # doctest: +SKIP
+>>> vars([1,2,3,4])  # doctest: +SKIP
 
 This way a probability for mistake is far lower and even if, then will be
 better discoverable.
@@ -142,8 +148,8 @@ Although prefer naming it differently:
 
 Special Function Names
 ----------------------
-System functions names starts and ends with 'dunder'. The word 'dunder' stands
-for double underscores: ``__``:
+System functions names starts and ends with 'dunder'. The word 'dunder'
+stands for double underscores: ``__``:
 
 >>> def __import__(module_name):
 ...     pass

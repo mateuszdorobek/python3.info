@@ -201,3 +201,15 @@ Assignments
 .. literalinclude:: assignments/function_parameters_c.py
     :caption: :download:`Solution <assignments/function_parameters_c.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/function_parameters_d.py
+    :caption: :download:`Solution <assignments/function_parameters_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/function_parameters_e.py
+    :caption: :download:`Solution <assignments/function_parameters_e.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/function_parameters_f.py
+    :caption: :download:`Solution <assignments/function_parameters_f.py>`
+    :end-before: # Solution
