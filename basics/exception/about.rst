@@ -1,10 +1,17 @@
-Exception Commonly Raised
-=========================
+Exception About
+===============
+* Used when error occurs
+* You can catch exception and handles erroneous situation
+* If file does not exists
+* If no permissions to read file
+* If function argument is invalid type (ie. ``int('one')``)
+* If value is incorrect (ie. negative Kelvin temperature)
+* If network or database connection could not be established
 
 
 AttributeError
 --------------
-Attribute reference or assignment fails:
+* Attribute reference or assignment fails
 
 >>> name = 'Mark'
 >>> name.append('Watney')
@@ -14,7 +21,7 @@ AttributeError: 'str' object has no attribute 'append'
 
 IndexError
 ----------
-Sequence subscript is out of range:
+* Sequence subscript is out of range
 
 >>> DATA = ['a', 'b', 'c']
 >>> DATA[100]
@@ -24,7 +31,7 @@ IndexError: list index out of range
 
 IsADirectoryError
 -----------------
-Trying to open directory instead of file:
+* Trying to open directory instead of file
 
 >>> open('/tmp')
 Traceback (most recent call last):
@@ -33,7 +40,7 @@ IsADirectoryError: [Errno 21] Is a directory: '/tmp'
 
 FileNotFoundError
 -----------------
-File does not exists:
+* File does not exists
 
 >>> open('notexisting.txt')
 Traceback (most recent call last):
@@ -42,7 +49,7 @@ FileNotFoundError: [Errno 2] No such file or directory: 'notexisting.txt'
 
 KeyError
 --------
-Dictionary key is not found:
+* Dictionary key is not found
 
 >>> DATA = {'a': 1, 'b': 2}
 >>> DATA['x']
@@ -52,7 +59,7 @@ KeyError: 'x'
 
 ModuleNotFoundError
 -------------------
-Module could not be located:
+* Module could not be located
 
 >>> import math
 >>> import match
@@ -66,7 +73,7 @@ it first.
 
 NameError
 ---------
-Local or global name is not found:
+* Local or global name is not found
 
 >>> print(firstname)
 Traceback (most recent call last):
@@ -75,7 +82,7 @@ NameError: name 'firstname' is not defined
 
 SyntaxError
 -----------
-Parser encounters a syntax error:
+* Parser encounters a syntax error
 
 >>> if True
 ...     print('Yes')
@@ -85,7 +92,7 @@ SyntaxError: expected ':'
 
 IndentationError
 ----------------
-Syntax errors related to incorrect indentation:
+* Syntax errors related to incorrect indentation
 
 >>> if True:
 ...     print('Hello!')
@@ -97,7 +104,7 @@ IndentationError: unexpected indent
 
 TypeError
 ---------
-Operation or function is applied to an object of inappropriate type:
+* Operation or function is applied to an object of inappropriate type
 
 >>> 42 + 'a'
 Traceback (most recent call last):
@@ -123,7 +130,7 @@ TypeError: cannot unpack non-iterable int object
 
 ValueError
 ----------
-Argument has an invalid value:
+* Argument has an invalid value
 
 >>> a, b, c = 1, 2
 Traceback (most recent call last):

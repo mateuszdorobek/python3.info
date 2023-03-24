@@ -60,6 +60,17 @@ Iterables
     iterables/unpack-star.rst
 
 
+Unpack
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Unpack
+
+    unpack/getitem.rst
+    unpack/slice.rst
+    unpack/assignment.rst
+
+
 Mappings
 ********
 .. toctree::
@@ -73,7 +84,6 @@ Mappings
     mappings/items.rst
     mappings/nested.rst
     mappings/getitem.rst
-    mappings/switch.rst
     mappings/setitem.rst
     mappings/delitem.rst
     mappings/merge.rst
@@ -99,22 +109,6 @@ Conditional
     conditional/boolean-identity.rst
     conditional/boolean-operators.rst
     conditional/boolean-membership.rst
-
-
-Exception
-*********
-.. toctree::
-    :maxdepth: 1
-    :caption: Exception
-
-    exception/raise.rst
-    exception/commonly-raised.rst
-    exception/catching.rst
-    exception/hierarchy.rst
-    exception/assert.rst
-    exception/traceback.rst
-    exception/custom.rst
-    exception/exit-status.rst
 
 
 Loops
@@ -183,7 +177,23 @@ Functions
     function/parameters.rst
     function/arguments.rst
     function/scope.rst
-    function/generators.rst
+
+
+Exception
+*********
+.. toctree::
+    :maxdepth: 1
+    :caption: Exception
+
+    exception/about.rst
+    exception/raise.rst
+    exception/hierarchy.rst
+    exception/catching.rst
+    exception/assert.rst
+    exception/traceback.rst
+    exception/custom.rst
+    exception/groups.rst
+    exception/exit-status.rst
 
 
 Object Oriented Programming
