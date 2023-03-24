@@ -22,8 +22,8 @@ Multiline string:
 ... Third line"""
 
 
-Quotes or Apostrophe
---------------------
+Quotes or Apostrophes
+---------------------
 * ``"`` and ``'`` works the same
 * Choose one and keep consistency in code
 * Python console prefers single quote (``'``) character
@@ -31,37 +31,62 @@ Quotes or Apostrophe
 * :pep:`257` -- Docstring Conventions: For multiline ``str`` always use three
   double quote (``"""``) characters
 
-Python console prefers single quote (``'``):
+Both ``"`` and ``'`` works the same
 
->>> data = 'My name is José Jiménez'
->>> data
-'My name is José Jiménez'
+>>> a = 'It is Monty Python'
+>>> b = "It is Monty Python"
+>>>
+>>> a == b
+True
 
-Python console prefers single quote (``'``):
+Python console prefers single quote (``'``) character:
 
->>> data = "My name is José Jiménez"
->>> data
-'My name is José Jiménez'
+>>> text = 'It is Monty Python'
+>>> text
+'It is Monty Python'
+>>>
+>>> text = "It is Monty Python"
+>>> text
+'It is Monty Python'
+
+Why we have both?
+
+>>> text = 'It\'s Monty Python'
+>>> text = "It's Monty Python"
 
 It's better to use double quotes, when text has apostrophes.
-This is the behavior of Python console:
+This is the behavior of Python console, which prefers less escape characters:
 
->>> data = 'My name\'s José Jiménez'
->>> data
-"My name's José Jiménez"
+>>> text = 'It\'s Monty Python'
+>>> text
+"It's Monty Python"
 
 HTML and XML uses double quotes to enclose attribute values, hence it's
 better to use single quotes for the string:
 
->>> data = '<a href="https://python.astrotech.io">Python and Machine Learning</a>'
->>> data
-'<a href="https://python.astrotech.io">Python and Machine Learning</a>'
+>>> html = '<a href="https://python.astrotech.io">Python Book</a>'
+>>> html
+'<a href="https://python.astrotech.io">Python Book</a>'
+>>>
+>>> html = "<a href=\"https://python.astrotech.io\">Python Book</a>"
+>>> html
+'<a href="https://python.astrotech.io">Python Book</a>'
+
+Errors:
+
+>>> text = 'It's Monty Python'
+Traceback (most recent call last):
+SyntaxError: unterminated string literal (detected at line 1)
+
+>>> html = "<a href="https://python.astrotech.io">Python Book</a>"
+Traceback (most recent call last):
+SyntaxError: invalid syntax
 
 :pep:`257` -- Docstring Conventions: For multiline ``str`` always use three
 double quote (``"""``) characters
 
->>> data = """My name's \"José Jiménez\""""
->>> data = '''My name\'s "José Jiménez"'''
+>>> text = """It's \"Monty Python\""""
+>>> text = '''It\'s "Monty Python"'''
 
 
 Docstring
@@ -81,7 +106,7 @@ it's a docstring:
 ... to accept, one we are unwilling to postpone, and one we intend to win,
 ... and the others, too."""  # doctest: +SKIP
 
->>> data = """We choose to go to the Moon!
+>>> text = """We choose to go to the Moon!
 ... We choose to go to the Moon in this decade and do the other things,
 ... not because they are easy, but because they are hard;
 ... because that goal will serve to organize and measure the best of our
@@ -120,3 +145,7 @@ Assignments
 .. literalinclude:: assignments/type_strdefine_b.py
     :caption: :download:`Solution <assignments/type_strdefine_b.py>`
     :end-before: # Solution
+
+.. todo:: assignments with ord()
+.. todo:: assignments with chr()
+.. todo:: assignments with ascii()

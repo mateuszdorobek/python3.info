@@ -394,3 +394,11 @@ Homework
 .. literalinclude:: assignments/type_float_h.py
     :caption: :download:`Solution <assignments/type_float_h.py>`
     :end-before: # Solution
+
+.. todo:: assignments with average calculation mean(iris)
+.. todo:: assignments with currency conversion
+.. todo:: assignments with temperature conversion
+.. todo:: assignments with isinstance() and type()
+.. todo:: assignments with round()
+.. todo:: assignments with pow()
+.. todo:: assignments with abs()

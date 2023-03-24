@@ -216,16 +216,16 @@ Use Case - 0x02
 Use Case - 0x03
 ---------------
 >>> PLN = 1
->>> EUR = 4.63 * PLN
->>> USD = 4.20 * PLN
+>>> EUR = 4.71 * PLN  # 2023-03-19 17:00 GMT+1
+>>> USD = 4.41 * PLN  # 2023-03-19 17:00 GMT+1
 >>>
 >>>
->>> cena = 100*PLN
+>>> price = 100*PLN
 >>>
->>> round(cena // EUR)
+>>> round(price // EUR)
 21
->>> round(cena // USD)
-23
+>>> round(price // USD)
+22
 
 
 Assignments
@@ -264,3 +264,11 @@ Homework
 .. literalinclude:: assignments/type_int_h.py
     :caption: :download:`Solution <assignments/type_int_h.py>`
     :end-before: # Solution
+
+
+.. todo:: assignments with sum(values)
+.. todo:: assignments with isinstance() and type()
+.. todo:: assignments with round()
+.. todo:: assignments with bin()
+.. todo:: assignments with hex()
+.. todo:: assignments with oct()

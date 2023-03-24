@@ -406,3 +406,6 @@ Assignments
 .. literalinclude:: assignments/type_bool_b.py
     :caption: :download:`Solution <assignments/type_bool_b.py>`
     :end-before: # Solution
+
+.. todo:: assignments with all() and any()
+.. todo:: assignments with isinstance() and type()
