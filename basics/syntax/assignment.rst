@@ -1,7 +1,7 @@
 Syntax Assignment
 =================
 * Identifier is a formal name for variable
-* Variables can change it's value during the program
+* Variable can change it's value during the program
 * In Python there are no constants
 * ``NameError`` when using not declared variable
 * ``AttributeError`` when cannot assign to variables
@@ -9,6 +9,13 @@ Syntax Assignment
 
 Variables
 ---------
+* Variable names are case sensitive
+* Names should use only lowercase letters and/or digits
+* Variable names can have digits in it, but not as a first character
+* Variable can change it's value during the program
+* Use underscore ``_`` for multi-word variable names
+* By convention you should use use Latin characters and English names
+
 Identifiers are case sensitive. Use lowercase letters for variable names:
 
 >>> name = 'Mark Watney'
@@ -16,8 +23,10 @@ Identifiers are case sensitive. Use lowercase letters for variable names:
 By convention you should use use Latin characters and English names
 (Non-ASCII characters in an identifier):
 
->>> name = 'Mark'
+>>> imie = 'Mark'
 >>> imię = 'Mark'
+
+Note, that word "imie" means first name in Polish language.
 
 Underscore ``_`` is used for multi-word names
 
@@ -62,6 +71,9 @@ BUt the number cannot be the first character (otherwise will produce
 
 Constants
 ---------
+* Python do not distinguish between variables and constants
+* Convention: variables with uppercase names should should not change during program
+
 Identifiers (variable/constant names) are case sensitive.
 Uppercase letters are used for constants (by convention):
 
@@ -82,22 +94,27 @@ tell you):
 
 Variables vs. Constants
 -----------------------
-* Variables vs. constants - Names are case sensitive
+* Identifier names are case sensitive
+* Physical units use names similar to their notation (camel case or Pascal case)
+
+Example:
 
 >>> name = 'Mark Watney'  # variable
 >>> NAME = 'Mark Watney'  # constant
 >>> Name = 'Mark Watney'  # class
 
+Use Case:
+
 Definition of second, minute or hour does not change based on location
 or country (those values should be constants).
-
-Definition of workday, workweek and workmonth differs based on location
-- each country can have different work times (those values should be
-variables).
 
 >>> SECOND = 1
 >>> MINUTE = 60 * SECOND
 >>> HOUR = 60 * MINUTE
+
+Definition of workday, workweek and workmonth differs based on location
+- each country can have different work times (those values should be
+variables).
 
 >>> workday = 8 * HOUR
 >>> workweek = 40 * HOUR

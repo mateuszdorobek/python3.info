@@ -7,6 +7,7 @@ String
 * Either quotes (") or apostrophes (') will work
 * Pick one and be consistent
 * Do not mix - ``str`` opening and closing characters must be the same
+* More information in `String Define`
 
 Either quotes (") or apostrophes (') will work. This topic will be covered
 in depth while talking about string type.
@@ -26,46 +27,19 @@ SyntaxError: unterminated string literal (detected at line 1)
 String Interpolation
 --------------------
 * String interpolation will substitute variable
-* F-string were introduced in Python 3.6
-* ``str.format()`` exists since Python 3.0
-* ``%-string`` is old (legacy) style from Python 1 and 2 era
 * More information in `String Literals`
 
 >>> name = 'Mark'
->>> result = 'Hello {name}'
->>> result
+>>>
+>>> 'Hello {name}'
 'Hello {name}'
-
-F-string (preferred):
-
->>> name = 'Mark'
->>> result = f'Hello {name}'
->>> result
+>>>
+>>> f'Hello {name}'
 'Hello Mark'
 
-String format (legacy):
-
->>> name = 'Mark'
->>> result = 'Hello {}'.format(name)
->>> result
-'Hello Mark'
-
->>> name = 'Mark'
->>> result = 'Hello {0}'.format(name)
->>> result
-'Hello Mark'
-
->>> name = 'Mark'
->>> result = 'Hello {x}'.format(x=name)
->>> result
-'Hello Mark'
-
-%-format (legacy):
-
->>> name = 'Mark'
->>> result = 'Hello %s' % name
->>> result
-'Hello Mark'
+Note, that adding ``f`` in front of the string will turn on the string
+interpolation - variable substitution. Without it, string will be interpreted
+as it is - with curly braces and variable name in it.
 
 
 Print
@@ -90,17 +64,12 @@ Hello World
 Print interpolated string:
 
 >>> name = 'Mark'
->>> print('Hello {name}')
-Hello {name}
-
->>> name = 'Mark'
 >>> print(f'Hello {name}')
 Hello Mark
 
 
-End of Lines
-------------
-* No semicolon (``;``) at the end of lines
+Newlines
+--------
 * Use ``\n`` for newline
 * Do not add space after ``\n`` character
 

@@ -12,6 +12,17 @@ Line Length
 * ``django``: 120 for code, 300 for models
 
 
+End of Lines
+------------
+* No semicolon (``;``) at the end of lines
+
+>>> a = 1
+>>> b = 2
+>>>
+>>> a + b
+3
+
+
 The Zen of Python
 -----------------
 * :pep:`20` -- The Zen of Python
