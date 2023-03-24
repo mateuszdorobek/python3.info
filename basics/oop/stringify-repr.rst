@@ -13,48 +13,53 @@ Inherited
 ---------
 Object without ``__repr__()`` method overloaded prints their memory address:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
->>>
->>>
->>> astro = Astronaut('Mark', 'Watney')
->>>
->>> astro  # doctest: +ELLIPSIS
-<__main__.Astronaut object at 0x...>
->>>
->>> repr(astro)  # doctest: +ELLIPSIS
-'<__main__.Astronaut object at 0x...>'
->>>
->>> astro.__repr__()  # doctest: +ELLIPSIS
-'<__main__.Astronaut object at 0x...>'
+...
+...
+>>> mark = User('Mark', 'Watney')
+
+>>> mark  # doctest: +SKIP
+<__main__.User object at 0x10aef7450>
+
+>>> repr(mark)  # doctest: +SKIP
+'<__main__.User object at 0x10aef7450>'
+
+>>> mark.__repr__()  # doctest: +SKIP
+'<__main__.User object at 0x10aef7450>'
+
+>>> f'{mark!r}'  # doctest: +SKIP
+'<__main__.User object at 0x10aef7450>'
 
 
 Overloaded
 ----------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 ...
 ...     def __repr__(self):
-...         clsname = self.__class__.__name__
 ...         firstname = self.firstname
 ...         lastname = self.lastname
-...         return f'{clsname}({firstname=}, {lastname=})'
->>>
->>>
->>> astro = Astronaut('Mark', 'Watney')
->>>
->>> astro
-Astronaut(firstname='Mark', lastname='Watney')
->>>
->>> repr(astro)
-"Astronaut(firstname='Mark', lastname='Watney')"
->>>
->>> astro.__repr__()
-"Astronaut(firstname='Mark', lastname='Watney')"
+...         return f'User({firstname=}, {lastname=})'
+...
+...
+>>> mark = User('Mark', 'Watney')
+
+>>> mark
+User(firstname='Mark', lastname='Watney')
+
+>>> repr(mark)
+"User(firstname='Mark', lastname='Watney')"
+
+>>> mark.__repr__()
+"User(firstname='Mark', lastname='Watney')"
+
+>>> f'{mark!r}'
+"User(firstname='Mark', lastname='Watney')"
 
 
 Assignments

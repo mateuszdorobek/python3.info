@@ -16,16 +16,6 @@ OOP Method Arguments
     method
         Functions in the class which takes instance as first argument (``self``)
 
-Syntax:
-
->>> class MyClass:
-...     def mymethod(self):
-...         pass
->>>
->>>
->>> my = MyClass()
->>> my.mymethod()
-
 
 Method Parameters
 -----------------

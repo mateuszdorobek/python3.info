@@ -7,118 +7,107 @@ OOP Inheritance Super
 
 Super With Methods
 ------------------
->>> class Parent:
+>>> class User:
 ...     def say_hello(self):
-...         print('hello')
->>>
->>>
->>> class Child(Parent):
+...         print(f'User says hello')
+
+Defining method with the same name will overload one inherited from
+superclass.
+
+>>> class Admin(User):
 ...     def say_hello(self):
-...         super().say_hello()
-...         print('yo')
->>>
->>>
->>> obj = Child()
->>> obj.say_hello()
-hello
-yo
+...         print(f'Admin says hello')
+...
+>>> mark = Admin()
+>>> mark.say_hello()
+Admin says hello
 
 Order of ``super()`` is important:
 
->>> class Parent:
+>>> class Admin(User):
 ...     def say_hello(self):
-...         print('hello')
+...         super().say_hello()
+...         print(f'Admin says hello')
 >>>
 >>>
->>> class Child(Parent):
+>>> mark = Admin()
+>>> mark.say_hello()
+User says hello
+Admin says hello
+
+>>> class Admin(User):
 ...     def say_hello(self):
-...         print('yo')
+...         print(f'Admin says hello')
 ...         super().say_hello()
 >>>
 >>>
->>> obj = Child()
->>> obj.say_hello()
-yo
-hello
+>>> mark = Admin()
+>>> mark.say_hello()
+Admin says hello
+User says hello
 
 
 Super With Attributes
 ---------------------
->>> class Parent:
+>>> class User:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
+...         self.is_admin = False
+
+Without ``super()``:
+
+>>> class Admin(User):
+...     def __init__(self):
+...         self.is_admin = True
+...
 >>>
->>>
->>> class Child(Parent):
+>>> mark = Admin()
+>>> vars(mark)
+{'is_admin': True}
+
+With ``super()`` first:
+
+>>> class Admin(User):
 ...     def __init__(self):
 ...         super().__init__()
-...         self.job = 'astronaut'
->>>
->>>
->>> obj = Child()
->>> vars(obj)
-{'firstname': 'Mark', 'lastname': 'Watney', 'job': 'astronaut'}
+...         self.is_admin = True
+...
+>>> mark = Admin()
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney', 'is_admin': True}
 
+With ``super()`` last (will override child's attributes):
 
-Super Attributes Problem
-------------------------
-Note, that the problem exists when Parent and a Child defines attribute with the
-same name. Than while calling ``super()`` it will overload field value.
-
->>> class Parent:
+>>> class Admin(User):
 ...     def __init__(self):
-...         self.firstname = 'Mark'
-...         self.lastname = 'Watney'
-...         self.job = 'unemployed'
->>>
->>>
->>> class Child(Parent):
-...     def __init__(self):
-...         self.job = 'astronaut'
+...         self.is_admin = True
 ...         super().__init__()
+...
 >>>
->>>
->>> obj = Child()
->>> vars(obj)
-{'job': 'unemployed', 'firstname': 'Mark', 'lastname': 'Watney'}
-
->>> class Parent:
-...     def __init__(self):
-...         self.firstname = 'Mark'
-...         self.lastname = 'Watney'
-...         self.job = 'unemployed'
->>>
->>>
->>> class Child(Parent):
-...     def __init__(self):
-...         super().__init__()
-...         self.job = 'astronaut'
->>>
->>>
->>> obj = Child()
->>> vars(obj)
-{'firstname': 'Mark', 'lastname': 'Watney', 'job': 'astronaut'}
+>>> mark = Admin()
+>>> mark.is_admin
+False
 
 
 Super Init with Args
 --------------------
->>> class Parent:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
-...         self.firstname = 'Mark'
-...         self.lastname = 'Watney'
-...         self.job = 'unemployed'
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.is_admin = False
 >>>
 >>>
->>> class Child(Parent):
+>>> class Admin(User):
 ...     def __init__(self, firstname, lastname):
 ...         super().__init__(firstname, lastname)
-...         self.job = 'astronaut'
+...         self.is_admin = True
 >>>
 >>>
->>> obj = Child('Mark', 'Watney')
->>> vars(obj)
-{'firstname': 'Mark', 'lastname': 'Watney', 'job': 'astronaut'}
+>>> mark = Admin('Mark', 'Watney')
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney', 'is_admin': True}
 
 
 References

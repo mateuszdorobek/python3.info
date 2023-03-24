@@ -1,50 +1,32 @@
 OOP Init Setattr
 ================
-* It's a first method run after object is initiated
-* All classes has default ``__init__()``
-
-.. glossary::
-
-    constructor
-        Method called at object instantiation used to create object.
-        Constructor is called on not fully initialized object and hence do
-        not have access to object methods. Constructor should return
-        ``None``.
-
-    initializer
-        Method called at object instantiation used to fill empty object with
-        values. Initializer is called upon object initialization and hence
-        can modify object and use its methods. Initializer should return
-        ``None``.
 
 
-Syntax
-------
->>> class MyClass:
-...     myattribute: str
+>>> class User:
+...     firstname: str
+...     lastname: str
 ...
-...     def __init__(self, myvar):
-...         self.myattribute = myvar
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
 >>>
 >>>
->>> myobj = MyClass('myvalue')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> print(myobj.myattribute)
-myvalue
-
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
 
 
 Constant Attributes
 -------------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
->>>
->>>
->>> mark = Astronaut()
->>> melissa = Astronaut()
->>>
+
+>>> mark = User()
+>>> melissa = User()
+
 >>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney'}
 >>>
@@ -54,76 +36,99 @@ Constant Attributes
 
 Variable Attributes
 -------------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, a, b):
 ...         self.firstname = a
 ...         self.lastname = b
->>>
->>>
->>> mark = Astronaut('Mark', 'Watney')
+
+>>> mark = User('Mark', 'Watney')
 >>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney'}
->>>
->>> melissa = Astronaut(a='Melissa', b='Lewis')
->>> vars(melissa)
-{'firstname': 'Melissa', 'lastname': 'Lewis'}
+
+>>> mark = User(a='Mark', b='Watney')
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
 
 
 Better Names
 ------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
->>>
->>>
->>> mark = Astronaut('Mark', 'Watney')
+
+>>> mark = User('Mark', 'Watney')
 >>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney'}
->>>
->>> melissa = Astronaut(firstname='Melissa', lastname='Lewis')
->>> vars(melissa)
-{'firstname': 'Melissa', 'lastname': 'Lewis'}
+
+>>> mark = User(firstname='Mark', lastname='Watney')
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
 
 
 Combine Attributes
 ------------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.name = f'{firstname} {lastname}'
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
->>>
+>>> mark = User('Mark', 'Watney')
+>>> vars(mark)
+{'name': 'Mark Watney'}
+
 >>> print(mark.name)
 Mark Watney
 >>>
 >>> print(mark.firstname)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'firstname'
+AttributeError: 'User' object has no attribute 'firstname'
 >>>
 >>> print(mark.lastname)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'lastname'
+AttributeError: 'User' object has no attribute 'lastname'
 
 
-Example
--------
+Use Case - 0x01
+---------------
+>>> class Point:
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+>>>
+>>>
+>>> a = Point(10, 20)
+>>> b = Point(10, y=20)
+>>> c = Point(x=10, y=20)
+>>> d = Point(y=20, x=10)
+
+
+Use Case - 0x02
+---------------
 >>> class Point:
 ...     def __init__(self, x, y, z=0):
 ...         self.x = x
 ...         self.y = y
 ...         self.z = z
->>>
->>>
->>> p1 = Point(10, 20)
->>> p2 = Point(x=10, y=20)
->>> p3 = Point(10, 20, 30)
->>> p4 = Point(10, 20, z=30)
->>> p5 = Point(x=10, y=20, z=30)
+
+>>> a = Point(10, 20)
+>>> b = Point(10, y=20)
+>>> c = Point(x=10, y=20)
+>>> d = Point(y=20, x=10)
+
+>>> e = Point(10, 20, 30)
+>>> f = Point(10, 20, z=30)
+>>> g = Point(10, y=20, z=30)
+>>> h = Point(10, z=30, y=20)
+>>> i = Point(x=10, y=20, z=30)
+>>> j = Point(x=10, z=30, y=20)
+>>> k = Point(y=20, x=10, z=30)
+>>> l = Point(y=20, z=30, x=10)
+>>> m = Point(z=30, x=10, y=20)
+>>> n = Point(z=30, y=20, x=10)
 
 
-Use Case - 0x01
+Use Case - 0x03
 ---------------
 >>> class Iris:
 ...     def __init__(self, sepal_length, sepal_width,
@@ -133,23 +138,9 @@ Use Case - 0x01
 ...         self.petal_length = petal_length
 ...         self.petal_width = petal_width
 ...         self.species = species
->>>
->>>
+
 >>> setosa = Iris(5.1, 3.5, 1.4, 0.2, 'setosa')
 
-
-Use Case - 0x02
----------------
->>> class Iris:
-...     def __init__(self, sepal_length, sepal_width,
-...                  petal_length, petal_width, species):
-...         self.sepal_length = sepal_length
-...         self.sepal_width = sepal_width
-...         self.petal_length = petal_length
-...         self.petal_width = petal_width
-...         self.species = species
->>>
->>>
 >>> virginica = Iris(
 ...     sepal_length=5.8,
 ...     sepal_width=2.7,
@@ -158,7 +149,7 @@ Use Case - 0x02
 ...     species='virginica')
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 * Dataclasses
 
@@ -201,4 +192,8 @@ Assignments
 
 .. literalinclude:: assignments/oop_init_setattr_b.py
     :caption: :download:`Solution <assignments/oop_init_setattr_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_init_setattr_c.py
+    :caption: :download:`Solution <assignments/oop_init_setattr_c.py>`
     :end-before: # Solution

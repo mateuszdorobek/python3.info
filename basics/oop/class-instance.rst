@@ -1,15 +1,15 @@
 OOP Class Instance
 ==================
-* Instances are also known as Objects
-* Two newlines between class and code
-* ``snake_case`` names
+* Definition: instance - object created from class
+* Instances are objects
+* Convention: ``snake_case`` names
+* Convention: Two newlines between class and instances
 
 .. glossary::
 
     instance
     object
-        Object created from class.
-
+        Computer software entity created from a class.
 
 
 Class vs Instance
@@ -23,69 +23,132 @@ Class vs Instance
     Instances. Source: [#instances]_
 
 
-Instances
----------
+One Class, One Instance
+-----------------------
 One class and one instance:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
->>>
->>>
->>> watney = Astronaut()
+...
+>>> mark = User()
 
+
+One Class, Many Instances
+-------------------------
 One class and three instances:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> watney = Astronaut()
->>> lewis = Astronaut()
->>> martinez = Astronaut()
+>>> mark = User()
+>>> melissa = User()
+>>> rick = User()
 
-Two classes and two instances:
 
->>> class Astronaut:
-...     pass
->>>
->>> class Cosmonaut:
-...     pass
->>>
->>>
->>> watney = Astronaut()
->>> twardowski = Cosmonaut()
+Many Classes, Many Instances
+----------------------------
+Two classes and six instances. One instance of an ``Admin`` class, and
+five instances of ``User`` class:
 
-Two classes and four instances (two instances of an ``Astronaut`` class,
-and two of a ``Cosmonaut`` class):
+>>> class User:
+...     pass
+...
+>>> class Admin:
+...     pass
+...
+>>>
+>>> melissa = Admin()
+>>> mark = User()
+>>> rick = User()
+>>> alex = User()
+>>> beth = User()
+>>> chris = User()
 
->>> class SeniorAstronaut:
-...     pass
->>>
->>> class SeniorCosmonaut:
-...     pass
->>>
->>>
->>> mark_watney = SeniorAstronaut()
->>> melissa_lewis = SeniorAstronaut()
->>> pan_twardowski = SeniorCosmonaut()
 
->>> class AstronautEngineer:
+Naming Convention
+-----------------
+>>> first_name = str()
+>>> last_name = str()
+>>>
+>>> firstname = str()
+>>> lastname = str()
+>>>
+>>> fname = str()
+>>> lname = str()
+
+>>> class User:
+...     pass
+...
+>>>
+>>> mark_watney = User()
+>>> melissa_lewis = User()
+>>>
+>>> markwatney = User()
+>>> melissalewis = User()
+>>>
+>>> mwatney = User()
+>>> mlewis = User()
+
+
+Type vs Isinstance
+------------------
+>>> class User:
 ...     pass
 >>>
->>> class AstronautScientist:
-...     pass
+>>> mark = User()
+
+>>> isinstance(mark, User)
+True
+
+>>> type(mark)
+<class '__main__.User'>
+
+>>> type(mark) is User
+True
 >>>
->>> class AstronautPilot:
-...     pass
->>>
->>>
->>> mark_watney = AstronautScientist()
->>> melissa_lewis = AstronautScientist()
->>> rick_martinez = AstronautPilot()
->>> alex_vogel = AstronautEngineer()
+>>> mark is User
+False
 
 
 Use Case - 0x01
+---------------
+>>> x = int()
+>>> y = int()
+>>>
+>>> x
+0
+>>> y
+0
+
+>>> class Int:
+...     pass
+...
+>>> x = Int()
+>>> y = Int()
+
+
+Use Case - 0x02
+---------------
+>>> x = int()
+>>> y = float()
+>>>
+>>> x
+0
+>>> y
+0.0
+
+>>> class Int:
+...     pass
+...
+>>> class Float:
+...     pass
+...
+>>> x = int()
+>>> y = float()
+
+
+Use Case - 0x03
 ---------------
 >>> a = int()
 >>> b = float()
@@ -95,6 +158,44 @@ Use Case - 0x01
 >>> f = tuple()
 >>> g = set()
 >>> h = dict()
+
+
+Use Case - 0x04
+---------------
+>>> class Astronaut:
+...     pass
+>>>
+>>>
+>>> mark = Astronaut()
+>>> melissa = Astronaut()
+>>> rick = Astronaut()
+>>> alex = Astronaut()
+>>> beth = Astronaut()
+>>> chris = Astronaut()
+
+
+Use Case - 0x05
+---------------
+>>> class AstronautPilot:
+...     pass
+...
+>>> class AstronautScientist:
+...     pass
+...
+>>> class AstronautEngineer:
+...     pass
+...
+>>> class AstronautMedic:
+...     pass
+>>>
+>>>
+>>>
+>>> mark_watney = AstronautScientist()
+>>> melissa_lewis = AstronautEngineer()
+>>> rick_martinez = AstronautPilot()
+>>> alex_vogel = AstronautScientist()
+>>> beth_johanssen = AstronautEngineer()
+>>> chris_beck = AstronautMedic()
 
 
 References

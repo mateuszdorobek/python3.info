@@ -9,29 +9,6 @@ OOP Method Parameters
 * At call - ``self`` is not passed as an argument (Python will do that)
 * Later you will learn more advanced things like static methods etc.
 
-.. glossary::
-
-    method
-        Functions in the class which takes instance as first argument (``self``)
-
-Syntax:
-
->>> class MyClass:
-...     def mymethod(self):
-...         pass
->>>
->>>
->>> my = MyClass()
->>> my.mymethod()
-
-
-Method Parameters
------------------
-* At definition - ``self`` should always be a first parameter
-* Later you will learn more advanced things like static methods etc.
-* Parameter - Receiving variable used within the function
-* Parameters could be required or optional (with default value)
-
 Required parameter:
 
     * Necessary to call that function
@@ -44,79 +21,79 @@ Optional parameter:
     * Default value will be overridden if specified at a call time
     * Specified at rightmost side
 
-Without parameters:
+.. glossary::
 
->>> class Astronaut:
-...     def say_hello(self):
-...         print('My name... José Jiménez')
-
-Methods with required parameter:
-
->>> class Astronaut:
-...     def say_hello(self, firstname):
-...         print(f'My name... {firstname}')
-
-Method with optional parameter:
-
->>> class Astronaut:
-...     def say_hello(self, firstname='unknown'):
-...         print(f'My name... {firstname}')
-
-Method with required and optional parameter:
-
->>> class Astronaut:
-...     def say_hello(self, firstname, lastname='unknown'):
-...         print(f'My name... {firstname} {lastname}')
+    method
+        Functions in the class which takes instance as first argument (``self``)
 
 
-Method Arguments
-----------------
-* At call - ``self`` is not passed as an argument (Python will do that)
+Without Parameters
+------------------
+>>> class User:
+...     def login(self):
+...         print(f'User logged-in')
 
 
->>> class Astronaut:
-...     def say_hello(self):
-...         print('My name... José Jiménez')
+Required Parameters
+-----------------
+* At definition - ``self`` should always be a first parameter
+* Later you will learn more advanced things like static methods etc.
+* Parameter - Receiving variable used within the function
+* Parameters could be required or optional (with default value)
+
+>>> class User:
+...     def login(self, username, password):
+...         print(f'User logged-in')
+
+
+Optional Parameters
+-------------------
+>>> class User:
+...     def login(self, username=None, password=None):
+...         print(f'User logged-in')
+
+
+Required and Optional Parameters
+--------------------------------
+>>> class User:
+...     def login(self, username, password=None):
+...         print(f'User logged-in')
+
+
+Use Case - 0x01
+---------------
+>>> class User:
+...     def login(self, username, password):
+...         if username == 'mwatney' and password == 'nasa':
+...             print('ok')
+...         else:
+...             raise PermissionError
 ...
-...
->>> jose = Astronaut()
->>> jose.say_hello()
-My name... José Jiménez
-
-Method with positional argument:
-
->>> class Astronaut:
-...     def say_hello(self, name):
-...         print(f'My name... {name}')
 >>>
 >>>
->>> jose = Astronaut()
+>>> mark = User()
 >>>
->>> jose.say_hello('José Jiménez')
-My name... José Jiménez
->>>
->>> jose.say_hello()
+>>> mark.login()
 Traceback (most recent call last):
-TypeError: Astronaut.say_hello() missing 1 required positional argument: 'name'
-
-Method with keyword argument:
-
->>> class Astronaut:
-...     def say_hello(self, firstname, lastname):
-...         print(f'My name... {firstname} {lastname}')
+TypeError: User.login() missing 2 required positional arguments: 'username' and 'password'
 >>>
->>>
->>> jose = Astronaut()
->>>
->>> jose.say_hello(firstname='José', lastname='Jiménez')
-My name... José Jiménez
->>>
->>> jose.say_hello(lastname='Jiménez', firstname='José')
-My name... José Jiménez
->>>
->>> jose.say_hello()
+>>> mark.login('invalid', 'invalid')
 Traceback (most recent call last):
-TypeError: Astronaut.say_hello() missing 2 required positional arguments: 'firstname' and 'lastname'
+PermissionError
+>>>
+>>> mark.login('mwatney', 'invalid')
+Traceback (most recent call last):
+PermissionError
+>>>
+>>> mark.login('invalid', 'nasa')
+Traceback (most recent call last):
+PermissionError
+>>>
+>>> mark.login('mwatney', 'nasa')
+ok
+>>>
+>>> mark.login(username='mwatney', password='nasa')
+ok
 
 
 Assignments
