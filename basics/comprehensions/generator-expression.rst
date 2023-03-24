@@ -9,15 +9,15 @@ Generator Expression
 
 Examples
 --------
->>> _ = list(x for x in range(0,5))      # list comprehension
->>> _ = tuple(x for x in range(0,5))     # tuple comprehension
->>> _ = set(x for x in range(0,5))       # set comprehension
->>> _ = dict((x,x) for x in range(0,5))  # dict comprehension
+>>> data = list(x for x in range(0,5))      # list comprehension
+>>> data = tuple(x for x in range(0,5))     # tuple comprehension
+>>> data = set(x for x in range(0,5))       # set comprehension
+>>> data = dict((x,x) for x in range(0,5))  # dict comprehension
 
->>> _ = [x for x in range(0,5)]          # list comprehension
->>> _ = (x for x in range(0,5))          # generator expression
->>> _ = {x for x in range(0,5)}          # set comprehension
->>> _ = {x:x for x in range(0,5)}        # dict comprehension
+>>> data = [x for x in range(0,5)]          # list comprehension
+>>> data = (x for x in range(0,5))          # generator expression
+>>> data = {x for x in range(0,5)}          # set comprehension
+>>> data = {x:x for x in range(0,5)}        # dict comprehension
 
 
 Why Round Brackets?

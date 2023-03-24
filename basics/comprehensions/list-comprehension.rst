@@ -72,16 +72,33 @@ Manipulate Strings
 >>>
 >>> ','.join(DATA)
 'a,b,c'
-
->>> DATA = ['a', 'b', 'c']
 >>>
 >>> ','.join(x for x in DATA)
 'a,b,c'
-
->>> DATA = ['a', 'b', 'c']
 >>>
 >>> ','.join(x.upper() for x in DATA)
 'A,B,C'
+
+
+Type Conversion
+---------------
+>>> DATA = [1, 2, 3]
+>>>
+>>> [float(x) for x in DATA]
+[1.0, 2.0, 3.0]
+
+Method ``str.join()`` requires all arguments to be strings. If your data
+has other types in it, such as ``int`` in the following examples, method
+will fail. You can convert those values to string using comprehension.
+
+>>> DATA = [1, 2, 3]
+>>>
+>>> ','.join(DATA)
+Traceback (most recent call last):
+TypeError: sequence item 0: expected str instance, int found
+>>>
+>>> ','.join(str(x) for x in DATA)
+'1,2,3'
 
 
 Slice Sequences
