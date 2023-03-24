@@ -1,9 +1,9 @@
 """
-* Assignment: OOP Attribute Set
+* Assignment: OOP Attribute Get
 * Required: yes
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Define `result_mark: dict[str,str]`

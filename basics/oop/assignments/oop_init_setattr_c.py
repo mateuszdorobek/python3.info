@@ -1,5 +1,5 @@
 """
-* Assignment: OOP Init SetAttrPositional
+* Assignment: OOP Init SetAttrKeyword
 * Required: yes
 * Complexity: easy
 * Lines of code: 2 lines
@@ -8,13 +8,13 @@
 English:
     1. Modify code below
     2. Create instances of an `Astronaut` and `SpaceAgency` classes
-    3. Use positional arguments to pass values at the initialization
+    3. Use keyword arguments to pass values at the initialization
     4. Run doctests - all must succeed
 
 Polish:
     1. Zmodyfikuj kod poniżej
     2. Stwórz instancje klas `Astronaut` i `SpaceAgency`
-    3. Użyj argumentów pozycyjnych do przekazania wartości przy inicjalizacji
+    3. Użyj argumentów nazwanych do przekazania wartości przy inicjalizacji
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -45,15 +45,15 @@ class SpaceAgency:
         self.date = date
 
 
-# use positional arguments to create instance with: Mark, USA, 1969-07-21
+# use keyword arguments to create instance with: Mark, USA, 1969-07-21
 # type: Astronaut
 mark = ...
 
-# use positional arguments to create instance with: Nasa, USA, 1969-07-21
+# use keyword arguments to create instance with: Nasa, USA, 1969-07-21
 # type: SpaceAgency
 nasa = ...
 
 
 # Solution
-mark = Astronaut('Mark', 'USA', '1969-07-21')
-nasa = SpaceAgency('Nasa', 'USA', '1969-07-21')
+mark = Astronaut(name='Mark',country='USA',date='1969-07-21')
+nasa = SpaceAgency(name='Nasa',country='USA',date='1969-07-21')

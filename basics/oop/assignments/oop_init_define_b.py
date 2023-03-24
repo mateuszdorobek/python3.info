@@ -2,71 +2,41 @@
 * Assignment: OOP Init Define
 * Required: yes
 * Complexity: easy
-* Lines of code: 4 lines
-* Time: 5 min
+* Lines of code: 3 lines
+* Time: 2 min
 
 English:
-    1. Modify code below
-    2. Define `__init__()` method in both classes
-    3. Signature should reflect class attributes
-    4. Do not execute any code inside `__init__()`, leave `...`
-    5. Run doctests - all must succeed
+    1. Create one class `Echo`
+    2. Value `text` must be passed at the initialization
+    3. At initialization instance print `text`
+    4. Do not store values in the instances (only print on instance creation)
+    5. Do not use `@dataclass`
+    6. Run doctests - all must succeed
 
 Polish:
-    1. Zmodyfikuj kod poniżej
-    2. Zdefiniuj metodę `__init__()` w obu klasach
-    3. Sygnaturą powinna odpowiadać atrybutom klasy
-    4. Nie uruchamiaj żadnego kodu wewnątrz `__init__()`, pozostaw `...`
-    5. Uruchom doctesty - wszystkie muszą się powieść
+    1. Stwórz jedną klasę `Echo`
+    2. Wartość `text` maja być podawana przy inicjalizacji
+    3. Przy inicjalizacji instancja wypisuje `text`
+    4. Nie przechowuj informacji w instancjach
+       (tylko wypisz przy inicjalizacji)
+    5. Nie używaj `@dataclass`
+    6. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from inspect import ismethod, signature
 
-    >>> mark = Astronaut('Mark', 'USA', '1969-07-21')
-    >>> nasa = Astronaut('Nasa', 'USA', '1969-07-21')
-
-    >>> assert ismethod(mark.__init__)
-    >>> assert ismethod(nasa.__init__)
-
-    >>> signature(Astronaut.__init__)
-    <Signature (self, name, country, date)>
-    >>> signature(SpaceAgency.__init__)
-    <Signature (self, name, country, date)>
-
-    >>> signature(mark.__init__)
-    <Signature (name, country, date)>
-    >>> signature(nasa.__init__)
-    <Signature (name, country, date)>
+    >>> _ = Echo('hello')
+    hello
+    >>> _ = Echo('world')
+    world
+    >>> result = Echo('Test')
+    Test
+    >>> vars(result)
+    {}
 """
 
 
-class Astronaut:
-    name: str
-    country: str
-    date: str
-
-
-class SpaceAgency:
-    name: str
-    country: str
-    date: str
-
-
 # Solution
-class Astronaut:
-    name: str
-    country: str
-    date: str
-
-    def __init__(self, name, country, date):
-        ...
-
-
-class SpaceAgency:
-    name: str
-    country: str
-    date: str
-
-    def __init__(self, name, country, date):
-        ...
+class Echo:
+    def __init__(self, text):
+        print(text)
