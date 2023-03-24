@@ -607,10 +607,10 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/unpack_arguments_a.py
-    :caption: :download:`Solution <assignments/unpack_arguments_a.py>`
+.. literalinclude:: assignments/star_arguments_a.py
+    :caption: :download:`Solution <assignments/star_arguments_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_arguments_b.py
-    :caption: :download:`Solution <assignments/unpack_arguments_b.py>`
+.. literalinclude:: assignments/star_arguments_b.py
+    :caption: :download:`Solution <assignments/star_arguments_b.py>`
     :end-before: # Solution

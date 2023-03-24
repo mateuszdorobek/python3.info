@@ -277,14 +277,14 @@ TypeError: read_csv() takes 1 positional argument but 49 were given
 
 Assignments
 -----------
-.. literalinclude:: assignments/syntax_parameter_a.py
-    :caption: :download:`Solution <assignments/syntax_parameter_a.py>`
+.. literalinclude:: assignments/star_signature_a.py
+    :caption: :download:`Solution <assignments/star_signature_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/syntax_parameter_b.py
-    :caption: :download:`Solution <assignments/syntax_parameter_b.py>`
+.. literalinclude:: assignments/star_signature_b.py
+    :caption: :download:`Solution <assignments/star_signature_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/syntax_parameter_c.py
-    :caption: :download:`Solution <assignments/syntax_parameter_c.py>`
+.. literalinclude:: assignments/star_signature_c.py
+    :caption: :download:`Solution <assignments/star_signature_c.py>`
     :end-before: # Solution

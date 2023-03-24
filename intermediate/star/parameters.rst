@@ -247,14 +247,14 @@ hello new world
 
 Assignments
 -----------
-.. literalinclude:: assignments/unpack_parameters_a.py
-    :caption: :download:`Solution <assignments/unpack_parameters_a.py>`
+.. literalinclude:: assignments/star_parameters_a.py
+    :caption: :download:`Solution <assignments/star_parameters_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_parameters_b.py
-    :caption: :download:`Solution <assignments/unpack_parameters_b.py>`
+.. literalinclude:: assignments/star_parameters_b.py
+    :caption: :download:`Solution <assignments/star_parameters_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_parameters_c.py
-    :caption: :download:`Solution <assignments/unpack_parameters_c.py>`
+.. literalinclude:: assignments/star_parameters_c.py
+    :caption: :download:`Solution <assignments/star_parameters_c.py>`
     :end-before: # Solution
