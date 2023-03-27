@@ -172,6 +172,31 @@ a=1, b=2, c=3, args=(), kwargs={'d': 7, 'e': 8, 'f': 9}
 a=1, b=2, c=3, args=(4, 5, 6), kwargs={'d': 7, 'e': 8, 'f': 9}
 
 
+Merge
+-----
+>>> def echo(a,b,c,d,e):
+...     return locals()
+...
+...
+>>> data1 = {'a':1, 'b':2, 'c':3}
+>>> data2 = {'d':4, 'e':5}
+>>>
+>>> echo(**data1, **data2)
+{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+
+Merging dicts before Python 3.9:
+
+>>> {**data1, **data2}
+{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+
+Merging dicts since Python 3.9:
+
+>>> data1 | data2
+{'a': 1, 'b': 2, 'c': 3, 'd': 4, 'e': 5}
+
+
+
+
 Use Case - 0x01
 ---------------
 >>> def add(*values):

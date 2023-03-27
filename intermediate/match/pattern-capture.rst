@@ -6,57 +6,30 @@ assignment target: it always matches and binds the variable with the
 given (simple) name.
 
 
-class Request:
-    def __init__(self, request: str):
+>>> def status(health):
+...     match health:
+...         case hp if hp <= 0:  return 'dead'
+...         case hp if hp < 50:  return 'low'
+...         case hp if hp >= 50:  return 'high'
 
-      request = ['POST', '/user/', 'HTTP/2.0']
-
-        match request.split():
-            case ['POST',   path, 'HTTP/1.0']: self.post(path)
-            case ['POST',   path, 'HTTP/1.1']: self.post(path)
-            case ['POST',   path, 'HTTP/2.0']: self.post(path)
-
-            case ['GET',    path, 'HTTP/2.0']: self.get(path)
-            case ['PUT',    path, 'HTTP/2.0']: self.put(path)
-            case ['DELETE', path, 'HTTP/2.0']: self.delete(path)
-
-
-
->>> class Request:
-...     def __init__(self, request: str):
-...         match request.split():
-...             case ['GET',    path, 'HTTP/2.0']: self.get(path)
-...             case ['POST',   path, 'HTTP/2.0']: self.post(path)
-...             case ['PUT',    path, 'HTTP/2.0']: self.put(path)
-...             case ['DELETE', path, 'HTTP/2.0']: self.delete(path)
-...
-...     def get(self, path):
-...         self.response = f'Processing GET request for {path}'
-...
-...     def post(self, path):
-...         self.response = f'Processing POST request for {path}'
-...
-...     def put(self, path):
-...         self.response = f'Processing PUT request for {path}'
-...
-...     def delete(self, path):
-...         self.response = f'Processing DELETE request for {path}'
-...
-...     def __repr__(self):
-...         return self.response
+>>> status(100)
+'high'
 >>>
+>>> status(25)
+'low'
 >>>
->>> Request('POST /user/ HTTP/2.0')
-Processing POST request for /user/
+>>> status(10)
+'low'
 >>>
->>> Request('GET /user/mwatney/ HTTP/2.0')
-Processing GET request for /user/mwatney/
+>>> status(0)
+'dead'
 >>>
->>> Request('PUT /user/mwatney/ HTTP/2.0')
-Processing PUT request for /user/mwatney/
->>>
->>> Request('DELETE /user/mwatney/ HTTP/2.0')
-Processing DELETE request for /user/mwatney/
+>>> status(-5)
+'dead'
+
+
+Example
+-------
 
 
 Use Case - 0x01
@@ -81,8 +54,7 @@ Use Case - 0x01
 ...
 ...     def move_down(self, value):
 ...         print(f'Moving down by {value}')
->>>
->>>
+
 >>> hero = Astronaut()
 >>>
 >>> hero.move('left', 1)
@@ -98,24 +70,54 @@ Moving up by 3
 Moving down by 4
 
 
+Use Case - 0x02
+---------------
+>>> class Request:
+...     def __init__(self, request: str):
+...         match request.split():
+...             case ['GET',    path, 'HTTP/2.0']: self.get(path)
+...             case ['POST',   path, 'HTTP/2.0']: self.post(path)
+...             case ['PUT',    path, 'HTTP/2.0']: self.put(path)
+...             case ['DELETE', path, 'HTTP/2.0']: self.delete(path)
+...
+...     def get(self, path):
+...         self.response = f'Processing GET request for {path}'
+...
+...     def post(self, path):
+...         self.response = f'Processing POST request for {path}'
+...
+...     def put(self, path):
+...         self.response = f'Processing PUT request for {path}'
+...
+...     def delete(self, path):
+...         self.response = f'Processing DELETE request for {path}'
+...
+...     def __repr__(self):
+...         return self.response
+
+>>> Request('POST /user/ HTTP/2.0')
+Processing POST request for /user/
+
+>>> Request('GET /user/mwatney/ HTTP/2.0')
+Processing GET request for /user/mwatney/
+
+>>> Request('PUT /user/mwatney/ HTTP/2.0')
+Processing PUT request for /user/mwatney/
+
+>>> Request('DELETE /user/mwatney/ HTTP/2.0')
+Processing DELETE request for /user/mwatney/
+
+
 Use Case - 0x03
 ---------------
 * HTTP Request
 
 Test Setup:
 
->>> def handle_get(path):
-...     ...
-...
->>> def handle_post(path):
-...     ...
-...
->>> def handle_put(path):
-...     ...
-...
->>> def handle_delete(path):
-...     ...
-...
+>>> def handle_get(path): ...
+>>> def handle_post(path): ...
+>>> def handle_put(path): ...
+>>> def handle_delete(path): ...
 
 Use Case:
 
@@ -126,3 +128,4 @@ Use Case:
 ...     case ['POST', path, 'HTTP/2.0']:    handle_post(path)
 ...     case ['PUT', path, 'HTTP/2.0']:     handle_put(path)
 ...     case ['DELETE', path, 'HTTP/2.0']:  handle_delete(path)
+

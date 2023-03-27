@@ -2,6 +2,38 @@ Match Guard
 ===========
 
 
+
+Use Case - 0x01
+---------------
+* status "Full Health" - when health 100%
+* status "Injured" - when health 75% - 100% (exclusive)
+* status "Badly Wounded" - when health 25% - 75% (exclusive)
+* status "Near Death" - when health 1% - 25% (exclusive)
+* status "Dead" - when health 0% or less
+
+>>> hero = ['health', 10]
+>>>
+>>>
+>>> match hero:
+...     case ['health', percent] if percent == 100:
+...         status = 'Full health'
+...
+...     case ['health', percent] if percent in range(75, 100):
+...         status = 'Injured'
+...
+...     case ['health', percent] if percent in range(25, 75):
+...         status = 'Badly Wounded'
+...
+...     case ['health', percent] if percent in range(1, 25):
+...         status = 'Near Death'
+...
+...     case ['health', percent] if percent <= 0:
+...         status = 'Dead'
+...
+>>> print(status)
+Near Death
+
+
 Use Case - 0x01
 ---------------
 * Game Controller
@@ -17,6 +49,7 @@ Test Setup:
 Use Case:
 
 >>> action = ['make_damage', 5]
+>>>
 >>>
 >>> match action:
 ...
@@ -46,6 +79,7 @@ Use Case:
 
 >>> action = ['move', 'left', 10]
 >>>
+>>>
 >>> match action:
 ...
 ...     case ['move', direction, speed] if speed < 10:
@@ -69,6 +103,7 @@ Test Setup:
 Use Case:
 
 >>> action = ['move', 'left', 10]
+>>>
 >>>
 >>> match action:
 ...

@@ -11,4 +11,12 @@ optimizations).
 ...         case 'red':   return '#ff0000'
 ...         case 'green': return '#00ff00'
 ...         case 'blue':  return '#0000ff'
-...         case _:       raise NotImplementedError
+...         case _:       raise NotImplementedError('Unknown color')
+
+>>> html_color('black')
+Traceback (most recent call last):
+NotImplementedError: Unknown color
+
+>>> html_color('orange')
+Traceback (most recent call last):
+NotImplementedError: Unknown color

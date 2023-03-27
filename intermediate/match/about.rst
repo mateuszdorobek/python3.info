@@ -57,6 +57,25 @@ It quickly grows into multiple ``elif``:
 Hello
 
 
+Enum
+----
+>>> from enum import Enum
+>>>
+>>>
+>>> class Hello(Enum):
+...     English = 'Hello'
+...     Polish = 'Cześć'
+...     German = 'Guten Tag'
+...     Spanish = 'Buenos Días'
+...     Chinese = '你好'
+...     French = 'Bonjour'
+>>>
+>>>
+>>> result = Hello.English.value
+>>> print(result)
+Hello
+
+
 Pattern Matching
 ----------------
 New ``match`` syntax allows to be ``PEP-8`` compliant while having
@@ -66,12 +85,12 @@ clear syntax without condition repetitions:
 >>>
 >>> match language:
 ...     case 'English': result = 'Hello'
-...     case 'Polish': result = 'Cześć'
-...     case 'German': result = 'Guten Tag'
+...     case 'Polish':  result = 'Cześć'
+...     case 'German':  result = 'Guten Tag'
 ...     case 'Spanish': result = 'Buenos Días'
 ...     case 'Chinese': result = '你好'
-...     case 'French': result = 'Bonjour'
-...     case _: result = 'Unknown language'
+...     case 'French':  result = 'Bonjour'
+...     case _:         result = 'Unknown language'
 >>>
 >>> print(result)
 Hello
@@ -112,7 +131,6 @@ Patterns don't just have to be literals. The patterns can also:
 * Include an ``if`` "guard" clause
 
 
-
 Recap
 -----
 * ``x`` - assign ``x = subject``
@@ -133,7 +151,4 @@ Further Reading
 References
 ----------
 .. [#Shaw2022] Anthony Shaw. Write faster Python! Common performance anti patterns. Year: 2022. Retrieved: 2022-06-09. URL: https://youtu.be/YY7yJHo0M5I?t=1555
-
 .. [#Hettinger2021] Raymond Hettinger. Year: 2021. Retrieved: 2021-03-07. URL: https://twitter.com/raymondh/status/1361780586570948609?s=20
-
-.. todo:: Assignments

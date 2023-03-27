@@ -7,6 +7,30 @@ possible ambiguity with a capture pattern. It looks like ``Color.RED``
 and only matches values equal to the corresponding value. It never
 binds.
 
+SetUp:
+
+>>> from enum import IntEnum
+>>> import requests
+
+Usage:
+
+>>> class HTTPStatus(IntEnum):
+...     OK = 200
+...     REDIRECT = 300
+...     SERVER_ERROR = 500
+>>>
+>>> resp = requests.get('https://python.astrotech.io')
+>>>
+>>> match resp.status_code:
+...     case HTTPStatus.OK:             print('ok')
+...     case HTTPStatus.REDIRECT:       print('redirect')
+...     case HTTPStatus.SERVER_ERROR:   print('error')
+...
+ok
+
+
+Use Case - 0x01
+---------------
 >>> from http import HTTPStatus
 >>> import requests
 >>>
@@ -21,10 +45,8 @@ binds.
 ok
 
 
-Use Case - 0x06
+Use Case - 0x02
 ---------------
-* Enum
-
 Test Setup:
 
 >>> class Keyboard:

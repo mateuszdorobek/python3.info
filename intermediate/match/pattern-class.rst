@@ -8,9 +8,42 @@ sub-patterns. It binds whatever the sub-patterns bind when matching
 with the values of the given attributes. An optional protocol also
 allows matching positional arguments.
 
+>>> class User:
+...     pass
+...
+>>> class Admin:
+...     pass
+
+>>> mark = Admin()
+>>>
+>>>
+>>> match mark:
+...     case User():
+...         raise PermissionError('Permission denied')
+...     case Admin():
+...         print('Editing page')
+...
+Editing page
 
 
 Use Case - 0x01
+---------------
+>>> from datetime import datetime
+>>>
+>>> obj = datetime(1969, 7, 21, 2, 56, 15)
+>>> obj
+datetime.datetime(1969, 7, 21, 2, 56, 15)
+>>>
+>>> match obj:
+...     case datetime():  print('Instance of a datetime class')
+...     case date():      print('Instance of a date class')
+...     case time():      print('Instance of a time class')
+...     case timedelta(): print('Instance of a timedelta class')
+...
+Instance of a datetime class
+
+
+Use Case - 0x02
 ---------------
 >>> import json
 >>> from datetime import date, time, datetime, timezone
@@ -23,7 +56,7 @@ Use Case - 0x01
 >>>
 >>> def encoder(value):
 ...     match value:
-...         case date() | time() | datetime():
+...         case datetime() | date() | time():
 ...             return value.isoformat()
 ...         case timedelta():
 ...             return value.total_seconds()
@@ -33,10 +66,11 @@ Use Case - 0x01
 '{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 >>> import json
 >>> from datetime import date, time, datetime, timezone
+>>> from pprint import pprint
 >>>
 >>>
 >>> DATA = {'mission': 'Ares 3',
@@ -56,31 +90,44 @@ Traceback (most recent call last):
 TypeError: Object of type datetime is not JSON serializable
 
 >>> def encoder(obj):
-...     if type(obj) is datetime or type(obj) is date:
-...         return obj.isoformat()
-...     elif type(obj) is timedelta:
-...         return obj.total_seconds()
->>>
->>>
->>> json.dumps(DATA, default=encoder)
-'{"mission": "Ares 3", "launch_date": "2035-06-29T00:00:00", "destination": "Mars", "destination_landing": "2035-11-07T00:00:00", "destination_location": "Acidalia Planitia", "crew": [{"name": "Melissa Lewis", "born": "1995-07-15"}, {"name": "Rick Martinez", "born": "1996-01-21"}, {"name": "Alex Vogel", "born": "1994-11-15"}, {"name": "Chris Beck", "born": "1999-08-02"}, {"name": "Beth Johanssen", "born": "2006-05-09"}, {"name": "Mark Watney", "born": "1994-10-12"}]}'
-
->>> def encoder(obj):
-...     if isinstance(obj, date|datetime):
-...         return obj.isoformat()
-...     elif isinstance(obj, timedelta):
-...         return obj.total_seconds()
->>>
->>>
->>> json.dumps(DATA, default=encoder)
-'{"mission": "Ares 3", "launch_date": "2035-06-29T00:00:00", "destination": "Mars", "destination_landing": "2035-11-07T00:00:00", "destination_location": "Acidalia Planitia", "crew": [{"name": "Melissa Lewis", "born": "1995-07-15"}, {"name": "Rick Martinez", "born": "1996-01-21"}, {"name": "Alex Vogel", "born": "1994-11-15"}, {"name": "Chris Beck", "born": "1999-08-02"}, {"name": "Beth Johanssen", "born": "2006-05-09"}, {"name": "Mark Watney", "born": "1994-10-12"}]}'
-
->>> def encoder(obj):
 ...     match obj:
-...         case date() | datetime():
+...         case datetime() | date() | time():
 ...             return obj.isoformat()
 ...         case timedelta():
 ...             return obj.total_seconds()
 >>>
->>> json.dumps(DATA, default=encoder)
-'{"mission": "Ares 3", "launch_date": "2035-06-29T00:00:00", "destination": "Mars", "destination_landing": "2035-11-07T00:00:00", "destination_location": "Acidalia Planitia", "crew": [{"name": "Melissa Lewis", "born": "1995-07-15"}, {"name": "Rick Martinez", "born": "1996-01-21"}, {"name": "Alex Vogel", "born": "1994-11-15"}, {"name": "Chris Beck", "born": "1999-08-02"}, {"name": "Beth Johanssen", "born": "2006-05-09"}, {"name": "Mark Watney", "born": "1994-10-12"}]}'
+>>> result = json.dumps(DATA, default=encoder, indent=2)
+>>> print(result)
+{
+  "mission": "Ares 3",
+  "launch_date": "2035-06-29T00:00:00",
+  "destination": "Mars",
+  "destination_landing": "2035-11-07T00:00:00",
+  "destination_location": "Acidalia Planitia",
+  "crew": [
+    {
+      "name": "Melissa Lewis",
+      "born": "1995-07-15"
+    },
+    {
+      "name": "Rick Martinez",
+      "born": "1996-01-21"
+    },
+    {
+      "name": "Alex Vogel",
+      "born": "1994-11-15"
+    },
+    {
+      "name": "Chris Beck",
+      "born": "1999-08-02"
+    },
+    {
+      "name": "Beth Johanssen",
+      "born": "2006-05-09"
+    },
+    {
+      "name": "Mark Watney",
+      "born": "1994-10-12"
+    }
+  ]
+}

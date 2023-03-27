@@ -14,17 +14,52 @@ pattern that matched.
 >>> match resp.status_code:
 ...     case 200 | 201: print('No error')
 ...     case 300 | 301: print('Redirect')
-...     case 400|401|402: print('Client Error')
-...     case 500|501|502: print('Server Error')
+...     case 400 | 401 | 402: print('Client Error')
+...     case 500 | 501 | 502: print('Server Error')
 ...
 No error
 
 
 Use Case - 0x01
 ---------------
+SetUp:
+
+>>> SECOND = 1
+>>> MINUTE = 60 * SECOND
+>>> HOUR = 60 * MINUTE
+>>> DAY = 24 * HOUR
+>>> WEEK = 7 * DAY
+>>> MONTH = 30.4375 * DAY
+>>> YEAR = 365.25 * DAY
+
+Definition:
+
+>>> def convert(duration, unit):
+...     match unit:
+...         case 's' | 'seconds': return duration / SECOND
+...         case 'm' | 'minutes': return duration / MINUTE
+...         case 'h' | 'hours':   return duration / HOUR
+...         case 'd' | 'days':    return duration / DAY
+...         case 'w' | 'weeks':   return duration / WEEK
+...         case 'M' | 'months':  return duration / MONTH
+...         case 'y' | 'years':   return duration / YEAR
+
+Usage:
+
+>>> convert(10*HOUR, 'minutes')
+600.0
+>>>
+>>> convert(22*DAY, 'hours')
+528.0
+
+
+Use Case - 0x02
+---------------
 * ``ares3_landing = datetime(2035, 11, 7)``
 * ``ares3_start = datetime(2035, 6, 29)``
 * ``ares3_duration = timedelta(days=557, seconds=80025)``
+
+SetUp:
 
 >>> from dataclasses import dataclass
 >>>
@@ -38,8 +73,9 @@ Use Case - 0x01
 >>> YEAR = 365.25 * DAY
 >>>
 >>> SOL = 24*HOUR + 39*MINUTE + 35*SECOND
->>>
->>>
+
+Definition:
+
 >>> @dataclass
 ... class Duration:
 ...     seconds: int
@@ -56,8 +92,9 @@ Use Case - 0x01
 ...             case 'y' | 'years':   duration /= YEAR
 ...             case _: raise TypeError('Invalid unit')
 ...         return f'{duration:.1f} {unit}'
->>>
->>>
+
+Usage:
+
 >>> ares3 = Duration(543*SOL)
 >>>
 >>> print(f'Ares3 mission to Mars took {ares3:seconds}')

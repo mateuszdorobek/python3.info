@@ -35,6 +35,12 @@ Tests:
     [0, 1, 2, 3, 4]
 """
 
+# Define function `myrange` with parameters: `start`, `stop`, `step`
+# Write own implementation of a built-in `range()` function
+# type: Callable[[int,int,int], list[int]]
+def myrange():
+    ...
+
 
 # Solution
 def myrange(start=0, stop=None, step=1):

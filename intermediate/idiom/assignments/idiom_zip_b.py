@@ -1,5 +1,5 @@
 """
-* Assignment: Idiom Zip List of Dicts
+* Assignment: Idiom Zip List[Dict]
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 5 min

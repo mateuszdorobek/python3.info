@@ -176,6 +176,14 @@ Multi Dimensional
  (5.7, 2.8, 4.1, 1.3, 'versicolor')]
 
 
+Merge
+-----
+>>> def echo(**a, **b):
+...     return locals()
+Traceback (most recent call last):
+SyntaxError: arguments cannot follow var-keyword argument
+
+
 Use Case - 0x01
 ---------------
 >>> a, b, c = range(0, 3)

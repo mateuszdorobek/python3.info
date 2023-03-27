@@ -1,5 +1,5 @@
 """
-* Assignment: Function Generator Map
+* Assignment: Idiom Map Apply
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
@@ -23,7 +23,6 @@ Polish:
 
 Hints:
     * map()
-    * list()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -33,9 +32,14 @@ Tests:
     'Object `cube` must be a function'
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
+
+    >>> assert type(result) is map, \
+    'Variable `result` has invalid type, should be map'
+
     >>> result = list(result)
     >>> assert type(result) is list, \
-    'Variable `result` has invalid type, should be list'
+    'Evaluated `result` has invalid type, should be list'
+
     >>> assert all(type(x) is int for x in result), \
     'All rows in `result` should be int'
 

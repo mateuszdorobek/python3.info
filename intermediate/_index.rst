@@ -21,29 +21,6 @@ Unpack
     star/signature.rst
 
 
-Idiom
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Idiom
-
-    idiom/about.rst
-    idiom/range.rst
-    idiom/reversed.rst
-    idiom/all.rst
-    idiom/any.rst
-    idiom/enumerate.rst
-    idiom/zip.rst
-    idiom/map.rst
-    idiom/filter.rst
-    idiom/reduce.rst
-    idiom/next.rst
-    idiom/iter.rst
-    idiom/chain.rst
-    idiom/patterns.rst
-    idiom/itertools.rst
-
-
 Enum
 ****
 .. toctree::
@@ -78,6 +55,29 @@ Match
     match/pattern-walrus.rst
     match/guard.rst
     match/subpattern.rst
+
+
+Idiom
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Idiom
+
+    idiom/about.rst
+    idiom/range.rst
+    idiom/reversed.rst
+    idiom/all.rst
+    idiom/any.rst
+    idiom/enumerate.rst
+    idiom/zip.rst
+    idiom/map.rst
+    idiom/filter.rst
+    idiom/reduce.rst
+    idiom/next.rst
+    idiom/iter.rst
+    idiom/chain.rst
+    idiom/patterns.rst
+    idiom/itertools.rst
 
 
 Type Annotation

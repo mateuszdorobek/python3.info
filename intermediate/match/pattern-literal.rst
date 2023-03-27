@@ -6,18 +6,24 @@ structure. It looks like a Python literal (including some values like
 ``True``, ``False`` and ``None``). It only matches objects equal to
 the literal, and never binds.
 
+>>> def weekday(number):
+...     match number:
+...         case 1: print('Monday')
+...         case 2: print('Tuesday')
+...         case 3: print('Wednesday')
+...         case 4: print('Thursday')
+...         case 5: print('Friday')
+...         case 6: print('Saturday')
+...         case 7: print('Sunday')
 
->>> weekday = 1
->>>
->>> match weekday:
-...     case 1: print('Monday')
-...     case 2: print('Tuesday')
-...     case 3: print('Wednesday')
-...     case 4: print('Thursday')
-...     case 5: print('Friday')
-...     case 6: print('Saturday')
-...     case 7: print('Sunday')
+>>> weekday(1)
 Monday
+>>>
+>>> weekday(2)
+Tuesday
+>>>
+>>> weekday(7)
+Sunday
 
 
 Use Case - 0x01
@@ -60,21 +66,23 @@ Use Case - 0x02
 
 Use Case - 0x03
 ---------------
-* HTTP Status
+>>> def http_status(status_code):
+...     match status_code:
+...         case 400:   return 'Bad request'
+...         case 401:   return 'Unauthorized'
+...         case 402:   return 'Payment Required'
+...         case 403:   return 'Forbidden'
+...         case 404:   return 'Not found'
+...         case 418:   return "I'm a teapot"
 
->>> status = 404
+>>> http_status(400)
+'Bad request'
 >>>
->>> match status:
-...     case 400:   reason = 'Bad request'
-...     case 401:   reason = 'Unauthorized'
-...     case 402:   reason = 'Payment Required'
-...     case 402:   reason = 'Forbidden'
-...     case 404:   reason = 'Not found'
-...     case 418:   reason = "I'm a teapot"
+>>> http_status(403)
+'Forbidden'
 >>>
->>>
->>> print(reason)
-Not found
+>>> http_status(404)
+'Not found'
 
 
 Use Case - 0x04
@@ -88,13 +96,13 @@ Use Case - 0x04
 ...         case _: return 'Too many'
 >>>
 >>>
->>> count(1,2,3,4)
+>>> count(1, 2, 3, 4)
 'Too many'
 >>>
->>> count(1,2,3)
+>>> count(1, 2, 3)
 'Three'
 >>>
->>> count(1,2)
+>>> count(1, 2)
 'Two'
 >>>
 >>> count(1)
@@ -106,25 +114,22 @@ Use Case - 0x04
 
 Use Case - 0x05
 ---------------
-Simulate user input (for test automation):
+>>> def say_hello(language):
+...     match language:
+...         case 'English': return 'Hello'
+...         case 'German':  return 'Guten Tag'
+...         case 'Spanish': return 'Hola'
+...         case 'Polish':  return 'Witaj'
+...         case _:         return "I don't speak this language"
 
->>> from unittest.mock import MagicMock
->>> input = MagicMock(side_effect=['French'])
-
-Use Case:
-
->>> language = input('What is your language?: ')  #input: 'French'
+>>> say_hello('English')
+'Hello'
 >>>
->>> match language:
-...     case 'English': response = 'Hello'
-...     case 'German':  response = 'Guten Tag'
-...     case 'Spanish': response = 'Hola'
-...     case 'Polish':  response = 'Witaj'
-...     case _:         response = "I don't speak this language"
+>>> say_hello('Polish')
+'Witaj'
 >>>
->>>
->>> print(response)
-I don't speak this language
+>>> say_hello('French')
+"I don't speak this language"
 
 
 Use Case - 0x06
@@ -153,11 +158,9 @@ Use Case - 0x06
 ...
 ...     current = start
 ...     result = []
-...
 ...     while current < stop:
 ...         result.append(current)
 ...         current += step
-...
 ...     return result
 
 
@@ -202,14 +205,11 @@ Use Case - 0x09
 >>> args = parser.parse_args(['push'])
 >>>
 >>> match args.command:
-...     case 'push':
-...         print('pushing')
-...     case 'pull':
-...         print('pulling')
-...     case _:
-...         parser.error(f'{args.command!r} not yet implemented')
+...     case 'push': print('Pushing...')
+...     case 'pull': print('Pulling...')
+...     case _:      parser.error(f'{args.command!r} not yet implemented')
 ...
-pushing
+Pushing...
 
 
 Assignments

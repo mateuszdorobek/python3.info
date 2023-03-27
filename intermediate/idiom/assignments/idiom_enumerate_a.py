@@ -1,5 +1,5 @@
 """
-* Assignment: Mapping Generate Enumerate
+* Assignment: Idiom Enumerate Dict
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines

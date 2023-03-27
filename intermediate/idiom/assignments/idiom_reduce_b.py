@@ -1,5 +1,5 @@
 """
-* Assignment: Function Generator Chain
+* Assignment: Idiom Reduce Evaluate
 * Required: yes
 * Complexity: easy
 * Lines of code: 2 lines
