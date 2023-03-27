@@ -41,7 +41,7 @@ Tests:
     ['nasa.gov', 'esa.int', 'polsa.gov.pl']
 """
 
-DATA = '10.13.37.1      nasa.gov esa.int polsa.gov.pl'
+DATA = '10.13.37.1 nasa.gov esa.int polsa.gov.pl'
 
 # String with IP address: '10.13.37.1'
 # type: str

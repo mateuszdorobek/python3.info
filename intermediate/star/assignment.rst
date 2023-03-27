@@ -1,35 +1,22 @@
-Unpack Assignment
-=================
-* ``a = 1`` - Assignment
-* ``a, b = 1, 2`` - Unpacking assignment
-* ``a = b = 1`` - Chained assignment
+Unpack Star
+===========
+* ``a, b, *c = 1, 2, 3, 4, 5``
+* Used when there is arbitrary number of values to unpack
+* Could be used from start, middle, end
+* There can't be multiple star expressions in one assignment statement
 * ``_`` is regular variable name, not a special Python syntax
 * ``_`` by convention is used for data we don't want to access in future
 
-Assignment:
-
->>> a = 1
-
-Unpacking assignment:
-
->>> a, b = 1, 2
-
-Chained assignment:
-
->>> a = b = 1
-
-Chained unpacking assignment:
-
->>> a, b = c, d = 1, 2
+.. figure:: img/unpack-assignment,args,params.png
 
 
 Example
 -------
 >>> def get_user_details(username):
-...     return 'Mark', 'Watney', 'mwatney@nasa.gov'
+...     return 'Mark', 'Watney', 'mwatney@nasa.gov', 'mwatney@esa.int', 'mwatney@polsa.gov.pl'
 >>>
 >>>
->>> firstname, lastname, email = get_user_details('mwatney')
+>>> firstname, lastname, *email = get_user_details('mwatney')
 >>>
 >>> firstname
 'Mark'
@@ -38,207 +25,53 @@ Example
 'Watney'
 >>>
 >>> email
-'mwatney@nasa.gov'
+['mwatney@nasa.gov', 'mwatney@esa.int', 'mwatney@polsa.gov.pl']
 
 
-Assignment
-----------
-* Scalar Assignment
-* ``identifier = object``
-* ``a = 1``
-* ``a = 1, 2``
+Arbitrary Number of Arguments
+-----------------------------
+Unpack values at the right side:
 
->>> a = 1
->>>
->>> print(f'{a=}')
-a=1
-
->>> a = 1, 2
->>>
->>> print(f'{a=}')
-a=(1, 2)
-
-
-Unpacking Assignment
---------------------
-* ``iterable[identifier] = iterable[object]``
-* ``a, b = 1, 2``
-* ``a, b, c = 1, 2, 3``
-* Sequence -> tuple, list
-* Iterable -> tuple, list, set, frozenset, dict, ...
-* Length at right and left side must be the same
-
->>> a, b = 1, 2
->>>
->>> print(f'{a=}, {b=}')
-a=1, b=2
-
->>> a, = 1,
->>> a, b = 1, 2
->>> a, b, c = 1, 2, 3
->>> a, b, c, d = 1, 2, 3, 4
->>> a, b, c, d, e = 1, 2, 3, 4, 5
-
->>> a, b, c = 1, 2
-Traceback (most recent call last):
-ValueError: not enough values to unpack (expected 3, got 2)
-
->>> a, b, c = 1, 2, 3, 4
-Traceback (most recent call last):
-ValueError: too many values to unpack (expected 3)
-
-
-Chained Assignment
-------------------
-* ``identifier1 = identifier2 = object``
-* ``a = b = 1``
-* ``a = b = c = 1``
-
->>> a = b = 1
->>>
->>> print(f'{a=}, {b=}')
-a=1, b=1
-
->>> a = b = 1
->>> a = b = c = 1
->>> a = b = c = d = 1
->>> a = b = c = d = e = 1
-
-
-Chained Unpacking Assignment
-----------------------------
-* ``iterable[identifier] = iterable[identifier] = iterable[object]``
-
->>> a, b = c, d = 1, 2
->>>
->>> print(f'{a=}, {b=}, {c=}, {d=}')
-a=1, b=2, c=1, d=2
-
->>> a = b, c = 1, 2
+>>> a, b, *c = [1, 2, 3, 4, 5]
 >>>
 >>> print(f'{a=}, {b=}, {c=}')
-a=(1, 2), b=1, c=2
+a=1, b=2, c=[3, 4, 5]
 
+Unpack values at the left side:
 
-Brackets
---------
-Brackets does not define tuple, commas do:
-
->>> a = 1, 2, 3
->>> b = (1, 2, 3)
+>>> *a, b, c = [1, 2, 3, 4, 5]
 >>>
->>> a == b
-True
+>>> print(f'{a=}, {b=}, {c=}')
+a=[1, 2, 3], b=4, c=5
 
->>> a = (1, 2)
->>> type(a)
-<class 'tuple'>
+Unpack values from both sides at once:
+
+>>> a, *b, c = [1, 2, 3, 4, 5]
 >>>
->>> a = 1, 2
->>> type(a)
-<class 'tuple'>
+>>> print(f'{a=}, {b=}, {c=}')
+a=1, b=[2, 3, 4], c=5
 
->>> 1+2 * 3
-7
+Unpack from variable length:
+
+>>> a, *b, c = [1, 2]
 >>>
->>> (1+2) * 3
-9
->>>
->>> (1+2,) * 3
-(3, 3, 3)
-
-Right-Side Brackets:
-
->>> a, b, c = 1, 2, 3
->>> a, b, c = (1, 2, 3)
->>> a, b, c = [1, 2, 3]
->>> a, b, c = {1, 2, 3}
-
-Left-Side Brackets:
-
->>> (a, b, c) = 1, 2, 3
->>> [a, b, c] = 1, 2, 3
->>> {a, b, c} = 1, 2, 3
-Traceback (most recent call last):
-SyntaxError: cannot assign to set display here. Maybe you meant '==' instead of '='?
-
-Warning:
-
->>> (a) = 1
->>> (a,) = 1,
-
-Errors:
-
->>> (a,) = 1
-Traceback (most recent call last):
-TypeError: cannot unpack non-iterable int object
-
->>> [a] = 1
-Traceback (most recent call last):
-TypeError: cannot unpack non-iterable int object
+>>> print(f'{a=}, {b=}, {c=}')
+a=1, b=[], c=2
 
 
-Swap
-----
-* Swap two variables
-
->>> a = 1
->>> b = 2
->>>
->>> a, b = b, a
->>>
->>> a
-2
->>> b
-1
-
-
-Unpacking
----------
->>> def get_user():
-...     return 'Mark', 'Watney', 'mwatney@nasa.gov'
-
->>> get_user()
-('Mark', 'Watney', 'mwatney@nasa.gov')
-
->>> user = get_user()
->>>
->>> print(user)
-('Mark', 'Watney', 'mwatney@nasa.gov')
-
->>> firstname, lastname, email = get_user()
->>>
->>> print(firstname)
-Mark
->>>
->>> print(lastname)
-Watney
->>>
->>> print(email)
-mwatney@nasa.gov
-
-
-Nested
+Errors
 ------
->>> def get_user():
-...     return 'Mark', 'Watney', ('mwatney@nasa.gov', 'mwatney@gmail.com')
+Cannot unpack from both sides at once:
 
->>> firstname, lastname, emails = get_user()
->>>
->>> print(emails)
-('mwatney@nasa.gov', 'mwatney@gmail.com')
-
->>> firstname, lastname, (email_work, email_home) = get_user()
->>>
->>> print(email_work)
-mwatney@nasa.gov
->>>
->>> print(email_home)
-mwatney@gmail.com
-
->>> firstname, lastname, email_work, email_home = get_user()
+>>> *a, b, *c = [1, 2, 3, 4, 5]
 Traceback (most recent call last):
-ValueError: not enough values to unpack (expected 4, got 3)
+SyntaxError: multiple starred expressions in assignment
+
+Unpack requires values for required arguments:
+
+>>> a, *b, c = [1]
+Traceback (most recent call last):
+ValueError: not enough values to unpack (expected at least 2, got 1)
 
 
 Skipping Values
@@ -246,140 +79,32 @@ Skipping Values
 * ``_`` is regular variable name, not a special Python syntax
 * ``_`` by convention is used for data we don't want to access in future
 
->>> _ = 'Mark'
+>>> _ = 'Mark Watney'
+>>>
 >>> print(_)
-Mark
+Mark Watney
 
->>> def get_user():
-...     return 'Mark', 'Watney', 'mwatney@nasa.gov'
+>>> line = 'Mark,Watney,mwatney@nasa.gov,mwatney@esa.int,mwatney@polsa.gov.pl'
+>>> firstname, lastname, *_ = line.split(',')
 >>>
->>>
->>> firstname, lastname, email = get_user()
->>> firstname, lastname, _ = get_user()
->>> firstname, _, _ = get_user()
->>> _, lastname, _ = get_user()
->>> _, _, email = get_user()
+>>> print(f'{firstname=}, {lastname=}')
+firstname='Mark', lastname='Watney'
 
-
-Copy Deep vs Reference
-----------------------
->>> a = b = 1
->>> a
-1
->>> b
-1
+>>> line = '4.9,3.1,1.5,0.1,setosa'
+>>> *_, label = line.split(',')
 >>>
->>> a = 2
->>> a
-2
->>> b
-1
-
->>> a = b = [1, 2]
->>>
->>> a
-[1, 2]
->>> b
-[1, 2]
->>>
->>> a.append(3)
->>>
->>> a
-[1, 2, 3]
->>> b
-[1, 2, 3]
-
-
-Use Case - 0x01
----------------
->>> a, b, c = range(0, 3)
->>> a, b, c, d, e = range(0, 5)
->>> a, b, c, d, e, f, g, h, i, j = range(0, 10)
-
-
-Use Case - 0x02
----------------
->>> import sys
->>>
->>> major, minor, patch, *_ = sys.version_info
->>>
->>>
->>> print(major)
-3
->>>
->>> print(minor)
-11
-
-
-Use Case - 0x03
----------------
-* Line from ``/etc/passwd``
+>>> print(f'{label=}')
+label='setosa'
 
 >>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
->>> username, _, uid, _, _, _, _ = line.split(':')
+>>> username, _, uid, *_ = line.split(':')
 >>>
 >>> print(f'{username=}, {uid=}')
 username='watney', uid='1000'
 
 
-Use Case - 0x04
----------------
-* Important
-
->>> _, important, _ = 1, 2, 3
->>>
->>> print(important)
-2
-
->>> _, (important, _) = [1, (2, 3)]
->>>
->>> print(important)
-2
-
->>> _, _, important = (True, [1, 2, 3, 4], 5)
->>>
->>> print(important)
-5
-
->>> _, _,  important = (True, [1, 2, 3, 4], (5, True))
->>>
->>> print(important)
-(5, True)
->>>
->>> _, _, (important, _) = (True, [1, 2, 3, 4], (5, True))
->>>
->>> print(important)
-5
-
-Python understands this as:
-
->>> _ = (True, [1, 2, 3, 4], (5, True))
->>>
->>> a,b,c = (object, object, object)
->>> a,b,(c,d) = (object, object, (object,object))
-
-
-Use Case - 0x05
----------------
->>> row = (5.8, 2.7, 5.1, 1.9, 'virginica')
-
->>> sl = row[0]
->>> sw = row[1]
->>> pl = row[2]
->>> pw = row[3]
->>> species = row[4]
->>>
->>> print(f'{sl=}, {sw=}, {pl=}, {pw=}, {species=}')
-sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
-
->>> sl, sw, pl, pw, species = row
->>>
->>> print(f'{sl=}, {sw=}, {pl=}, {pw=}, {species=}')
-sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
-
-
-Use Case - 0x06
----------------
+For Loop Unpacking
+------------------
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
@@ -387,62 +112,243 @@ Use Case - 0x06
 ... ]
 
 >>> for row in DATA:
-...     sl = row[0]
-...     sw = row[1]
-...     pl = row[2]
-...     pw = row[3]
-...     species = row[4]
-...     print(f'{sl=}, {sw=}, {pl=}, {pw=}, {species=}')
-sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
-sl=5.1, sw=3.5, pl=1.4, pw=0.2, species='setosa'
-sl=5.7, sw=2.8, pl=4.1, pw=1.3, species='versicolor'
+...     print(f'{row=}')
+...
+row=(5.8, 2.7, 5.1, 1.9, 'virginica')
+row=(5.1, 3.5, 1.4, 0.2, 'setosa')
+row=(5.7, 2.8, 4.1, 1.3, 'versicolor')
 
->>> for sl, sw, pl, pw, species in DATA:
-...     print(f'{sl=}, {sw=}, {pl=}, {pw=}, {species=}')
-sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
-sl=5.1, sw=3.5, pl=1.4, pw=0.2, species='setosa'
-sl=5.7, sw=2.8, pl=4.1, pw=1.3, species='versicolor'
+>>> for row in DATA:
+...     values = row[0:4]
+...     species = row[-1]
+...     print(f'{values=}, {species=}')
+...
+values=(5.8, 2.7, 5.1, 1.9), species='virginica'
+values=(5.1, 3.5, 1.4, 0.2), species='setosa'
+values=(5.7, 2.8, 4.1, 1.3), species='versicolor'
+
+>>> for row in DATA:
+...     *values, species = row
+...     print(f'{values=}, {species=}')
+...
+values=[5.8, 2.7, 5.1, 1.9], species='virginica'
+values=[5.1, 3.5, 1.4, 0.2], species='setosa'
+values=[5.7, 2.8, 4.1, 1.3], species='versicolor'
+
+>>> for *values, species in DATA:
+...     print(f'{values=}, {species=}')
+...
+values=[5.8, 2.7, 5.1, 1.9], species='virginica'
+values=[5.1, 3.5, 1.4, 0.2], species='setosa'
+values=[5.7, 2.8, 4.1, 1.3], species='versicolor'
 
 
-Recap
------
-* Four types of assignments: Scalar, Unpacking, Chained, Chained Unpacking Assignment
-* For unpacking assignment, lengths at both sides must be the same
-* Both left and right expression side brackets are optional
-* Unpacking nested sequences
-* Skipping values is done by using ``_``
+Multi Dimensional
+-----------------
+>>> from pprint import pprint
 
-Assignment:
+>>> DATA = [
+...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
+...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 
->>> a = 1
+>>> header = DATA[0]
+>>> rows = DATA[1:]
+>>>
+>>> pprint(header)
+('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species')
+>>>
+>>> pprint(rows)
+[(5.8, 2.7, 5.1, 1.9, 'virginica'),
+ (5.1, 3.5, 1.4, 0.2, 'setosa'),
+ (5.7, 2.8, 4.1, 1.3, 'versicolor')]
 
-Unpacking assignment:
+>>> header, *rows = DATA
+>>>
+>>> pprint(header)
+('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species')
+>>>
+>>> pprint(rows)
+[(5.8, 2.7, 5.1, 1.9, 'virginica'),
+ (5.1, 3.5, 1.4, 0.2, 'setosa'),
+ (5.7, 2.8, 4.1, 1.3, 'versicolor')]
 
->>> a, b = 1, 2
 
-Chained assignment:
+Use Case - 0x01
+---------------
+>>> a, b, c = range(0, 3)
+>>> a, b, c, d, e = range(0, 5)
+>>> a, b, *c = range(0, 10)
 
->>> a = b = 1
 
-Chained unpacking assignment:
+Use Case - 0x01
+---------------
+>>> line = 'ares3,watney,lewis,vogel,johanssen'
+>>> mission, *crew = line.split(',')
+>>>
+>>> print(f'{mission=}, {crew=}')
+mission='ares3', crew=['watney', 'lewis', 'vogel', 'johanssen']
 
->>> a, b = c, d = 1, 2
 
-Unpacking nested:
+Use Case - 0x02
+---------------
+>>> first, *middle, last = [1, 2, 3, 4]
+>>>
+>>> print(f'{first=}, {middle=}, {last=}')
+first=1, middle=[2, 3], last=4
 
->>> a, (b, c) = 1, (2, 3)
+>>> first, second, *others = [1, 2, 3, 4]
+>>>
+>>> print(f'{first=}, {second=}, {others=}')
+first=1, second=2, others=[3, 4]
 
-Skipping:
 
->>> _, (important, _) = 1, (2, 3)
+Use Case - 0x03
+---------------
+>>> first, second, *others = range(0,10)
+>>>
+>>> print(f'{first=}, {second=}, {others=}')
+first=0, second=1, others=[2, 3, 4, 5, 6, 7, 8, 9]
+
+>>> first, second, *_ = range(0,10)
+>>>
+>>> print(f'{first=}, {second=}')
+first=0, second=1
+
+
+Use Case - 0x04
+---------------
+* Python Version
+
+>>> import sys
+>>>
+>>>
+>>> major, minor, *_ = sys.version_info
+>>>
+>>> print(major, minor, sep='.')
+3.11
+
+
+Use Case - 0x05
+---------------
+* Iris 1D
+
+>>> *values, species = (5.8, 2.7, 5.1, 1.9, 'virginica')
+>>>
+>>> print(f'{values=}, {species=}')
+values=[5.8, 2.7, 5.1, 1.9], species='virginica'
+
+
+Use Case - 0x06
+---------------
+>>> *values, species = (5.8, 2.7, 5.1, 1.9, 'virginica')
+>>> avg = sum(values) / len(values)
+>>>
+>>> print(f'{avg=:.2f}, {species=}')
+avg=3.88, species='virginica'
+
+
+Use Case - 0x07
+---------------
+>>> line = '1969-07-21, 02:56:15, WARNING, Neil Armstrong first words on the Moon'
+>>> d, t, lvl, *msg = line.split(', ')
+>>>
+>>> d
+'1969-07-21'
+>>> t
+'02:56:15'
+>>> lvl
+'WARNING'
+>>> msg
+['Neil Armstrong first words on the Moon']
+
+
+Use Case - 0x08
+---------------
+>>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
+>>> username, password, uid, *others = line.split(':')
+>>>
+>>> username
+'watney'
+>>> password
+'x'
+>>> uid
+'1000'
+>>> others
+['1000', 'Mark Watney', '/home/watney', '/bin/bash']
+
+
+Use Case - 0x09
+---------------
+>>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
+>>> username, _, uid, *_ = line.split(':')
+>>>
+>>> username
+'watney'
+>>> uid
+'1000'
+
+
+Use Case - 0x0A
+---------------
+>>> line = '4.9,3.1,1.5,0.1,setosa'
+>>> *values, species = line.split(',')
+>>> values
+['4.9', '3.1', '1.5', '0.1']
+>>> species
+'setosa'
+
+
+Use Case - 0x0B
+---------------
+>>> data = (5.8, 2.7, 5.1, 1.9, 'virginica')
+>>> *values, species = data
+>>> values
+[5.8, 2.7, 5.1, 1.9]
+>>> species
+'virginica'
+
+
+Use Case - 0x0C
+---------------
+* Iris 2D
+
+>>> DATA = [
+...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
+...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
+>>>
+>>>
+>>> for *values, species in DATA:
+...     avg = sum(values) / len(values)
+...     print(f'{avg=:.2f} {species=}')
+avg=3.88 species='virginica'
+avg=2.55 species='setosa'
+avg=3.48 species='versicolor'
+
 
 
 Assignments
 -----------
-.. literalinclude:: assignments/unpack_assignment_a.py
-    :caption: :download:`Solution <assignments/unpack_assignment_a.py>`
+.. literalinclude:: assignments/star_assignment_a.py
+    :caption: :download:`Solution <assignments/star_assignment_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/unpack_assignment_b.py
-    :caption: :download:`Solution <assignments/unpack_assignment_b.py>`
+.. literalinclude:: assignments/star_assignment_b.py
+    :caption: :download:`Solution <assignments/star_assignment_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/star_assignment_c.py
+    :caption: :download:`Solution <assignments/star_assignment_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/star_assignment_d.py
+    :caption: :download:`Solution <assignments/star_assignment_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/star_assignment_e.py
+    :caption: :download:`Solution <assignments/star_assignment_e.py>`
     :end-before: # Solution

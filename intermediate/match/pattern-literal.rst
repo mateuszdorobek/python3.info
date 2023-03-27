@@ -210,3 +210,10 @@ Use Case - 0x09
 ...         parser.error(f'{args.command!r} not yet implemented')
 ...
 pushing
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/match_literal_a.py
+    :caption: :download:`Solution <assignments/match_literal_a.py>`
+    :end-before: # Solution

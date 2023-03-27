@@ -95,6 +95,7 @@ Adjusts to the Shortest
 >>> list(result)
 [('Mark', 'Watney'), ('Melissa', 'Lewis')]
 
+
 Adjust to the Longest
 ---------------------
 * ``itertools.zip_longest(iter1 [,iter2 [...]], [fillvalue=None]) --> zip_longest object``

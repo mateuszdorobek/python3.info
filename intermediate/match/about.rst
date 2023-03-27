@@ -8,16 +8,53 @@ Match About
 
 Problem
 -------
->>> choice = 'r'
+It all starts with single ``if/else`` statement
+
+>>> language = 'English'
 >>>
->>> if choice == 'r':
-...     color = 'red'
-... elif choice == 'g':
-...     color = 'green'
-... elif choice == 'b':
-...     color = 'blue'
+>>> if language == 'English':
+...     result = 'Hello'
 ... else:
-...     color = None
+...     result = 'Unknown language'
+>>>
+>>> print(result)
+Hello
+
+It quickly grows:
+
+>>> language = 'English'
+>>>
+>>> if language == 'English':
+...     result = 'Hello'
+... elif language == 'Polish':
+...     result = 'Cześć'
+... else:
+...     result = 'Unknown language'
+>>>
+>>> print(result)
+Hello
+
+It quickly grows into multiple ``elif``:
+
+>>> language = 'English'
+>>>
+>>> if language == 'English':
+...     result = 'Hello'
+... elif language == 'Polish':
+...     result = 'Cześć'
+... elif language == 'German':
+...     result = 'Guten Tag'
+... elif language == 'Spanish':
+...     result = 'Buenos Días'
+... elif language == 'Chinese':
+...     result = '你好'
+... elif language == 'French':
+...     result = 'Bonjour'
+... else:
+...     result = 'Unknown language'
+>>>
+>>> print(result)
+Hello
 
 
 Pattern Matching
@@ -25,13 +62,19 @@ Pattern Matching
 New ``match`` syntax allows to be ``PEP-8`` compliant while having
 clear syntax without condition repetitions:
 
->>> choice = 'r'
+>>> language = 'English'
 >>>
->>> match choice:
-...     case 'r': color = 'red'
-...     case 'g': color = 'green'
-...     case 'b': color = 'blue'
-...     case _:   color = None
+>>> match language:
+...     case 'English': result = 'Hello'
+...     case 'Polish': result = 'Cześć'
+...     case 'German': result = 'Guten Tag'
+...     case 'Spanish': result = 'Buenos Días'
+...     case 'Chinese': result = '你好'
+...     case 'French': result = 'Bonjour'
+...     case _: result = 'Unknown language'
+>>>
+>>> print(result)
+Hello
 
 
 Syntax

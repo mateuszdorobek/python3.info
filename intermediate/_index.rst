@@ -16,7 +16,6 @@ Unpack
     :caption: Unpack
 
     star/assignment.rst
-    star/star.rst
     star/parameters.rst
     star/arguments.rst
     star/signature.rst
@@ -28,7 +27,21 @@ Idiom
     :maxdepth: 1
     :caption: Idiom
 
-    idiom/generators.rst
+    idiom/about.rst
+    idiom/range.rst
+    idiom/reversed.rst
+    idiom/all.rst
+    idiom/any.rst
+    idiom/enumerate.rst
+    idiom/zip.rst
+    idiom/map.rst
+    idiom/filter.rst
+    idiom/reduce.rst
+    idiom/next.rst
+    idiom/iter.rst
+    idiom/chain.rst
+    idiom/patterns.rst
+    idiom/itertools.rst
 
 
 Enum

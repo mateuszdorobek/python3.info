@@ -1,7 +1,7 @@
 """
-* Assignment: Idioms Match Range
+* Assignment: Match Literal Range
 * Complexity: medium
-* Lines of code: 25 lines
+* Lines of code: 18 lines
 * Time: 13 min
 
 English:
@@ -9,21 +9,21 @@ English:
     2. Note, that function does not take any keyword arguments
     3. How to implement passing only stop argument
        `myrange(start=0, stop=???, step=1)`?
-    4. Run doctests - all must succeed
+    4. Use `match len(args)`
+    5. Run doctests - all must succeed
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`
     2. Zauważ, że funkcja nie przyjmuje żanych argumentów nazwanych (keyword)
     3. Jak zaimplementować możliwość podawania tylko końca
        `myrange(start=0, stop=???, step=1)`?
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    4. Użyj `match len(args)`
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * https://github.com/python/cpython/blob/main/Objects/rangeobject.c#LC75
     * `raise TypeError('error message')`
     * use `*args` and `**kwargs`
-    * `if len(args) == ...`
-    * `match len(args)`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -65,7 +65,10 @@ Tests:
 # myrange(start=0, stop=???, step=1)
 # note, function does not take keyword arguments
 # type: Callable[[int,int,int], list[int]]
-def myrange():
+def myrange(*args, **kwargs):
+    if kwargs:
+        raise TypeError('myrange() takes no keyword arguments')
+
     current = start
     result = []
 
@@ -80,6 +83,10 @@ def myrange():
 def myrange(*args, **kwargs):
     if kwargs:
         raise TypeError('myrange() takes no keyword arguments')
+
+    start = ...
+    stop = ...
+    step = ...
 
     match len(args):
         case 3:
