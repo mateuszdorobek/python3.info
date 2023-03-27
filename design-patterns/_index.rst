@@ -23,26 +23,6 @@ UML
     uml/sequence-diagram.rst
 
 
-Idiom
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Idiom
-
-    idiom/about.rst
-    idiom/range.rst
-    idiom/enumerate.rst
-    idiom/zip.rst
-    idiom/map.rst
-    idiom/filter.rst
-    idiom/reduce.rst
-    idiom/all.rst
-    idiom/any.rst
-    idiom/syntax-switch.rst
-    idiom/syntax-match.rst
-    idiom/patterns.rst
-
-
 Type Annotation
 ***************
 .. toctree::

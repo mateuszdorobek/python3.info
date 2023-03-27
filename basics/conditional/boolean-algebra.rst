@@ -2,8 +2,6 @@ Boolean Algebra
 ===============
 
 
-Syntax
-------
 >>> True and True or False
 True
 >>>
@@ -21,6 +19,61 @@ False
 >>>
 >>> True and (False or False)
 False
+
+>>> True or False and True
+True
+>>>
+>>> False or True and False
+False
+>>>
+>>> False or True and True
+True
+>>>
+>>> (False or True) and True
+True
+>>> (False or True) and False
+False
+>>>
+>>> True and True or False and True
+True
+>>> True and (True or False) and True
+True
+>>>
+>>> True or False and True or False
+True
+>>> (True or False) and (True or False)
+True
+>>> True or False and True or True
+True
+>>> (True or False) and (True or True)
+True
+
+
+Precedence
+----------
+* First ``and``s are evaluated together
+* Then ``or``s
+
+
+Optimization
+------------
+* Python won't evaluate the rest of an expression if already knows an answer
+
+Python won't evaluate the rest of an expression if already knows an answer.
+In the following example you may see, that expression on the right side
+is not checked at all! Mind also, that variable ``x`` was never defined!
+
+>>> False and x > 1
+False
+>>>
+>>> x
+Traceback (most recent call last):
+NameError: name 'x' is not defined
+
+Python will see ``False and ...``. ``False`` and something will always
+return ``False`` so Python does performance optimization and won't even
+check the other argument. In this case, it would fail with ``NameError``
+if it does.
 
 
 Example
@@ -91,8 +144,4 @@ Good Practices
 ...         continue
 
 
-Assignments
------------
-.. literalinclude:: assignments/conditional_booleanalgebra_a.py
-    :caption: :download:`Solution <assignments/conditional_booleanalgebra_a.py>`
-    :end-before: # Solution
+.. todo:: Assignments

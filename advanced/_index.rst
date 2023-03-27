@@ -14,7 +14,6 @@ Syntax
     :maxdepth: 1
     :caption: Unpack
 
-    syntax/parameter.rst
     syntax/assignment-expression.rst
 
 

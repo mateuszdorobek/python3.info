@@ -54,10 +54,6 @@ Iterables
     iterables/set.rst
     iterables/comparison.rst
     iterables/nested.rst
-    iterables/unpack-getitem.rst
-    iterables/unpack-slice.rst
-    iterables/unpack-assignment.rst
-    iterables/unpack-star.rst
 
 
 Unpack

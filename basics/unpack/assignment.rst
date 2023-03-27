@@ -195,42 +195,34 @@ Swap
 
 Unpacking
 ---------
->>> data = [1, 2, 3]
->>> a, b, c = data
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
+>>> firstname, lastname, email = data
 >>>
->>> print(f'{a=}, {b=}, {c=}')
-a=1, b=2, c=3
-
->>> line = 'Mark,Watney,40'
->>> firstname, lastname, age = line.split(',')
+>>> print(firstname)
+Mark
 >>>
->>> print(f'{firstname=}, {lastname=}, {age=}')
-firstname='Mark', lastname='Watney', age='40'
-
->>> data = ['Mark', 'Watney', ('mwatney@nasa.gov', 'mwatney@gmail.com')]
->>> firstname, lastname, emails = data
+>>> print(lastname)
+Watney
 >>>
->>> print(f'{firstname=}\n{lastname=}\n{emails=}')
-firstname='Mark'
-lastname='Watney'
-emails=('mwatney@nasa.gov', 'mwatney@gmail.com')
+>>> print(email)
+mwatney@nasa.gov
 
 
 Nested
 ------
->>> a, (b, c) = [1, (2, 3)]
->>>
->>> print(f'{a=}, {b=}, {c=}')
-a=1, b=2, c=3
-
 >>> data = ['Mark', 'Watney', ('mwatney@nasa.gov', 'mwatney@gmail.com')]
+
+>>> firstname, lastname, emails = data
+>>> print(emails)
+('mwatney@nasa.gov', 'mwatney@gmail.com')
+
 >>> firstname, lastname, (email_work, email_home) = data
 >>>
->>> print(f'{firstname=}\n{lastname=}\n{email_work=}\n{email_home=}')
-firstname='Mark'
-lastname='Watney'
-email_work='mwatney@nasa.gov'
-email_home='mwatney@gmail.com'
+>>> print(email_work)
+mwatney@nasa.gov
+>>>
+>>> print(email_home)
+mwatney@gmail.com
 
 
 Skipping Values
@@ -243,20 +235,66 @@ Skipping Values
 >>> print(_)
 Mark Watney
 
->>> line = 'Mark,Watney,40'
->>> firstname, lastname, _ = line.split(',')
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
 >>>
->>> print(f'{firstname=}, {lastname=}')
-firstname='Mark', lastname='Watney'
+>>> firstname, lastname, email = data
+>>> firstname, lastname, _ = data
+>>> firstname, _, _ = data
+>>> _, lastname, _ = data
+>>> _, _, email = data
 
->>> line = 'Mark,Watney,40,185,75.5'
->>> firstname, lastname, _, _, _ = line.split(',')
+
+Copy Deep vs Reference
+----------------------
+>>> a = b = 1
+>>> a
+1
+>>> b
+1
 >>>
->>> print(f'{firstname=}, {lastname=}')
-firstname='Mark', lastname='Watney'
+>>> a = 2
+>>> a
+2
+>>> b
+1
+
+>>> a = b = [1, 2]
+>>>
+>>> a
+[1, 2]
+>>> b
+[1, 2]
+>>>
+>>> a.append(3)
+>>>
+>>> a
+[1, 2, 3]
+>>> b
+[1, 2, 3]
 
 
 Use Case - 0x01
+---------------
+>>> a, b, c = range(0, 3)
+>>> a, b, c, d, e = range(0, 5)
+>>> a, b, c, d, e, f, g, h, i, j = range(0, 10)
+
+
+Use Case - 0x02
+---------------
+>>> import sys
+>>>
+>>> major, minor, patch, *_ = sys.version_info
+>>>
+>>>
+>>> print(major)
+3
+>>>
+>>> print(minor)
+11
+
+
+Use Case - 0x03
 ---------------
 >>> line = '5.1,3.5,1.4,0.2,setosa'
 >>> sl, sw, pl, pw, species = line.split(',')
@@ -278,7 +316,7 @@ Use Case - 0x01
 'setosa'
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 * Line from ``/etc/passwd``
 
@@ -289,7 +327,7 @@ Use Case - 0x03
 username='watney', uid='1000'
 
 
-Use Case - 0x02
+Use Case - 0x05
 ---------------
 >>> log = '1969-07-21, 02:56:15, WARNING, Neil Armstrong first words on the Moon'
 >>> date, time, level, message = log.split(', ')
@@ -308,7 +346,7 @@ Use Case - 0x02
 'Neil Armstrong first words on the Moon'
 
 
-Use Case - 0x01
+Use Case - 0x06
 ---------------
 * Skip
 
@@ -319,7 +357,7 @@ Use Case - 0x01
 >>> _, _, c = 'red', 'green', 'blue'
 
 
-Use Case - 0x03
+Use Case - 0x07
 ---------------
 * Important
 
@@ -356,7 +394,7 @@ Python understands this as:
 >>> a,b,(c,d) = (object, object, (object,object))
 
 
-Use Case - 0x05
+Use Case - 0x08
 ---------------
 >>> row = (5.8, 2.7, 5.1, 1.9, 'virginica')
 
@@ -375,7 +413,7 @@ sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
 sl=5.8, sw=2.7, pl=5.1, pw=1.9, species='virginica'
 
 
-Use Case - 0x06
+Use Case - 0x09
 ---------------
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
