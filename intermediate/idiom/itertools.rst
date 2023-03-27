@@ -1,5 +1,5 @@
-Itertools
-=========
+Idiom Itertools
+===============
 * Learn more at https://docs.python.org/3/library/itertools.html
 * More information in `Itertools`
 * ``itertools.count(start=0, step=1)``

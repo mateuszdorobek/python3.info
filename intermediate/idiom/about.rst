@@ -1,8 +1,7 @@
 Idiom About
 ===========
-* It is not a generator
-* Generator-like objects
-* comprehension, generator expression
+* Returns iterator
+* Generator-like - behaves similarly, but is not a generator
 * ``range(start, stop, step)``
 * ``reversed(iterable)``
 * ``enumerate(iterable, start=0)``
@@ -11,6 +10,7 @@ Idiom About
 * ``filter(func, iterable)``
 * ``next(iterable)``
 * ``iter(iterable)``
+* ``chain(*iterator)``
 * any, all, min, max, sum
 * zip, enumerate, chain
 * map, filter, reduce, starmap, zip_longest

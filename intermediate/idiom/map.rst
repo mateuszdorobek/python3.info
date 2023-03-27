@@ -2,21 +2,31 @@ Idiom Map
 =========
 * Map (convert) elements in sequence
 * Generator (lazy evaluated)
-* Built-in
-
-
-Syntax
-------
 * ``map(callable, *iterables)``
 * required ``callable`` - Function
 * required ``iterables`` - 1 or many sequence or iterator objects
 
+>>> from inspect import isgeneratorfunction, isgenerator
+>>>
+>>>
+>>> isgeneratorfunction(map)
+False
+>>>
+>>> result = map(float, [1,2,3])
+>>> isgenerator(result)
+False
+
+
+Example
+-------
 >>> result = (float(x) for x in range(0,5))
->>> print(list(result))
+>>>
+>>> list(result)
 [0.0, 1.0, 2.0, 3.0, 4.0]
 
 >>> result = map(float, range(0,5))
->>> print(list(result))
+>>>
+>>> list(result)
 [0.0, 1.0, 2.0, 3.0, 4.0]
 
 
@@ -94,6 +104,23 @@ Partial
 >>> result = map(myround, DATA)  # round(number=1.111, ndigits=1)
 >>> print(list(result))
 [1.1, 2.2, 3.3]
+
+
+Performance
+-----------
+>>> def even(x):
+...     return x % 2 == 0
+
+>>> # doctest: +SKIP
+... %%timeit -r 1000 -n 1000
+... result = [float(x) for x in data if even(x)]
+1.9 µs ± 206 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -r 1000 -n 1000
+... result = list(map(float, filter(parzysta, data)))
+1.66 µs ± 175 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
 
 
 Use Case - 0x01
@@ -223,6 +250,65 @@ Use Case - 0x06
 
 Use Case - 0x07
 ---------------
+SetUp:
+
+>>> from doctest import testmod as run_tests
+
+Data [#ghSklearnIris]_:
+
+>>> DATA = """150,4,setosa,versicolor,virginica
+... 5.1,3.5,1.4,0.2,0
+... 7.0,3.2,4.7,1.4,1
+... 6.3,3.3,6.0,2.5,2
+... 4.9,3.0,1.4,0.2,0
+... 6.4,3.2,4.5,1.5,1
+... 5.8,2.7,5.1,1.9,2"""
+
+Definition:
+
+>>> def get_labelencoder(header: str) -> dict[int, str]:
+...     """
+...     >>> get_labelencoder('150,4,setosa,versicolor,virginica')
+...     {0: 'setosa', 1: 'versicolor', 2: 'virginica'}
+...     """
+...     nrows, nfeatures, *class_labels = header.split(',')
+...     return dict(enumerate(class_labels))
+>>>
+>>> run_tests()  # doctest: +SKIP
+TestResults(failed=0, attempted=1)
+
+>>> def get_data(line: str) -> tuple:
+...     """
+...     >>> convert('5.1,3.5,1.4,0.2,0')
+...     (5.1, 3.5, 1.4, 0.2, 'setosa')
+...     >>> convert('7.0,3.2,4.7,1.4,1')
+...     (7.0, 3.2, 4.7, 1.4, 'versicolor')
+...     >>> convert('6.3,3.3,6.0,2.5,2')
+...     (6.3, 3.3, 6.0, 2.5, 'virginica')
+...     """
+...     *values, species = line.split(',')
+...     values = map(float, values)
+...     species = label_encoder[int(species)]
+...     return tuple(values) + (species,)
+>>>
+>>> run_tests()  # doctest: +SKIP
+TestResults(failed=0, attempted=3)
+
+>>> header, *lines = DATA.splitlines()
+>>> label_encoder = get_labelencoder(header)
+>>> result = map(get_data, lines)
+
+>>> list(result)  # doctest: +NORMALIZE_WHITESPACE
+[(5.1, 3.5, 1.4, 0.2, 'setosa'),
+ (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+ (6.3, 3.3, 6.0, 2.5, 'virginica'),
+ (4.9, 3.0, 1.4, 0.2, 'setosa'),
+ (6.4, 3.2, 4.5, 1.5, 'versicolor'),
+ (5.8, 2.7, 5.1, 1.9, 'virginica')]
+
+
+Use Case - 0x08
+---------------
 >>> # doctest: +SKIP
 ... import pandas as pd
 ...
@@ -249,7 +335,7 @@ Use Case - 0x07
 ... )
 
 
-Use Case - 0x08
+Use Case - 0x09
 ---------------
 >>> from functools import reduce
 >>> from operator import add
@@ -310,6 +396,13 @@ Use Case - 0x08
 3072
 
 
+References
+----------
+.. [#ghSklearnIris] Scikit-learn Contributors. Iris Dataset. Year: 2022. Retrieved: 2022-12-19. URL:  https://raw.githubusercontent.com/scikit-learn/scikit-learn/main/sklearn/datasets/data/iris.csv
+
+
 Assignments
 -----------
-.. todo:: Assignments
+.. literalinclude:: assignments/idiom_map_a.py
+    :caption: :download:`Solution <assignments/idiom_map_a.py>`
+    :end-before: # Solution

@@ -1,14 +1,10 @@
 Idiom Filter
 ============
+* ``filter(callable, *iterables)``
 * Select elements from sequence
 * Generator (lazy evaluated)
-* Built-in
-
-Syntax:
-
-    * ``filter(callable, *iterables)``
-    * required ``callable`` - Function
-    * required ``iterables`` - 1 or many sequence or iterator objects
+* required ``callable`` - Function
+* required ``iterables`` - 1 or many sequence or iterator objects
 
 >>> def even(x):
 ...     return x % 2 == 0
@@ -18,6 +14,21 @@ Syntax:
 
 >>> result = (x for x in range(0,5) if x%2==0)
 >>> result = filter(lambda x: x%2==0, range(0,5))
+
+
+>>> from inspect import isgeneratorfunction, isgenerator
+>>>
+>>>
+>>> def even(x):
+...     return x % 2 == 0
+>>>
+>>>
+>>> isgeneratorfunction(filter)
+False
+>>>
+>>> result = filter(even, [1,2,3])
+>>> isgenerator(result)
+False
 
 
 Problem
@@ -86,13 +97,21 @@ StopIteration
 
 Performance
 -----------
->>> # %%timeit -r 10 -n 100_000
->>> # result = (x for x in range(0,5) if x%2==0)
->>> # 490 ns ± 44 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
+>>> def even(x):
+...     return x % 2 == 0
+>>>
+>>>
+>>> data = [1, 2, 3, 4, 5, 6]
 
->>> # %%timeit -r 10 -n 100_000
->>> # result = filter(lambda x: x%2==0, range(0,5))
->>> # 384 ns ± 34.2 ns per loop (mean ± std. dev. of 10 runs, 100000 loops each)
+>>> # doctest: +SKIP
+... %%timeit -r 1000 -n 1000
+... result = [x for x in data if even(x)]
+1.11 µs ± 139 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -r 1000 -n 1000
+... result = list(filter(even, data))
+921 ns ± 112 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
 
 Use Case - 0x01
@@ -148,6 +167,10 @@ Use Case - 0x03
 
 Assignments
 -----------
-.. literalinclude:: assignments/idioms_filter_a.py
-    :caption: :download:`Solution <assignments/idioms_filter_a.py>`
+.. literalinclude:: assignments/idiom_filter_a.py
+    :caption: :download:`Solution <assignments/idiom_filter_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_filter_b.py
+    :caption: :download:`Solution <assignments/idiom_filter_b.py>`
     :end-before: # Solution

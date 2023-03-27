@@ -1,10 +1,13 @@
 Idiom Reversed
 ==============
-* ``reversed()`` - Return a reverse iterator over the values of the given sequence
+* ``reversed(sequence, /)``
+* Return a reverse iterator over the values of the given sequence
 
 
 Example
 -------
 >>> data = (1, 2, 3)
->>> list(reversed(data))
+>>> result = reversed(data)
+>>>
+>>> list(result)
 [3, 2, 1]

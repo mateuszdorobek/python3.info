@@ -1,14 +1,21 @@
 Idiom Enumerate
 ===============
 * Enumerate sequences
-* Generator (lazy evaluated)
-* Built-in
-
-
-Syntax
-------
+* Built-in generator like (lazy evaluated)
 * ``enumerate(*iterables)``
 * required ``*iterables`` - 1 or many sequences or iterator object
+* Return an enumerate object
+* The enumerate object yields pairs containing a count (from start, which defaults to zero) and a value yielded by the iterable argument.
+
+
+>>> from inspect import isgeneratorfunction, isgenerator
+>>>
+>>>
+>>> isgeneratorfunction(enumerate)
+False
+>>> result = enumerate(['a', 'b', 'c'])
+>>> isgenerator(result)
+False
 
 
 Problem
@@ -85,4 +92,7 @@ Using in a Loop
 
 Assignments
 -----------
-.. todo:: Assignments
+.. literalinclude:: assignments/idiom_enumerate_a.py
+    :caption: :download:`Solution <assignments/idiom_enumerate_a.py>`
+    :end-before: # Solution
+

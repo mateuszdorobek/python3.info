@@ -1,5 +1,7 @@
-Chain
-=====
+Idiom Chain
+===========
+* ``itertools.chain()``
+* Generator like (lazy evaluated)
 
 >>> def square(x):
 ...     return x ** 2

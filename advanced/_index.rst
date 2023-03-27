@@ -24,7 +24,6 @@ Generators
     :caption: Generators
 
     generator/about.rst
-    generator/builtin.rst
     generator/expression.rst
     generator/function.rst
     generator/inspect.rst
