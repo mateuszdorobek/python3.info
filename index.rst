@@ -13,16 +13,6 @@ About
 Agenda
 ******
 .. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Agenda
-
-    _agenda/index.rst
-
-
-Agenda
-******
-.. toctree::
     :maxdepth: 1
     :caption: Agenda
 
