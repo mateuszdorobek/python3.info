@@ -1,5 +1,5 @@
-Match Pattern Sequence
-======================
+Match Sequence
+==============
 
 A `sequence pattern` looks like ``[a, *rest, b]`` and is similar to a
 list unpacking. An important difference is that the elements nested

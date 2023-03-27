@@ -1,5 +1,5 @@
-RE Search
-=========
+Regex RE Search
+===============
 * ``re.search()``
 * Searches if pattern contains a string
 

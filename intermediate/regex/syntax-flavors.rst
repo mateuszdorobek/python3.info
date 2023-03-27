@@ -1,5 +1,5 @@
-Syntax Flavors
-==============
+Regex Syntax Flavors
+====================
 * In other programming languages
 * PCRE - Perl Compatible Regular Expressions
 

@@ -1,5 +1,5 @@
-RE Group
-========
+Regex RE Group
+==============
 * Match particular parts of a string
 * Possible to name matches
 

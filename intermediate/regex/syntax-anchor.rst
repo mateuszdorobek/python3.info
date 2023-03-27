@@ -1,5 +1,5 @@
-Syntax Anchor
-=============
+Regex Syntax Anchor
+===================
 * ``.`` - any character except a newline (changes meaning with ``re.DOTALL``)
 * ``^`` - start of line (changes meaning with ``re.MULTILINE``)
 * ``$`` - end of line (changes meaning with ``re.MULTILINE``)

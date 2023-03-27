@@ -1,5 +1,5 @@
-Unpack Arguments
-================
+Star Arguments
+==============
 * Unpack and Arbitrary Number of Parameters and Arguments
 
 .. figure:: img/unpack-assignment,args,params.png

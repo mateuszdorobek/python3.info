@@ -1,5 +1,5 @@
-Match Pattern Wildcard
-======================
+Match Wildcard
+==============
 
 The `wildcard pattern` is a single underscore: ``_``.  It always
 matches, but does not capture any variable (which prevents

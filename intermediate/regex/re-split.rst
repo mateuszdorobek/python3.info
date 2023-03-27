@@ -1,5 +1,5 @@
-RE Split
-========
+Regex RE Split
+==============
 * ``re.split()``
 * Split text by pattern
 

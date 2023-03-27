@@ -1,5 +1,5 @@
-Match Pattern Class
-===================
+Match Class
+===========
 A `class pattern` is similar to the above but matches attributes
 instead of keys. It looks like ``datetime.date(year=y, day=d)``. It
 matches instances of the given type, having at least the specified

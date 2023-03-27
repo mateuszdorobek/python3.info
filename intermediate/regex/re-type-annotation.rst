@@ -1,5 +1,5 @@
-RE Type Annotation
-==================
+Regex RE Type Annotation
+========================
 * ``typing.Pattern``
 * ``typing.Match``
 

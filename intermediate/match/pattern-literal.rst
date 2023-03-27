@@ -1,5 +1,5 @@
-Match Pattern Literal
-=====================
+Match Literal
+=============
 
 A `literal pattern` is useful to filter constant values in a
 structure. It looks like a Python literal (including some values like

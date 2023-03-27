@@ -1,5 +1,5 @@
-RE Substitute
-=============
+Regex RE Substitute
+===================
 * ``re.sub()``
 * Replace matched substring with text
 

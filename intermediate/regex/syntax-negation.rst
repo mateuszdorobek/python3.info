@@ -1,5 +1,5 @@
-Syntax Negation
-===============
+Regex Syntax Negation
+=====================
 * Negation logically inverts qualifier
 * ``[^...]`` - anything but ...
 

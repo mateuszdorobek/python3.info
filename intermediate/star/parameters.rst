@@ -1,8 +1,11 @@
-Unpack Parameters
-=================
-* More information in `Unpack Assignment`
-* More information in `Unpack Parameters`
-* More information in `Unpack Arguments`
+Star Parameters
+===============
+* ``*`` is used for positional parameters
+* ``args`` is a convention, but you can use any name
+* ``*args`` unpacks to ``tuple``
+* ``**`` is used for keyword parameters
+* ``kwargs`` is a convention, but you can use any name
+* ``**kwargs`` unpacks to ``dict``
 
 
 .. figure:: img/unpack-assignment,args,params.png

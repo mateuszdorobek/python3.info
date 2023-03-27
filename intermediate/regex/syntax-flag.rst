@@ -1,5 +1,5 @@
-Syntax Flag
-===========
+Regex Syntax Flag
+=================
 * ``re.ASCII`` - perform ASCII-only matching instead of full Unicode matching
 * ``re.IGNORECASE`` - case-insensitive search
 * ``re.LOCALE`` - case-insensitive matching dependent on the current locale (deprecated)

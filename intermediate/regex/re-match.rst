@@ -1,5 +1,5 @@
-RE Match
-========
+Regex RE Match
+==============
 * ``re.match()``
 * Checks exact match
 * Checking if user input is correct (email, url, NIP, VAT ID, PESEL)

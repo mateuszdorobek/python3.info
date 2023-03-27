@@ -1,5 +1,5 @@
-Unpack Star
-===========
+Star Assignment
+===============
 * ``a, b, *c = 1, 2, 3, 4, 5``
 * Used when there is arbitrary number of values to unpack
 * Could be used from start, middle, end

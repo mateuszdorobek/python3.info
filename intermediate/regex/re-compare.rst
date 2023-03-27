@@ -1,5 +1,5 @@
-RE Compare
-==========
+Regex RE Compare
+================
 * ``re.match()``
 * ``re.search()``
 * ``re.findall()``

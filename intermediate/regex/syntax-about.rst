@@ -2,8 +2,8 @@
 
 
 
-Syntax About
-============
+Regex Syntax About
+==================
 * Also known as ``Regular Expressions``
 * Also known as ``Regular Expr``
 * Also known as ``regexp``

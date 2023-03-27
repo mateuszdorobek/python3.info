@@ -1,5 +1,5 @@
-Match Subpatterns
-=================
+Match Sub-patterns
+==================
 
 
 Use Case - 0x01

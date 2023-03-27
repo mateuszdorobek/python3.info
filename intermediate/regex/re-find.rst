@@ -1,5 +1,5 @@
-RE Findall, Finditer
-====================
+Regex RE Findall, Finditer
+==========================
 * ``re.findall()``
 * ``re.finditer()``
 

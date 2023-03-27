@@ -1,5 +1,5 @@
-Syntax Identifier
-=================
+Regex Syntax Identifier
+=======================
 * Identifiers specifies what to find
 * They are also called Character Classes
 

@@ -1,5 +1,5 @@
-Syntax Quantifier
-=================
+Regex Syntax Quantifier
+=======================
 * Quantifier specifies how many occurrences of preceding qualifier or identifier
 * Exact
 * Greedy

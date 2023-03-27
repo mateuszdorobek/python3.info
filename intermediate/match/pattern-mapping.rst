@@ -1,5 +1,5 @@
-Match Pattern Mapping
-=====================
+Match Mapping
+=============
 
 A mapping pattern looks like ``{"user": u, "emails": [*es]}``. It
 matches mappings with at least the set of provided keys, and if all the

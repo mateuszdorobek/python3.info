@@ -1,5 +1,5 @@
-Match Pattern Constant
-======================
+Match Constant
+==============
 
 A `constant value pattern` works like the literal but for certain named
 constants. Note that it must be a qualified (dotted) name, given the

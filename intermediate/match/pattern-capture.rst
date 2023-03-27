@@ -1,5 +1,5 @@
-Match Pattern Capture
-=====================
+Match Capture
+=============
 
 A `capture pattern` looks like x and is equivalent to an identical
 assignment target: it always matches and binds the variable with the

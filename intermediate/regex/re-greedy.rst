@@ -1,5 +1,5 @@
-RE Lazy
-=======
+Regex RE Lazy
+=============
 * Adding ``?`` after the qualifier makes it non-greedy
 * Greedy - as many as possible
 * Lazy - as few as possible:

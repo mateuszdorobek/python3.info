@@ -1,5 +1,5 @@
-Syntax Qualifier
-================
+Regex Syntax Qualifier
+======================
 * Qualifier specifies what to find.
 * ``a`` - Exact
 * ``a|b`` - Alternative
