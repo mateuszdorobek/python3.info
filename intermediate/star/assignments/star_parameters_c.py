@@ -1,7 +1,7 @@
 """
 * Assignment: Unpack Parameters Kwargs
 * Complexity: medium
-* Lines of code: 8 lines
+* Lines of code: 7 lines
 * Time: 8 min
 
 English:
@@ -73,18 +73,18 @@ Tests:
 
 # Return True if all arguments are int or float, otherwise False
 # type: Callable[[int|float],bool]
-def isnumeric():
+def isnumeric(*args, **kwargs):
     ...
 
 
 # Solution
 def isnumeric(*args, **kwargs):
-    arguments = args + tuple(kwargs.values())
+    args += tuple(kwargs.values())
 
-    if len(arguments) == 0:
+    if not args:
         return False
 
-    for arg in arguments:
+    for arg in args:
         if type(arg) not in (float, int):
             return False
 

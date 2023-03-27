@@ -1,7 +1,7 @@
 """
 * Assignment: Unpack Parameters Args
 * Complexity: easy
-* Lines of code: 7 lines
+* Lines of code: 6 lines
 * Time: 8 min
 
 English:
@@ -61,7 +61,7 @@ Tests:
 
 # Return True if all arguments are int or float, otherwise False
 # type: Callable[[int|float],bool]
-def isnumeric():
+def isnumeric(*args):
     ...
 
 
