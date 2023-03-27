@@ -25,9 +25,19 @@ Type Annotation Types
 
 Dynamic Attributes
 ------------------
->>> class Astronaut:
-...     firstname: str
-...     lastname: str
+>>> class User:
+...     username: str
+...     password: str
+
+>>> mark = User()
+>>> mark.username
+Traceback (most recent call last):
+AttributeError: 'User' object has no attribute 'username'
+
+>>> mark = User()
+>>> mark.username = 'mwatney'
+>>> mark.username
+'mwatney'
 
 
 Static Attributes
@@ -35,38 +45,41 @@ Static Attributes
 * ClassVar indicates that a given attribute is intended to be used as a class variable and should not be set on instances of that class.
 * https://docs.python.org/3/library/typing.html#typing.ClassVar
 
+Import:
+
 >>> from typing import ClassVar
->>>
->>>
->>> class Astronaut:
+
+Example:
+
+>>> class User:
 ...     AGE_MIN: ClassVar[int] = 30
 ...     AGE_MAX: ClassVar[int] = 50
 
 
 Method Return Type
 ------------------
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self) -> str:
 ...         return 'My name... José Jiménez'
 
 
 Required Method Arguments
 -------------------------
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self, name: str) -> str:
 ...         return f'My name... {name}'
 
 
 Optional Method Arguments
 -------------------------
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self, name: str = 'Mark Watney') -> str:
 ...         return f'My name... {name}'
 
 
 Init Method
 -----------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...
@@ -77,92 +90,92 @@ Init Method
 
 Composition
 -----------
->>> class Person:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> class Astronaut:
+>>> class Admin:
 ...     firstname: str
 ...     lastname: str
-...     friends: Person
+...     friends: User
 
 
 Aggregation
 -----------
->>> class Person:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> class Astronaut:
+>>> class Admin:
 ...     firstname: str
 ...     lastname: str
-...     friends: list[Person]
+...     friends: list[User]
 
 
 Self
 ----
->>> class Astronaut:  # doctest: +SKIP
+>>> class User:  # doctest: +SKIP
 ...     firstname: str
 ...     lastname: str
-...     friends: list[Astronaut]
+...     friends: list[User]
 ...
 Traceback (most recent call last):
-NameError: name 'Astronaut' is not defined
+NameError: name 'User' is not defined
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     friends: list['Astronaut']
+...     friends: list['User']
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     friends: 'list[Astronaut]'
+...     friends: 'list[User]'
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: 'str'
 ...     lastname: 'str'
-...     friends: 'list[Astronaut]'
+...     friends: 'list[User]'
 
 Since Python 3.7:
 
 >>> from __future__ import annotations
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     friends: list[Astronaut]
+...     friends: list[User]
 
-* Since 3.11: :pep:`673` - Self Type
+Since 3.11: :pep:`673` - Self Type
 
 >>> from typing import Self  # doctest: +SKIP
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     friends: list[Self]  # doctest: +SKIP
 
 What's the difference?
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
->>> Astronaut.__annotations__  # doctest: +SKIP
+>>> User.__annotations__  # doctest: +SKIP
 {'firstname': <class 'str'>, 'lastname': <class 'str'>}
 
 >>> from __future__ import annotations
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...
 >>>
->>> Astronaut.__annotations__  # doctest: +SKIP
+>>> User.__annotations__  # doctest: +SKIP
 {'firstname': 'str', 'lastname': 'str'}
 
 
@@ -336,7 +349,7 @@ Use Case - 0x02
 >>> class DatabaseCache(ICache):
 ...     pass
 >>>
->>> class MemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     pass
 >>>
 >>> class FilesystemCache(ICache):
@@ -344,7 +357,7 @@ Use Case - 0x02
 >>>
 >>>
 >>> db: ICache = DatabaseCache()
->>> mem: ICache = MemoryCache()
+>>> mem: ICache = LocmemCache()
 >>> fs: ICache = FilesystemCache()
 
 >>> class ICache:
@@ -375,7 +388,7 @@ Use Case - 0x02
 ...         pass
 >>>
 >>>
->>> class MemoryCache(ICache):
+>>> class LocmemCache(ICache):
 ...     def get(self, key: str) -> str:
 ...         pass
 ...
