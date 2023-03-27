@@ -69,6 +69,10 @@ def myrange(*args, **kwargs):
     if kwargs:
         raise TypeError('myrange() takes no keyword arguments')
 
+    start = ...
+    stop = ...
+    step = ...
+
     current = start
     result = []
 
