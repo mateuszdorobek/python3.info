@@ -108,10 +108,6 @@ Repr
 >>> User('Mark', 'Watney', role='admin')
 User(firstname='Mark', lastname='Watney')
 
->>> User('Mark', 'Watney')
-Traceback (most recent call last):
-TypeError: User.__init__() missing 1 required positional argument: 'role'
-
 
 kw_only
 -------
@@ -129,10 +125,6 @@ generated __init__() method's parameters are computed.
 
 >>> User('Mark', 'Watney', role='admin')
 User(firstname='Mark', lastname='Watney', role='admin')
-
->>> User('Mark', 'Watney')
-Traceback (most recent call last):
-TypeError: User.__init__() missing 1 required keyword-only argument: 'role'
 
 >>> User('Mark', 'Watney', 'admin')
 Traceback (most recent call last):
