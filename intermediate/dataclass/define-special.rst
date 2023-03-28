@@ -23,7 +23,7 @@ Optional Fields
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     agency: str | None = None
+...     age: int | None = None
 
 
 Literal Field
@@ -38,24 +38,7 @@ Define class:
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     agency: Literal['NASA', 'ESA', 'POLSA']
-
-
-Final Fields
-------------
-* In Python there is no constants
-
-Import:
-
->>> from typing import Final
-
-Define class:
-
->>> @dataclass
-... class User:
-...     firstname: Final[str]
-...     lastname: Final[str]
-...     age: int
+...     role: Literal['users', 'staff', 'admins']
 
 
 ClassVar Fields
@@ -78,11 +61,16 @@ Define Class:
 
 >>> @dataclass
 ... class User:
-...     fullname: str
 ...     firstname: str
+...     lastname: str
 ...     age: int
 ...     AGE_MIN: ClassVar[int] = 30
 ...     AGE_MAX: ClassVar[int] = 50
+
+Note, that those fields will not be displayed in repr or while printing.
+
+>>> User('Mark', 'Watney', age=40)
+User(firstname='Mark', lastname='Watney', age=40)
 
 
 Keyword Arguments Only
@@ -110,24 +98,20 @@ Define class:
 ...     height: float
 ...     weight: float
 
+>>> User('Mark', 'Watney', age=40, height=185.0, weight=75.5)
+User(firstname='Mark', lastname='Watney', age=40, height=185.0, weight=75.5)
 
-Use Case - 0x01
----------------
->>> @dataclass
-... class User:
-...     firstname: str
-...     lastname: str
-...     _: KW_ONLY
-...     age: int
-...     AGE_MIN: ClassVar[int] = 30
-...     AGE_MAX: ClassVar[int] = 50
-...
-...     def __post_init__(self):
-...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
-...             raise ValueError
->>>
->>>
->>> mark = User('Mark', 'Watney', age=40)
+>>> mark = User('Mark', 'Watney', 40, height=185.0, weight=75.5)
+Traceback (most recent call last):
+TypeError: User.__init__() takes 3 positional arguments but 4 positional arguments (and 2 keyword-only arguments) were given
+
+>>> mark = User('Mark', 'Watney', 40, 185.0, weight=75.5)
+Traceback (most recent call last):
+TypeError: User.__init__() takes 3 positional arguments but 5 positional arguments (and 1 keyword-only argument) were given
+
+>>> mark = User('Mark', 'Watney', 40, 185.0, 75.5)
+Traceback (most recent call last):
+TypeError: User.__init__() takes 3 positional arguments but 6 were given
 
 
 Assignments

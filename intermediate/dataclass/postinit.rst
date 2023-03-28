@@ -145,6 +145,29 @@ Usage:
 
 Use Case - 0x01
 ---------------
+>>> from dataclasses import dataclass, KW_ONLY
+>>> from typing import ClassVar
+>>>
+>>>
+>>> @dataclass
+... class User:
+...     firstname: str
+...     lastname: str
+...     _: KW_ONLY
+...     age: int
+...     AGE_MIN: ClassVar[int] = 30
+...     AGE_MAX: ClassVar[int] = 50
+...
+...     def __post_init__(self):
+...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
+...             raise ValueError
+>>>
+>>>
+>>> mark = User('Mark', 'Watney', age=40)
+
+
+Use Case - 0x02
+---------------
 >>> from dataclasses import dataclass, InitVar
 >>> from datetime import date, time, datetime, timezone
 >>> from zoneinfo import ZoneInfo
@@ -173,7 +196,7 @@ CurrentTime(d=datetime.date(1969, 7, 21),
             tz='CEST')
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>> import datetime
@@ -204,7 +227,7 @@ datetime.date(1969, 7, 21)
 datetime.time(2, 56, 15)
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>>
@@ -228,7 +251,7 @@ Astronaut(firstname='Mark', lastname='Watney')
 Astronaut(firstname='Mark', lastname='Watney')
 
 
-Use Case - 0x04
+Use Case - 0x05
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>>
@@ -266,7 +289,7 @@ Traceback (most recent call last):
 AttributeError: 'Email' object has no attribute 'address'
 
 
-Use Case - 0x05
+Use Case - 0x06
 ---------------
 >>> from dataclasses import dataclass
 >>> from typing import ClassVar
@@ -297,7 +320,7 @@ Traceback (most recent call last):
 TypeError: Astronaut.__init__() got an unexpected keyword argument 'AGE_MAX'
 
 
-Use Case - 0x06
+Use Case - 0x07
 ---------------
 * Boundary check
 
@@ -314,7 +337,7 @@ Use Case - 0x06
 ...             raise ValueError('Coordinate cannot be negative')
 
 
-Use Case - 0x07
+Use Case - 0x08
 ---------------
 * Var Range
 
@@ -355,7 +378,7 @@ Traceback (most recent call last):
 ValueError: x value (0) is not between 10 and 100
 
 
-Use Case - 0x08
+Use Case - 0x09
 ---------------
 * Const Range
 
@@ -388,7 +411,7 @@ Traceback (most recent call last):
 TypeError: Point.__init__() got an unexpected keyword argument 'X_MIN'
 
 
-Use Case - 0x09
+Use Case - 0x0A
 ---------------
 * Init, Repr
 
@@ -425,7 +448,7 @@ Traceback (most recent call last):
 ValueError: y value (-1) is not between 0 and 768
 
 
-Use Case - 0x0A
+Use Case - 0x0B
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>>
@@ -446,7 +469,7 @@ Usage:
 Phone(country_code='+48', number='123 456 789')
 
 
-Use Case - 0x0B
+Use Case - 0x0C
 ---------------
 * https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/pl/pesel.py
 
