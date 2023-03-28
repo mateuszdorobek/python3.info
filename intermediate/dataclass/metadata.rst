@@ -75,7 +75,7 @@ Use Case - 0x01
 ...     firstname: str
 ...     lastname: str
 ...     _: KW_ONLY
-...     born: date
+...     birthday: date
 ...     job: str = 'astronaut'
 ...     agency: str = field(default='NASA', metadata={'choices': ['NASA', 'ESA']})
 ...     age: int | None = None
@@ -106,7 +106,7 @@ Use Case - 0x01
 >>>
 >>> mark = Astronaut(firstname='Mark',
 ...                   lastname='Watney',
-...                   born=date(1961, 4, 12),
+...                   birthday=date(1961, 4, 12),
 ...                   age=44,
 ...                   height=175.5,
 ...                   weight=75.5,
@@ -114,7 +114,7 @@ Use Case - 0x01
 ...                   missions=[Mission(2035, 'Ares 3'), Mission(1973, 'Apollo 18')])
 >>>
 >>> print(mark)  # doctest: +NORMALIZE_WHITESPACE +SKIP
-Astronaut(firstname='Mark', lastname='Watney', born=datetime.date(1961, 4, 12),
+Astronaut(firstname='Mark', lastname='Watney', birthday=datetime.date(1961, 4, 12),
           job='astronaut', agency='NASA', age=44, height=175.5, weight=75.5,
           groups=['astronauts', 'managers'], friends={}, assignments=['STS-136'],
           missions=[Mission(year=2035, name='Ares 3'), Mission(year=1973, name='Apollo 18')],
@@ -376,3 +376,44 @@ ValueError: weight value (90) not between 55 and 85
 >>> mark = Astronaut('Mark', 'Watney', age=60, height=185, weight=75, agency='NASA')
 Traceback (most recent call last):
 ValueError: age value (60) not between 30 and 50
+
+
+Use Case - 0x06
+---------------
+>>> from dataclasses import dataclass, field
+>>>
+>>>
+>>> @dataclass
+... class Date:
+...     year: int = field(metadata={'type': 'range', 'min': 1902, 'max': 2038})
+...     month: str = field(metadata={'type': 'choice', 'options': ['Jan', 'Feb', 'Mar', 'Apr']})
+...     day: int = field(metadata={'type': 'range', 'min': 1, 'max': 31})
+...
+...     def _validate_range(self, field):
+...         min = self.__dataclass_fields__[field].metadata['min']
+...         max = self.__dataclass_fields__[field].metadata['max']
+...         value = getattr(self, field)
+...         if not min <= value <= max:
+...             raise ValueError(f'Field {field} value {value} is not between {min} and {max}')
+...
+...     def _validate_choice(self, field):
+...         options = self.__dataclass_fields__[field].metadata['options']
+...         value = getattr(self, field)
+...         if value not in options:
+...             raise ValueError(f'Field {field} value {value} not in {options}')
+...
+...     def __post_init__(self):
+...         for attrname, field in self.__dataclass_fields__.items():
+...             match field.metadata['type']:
+...                 case 'range': self._validate_range(attrname)
+...                 case 'choice': self._validate_choice(attrname)
+...                 case _: raise NotImplementedError
+
+>>> d = Date(1969, 'Feb', 30)
+>>> d = Date(1969, 'Feb', 33)
+Traceback (most recent call last):
+ValueError: Field day value 33 is not between 1 and 31
+
+>>> d = Date(1969, 'XYZ', 33)
+Traceback (most recent call last):
+ValueError: Field month value XYZ not in ['Jan', 'Feb', 'Mar', 'Apr']

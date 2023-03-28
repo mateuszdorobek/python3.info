@@ -32,16 +32,16 @@ Default
 * ``default`` - Default value for the field
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     mission: str = 'Ares3'
+...     role: str = 'admin'
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     mission: str = field(default='Ares3')
+...     role: str = field(default='admin')
 
 
 Default Factory
@@ -76,7 +76,7 @@ Astronaut(firstname='Mark', lastname='Watney', missions=['Ares3', 'Apollo18'])
 Init
 ----
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -84,14 +84,14 @@ Init
 ...     AGE_MAX: ClassVar[int] = field(default=50, init=False)
 >>>
 >>>
->>> Astronaut('Mark', 'Watney', age=44)
-Astronaut(firstname='Mark', lastname='Watney', age=44)
+>>> User('Mark', 'Watney', age=44)
+User(firstname='Mark', lastname='Watney', age=44)
 
 
 Repr
 ----
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -99,8 +99,8 @@ Repr
 ...     AGE_MAX: ClassVar[int] = field(default=50, init=False, repr=False)
 >>>
 >>>
->>> Astronaut('Mark', 'Watney', age=44)
-Astronaut(firstname='Mark', lastname='Watney', age=44)
+>>> User('Mark', 'Watney', age=44)
+User(firstname='Mark', lastname='Watney', age=44)
 
 
 kw_only
@@ -111,7 +111,7 @@ If true, this field will be marked as keyword-only. This is used when the
 generated __init__() method's parameters are computed.
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int = field(kw_only=True)

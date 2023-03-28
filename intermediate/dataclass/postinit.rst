@@ -83,15 +83,15 @@ Date and Time Conversion
 ... class Astronaut:
 ...     firstname: str
 ...     lastname: str
-...     born: date
+...     birthday: date
 ...
 ...     def __post_init__(self):
-...         self.born = date.fromisoformat(self.born)
+...         self.birthday = date.fromisoformat(self.birthday)
 >>>
 >>>
 >>> Astronaut('Mark', 'Watney', '1961-04-12')  # doctest: +NORMALIZE_WHITESPACE
 Astronaut(firstname='Mark', lastname='Watney',
-          born=datetime.date(1961, 4, 12))
+          birthday=datetime.date(1961, 4, 12))
 
 >>> @dataclass
 ... class Astronaut:
@@ -119,38 +119,34 @@ InitVar
 * Passed to the optional ``__post_init__`` method
 * They are not otherwise used by Data Classes
 
->>> import datetime
->>> from dataclasses import dataclass, InitVar
->>>
->>>
+Import:
+
+>>> from dataclasses import dataclass, field, InitVar
+>>> from datetime import date
+
+Definition:
+
 >>> @dataclass
-... class DateTime:
-...     string: InitVar[str]
-...     date: datetime.date | None = None
-...     time: datetime.time | None = None
+... class Date:
+...     year: InitVar[int]
+...     month: InitVar[int]
+...     day: InitVar[int]
+...     current: date = field(default=None, init=False)
 ...
-...     def __post_init__(self, string: str):
-...         dt = datetime.datetime.fromisoformat(string)
-...         self.date = dt.date()
-...         self.time = dt.time()
-...
-...
->>> apollo11 = DateTime('1969-07-21 02:56:15')
->>>
->>> apollo11
-DateTime(date=datetime.date(1969, 7, 21), time=datetime.time(2, 56, 15))
->>>
->>> apollo11.date
-datetime.date(1969, 7, 21)
->>>
->>> apollo11.time
-datetime.time(2, 56, 15)
+...     def __post_init__(self, year: int, month: int, day: int):
+...         self.current = date(year, month, day)
+
+Usage:
+
+>>> result = Date(1969, 7, 21)
+>>> vars(result)
+{'current': datetime.date(1969, 7, 21)}
 
 
 Use Case - 0x01
 ---------------
->>> from datetime import date, time, datetime, timezone
 >>> from dataclasses import dataclass, InitVar
+>>> from datetime import date, time, datetime, timezone
 >>> from zoneinfo import ZoneInfo
 >>>
 >>>
@@ -167,17 +163,48 @@ Use Case - 0x01
 ...         self.d = localized.date()
 ...         self.t = localized.time()
 ...         self.tz = localized.tzname()
->>>
->>>
+
+Usage:
+
 >>> now = CurrentTime('Europe/Warsaw')
->>>
->>> print(now)  # doctest: +SKIP
+>>> now  # doctest: +SKIP
 CurrentTime(d=datetime.date(1969, 7, 21),
             t=datetime.time(2, 56, 15),
             tz='CEST')
 
 
 Use Case - 0x02
+---------------
+>>> from dataclasses import dataclass, InitVar
+>>> import datetime
+>>>
+>>>
+>>> @dataclass
+... class DateTime:
+...     string: InitVar[str]
+...     date: datetime.date | None = None
+...     time: datetime.time | None = None
+...
+...     def __post_init__(self, string: str):
+...         dt = datetime.datetime.fromisoformat(string)
+...         self.date = dt.date()
+...         self.time = dt.time()
+
+Usage:
+
+>>> apollo11 = DateTime('1969-07-21 02:56:15')
+>>>
+>>> apollo11
+DateTime(date=datetime.date(1969, 7, 21), time=datetime.time(2, 56, 15))
+>>>
+>>> apollo11.date
+datetime.date(1969, 7, 21)
+>>>
+>>> apollo11.time
+datetime.time(2, 56, 15)
+
+
+Use Case - 0x03
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>>
@@ -191,16 +218,17 @@ Use Case - 0x02
 ...     def __post_init__(self, fullname):
 ...         if fullname:
 ...             self.firstname, self.lastname = fullname.split()
->>>
->>>
+
+Usage:
+
 >>> Astronaut('Mark Watney')
 Astronaut(firstname='Mark', lastname='Watney')
->>>
+
 >>> Astronaut(firstname='Mark', lastname='Watney')
 Astronaut(firstname='Mark', lastname='Watney')
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 >>> from dataclasses import dataclass, InitVar
 >>>
@@ -216,31 +244,32 @@ Use Case - 0x03
 ...
 ...     def get_address(self):
 ...         return f'{self.username}@{self.domain}'
+
+Usage:
+
+>>> email = Email('mwatney@nasa.gov')
 >>>
->>>
->>> myemail = Email('mwatney@nasa.gov')
->>>
->>> print(myemail)
+>>> print(email)
 Email(username='mwatney', domain='nasa.gov')
 >>>
->>> print(myemail.username)
+>>> print(email.username)
 mwatney
 >>>
->>> print(myemail.domain)
+>>> print(email.domain)
 nasa.gov
 >>>
->>> print(myemail.get_address())
+>>> print(email.get_address())
 mwatney@nasa.gov
 >>>
->>> print(myemail.address)
+>>> print(email.address)
 Traceback (most recent call last):
 AttributeError: 'Email' object has no attribute 'address'
 
 
-Use Case - 0x04
+Use Case - 0x05
 ---------------
->>> from typing import ClassVar
 >>> from dataclasses import dataclass
+>>> from typing import ClassVar
 >>>
 >>>
 >>> @dataclass
@@ -256,32 +285,21 @@ Use Case - 0x04
 ...         max = self.AGE_MAX
 ...         if self.age not in range(min, max):
 ...             raise ValueError(f'Age {self.age} not in range {min} to {max}')
->>>
->>>
+
+Usage:
+
 >>> Astronaut('Mark', 'Watney', 60)
 Traceback (most recent call last):
 ValueError: Age 60 not in range 30 to 50
->>>
+
 >>> Astronaut('Mark', 'Watney', 60, AGE_MAX=70)
 Traceback (most recent call last):
 TypeError: Astronaut.__init__() got an unexpected keyword argument 'AGE_MAX'
 
 
-Use Case - 0x05
+Use Case - 0x06
 ---------------
 * Boundary check
-
->>> class Point:
-...     def __init__(self, x, y):
-...         if x < 0:
-...             raise ValueError('Coordinate cannot be negative')
-...         else:
-...             self.x = x
-...
-...         if y < 0:
-...             raise ValueError('Coordinate cannot be negative')
-...         else:
-...             self.y = y
 
 >>> from dataclasses import dataclass
 >>>
@@ -296,7 +314,7 @@ Use Case - 0x05
 ...             raise ValueError('Coordinate cannot be negative')
 
 
-Use Case - 0x06
+Use Case - 0x07
 ---------------
 * Var Range
 
@@ -318,25 +336,26 @@ Use Case - 0x06
 ...             raise ValueError(f'x value ({self.x}) is not between {self.X_MIN} and {self.X_MAX}')
 ...         if not self.Y_MIN <= self.y < self.Y_MAX:
 ...             raise ValueError(f'y value ({self.y}) is not between {self.Y_MIN} and {self.Y_MAX}')
->>>
->>>
+
+Usage:
+
 >>> Point(0, 0)
 Point(x=0, y=0, X_MIN=0, X_MAX=1024, Y_MIN=0, Y_MAX=768)
->>>
+
 >>> Point(-1, 0)
 Traceback (most recent call last):
 ValueError: x value (-1) is not between 0 and 1024
->>>
+
 >>> Point(0, 2000)
 Traceback (most recent call last):
 ValueError: y value (2000) is not between 0 and 768
->>>
+
 >>> Point(0, 0, X_MIN=10, X_MAX=100)
 Traceback (most recent call last):
 ValueError: x value (0) is not between 10 and 100
 
 
-Use Case - 0x07
+Use Case - 0x08
 ---------------
 * Const Range
 
@@ -358,17 +377,18 @@ Use Case - 0x07
 ...             raise ValueError(f'x value ({self.x}) is not between {self.X_MIN} and {self.X_MAX}')
 ...         if not self.Y_MIN <= self.y < self.Y_MAX:
 ...             raise ValueError(f'y value ({self.y}) is not between {self.Y_MIN} and {self.Y_MAX}')
->>>
->>>
+
+Usage:
+
 >>> Point(0, 0)
 Point(x=0, y=0, X_MIN=0, X_MAX=1024, Y_MIN=0, Y_MAX=768)
->>>
+
 >>> Point(0, 0, X_MIN=10, X_MAX=100)
 Traceback (most recent call last):
 TypeError: Point.__init__() got an unexpected keyword argument 'X_MIN'
 
 
-Use Case - 0x08
+Use Case - 0x09
 ---------------
 * Init, Repr
 
@@ -390,22 +410,25 @@ Use Case - 0x08
 ...             raise ValueError(f'x value ({self.x}) is not between {self.X_MIN} and {self.X_MAX}')
 ...         if not self.Y_MIN <= self.y < self.Y_MAX:
 ...             raise ValueError(f'y value ({self.y}) is not between {self.Y_MIN} and {self.Y_MAX}')
->>>
->>>
+
+Usage:
+
 >>> Point(0, 0)
 Point(x=0, y=0)
->>>
+
 >>> Point(-1, 0)
 Traceback (most recent call last):
 ValueError: x value (-1) is not between 0 and 1024
->>>
+
 >>> Point(0, -1)
 Traceback (most recent call last):
 ValueError: y value (-1) is not between 0 and 768
 
 
-Use Case - 0x09
+Use Case - 0x0A
 ---------------
+>>> from dataclasses import dataclass, InitVar
+>>>
 >>> @dataclass
 ... class Phone:
 ...     full_number: InitVar[str]
@@ -415,15 +438,22 @@ Use Case - 0x09
 ...
 ...     def __post_init__(self, full_number: str):
 ...         self.country_code, self.number = full_number.split(' ', maxsplit=1)
->>>
->>>
+
+Usage:
+
 >>> phone = Phone('+48 123 456 789')
+>>> phone
+Phone(country_code='+48', number='123 456 789')
 
 
-Use Case - 0x0A
+Use Case - 0x0B
 ---------------
 * https://github.com/arthurdejong/python-stdnum/blob/master/stdnum/pl/pesel.py
 
+>>> from dataclasses import dataclass, InitVar
+>>> from datetime import datetime
+>>>
+>>>
 >>> @dataclass
 ... class Pesel:
 ...     number: InitVar[str]
@@ -443,11 +473,11 @@ Use Case - 0x0A
 ...         self.birthday = datetime.strptime(number[:6], '%y%m%d').date()
 ...         self.gender =  'male' if int(number[-2]) % 2 else 'female'
 ...         self.valid = number[-1] == self.calc_check_digit()
->>>
->>>
+
+Usage:
+
 >>> pesel = Pesel('69072101234')
->>>
->>> print(pesel)  # doctest: +NORMALIZE_WHITESPACE
+>>> pesel  # doctest: +NORMALIZE_WHITESPACE
 Pesel(pesel='69072101234',
       birthday=datetime.date(1969, 7, 21),
       gender='male',

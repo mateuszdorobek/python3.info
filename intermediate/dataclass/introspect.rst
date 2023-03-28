@@ -52,7 +52,7 @@ Complex
 ... class Astronaut:
 ...     firstname: str
 ...     lastname: str
-...     born: date
+...     birthday: date
 ...     job: str = 'astronaut'
 ...     agency: Literal['NASA', 'ESA'] = field(default='NASA', metadata={'choices': ['NASA', 'ESA']})
 ...     age: int | None = None
@@ -80,10 +80,10 @@ Complex
 ...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
 ...             raise ValueError('Age is not valid for an astronaut')
 ...
-def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, born:_type_born, job:_type_job=_dflt_job, agency:_type_agency=_dflt_agency, age:_type_age=_dflt_age, height:_type_height=_dflt_height, weight:_type_weight=_dflt_weight, groups:_type_groups=_HAS_DEFAULT_FACTORY, friends:_type_friends=_HAS_DEFAULT_FACTORY, assignments:_type_assignments=_dflt_assignments, missions:_type_missions=_HAS_DEFAULT_FACTORY, experience:_type_experience=_dflt_experience, account_last_login:_type_account_last_login=_dflt_account_last_login, account_created:_type_account_created=_dflt_account_created):
+def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, birthday:_type_birthday, job:_type_job=_dflt_job, agency:_type_agency=_dflt_agency, age:_type_age=_dflt_age, height:_type_height=_dflt_height, weight:_type_weight=_dflt_weight, groups:_type_groups=_HAS_DEFAULT_FACTORY, friends:_type_friends=_HAS_DEFAULT_FACTORY, assignments:_type_assignments=_dflt_assignments, missions:_type_missions=_HAS_DEFAULT_FACTORY, experience:_type_experience=_dflt_experience, account_last_login:_type_account_last_login=_dflt_account_last_login, account_created:_type_account_created=_dflt_account_created):
     __dataclass_builtins_object__.__setattr__(self,'firstname',firstname)
     __dataclass_builtins_object__.__setattr__(self,'lastname',lastname)
-    __dataclass_builtins_object__.__setattr__(self,'born',born)
+    __dataclass_builtins_object__.__setattr__(self,'birthday',birthday)
     __dataclass_builtins_object__.__setattr__(self,'job',job)
     __dataclass_builtins_object__.__setattr__(self,'agency',agency)
     __dataclass_builtins_object__.__setattr__(self,'age',age)
@@ -101,23 +101,23 @@ def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, born:_
     self.__post_init__()
 <BLANKLINE>
 def __repr__(self):
-    return self.__class__.__qualname__ + f"(firstname={self.firstname!r}, lastname={self.lastname!r}, born={self.born!r}, job={self.job!r}, agency={self.agency!r}, age={self.age!r}, height={self.height!r}, weight={self.weight!r}, groups={self.groups!r}, friends={self.friends!r}, assignments={self.assignments!r}, missions={self.missions!r}, experience={self.experience!r}, account_last_login={self.account_last_login!r}, account_created={self.account_created!r})"
+    return self.__class__.__qualname__ + f"(firstname={self.firstname!r}, lastname={self.lastname!r}, birthday={self.birthday!r}, job={self.job!r}, agency={self.agency!r}, age={self.age!r}, height={self.height!r}, weight={self.weight!r}, groups={self.groups!r}, friends={self.friends!r}, assignments={self.assignments!r}, missions={self.missions!r}, experience={self.experience!r}, account_last_login={self.account_last_login!r}, account_created={self.account_created!r})"
 <BLANKLINE>
 def __eq__(self, other):
     if other.__class__ is self.__class__:
-     return (self.firstname,self.lastname,self.born,self.job,self.agency,self.age,self.height,self.weight,self.groups,self.friends,self.assignments,self.missions,self.experience,self.account_last_login,self.account_created,self.AGE_MIN,self.AGE_MAX,)==(other.firstname,other.lastname,other.born,other.job,other.agency,other.age,other.height,other.weight,other.groups,other.friends,other.assignments,other.missions,other.experience,other.account_last_login,other.account_created,other.AGE_MIN,other.AGE_MAX,)
+     return (self.firstname,self.lastname,self.birthday,self.job,self.agency,self.age,self.height,self.weight,self.groups,self.friends,self.assignments,self.missions,self.experience,self.account_last_login,self.account_created,self.AGE_MIN,self.AGE_MAX,)==(other.firstname,other.lastname,other.birthday,other.job,other.agency,other.age,other.height,other.weight,other.groups,other.friends,other.assignments,other.missions,other.experience,other.account_last_login,other.account_created,other.AGE_MIN,other.AGE_MAX,)
     return NotImplemented
 <BLANKLINE>
 def __setattr__(self, name, value):
-    if type(self) is cls or name in ('firstname','lastname','born','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
+    if type(self) is cls or name in ('firstname','lastname','birthday','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
      raise FrozenInstanceError(f"cannot assign to field {name!r}")
     super(cls, self).__setattr__(name, value)
 <BLANKLINE>
 def __delattr__(self, name):
-    if type(self) is cls or name in ('firstname','lastname','born','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
+    if type(self) is cls or name in ('firstname','lastname','birthday','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
      raise FrozenInstanceError(f"cannot delete field {name!r}")
     super(cls, self).__delattr__(name)
 <BLANKLINE>
 def __hash__(self):
-    return hash((self.firstname,self.lastname,self.born,self.job,self.agency,self.age,self.height,self.weight,self.groups,self.friends,self.assignments,self.missions,self.experience,self.account_last_login,self.account_created,self.AGE_MIN,self.AGE_MAX,))
+    return hash((self.firstname,self.lastname,self.birthday,self.job,self.agency,self.age,self.height,self.weight,self.groups,self.friends,self.assignments,self.missions,self.experience,self.account_last_login,self.account_created,self.AGE_MIN,self.AGE_MAX,))
 <BLANKLINE>

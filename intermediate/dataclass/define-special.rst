@@ -11,7 +11,7 @@ SetUp
 Union Fields
 ------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int | float
@@ -20,7 +20,7 @@ Union Fields
 Optional Fields
 ---------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     agency: str | None = None
@@ -35,7 +35,7 @@ Import:
 Define class:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     agency: Literal['NASA', 'ESA', 'POLSA']
@@ -52,7 +52,7 @@ Import:
 Define class:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: Final[str]
 ...     lastname: Final[str]
 ...     age: int
@@ -77,7 +77,7 @@ Import:
 Define Class:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     fullname: str
 ...     firstname: str
 ...     age: int
@@ -102,13 +102,32 @@ Import:
 Define class:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     _: KW_ONLY
 ...     age: int
 ...     height: float
 ...     weight: float
+
+
+Use Case - 0x01
+---------------
+>>> @dataclass
+... class User:
+...     firstname: str
+...     lastname: str
+...     _: KW_ONLY
+...     age: int
+...     AGE_MIN: ClassVar[int] = 30
+...     AGE_MAX: ClassVar[int] = 50
+...
+...     def __post_init__(self):
+...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
+...             raise ValueError
+>>>
+>>>
+>>> mark = User('Mark', 'Watney', age=40)
 
 
 Assignments

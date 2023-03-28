@@ -10,7 +10,7 @@ SetUp
 Required Fields
 ---------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 
@@ -18,7 +18,7 @@ Required Fields
 Default Fields
 --------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     agency: str = 'NASA'
@@ -27,7 +27,7 @@ Default Fields
 Lists
 -----
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     missions: list[str]

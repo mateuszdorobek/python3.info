@@ -97,7 +97,7 @@ Use Case - 0x01
 >>> class Astronaut:
 ...     firstname: str
 ...     lastname: str
-...     born: date
+...     birthday: date
 ...     age: int | None = None
 ...     height: float | None = None
 ...     weight: float | None = None
@@ -117,7 +117,7 @@ Use Case - 0x01
 ...     def __init__(self,
 ...                  firstname: str,
 ...                  lastname: str,
-...                  born: date,
+...                  birthday: date,
 ...                  age: int | None = None,
 ...                  height: float | None = None,
 ...                  weight: float | None = None,
@@ -129,7 +129,7 @@ Use Case - 0x01
 ...                  experience: list[str] | None = None):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
-...         self.born = born
+...         self.birthday = birthday
 ...         self.age = age
 ...         self.height = height
 ...         self.weight = weight
@@ -148,7 +148,7 @@ Use Case - 0x01
 ...             f"{self.__class__.__name__}("
 ...             f"firstname='{self.firstname}'"
 ...             f"lastname='{self.lastname}'"
-...             f"born={self.born}"
+...             f"birthday={self.birthday}"
 ...             f"age={self.age}"
 ...             f"height={self.height}"
 ...             f"weight={self.weight}"
@@ -164,7 +164,7 @@ Use Case - 0x01
 ...         return (self.__class__ is other.__class__
 ...            and self.firstname == other.firstname
 ...            and self.lastname == other.lastname
-...            and self.born == other.born
+...            and self.birthday == other.birthday
 ...            and self.age == other.age
 ...            and self.height == other.height
 ...            and self.weight == other.weight
@@ -187,7 +187,7 @@ Use Case - 0x01
 ... class Astronaut:
 ...     firstname: str
 ...     lastname: str
-...     born: date
+...     birthday: date
 ...     age: int | None = None
 ...     height: float | None = None
 ...     weight: float | None = None
