@@ -28,10 +28,7 @@ SetUp:
 Usage:
 
 >>> result = json.loads(DATA)
-
-Result:
-
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': '1994-10-12'}
@@ -58,11 +55,9 @@ Usage:
 ...             data[field] = date.fromisoformat(value)
 ...     return data
 >>>
+>>>
 >>> result = json.loads(DATA, object_hook=decoder)
-
-Result:
-
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12)}
@@ -90,11 +85,9 @@ Usage:
 ...                 data[field] = date.fromisoformat(value)
 ...         return data
 >>>
+>>>
 >>> result = json.loads(DATA, cls=Decoder)
-
-Result:
-
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12)}
@@ -115,14 +108,14 @@ Use Case - 0x01
 ...     "birthday": "1994-10-12"
 ... }"""
 >>>
+>>>
 >>> def decoder(obj: dict) -> dict:
 ...     obj['birthday'] = date.fromisoformat(obj['birthday'])
 ...     return obj
-...
+>>>
 >>>
 >>> result = json.loads(DATA, object_hook=decoder)
->>>
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12)}
@@ -143,14 +136,15 @@ Use Case - 0x02
 ...     "birthday": "1994-10-12"
 ... }"""
 >>>
+>>>
 >>> def decoder(obj: dict) -> dict:
 ...     return obj | {
 ...         'birthday': date.fromisoformat(obj['birthday'])
 ...     }
-...
->>> result = json.loads(DATA, object_hook=decoder)
 >>>
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>>
+>>> result = json.loads(DATA, object_hook=decoder)
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12)}
@@ -181,8 +175,7 @@ Use Case - 0x03
 >>>
 >>>
 >>> result = json.loads(DATA, object_hook=decoder)
->>>
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12),
@@ -203,6 +196,7 @@ Use Case - 0x04
 ...     "landing": "12:30:00",
 ...     "duration": 13
 ... }"""
+>>>
 >>>
 >>> class Decoder(json.JSONDecoder):
 ...      name: str
@@ -235,8 +229,7 @@ Use Case - 0x04
 >>>
 >>>
 >>> result = json.loads(DATA, cls=Decoder)
->>>
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12),
@@ -280,8 +273,7 @@ Use Case - 0x05
 >>>
 >>>
 >>> result = json.loads(DATA, cls=Decoder)
->>>
->>> result  # doctest: +NORMALIZE_WHITESPACE
+>>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'birthday': datetime.date(1994, 10, 12),

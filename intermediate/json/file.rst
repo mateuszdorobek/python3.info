@@ -47,8 +47,7 @@ Usage:
 
 Result:
 
->>> result = open(FILE).read()
->>> print(result)
+>>> print(open(FILE).read())
 {"firstname": "Mark", "lastname": "Watney"}
 
 
@@ -83,10 +82,8 @@ Usage:
 
 >>> with open(FILE) as file:
 ...     result = json.load(file)
-
-Result:
-
->>> result
+>>>
+>>> print(result)
 {'firstname': 'Mark', 'lastname': 'Watney'}
 
 

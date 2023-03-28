@@ -40,12 +40,13 @@ SetUp:
 
 Usage:
 
->>> result = json.dumps(DATA, default=lambda x: x.isoformat())
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
+>>> result = json.dumps(DATA, default=lambda x: x.isoformat(), indent=2)
+>>> print(result)
+{
+  "firstname": "Mark",
+  "lastname": "Watney",
+  "birthday": "1994-10-12"
+}
 
 
 Default Function with If
@@ -64,12 +65,14 @@ Usage:
 ...     if type(x) is date:
 ...         return x.isoformat()
 >>>
->>> result = json.dumps(DATA, default=encoder)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
+>>>
+>>> result = json.dumps(DATA, default=encoder, indent=2)
+>>> print(result)
+{
+  "firstname": "Mark",
+  "lastname": "Watney",
+  "birthday": "1994-10-12"
+}
 
 
 Default Function with Match
@@ -91,12 +94,14 @@ Usage:
 ...         case timedelta():
 ...             return x.total_seconds()
 >>>
->>> result = json.dumps(DATA, default=encoder)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
+>>>
+>>> result = json.dumps(DATA, default=encoder, indent=2)
+>>> print(result)
+{
+  "firstname": "Mark",
+  "lastname": "Watney",
+  "birthday": "1994-10-12"
+}
 
 
 Monkey Patching with Lambda Expression
@@ -112,12 +117,14 @@ SetUp:
 Usage:
 
 >>> json.JSONEncoder.default = lambda self,x: x.isoformat()
->>> result = json.dumps(DATA)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
+>>>
+>>> result = json.dumps(DATA, indent=2)
+>>> print(result)
+{
+  "firstname": "Mark",
+  "lastname": "Watney",
+  "birthday": "1994-10-12"
+}
 
 
 Dependency Injection
@@ -137,12 +144,13 @@ Usage:
 ...         if type(x) is date:
 ...             return x.isoformat()
 >>>
->>> result = json.dumps(DATA, cls=Encoder)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
+>>> result = json.dumps(DATA, cls=Encoder, indent=2)
+>>> print(result)
+{
+  "firstname": "Mark",
+  "lastname": "Watney",
+  "birthday": "1994-10-12"
+}
 
 
 Use Case - 0x01

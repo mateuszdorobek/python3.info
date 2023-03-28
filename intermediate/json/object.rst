@@ -23,11 +23,9 @@ Usage:
 
 >>> data = vars(DATA)
 >>> result = json.dumps(data)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney"}'
+>>>
+>>> print(result)
+{"firstname": "Mark", "lastname": "Watney"}
 
 
 Decode Object
@@ -48,10 +46,8 @@ Usage:
 
 >>> data = json.loads(DATA)
 >>> result = User(**data)
-
-Result:
-
->>> result
+>>>
+>>> print(result)
 User(firstname='Mark', lastname='Watney')
 
 
@@ -71,12 +67,10 @@ Usage:
 >>> def encoder(obj):
 ...     return vars(obj)
 >>>
+>>>
 >>> result = json.dumps(DATA, default=encoder)
-
-Result:
-
->>> result
-'{"firstname": "Mark", "lastname": "Watney"}'
+>>> print(result)
+{"firstname": "Mark", "lastname": "Watney"}
 
 
 Object Decoder
@@ -98,11 +92,9 @@ Usage:
 >>> def decoder(data):
 ...     return User(**data)
 >>>
+>>>
 >>> result =  json.loads(DATA, object_hook=decoder)
-
-Result:
-
->>> result
+>>> print(result)
 User(firstname='Mark', lastname='Watney')
 
 
@@ -138,10 +130,8 @@ Usage:
 ...     data = {'_clsname': obj.__class__.__name__}
 ...     return data | vars(obj)
 >>>
+>>>
 >>> result = json.dumps(DATA, default=encoder, indent=2)
-
-Result:
-
 >>> print(result)
 [
   {
@@ -218,10 +208,8 @@ Usage:
 ...     cls = globals()[clsname]
 ...     return cls(**obj)
 >>>
+>>>
 >>> result = json.loads(DATA, object_hook=decoder)
-
-Result:
-
 >>> pprint(result, width=72)
 [User(firstname='Mark',
       lastname='Watney',
@@ -265,7 +253,7 @@ SetUp:
 ...     User('Rick', 'Martinez', groups=[]),
 ... ]
 
-Encoder/Decoder:
+Usage:
 
 >>> class Encoder(json.JSONEncoder):
 ...     def default(self, obj):
@@ -274,19 +262,7 @@ Encoder/Decoder:
 ...         return data
 >>>
 >>>
->>> class Decoder(json.JSONDecoder):
-...     def __init__(self):
-...         super().__init__(object_hook=self.default)
-...
-...     def default(self, data: dict) -> dict:
-...         clsname = data.pop('_clsname')
-...         cls = globals()[clsname]
-...         return cls(**data)
-
-Usage:
-
 >>> result = json.dumps(DATA, cls=Encoder)
->>>
 >>> pprint(result, width=72)
 ('[{"lastname": "Mark", "firstname": "Watney", "groups": [{"gid": 1, '
  '"name": "users", "_clsname": "Group"}], "_clsname": "User"}, '
@@ -295,8 +271,17 @@ Usage:
  '"_clsname": "Group"}], "_clsname": "User"}, {"lastname": "Rick", '
  '"firstname": "Martinez", "groups": [], "_clsname": "User"}]')
 
->>> result = json.loads(result, cls=Decoder)
+>>> class Decoder(json.JSONDecoder):
+...     def __init__(self):
+...         super().__init__(object_hook=self.default)
+...
+...     def default(self, data: dict) -> dict:
+...         clsname = data.pop('_clsname')
+...         cls = globals()[clsname]
+...         return cls(**data)
 >>>
+>>>
+>>> result = json.loads(result, cls=Decoder)
 >>> pprint(result, width=72)
 [User(lastname='Mark',
       firstname='Watney',
