@@ -11,27 +11,23 @@ SetUp
 Relation to Objects
 -------------------
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission]
+...     groups: list[Group]
 
->>> astro = Astronaut('Mark', 'Watney', missions=[
-...     Mission(1973, 'Apollo 18'),
-...     Mission(2012, 'STS-136'),
-...     Mission(2035, 'Ares 3')])
+Usage:
 
->>> astro  # doctest: +NORMALIZE_WHITESPACE
-Astronaut(firstname='Mark', lastname='Watney',
-          missions=[Mission(year=1973, name='Apollo 18'),
-                    Mission(year=2012, name='STS-136'),
-                    Mission(year=2035, name='Ares 3')])
+>>> mark = User('Mark', 'Watney', groups=[
+...     Group(gid=1, name='users'),
+...     Group(gid=2, name='staff'),
+...     Group(gid=3, name='admins')])
 
 
 Relation to Self
@@ -48,27 +44,19 @@ Import:
 Define class:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     friends: list[Self] = None
 
 Use:
 
->>> astro = Astronaut('Mark', 'Watney', friends=[
-...     Astronaut('Melissa', 'Lewis'),
-...     Astronaut('Rick', 'Martinez'),
-...     Astronaut('Beth', 'Johanssen'),
-...     Astronaut('Chris', 'Beck'),
-...     Astronaut('Alex', 'Vogel')])
-
->>> astro  # doctest: +NORMALIZE_WHITESPACE
-Astronaut(firstname='Mark', lastname='Watney',
-          friends=[Astronaut(firstname='Melissa', lastname='Lewis', friends=None),
-                   Astronaut(firstname='Rick', lastname='Martinez', friends=None),
-                   Astronaut(firstname='Beth', lastname='Johanssen', friends=None),
-                   Astronaut(firstname='Chris', lastname='Beck', friends=None),
-                   Astronaut(firstname='Alex', lastname='Vogel', friends=None)])
+>>> mark = User('Mark', 'Watney', friends=[
+...     User('Melissa', 'Lewis'),
+...     User('Rick', 'Martinez'),
+...     User('Beth', 'Johanssen'),
+...     User('Chris', 'Beck'),
+...     User('Alex', 'Vogel')])
 
 
 Assignments

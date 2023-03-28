@@ -5,26 +5,23 @@ Dataclass About
 * This are not static fields!
 * Dataclasses require Type Annotations
 
-New style classes:
+SetUp:
+
+>>> from dataclasses import dataclass
+
+Class:
 
 >>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 
-Dataclasses:
+Dataclass:
 
->>> from dataclasses import dataclass
->>>
 >>> @dataclass
 ... class User:
 ...     firstname: str
 ...     lastname: str
-
-
-SetUp
------
->>> from dataclasses import dataclass
 
 
 Problem

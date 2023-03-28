@@ -21,7 +21,7 @@ Default Fields
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     agency: str = 'NASA'
+...     role: str = 'admin'
 
 
 Lists
@@ -30,7 +30,7 @@ Lists
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[str]
+...     groups: list[str]
 
 
 Assignments

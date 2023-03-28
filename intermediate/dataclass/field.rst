@@ -21,6 +21,7 @@ Dataclass Field
               metadata: dict[str,Any] = None,
               kw_only: bool) -> None
 
+
 SetUp
 -----
 >>> from dataclasses import dataclass, field
@@ -35,13 +36,21 @@ Default
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     role: str = 'admin'
+...     role: str = field(default='user')
+
+>>> User('Mark', 'Watney')
+User(firstname='Mark', lastname='Watney', role='user')
+
+>>> User('Mark', 'Watney', role='admin')
+User(firstname='Mark', lastname='Watney', role='admin')
+
+Note, that this is equal to:
 
 >>> @dataclass
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     role: str = field(default='admin')
+...     role: str = 'user'
 
 
 Default Factory
@@ -51,26 +60,25 @@ Default Factory
 The following code will not work:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[str] = ['Ares3', 'Apollo18']
+...     groups: list[str] = ['users', 'staff', 'admins']
 Traceback (most recent call last):
-ValueError: mutable default <class 'list'> for field missions is not allowed: use default_factory
+ValueError: mutable default <class 'list'> for field groups is not allowed: use default_factory
 
 If you want to create a list with default values, you have to create a field
-with ``default_factory=lambda: ['Ares3', 'Apollo18']``. Lambda expression
-will be evaluated on field initialization.
+with ``default_factory=lambda: ['users', 'staff', 'admins']``. Lambda
+expression will be evaluated on field initialization.
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[str] = field(default_factory=lambda: ['Ares3', 'Apollo18'])
->>>
->>>
->>> Astronaut('Mark', 'Watney')
-Astronaut(firstname='Mark', lastname='Watney', missions=['Ares3', 'Apollo18'])
+...     groups: list[str] = field(default_factory=lambda: ['users', 'staff', 'admins'])
+
+>>> User('Mark', 'Watney')
+User(firstname='Mark', lastname='Watney', groups=['users', 'staff', 'admins'])
 
 
 Init
@@ -79,13 +87,14 @@ Init
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int
-...     AGE_MIN: ClassVar[int] = field(default=27, init=False)
-...     AGE_MAX: ClassVar[int] = field(default=50, init=False)
->>>
->>>
->>> User('Mark', 'Watney', age=44)
-User(firstname='Mark', lastname='Watney', age=44)
+...     role: str = field(default='user', init=False)
+
+>>> User('Mark', 'Watney')
+User(firstname='Mark', lastname='Watney', role='user')
+
+>>> User('Mark', 'Watney', role='admin')
+Traceback (most recent call last):
+TypeError: User.__init__() got an unexpected keyword argument 'role'
 
 
 Repr
@@ -94,18 +103,20 @@ Repr
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int
-...     AGE_MIN: ClassVar[int] = field(default=27, init=False, repr=False)
-...     AGE_MAX: ClassVar[int] = field(default=50, init=False, repr=False)
->>>
->>>
->>> User('Mark', 'Watney', age=44)
-User(firstname='Mark', lastname='Watney', age=44)
+...     role: str = field(repr=False)
+
+>>> User('Mark', 'Watney', role='admin')
+User(firstname='Mark', lastname='Watney')
+
+>>> User('Mark', 'Watney')
+Traceback (most recent call last):
+TypeError: User.__init__() missing 1 required positional argument: 'role'
 
 
 kw_only
 -------
 * Since Python 3.10
+* keyword-only
 
 If true, this field will be marked as keyword-only. This is used when the
 generated __init__() method's parameters are computed.
@@ -114,32 +125,40 @@ generated __init__() method's parameters are computed.
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(kw_only=True)
+...     role: str = field(kw_only=True)
+
+>>> User('Mark', 'Watney', role='admin')
+User(firstname='Mark', lastname='Watney', role='admin')
+
+>>> User('Mark', 'Watney')
+Traceback (most recent call last):
+TypeError: User.__init__() missing 1 required keyword-only argument: 'role'
+
+>>> User('Mark', 'Watney', 'admin')
+Traceback (most recent call last):
+TypeError: User.__init__() takes 3 positional arguments but 4 were given
 
 
 Use Case - 0x01
 ---------------
 * Validation
 
->>> from typing import ClassVar
+>>> from typing import ClassVar, Self
 >>> from dataclasses import dataclass, field
 >>> from datetime import time, datetime, timezone
 >>>
 >>>
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
->>>
 >>> @dataclass(frozen=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     groups: list[str] = field(default_factory=lambda: ['astronauts', 'managers'])
-...     friends: dict[str,str] = field(default_factory=dict, kw_only=True)
-...     assignments: list[str] = field(default_factory=list, kw_only=True)
-...     missions: list[Mission] = field(default_factory=list, kw_only=True)
+...     roles: list[str] = field(default_factory=lambda: ['users', 'staff', 'admins'])
+...     friends: list[Self] = field(default_factory=list, kw_only=True)
+...     groups: list[Group] = field(default_factory=list, kw_only=True)
 ...     account_created: datetime = field(default_factory=lambda: datetime.now(tz=timezone.utc), kw_only=True)
-...     AGE_MIN: ClassVar[int] = field(default=30, init=False, repr=False)
-...     AGE_MAX: ClassVar[int] = field(default=50, init=False, repr=False)
+...     permissions: list[dict] = field(default_factory=dict, kw_only=True)
