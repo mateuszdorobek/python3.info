@@ -17,16 +17,12 @@ SetUp
 
 Problem
 -------
-SetUp:
-
 >>> DATA = """{
 ...     "firstname": "Mark",
 ...     "lastname": "Watney",
 ...     "birthday": "1994-10-12"
 ... }"""
-
-Usage:
-
+>>>
 >>> result = json.loads(DATA)
 >>> print(result)   # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
@@ -39,16 +35,13 @@ Function Decoder
 * This works for simple (flat) data
 * This works for nested data structures
 
-SetUp:
-
 >>> DATA = """{
 ...     "firstname": "Mark",
 ...     "lastname": "Watney",
 ...     "birthday": "1994-10-12"
 ... }"""
-
-Usage:
-
+>>>
+>>>
 >>> def decoder(data: dict) -> dict:
 ...     for field, value in data.items():
 ...         if field == 'birthday':
@@ -65,16 +58,13 @@ Usage:
 
 Context Dependency Injection
 ----------------------------
-SetUp:
-
 >>> DATA = """{
 ...     "firstname": "Mark",
 ...     "lastname": "Watney",
 ...     "birthday": "1994-10-12"
 ... }"""
-
-Usage:
-
+>>>
+>>>
 >>> class Decoder(json.JSONDecoder):
 ...     def __init__(self):
 ...         super().__init__(object_hook=self.default)

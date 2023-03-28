@@ -13,16 +13,12 @@ SetUp
 
 Problem
 -------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
 >>> result = json.dumps(DATA)
 Traceback (most recent call last):
 TypeError: Object of type date is not JSON serializable
@@ -30,16 +26,12 @@ TypeError: Object of type date is not JSON serializable
 
 Default Function with Lambda
 ----------------------------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
 >>> result = json.dumps(DATA, default=lambda x: x.isoformat(), indent=2)
 >>> print(result)
 {
@@ -51,16 +43,13 @@ Usage:
 
 Default Function with If
 ------------------------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
+>>>
 >>> def encoder(x):
 ...     if type(x) is date:
 ...         return x.isoformat()
@@ -77,16 +66,13 @@ Usage:
 
 Default Function with Match
 ---------------------------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
+>>>
 >>> def encoder(x):
 ...     match x:
 ...         case datetime() | date() | time():
@@ -106,16 +92,12 @@ Usage:
 
 Monkey Patching with Lambda Expression
 --------------------------------------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
 >>> json.JSONEncoder.default = lambda self,x: x.isoformat()
 >>>
 >>> result = json.dumps(DATA, indent=2)
@@ -129,20 +111,18 @@ Usage:
 
 Dependency Injection
 --------------------
-SetUp:
-
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'birthday': date(1994, 10, 12)
 ... }
-
-Usage:
-
+>>>
+>>>
 >>> class Encoder(json.JSONEncoder):
 ...     def default(self, x):
 ...         if type(x) is date:
 ...             return x.isoformat()
+>>>
 >>>
 >>> result = json.dumps(DATA, cls=Encoder, indent=2)
 >>> print(result)

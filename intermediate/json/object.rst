@@ -10,17 +10,13 @@ SetUp
 
 Encode Object
 -------------
-SetUp:
-
 >>> @dataclass
 ... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>> DATA = User('Mark', 'Watney')
-
-Usage:
-
+>>>
 >>> data = vars(DATA)
 >>> result = json.dumps(data)
 >>>
@@ -30,8 +26,6 @@ Usage:
 
 Decode Object
 -------------
-SetUp:
-
 >>> @dataclass
 ... class User:
 ...     firstname: str
@@ -41,9 +35,7 @@ SetUp:
 ...   "firstname": "Mark",
 ...   "lastname": "Watney"
 ... }"""
-
-Usage:
-
+>>>
 >>> data = json.loads(DATA)
 >>> result = User(**data)
 >>>
@@ -53,17 +45,14 @@ User(firstname='Mark', lastname='Watney')
 
 Object Encoder
 --------------
-SetUp:
-
 >>> @dataclass
 ... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>> DATA = User('Mark', 'Watney')
-
-Usage:
-
+>>>
+>>>
 >>> def encoder(obj):
 ...     return vars(obj)
 >>>
@@ -75,8 +64,6 @@ Usage:
 
 Object Decoder
 --------------
-SetUp:
-
 >>> @dataclass
 ... class User:
 ...     firstname: str
@@ -86,9 +73,8 @@ SetUp:
 ...   "firstname": "Mark",
 ...   "lastname": "Watney"
 ... }"""
-
-Usage:
-
+>>>
+>>>
 >>> def decoder(data):
 ...     return User(**data)
 >>>
@@ -100,13 +86,10 @@ User(firstname='Mark', lastname='Watney')
 
 Encode Object with Relation
 ---------------------------
-SetUp:
-
 >>> @dataclass
 ... class Group:
 ...     gid: int
 ...     name: str
->>>
 >>>
 >>> @dataclass
 ... class User:
@@ -123,9 +106,8 @@ SetUp:
 ...         Group(gid=2, name='admins')]),
 ...     User('Rick', 'Martinez', groups=[]),
 ... ]
-
-Usage:
-
+>>>
+>>>
 >>> def encoder(obj):
 ...     data = {'_clsname': obj.__class__.__name__}
 ...     return data | vars(obj)
@@ -176,8 +158,6 @@ Decode
 ------
 Encoding nested objects with relations to JSON:
 
-SetUp:
-
 >>> @dataclass
 ... class Group:
 ...     gid: int
@@ -200,9 +180,8 @@ SetUp:
 ...     '":"User","firstname":"Rick","lastname":"Martinez","role":"guest'
 ...     '","groups":[]}]'
 ... )
-
-Usage:
-
+>>>
+>>>
 >>> def decoder(obj):
 ...     clsname = obj.pop('_clsname')
 ...     cls = globals()[clsname]
@@ -224,8 +203,6 @@ Usage:
 
 Use Case - 0x01
 ---------------
-SetUp:
-
 >>> import json
 >>> from dataclasses import dataclass, field
 >>> from pprint import pprint
@@ -235,7 +212,6 @@ SetUp:
 ... class Group:
 ...     gid: int
 ...     name: str
->>>
 >>>
 >>> @dataclass
 ... class User:
@@ -252,8 +228,6 @@ SetUp:
 ...         Group(gid=2, name='admins')]),
 ...     User('Rick', 'Martinez', groups=[]),
 ... ]
-
-Usage:
 
 >>> class Encoder(json.JSONEncoder):
 ...     def default(self, obj):
