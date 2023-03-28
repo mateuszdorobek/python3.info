@@ -10,151 +10,174 @@ SetUp
 
 Encode Object
 -------------
+SetUp:
+
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
->>>
->>> mark = Astronaut('Mark', 'Watney')
->>> data = vars(mark)
->>>
->>> json.dumps(data)
+>>> DATA = User('Mark', 'Watney')
+
+Usage:
+
+>>> data = vars(DATA)
+>>> result = json.dumps(data)
+
+Result:
+
+>>> result
 '{"firstname": "Mark", "lastname": "Watney"}'
 
 
 Decode Object
 -------------
+SetUp:
+
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
->>>
 >>>
 >>> DATA = """{
 ...   "firstname": "Mark",
 ...   "lastname": "Watney"
 ... }"""
->>>
+
+Usage:
+
 >>> data = json.loads(DATA)
->>> result = Astronaut(**data)
->>>
->>> print(result)
-Astronaut(firstname='Mark', lastname='Watney')
+>>> result = User(**data)
+
+Result:
+
+>>> result
+User(firstname='Mark', lastname='Watney')
 
 
 Object Encoder
 --------------
+SetUp:
+
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
->>>
->>> data = Astronaut('Mark', 'Watney')
->>>
->>>
+>>> DATA = User('Mark', 'Watney')
+
+Usage:
+
 >>> def encoder(obj):
 ...     return vars(obj)
 >>>
->>>
->>> json.dumps(data, default=encoder)
+>>> result = json.dumps(DATA, default=encoder)
+
+Result:
+
+>>> result
 '{"firstname": "Mark", "lastname": "Watney"}'
 
 
 Object Decoder
 --------------
+SetUp:
+
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
->>>
 >>>
 >>> DATA = """{
 ...   "firstname": "Mark",
 ...   "lastname": "Watney"
 ... }"""
->>>
->>>
+
+Usage:
+
 >>> def decoder(data):
-...     return Astronaut(**data)
+...     return User(**data)
 >>>
->>>
->>> json.loads(DATA, object_hook=decoder)
-Astronaut(firstname='Mark', lastname='Watney')
+>>> result =  json.loads(DATA, object_hook=decoder)
+
+Result:
+
+>>> result
+User(firstname='Mark', lastname='Watney')
 
 
 Encode Object with Relation
 ---------------------------
+SetUp:
+
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     role: str
-...     missions: list[Mission]
+...     groups: list[Group]
 >>>
 >>>
->>> CREW = [
-...     Astronaut('Mark', 'Watney', 'Botanist', missions=[
-...         Mission(2035, 'Ares 3')]),
-...     Astronaut('Melissa', 'Lewis', 'Commander', missions=[
-...         Mission(2035, 'Ares 3'),
-...         Mission(2031, 'Ares 1')]),
-...     Astronaut('Rick', 'Martinez', 'Pilot', missions=[])]
->>>
->>>
+>>> DATA = [
+...     User('Mark', 'Watney', groups=[
+...         Group(gid=1, name='users')]),
+...     User('Melissa', 'Lewis', groups=[
+...         Group(gid=1, name='users'),
+...         Group(gid=2, name='admins')]),
+...     User('Rick', 'Martinez', groups=[]),
+... ]
+
+Usage:
+
 >>> def encoder(obj):
-...     data = {'_type': obj.__class__.__name__}
+...     data = {'_clsname': obj.__class__.__name__}
 ...     return data | vars(obj)
 >>>
->>>
->>> result = json.dumps(CREW, default=encoder, indent=2)
->>>
+>>> result = json.dumps(DATA, default=encoder, indent=2)
+
+Result:
+
 >>> print(result)
 [
   {
-    "_type": "Astronaut",
+    "_clsname": "User",
     "firstname": "Mark",
     "lastname": "Watney",
-    "role": "Botanist",
-    "missions": [
+    "groups": [
       {
-        "_type": "Mission",
-        "year": 2035,
-        "name": "Ares 3"
+        "_clsname": "Group",
+        "gid": 1,
+        "name": "users"
       }
     ]
   },
   {
-    "_type": "Astronaut",
+    "_clsname": "User",
     "firstname": "Melissa",
     "lastname": "Lewis",
-    "role": "Commander",
-    "missions": [
+    "groups": [
       {
-        "_type": "Mission",
-        "year": 2035,
-        "name": "Ares 3"
+        "_clsname": "Group",
+        "gid": 1,
+        "name": "users"
       },
       {
-        "_type": "Mission",
-        "year": 2031,
-        "name": "Ares 1"
+        "_clsname": "Group",
+        "gid": 2,
+        "name": "admins"
       }
     ]
   },
   {
-    "_type": "Astronaut",
+    "_clsname": "User",
     "firstname": "Rick",
     "lastname": "Martinez",
-    "role": "Pilot",
-    "missions": []
+    "groups": []
   }
 ]
 
@@ -163,121 +186,125 @@ Decode
 ------
 Encoding nested objects with relations to JSON:
 
+SetUp:
+
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
->>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     role: str
-...     missions: list[Mission]
+...     groups: list[Group]
 >>>
 >>>
->>> DATA = """[{"_type": "Astronaut", "firstname": "Mark", "lastname": "Watney", "role": "Botanist", "missions": [{"_type": "Mission", "year": 2035, "name": "Ares 3"}]}, {"_type": "Astronaut", "firstname": "Melissa", "lastname": "Lewis", "role": "Commander", "missions": [{"_type": "Mission", "year": 2035, "name": "Ares 3"}, {"_type": "Mission", "year": 2031, "name": "Ares 1"}]}, {"_type": "Astronaut", "firstname": "Rick", "lastname": "Martinez", "role": "Pilot", "missions": []}]"""
->>>
->>>
+>>> DATA = (
+...     '[{"_clsname":"User","firstname":"Mark","lastname":"Watney","rol'
+...     'e":"user","groups":[{"_clsname":"Group","gid":1,"name":"users"}'
+...     ']},{"_clsname":"User","firstname":"Melissa","lastname":"Lewis",'
+...     '"role":"admin","groups":[{"_clsname":"Group","gid":1,"name":"us'
+...     'ers"},{"_clsname":"Group","gid":2,"name":"admins"}]},{"_clsname'
+...     '":"User","firstname":"Rick","lastname":"Martinez","role":"guest'
+...     '","groups":[]}]'
+... )
+
+Usage:
+
 >>> def decoder(obj):
-...     clsname = obj.pop('_type')
+...     clsname = obj.pop('_clsname')
 ...     cls = globals()[clsname]
 ...     return cls(**obj)
 >>>
->>>
 >>> result = json.loads(DATA, object_hook=decoder)
->>>
+
+Result:
+
 >>> pprint(result, width=72)
-[Astronaut(firstname='Mark',
-           lastname='Watney',
-           role='Botanist',
-           missions=[Mission(year=2035, name='Ares 3')]),
- Astronaut(firstname='Melissa',
-           lastname='Lewis',
-           role='Commander',
-           missions=[Mission(year=2035, name='Ares 3'),
-                     Mission(year=2031, name='Ares 1')]),
- Astronaut(firstname='Rick',
-           lastname='Martinez',
-           role='Pilot',
-           missions=[])]
+[User(firstname='Mark',
+      lastname='Watney',
+      role='user',
+      groups=[Group(gid=1, name='users')]),
+ User(firstname='Melissa',
+      lastname='Lewis',
+      role='admin',
+      groups=[Group(gid=1, name='users'), Group(gid=2, name='admins')]),
+ User(firstname='Rick', lastname='Martinez', role='guest', groups=[])]
 
 
 Use Case - 0x01
 ---------------
+SetUp:
+
 >>> import json
 >>> from dataclasses import dataclass, field
 >>> from pprint import pprint
 >>>
 >>>
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     lastname: str
 ...     firstname: str
-...     missions: list[Mission] = field(default_factory=list)
+...     groups: list[Group]
 >>>
 >>>
->>> CREW = [
-...     Astronaut('Mark', 'Watney', missions=[
-...         Mission(1973, 'Apollo18'),
-...         Mission(2035, 'Ares3'),
-...     ]),
-...
-...     Astronaut('Melissa', 'Lewis', missions=[
-...         Mission(2035, 'Ares3'),
-...     ]),
-...
-...     Astronaut('Rick', 'Martinez'),
+>>> DATA = [
+...     User('Mark', 'Watney', groups=[
+...         Group(gid=1, name='users')]),
+...     User('Melissa', 'Lewis', groups=[
+...         Group(gid=1, name='users'),
+...         Group(gid=2, name='admins')]),
+...     User('Rick', 'Martinez', groups=[]),
 ... ]
->>>
->>>
->>> class MyEncoder(json.JSONEncoder):
+
+Encoder/Decoder:
+
+>>> class Encoder(json.JSONEncoder):
 ...     def default(self, obj):
 ...         data = vars(obj)
-...         data['__clsname__'] = obj.__class__.__name__
+...         data['_clsname'] = obj.__class__.__name__
 ...         return data
 >>>
 >>>
->>> class MyDecoder(json.JSONDecoder):
+>>> class Decoder(json.JSONDecoder):
 ...     def __init__(self):
 ...         super().__init__(object_hook=self.default)
 ...
 ...     def default(self, data: dict) -> dict:
-...         clsname = data.pop('__clsname__')
+...         clsname = data.pop('_clsname')
 ...         cls = globals()[clsname]
 ...         return cls(**data)
 
->>> result = json.dumps(CREW, cls=MyEncoder)
+Usage:
+
+>>> result = json.dumps(DATA, cls=Encoder)
 >>>
 >>> pprint(result, width=72)
-('[{"lastname": "Mark", "firstname": "Watney", "missions": [{"year": '
- '1973, "name": "Apollo18", "__clsname__": "Mission"}, {"year": 2035, '
- '"name": "Ares3", "__clsname__": "Mission"}], "__clsname__": '
- '"Astronaut"}, {"lastname": "Melissa", "firstname": "Lewis", '
- '"missions": [{"year": 2035, "name": "Ares3", "__clsname__": '
- '"Mission"}], "__clsname__": "Astronaut"}, {"lastname": "Rick", '
- '"firstname": "Martinez", "missions": [], "__clsname__": '
- '"Astronaut"}]')
+('[{"lastname": "Mark", "firstname": "Watney", "groups": [{"gid": 1, '
+ '"name": "users", "_clsname": "Group"}], "_clsname": "User"}, '
+ '{"lastname": "Melissa", "firstname": "Lewis", "groups": [{"gid": 1, '
+ '"name": "users", "_clsname": "Group"}, {"gid": 2, "name": "admins", '
+ '"_clsname": "Group"}], "_clsname": "User"}, {"lastname": "Rick", '
+ '"firstname": "Martinez", "groups": [], "_clsname": "User"}]')
 
->>> result = json.loads(result, cls=MyDecoder)
+>>> result = json.loads(result, cls=Decoder)
 >>>
->>> pprint(result)  # doctest: +NORMALIZE_WHITESPACE
-[Astronaut(lastname='Mark',
-           firstname='Watney',
-           missions=[Mission(year=1973, name='Apollo18'),
-                     Mission(year=2035, name='Ares3')]),
- Astronaut(lastname='Melissa',
-           firstname='Lewis',
-           missions=[Mission(year=2035, name='Ares3')]),
- Astronaut(lastname='Rick', firstname='Martinez', missions=[])]
-
+>>> pprint(result, width=72)
+[User(lastname='Mark',
+      firstname='Watney',
+      groups=[Group(gid=1, name='users')]),
+ User(lastname='Melissa',
+      firstname='Lewis',
+      groups=[Group(gid=1, name='users'), Group(gid=2, name='admins')]),
+ User(lastname='Rick', firstname='Martinez', groups=[])]
 
 
 Assignments

@@ -7,17 +7,22 @@ JSON Encoder
 
 SetUp
 -----
->>> from datetime import date
+>>> from datetime import datetime, date, time, timedelta
 >>> import json
 
 
 Problem
 -------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
 >>> result = json.dumps(DATA)
 Traceback (most recent call last):
 TypeError: Object of type date is not JSON serializable
@@ -25,78 +30,119 @@ TypeError: Object of type date is not JSON serializable
 
 Default Function with Lambda
 ----------------------------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
->>> json.dumps(DATA, default=lambda x: x.isoformat())
-'{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
+>>> result = json.dumps(DATA, default=lambda x: x.isoformat())
+
+Result:
+
+>>> result
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
 
 
 Default Function with If
 ------------------------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
 >>> def encoder(x):
 ...     if type(x) is date:
 ...         return x.isoformat()
 >>>
->>>
->>> json.dumps(DATA, default=encoder)
-'{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
+>>> result = json.dumps(DATA, default=encoder)
+
+Result:
+
+>>> result
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
 
 
 Default Function with Match
 ---------------------------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
 >>> def encoder(x):
 ...     match x:
-...         case date() | datetime() | time():
+...         case datetime() | date() | time():
 ...             return x.isoformat()
 ...         case timedelta():
 ...             return x.total_seconds()
 >>>
->>>
->>> json.dumps(DATA, default=encoder)
-'{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
+>>> result = json.dumps(DATA, default=encoder)
+
+Result:
+
+>>> result
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
 
 
 Monkey Patching with Lambda Expression
 --------------------------------------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
 >>> json.JSONEncoder.default = lambda self,x: x.isoformat()
->>>
->>> json.dumps(DATA)
-'{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
+>>> result = json.dumps(DATA)
+
+Result:
+
+>>> result
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
 
 
 Dependency Injection
 --------------------
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney',
-...         'born': date(1994, 10, 12)}
->>>
->>>
->>> class MyEncoder(json.JSONEncoder):
+SetUp:
+
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+...     'birthday': date(1994, 10, 12)
+... }
+
+Usage:
+
+>>> class Encoder(json.JSONEncoder):
 ...     def default(self, x):
 ...         if type(x) is date:
 ...             return x.isoformat()
 >>>
->>>
->>> json.dumps(DATA, cls=MyEncoder)
-'{"firstname": "Mark", "lastname": "Watney", "born": "1994-10-12"}'
+>>> result = json.dumps(DATA, cls=Encoder)
+
+Result:
+
+>>> result
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1994-10-12"}'
 
 
 Use Case - 0x01
@@ -105,11 +151,13 @@ Use Case - 0x01
 >>> import json
 >>>
 >>>
->>> DATA = {'name': 'Mark Watney',
-...         'born': date(1994, 10, 12),
-...         'launch': datetime(1969, 7, 21, 2, 56, 15),
-...         'landing': time(12, 30),
-...         'duration': timedelta(days=13)}
+>>> DATA = {
+...     'name': 'Mark Watney',
+...     'birthday': date(1994, 10, 12),
+...     'launch': datetime(1969, 7, 21, 2, 56, 15),
+...     'landing': time(12, 30),
+...     'duration': timedelta(days=13),
+... }
 >>>
 >>>
 >>> class Encoder(json.JSONEncoder):
@@ -124,7 +172,7 @@ Use Case - 0x01
 >>> print(result)
 {
   "name": "Mark Watney",
-  "born": "1994-10-12",
+  "birthday": "1994-10-12",
   "launch": "1969-07-21T02:56:15",
   "landing": "12:30:00",
   "duration": 1123200.0
@@ -137,16 +185,18 @@ Use Case - 0x02
 >>> import json
 >>>
 >>>
->>> DATA = {'name': 'Mark Watney',
-...         'born': date(1994, 10, 12),
-...         'launch': datetime(1969, 7, 21, 2, 56, 15),
-...         'landing': time(12, 30),
-...         'duration': timedelta(days=13)}
+>>> DATA = {
+...     'name': 'Mark Watney',
+...     'birthday': date(1994, 10, 12),
+...     'launch': datetime(1969, 7, 21, 2, 56, 15),
+...     'landing': time(12, 30),
+...     'duration': timedelta(days=13),
+... }
 >>>
 >>>
 >>> def encoder(x):
 ...     match x:
-...         case date() | datetime() | time():
+...         case datetime() | date() | time():
 ...             return x.isoformat()
 ...         case timedelta():
 ...             return x.total_seconds()
@@ -156,7 +206,7 @@ Use Case - 0x02
 >>> print(result)
 {
   "name": "Mark Watney",
-  "born": "1994-10-12",
+  "birthday": "1994-10-12",
   "launch": "1969-07-21T02:56:15",
   "landing": "12:30:00",
   "duration": 1123200.0

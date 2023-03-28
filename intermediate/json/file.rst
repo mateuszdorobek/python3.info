@@ -1,12 +1,20 @@
 JSON File
 =========
-* file extension ``.json``
 * ``json.load(file) -> dict``
 * ``json.dump(data, file) -> None``
+* file extension ``.json``
 
 
-Write
+SetUp
 -----
+>>> import json
+
+
+Write Data to JSON File
+-----------------------
+* ``json.dump(data, file) -> None``
+* file extension ``.json``
+
 .. code-block:: text
 
     def dump(obj: Any,
@@ -23,27 +31,32 @@ Write
              sort_keys: bool = ...,
              **kwds: Any) -> None
 
-Serialize to JSON:
+SetUp:
 
->>> import json
->>>
->>>
 >>> FILE = r'/tmp/myfile.json'
 >>>
->>> DATA = {'firstname': 'Mark',
-...         'lastname': 'Watney'}
->>>
->>>
+>>> DATA = {
+...     'firstname': 'Mark',
+...     'lastname': 'Watney',
+... }
+
+Usage:
+
 >>> with open(FILE, mode='w') as file:
 ...     json.dump(DATA, file)
->>>
+
+Result:
+
 >>> result = open(FILE).read()
 >>> print(result)
 {"firstname": "Mark", "lastname": "Watney"}
 
 
-Read
-----
+Read Data From JSON File
+------------------------
+* ``json.load(file) -> dict``
+* file extension ``.json``
+
 .. code-block:: text
 
     def load(fp: SupportsRead[str | bytes],
@@ -56,20 +69,24 @@ Read
              object_pairs_hook: (list[tuple[Any, Any]]) -> Any | None = ...,
              **kwds: Any) -> Any
 
-Serialize to JSON:
+SetUp:
 
->>> import json
->>>
->>>
 >>> FILE = r'/tmp/myfile.json'
->>> DATA = '{"firstname": "Mark", "lastname": "Watney"}'
+>>> DATA = """{
+...     "firstname": "Mark",
+...     "lastname": "Watney"
+... }"""
+>>>
 >>> _ = open(FILE, mode='w').write(DATA)
->>>
->>>
+
+Usage:
+
 >>> with open(FILE) as file:
 ...     result = json.load(file)
->>>
->>> print(result)
+
+Result:
+
+>>> result
 {'firstname': 'Mark', 'lastname': 'Watney'}
 
 
