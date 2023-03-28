@@ -95,6 +95,7 @@ Type Annotation
     type-annotation/type-namedtuple.rst
     type-annotation/type-callable.rst
     type-annotation/type-type.rst
+    type-annotation/annotated.rst
     type-annotation/extra.rst
     type-annotation/deprecated.rst
     type-annotation/package-check.rst

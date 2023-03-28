@@ -40,22 +40,6 @@ Optional
 ...     return position
 
 
-Exception
----------
->>> def on_timeout() -> Exception:
-...     raise TimeoutError
-
->>> def on_timeout() -> TimeoutError:
-...     raise TimeoutError
-
->>> def find(character, text) -> int | ValueError:
-...     position = text.find(character)
-...     if position == -1:
-...         raise ValueError
-...     return position
-
-
-
 Alias
 -----
 * Since Python 3.10: :pep:`604` -- Allow writing union types as X | Y
@@ -64,6 +48,24 @@ Alias
 >>>
 >>> def add(a: number, b: number) -> number:
 ...     return a + b
+
+
+Exception
+---------
+>>> def div(a: float, b: float) -> float:
+...     if b == 0:
+...         raise ZeroDivisionError
+...     return a / b
+
+>>> def div(a: float, b: float) -> float | Exception:
+...     if b == 0:
+...         raise ZeroDivisionError
+...     return a / b
+
+>>> def div(a: float, b: float) -> float | ZeroDivisionError:
+...     if b == 0:
+...         raise ZeroDivisionError
+...     return a / b
 
 
 Literal
@@ -105,7 +107,7 @@ SetUp:
 Define:
 
 >>> def add(a: int, b: int) -> int:
-...     ...
+...     return a + b
 >>>
 >>> x: Callable = add
 >>> x: Callable[..., int] = add
@@ -142,7 +144,6 @@ All Generators are Iterators so you can write:
 ...     while a < n:
 ...         yield a
 ...         a, b = b, a + b
-
 
 
 Annotations
@@ -184,44 +185,21 @@ SetUp:
 
 >>> from typing import LiteralSting  # doctest: +SKIP
 
-Definition:
-
->>> # doctest: +SKIP
-... def echo(text: LiteralString):
-...     ...
-...
-... name = 'Mark'
-...
-... echo('hello Mark')             # ok
-... echo('hello ' + name)          # ok
-... echo('hello %s' % name))       # error
-... echo('hello {}'.format(name))  # error
-... echo('hello {name}')           # error
-
-Use Case:
+Example:
 
 >>> # doctest: +SKIP
 ... def execute(sql: LiteralString) -> ...
 ...     ...
 ...
 ...
-... execute("SELECT * FROM users")                          # ok
-... execute("SELECT * FROM " + table_name)                  # ok
-... execute(f"SELECT * FROM users WHERE name={username}")   # error
-
-
-Future
-------
-* :pep:`563` -- Postponed Evaluation of Annotations
-
-Postponed Evaluation of Annotations:
-
->>> def add(a: int, b: int) -> int:
-...     return a + b
->>>
->>>
->>> add.__annotations__  # doctest: +SKIP
-{'a': 'int', 'b': 'int', 'return': 'int'}
+... execute('SELECT * FROM users WHERE login="mwatney"')                  # ok
+... execute('SELECT * FROM users WHERE login=' + username)                # ok
+... execute(f'SELECT * FROM users WHERE login=%s' % username)             # error
+... execute(f'SELECT * FROM users WHERE login=%(login)s' % {'login': username}) # error
+... execute(f'SELECT * FROM users WHERE login={}'.format(username))       # error
+... execute(f'SELECT * FROM users WHERE login={0}'.format(username))      # error
+... execute(f'SELECT * FROM users WHERE login={login}'.format(username))  # error
+... execute(f'SELECT * FROM users WHERE login={username}')                # error
 
 
 Use Case - 0x01
@@ -258,21 +236,22 @@ Use Case - 0x02
 
 Use Case - 0x03
 ---------------
->>> from requests import get, Response as Result
+>>> from urllib.request import urlopen
+>>> from typing import Any
 >>>
 >>>
 >>> def fetch(url: str,
-...           on_success: Callable[[Result], None],
-...           on_error: Callable[[Exception], None],
+...           on_success: Callable[[str], Any] = lambda result: ...,
+...           on_error: Callable[[Exception], Any] = lambda error: ...,
 ...           ) -> None:
 ...     try:
-...         result: Result = get(url)
+...         result: str = urlopen(url).read().decode('utf-8')
 ...     except Exception as err:
 ...         on_error(err)
 ...     else:
 ...         on_success(result)
 
->>> def handle_result(result: Result) -> None:
+>>> def handle_result(result: str) -> None:
 ...     print('Success', result)
 >>>
 >>> def handle_error(error: Exception) -> None:
@@ -290,6 +269,30 @@ Use Case - 0x03
 ...     on_success=lambda result: print(result),
 ...     on_error=lambda error: print(error),
 ... )  # doctest: +SKIP
+
+
+Use Case - 0x04
+---------------
+>>> import json
+>>> from datetime import date
+>>> from typing import Any
+
+>>> data = {'firstname': 'Mark', 'lastname': 'Watney'}
+>>> json.dumps(data)
+'{"firstname": "Mark", "lastname": "Watney"}'
+
+>>> data = {'firstname': 'Mark', 'lastname': 'Watney', 'birthday': date(1969, 7, 21)}
+>>> json.dumps(data)
+Traceback (most recent call last):
+TypeError: Object of type date is not JSON serializable
+
+>>> def encoder(obj: Any) -> str:
+...     if isinstance(obj, date):
+...         return obj.isoformat()
+...
+>>>
+>>> json.dumps(data, default=encoder)
+'{"firstname": "Mark", "lastname": "Watney", "birthday": "1969-07-21"}'
 
 
 Further Reading
