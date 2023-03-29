@@ -1,36 +1,34 @@
 """
-* Assignment: CSV Format ReadGenerateHeader
+* Assignment: CSV Format ReadFixedHeader
 * Complexity: easy
-* Lines of code: 7 lines
-* Time: 8 min
+* Lines of code: 5 lines
+* Time: 5 min
 
 English:
-    1. Generate `header: list[str]` from first line `DATA`
-    2. Convert `DATA` to `result: list[dict]`
-    3. Use `header` as keys
-    4. Do not convert numeric values to `float`, leave them as `str`
-    5. Run doctests - all must succeed
+    1. Convert `DATA` to `result: list[dict]`
+    2. Use `HEADER` as dict keys
+    3. Do not convert numeric values to `float`, leave them as `str`
+    4. Run doctests - all must succeed
 
 Polish:
-    1. Wygeneruj `header: list[str]` z pierwszej linii `DATA`
-    2. Przekonwertuj `DATA` to `result: list[dict]`
-    3. Użyj nagłówka jako kluczy
-    4. Nie konwertuj wartości numeryczne do `float`, pozostaw je jako `str`
-    5. Uruchom doctesty - wszystkie muszą się powieść
+    1. Przekonwertuj `DATA` to `result: list[dict]`
+    2. Użyj `HEADER` jako kluczy dictów
+    3. Nie konwertuj wartości numeryczne do `float`, pozostaw je jako `str`
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
+    * `str.splitlines()`
     * `str.strip()`
     * `str.split()`
-    * `map()`
-    * `list() + list()`
+    * `dict(zip())`
     * `list.append()`
-    * `tuple()`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
+    >>> result = list(result)  # expand map object
     >>> assert type(result) is list, \
     'Variable `result` has invalid type, should be list'
     >>> assert all(type(x) is dict for x in result), \
@@ -45,21 +43,26 @@ Tests:
       'petal_width': '1.3', 'species': 'versicolor'}]
 """
 
-DATA = """sepal_length,sepal_width,petal_length,petal_width,species
-5.8,2.7,5.1,1.9,virginica
+DATA = """5.8,2.7,5.1,1.9,virginica
 5.1,3.5,1.4,0.2,setosa
 5.7,2.8,4.1,1.3,versicolor"""
 
-# replace fieldnames with `FIELDNAMES`
-# type: list[dict]
+HEADER = [
+    'sepal_length',
+    'sepal_width',
+    'petal_length',
+    'petal_width',
+    'species',
+]
+
+# Replace keys with `HEADER`
+# type: list[dict[str,str]]
 result = ...
 
 # Solution
 result = []
-header, *lines = DATA.splitlines()
-header = header.strip().split(',')
 
-for line in lines:
+for line in DATA.splitlines():
     line = line.strip().split(',')
-    line = zip(header, line)
-    result.append(dict(line))
+    line = dict(zip(HEADER, line))
+    result.append(line)

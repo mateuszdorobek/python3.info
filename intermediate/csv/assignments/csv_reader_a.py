@@ -16,9 +16,6 @@ Polish:
     3. Użyj zakończenia linii Unix `\n`
     4. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * For Python before 3.8: `dict(OrderedDict)`
-
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from os import remove

@@ -31,6 +31,7 @@ Tests:
 
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
+    >>> result = list(result)  # expand map object
     >>> assert type(result) is list, \
     'Variable `result` has invalid type, should be list'
     >>> assert all(type(x) is tuple for x in result), \
