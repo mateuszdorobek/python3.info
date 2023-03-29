@@ -146,11 +146,13 @@ CSV
     :caption: CSV
 
     csv/about.rst
-    csv/reader.rst
-    csv/writer.rst
-    csv/dictreader.rst
-    csv/dictwriter.rst
-    csv/nonstandard.rst
+    csv/format-read.rst
+    csv/format-write.rst
+    csv/format-nonstandard.rst
+    csv/csv-reader.rst
+    csv/csv-writer.rst
+    csv/csv-dictreader.rst
+    csv/csv-dictwriter.rst
 
 
 Regular Expressions
