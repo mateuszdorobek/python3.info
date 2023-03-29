@@ -70,16 +70,19 @@ Columbia."""
 
 # Find all non-digits
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find all non-lowercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 
 # Find all non-uppercase-letters
 # Example: '\n', ' ', "'", '(', ')', ',', '.', '0', '1', '2', '3', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_c = ...
 

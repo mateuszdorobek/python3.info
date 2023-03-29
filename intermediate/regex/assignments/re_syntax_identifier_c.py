@@ -108,11 +108,13 @@ Columbia."""
 
 # Find all word characters in text, use \w
 # Example: 'A', 'A', 'M', 'C', 'C', 'D', 'R', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find all non-word characters in text
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

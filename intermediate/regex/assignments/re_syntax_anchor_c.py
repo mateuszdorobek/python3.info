@@ -54,11 +54,13 @@ Columbia."""
 
 # Find character at the end of a text
 # Example: '.'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find characters at the end of each line
 # Example: 'd', 'e', 'n', 'n', ',', '.', 'y', ')', ')', 'e', 'n', '.'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

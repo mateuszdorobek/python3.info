@@ -29,15 +29,17 @@ Example:
 SetUp
 -----
 >>> import re
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 
 Positional Groups
 -----------------
->>> result = re.search(r'(\w+) (\w+)', TEXT)
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+
+>>> result = re.search(r'([A-Z][a-z]+) ([A-Z][a-z]+)', TEXT)
 >>>
 >>> result
-<re.Match object; span=(0, 11), match='Mark Watney'>
+<re.Match object; span=(11, 22), match='Mark Watney'>
 >>>
 >>> result.group()
 'Mark Watney'
@@ -56,7 +58,9 @@ Named Groups
 ------------
 * Usage of group in ``re.match()``
 
->>> result = re.match(r'(?P<firstname>\w+) (?P<lastname>\w+)', TEXT)
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+
+>>> result = re.search(r'(?P<firstname>[A-Z][a-z]+) (?P<lastname>[A-Z][a-z]+)', TEXT)
 >>>
 >>> result.group('firstname')
 'Mark'
@@ -79,27 +83,30 @@ Named Groups
 
 Non-Capturing Groups
 --------------------
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+
 >>> year = r'(?P<year>\d{4})'
 >>> month = r'(?P<month>\w+)'
 >>> day = r'(?P<day>\d{1,2})'
 
->>> re.findall(f'{month} {day}th, {year}', TEXT)
-[('Nov', '7', '2035')]
+>>> re.findall(f'{month} {day}st, {year}', TEXT)
+[('Jan', '1', '2000')]
 >>>
 >>> re.findall(f'{month} {day}st|nd|rd|th, {year}', TEXT)
-[('', '', ''), ('', '', '2035')]
+[('Jan', '1', '')]
 >>>
 >>> re.findall(f'{month} {day}[stndrdth], {year}', TEXT)
 []
 >>>
->>> re.findall(f'{month} {day}[st]|[nd]|[rd]|[th], {year}', TEXT)
-[('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('Nov', '7', ''), ('', '', '2035')]
+>>> re.findall(f'{month} {day}[st]|[nd]|[rd]|[th], {year}', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+[('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''), ('', '', ''),
+ ('', '', ''), ('', '', ''), ('', '', ''), ('Jan', '1', ''), ('', '', '2000')]
 >>>
 >>> re.findall(f'{month} {day}(st|nd|rd|th), {year}', TEXT)
-[('Nov', '7', 'th', '2035')]
+[('Jan', '1', 'st', '2000')]
 >>>
 >>> re.findall(f'{month} {day}(?:st|nd|rd|th), {year}', TEXT)
-[('Nov', '7', '2035')]
+[('Jan', '1', '2000')]
 
 
 Use Case - 0x01
@@ -113,74 +120,3 @@ Use Case - 0x01
 >>>
 >>> re.findall(r'(\w+)\s?=\s?(\d+)', line)
 [('value', '123')]
-
-
-Use Case - 0x02
----------------
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
->>>
->>> year = r'(?P<year>\d{4})'
->>> month = r'(?P<month>\w+)'
->>> day = r'(?P<day>\d{1,2})'
-
-Positional Groups:
-
->>> re.findall('Ares \d', TEXT)
-['Ares 3']
->>>
->>> re.findall('Ares (\d)', TEXT)
-['3']
-
->>> re.findall(r'Nov [0-9]th', TEXT)
-['Nov 7th']
->>>
->>> re.findall(r'Nov ([0-9])th', TEXT)
-['7']
->>>
->>> re.findall(r'Nov [0-9](st|nd|th|rd)', TEXT)
-['th']
-
-Named Groups:
-
->>> re.findall(f'{month} {day}th, {year}', TEXT)
-[('Nov', '7', '2035')]
->>>
->>> result = re.search(f'{month} {day}th, {year}', TEXT)
->>>
->>> result.span()
-(41, 54)
->>>
->>> result.group()
-'Nov 7th, 2035'
->>> result.group(1)
-'Nov'
->>> result.group(2)
-'7'
->>> result.group(3)
-'2035'
->>>
->>> result.group('month')
-'Nov'
->>> result.group('day')
-'7'
->>> result.group('year')
-'2035'
->>>
->>> result.groups()
-('Nov', '7', '2035')
->>>
->>> result.groupdict()
-{'month': 'Nov', 'day': '7', 'year': '2035'}
-
-Non-capturing Groups:
-
->>> re.findall(f'{month} {day}(st|nd|rd|th), {year}', TEXT)
-[('Nov', '7', 'th', '2035')]
->>>
->>> re.findall(f'{month} {day}(?:st|nd|rd|th), {year}', TEXT)
-[('Nov', '7', '2035')]
-
-Comments:
-
->>> re.findall(f'{month} {day}th(?#ordinal), {year}', TEXT)
-[('Nov', '7', '2035')]

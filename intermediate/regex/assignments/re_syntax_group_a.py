@@ -52,6 +52,7 @@ Columbia."""
 # Find all dates (month name followed by day number)
 # Note: after day there is an ordinal: st, nd, rd, th (you can use: ..)
 # Example: 'July 20', 'July 21'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result = ...
 

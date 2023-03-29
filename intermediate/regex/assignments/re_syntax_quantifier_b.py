@@ -51,12 +51,14 @@ Columbia."""
 
 # Find all integers in text (as long as possible)
 # Example: '11', '20', '1969', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 
 # Find all floats in text
 # Example: '47.5', '21.5'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

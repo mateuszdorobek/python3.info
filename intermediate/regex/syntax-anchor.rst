@@ -18,21 +18,21 @@ Any Character
 
 Search for letters ``No`` followed by any character:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
->>> re.findall(r'No.', TEXT)
-['Nov']
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+>>> re.findall(r'.st', TEXT)
+['1st']
 
 Search for uppercase letter followed by any three characters:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
->>> re.findall(r'[A-Z]...', TEXT)
-['Mark', 'Watn', 'Ares', 'Mars', 'Nov ']
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+>>> re.findall(r'[A-Z]..', TEXT)
+['Ema', 'Mar', 'Wat', 'Sat', 'Jan']
 
 Example:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
->>> re.findall(r'Nov 7..', TEXT)
-['Nov 7th']
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+>>> re.findall(r'Jan 1..', TEXT)
+['Jan 1st']
 
 
 Start of Line
@@ -42,15 +42,15 @@ Start of Line
 
 Search for a capital letter at the start of a line:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'^[A-Z]', TEXT)
-['M']
+['E']
 
 Search for a capital letter anywhere in text:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'[A-Z]', TEXT)
-['M', 'W', 'A', 'M', 'N']
+['E', 'M', 'W', 'S', 'J', 'A', 'M']
 
 
 End of Line
@@ -60,9 +60,9 @@ End of Line
 
 Give me last characters in a line:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'.$', TEXT)
-['7']
+['M']
 
 
 Start of String
@@ -72,16 +72,16 @@ Start of String
 
 Search for a capital letter in text at the start of a line:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'\A[A-Z]', TEXT)
-['M']
+['E']
 
 Note, that the output is identical to Start of a Line ``^``. It will differ
 when ``re.MULTILINE`` flag is present.
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'^[A-Z]', TEXT)
-['M']
+['E']
 
 
 End of String
@@ -91,16 +91,16 @@ End of String
 
 Give me last character in a text:
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'.\Z', TEXT)
-['7']
+['M']
 
 Note, that the output is identical to Start of a Line ``^``. It will differ
 when ``re.MULTILINE`` flag is present.
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>> re.findall(r'.$', TEXT)
-['7']
+['M']
 
 
 Use Case - 0x01

@@ -5,16 +5,16 @@
 * Time: 3 min
 
 English:
-    1. Define `result: str` with regular expression to find:
-        a. duration values
-           example: 6 hours 39 minutes -> [('6', '39'), ...]
-    2. Run doctests - all must succeed
+    1. Define `result: str` with regular expression
+       to find duration values
+    2. Use positional group
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
-        a. wartości okresów
-           przykład: 6 hours 39 minutes -> [('6', '39'), ...]
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym
+       aby wyszukać wartości okresów
+    2. Użyj grup pozycyjnych
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 References:
     [1] Authors: Wikipedia contributors
@@ -50,8 +50,9 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find all duration values from text
+# Find all duration values, use positional groups
 # Example: [('6', '39'), ('2', '31'), ('21', '36')]
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result = ...
 

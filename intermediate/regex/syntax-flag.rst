@@ -70,13 +70,13 @@ IGNORECASE
 * Has Unicode support i.e. ``Ą`` and ``ą``
 
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>>
->>> re.findall(r'mars', TEXT)
+>>> re.findall(r'NASA', TEXT)
 []
 >>>
->>> re.findall(r'mars', TEXT, flags=re.IGNORECASE)
-['Mars']
+>>> re.findall(r'NASA', TEXT, flags=re.IGNORECASE)
+['nasa']
 
 
 LOCALE
@@ -90,7 +90,7 @@ LOCALE
 
 >>> import locale
 >>>
->>> locale.getlocale()
+>>> locale.getlocale()  # doctest: +SKIP
 ('en_US', 'UTF-8')
 
 

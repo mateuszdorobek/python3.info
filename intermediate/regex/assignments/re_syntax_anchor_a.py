@@ -54,11 +54,13 @@ Columbia."""
 
 # Find all uppercase letter at the beginning of a text
 # Example: 'A'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find all uppercase letter at the beginning of each line
 # Example: 'A', 'J', 'T', 'B', 'M', 'C'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

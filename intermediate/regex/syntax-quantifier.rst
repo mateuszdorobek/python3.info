@@ -6,13 +6,13 @@ Regex Syntax Quantifier
 * Lazy
 
 >>> import re
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'\d', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
 
 >>> re.findall(r'\d\d\d\d', TEXT)
-['2035']
+['2000']
 
 
 Exact
@@ -20,13 +20,22 @@ Exact
 * Exact match
 * ``{n}`` - exactly `n` repetitions
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
->>> re.findall(r'[0-9]{2}', TEXT)
-['20', '35', '13', '37']
+>>> re.findall(r'\d{1}', TEXT)
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
 
 >>> re.findall(r'\d{2}', TEXT)
-['20', '35', '13', '37']
+['20', '00', '12', '00']
+
+>>> re.findall(r'\d{3}', TEXT)
+['200']
+
+>>> re.findall(r'\d{4}', TEXT)
+['2000']
+
+>>> re.findall(r'\d{5}', TEXT)
+[]
 
 
 Greedy
@@ -35,18 +44,77 @@ Greedy
 * Works better with numbers
 * Not that good results for text
 * Default behavior
+* ``{n,m}`` - minimum `n` repetitions, maximum `m` times, prefer longer
 * ``{,n}`` - maximum `n` repetitions, prefer longer
 * ``{n,}`` - minimum `n` repetitions, prefer longer
-* ``{n,m}`` - minimum `n` repetitions, maximum `m` times, prefer longer
+* ``{0,1}`` - minimum 0 repetitions, maximum 1 repetitions (maybe)
 * ``*`` - minimum 0 repetitions, no maximum, prefer longer (alias to ``{0,}``)
 * ``+`` - minimum 1 repetitions, no maximum, prefer longer (alias to ``{1,}``)
-* ``?`` - minimum 0 repetitions, maximum 1 repetitions, prefer longer  (alias to ``{0,1}``)
+* ``?`` - minimum 0 repetitions, maximum 1 repetitions, prefer longer (alias to ``{0,1}``)
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+
+Min/max:
 
 >>> re.findall(r'\d{2,4}', TEXT)
-['2035', '13', '37']
+['2000', '12', '00']
 
+Nolimit:
+
+>>> re.findall(r'\d{2,}', TEXT)
+['2000', '12', '00']
+>>>
+>>> re.findall(r'\d{,4}', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '2000', '',
+ '', '', '', '12', '', '00', '', '', '', '']
+
+.. note:: Note, that zero (none) digits is a valid match for ``\d{,4}``.
+
+Plus:
+
+>>> re.findall(r'\d{1,}', TEXT)
+['1', '2000', '12', '00']
+>>>
+>>> re.findall(r'\d+', TEXT)
+['1', '2000', '12', '00']
+
+Star:
+
+>>> re.findall(r'\d{0,}', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '2000', '',
+ '', '', '', '12', '', '00', '', '', '', '']
+>>>
+>>> re.findall(r'\d*', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '2000', '',
+ '', '', '', '12', '', '00', '', '', '', '']
+
+Question mark:
+
+>>> re.findall(r'\d{0,1}', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '2', '0',
+ '0', '0', '', '', '', '', '1', '2', '', '0', '0', '', '', '', '']
+>>>
+>>> re.findall(r'\d?', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '2', '0',
+ '0', '0', '', '', '', '', '1', '2', '', '0', '0', '', '', '', '']
+
+.. note:: Both star and question mark does not make any sense with numbers.
+          They works better with text.
 
 Lazy
 ----
@@ -54,28 +122,88 @@ Lazy
 * Works better with text
 * Not that good results for numbers
 * Non-greedy
+* ``{n,m}?`` - minimum `n` repetitions, maximum `m` times, prefer shorter
 * ``{,n}?`` - maximum `n` repetitions, prefer shorter
 * ``{n,}?`` - minimum `n` repetitions, prefer shorter
-* ``{n,m}?`` - minimum `n` repetitions, maximum `m` times, prefer shorter
+* ``{0,1}?`` - minimum 0 repetitions, maximum 1 repetitions (maybe)
 * ``*?`` - minimum 0 repetitions, no maximum, prefer shorter (alias to ``{0,}?``)
 * ``+?`` - minimum 1 repetitions, no maximum, prefer shorter (alias to ``{1,}?``)
 * ``??`` - minimum 0 repetitions, maximum 1 repetition, prefer shorter (alias to ``{0,1}?``)
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
+
+Min/max:
 
 >>> re.findall(r'\d{2,4}?', TEXT)
-['20', '35', '13', '37']
+['20', '00', '12', '00']
+
+Nolimit:
+
+>>> re.findall(r'\d{2,}?', TEXT)
+['20', '00', '12', '00']
+>>>
+>>> re.findall(r'\d{,4}?', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '2',
+ '', '0', '', '0', '', '0', '', '', '', '', '', '1', '', '2', '', '', '0',
+ '', '0', '', '', '', '']
+
+Plus:
+
+>>> re.findall(r'\d{1,}?', TEXT)
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
+>>>
+>>> re.findall(r'\d+?', TEXT)
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
+
+Star:
+
+>>> re.findall(r'\d{0,}?', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '2',
+ '', '0', '', '0', '', '0', '', '', '', '', '', '1', '', '2', '', '', '0',
+ '', '0', '', '', '', '']
+>>>
+>>> re.findall(r'\d*?', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '2',
+ '', '0', '', '0', '', '0', '', '', '', '', '', '1', '', '2', '', '', '0',
+ '', '0', '', '', '', '']
+
+Question mark:
+
+>>> re.findall(r'\d{0,1}?', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '2',
+ '', '0', '', '0', '', '0', '', '', '', '', '', '1', '', '2', '', '', '0',
+ '', '0', '', '', '', '']
+>>>
+>>> re.findall(r'\d??', TEXT)  # doctest: +NORMALIZE_WHITESPACE
+['', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '',
+ '', '', '', '', '', '', '', '', '', '', '', '1', '', '', '', '', '', '2',
+ '', '0', '', '0', '', '0', '', '', '', '', '', '1', '', '2', '', '', '0',
+ '', '0', '', '', '', '']
 
 
 Greedy vs. Lazy
 ---------------
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>>
 >>> re.findall('\d+', TEXT)
-['3', '7', '2035', '13', '37']
+['1', '2000', '12', '00']
 >>>
 >>> re.findall('\d+?', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
 
 >>> TEXT = 'Mark Watney is an astronaut. Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37.'
 >>>
@@ -114,10 +242,10 @@ Use Case - 0x02
 ---------------
 * Time
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>>
 >>> re.findall(r'\d\d?:\d\d', TEXT)
-['13:37']
+['12:00']
 
 
 Use Case - 0x03
@@ -127,12 +255,12 @@ Use Case - 0x03
 >>> import re
 >>> from datetime import datetime
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 >>>
->>> result = re.findall(r'\w{3} \d{1,2}th, \d{4}', TEXT)
+>>> result = re.findall(r'\w{3} \d{1,2}st, \d{4}', TEXT)
 >>>
 >>> result
-['Nov 7th, 2035']
+['Jan 1st, 2000']
 
 
 Use Case - 0x04

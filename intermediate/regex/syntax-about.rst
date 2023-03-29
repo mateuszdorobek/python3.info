@@ -1,7 +1,6 @@
 .. todo:: https://docs.python.org/3.11/whatsnew/3.11.html#re
 
 
-
 Regex Syntax About
 ==================
 * Also known as ``Regular Expressions``
@@ -19,7 +18,7 @@ W3C HTML5 Standard [#w3cemailregex]_ regexp for email field
 
 SetUp
 -----
-* ``TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'``
+* ``TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'``
 * TEXT is short
 * TEXT has firstname and lastname
 * TEXT has date
@@ -31,9 +30,7 @@ SetUp
 
 >>> import re
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
-
->>> ARES = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> JFK = """We choose to go to the moon.
 ... We choose to go to the moon in this decade and do the other things,

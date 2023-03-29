@@ -56,11 +56,13 @@ Columbia."""
 
 # Find all conjunctives in text (both two- and three-letter words)
 # Example: 'was', 'the', 'on', 'the', 'and', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find all acronyms in text (standalone words with two or three uppercase letters)
 # Example: 'CDR', 'LMP', 'LM', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP', 'CM'
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

@@ -60,11 +60,13 @@ Columbia."""
 
 # Find all two-letter conjunctives in text (two-letter words)
 # Example: 'on', 'on', 'at', 'to', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
 # Find all three-letter conjunctives in text (three-letter words)
 # Example: 'was', 'the', 'the', 'and', ...
+# Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_b = ...
 

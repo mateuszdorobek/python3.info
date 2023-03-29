@@ -14,19 +14,21 @@ Numeric
 * ``\d`` - digit
 * ``\D`` - anything but digit
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'[0-9]', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
 
 >>> re.findall(r'\d', TEXT)
-['3', '7', '2', '0', '3', '5', '1', '3', '3', '7']
+['1', '2', '0', '0', '0', '1', '2', '0', '0']
 
 >>> re.findall(r'\D', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', ' ', 'W', 'a', 't', 'n', 'e', 'y', ' ', 'o', 'f',
- ' ', 'A', 'r', 'e', 's', ' ', ' ', 'l', 'a', 'n', 'd', 'e', 'd', ' ',
- 'o', 'n', ' ', 'M', 'a', 'r', 's', ' ', 'o', 'n', ':', ' ', 'N', 'o',
- 'v', ' ', 't', 'h', ',', ' ', ' ', 'a', 't', ' ', ':']
+['E', 'm', 'a', 'i', 'l', ' ', 'f', 'r', 'o', 'm', ' ', 'M', 'a', 'r', 'k',
+ ' ', 'W', 'a', 't', 'n', 'e', 'y', ' ', '<', 'm', 'w', 'a', 't', 'n', 'e',
+ 'y', '@', 'n', 'a', 's', 'a', '.', 'g', 'o', 'v', '>', ' ', 'r', 'e', 'c',
+ 'e', 'i', 'v', 'e', 'd', ' ', 'o', 'n', ':', ' ', 'S', 'a', 't', ',', ' ',
+ 'J', 'a', 'n', ' ', 's', 't', ',', ' ', ' ', 'a', 't', ' ', ':', ' ', 'A',
+ 'M']
 
 
 Whitespaces
@@ -41,16 +43,17 @@ Whitespaces
 * ``\v`` - vertical space
 * ``\f`` - form feed
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'\s', TEXT)
 [' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ']
 
 >>> re.findall(r'\S', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
- 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
- 'n', ':', 'N', 'o', 'v', '7', 't', 'h', ',', '2', '0', '3', '5', 'a', 't',
- '1', '3', ':', '3', '7']
+['E', 'm', 'a', 'i', 'l', 'f', 'r', 'o', 'm', 'M', 'a', 'r', 'k', 'W', 'a',
+ 't', 'n', 'e', 'y', '<', 'm', 'w', 'a', 't', 'n', 'e', 'y', '@', 'n', 'a',
+ 's', 'a', '.', 'g', 'o', 'v', '>', 'r', 'e', 'c', 'e', 'i', 'v', 'e', 'd',
+ 'o', 'n', ':', 'S', 'a', 't', ',', 'J', 'a', 'n', '1', 's', 't', ',', '2',
+ '0', '0', '0', 'a', 't', '1', '2', ':', '0', '0', 'A', 'M']
 
 >>> re.findall(r'\n', TEXT)
 []
@@ -73,14 +76,14 @@ Examples:
     * ``\babc\b`` - performs a "whole words only" search
     * ``\Babc\B`` - pattern is fully surrounded by word characters
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'[a-z][a-z]', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['ar', 'at', 'ne', 'of', 're', 'la', 'nd', 'ed', 'on', 'ar', 'on', 'ov',
- 'th', 'at']
+['ma', 'il', 'fr', 'om', 'ar', 'at', 'ne', 'mw', 'at', 'ne', 'na', 'sa',
+ 'go', 're', 'ce', 'iv', 'ed', 'on', 'at', 'an', 'st', 'at']
 
 >>> re.findall(r'\b[a-z][a-z]\b', TEXT)
-['of', 'on', 'on', 'at']
+['on', 'at']
 
 >>> re.findall('\b[a-z][a-z]\b', TEXT)  # without raw-string
 []
@@ -91,7 +94,7 @@ String
 * ``\w`` - any unicode alphabet character (lower or upper, also with diacritics (i.e. ąćęłńóśżź...), numbers and underscores
 * ``\W`` - anything but any unicode alphabet character (i.e. whitespace, dots, comas, dashes)
 * lowercase letters including diacritics (i.e. ąćęłńóśżź...) and accents
-* uppercase letters including diacritics (i.e. ąćęłńóśżź...) and accents
+* uppercase letters including diacritics (i.e. ĄĆĘŁŃÓŚŻŹ...) and accents
 * digits
 * underscores ``_``
 
@@ -103,27 +106,29 @@ Valid characters are the same as allowed in variable/modules names in Python:
 >>> imię1 = 'Mark'
 >>> Imię_1 = 'Mark'
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'\w', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
- 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
- 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a', 't', '1', '3',
- '3', '7']
+['E', 'm', 'a', 'i', 'l', 'f', 'r', 'o', 'm', 'M', 'a', 'r', 'k', 'W', 'a',
+ 't', 'n', 'e', 'y', 'm', 'w', 'a', 't', 'n', 'e', 'y', 'n', 'a', 's', 'a',
+ 'g', 'o', 'v', 'r', 'e', 'c', 'e', 'i', 'v', 'e', 'd', 'o', 'n', 'S', 'a',
+ 't', 'J', 'a', 'n', '1', 's', 't', '2', '0', '0', '0', 'a', 't', '1', '2',
+ '0', '0', 'A', 'M']
 
 >>> re.findall(r'\W', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-[' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ':', ' ', ' ', ',', ' ', ' ',
- ' ', ':']
+[' ', ' ', ' ', ' ', '<', '@', '.', '>', ' ', ' ', ':', ' ', ',', ' ', ' ',
+ ',', ' ', ' ', ' ', ':', ' ']
 
 Mind, that following code gives similar output to ``\w`` but it is not
 completely true. ``\w`` would extract also unicode characters while this
 ``[a-zA-Z0-9]`` will not.
 
 >>> re.findall(r'[a-zA-Z0-9]', TEXT)  # doctest: +NORMALIZE_WHITESPACE
-['M', 'a', 'r', 'k', 'W', 'a', 't', 'n', 'e', 'y', 'o', 'f', 'A', 'r', 'e',
- 's', '3', 'l', 'a', 'n', 'd', 'e', 'd', 'o', 'n', 'M', 'a', 'r', 's', 'o',
- 'n', 'N', 'o', 'v', '7', 't', 'h', '2', '0', '3', '5', 'a', 't', '1', '3',
- '3', '7']
+['E', 'm', 'a', 'i', 'l', 'f', 'r', 'o', 'm', 'M', 'a', 'r', 'k', 'W', 'a',
+ 't', 'n', 'e', 'y', 'm', 'w', 'a', 't', 'n', 'e', 'y', 'n', 'a', 's', 'a',
+ 'g', 'o', 'v', 'r', 'e', 'c', 'e', 'i', 'v', 'e', 'd', 'o', 'n', 'S', 'a',
+ 't', 'J', 'a', 'n', '1', 's', 't', '2', '0', '0', '0', 'a', 't', '1', '2',
+ '0', '0', 'A', 'M']
 
 Example:
 
@@ -192,13 +197,13 @@ Use Case - 0x04
 ---------------
 * Number and Spaces
 
->>> TEXT = 'Mark Watney of Ares 3 landed on Mars on: Nov 7th, 2035 at 13:37'
+>>> TEXT = 'Email from Mark Watney <mwatney@nasa.gov> received on: Sat, Jan 1st, 2000 at 12:00 AM'
 
 >>> re.findall(r'[0-9]\s', TEXT)
-['3 ', '5 ']
+['0 ', '0 ']
 
 >>> re.findall(r'\d\s', TEXT)
-['3 ', '5 ']
+['0 ', '0 ']
 
 
 Assignments
