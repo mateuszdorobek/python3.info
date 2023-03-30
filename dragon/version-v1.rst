@@ -15,12 +15,13 @@ English
 -------
 Non-functional requirements:
 
-    1. In your directory create an empty file ``dragon_v1.py``
-    2. Add file to the version control system (should be automatic)
-    3. Commit with message: "Dragon: NAME", where ``NAME`` is your first name
-    4. Push changes to the repository
-    5. In this file write a solution to the assignment
-    6. Upon completing assignment commit and push changes to the repository
+    1. Git commit and push your current state of repository
+    2. In your directory create an empty file ``dragon_v1.py``
+    3. Add file to the version control system (should be automatic)
+    4. Commit with message: "Dragon: NAME", where ``NAME`` is your first name
+    5. Push changes to the repository
+    6. In this file write a solution to the assignment
+    7. Upon completing assignment commit and push changes to the repository
 
 Functional requirements:
 
@@ -77,12 +78,13 @@ Polish
 ------
 Wymagania niefunkcjonalne:
 
-    1. W swoim katalogu stwórz pusty plik ``dragon_v1.py``
-    2. Dodaj plik do systemu kontroli wersji
-    3. Zapisz (commit) zmiany jako "Dragon: NAME", gdzie ``NAME`` to Twoje imię
-    4. Wypchnij (push) zmiany do repozytorium
-    5. W pliku zapisz kod do rozwiązania zadania
-    6. Po skończeniu zadania zapisz i wypchnij zmiany do repozytorium
+    1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
+    2. W swoim katalogu stwórz pusty plik ``dragon_v1.py``
+    3. Dodaj plik do systemu kontroli wersji
+    4. Zapisz (commit) zmiany jako "Dragon: NAME", gdzie ``NAME`` to Twoje imię
+    5. Wypchnij (push) zmiany do repozytorium
+    6. W pliku zapisz kod do rozwiązania zadania
+    7. Po skończeniu zadania zapisz i wypchnij zmiany do repozytorium
 
 Wymagania funkcjonalne:
 
