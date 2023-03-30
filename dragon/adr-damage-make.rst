@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Damage Make
 ======================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Dragon makes damage
 
 
@@ -41,7 +34,7 @@ Pros and Cons:
 * Bad: not directed, all methods could mean making damage or receiving damage
 * Decision: rejected, bad method names
 
-Problem:
+Example:
 
 >>> dragon.attack()  # dragon  -> enemy
 >>> dragon.hit()     # dragon <-> enemy
@@ -85,7 +78,7 @@ Pros and Cons:
 * Bad: ``hurt_someone()`` method name is too use-case specific
 * Decision: rejected, method names are too use-case specific
 
-Problem:
+Example:
 
 >>> dragon.attack_enemy()
 >>> explosion.attack_enemy()
@@ -101,7 +94,7 @@ Pros and Cons:
 * Good: Name indicates intent
 * Decision: candidate
 
-Problem:
+Example:
 
 >>> dragon.make_damage()
 >>> explosion.make_damage()
@@ -121,7 +114,7 @@ Pros and Cons:
 * Bad: each ENEMY will get different (random) damage
 * Decision: rejected, violates Model-View-Controller (MVC)
 
-Problem:
+Use Case:
 
 >>> class BankAccount:
 ...     def transfer(destination_account, amount):

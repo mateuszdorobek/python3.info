@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Damage Take
 ======================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Make 10 points damage to the dragon
 * Make 5 points damage to the dragon
 * Make 3 points damage to the dragon
@@ -45,7 +38,7 @@ Pros and Cons:
 * Bad: Indication of direction is too weak ``dragon <-> enemy``
 * Decision: rejected, indication of direction is too weak
 
-Problem:
+Example:
 
 >>> dragon.hit(10)
 
@@ -73,13 +66,11 @@ Pros and Cons:
 * Bad: Inconsistent with ``make_damage()``
 * Decision: rejected, method names are too use-case specific
 
-Problem:
+Example:
 
 >>> dragon.hurt_self(DMG)
 >>> chair.hurt_self(DMG)
 >>> barrel.hurt_self(DMG)
-
-Example:
 
 >>> dragon.receive_damage(DMG)
 >>> chair.receive_damage(DMG)

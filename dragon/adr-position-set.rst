@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Position Set
 =======================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Set new position to x=10, y=20
 
 
@@ -28,13 +21,13 @@ Pros and Cons:
 * Bad: arguments are implicit, require knowledge of an API what are the values provided as arguments
 * Decision: rejected, too use-case specific names
 
-Problem:
+Example:
 
 >>> dragon.fly(10, 20)     # does the same, but different name
 >>> hero.walk(10, 20)      # does the same, but different name
 >>> snake.slide(10, 20)    # does the same, but different name
 
-Use Cases:
+Use Case:
 
 >>> locmem.store()
 >>> locmem.retrieve()
@@ -72,7 +65,7 @@ Pros and Cons:
 * Bad: name ``set_position_xy()`` ties to 2D point
 * Decision: rejected, ties to 2D point
 
-Problem:
+Example:
 
 >>> dragon.set_position_xy(10, 20)
 >>> dragon.set_position_xyz(10, 20, 30)
@@ -110,7 +103,7 @@ Pros and Cons:
 * Bad: encapsulation is in question
 * Decision: rejected, possibility of abuse
 
-Problem:
+Example:
 
 >>> dragon.set(position_x=10, position_y=20)
 >>> dragon.set(health=50)
@@ -135,10 +128,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles
 
-Problem:
-
->>> knn = KNearestNeighbors()
->>> knn.k = 3
+Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn.k = 3
@@ -167,7 +157,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles and Python convention (PEP 20)
 
-Problem:
+Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn.params.k = 3
@@ -191,15 +181,10 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles
 
-Problem:
+Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.args = (3, [1, 2, 3])
-
->>> model.predict()
-(0.9712637, [1.123123, 2.123123, 3.123123], 1.17823)
-
->>> (score, coef_, c) = model.predict()
+>>> knn.parameters = (3, [1, 2, 3])
 
 
 Option 9
@@ -219,10 +204,10 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles
 
-Problem:
+Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.args = Params(k=3, w=[1, 2, 3])
+>>> knn.parameters = Params(k=3, w=[1, 2, 3])
 
 
 Option 10
@@ -243,7 +228,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles, misleading for non-English speakers
 
-Problem:
+Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn << Params(k=3, w=[1, 2, 3])

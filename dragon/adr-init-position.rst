@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Init Position
 ========================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Set Dragon's initial position to x=50, y=120
 
 
@@ -25,13 +18,12 @@ Pros and Cons:
 * Bad: It does suggest, that x and y are some parameters to texture (for example width and height of a texture image, or gold and hit points)
 * Decision: rejected, not explicit
 
-Problems:
+Example:
 
 >>> dragon = Dragon('Wawelski', 0, 0)
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
 
->>> pt = CartesianAxisPoint(1, 2)        # ok
->>> pt = GPSPoint(1, 2)                  # maybe
+Use Case:
 
 >>> knn = KNearestNeighbors(3)           # ok
 >>> knn = KNearestNeighbors(3, [1,2,3])  # bad
@@ -61,13 +53,12 @@ Pros and Cons:
 * Bad: It does suggest, that x and y are some parameters to texture (for example width and height of a texture image)
 * Decision: rejected, not explicit enough
 
-Problem:
+Example:
 
 >>> dragon = Dragon('Wawelski', x=0, y=0)
 >>> dragon = Dragon('Wawelski', texture='img/dragon/alive.png', x=0, y=0)
 
->>> pt = CartesianAxisPoint(x=1, y=2)           # ok
->>> pt = GPSPoint(...)                          # both longitude and latitude starts with letter "l"
+Use Case:
 
 >>> knn = KNearestNeighbors(k=3)                # ok
 >>> knn = KNearestNeighbors(k=3, w=[1,2,3])     # bad
@@ -90,10 +81,7 @@ Example:
 
 >>> dragon = Dragon('Wawelski', posx=0, posy=0)    # maybe, bad
 
-Problem:
-
->>> pt = CartesianAxisPoint(xax=1, yax=2)          # bad, misleading
->>> pt = GPSPoint(lon=1, lat=2)                    # ok
+Use Case:
 
 >>> knn = KNearestNeighbors(k=3, wgt=[1,2,3])      # bad
 
@@ -110,14 +98,9 @@ Pros and Cons:
 * Good: extensible, easy to add ``positionZ`` with default value ``0``
 * Decision: candidate, but names could be better
 
-Example:
-
->>> current = CartesianAxisPoint(xaxis=1, yaxis=2)   # bad, too verbose
->>> current = GPSPoint(longitude=1, latitude=2)      # ok
+Use Case:
 
 >>> knn = KNearestNeighbors(k=3, weights=[1,2,3])    # ok
-
-Problem:
 
 >>> df.plot(kind='line', subplots=True, color='grey', sharey=True)  # bad
 
@@ -134,7 +117,7 @@ Pros and Cons:
 * Good: backward compatible
 * Decision: candidate
 
-Example:
+Use Case:
 
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # ok
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y_axis=True) # ok
@@ -161,7 +144,7 @@ Pros and Cons:
 * Bad: could be refactored to 3D using regexp: ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
 * Decision: rejected, not extensible
 
-Problem:
+Example:
 
 >>> dragon = Dragon('Wawelski', (0, 0))             # bad
 >>> dragon = Dragon('Wawelski', position=(0, 0))    # ok
@@ -170,8 +153,6 @@ Use Case:
 
 >>> np.random.randint(0,10, (3,3))
 >>> np.random.randint(0,10, size=(3,3))
-
-Example:
 
 >>> pt = (50, 120)
 >>>
@@ -202,7 +183,7 @@ Pros and Cons:
 * Bad: not extensible, ``position`` will always be 2D
 * Decision: rejected, not extensible
 
-Example:
+Use Case:
 
 >>> pt = {'x':50, 'y':120}
 >>>
@@ -216,8 +197,8 @@ Option 8
 ---------
 >>> from collections import namedtuple
 >>>
->>> Position = namedtuple('Point', ['x', 'y'])
 >>>
+>>> Position = namedtuple('Point', ['x', 'y'])
 >>>
 >>> dragon = Dragon('Wawelski', Position(50, 120))
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
@@ -236,7 +217,7 @@ Pros and Cons:
 * Bad: not extensible, ``position`` will always be 2D
 * Decision: rejected, could be done better
 
-Example:
+Use Case:
 
 >>> pt = Point(x=50, y=120)
 >>>
@@ -251,10 +232,10 @@ Option 9
 --------
 >>> from typing import NamedTuple
 >>>
+>>>
 >>> class Position(NamedTuple):
 ...     x: int
 ...     y: int
->>>
 >>>
 >>> dragon = Dragon('Wawelski', Position(50, 120))
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
@@ -272,7 +253,7 @@ Pros and Cons:
 * Good: lightweight, in the end this is a tuple
 * Decision: candidate
 
-Example:
+Use Case:
 
 >>> pt = Point(x=50, y=120)
 >>>
@@ -287,10 +268,10 @@ Option 10
 ---------
 >>> from typing import TypedDict
 >>>
+>>>
 >>> class Position(TypedDict):
 ...     x: int
 ...     y: int
->>>
 >>>
 >>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
 >>> dragon = Dragon('Wawelski', position={'x': 50, 'y': 120})
@@ -305,7 +286,7 @@ Pros and Cons:
 * Bad: ``TypeDict`` does not support default values
 * Decision: rejected, better than dict, does not support default values
 
-Example:
+Use Case:
 
 >>> pt = Point(x=50, y=120)
 >>>
@@ -319,11 +300,11 @@ Option 11
 ---------
 >>> from typing import TypedDict, Required, NotRequired
 >>>
+>>>
 >>> class Position(TypedDict):
 ...     x: Required[int]
 ...     y: Required[int]
 ...     z: NotRequired[int]
->>>
 >>>
 >>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
 >>> dragon = Dragon('Wawelski', position={'x': 50, 'y': 120})
@@ -336,7 +317,7 @@ Option 11
 * Bad: ``TypeDict`` does not support default values
 * Decision: rejected, does not support default values
 
-Example:
+Use Case:
 
 >>> pt = Point(x=50, y=120)
 >>>
@@ -376,7 +357,7 @@ Pros and Cons:
 * Bad: allows for attribute mutation
 * Decision: maybe, has some limitation
 
-Example:
+Use Case:
 
 >>> pt = Point(x=1, y=2)
 >>>
@@ -399,7 +380,6 @@ Option 13
 ...         self.x = x
 ...         self.y = y
 >>>
->>>
 >>> dragon = Dragon('Wawelski', Position(50, 120))
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
 >>> dragon = Dragon('Wawelski', position=Position(50, 120))
@@ -418,7 +398,7 @@ Pros and Cons:
 * Bad: allows for attribute mutation
 * Decision: maybe, too complex for now
 
-Example:
+Use Case:
 
 >>> pt = Point(x=1, y=2)
 >>>
@@ -434,11 +414,11 @@ Option 14
 ---------
 >>> from dataclasses import dataclass
 >>>
+>>>
 >>> @dataclass
 ... class Position:
 ...     x: int
 ...     y: int
->>>
 >>>
 >>> dragon = Dragon('Wawelski', Position(50, 120))
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
@@ -457,7 +437,7 @@ Pros and Cons:
 * Bad: allows for attribute mutation
 * Decision: maybe, has some limitation
 
-Example:
+Use Case:
 
 >>> pt = Point(x=1, y=2)
 >>>
@@ -473,11 +453,11 @@ Option 15
 ---------
 >>> from dataclasses import dataclass
 >>>
+>>>
 >>> @dataclass(frozen=True, slots=True)
 ... class Position:
 ...     x: int = 0
 ...     y: int = 0
->>>
 >>>
 >>> dragon = Dragon('Wawelski', Position(50, 120))
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
@@ -498,7 +478,7 @@ Pros and Cons:
 * Bad: more complicated than mutable dataclasses
 * Decision: candidate
 
-Example:
+Use Case:
 
 >>> pt = Point(x=1, y=2)
 >>>
@@ -513,9 +493,8 @@ Example:
 Decision
 --------
 >>> class Dragon:
-...     def __init__(name: str, /,
-...                  *, position_x: int, position_y: int,
-...                  ) -> None: ...
+...     def __init__(name: str, /, *, position_x: int, position_y: int, ) -> None:
+...         ...
 >>>
 >>>
 >>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
@@ -527,10 +506,12 @@ Pros and Cons:
 * Good: verbose
 * Good: extensible
 
-Re-evaluate in future:
 
+Future
+------
 >>> class Dragon:
-...     def __init__(name: str, /, *, position: Position) -> None: ...
+...     def __init__(name: str, /, *, position: Position) -> None:
+...         ...
 >>>
 >>>
 >>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))

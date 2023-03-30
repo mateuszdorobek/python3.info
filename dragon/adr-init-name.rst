@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Init Name
 ====================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Create dragon named "Wawelski"
 
 

@@ -1,15 +1,8 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Dragon ADR Position Change
 ==========================
-* ADR - Architecture Design Records
-
-
-Problem
--------
 * Move dragon left by 10 and down by 20
 * Move dragon left by 10 and right by 15
 * Move dragon right by 15 and up by 5
@@ -29,13 +22,13 @@ Pros and Cons:
 * Bad: method names are too use-case specific
 * Decision: rejected, method names too use-case specific
 
-Problem:
+Example:
 
 >>> dragon.fly(left=10, down=20)     # does the same, but different name
 >>> hero.walk(left=10, down=20)      # does the same, but different name
 >>> snake.slide(left=10, down=20)    # does the same, but different name
 
-Use Cases:
+Use Case:
 
 >>> locmem.store(key='...', value='..')
 >>> locmem.retrieve(key='...')
@@ -149,7 +142,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
-Problem:
+Use Case:
 
 >>> console.run_command('pwd', True, False, None)
 
@@ -170,7 +163,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
-Problem:
+Use Case:
 
 >>> run('ls', True, False, None)
 
@@ -192,7 +185,7 @@ Pros and Cons:
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected
 
-Problem:
+Use Case:
 
 >>> run(('ls', True, False, None))
 
@@ -236,9 +229,9 @@ Pros and Cons:
 
 Example:
 
-* ``move(left, right, up, down)``
+>>> move(left, right, up, down)
 
-Problem:
+Use Case:
 
 >>> run(True, False, None)  # doctest: +SKIP
 
@@ -302,7 +295,7 @@ Pros and Cons:
 
 Example:
 
-* ``move(horizontal, vertical)``
+>>> move(horizontal, vertical)
 
 
 Option 13
@@ -325,7 +318,7 @@ Pros and Cons:
 
 Example:
 
-* ``move(x, y)``
+>>> move(x, y)
 
 
 Option 14
@@ -518,12 +511,10 @@ Pros and Cons:
 * Bad: not possible to do movement in opposite directions in the same time
 * Decision: rejected
 
-Problem:
+Use Case:
 
 >>> plt.plot(x, y, color='cyan')
 >>> plt.plot(x, y, color='c')
-
-Usecase:
 
 >>> df.plot(kind='line')
 >>> df.interpolate('polynomial')
@@ -547,7 +538,7 @@ Pros and Cons:
 * Bad: not possible to do movement in opposite directions in the same time
 * Decision: rejected, complex
 
-Problem:
+Use Case:
 
 >>> db.execute_select(SQL)
 >>> db.execute_select_where(SQL)
@@ -566,16 +557,12 @@ Problem:
 >>> db.execute_create_table(SQL)
 >>> db.execute_create_index(SQL)
 >>> db.execute_create_database(SQL)
-
-Example:
-
+>>>
 >>> db.execute(SQL)
-
-Use Case:
 
 >>> read_csv('iris.csv', ';', 'utf-8', True)
 >>> read_csv('iris.csv', delimiter=';', encoding='utf-8', verbose=True)
-
+>>>
 >>> read_csv_with_encoding('iris.csv', 'utf-8')
 >>> read_csv_with_delimiter('iris.csv', ';')
 >>> read_csv_with_delimiter_encoding('iris.csv', ';', 'utf-8')
@@ -585,12 +572,12 @@ Use Case:
 >>> file.set_delimiter(';')
 >>> file.set_encoding('utf-8')
 >>> file.set_verbose(True)
-
+>>>
 >>> file = ReadCSV('iris.csv') \
 ...               .withDelimiter(';') \
 ...               .withEncoding('utf-8') \
 ...               .withVerbose(True)
-
+>>>
 >>> file = read_csv('iris.csv',
 ...                 delimiter=';',
 ...                 encoding='utf-8',
@@ -714,8 +701,9 @@ Pros and Cons:
 * Good: extensible (easy to convert to 3D)
 * Good: encapsulation
 
-Re-evaluate in future:
 
+Future
+------
 >>> class Dragon:
 ...     def change_position(self, *,
 ...                         left: int = 0, right: int = 0,
