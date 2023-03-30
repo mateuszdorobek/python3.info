@@ -236,10 +236,11 @@ Dragon
     :numbered:
     :caption: Dragon
 
+    dragon/about.rst
     dragon/version-v1.rst
     dragon/version-v2.rst
     dragon/version-v3.rst
-    dragon/adr-template.rst
+    dragon/adr-about.rst
     dragon/adr-init-name.rst
     dragon/adr-init-position.rst
     dragon/adr-position-set.rst

@@ -1,4 +1,4 @@
-Operator Boolean
+Operator Bitwise
 ================
 * ``&`` - and
 * ``|`` - or
@@ -326,3 +326,7 @@ Why? Because we can chain multiple pipe operations:
 >>> name |> upper |> lower |> capitalize
 Traceback (most recent call last):
 SyntaxError: invalid syntax
+
+
+.. todo:: Assignment: lshift overload, position move
+.. todo:: Assignment: rshift overload, damage take

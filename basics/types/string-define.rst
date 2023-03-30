@@ -52,17 +52,22 @@ Python console prefers single quote (``'``) character:
 Why we have both?
 
 >>> text = 'It\'s Monty Python'
+>>> text
+"It's Monty Python"
+>>>
 >>> text = "It's Monty Python"
+>>> text
+"It's Monty Python"
 
-It's better to use double quotes, when text has apostrophes.
-This is the behavior of Python console, which prefers less escape characters:
+It's better to use double quotes, when text has apostrophes. This is also a
+default the behavior of Python console, which prefers less escape characters:
 
 >>> text = 'It\'s Monty Python'
 >>> text
 "It's Monty Python"
 
-HTML and XML uses double quotes to enclose attribute values, hence it's
-better to use single quotes for the string:
+However HTML and XML uses double quotes to enclose attribute values,
+hence it's better to use single quotes for the string:
 
 >>> html = '<a href="https://python.astrotech.io">Python Book</a>'
 >>> html
@@ -133,7 +138,6 @@ runs ``str()`` on its arguments:
 
 >>> print(1969)
 1969
-
 
 
 Assignments

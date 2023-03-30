@@ -9,11 +9,11 @@ About
     about/entrytest.rst
 
 
-Unpack
-******
+Star
+****
 .. toctree::
     :maxdepth: 1
-    :caption: Unpack
+    :caption: Star
 
     star/assignment.rst
     star/parameters.rst
@@ -223,7 +223,7 @@ Operator
     operator/equality.rst
     operator/comparison.rst
     operator/contains.rst
-    operator/boolean.rst
+    operator/bitwise.rst
     operator/module.rst
     operator/builtin.rst
     operator/accessors.rst

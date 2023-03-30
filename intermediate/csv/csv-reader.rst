@@ -16,6 +16,15 @@ Minimal
 -------
 * Default mode is ``mode='r'``
 
+Data:
+
+.. code-block:: text
+
+    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+    5.8,2.7,5.1,1.9,virginica
+    5.1,3.5,1.4,0.2,setosa
+    5.7,2.8,4.1,1.3,versicolor
+
 SetUp:
 
 >>> DATA = """SepalLength,SepalWidth,PetalLength,PetalWidth,Species
@@ -27,13 +36,6 @@ SetUp:
 >>> _ = Path('/tmp/myfile.csv').write_text(DATA)
 
 Usage:
-
-.. code-block:: text
-
-    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
-    5.8,2.7,5.1,1.9,virginica
-    5.1,3.5,1.4,0.2,setosa
-    5.7,2.8,4.1,1.3,versicolor
 
 >>> with open('/tmp/myfile.csv') as file:
 ...     reader = csv.reader(file)
@@ -49,6 +51,17 @@ Usage:
 
 Parametrized
 ------------
+Data:
+
+.. code-block:: text
+
+    "SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+    "5.8";"2.7";"5.1";"1.9";"virginica"
+    "5.1";"3.5";"1.4";"0.2";"setosa"
+    "5.7";"2.8";"4.1";"1.3";"versicolor"
+
+SetUp:
+
 >>> DATA = '''"SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
 ... "5.8";"2.7";"5.1";"1.9";"virginica"
 ... "5.1";"3.5";"1.4";"0.2";"setosa"
@@ -58,13 +71,6 @@ Parametrized
 >>> _ = Path('/tmp/myfile.csv').write_text(DATA)
 
 Usage:
-
-.. code-block:: text
-
-    "SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
-    "5.8";"2.7";"5.1";"1.9";"virginica"
-    "5.1";"3.5";"1.4";"0.2";"setosa"
-    "5.7";"2.8";"4.1";"1.3";"versicolor"
 
 >>> with open('/tmp/myfile.csv', mode='r', encoding='utf-8') as file:
 ...     reader = csv.reader(file, quotechar='"', delimiter=';', quoting=csv.QUOTE_ALL)

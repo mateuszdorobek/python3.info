@@ -15,7 +15,7 @@ English
 -------
 Non-functional requirements:
 
-    1. Git commit and push your current state of repository
+    1. Commit and push your current state of repository
     2. In your directory create an empty file ``dragon_v1.py``
     3. Add file to the version control system (should be automatic)
     4. Commit with message: "Dragon: NAME", where ``NAME`` is your first name

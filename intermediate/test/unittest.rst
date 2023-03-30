@@ -142,6 +142,12 @@ Example 9
     :caption: Example ``unittest``
 
 
+Example 10
+----------
+.. literalinclude:: src/unittest-example-10.py
+    :language: python
+    :caption: Example ``unittest``
+
 
 Mock
 ----

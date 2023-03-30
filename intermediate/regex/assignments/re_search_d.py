@@ -1,21 +1,25 @@
 """
-* Assignment: RE Search Datetime
-* Complexity: hard
+* Assignment: RE Search Time
+* Complexity: easy
 * Lines of code: 4 lines
-* Time: 13 min
+* Time: 5 min
 
 English:
-    1. Use regular expressions to check text [1] contains time in UTC (format: `%H:%M UTC`)
-    2. Note, that this is slightly modified text than previously
-    3. Check if text contains time in UTC (format: `%H:%M UTC`)
-    4. Found match must be a valid time
+    1. Use regular expressions to check `TEXT` [1]
+       contains time in UTC (24 hour clock compliant with ISO-8601)
+    2. Define `result: str` with matched time
+    3. Use real checking `xx:xx UTC`,
+       where `x` is a valid digit at the position
+    4. Text contains invalid date `24:56 UTC`
     5. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych do sprawdzenia czy tekst [1] zawiera godzinę w UTC (format: `%H:%M UTC`)
-    2. Zwróć uwagę, że to lekko zmodyfikowany tekst niż poprzednio
-    3. Sprawdź czy tekst zawiera godzinę w UTC (format: `%H:%M UTC`)
-    4. Znalezisko musi być poprawnym czasem
+    1. Użyj wyrażeń regularnych do sprawdzenia czy `TEXT` [1]
+       zawiera godzinę w UTC (format 24 godzinny zgodny z ISO-8601)
+    2. Zdefiniuj `result: str` ze znalezionym czasem
+    3. Użyj poprawnego sprawdzania: `xx:xx UTC`,
+       gdzie `x` to odpowiedni znak na danym miejscu
+    4. Tekst zawiera niepoprawną godzinę: `24:56 UTC`
     5. Uruchom doctesty - wszystkie muszą się powieść
 
 References:
@@ -56,10 +60,11 @@ TEXT = ("Apollo 11 was the spaceflight that first landed humans on the Moon. "
 
 
 # Pattern for searching time with timezone in 24 format, i.e. '23:59 UTC'
+# Text contains invalid date `24:56 UTC`
 # type: str
 pattern = ...
 
-# use re.search() to find pattern in TEXT
+# use re.search() to find pattern in TEXT, get result text
 # use .group() to get the value from re.Match object
 # type: str
 result = ...

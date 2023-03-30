@@ -22,6 +22,37 @@ Operator Left
     "``obj % other``",     "``obj.__mod__(other)``"
 
 
+Memory
+------
+* ``tuple`` is immutable
+* ``list`` is mutable
+* ``tuple + tuple`` will generate new ``tuple``
+* ``list + list`` will generate new ``list``
+* ``__add__()`` operator on ``tuple`` is the same as on ``list``
+
+>>> a = [1, 2, 3]
+>>> id(a)  # doctest: +SKIP
+4354839104
+>>>
+>>> a = a + [4, 5, 6]
+>>> id(a)  # doctest: +SKIP
+4358229056
+>>>
+>>> a
+[1, 2, 3, 4, 5, 6]
+
+>>> a = (1, 2, 3)
+>>> id(a)  # doctest: +SKIP
+4359020416
+>>>
+>>> a = a + (4, 5, 6)
+>>> id(a)  # doctest: +SKIP
+4360038688
+>>>
+>>> a
+(1, 2, 3, 4, 5, 6)
+
+
 SetUp
 -----
 >>> from dataclasses import dataclass
@@ -154,3 +185,8 @@ Assignments
 .. literalinclude:: assignments/operator_left_a.py
     :caption: :download:`Solution <assignments/operator_left_a.py>`
     :end-before: # Solution
+
+.. todo:: Assignment: add overload, add health
+.. todo:: Assignment: sub overload, subtract health
+.. todo:: Assignment: sub overload, subtract health
+.. todo:: Assignment: matmul overload, Position() set

@@ -18,7 +18,7 @@ Tests:
     >>> from inspect import isclass, ismethod
 
     >>> assert isclass(Iris)
-        >>> iris = Iris(DATA)
+    >>> iris = Iris(DATA)
 
     >>> assert hasattr(Iris, '__repr__')
     >>> assert ismethod(iris.__repr__)

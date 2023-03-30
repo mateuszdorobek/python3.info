@@ -14,27 +14,27 @@ Inherited
 ---------
 Object without ``__repr__()`` method overloaded prints their memory address:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> astro  # doctest: +ELLIPSIS
-<__main__.Astronaut object at 0x...>
+>>> mark  # doctest: +ELLIPSIS
+<__main__.User object at 0x...>
 >>>
->>> repr(astro)  # doctest: +ELLIPSIS
-'<__main__.Astronaut object at 0x...>'
+>>> repr(mark)  # doctest: +ELLIPSIS
+'<__main__.User object at 0x...>'
 >>>
->>> astro.__repr__()  # doctest: +ELLIPSIS
-'<__main__.Astronaut object at 0x...>'
+>>> mark.__repr__()  # doctest: +ELLIPSIS
+'<__main__.User object at 0x...>'
 
 
 Overloaded
 ----------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -46,16 +46,16 @@ Overloaded
 ...         return f'{clsname}({firstname=}, {lastname=})'
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> astro
-Astronaut(firstname='Mark', lastname='Watney')
+>>> mark
+User(firstname='Mark', lastname='Watney')
 >>>
->>> repr(astro)
-"Astronaut(firstname='Mark', lastname='Watney')"
+>>> repr(mark)
+"User(firstname='Mark', lastname='Watney')"
 >>>
->>> astro.__repr__()
-"Astronaut(firstname='Mark', lastname='Watney')"
+>>> mark.__repr__()
+"User(firstname='Mark', lastname='Watney')"
 
 
 Nested
@@ -66,32 +66,43 @@ Nested
 >>> print(data)
 [1, 2, 3]
 
+>>> class MyClass:
+...     def __repr__(self): return 'repr'
+...     def __str__(self): return 'str'
+>>>
+>>> data = [
+...     MyClass(),
+...     MyClass(),
+...     MyClass(),
+... ]
+>>>
+>>> print(data)
+[repr, repr, repr]
+>>> data
+[repr, repr, repr]
+>>> str(data)
+'[repr, repr, repr]'
+>>> repr(data)
+'[repr, repr, repr]'
+
+
 Printing ``list`` will call ``__repr__()`` method on each element:
 
->>> class Astronaut:
-...     def __init__(self, name):
-...         self.name = name
->>>
->>>
->>> crew = [Astronaut('Mark Watney'),
-...         Astronaut('Melissa Lewis'),
-...         Astronaut('Rick Martinez')]
->>>
->>> print(crew)  # doctest: +ELLIPSIS
-[<__main__.Astronaut object at 0x...>, <__main__.Astronaut object at 0x...>, <__main__.Astronaut object at 0x...>]
-
->>> class Astronaut:
-...     def __init__(self, name):
-...         self.name = name
+>>> class User:
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
 ...
 ...     def __repr__(self):
-...         return f'{self.name}'
+...         return f'{self.firstname} {self.lastname}'
 >>>
->>> crew = [Astronaut('Mark Watney'),
-...         Astronaut('Melissa Lewis'),
-...         Astronaut('Rick Martinez')]
+>>> admins = [
+...     User('Mark', 'Watney'),
+...     User('Melissa', 'Lewis'),
+...     User('Rick', 'Martinez'),
+... ]
 >>>
->>> print(crew)
+>>> print(admins)
 [Mark Watney, Melissa Lewis, Rick Martinez]
 
 

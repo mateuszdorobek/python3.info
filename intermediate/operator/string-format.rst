@@ -48,11 +48,12 @@ Use Case - 0x01
 >>>
 >>>
 >>> @dataclass
-... class Duration:
-...     seconds: int
+... class Mission:
+...     name: str
+...     duration: int
 ...
 ...     def __format__(self, unit):
-...         duration = self.seconds
+...         duration = self.duration
 ...         match unit:
 ...             case 's' | 'seconds': duration /= SECOND
 ...             case 'm' | 'minutes': duration /= MINUTE
@@ -61,31 +62,31 @@ Use Case - 0x01
 ...             case 'w' | 'weeks':   duration /= WEEK
 ...             case 'M' | 'months':  duration /= MONTH
 ...             case 'y' | 'years':   duration /= YEAR
-...             case _: raise TypeError('Invalid unit')
+...             case _: return self.name
 ...         return f'{duration:.1f} {unit}'
 >>>
 >>>
->>> ares3 = Duration(543*SOL)
+>>> ares3 = Mission('Ares3', duration=543*SOL)
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:seconds}')
+>>> print(f'{ares3} mission to Mars took {ares3:seconds}')
 Ares3 mission to Mars took 48204825.0 seconds
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:minutes}')
+>>> print(f'{ares3} mission to Mars took {ares3:minutes}')
 Ares3 mission to Mars took 803413.8 minutes
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:hours}')
+>>> print(f'{ares3} mission to Mars took {ares3:hours}')
 Ares3 mission to Mars took 13390.2 hours
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:days}')
+>>> print(f'{ares3} mission to Mars took {ares3:days}')
 Ares3 mission to Mars took 557.9 days
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:weeks}')
+>>> print(f'{ares3} mission to Mars took {ares3:weeks}')
 Ares3 mission to Mars took 79.7 weeks
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:months}')
+>>> print(f'{ares3} mission to Mars took {ares3:months}')
 Ares3 mission to Mars took 18.3 months
 >>>
->>> print(f'Ares3 mission to Mars took {ares3:years}')
+>>> print(f'{ares3} mission to Mars took {ares3:years}')
 Ares3 mission to Mars took 1.5 years
 
 
@@ -165,6 +166,61 @@ Point(x=1, y=2, z=0)
 >>>
 >>> print(f'{point:json}')
 {"x": 1, "y": 2, "z": 0}
+
+
+Use Case - 0x01
+---------------
+* status "Full Health" - when health 100%
+* status "Injured" - when health 75% - 100% (exclusive)
+* status "Badly Wounded" - when health 25% - 75% (exclusive)
+* status "Near Death" - when health 1% - 25% (exclusive)
+* status "Dead" - when health 0% or less
+
+>>> from dataclasses import dataclass
+>>>
+>>>
+>>> @dataclass
+... class Hero:
+...     name: str
+...     health: int = 100
+...     health_full: int = 100
+...
+...     def _get_status(self):
+...         percent = int(self.health / self.health_full * 100)
+...         if percent == 100: return 'full health'
+...         if percent in range(75, 100): return 'injured'
+...         if percent in range(25, 75): return 'badly wounded'
+...         if percent in range(1, 25): return 'near death'
+...         if percent <= 0: return 'dead'
+...
+...     def __format__(self, what):
+...         match what:
+...             case 'status': return self._get_status()
+...             case 'name': return self.name
+...             case _: return self.name
+>>>
+>>>
+>>> hero = Hero('Pan Twardowski')
+
+>>> hero.health = 100
+>>> print(f'{hero:name} is {hero:status}')
+Pan Twardowski is full health
+
+>>> hero.health = 90
+>>> print(f'{hero:name} is {hero:status}')
+Pan Twardowski is injured
+
+>>> hero.health = 50
+>>> print(f'{hero:name} is {hero:status}')
+Pan Twardowski is badly wounded
+
+>>> hero.health = 10
+>>> print(f'{hero:name} is {hero:status}')
+Pan Twardowski is near death
+
+>>> hero.health = 0
+>>> print(f'{hero:name} is {hero:status}')
+Pan Twardowski is dead
 
 
 Assignments

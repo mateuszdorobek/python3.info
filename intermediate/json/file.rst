@@ -33,8 +33,6 @@ Write Data to JSON File
 
 SetUp:
 
->>> FILE = r'/tmp/myfile.json'
->>>
 >>> DATA = {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
@@ -42,12 +40,12 @@ SetUp:
 
 Usage:
 
->>> with open(FILE, mode='w') as file:
+>>> with open('/tmp/myfile.json', mode='w') as file:
 ...     json.dump(DATA, file)
 
 Result:
 
->>> print(open(FILE).read())
+>>> print(open('/tmp/myfile.json').read())
 {"firstname": "Mark", "lastname": "Watney"}
 
 
@@ -70,17 +68,16 @@ Read Data From JSON File
 
 SetUp:
 
->>> FILE = r'/tmp/myfile.json'
 >>> DATA = """{
 ...     "firstname": "Mark",
 ...     "lastname": "Watney"
 ... }"""
 >>>
->>> _ = open(FILE, mode='w').write(DATA)
+>>> _ = open('/tmp/myfile.json', mode='w').write(DATA)
 
 Usage:
 
->>> with open(FILE) as file:
+>>> with open('/tmp/myfile.json') as file:
 ...     result = json.load(file)
 >>>
 >>> print(result)

@@ -7,6 +7,19 @@ Operator Arithmetic About
 * All examples in this chapter uses ``dataclasses`` for you to focus on the important code, not boilerplate code just to make it works
 
 
+SetUp
+-----
+>>> from dataclasses import dataclass
+
+
+Operators
+---------
+* Source: https://github.com/python/cpython/blob/main/Grammar/python.gram#L695
+* Comparison: ``==``, ``!=``, ``<=``, ``<``, ``>=``, ``>``, ``not in``, ``in``, ``is not``, ``is``
+* Bitwise: ``|``, ``^``, ``&``, ``<<``, ``>>``
+* Arithmetic: ``+``, ``-``, ``*``, ``/``, ``//``, ``%``, ``@``, ``**``, ``~``
+
+
 Recap
 -----
 >>> a = int(1)
@@ -29,17 +42,25 @@ Recap
 >>> a + b
 [1, 2]
 
+>>> a = tuple((1,))
+>>> b = tuple((2,))
+>>> a + b
+(1, 2)
+
 
 Problem
 -------
->>> class Vector:
-...     def __init__(self, x, y):
-...         self.x = x
-...         self.y = y
+* ``dataclass`` is used to generate ``__init__()`` and ``__repr__()``
+* ``dataclass`` does not have any influence on addition
+
+>>> @dataclass
+... class Vector:
+...     x: int
+...     y: int
 >>>
 >>>
->>> a = Vector(1,2)
->>> b = Vector(2,3)
+>>> a = Vector(x=1, y=2)
+>>> b = Vector(x=2, y=3)
 >>> a + b
 Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
@@ -47,33 +68,6 @@ TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
 
 Solution
 --------
->>> class Vector:
-...     def __init__(self, x, y):
-...         self.x = x
-...         self.y = y
->>>
->>>
->>> Vector(x=1, y=2) + Vector(x=3, y=4)
-Traceback (most recent call last):
-TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
-
-
-Dataclasses
------------
->>> from dataclasses import dataclass
-
->>> @dataclass
-... class Vector:
-...     x: int
-...     b: int
->>>
->>>
->>> a = Vector(1,2)
->>> b = Vector(2,3)
->>> a + b
-Traceback (most recent call last):
-TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
-
 >>> @dataclass
 ... class Vector:
 ...     x: int = 0
@@ -85,11 +79,10 @@ TypeError: unsupported operand type(s) for +: 'Vector' and 'Vector'
 ...         return Vector(new_x, new_y)
 >>>
 >>>
->>> Vector(x=1, y=2) + Vector(x=3, y=4)
-Vector(x=4, y=6)
->>>
->>> Vector(x=1, y=2) + Vector(x=3, y=4) + Vector(x=5, y=6)
-Vector(x=9, y=12)
+>>> a = Vector(x=1, y=2)
+>>> b = Vector(x=2, y=3)
+>>> a + b
+Vector(x=3, y=5)
 
 
 Further Reading

@@ -548,79 +548,52 @@ AttributeError: 'bool' object has no attribute 'replace'
 
 Use Case - 0x01
 ---------------
->>> DATA = 'ul. pANA tWARdoWSKiego 3'
+>>> text = 'cześć'
 >>>
->>> result = (
-...     DATA
-...
-...     # Normalize
-...     .upper()
-...
-...     # Remove whitespace control chars
-...     .replace('\n', ' ')
-...     .replace('\t', ' ')
-...     .replace('\v', ' ')
-...     .replace('\f', ' ')
-...
-...     # Remove whitespaces
-...     .replace('    ', ' ')
-...     .replace('   ', ' ')
-...     .replace('  ', ' ')
-...
-...     # Remove special characters
-...     .replace('$', '')
-...     .replace('@', '')
-...     .replace('#', '')
-...     .replace('^', '')
-...     .replace('&', '')
-...     .replace('.', '')
-...     .replace(',', '')
-...     .replace('|', '')
-...
-...     # Remove prefixes
-...     .removeprefix('ULICA')
-...     .removeprefix('UL')
-...     .removeprefix('OSIEDLE')
-...     .removeprefix('OS')
-...
-...     # Substitute
-...     .replace('3', 'III')
-...     .replace('2', 'II')
-...     .replace('1', 'I')
-...
-...     # Format output
-...     .title()
-...     .replace('Iii', 'III')
-...     .replace('Ii', 'II')
-...     .strip()
-... )
->>>
->>> print(result)
-Pana Twardowskiego III
+>>> text.find('ś')
+3
+>>> text[3]
+'ś'
 
 
-Use Case - 0x01
+Use Case - 0x02
+---------------
+>>> line = '5.1,3.5,1.4,0.2,setosa'
+>>>
+>>> line.split(',')
+['5.1', '3.5', '1.4', '0.2', 'setosa']
+
+
+Use Case - 0x03
 ---------------
 >>> line = '5.1,3.5,1.4,0.2,setosa\n'
 >>>
 >>> line.split(',')
 ['5.1', '3.5', '1.4', '0.2', 'setosa\n']
 >>>
->>>
 >>> line.strip().split(',')
 ['5.1', '3.5', '1.4', '0.2', 'setosa']
 
 
-Use Case - 0x02
+Use Case - 0x04
 ---------------
 >>> data = ['5.1', '3.5', '1.4', '0.2', 'setosa']
 >>>
 >>> ','.join(data)
 '5.1,3.5,1.4,0.2,setosa'
+>>>
+>>> ','.join(data) + '\n'
+'5.1,3.5,1.4,0.2,setosa\n'
 
 
-Use Case - 0x03
+Use Case - 0x05
 ---------------
+* ``map(str, data)`` - Apply function ``str()`` to every element in ``data``
+* ``(str(x) for x in data)`` - Apply function ``str()`` to every element in ``data``
+* Both are equivalent
+* More info `Idiom Map`
+* More info `Generator Expression`
+
 >>> data = [5.1, 3.5, 1.4, 0.2, 'setosa']
 
 >>> ','.join(data)
@@ -634,62 +607,45 @@ TypeError: sequence item 0: expected str instance, float found
 '5.1,3.5,1.4,0.2,setosa'
 
 
-Use Case - 0x04
----------------
->>> text = 'cześć'
->>>
->>> text.find('ś')
-3
->>> text[3]
-'ś'
-
-
-Use Case - 0x05
----------------
->>> line = '1969-07-21, 02:56:15, WARNING, Neil Armstrong first words on the Moon'
->>> d, t, lvl, msg = line.split(', ', maxsplit=3)
->>>
->>> d
-'1969-07-21'
->>>
->>> t
-'02:56:15'
->>>
->>> lvl
-'WARNING'
->>>
->>> msg
-'Neil Armstrong first words on the Moon'
-
-
 Use Case - 0x06
+---------------
+>>> lvl = '[WARNING]'
+>>> lvl.removeprefix('[').removesuffix(']')
+'WARNING'
+
+>>> lvl = '[WARNING]'
+>>> lvl.replace('[', '').replace(']', '')
+'WARNING'
+
+>>> lvl = '[WARNING]'
+>>> lvl.strip('[]')
+'WARNING'
+
+
+Use Case - 0x07
+---------------
+>>> line = '1969-07-21,02:56:15,WARNING,First step on the Moon'
+>>>
+>>> line.split(',', maxsplit=3)
+['1969-07-21', '02:56:15', 'WARNING', 'First step on the Moon']
+
+
+Use Case - 0x08
 ---------------
 >>> line = '1969-07-21T02:56:15.123 [WARNING] First step on the Moon'
 >>> dt, lvl, msg = line.split(maxsplit=2)
 
->>> dt
-'1969-07-21T02:56:15.123'
->>>
 >>> dt.split('T')
 ['1969-07-21', '02:56:15.123']
 
->>> lvl
-'[WARNING]'
->>>
->>> lvl.removeprefix('[').removesuffix(']')
-'WARNING'
->>>
->>> lvl.replace('[', '').replace(']', '')
-'WARNING'
->>>
 >>> lvl.strip('[]')
 'WARNING'
 
->>> msg
-'First step on the Moon'
+>>> msg.title()
+'First Step On The Moon'
 
 
-Use Case - 0x06
+Use Case - 0x09
 ---------------
 >>> DATA = """1969-07-14, 21:00:00, INFO, Terminal countdown started
 ... 1969-07-16, 13:31:53, WARNING, S-IC engine ignition (#5)
@@ -749,6 +705,59 @@ Use Case - 0x06
  '1969-07-24, 16:35:05, WARNING, Entry',
  '1969-07-24, 16:50:35, WARNING, Splashdown (went to apex-down)',
  '1969-07-24, 17:29, INFO, Crew egress']
+
+
+Use Case - 0x0A
+---------------
+>>> DATA = 'ul. pANA tWARdoWSKiego 3'
+>>>
+>>> result = (
+...     DATA
+...
+...     # Normalize
+...     .upper()
+...
+...     # Remove whitespace control chars
+...     .replace('\n', ' ')
+...     .replace('\t', ' ')
+...     .replace('\v', ' ')
+...     .replace('\f', ' ')
+...
+...     # Remove whitespaces
+...     .replace('    ', ' ')
+...     .replace('   ', ' ')
+...     .replace('  ', ' ')
+...
+...     # Remove special characters
+...     .replace('$', '')
+...     .replace('@', '')
+...     .replace('#', '')
+...     .replace('^', '')
+...     .replace('&', '')
+...     .replace('.', '')
+...     .replace(',', '')
+...     .replace('|', '')
+...
+...     # Remove prefixes
+...     .removeprefix('ULICA')
+...     .removeprefix('UL')
+...     .removeprefix('OSIEDLE')
+...     .removeprefix('OS')
+...
+...     # Substitute
+...     .replace('3', 'III')
+...     .replace('2', 'II')
+...     .replace('1', 'I')
+...
+...     # Format output
+...     .title()
+...     .replace('Iii', 'III')
+...     .replace('Ii', 'II')
+...     .strip()
+... )
+>>>
+>>> print(result)
+Pana Twardowskiego III
 
 
 References

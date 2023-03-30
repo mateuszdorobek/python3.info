@@ -1,7 +1,7 @@
 Operator Comparison
 ===================
 * ``in`` - contains
-
+* https://github.com/python/cpython/blob/main/Grammar/python.gram#L695
 
 SetUp
 -----

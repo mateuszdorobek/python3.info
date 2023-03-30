@@ -1,5 +1,5 @@
-Type Annotation Annotated
-=========================
+Annotated
+=========
 * Since Python 3.9 :pep:`593` -- Flexible function and variable annotations
 * https://docs.python.org/3/library/typing.html#typing.Annotated
 * https://github.com/annotated-types/annotated-types
@@ -8,7 +8,6 @@ Type Annotation Annotated
 .. note:: ``ValueRange``, ``ctype``, ``MatchesRegex``, ``MaxLen``
           does not exist in Python. It is used only as an example
           both here and in :pep:`593`.
-
 
 SetUp
 -----
@@ -24,11 +23,10 @@ Numeric
 >>> vector = Annotated[list[int], MaxLen(3)]  # doctest: +SKIP
 
 
-Character
+Characted
 ---------
 >>> firstname = Annotated[str, MaxLen(10)]  # doctest: +SKIP
 >>> lastname = Annotated[str, MinLen(2), MaxLen(10)]  # doctest: +SKIP
-
 
 Patterns
 --------

@@ -718,3 +718,24 @@ Further Reading
 * https://docs.python.org/3/library/logging.html#module-logging
 * https://docs.python.org/3/library/logging.config.html#module-logging.config
 * https://docs.python.org/3/library/logging.handlers.html#module-logging.handlers
+
+
+Use Case - 0x01
+---------------
+>>> import logging
+>>> import sys
+>>>
+>>>
+>>> match sys.argv[1]:
+...     case '--error': logging.basicConfig(level='ERROR')
+...     case '--warning': logging.basicConfig(level='WARNING')
+...     case '--info': logging.basicConfig(level='INFO')
+...     case '--debug': logging.basicConfig(level='DEBUG')
+...     case _: logging.basicConfig(level='ERROR')
+>>>
+>>>
+>>> logging.critical('Example mesage')
+>>> logging.error('Example mesage')
+>>> logging.warning('Example mesage')
+>>> logging.info('Example mesage')
+>>> logging.debug('Example mesage')

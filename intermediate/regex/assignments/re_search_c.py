@@ -1,20 +1,26 @@
 """
 * Assignment: RE Search Time
-* Complexity: medium
+* Complexity: easy
 * Lines of code: 4 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
-    1. Use regular expressions to check `TEXT` [1] contains time in UTC (format: `%H:%M UTC`)
-    2. Use simplified checking: `xx:xx UTC`, where `x` is a digit
-    3. Define `result: str` with matched time
-    4. Run doctests - all must succeed
+    1. Use regular expressions to check `TEXT` [1]
+       contains time in UTC (24 hour clock compliant with ISO-8601)
+    2. Define `result: str` with matched time
+    3. Use simplified checking `xx:xx UTC`,
+       where `x` is a digit
+    4. Text does not contain any invalid date
+    5. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych do sprawdzenia czy `TEXT` [1] zawiera godzinę w UTC (format: `%H:%M UTC`)
-    2. Użyj uproszczonego sprawdzania: `xx:xx UTC`, gdzie `x` to dowolna cyfra
-    3. Zdefiniuj `result: str` ze znalezionym czasem
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    1. Użyj wyrażeń regularnych do sprawdzenia czy `TEXT` [1]
+       zawiera godzinę w UTC (format 24 godzinny zgodny z ISO-8601)
+    2. Zdefiniuj `result: str` ze znalezionym czasem
+    3. Użyj uproszczonego sprawdzania: `xx:xx UTC`,
+       gdzie `x` to dowolna cyfra
+    4. Tekst nie zawiera żadnej niepoprawnej godziny
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 References:
     [1] Wikipedia Apollo 11,
@@ -54,6 +60,7 @@ TEXT = ("Apollo 11 was the spaceflight that first landed humans on the Moon. "
 
 
 # Pattern for searching time with timezone in 24 format, i.e. '23:59 UTC'
+# Text does not contain any invalid date
 # type: str
 pattern = ...
 

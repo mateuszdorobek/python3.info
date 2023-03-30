@@ -21,29 +21,36 @@ Operator Increment
     "``obj //= other``",    "``obj.__ifloordiv__(other)``"
     "``obj %= other``",     "``obj.__imod__(other)``"
 
->>> x = 0
->>> id(x)  # doctest: +SKIP
-4406492680
->>>
->>> x += 1
->>> id(x)  # doctest: +SKIP
-4406492712
 
->>> x = 1
->>> id(x)  # doctest: +SKIP
-4406492712
->>>
->>> x += 0
->>> id(x)  # doctest: +SKIP
-4406492712
+Memory
+------
+* ``tuple`` is immutable
+* ``list`` is mutable
+* ``tuple += tuple`` will generate new ``tuple``
+* ``list += list`` will update old ``list``
+* ``__iadd__()`` operator on ``tuple`` is different than on ``list``
 
->>> x = [1, 2, 3]
->>> id(x)  # doctest: +SKIP
-4343115776
+>>> a = (1, 2, 3)
+>>> id(a)  # doctest: +SKIP
+4354672064
 >>>
->>> x += [4, 5, 6]
->>> id(x)  # doctest: +SKIP
-4343115776
+>>> a += (4, 5, 6)
+>>> id(a)  # doctest: +SKIP
+4360031872
+>>>
+>>> a
+(1, 2, 3, 4, 5, 6)
+
+>>> a = [1, 2, 3]
+>>> id(a)  # doctest: +SKIP
+4345884480
+>>>
+>>> a += [4, 5, 6]
+>>> id(a)  # doctest: +SKIP
+4345884480
+>>>
+>>> a
+[1, 2, 3, 4, 5, 6]
 
 
 SetUp

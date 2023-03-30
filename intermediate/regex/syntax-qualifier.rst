@@ -289,3 +289,6 @@ Assignments
 .. literalinclude:: assignments/re_syntax_qualifier_b.py
     :caption: :download:`Solution <assignments/re_syntax_qualifier_b.py>`
     :end-before: # Solution
+
+
+.. todo:: Assignment: Search for float with different notation: 1.2, .2 or 1.
