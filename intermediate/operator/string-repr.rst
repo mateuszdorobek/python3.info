@@ -116,4 +116,6 @@ Assignments
     :caption: :download:`Solution <assignments/operator_string_repr_b.py>`
     :end-before: # Solution
 
-.. todo:: dorobić zadanie z dziedziczeniem REPR
+
+.. todo:: Assignment: Simple __repr__()
+.. todo:: Assignment: Inheritance with __repr__()

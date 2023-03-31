@@ -1,5 +1,5 @@
 {
-  "excluded": ["**/__pycache__"],
+  "excluded": ["**/__pycache__", "**/.idea", ".git"],
   "toolchains": [],
   "editor.guides": [79]
 }

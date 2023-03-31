@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "type": "python-tests",
+      "name": "Unit Test",
+      "testFramework": "unittest",
+      "target": "$FILE$",
+      "arguments": []
+    },
+    {
+      "type": "python",
+      "name": "Run Python",
+      "workingDir": "$PROJECT_DIR$",
+      "arguments": [
+        "$FILE$"
+      ]
+    }
+  ]
+}
