@@ -241,6 +241,7 @@ Dragon
     dragon/version-v2.rst
     dragon/version-v3.rst
     dragon/adr-about.rst
+    dragon/adr-usecase.rst
     dragon/adr-init-name.rst
     dragon/adr-init-position.rst
     dragon/adr-position-set.rst

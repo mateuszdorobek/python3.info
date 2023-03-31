@@ -1,103 +1,39 @@
-ADR About
-=========
-* Decision: Python backend web framework
-* Status: accepted
-* Decision Date: 2000-01-01
-* Release Date: 2000-01-05
-* Deciders: Mark Watney, Melissa Lewis, Rick Martinez
+Dragon ADR About
+================
+* ADR - Architectural Decision Records
+
+An Architectural Decision (AD) is a justified software design choice
+that addresses a functional or non-functional requirement that is
+architecturally significant. An Architecturally Significant Requirement
+(ASR) is a requirement that has a measurable effect on a software system's
+architecture and quality. An Architectural Decision Record (ADR) captures
+a single AD and its rationale; the collection of ADRs created and maintained
+in a project constitute its decision log. All these are within the topic
+of Architectural Knowledge Management (AKM), but ADR usage can be extended
+to design and other decisions ("any decision record") [#adrgithub]_.
 
 
-Problem
--------
-* Python backend web framework is needed
-* Need documentation
-* Need REST/JSON API
-* Need authorization and authentication
-* Need admin panel
-* Need for tests
-* Need for ORM
-* Need for database migrations
-* Need for async code
-* Need more time-effective way for on-boarding
+Golden Circle
+-------------
+* Why? - Your core purpose or belief
+* How? - What stands you apart from the competition
+* What? - The product or service you provide
+* Source []
+
+.. figure:: img/model-goldencircle-sinek,2011.png
 
 
-Motivation
-----------
-* Codebase become unmaintainable
-* Current documentation in old
-* Onboarding takes too much time
-* ORM makes refactoring easier
-* ORM standardizes model
-
-
-Considerations
---------------
-* Django
-* Django + Ninja
-* Django + RESTFramework
-* FastAPI
-* Flask
-
-
-Option 1 - Django
------------------
-* Async
-* ORM
-* DB schema migration
-* Admin
-* No documentation generation
-
-
-Option 2 - Django + Ninja
--------------------------
-* Async
-* ORM
-* DB schema migration
-* Admin
-* Documentation generation
-
-
-Option 3 - Django + RESTFramework
----------------------------------
-* No Async
-* ORM
-* DB schema migration
-* Admin
-* Own documentation generation
-
-
-Option 4 - FastAPI
-------------------
-* Async
-* No ORM
-* No DB schema migration
-* No Admin
-* Documentation generation
-
-
-Option 5 - Flask
-----------------
-* No Async
-* ORM
-* No DB schema migration
-* No Admin
-* No documentation generation
-
-
-Decision
+Segments
 --------
-* Django + Ninja
-
-Django framework is a first class citizen and well known framework in
-Python community. Ninja adds Fast-API style views to Django and automatically
-generates documentation in OpenAPI format. Django has ORM, database schema
-migration and admin panel. Django supports asynchronous code.
+* Status - What is the status, such as proposed, accepted, rejected, deprecated, superseded, etc.?
+* Problem - What we want to change?
+* Motivation - Why we want to change it?
+* Consideration - List of options (each option will be described later)
+* Options - Options and consequences: pros and cons, examples and use-cases
+* Decision - What is the change that we're proposing and/or doing?
+* References
 
 
 References
 ----------
-* https://www.djangoproject.com/
-* https://django-ninja.rest-framework.com/
-* https://www.django-rest-framework.org/
-* https://fastapi.tiangolo.com/
-* https://flask.palletsprojects.com/en/2.2.x/
+.. [#adrgithub] Github. Architectural Decision Records. Year: 2023. Retrieved: 2023-03-31. URL: https://adr.github.io/

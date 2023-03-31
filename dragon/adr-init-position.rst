@@ -15,12 +15,15 @@ Pros and Cons:
 * Good: easy to use
 * Bad: not explicit enough
 * Bad: requires knowledge of API to answer what are those numbers
-* Bad: It does suggest, that x and y are some parameters to texture (for example width and height of a texture image, or gold and hit points)
+* Bad: It can suggest, that `x` and `y` are gold and hit points
+* Bad: It can suggest, that `x` and `y` are width and height of an `texture`
+* Bad: Not extensible to 3D
 * Decision: rejected, not explicit
 
 Example:
 
->>> dragon = Dragon('Wawelski', 0, 0)
+>>> dragon = Dragon('Wawelski', 0, 0)  # 2D
+>>> dragon = Dragon('Wawelski', 0, 0, 0)  # 3D
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
 
 Use Case:
@@ -50,7 +53,9 @@ Pros and Cons:
 * Good: verbose in this example
 * Good: you can assign ``None`` by default to set default point
 * Good: extensible, easy to add ``z`` with default value ``0``
-* Bad: It does suggest, that x and y are some parameters to texture (for example width and height of a texture image)
+* Good: Extensible to 3D
+* Bad: It can suggest, that `x` and `y` are gold and hit points
+* Bad: It can suggest, that `x` and `y` are width and height of an `texture`
 * Decision: rejected, not explicit enough
 
 Example:
@@ -60,8 +65,9 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3)                # ok
->>> knn = KNearestNeighbors(k=3, w=[1,2,3])     # bad
+>>> knn = KNearestNeighbors(nearest_neighbors=3)  # bad
+>>> knn = KNearestNeighbors(k=3)                  # ok
+>>> knn = KNearestNeighbors(k=3, w=[1,2,3])       # bad
 
 
 Option 3
@@ -74,16 +80,18 @@ Pros and Cons:
 * Good: simple, easy to use
 * Good: you can assign ``None`` by default to set default point
 * Good: extensible, easy to add ``posZ`` with default value ``0``
+* Good: Extensible to 3D
 * Bad: not verbose
 * Decision: rejected, not explicit enough
 
 Example:
 
->>> dragon = Dragon('Wawelski', posx=0, posy=0)    # maybe, bad
+>>> dragon = Dragon('Wawelski', posx=0, posy=0, posz=0)  # maybe, bad
+>>> dragon = Dragon('Wawelski', posX=0, posY=0, posZ=0)  # maybe, bad
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, wgt=[1,2,3])      # bad
+>>> knn = KNearestNeighbors(k=3, wgt=[1,2,3])  # maybe, bad
 
 
 Option 4
@@ -96,11 +104,21 @@ Pros and Cons:
 * Good: simple, easy to use
 * Good: you can assign ``None`` by default to set default point
 * Good: extensible, easy to add ``positionZ`` with default value ``0``
+* Good: Extensible to 3D
+* Bad: CamelCase `positionX` and `positionY` does not conform to PEP-8
 * Decision: candidate, but names could be better
+
+Example:
+
+>>> dragon = Dragon('Wawelski', positionx=0, positiony=0)  # maybe
+>>> dragon = Dragon('Wawelski', positionx=0, positiony=0, positionz=0)  # maybe
+
+>>> dragon = Dragon('Wawelski', positionX=0, positionY=0)  # bad, PEP-8
+>>> dragon = Dragon('Wawelski', positionX=0, positionY=0, positionZ=0)  # bad, PEP-8
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, weights=[1,2,3])    # ok
+>>> knn = KNearestNeighbors(k=3, weightsk=[1,2,3])  # ok
 
 >>> df.plot(kind='line', subplots=True, color='grey', sharey=True)  # bad
 
@@ -115,11 +133,17 @@ Pros and Cons:
 * Good: you can assign ``None`` by default to set initial point
 * Good: extensible, easy to add ``position_z`` with default value ``0``
 * Good: backward compatible
+* Good: Extensible to 3D
 * Decision: candidate
+
+>>> dragon = Dragon('Wawelski', position_x=0, position_y=0)  # ok
+>>> dragon = Dragon('Wawelski', position_x=0, position_y=0, position_z=0)  # ok
 
 Use Case:
 
+>>> df.plot(kind='line', subplots=True, color='grey', share_y=True)       # ok
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # ok
+
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y_axis=True) # ok
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # ok
 
@@ -146,23 +170,44 @@ Pros and Cons:
 
 Example:
 
->>> dragon = Dragon('Wawelski', (0, 0))             # bad
->>> dragon = Dragon('Wawelski', position=(0, 0))    # ok
+>>> dragon = Dragon('Wawelski', (0, 0))              # bad
+>>> dragon = Dragon('Wawelski', (0, 0, 0))           # bad
+>>> dragon = Dragon('Wawelski', [0, 0])              # bad
+>>> dragon = Dragon('Wawelski', [0, 0, 0])           # bad
+
+>>> dragon = Dragon('Wawelski', position=(0, 0))     # maybe
+>>> dragon = Dragon('Wawelski', position=(0, 0, 0))  # maybe
+>>> dragon = Dragon('Wawelski', position=[0, 0])     # maybe
+>>> dragon = Dragon('Wawelski', position=[0, 0, 0])  # maybe
+
+>>> dragon = Dragon('Wawelski', (None, None))                   # bad
+>>> dragon = Dragon('Wawelski', (None, None, None))             # bad
+>>> dragon = Dragon('Wawelski', position=(None, None))          # bad, maybe
+>>> dragon = Dragon('Wawelski', position=(None, None, None))    # bad, maybe
+
+>>> pt = (None, None)
+>>> pt = (None, None, None)
+
+>>> pt = (50, 120)
+>>> pt = (50, 120, 0)
+>>> pt = [50, 120]
+>>> pt = [50, 120, 0]
 
 Use Case:
 
->>> np.random.randint(0,10, (3,3))
->>> np.random.randint(0,10, size=(3,3))
+>>> np.random.randint(0, 10, (3, 3))  # bad
+>>> np.random.randint(0, 10, size=(3, 3))  # ok
 
 >>> pt = (50, 120)
 >>>
->>> pt[0]
-50
->>> pt[1]
-120
->>>
 >>> pt[0], pt[1]
 (50, 120)
+
+>>> x, y = (50, 120)
+>>>
+>>> x, y
+(50, 120)
+
 
 
 Option 7
@@ -182,6 +227,25 @@ Pros and Cons:
 * Bad: unpacking
 * Bad: not extensible, ``position`` will always be 2D
 * Decision: rejected, not extensible
+
+Example:
+
+>>> dragon = Dragon('Wawelski', {'x':0, 'y':0})         # bad, maybe
+>>> dragon = Dragon('Wawelski', {'x':0, 'y':0, 'z':0})  # bad, maybe
+
+>>> dragon = Dragon('Wawelski', position={'x':0, 'y':0})         # maybe
+>>> dragon = Dragon('Wawelski', position={'x':0, 'y':0, 'z':0})  # maybe
+
+>>> dragon = Dragon('Wawelski', {'x':None, 'y':None})                     # bad, maybe
+>>> dragon = Dragon('Wawelski', {'x':None, 'y':None, 'z':None})           # bad, maybe
+>>> dragon = Dragon('Wawelski', position={'x':None, 'y':None})            # bad, maybe
+>>> dragon = Dragon('Wawelski', position={'x':None, 'y':None, 'z':None})  # bad, maybe
+
+>>> pt = {'x':None, 'y':None}
+>>> pt = {'x':None, 'y':None, 'z':None}
+
+>>> pt = {'x':50, 'y':120}
+>>> pt = {'x':50, 'y':120, 'z':0}
 
 Use Case:
 
@@ -250,7 +314,7 @@ Pros and Cons:
 * Good: you can assign ``None`` by default to set default ``position``
 * Good: very easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
-* Good: lightweight, in the end this is a tuple
+* Good: lightweight, in the end this is a `tuple`
 * Decision: candidate
 
 Use Case:
@@ -273,8 +337,8 @@ Option 10
 ...     x: int
 ...     y: int
 >>>
+>>> dragon = Dragon('Wawelski', Position(x=50, y=120))
 >>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position={'x': 50, 'y': 120})
 
 Pros and Cons:
 
@@ -306,14 +370,15 @@ Option 11
 ...     y: Required[int]
 ...     z: NotRequired[int]
 >>>
+>>> dragon = Dragon('Wawelski', Position(x=50, y=120))
 >>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position={'x': 50, 'y': 120})
 
 * Good: data is stored together (``x`` and ``y`` coordinates)
 * Good: simple
 * Good: you can assign ``position=None`` by default to set default ``position``
 * Good: relatively easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
+* Bad: today we need to make decision, that game will eventually be 3D
 * Bad: ``TypeDict`` does not support default values
 * Decision: rejected, does not support default values
 
@@ -394,6 +459,7 @@ Pros and Cons:
 * Good: easy to extend to 3D
 * Good: can set default values
 * Good: keyword argument is not required, class name is verbose enough
+* Good: slots make class lighter and faster
 * Bad: too complex for now
 * Bad: allows for attribute mutation
 * Decision: maybe, too complex for now
@@ -475,6 +541,7 @@ Pros and Cons:
 * Good: is faster and leaner than simple dataclass
 * Good: does not allow for attribute mutation
 * Good: does not allow for attribute creation
+* Good: slots make class lighter and faster
 * Bad: more complicated than mutable dataclasses
 * Decision: candidate
 

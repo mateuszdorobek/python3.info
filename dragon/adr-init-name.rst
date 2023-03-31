@@ -8,6 +8,10 @@ Dragon ADR Init Name
 
 Option 1
 --------
+>>> dragon = Dragon(str)  # positional
+
+Example:
+
 >>> dragon = Dragon('Wawelski')
 
 Pros and Cons:
@@ -19,6 +23,10 @@ Pros and Cons:
 
 Option 2
 --------
+>>> dragon = Dragon(name=str)  # keyword
+
+Example:
+
 >>> dragon = Dragon(name='Wawelski')
 
 Pros and Cons:

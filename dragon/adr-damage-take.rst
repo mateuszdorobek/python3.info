@@ -40,7 +40,7 @@ Pros and Cons:
 
 Example:
 
->>> dragon.hit(10)
+>>> dragon.hit(10)  # bad, dragon make or take 10 damage?
 
 Rationale:
 
@@ -152,25 +152,12 @@ Option 9
 --------
 >>> dragon < Damage(20)
 >>> dragon <= Damage(20)
+>>> dragon << Damage(20)
 
 Pros and Cons:
 
 * Good: simple
 * Good: can use ``.__lt__()``, ``.__le__()`` for validation if needed
-* Bad: requires knowledge of API
-* Decision: rejected, not explicit and requires knowledge of API
-
-
-Option 10
----------
->>> dragon.__sub__(DMG)
->>> dragon.__isub__(DMG)
-
-Pros and Cons:
-
-* Good: provides encapsulation
-* Bad: not Pythonic way
-* Bad: not simple
 * Bad: requires knowledge of API
 * Decision: rejected, not explicit and requires knowledge of API
 

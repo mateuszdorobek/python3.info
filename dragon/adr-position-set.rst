@@ -50,6 +50,11 @@ Pros and Cons:
 * Bad: arguments are implicit, require knowledge of an API what are the values provided as arguments
 * Decision: maybe, could be done better
 
+Example:
+
+>>> dragon.set_position(10, 20)  # 2D, maybe
+>>> dragon.set_position(10, 20, 30)  # 3D, maybe
+
 
 Option 3
 --------
@@ -67,8 +72,8 @@ Pros and Cons:
 
 Example:
 
->>> dragon.set_position_xy(10, 20)
->>> dragon.set_position_xyz(10, 20, 30)
+>>> dragon.set_position_xy(10, 20)  # 2D, bad
+>>> dragon.set_position_xyz(10, 20, 30)  # 3D, bad
 
 
 Option 4
@@ -86,8 +91,8 @@ Pros and Cons:
 
 Example:
 
->>> dragon.set_position(x=10, y=20)
->>> dragon.set_position(x=10, y=20, z=30)
+>>> dragon.set_position(x=10, y=20)  # 2D, ok
+>>> dragon.set_position(x=10, y=20, z=30)  # 3D, ok
 
 
 Option 5
@@ -116,14 +121,12 @@ Option 6
 --------
 >>> dragon.position_x = 10
 >>> dragon.position_y = 20
->>> dragon.position_x, dragon.position_y = 10, 20
 
 Pros and Cons:
 
 * Good: easy to use
 * Good: arguments are explicit
 * Good: can use ``@property`` for validation if needed
-* Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles
@@ -132,14 +135,13 @@ Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn.k = 3
+>>> knn.weights = [1, 2, 3]
 
 
 Option 7
 ---------
 >>> dragon.position.x = 10
 >>> dragon.position.y = 20
-
->>> dragon.position.x, dragon.position.y = 10, 20
 
 Pros and Cons:
 
@@ -152,7 +154,6 @@ Pros and Cons:
 * Bad: violates encapsulation - OOP good practices
 * Bad: flat is better than nested (PEP 20)
 * Bad: require knowledge of an API
-* Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
 * Decision: rejected, violates OOP principles and Python convention (PEP 20)
@@ -160,8 +161,8 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.params.k = 3
->>> knn.params.w = [1, 2, 3]
+>>> knn.hyperparameters.k = 3
+>>> knn.hyperparameters.weights = [1, 2, 3]
 
 
 Option 8
@@ -184,12 +185,35 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.parameters = (3, [1, 2, 3])
+>>> knn.hyperparameters = (3, [1, 2, 3])
 
 
 Option 9
+--------
+>>> dragon.position = {'x':10, 'y':20}
+
+Pros and Cons:
+
+* Good: easy to use
+* Good: can use ``@property`` for validation if needed
+* Bad: arguments are implicit
+* Bad: require knowledge of an API
+* Bad: always 2D
+* Bad: not extensible, hard to refactor to 3D
+* Bad: violates abstraction (OOP Principle)
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles
+
+Use Case:
+
+>>> knn = KNearestNeighbors()
+>>> knn.hyperparameters = {'k':3, 'weights':[1, 2, 3]}
+
+
+Option 10
 ---------
->>> dragon.position = Position(x=10, y=20)
+>>> dragon.position = Point(x=10, y=20)
 
 Pros and Cons:
 
@@ -207,22 +231,20 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.parameters = Params(k=3, w=[1, 2, 3])
+>>> knn.hyperparameters = HyperParameters(k=3, weights=[1, 2, 3])
 
 
-Option 10
+Option 11
 ---------
->>> dragon.position @ Position(x=10, y=20)
+>>> dragon.position @ Point(x=10, y=20)
 
 Pros and Cons:
 
 * Good: easy to use
-* Good: using ``@`` (matmul) it is easy to validation
+* Good: using ``@`` (matmul) it is easy to add validation
 * Bad: ``@`` (at) makes sense only in English
-* Bad: arguments are implicit
 * Bad: require knowledge of an API
-* Bad: always 2D
-* Bad: not extensible, hard to refactor to 3D
+* Bad: extensible, easy to refactor to 3D
 * Bad: violates abstraction (OOP Principle)
 * Bad: violates encapsulation (OOP Principle)
 * Bad: violates Tell, Don't Ask (OOP Principle)
@@ -231,7 +253,7 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn << Params(k=3, w=[1, 2, 3])
+>>> knn << HyperParameters(k=3, weights=[1, 2, 3])
 
 
 Decision

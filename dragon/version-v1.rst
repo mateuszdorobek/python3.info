@@ -48,11 +48,11 @@ Functional requirements:
 
     4. When health points drop to, or below zero:
 
-        a. Dragon has status ``dead``
-        b. Change texture file name to  ``img/dragon/dead.png``
-        c. Display ``NAME is dead``, where ``NAME`` is the dragon's name
-        d. Display how much gold dragon dropped (random integer from 1 to 100)
-        e. Display position where dragon died
+        a. dragon has status ``dead``
+        b. dragon has texture ``img/dragon/dead.png``
+        c. display ``Dragon NAME is dead``, where ``NAME`` is the dragon's name
+        d. display how much gold dragon dropped (random integer from 1 to 100)
+        e. display position where dragon died (should be: x=20, y=40)
 
     5. Run the game:
 
@@ -112,10 +112,10 @@ Wymagania funkcjonalne:
     4. Kiedy punkty życia Smoka spadną do lub poniżej zera:
 
         a. smok ma status ``dead``
-        b. zmień nazwę pliku tekstury na ``img/dragon/dead.png``
-        c. wyświetl ``NAME is dead``, gdzie ``NAME`` to nazwa smoka
+        b. smok ma teksturę ``img/dragon/dead.png``
+        c. wyświetl ``Dragon NAME is dead``, gdzie ``NAME`` to nazwa smoka
         d. wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
-        e. wyświetl pozycję gdzie smok zginął
+        e. wyświetl pozycję gdzie smok zginął (powinna być: x=20, y=40)
 
     5. Przeprowadź grę:
 

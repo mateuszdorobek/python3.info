@@ -80,8 +80,8 @@ Pros and Cons:
 
 Example:
 
->>> dragon.attack_enemy()
->>> explosion.attack_enemy()
+>>> dragon.attack_enemy()  # maybe
+>>> explosion.attack_enemy()  # bad
 
 
 Option 5
@@ -124,6 +124,10 @@ Use Case:
 * Bad: this is not how bank transfers are done (especially between banks)
 * Bad: other bank of will not share their source code with you, to make a transfer
 
+>>> def swift_transfer(from_account, to_account, amount):  # controller
+...     from_account.withdraw(amount)
+...     to_account.deposit(amount)
+
 Rationale:
 
 .. figure:: img/dragon-firkraag-01.jpg
@@ -144,6 +148,21 @@ Pros and Cons:
 
 
 Option 8
+--------
+>>> dragon << Damage(20)
+
+Pros and Cons:
+
+* Good: easy to use
+* Good: using ``<<`` (lshift) it is easy to add validation
+* Bad: require knowledge of an API
+* Bad: violates abstraction (OOP Principle)
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles
+
+
+Option 9
 --------
 >>> hero.wound(dragon.hit())
 
