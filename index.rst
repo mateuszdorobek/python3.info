@@ -229,6 +229,7 @@ Blogposts
 
     _blogpost/ml-introduction.rst
 
+
 Dragon
 ******
 .. toctree::
@@ -236,10 +237,10 @@ Dragon
     :numbered:
     :caption: Dragon
 
-    dragon/about.rst
-    dragon/version-v1.rst
-    dragon/version-v2.rst
-    dragon/version-v3.rst
+    dragon/dragon-about.rst
+    dragon/dragon-version-v1.rst
+    dragon/dragon-version-v2.rst
+    dragon/dragon-version-v3.rst
     dragon/adr-about.rst
     dragon/adr-usecase.rst
     dragon/adr-init-name.rst

@@ -18,7 +18,7 @@ Golden Circle
 * Why? - Your core purpose or belief
 * How? - What stands you apart from the competition
 * What? - The product or service you provide
-* Source []
+* Source [Sinek2011]_
 
 .. figure:: img/model-goldencircle-sinek,2011.png
 
@@ -37,3 +37,4 @@ Segments
 References
 ----------
 .. [#adrgithub] Github. Architectural Decision Records. Year: 2023. Retrieved: 2023-03-31. URL: https://adr.github.io/
+.. [#Sinek2011] Sinek, S. Golden Circle Model. Year: 2011
