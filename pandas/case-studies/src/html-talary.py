@@ -5,7 +5,7 @@ import logging
 
 
 # DATA = 'https://wcn.pl/archive?q=talar+lewkowy'
-DATA = 'https://python.astrotech.io/_static/talary.html'
+DATA = 'https://python3.info/_static/talary.html'
 
 
 source_code = requests.get(DATA).text

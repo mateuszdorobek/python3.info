@@ -14,7 +14,7 @@ SetUp
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-en.csv'
+>>> DATA = 'https://python3.info/_static/phones-en.csv'
 >>>
 >>> df = pd.read_csv(DATA, parse_dates=['date'])
 >>> df.drop(columns='index', inplace=True)
@@ -99,31 +99,31 @@ dtype: int64
 
 Mean
 ----
->>> df.groupby('item').mean()  # doctest: +NORMALIZE_WHITESPACE
-        duration
+>>> df.groupby('item')['duration'].mean()
 item
-call  237.940722
-data   34.429000
-sms     1.000000
+call    237.940722
+data     34.429000
+sms       1.000000
+Name: duration, dtype: float64
 
->>> df.groupby(['month', 'item']).mean()  # doctest: +NORMALIZE_WHITESPACE
-                duration
-month   item
-2014-11 call  238.757009
-        data   34.429000
-        sms     1.000000
-2014-12 call  171.658228
-        data   34.429000
-        sms     1.000000
-2015-01 call  193.977273
-        data   34.429000
-        sms     1.000000
-2015-02 call  215.164179
-        data   34.429000
-        sms     1.000000
-2015-03 call  462.276596
-        data   34.429000
-        sms     1.000000
+>>> df.groupby(['month', 'item'])['duration'].mean()
+month    item
+2014-11  call    238.757009
+         data     34.429000
+         sms       1.000000
+2014-12  call    171.658228
+         data     34.429000
+         sms       1.000000
+2015-01  call    193.977273
+         data     34.429000
+         sms       1.000000
+2015-02  call    215.164179
+         data     34.429000
+         sms       1.000000
+2015-03  call    462.276596
+         data     34.429000
+         sms       1.000000
+Name: duration, dtype: float64
 
 
 Number of Uniques
@@ -157,31 +157,31 @@ month   item
 
 Sum
 ---
->>> df.groupby('item').sum()  # doctest: +NORMALIZE_WHITESPACE
-      duration
+>>> df.groupby('item')['duration'].sum()  # doctest: +NORMALIZE_WHITESPACE
 item
-call  92321.00
-data   5164.35
-sms     292.00
+call    92321.00
+data     5164.35
+sms       292.00
+Name: duration, dtype: float64
 
->>> df.groupby(['month', 'item']).sum()  # doctest: +NORMALIZE_WHITESPACE
-               duration
-month   item
-2014-11 call  25547.000
-        data    998.441
-        sms      94.000
-2014-12 call  13561.000
-        data   1032.870
-        sms      48.000
-2015-01 call  17070.000
-        data   1067.299
-        sms      86.000
-2015-02 call  14416.000
-        data   1067.299
-        sms      39.000
-2015-03 call  21727.000
-        data    998.441
-        sms      25.000
+>>> df.groupby(['month', 'item'])['duration'].sum()  # doctest: +NORMALIZE_WHITESPACE
+month    item
+2014-11  call    25547.000
+         data      998.441
+         sms        94.000
+2014-12  call    13561.000
+         data     1032.870
+         sms        48.000
+2015-01  call    17070.000
+         data     1067.299
+         sms        86.000
+2015-02  call    14416.000
+         data     1067.299
+         sms        39.000
+2015-03  call    21727.000
+         data      998.441
+         sms        25.000
+Name: duration, dtype: float64
 
 
 Count

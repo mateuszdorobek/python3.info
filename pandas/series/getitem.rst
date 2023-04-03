@@ -60,7 +60,7 @@ Float and Int Index
 dtype: float64
 
 >>> s.index
-Float64Index([1.0, 0.0, 3.3, 99.0, -1.0], dtype='float64')
+Index([1.0, 0.0, 3.3, 99.0, -1.0], dtype='float64')
 
 >>> s[0]
 2.2

@@ -9,7 +9,7 @@ pattern that matched.
 >>> import requests
 >>>
 >>>
->>> resp = requests.get('https://python.astrotech.io')
+>>> resp = requests.get('https://python3.info')
 >>>
 >>> match resp.status_code:
 ...     case 200 | 201: print('No error')

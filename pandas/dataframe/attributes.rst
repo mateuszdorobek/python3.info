@@ -75,7 +75,7 @@ Set index:
 6  2.269755 -1.454366  0.045759 -0.187184
 >>>
 >>> df.index
-Int64Index([0, 1, 2, 3, 4, 5, 6], dtype='int64')
+Index([0, 1, 2, 3, 4, 5, 6], dtype='int64')
 
 
 Values

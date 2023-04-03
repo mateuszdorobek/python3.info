@@ -76,7 +76,7 @@ Morning    Noon       Evening   Midnight
  1.764052   0.400157  0.978738   2.240893    1
  1.867558  -0.977278  0.950088  -0.151357    1
  2.269755  -1.454366  0.045759  -0.187184    1
-dtype: int64
+Name: count, dtype: int64
 
 >>> df.nunique()
 Morning     7
@@ -268,15 +268,6 @@ dtype: float64
 
     Standard Deviation
 
-Mean absolute deviation:
-
->>> df.mad()
-Morning     1.214980
-Noon        0.624708
-Evening     0.340116
-Midnight    0.894684
-dtype: float64
-
 Standard Error of the Mean (SEM):
 
 >>> df.sem()
@@ -373,7 +364,7 @@ Examples
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-en.csv'
+>>> DATA = 'https://python3.info/_static/phones-en.csv'
 >>>
 >>> df = pd.read_csv(DATA, parse_dates=['date'])
 >>> df.drop(columns='index', inplace=True)
@@ -419,17 +410,20 @@ How many seconds of phone calls are recorded in total?:
 How many entries are there for each month?:
 
 >>> df['month'].value_counts()
+month
 2014-11    230
 2015-01    205
 2014-12    157
 2015-02    137
 2015-03    101
-Name: month, dtype: int64
+Name: count, dtype: int64
+
 
 Number of non-null unique network entries:
 
 >>> df['network'].nunique()
 9
+
 
 Other
 -----

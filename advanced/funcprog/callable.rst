@@ -72,10 +72,10 @@ Callback Design Pattern:
 >>>
 >>>
 >>> fetch(
-...     url='https://python.astrotech.io',
+...     url='https://python3.info',
 ...     on_success=lambda result: print(result),
 ...     on_error=lambda error: print(error))
-Downloading from https://python.astrotech.io
+Downloading from https://python3.info
 
 >>> from http import HTTPStatus
 >>> import requests
@@ -90,7 +90,7 @@ Downloading from https://python.astrotech.io
 >>>
 >>>
 >>> fetch(  # doctest: +SKIP
-...     url='https://python.astrotech.io/',
+...     url='https://python3.info/',
 ...     on_success=lambda result: print(result),
 ...     on_error=lambda error: print(error))
 <Response [200]>

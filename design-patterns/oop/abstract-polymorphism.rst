@@ -326,6 +326,6 @@ Rendering Button with /login.html
 
 References
 ----------
-.. [#pybookSyntaxMatch] https://python.astrotech.io/intermediate/match/about.html
+.. [#pybookSyntaxMatch] https://python3.info/intermediate/match/about.html
 
 .. todo:: Assignments

@@ -463,7 +463,7 @@ Callbacks
 ---------
 File ``myrequest.py``:
 
->>> URL = 'https://python.astrotech.io'
+>>> URL = 'https://python3.info'
 >>>
 >>> def on_success(result: str) -> None:
 ...     ...

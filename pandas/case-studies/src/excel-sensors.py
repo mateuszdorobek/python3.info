@@ -14,7 +14,7 @@ axes: plt.Axes
 
 #%%
 
-DATA = 'https://python.astrotech.io/_static/sensors-optima.xlsx'
+DATA = 'https://python3.info/_static/sensors-optima.xlsx'
 LUX = 1
 LIGHT_NOISE_THRESHOLD = 20*LUX
 

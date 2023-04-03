@@ -32,30 +32,19 @@ Deprecation
           possible to easily determine the "successor" or next element after
           a particular label in an index. [#pdDocAdvanced]_
 
-.. warning:: Int64Index, UInt64Index and Float64Index have been deprecated in
-             favor of the base Index class and will be removed in Pandas 2.0
-             [#pd14releasenotes]_
-
-Replace:
-
->>> pd.Int64Index([1, 2, 3])
-Int64Index([1, 2, 3], dtype='int64')
-
-With:
-
 >>> pd.Index([1, 2, 3], dtype='int64')
-Int64Index([1, 2, 3], dtype='int64')
+Index([1, 2, 3], dtype='int64')
 
 More Information: https://pandas.pydata.org/pandas-docs/dev/user_guide/advanced.html#index-types
 
 
 Definition
 ----------
->>> from pandas import RangeIndex, Int64Index, Float64Index, Index, DatetimeIndex
+>>> from pandas import RangeIndex, Index, Index, Index, DatetimeIndex
 
 >>> index = RangeIndex(start=0, stop=5, step=1)
->>> index = Int64Index([0, 1, 2, 3, 4], dtype='int64')
->>> index = Float64Index([0.0, 1.1, 2.2, 3.3, 4.4], dtype='float64')
+>>> index = Index([0, 1, 2, 3, 4], dtype='int64')
+>>> index = Index([0.0, 1.1, 2.2, 3.3, 4.4], dtype='float64')
 >>> index = Index(['a', 'b', 'c', 'd', 'e'], dtype='object')
 >>> index = DatetimeIndex(['2000-01-01', '2000-01-02', '2000-01-03',
 ...                        '2000-01-04', '2000-01-05'], dtype='datetime64[ns]',
@@ -169,7 +158,7 @@ Int64 Index
 dtype: float64
 >>>
 >>> s.index
-Int64Index([2, -1, 0, 1], dtype='int64')
+Index([2, -1, 0, 1], dtype='int64')
 
 
 
@@ -187,7 +176,7 @@ Float64 Index
 dtype: float64
 >>>
 >>> s.index
-Float64Index([2.2, -1.1, 0.0, 1.1], dtype='float64')
+Index([2.2, -1.1, 0.0, 1.1], dtype='float64')
 
 
 String Index

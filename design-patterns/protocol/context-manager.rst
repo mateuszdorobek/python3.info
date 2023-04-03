@@ -430,7 +430,7 @@ Use Case - 0x07
 >>> from unittest import IsolatedAsyncioTestCase
 >>> import httpx as httpx  # doctest: +SKIP
 >>>
->>> BASE_URL = 'https://python.astrotech.io'
+>>> BASE_URL = 'https://python3.info'
 >>>
 >>>
 >>> async def request(method='GET', path='/', data=None):

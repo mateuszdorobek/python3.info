@@ -130,10 +130,10 @@ Quality Assurance
 * PyLint
 * Black
 * Further Reading: https://dev.astrotech.io/sonarqube/index.html
-* Further Reading: https://python.astrotech.io/devops/ci-cd/tools.html#static-analysis
-* Further Reading: https://python.astrotech.io/devops/ci-cd/code-style.html
-* Further Reading: https://python.astrotech.io/devops/ci-cd/coverage.html
-* Further Reading: https://python.astrotech.io/devops/ci-cd/static-analysis.html
+* Further Reading: https://python3.info/devops/ci-cd/tools.html#static-analysis
+* Further Reading: https://python3.info/devops/ci-cd/code-style.html
+* Further Reading: https://python3.info/devops/ci-cd/coverage.html
+* Further Reading: https://python3.info/devops/ci-cd/static-analysis.html
 
 .. todo:: Further Reading: https://qa.astrotech.io
 .. todo:: Further Reading: https://quality.astrotech.io
@@ -634,7 +634,7 @@ SonarScanner:
 
     * ``sonar-project.properties``
     * Further Reading: https://dev.astrotech.io/sonarqube/sonarscanner.html
-    * Further Reading: https://python.astrotech.io/devops/ci-cd/static-analysis.html
+    * Further Reading: https://python3.info/devops/ci-cd/static-analysis.html
 
     .. code-block:: sh
 

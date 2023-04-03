@@ -4,7 +4,7 @@ pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 
-DATA = 'https://python.astrotech.io/_static/phones.xlsx'
+DATA = 'https://python3.info/_static/phones.xlsx'
 
 MONTHS_PL = ['styczeń', 'luty', 'marzec', 'kwiecień',
              'maj', 'czerwiec', 'lipiec', 'sierpień',

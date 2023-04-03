@@ -258,7 +258,7 @@ Image
 
     from IPython.display import Image
 
-    Image(url="https://python.astrotech.io/_static/favicon.png")
+    Image(url="https://python3.info/_static/favicon.png")
 
 
 YouTube

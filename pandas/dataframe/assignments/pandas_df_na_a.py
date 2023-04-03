@@ -50,7 +50,7 @@ import pandas as pd
 import numpy as np
 
 
-DATA = 'https://python.astrotech.io/_static/iris-dirty.csv'
+DATA = 'https://python3.info/_static/iris-dirty.csv'
 COLUMNS = [
     'Sepal length',
     'Sepal width',

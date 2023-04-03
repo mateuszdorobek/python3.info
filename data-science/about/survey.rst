@@ -41,5 +41,5 @@ Survey
 
 #. PS. Szkolenie będzie prowadzone wg. materiałów zamieszczonych w internecie na stronie:
 
-    * https://python.astrotech.io/
+    * https://python3.info/
 

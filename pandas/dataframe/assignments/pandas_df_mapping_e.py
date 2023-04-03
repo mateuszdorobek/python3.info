@@ -45,7 +45,7 @@ import pandas as pd
 import requests
 
 
-DATA = 'https://python.astrotech.io/_static/openapi.json'
+DATA = 'https://python3.info/_static/openapi.json'
 
 # type: pd.DataFrame
 result = ...

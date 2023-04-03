@@ -221,8 +221,8 @@ Use Case - 0x02
 ...     def post(url, data):
 ...         ...
 >>>
->>> http.get('https://python.astrotech.io')
->>> http.post('https://python.astrotech.io', data={'astronaut': 'Mark Watney'})
+>>> http.get('https://python3.info')
+>>> http.post('https://python3.info', data={'astronaut': 'Mark Watney'})
 
 
 Use Case - 0x03

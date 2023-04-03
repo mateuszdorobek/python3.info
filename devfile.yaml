@@ -11,8 +11,8 @@ metadata:
   version: 1.0.0
   displayName: Python
   description: Python Training Course
-  icon: https://python.astrotech.io/_static/favicon.png
-  website: https://python.astrotech.io
+  icon: https://python3.info/_static/favicon.png
+  website: https://python3.info
   projectType: 'python'
   language: 'python'
   tags: ['Python']

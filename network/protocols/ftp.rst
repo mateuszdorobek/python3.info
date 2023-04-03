@@ -71,7 +71,7 @@ English:
           Run doctests - all must succeed
 
 Polish:
-    1. Pobierz na swój komputer plik :download:`https://python.astrotech.io/_static/favicon.png`
+    1. Pobierz na swój komputer plik :download:`https://python3.info/_static/favicon.png`
     2. Nazwij plik ``imie-nazwisko.png``, gdzie:
 
         a. zamiast ``imie`` wpisz swoje imię

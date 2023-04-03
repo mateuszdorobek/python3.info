@@ -38,7 +38,7 @@ Tests:
 import pandas as pd
 
 
-DATA = 'https://python.astrotech.io/_static/martian-en.csv'
+DATA = 'https://python3.info/_static/martian-en.csv'
 
 
 # Read DATA and parse dates in "born" column

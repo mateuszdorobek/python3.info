@@ -24,7 +24,7 @@ SetUp
 >>> pd.set_option('display.max_rows', 30)
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-en.csv'
+>>> DATA = 'https://python3.info/_static/phones-en.csv'
 >>>
 >>> df = (pd
 ...       .read_csv(DATA, parse_dates=['date'])
@@ -267,7 +267,7 @@ Use Case - 0x01
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-pl.csv'
+>>> DATA = 'https://python3.info/_static/phones-pl.csv'
 >>>
 >>> result = (
 ...     pd
@@ -304,7 +304,7 @@ Use Case - 0x02
 ...     return column.quantile(.75)
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-en.csv'
+>>> DATA = 'https://python3.info/_static/phones-en.csv'
 >>> df = pd.read_csv(DATA, parse_dates=['date'])
 >>> df.drop(columns='index', inplace=True)
 >>>

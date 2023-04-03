@@ -69,13 +69,13 @@ default the behavior of Python console, which prefers less escape characters:
 However HTML and XML uses double quotes to enclose attribute values,
 hence it's better to use single quotes for the string:
 
->>> html = '<a href="https://python.astrotech.io">Python Book</a>'
+>>> html = '<a href="https://python3.info">Python Book</a>'
 >>> html
-'<a href="https://python.astrotech.io">Python Book</a>'
+'<a href="https://python3.info">Python Book</a>'
 >>>
->>> html = "<a href=\"https://python.astrotech.io\">Python Book</a>"
+>>> html = "<a href=\"https://python3.info\">Python Book</a>"
 >>> html
-'<a href="https://python.astrotech.io">Python Book</a>'
+'<a href="https://python3.info">Python Book</a>'
 
 Errors:
 
@@ -83,7 +83,7 @@ Errors:
 Traceback (most recent call last):
 SyntaxError: unterminated string literal (detected at line 1)
 
->>> html = "<a href="https://python.astrotech.io">Python Book</a>"
+>>> html = "<a href="https://python3.info">Python Book</a>"
 Traceback (most recent call last):
 SyntaxError: invalid syntax
 

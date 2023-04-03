@@ -35,7 +35,7 @@ TODO: Doctests
 import pandas as pd
 
 
-DATA = 'https://python.astrotech.io/_static/astro-gender.csv'
+DATA = 'https://python3.info/_static/astro-gender.csv'
 
 # type: pd.DataFrame
 result = ...

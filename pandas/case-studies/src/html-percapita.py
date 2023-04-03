@@ -20,10 +20,10 @@ pd.set_option('display.max_seq_items', 100)
 USD = 1
 
 # PKB = 'https://pl.wikipedia.org/wiki/Lista_pa%C5%84stw_%C5%9Bwiata_wed%C5%82ug_PKB_nominalnego'
-PKB = 'https://python.astrotech.io/_static/percapita-pkb.html'
+PKB = 'https://python3.info/_static/percapita-pkb.html'
 
 # LUDNOSC = 'https://pl.wikipedia.org/wiki/Lista_pa%C5%84stw_%C5%9Bwiata_wed%C5%82ug_liczby_ludno%C5%9Bci'
-LUDNOSC = 'https://python.astrotech.io/_static/percapita-ludnosc.html'
+LUDNOSC = 'https://python3.info/_static/percapita-ludnosc.html'
 
 LUDNOSC_PANSTWA = {
     'Chińska Republika Ludowa': 'Chiny',

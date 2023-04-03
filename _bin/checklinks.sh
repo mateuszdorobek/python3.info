@@ -7,8 +7,8 @@ echo -n > /tmp/pybook.urls
 egrep -h --only-matching --include="*.py" -R -e "https://raw(.*)" $DIR >> /tmp/pybook.urls
 egrep -h --only-matching --include="*.rst" -R -e "https://raw(.*)" $DIR >> /tmp/pybook.urls
 
-egrep -h --only-matching --include="*.py" -R -e "https://python.astrotech.io/_static/(.*)" $DIR >> /tmp/pybook.urls
-egrep -h --only-matching --include="*.rst" -R -e "https://python.astrotech.io/_static/(.*)" $DIR >> /tmp/pybook.urls
+egrep -h --only-matching --include="*.py" -R -e "https://python3.info/_static/(.*)" $DIR >> /tmp/pybook.urls
+egrep -h --only-matching --include="*.rst" -R -e "https://python3.info/_static/(.*)" $DIR >> /tmp/pybook.urls
 
 cat /tmp/pybook.urls \
   |sort \

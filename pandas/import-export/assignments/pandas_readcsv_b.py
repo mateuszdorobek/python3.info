@@ -45,15 +45,16 @@ Tests:
     5        12.45         15.70  malignant
 
     >>> result['label'].value_counts()
+    label
     malignant    22
     benign        3
-    Name: label, dtype: int64
+    Name: count, dtype: int64
 """
 
 import pandas as pd
 
 
-DATA = 'https://python.astrotech.io/_static/breast-cancer.csv'
+DATA = 'https://python3.info/_static/breast-cancer.csv'
 
 COLUMNS = ['mean radius', 'mean texture', 'mean perimeter', 'mean area',
            'mean smoothness', 'mean compactness', 'mean concavity',

@@ -30,7 +30,7 @@ Tests:
 import pandas as pd
 
 
-DATA = 'https://python.astrotech.io/_static/iris.json'
+DATA = 'https://python3.info/_static/iris.json'
 
 
 # Read DATA from JSON

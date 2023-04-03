@@ -10,7 +10,7 @@ SetUp
 
 np.loadtxt()
 ------------
->>> DATA = 'https://python.astrotech.io/_static/iris.csv'
+>>> DATA = 'https://python3.info/_static/iris.csv'
 
 >>> a = np.loadtxt(DATA)
 Traceback (most recent call last):

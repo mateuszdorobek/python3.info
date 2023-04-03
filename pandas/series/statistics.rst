@@ -40,7 +40,7 @@ Count
 2.0    1
 3.0    1
 5.0    1
-dtype: int64
+Name: count, dtype: int64
 
 
 Sum
@@ -183,11 +183,6 @@ Standard deviation:
 .. figure:: img/pandas-series-stats-stdev.png
 
     Standard Deviation
-
-Mean absolute deviation:
-
->>> s.mad()
-1.25
 
 Standard Error of the Mean (SEM):
 

@@ -14,7 +14,7 @@ from bs4 import BeautifulSoup
 import requests
 
 
-DATA = 'https://python.astrotech.io/_static/astro-eva.html'
+DATA = 'https://python3.info/_static/astro-eva.html'
 # DATA = 'https://www.worldspaceflight.com/bios/eva/eva.php'
 
 

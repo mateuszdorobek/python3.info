@@ -122,7 +122,7 @@ Parameter Functions
 ...         on_success(result)
 
 >>> fetch(
-...     url = 'https://python.astrotech.io',
+...     url = 'https://python3.info',
 ...     on_success = lambda resp: print(resp),
 ...     on_error = lambda err: print(err),
 ... )  # doctest: +SKIP
@@ -134,11 +134,11 @@ Parameter Functions
 ...     print(error)
 >>>
 >>>
->>> fetch(url='https://python.astrotech.io')  # doctest: +SKIP
->>> fetch(url='https://python.astrotech.io', on_success=ok)  # doctest: +SKIP
->>> fetch(url='https://python.astrotech.io', on_error=err)  # doctest: +SKIP
->>> fetch(url='https://python.astrotech.io', on_success=ok, on_error=err)  # doctest: +SKIP
->>> fetch(url='https://python.astrotech.io/not-existing', on_error=err)  # doctest: +SKIP
+>>> fetch(url='https://python3.info')  # doctest: +SKIP
+>>> fetch(url='https://python3.info', on_success=ok)  # doctest: +SKIP
+>>> fetch(url='https://python3.info', on_error=err)  # doctest: +SKIP
+>>> fetch(url='https://python3.info', on_success=ok, on_error=err)  # doctest: +SKIP
+>>> fetch(url='https://python3.info/not-existing', on_error=err)  # doctest: +SKIP
 
 
 Use Case - 0x01
@@ -159,7 +159,7 @@ Use Case - 0x02
 ... import pandas as pd
 ...
 ...
-... DATA = 'https://python.astrotech.io/_static/phones-pl.csv'
+... DATA = 'https://python3.info/_static/phones-pl.csv'
 ...
 ... result = (
 ...     pd

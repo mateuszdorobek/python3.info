@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", () => {
 function onFormSubmit() {
     let query = document.getElementById("search-input");
     if (query.value) {
-        query.value += ' site:python.astrotech.io';
+        query.value += ' site:python3.info';
         document.getElementById("search").submit();
         return true;
     }

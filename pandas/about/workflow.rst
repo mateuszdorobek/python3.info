@@ -45,7 +45,7 @@ Working with Excel file
 
 Working with dirty CSV
 ----------------------
->>> DATA = 'https://python.astrotech.io/_static/iris-dirty.csv'
+>>> DATA = 'https://python3.info/_static/iris-dirty.csv'
 >>> COLUMNS = ['sepal_length', 'sepal_width',
 ...            'petal_length', 'petal_width', 'species']
 >>>
@@ -59,7 +59,7 @@ Working with dirty CSV
 
 Working with CSV
 ----------------
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 
 Read data from source:
 
@@ -149,7 +149,7 @@ Hist Plot
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 >>> plot = df.hist()
@@ -166,7 +166,7 @@ Density Plot
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 >>> plot = df.plot(kind='density', subplots=True, layout=(2,2), sharex=False)
@@ -183,7 +183,7 @@ Box Plot
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 >>> plot = df.plot(kind='box', subplots=True, layout=(2,2), sharex=False, sharey=False)
@@ -201,7 +201,7 @@ Scatter matrix
 >>> from pandas.plotting import scatter_matrix
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 >>> plot = scatter_matrix(df)

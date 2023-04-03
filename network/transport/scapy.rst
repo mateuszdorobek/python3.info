@@ -346,7 +346,7 @@ One packet
 
 .. code-block:: python
 
-    ip = IP(dst='python.astrotech.io')
+    ip = IP(dst='python3.info')
     packet = ip / ICMP()
 
     sr(packet)
@@ -364,7 +364,7 @@ Many packets
 
 .. code-block:: python
 
-    ip = IP(dst="python.astrotech.io")
+    ip = IP(dst="python3.info")
     packet = ip / ICMP()
 
     srloop(packet, count=3)
@@ -387,7 +387,7 @@ Scan one port:
 
 .. code-block:: python
 
-    ip = IP(dst="python.astrotech.io")
+    ip = IP(dst="python3.info")
     tcp = TCP(dport=80, flags="S")
 
     sr1(ip/tcp)
@@ -425,7 +425,7 @@ Scan port range:
 
 .. code-block:: python
 
-    ip = IP(dst="python.astrotech.io")
+    ip = IP(dst="python3.info")
     tcp = TCP(sport=666, dport=(440,443), flags="S")
 
     sr(ip/tcp)

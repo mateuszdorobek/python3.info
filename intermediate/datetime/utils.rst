@@ -24,7 +24,7 @@ Time sleep function:
 ...
 ...
 ... for i in range(0, 2):
-...     resp = requests.get('https://python.astrotech.io')
+...     resp = requests.get('https://python3.info')
 ...     delay = randint(0,3)
 ...     sleep(delay)
 

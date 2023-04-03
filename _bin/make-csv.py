@@ -45,7 +45,7 @@ for path in toctree:
 
                 uri = str(path).replace('../', '').replace('.rst', '.html')
                 idx = ''.join(slug.findall(assignment)).lower().replace(' ', '-')
-                url = f'https://python.astrotech.io/{uri}#{idx}'
+                url = f'https://python3.info/{uri}#{idx}'
 
                 result.append({
                     'assignment': assignment, 'updated': updated,

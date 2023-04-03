@@ -13,7 +13,7 @@ Use Case - 0x01
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/astro-trl.xlsx'
+>>> DATA = 'https://python3.info/_static/astro-trl.xlsx'
 >>>
 >>> df = pd.read_excel(
 ...     io=DATA,
@@ -27,7 +27,7 @@ Use Case - 0x02
 >>> import pandas as pd
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/sensors-optima.xlsx'
+>>> DATA = 'https://python3.info/_static/sensors-optima.xlsx'
 >>>
 >>> df = pd.read_excel(
 ...     io=DATA,

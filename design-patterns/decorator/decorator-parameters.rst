@@ -196,7 +196,7 @@ Use Case - 0x05
 ---------------
 File ``settings.py``:
 
->>> BASE_URL = 'https://python.astrotech.io'
+>>> BASE_URL = 'https://python3.info'
 
 File ``utils.py``:
 

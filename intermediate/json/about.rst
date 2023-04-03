@@ -72,7 +72,7 @@ Minified JSON file:
 
 .. code-block:: console
 
-    $ curl https://python.astrotech.io/_static/iris.json
+    $ curl https://python3.info/_static/iris.json
     [{"sepalLength":5.1,"sepalWidth":3.5,"petalLength":1.4,"petalWidth":0.2,
     "species":"setosa"},{"sepalLength":4.9,"sepalWidth":3,"petalLength":1.4,
     "petalWidth":0.2,"species":"setosa"},{"sepalLength":4.7,"sepalWidth":3.2,
@@ -118,7 +118,7 @@ Pretty Printing JSON:
 
 .. code-block:: console
 
-    $ curl https://python.astrotech.io/_static/iris.json |python -m json.tool
+    $ curl https://python3.info/_static/iris.json |python -m json.tool
     [
         {
             "petalLength": 1.4,

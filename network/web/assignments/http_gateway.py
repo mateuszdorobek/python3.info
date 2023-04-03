@@ -95,5 +95,5 @@ if __name__ == '__main__':
 
     http = HTTPGateway(cache)
 
-    html = http.get('https://python.astrotech.io')
+    html = http.get('https://python3.info')
     print(html)

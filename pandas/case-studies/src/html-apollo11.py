@@ -7,7 +7,7 @@ pd.set_option('display.max_rows', 500)
 pd.set_option('display.max_columns', 50)
 
 
-DATA = 'https://python.astrotech.io/_static/apollo11.html'
+DATA = 'https://python3.info/_static/apollo11.html'
 DATABASE = 'apollo11.sqlite3'
 
 

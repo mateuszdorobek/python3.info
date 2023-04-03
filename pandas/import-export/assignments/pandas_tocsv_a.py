@@ -51,7 +51,7 @@ Tests:
 
 import pandas as pd
 
-DATA = 'https://python.astrotech.io/_static/apollo11.html'
+DATA = 'https://python3.info/_static/apollo11.html'
 FILE = r'_temporary.csv'
 
 

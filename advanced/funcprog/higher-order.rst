@@ -68,7 +68,7 @@ Use Case - 0x02
 >>>
 >>>
 >>> http_request(
-...     url = 'https://python.astrotech.io',
+...     url = 'https://python3.info',
 ...     on_success = lambda result: print(result),
 ...     on_error = lambda error: print(error))
 Ellipsis

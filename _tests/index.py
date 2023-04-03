@@ -1,7 +1,7 @@
 from unittest import IsolatedAsyncioTestCase
 import httpx as httpx
 
-BASE_URL = 'https://python.astrotech.io'
+BASE_URL = 'https://python3.info'
 
 
 async def request(method='GET', path='/', data=None):

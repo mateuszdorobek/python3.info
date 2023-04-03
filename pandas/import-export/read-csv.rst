@@ -14,13 +14,13 @@ SetUp
 
 Header
 ------
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> header = pd.read_csv(DATA, nrows=0).columns
 
 Label Encoder:
 
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> header = pd.read_csv(DATA, nrows=0)
 >>> nrows, ncols, *class_labels = header.columns
@@ -29,7 +29,7 @@ Label Encoder:
 
 Content
 -------
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 >>> df.head(3)
@@ -41,7 +41,7 @@ Content
 
 Rename Columns
 --------------
->>> DATA = 'https://python.astrotech.io/_static/iris-dirty.csv'
+>>> DATA = 'https://python3.info/_static/iris-dirty.csv'
 >>>
 >>> COLUMNS =  ['sepal_length', 'sepal_width',
 ...             'petal_length', 'petal_width', 'species']
@@ -84,7 +84,7 @@ Compressed
 
 Use Case - 0x01
 ---------------
->>> DATA = 'https://python.astrotech.io/_static/iris-dirty.csv'
+>>> DATA = 'https://python3.info/_static/iris-dirty.csv'
 >>>
 >>> COLUMNS =  ['sepal_length', 'sepal_width',
 ...             'petal_length', 'petal_width', 'species']
@@ -109,7 +109,7 @@ Use Case - 0x01
 
 Use Case - 0x02
 ---------------
->>> DATA = 'https://python.astrotech.io/_static/martian-en.csv'
+>>> DATA = 'https://python3.info/_static/martian-en.csv'
 
 >>> pd.read_csv(DATA)
   firstname   lastname              born  gender          ssn                email               phone

@@ -46,7 +46,7 @@ import numpy as np
 np.random.seed(0)
 
 
-DATA = 'https://python.astrotech.io/_static/astro-database.csv'
+DATA = 'https://python3.info/_static/astro-database.csv'
 
 # type: pd.DataFrame
 result = ...

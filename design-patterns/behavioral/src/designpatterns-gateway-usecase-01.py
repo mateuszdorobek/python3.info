@@ -85,6 +85,6 @@ if __name__ == '__main__':
     # cache = LocmemCache(expiration=timedelta(minutes=2))
 
     http = HTTPGateway(cache=cache)
-    html = http.get('https://python.astrotech.io')
+    html = http.get('https://python3.info')
 
     print(html)

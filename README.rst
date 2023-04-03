@@ -8,7 +8,7 @@ Python 3: From None to Machine Learning
 :Language: English
 :ISBN: 978-83-957186-2-5
 :Year: 2015-2022
-:Online Access: https://python.astrotech.io
+:Online Access: https://python3.info
 :License: Creative Commons Attribution-ShareAlike 4.0 International License
 
 
@@ -25,13 +25,12 @@ Author
     "github", "https://github.com/astromatt"
     "linkedin", "https://linkedin.com/in/mattharasymczuk"
     "facebook", "https://facebook.com/matt.harasymczuk"
-    "slideshare", "https://www.slideshare.net/astrotech/presentations"
 
 .. csv-table:: Other Books from Author. Learn more at https://www.astronaut.center/books
     :widths: 25, 20, 55
     :header: "ISBN", "Online Access", "Title"
 
-    "978-83-957186-2-5", "https://python.astrotech.io", "Python 3: from None to Machine Learning"
+    "978-83-957186-2-5", "https://python3.info", "Python 3: from None to Machine Learning"
     "978-83-957186-3-2", "https://dev.astrotech.io", "The Software Engineering: DevOps, CI/CD, Docker, Provisioning and Git Flow"
     "978-83-957186-0-1", "https://www.astronaut.pl", "Astronaut Selection and Training for Long Duration Spaceflight and Extraterrestrial Activity"
     "978-83-956752-0-1", "https://www.astronaut.center/books", "Space in Practice: How to Prepare and Conduct Stratospheric Balloon Mission"

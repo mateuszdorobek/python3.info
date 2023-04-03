@@ -1,7 +1,7 @@
 User Create
 ===========
-* https://python.astrotech.io/database/sqlalchemy/model-define.html
-* https://python.astrotech.io/database/sqlalchemy/model-column.html
+* https://python3.info/database/sqlalchemy/model-define.html
+* https://python3.info/database/sqlalchemy/model-column.html
 
 
 Example

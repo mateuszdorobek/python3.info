@@ -19,9 +19,9 @@ pd.set_option('display.max_rows', 100)
 #DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
 #RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
 
-CONFIRMED = 'https://python.astrotech.io/_static/covid19-confirmed.csv'
-DEATHS = 'https://python.astrotech.io/_static/covid19-deaths.csv'
-RECOVERED = 'https://python.astrotech.io/_static/covid19-recovered.csv'
+CONFIRMED = 'https://python3.info/_static/covid19-confirmed.csv'
+DEATHS = 'https://python3.info/_static/covid19-deaths.csv'
+RECOVERED = 'https://python3.info/_static/covid19-recovered.csv'
 
 
 #%% Data Frames

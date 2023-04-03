@@ -218,7 +218,7 @@ SetUp
 >>> import matplotlib.pyplot as plt
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/iris-clean.csv'
+>>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
 >>> df = pd.read_csv(DATA)
 

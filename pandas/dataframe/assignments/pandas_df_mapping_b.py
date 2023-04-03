@@ -47,7 +47,7 @@ Tests:
 import pandas as pd
 
 
-DATA = 'https://python.astrotech.io/_static/martian-pl.csv'
+DATA = 'https://python3.info/_static/martian-pl.csv'
 MONTHS_PLEN = {'styczeń': 'January',
                'luty': 'February',
                'marzec': 'March',

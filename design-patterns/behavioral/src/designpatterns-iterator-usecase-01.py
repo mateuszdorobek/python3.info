@@ -25,7 +25,7 @@ class Browser:
 
 if __name__ == '__main__':
     browser = Browser()
-    browser.open('https://python.astrotech.io')
+    browser.open('https://python3.info')
     browser.open('https://numpy.astrotech.io')
     browser.open('https://pandas.astrotech.io')
     browser.open('https://design-patterns.astrotech.io')
@@ -33,7 +33,7 @@ if __name__ == '__main__':
     for url in browser:
         print(url)
 
-# https://python.astrotech.io
+# https://python3.info
 # https://numpy.astrotech.io
 # https://pandas.astrotech.io
 # https://design-patterns.astrotech.io

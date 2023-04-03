@@ -16,9 +16,9 @@ PROCENT = 1
 # RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
 # DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
 
-CONFIRMED = 'https://python.astrotech.io/_static/covid19-confirmed.csv'
-RECOVERED = 'https://python.astrotech.io/_static/covid19-recovered.csv'
-DEATHS = 'https://python.astrotech.io/_static/covid19-deaths.csv'
+CONFIRMED = 'https://python3.info/_static/covid19-confirmed.csv'
+RECOVERED = 'https://python3.info/_static/covid19-recovered.csv'
+DEATHS = 'https://python3.info/_static/covid19-deaths.csv'
 
 
 confirmed = pd.read_csv(CONFIRMED).convert_dtypes()
@@ -97,7 +97,6 @@ def _parse(data, country, name):
         .rename(lambda x: name, axis='columns')
         .rename(pd.to_datetime, axis='index'))
 
-run_tests()
 
 #%%
 def get(country=None):
@@ -144,7 +143,6 @@ def get(country=None):
        _parse(deaths, country, name='deaths'),
     ), axis='columns')
 
-run_tests()
 
 #%%
 

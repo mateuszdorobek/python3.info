@@ -242,7 +242,7 @@ Czy dostanę materiały do szkolenia?
 Materiały do szkolenia są dostępne przed szkoleniem, a także po jego
 zakończeniu. Ze względu na niemalże codzienne aktualizacje oraz objętość
 (około 4700 stron przy eksporcie do PDF) materiały są dostępne wyłącznie
-online na stronie https://python.astrotech.io
+online na stronie https://python3.info
 
 
 Jaką jakość mają materiały?

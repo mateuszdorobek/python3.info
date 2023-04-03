@@ -20,7 +20,7 @@ Basic DNS queries
     import dns.resolver
 
 
-    name = 'python.astrotech.io'
+    name = 'python3.info'
 
     answer = dns.resolver.query(name, 'MX')
     print(answer.rrset)
@@ -29,7 +29,7 @@ Basic DNS queries
 
     import dns.resolver
 
-    name = 'python.astrotech.io'
+    name = 'python3.info'
     answer = dns.resolver.query(name, 'MX')
 
     print(answer.canonical_name)
@@ -40,7 +40,7 @@ Basic DNS queries
 
     print(answer.response.answer)
     # [
-    #   <DNS python.astrotech.io. IN CNAME RRset>,
+    #   <DNS python3.info. IN CNAME RRset>,
     #   <DNS readthedocs.io. IN MX RRset>
     # ]
 
@@ -67,7 +67,7 @@ Basic DNS queries
     import dns.resolver
 
 
-    name = 'python.astrotech.io'
+    name = 'python3.info'
     records = ['A', 'AAAA', 'MX', 'NS', 'TXT', 'SOA']
 
 

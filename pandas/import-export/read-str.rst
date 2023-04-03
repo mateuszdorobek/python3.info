@@ -37,7 +37,7 @@ Example
 >>> import requests
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/astro-order.csv'
+>>> DATA = 'https://python3.info/_static/astro-order.csv'
 >>>
 >>> resp = requests.get(DATA)
 >>> data = StringIO(resp.text)

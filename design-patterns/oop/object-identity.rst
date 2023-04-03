@@ -593,7 +593,7 @@ Use Case - 0x05
 ---------------
 * Overload
 * Could be implemented through ``from functools import singledispatchmethod``
-* More information: https://python.astrotech.io/advanced/funcprog/functools.html#singledispatchmethod
+* More information: https://python3.info/advanced/funcprog/functools.html#singledispatchmethod
 
 >>> # doctest: +SKIP
 ... from functools import singledispatchmethod

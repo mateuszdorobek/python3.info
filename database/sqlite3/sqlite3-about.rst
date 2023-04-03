@@ -89,4 +89,4 @@ SQLite shell. Type .quit or CTRL-D to exit the shell.
 
 References
 ----------
-.. [#pybookinstall] https://python.astrotech.io/install.html
+.. [#pybookinstall] https://python3.info/install.html

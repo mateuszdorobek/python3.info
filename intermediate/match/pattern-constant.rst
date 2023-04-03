@@ -19,7 +19,7 @@ Usage:
 ...     REDIRECT = 300
 ...     SERVER_ERROR = 500
 >>>
->>> resp = requests.get('https://python.astrotech.io')
+>>> resp = requests.get('https://python3.info')
 >>>
 >>> match resp.status_code:
 ...     case HTTPStatus.OK:             print('ok')
@@ -35,7 +35,7 @@ Use Case - 0x01
 >>> import requests
 >>>
 >>>
->>> resp = requests.get('https://python.astrotech.io')
+>>> resp = requests.get('https://python3.info')
 >>>
 >>> match resp.status_code:
 ...     case HTTPStatus.OK:             print('ok')

@@ -70,13 +70,13 @@ Dependency injection:
         memory = CacheMemory(expiration=timedelta(hours=2))
 
         http1 = HTTP(_cache=database)
-        http1.get('https://python.astrotech.io')
+        http1.get('https://python3.info')
 
         http2 = HTTP(_cache=filesystem)
-        http2.get('https://python.astrotech.io')
+        http2.get('https://python3.info')
 
         http3 = HTTP(_cache=memory)
-        http3.get('https://python.astrotech.io')
+        http3.get('https://python3.info')
 
 
 .. code-block:: python
@@ -185,7 +185,7 @@ Dependency injection:
         cache = CacheFilesystem(location="/tmp/cache/", expiration=timedelta(seconds=1))
         http = HTTPGateway(cache)
 
-        URL = 'https://python.astrotech.io/_static/iris-clean.csv'
+        URL = 'https://python3.info/_static/iris-clean.csv'
         data = http.get(URL)
         print(data)
 

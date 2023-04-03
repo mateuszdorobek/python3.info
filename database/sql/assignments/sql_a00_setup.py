@@ -21,7 +21,7 @@ from urllib.request import urlopen
 from pathlib import Path
 
 
-DATA = 'https://python.astrotech.io/_static/space.db'
+DATA = 'https://python3.info/_static/space.db'
 database = Path('sql.db')
 
 

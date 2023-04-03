@@ -25,7 +25,7 @@ Read SQL
 >>> import requests
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/apollo11.db'
+>>> DATA = 'https://python3.info/_static/apollo11.db'
 >>> DATABASE = '/tmp/apollo11.db'
 >>>
 >>> SQL = """

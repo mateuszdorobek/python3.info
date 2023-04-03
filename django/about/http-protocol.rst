@@ -66,10 +66,10 @@ Request
     Connection: keep-alive
     Cookie: _ga=GA1.2.1711323714.1523218102; csrftoken=CwTmac4VUT7FcyFAEKkIXWCxQurIZVbU
     DNT: 1
-    Host: python.astrotech.io
+    Host: python3.info
     If-Modified-Since: Wed, 13 Jun 2018 00:15:11 GMT
     If-None-Match: W/"5b20620f-60e2"
-    Referer: https://python.astrotech.io/django/django-apps.html
+    Referer: https://python3.info/django/django-apps.html
     Upgrade-Insecure-Requests: 1
     User-Agent: Mozilla/5.0 (Windows NT 6.1; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/66.0.3359.181 Safari/537.36
 

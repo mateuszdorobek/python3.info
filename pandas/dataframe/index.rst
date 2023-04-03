@@ -34,21 +34,8 @@ Deprecation
           possible to easily determine the "successor" or next element after
           a particular label in an index. [#pdDocAdvanced]_
 
-.. warning:: Int64Index, UInt64Index and Float64Index have been deprecated in
-             favor of the base Index class and will be removed in Pandas 2.0
-             [#pd14releasenotes]_
-
-Replace:
-
->>> pd.Int64Index([1, 2, 3])
-Int64Index([1, 2, 3], dtype='int64')
-
-With:
-
 >>> pd.Index([1, 2, 3], dtype='int64')
-Int64Index([1, 2, 3], dtype='int64')
-
-More Information: https://pandas.pydata.org/pandas-docs/dev/user_guide/advanced.html#index-types
+Index([1, 2, 3], dtype='int64')
 
 
 Range Index
@@ -86,7 +73,7 @@ Integer Index
 66  12  13  14  15
 >>>
 >>> df.index
-Int64Index([99, 88, 77, 66], dtype='int64')
+Index([99, 88, 77, 66], dtype='int64')
 
 
 Object Index
@@ -177,7 +164,7 @@ Use Case - 0x01
 ...     return column.quantile(.75)
 >>>
 >>>
->>> DATA = 'https://python.astrotech.io/_static/phones-en.csv'
+>>> DATA = 'https://python3.info/_static/phones-en.csv'
 >>> df = pd.read_csv(DATA, parse_dates=['date'])
 >>> df.drop(columns='index', inplace=True)
 >>>

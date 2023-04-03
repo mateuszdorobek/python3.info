@@ -9,7 +9,7 @@ English:
 
 Polish:
     1. Użyj bazy danych `space.db`
-       Pobieranie: https://python.astrotech.io/_static/space.db
+       Pobieranie: https://python3.info/_static/space.db
     2. Użyj SQLAlchemy Core do wykonania zapytań
 """
 

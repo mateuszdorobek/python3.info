@@ -35,7 +35,7 @@ Timestamp('1969-12-04 18:07:00')
 
 >>> pd.Timestamp('2016-12-31 23:59:60')
 Traceback (most recent call last):
-ValueError: could not convert string to Timestamp
+pandas._libs.tslibs.parsing.DateParseError: second must be in 0..59: 2016-12-31 23:59:60
 
 
 Period

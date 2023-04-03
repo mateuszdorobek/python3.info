@@ -259,13 +259,13 @@ Use Case - 0x03
 >>>
 >>>
 >>> fetch(
-...     url='https://python.astrotech.io',
+...     url='https://python3.info',
 ...     on_success=handle_result,
 ...     on_error=handle_error,
 ... )  # doctest: +SKIP
 
 >>> fetch(
-...     url='https://python.astrotech.io',
+...     url='https://python3.info',
 ...     on_success=lambda result: print(result),
 ...     on_error=lambda error: print(error),
 ... )  # doctest: +SKIP

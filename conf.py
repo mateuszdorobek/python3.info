@@ -1,5 +1,5 @@
 project = 'Python: From None to Machine Learning'
-html_baseurl = 'https://python.astrotech.io'
+html_baseurl = 'https://python3.info'
 author = 'Matt Harasymczuk'
 email = 'matt@astrotech.io'
 

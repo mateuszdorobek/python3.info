@@ -1,6 +1,6 @@
 import pandas as pd
 
-DATA = 'https://python.astrotech.io/_static/espn-standing.html'
+DATA = 'https://python3.info/_static/espn-standing.html'
 # DATA = 'https://www.espn.com/nba/standings/_/group/league'
 
 tables = pd.read_html(DATA)

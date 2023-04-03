@@ -17,7 +17,7 @@ MONTH = 30.4375 * DAY
 YEAR = 365.25 * DAY
 
 # DATA = 'https://en.wikipedia.org/wiki/European_Astronaut_Corps'
-DATA = 'https://python.astrotech.io/_static/european-astronaut-corps.html'
+DATA = 'https://python3.info/_static/european-astronaut-corps.html'
 
 
 def duration(between):

@@ -213,7 +213,7 @@ Use Case - 0x06
 ---------------
 >>> import requests
 >>>
->>> url = 'https://python.astrotech.io/_static/iris-dirty.csv'
+>>> url = 'https://python3.info/_static/iris-dirty.csv'
 >>>
 >>> data = requests.get(url).text
 >>> header, *rows = data.splitlines()
@@ -313,7 +313,7 @@ Use Case - 0x08
 ... import pandas as pd
 ...
 ...
-... DATA = 'https://python.astrotech.io/_static/phones-pl.csv'
+... DATA = 'https://python3.info/_static/phones-pl.csv'
 ...
 ... result = (
 ...     pd
