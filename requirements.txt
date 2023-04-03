@@ -1,4 +1,4 @@
-
+sphinx-sitemap
 # atlassian-python-api
 # black
 # coverage
@@ -59,7 +59,7 @@ pytz
 redis
 requests
 scipy
-sphinx==5.3.*
+sphinx==6.1.*
 sphinx_rtd_theme
 sphinxcontrib-bibtex
 sqlalchemy
