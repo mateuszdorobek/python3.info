@@ -60,7 +60,6 @@ requests
 scipy
 sphinx==6.1.*
 sphinx-rtd-theme
-sphinxcontrib-bibtex
 sqlalchemy
 uvicorn[standard]
 xlrd

@@ -1,32 +1,35 @@
-.. include:: ../README.rst
-
-
-About
-*****
+Paradigm
+********
 .. toctree::
     :maxdepth: 1
+    :caption: Paradigm
 
-    ../LICENSE.rst
-    ../install.rst
-
-
-Object Oriented Programming
-***************************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Object Oriented Programming
-
-    _index.rst
+    polymorphism.rst
+    interface.rst
+    str-interning.rst
+    dependency-injection.rst
+    good-practices.rst
 
 
-Appendixes
-**********
+Python
+******
 .. toctree::
     :maxdepth: 1
+    :caption: Python
 
-    ../about/progress.rst
-    ../about/references.rst
-    ../about/survey.rst
-    ../about/history.rst
-    ../about/further-reading.rst
+    method-resolution-order.rst
+    namespace.rst
+    new-style-classes.rst
+    hash.rst
+    slots.rst
+    metaclass.rst
+
+
+Dynamic Typing
+**************
+.. toctree::
+    :maxdepth: 1
+    :caption: Dynamic Typing
+
+    dynamic-typing.rst
+    monkey-patching.rst

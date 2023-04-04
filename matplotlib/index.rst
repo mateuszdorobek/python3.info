@@ -1,32 +1,72 @@
-.. include:: ../README.rst
-
-
 About
 *****
 .. toctree::
     :maxdepth: 1
-
-    ../LICENSE.rst
-    ../install.rst
-
-
-Matplotlib
-**********
-.. toctree::
-    :maxdepth: 2
-    :numbered:
     :caption: Matplotlib
 
-    _index.rst
+    about.rst
 
 
-Appendixes
-**********
+Figure
+******
 .. toctree::
     :maxdepth: 1
+    :caption: Matplotlib
 
-    ../about/progress.rst
-    ../about/references.rst
-    ../about/survey.rst
-    ../about/history.rst
-    ../about/further-reading.rst
+    plots.rst
+    subplots.rst
+    styling.rst
+    scales.rst
+    config.rst
+    interactive.rst
+    import-export.rst
+
+
+Style
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Matplotlib
+
+    style-intro.rst
+    style-basic.rst
+
+
+Chart
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Matplotlib
+
+    chart-plot.rst
+    chart-scatter.rst
+    chart-bar.rst
+    chart-histogram.rst
+    chart-box.rst
+    chart-stacked.rst
+    chart-pie.rst
+    chart-3d.rst
+
+
+Advanced
+********
+.. toctree::
+    :maxdepth: 1
+    :caption: Matplotlib
+
+    style-advanced.rst
+    customization.rst
+    multiple-figures.rst
+    animation.rst
+
+
+Recap
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Matplotlib
+
+    example.rst
+    lifecycle.rst
+    case-studies.rst
+    assignments.rst

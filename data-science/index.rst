@@ -1,32 +1,62 @@
-.. include:: ../README.rst
-
-
 About
 *****
 .. toctree::
     :maxdepth: 1
+    :caption: About
 
-    ../LICENSE.rst
-    ../install.rst
-
-
-Data Science
-************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Data Science
-
-    _index.rst
+    about/description.rst
+    about/program.rst
+    about/agenda.rst
+    about/certificate.rst
+    about/survey.rst
 
 
-Appendixes
-**********
+Jupyter
+*******
 .. toctree::
     :maxdepth: 1
+    :caption: Jupyter
 
-    ../about/progress.rst
-    ../about/references.rst
-    ../about/survey.rst
-    ../about/history.rst
-    ../about/further-reading.rst
+    jupyter/index.rst
+
+
+Python
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Introduction
+
+    python/syntax.rst
+    python/types.rst
+    python/sequences.rst
+    python/mappings.rst
+    python/conditionals.rst
+    python/looping.rst
+    python/control-flow.rst
+    python/functions.rst
+    python/oop.rst
+    python/packages.rst
+    python/math.rst
+    python/serialization.rst
+    python/performance.rst
+
+
+Data Visualization
+******************
+.. toctree::
+    :maxdepth: 1
+    :caption: Data Visualization
+
+    visualization/plotly.rst
+    visualization/bokeh.rst
+    visualization/seaborn.rst
+    visualization/graphs.rst
+
+
+Scipy
+*****
+.. toctree::
+    :maxdepth: 1
+    :caption: Scipy
+
+    scipy/index.rst

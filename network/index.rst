@@ -1,39 +1,59 @@
-.. include:: ../README.rst
-
-
 About
 *****
 .. toctree::
     :maxdepth: 1
+    :caption: About
 
-    ../LICENSE.rst
-    ../install.rst
-
-
-Network and HTTP
-****************
-.. toctree::
-    :maxdepth: 2
-    :numbered:
-    :caption: Network and HTTP
-
-    _index.rst
+    about/entrytest.rst
+    about/agenda.rst
+    about/certificate.rst
 
 
-Appendixes
-**********
+Protocols
+*********
 .. toctree::
     :maxdepth: 1
+    :caption: Protocols
 
-    ../about/progress.rst
-    ../about/references.rst
-    ../about/survey.rst
-    ../about/history.rst
-    ../about/further-reading.rst
+    protocols/ftp.rst
+    protocols/imap.rst
+    protocols/smtp.rst
+    protocols/pop3.rst
+    protocols/ldap.rst
+    protocols/ssh.rst
+    protocols/dns.rst
 
 
-References
-**********
-.. bibliography:: references.bib
-    :labelprefix: Network
-    :cited:
+Web
+***
+.. toctree::
+    :maxdepth: 1
+    :caption: Web
+
+    web/stdlib.rst
+    web/requests.rst
+    web/scrapping.rst
+    web/frameworks.rst
+    web/fastapi.rst
+    web/jinja.rst
+    web/paas.rst
+    web/async.rst
+    web/soap-wsdl.rst
+
+
+Transport
+*********
+.. toctree::
+    :maxdepth: 1
+    :caption: Transport
+
+    transport/osi-model.rst
+    transport/interfaces.rst
+    transport/routing.rst
+    transport/socket.rst
+    transport/ssl.rst
+    transport/ip.rst
+    transport/tcp-udp.rst
+    transport/scapy.rst
+    transport/libraries.rst
+    transport/botnet.rst

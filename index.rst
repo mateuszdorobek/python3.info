@@ -57,7 +57,7 @@ Python Basics
     :numbered:
     :caption: Python Basics
 
-    basics/_index.rst
+    basics/index.rst
 
 
 Python Intermediate
@@ -67,7 +67,7 @@ Python Intermediate
     :numbered:
     :caption: Python Intermediate
 
-    intermediate/_index.rst
+    intermediate/index.rst
 
 
 Python Advanced
@@ -77,7 +77,7 @@ Python Advanced
     :numbered:
     :caption: Python Advanced
 
-    advanced/_index.rst
+    advanced/index.rst
 
 
 Database
@@ -87,7 +87,7 @@ Database
     :numbered:
     :caption: Database
 
-    database/_index.rst
+    database/index.rst
 
 
 Design Patterns
@@ -97,7 +97,7 @@ Design Patterns
     :numbered:
     :caption: Design Patterns
 
-    design-patterns/_index.rst
+    design-patterns/index.rst
 
 
 Numpy
@@ -107,7 +107,7 @@ Numpy
     :numbered:
     :caption: Numpy
 
-    numpy/_index.rst
+    numpy/index.rst
 
 
 Pandas
@@ -117,7 +117,7 @@ Pandas
     :numbered:
     :caption: Pandas
 
-    pandas/_index.rst
+    pandas/index.rst
 
 
 Matplotlib
@@ -127,7 +127,7 @@ Matplotlib
     :numbered:
     :caption: Matplotlib
 
-    matplotlib/_index.rst
+    matplotlib/index.rst
 
 
 Stdlib
@@ -137,7 +137,7 @@ Stdlib
     :numbered:
     :caption: Stdlib
 
-    stdlib/_index.rst
+    stdlib/index.rst
 
 
 DevOps
@@ -147,7 +147,7 @@ DevOps
     :numbered:
     :caption: DevOps
 
-    devops/_index.rst
+    devops/index.rst
 
 
 Network
@@ -157,7 +157,7 @@ Network
     :numbered:
     :caption: Network
 
-    network/_index.rst
+    network/index.rst
 
 
 HTTP and Microservices
@@ -167,7 +167,7 @@ HTTP and Microservices
     :numbered:
     :caption: HTTP and Microservices
 
-    http/_index.rst
+    http/index.rst
 
 
 Django
@@ -177,7 +177,7 @@ Django
     :numbered:
     :caption: Django
 
-    django/_index.rst
+    django/index.rst
 
 
 FastAPI
@@ -187,7 +187,7 @@ FastAPI
     :numbered:
     :caption: FastAPI
 
-    fastapi/_index.rst
+    fastapi/index.rst
 
 
 Data Science
@@ -197,7 +197,7 @@ Data Science
     :numbered:
     :caption: Data Science
 
-    data-science/_index.rst
+    data-science/index.rst
 
 
 Machine Learning
@@ -207,7 +207,7 @@ Machine Learning
     :numbered:
     :caption: Machine Learning
 
-    machine-learning/_index.rst
+    machine-learning/index.rst
 
 
 Object Oriented Programming
@@ -217,7 +217,7 @@ Object Oriented Programming
     :numbered:
     :caption: Object Oriented Programming
 
-    oop/_index.rst
+    oop/index.rst
 
 
 Blogposts

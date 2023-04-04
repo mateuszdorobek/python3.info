@@ -72,11 +72,10 @@ extensions = [
     'sphinx.ext.mathjax',
     'sphinx.ext.todo',
     # 'sphinx.ext.viewcode',
-    'sphinxcontrib.bibtex',
     'sphinx_rtd_theme',
     # 'recommonmark',
     # 'nbsphinx',
-    'sitemap',
+    'sitemap',  # matt
 ]
 
 source_suffix = {
