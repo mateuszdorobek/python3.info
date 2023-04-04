@@ -27,8 +27,7 @@ html_static_path = [
 
 bibtex_bibfiles = [
     'network/references.bib',
-    'numpy/references.bib',
-    'intermediate/references.bib',]
+    'numpy/references.bib']
 
 # -- Standard book config -----------------------------------------------------
 import os
@@ -80,6 +79,7 @@ extensions = [
     'sphinxcontrib.bibtex',
     # 'recommonmark',
     # 'nbsphinx',
+    'sitemap',
 ]
 
 source_suffix = {
