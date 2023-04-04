@@ -170,7 +170,3 @@ Assignments
 .. literalinclude:: assignments/idiom_filter_a.py
     :caption: :download:`Solution <assignments/idiom_filter_a.py>`
     :end-before: # Solution
-
-.. literalinclude:: assignments/idiom_filter_b.py
-    :caption: :download:`Solution <assignments/idiom_filter_b.py>`
-    :end-before: # Solution

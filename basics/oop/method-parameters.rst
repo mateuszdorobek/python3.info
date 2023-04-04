@@ -35,7 +35,7 @@ Without Parameters
 
 
 Required Parameters
------------------
+-------------------
 * At definition - ``self`` should always be a first parameter
 * Later you will learn more advanced things like static methods etc.
 * Parameter - Receiving variable used within the function

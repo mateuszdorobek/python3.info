@@ -3,7 +3,7 @@ html_baseurl = 'https://devops.astrotech.io'
 author = 'Matt Harasymczuk'
 email = 'matt@astrotech.io'
 
-needs_sphinx = '5.3'
+needs_sphinx = '6.1'
 project_language = 'en'
 html_theme = 'sphinx_rtd_theme'
 pygments_style = 'stata-dark'

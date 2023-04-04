@@ -238,9 +238,9 @@ Dragon
     :caption: Dragon
 
     dragon/dragon-about.rst
-    dragon/dragon-version-v1.rst
-    dragon/dragon-version-v2.rst
-    dragon/dragon-version-v3.rst
+    dragon/dragon-v1.rst
+    dragon/dragon-v2.rst
+    dragon/dragon-v3.rst
     dragon/adr-about.rst
     dragon/adr-usecase.rst
     dragon/adr-init-name.rst
