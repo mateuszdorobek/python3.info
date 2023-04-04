@@ -14,7 +14,7 @@ logger = getLogger(__name__)
 def setup(app: Sphinx) -> dict[str, Any]:
     """
     Sphinx extension setup function.
-    It adds config values and connects Sphinx events to the sitemap builder.
+    It adds config values and connects Sphinx events to the extension.
     :param app: The Sphinx Application instance
     :return: A dict of Sphinx extension options
     """
@@ -24,14 +24,12 @@ def setup(app: Sphinx) -> dict[str, Any]:
     except BaseException:
         pass
     return {
-        "parallel_read_safe": True,
-        "parallel_write_safe": True,
         "version": __version__,
     }
 
 def on_finish(app: Sphinx, exception):
     """
-    Generates the sitemap.xml from the collected HTML page links.
+    Generates the sitemap.xml from the collected `*.rst` files.
     :param app: The Sphinx Application instance
     """
     SITEMAP_FILE = f'{app.outdir}/sitemap1.xml'
@@ -46,7 +44,7 @@ def on_finish(app: Sphinx, exception):
     sitemap = Path(SITEMAP_FILE).open(mode='a')
     sitemap.write('<?xml version="1.0" encoding="UTF-8"?>\n')
     sitemap.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
-    for file in Path().rglob('*.rst'):
+    for i, file in enumerate(Path().rglob('*.rst'), start=1):
         path = str(file).replace('.rst', '.html')
         if path == 'index.html':
             priority = '1.0'
@@ -61,4 +59,4 @@ def on_finish(app: Sphinx, exception):
         sitemap.write(row)
     sitemap.write('\n</urlset>\n')
     sitemap.close()
-    logger.info(f'Sitemap generated: {SITEMAP_FILE}')
+    logger.info(f'\nSitemap with {i} entries generated\n: {SITEMAP_FILE}\n')
