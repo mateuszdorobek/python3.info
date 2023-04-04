@@ -59,7 +59,7 @@ redis
 requests
 scipy
 sphinx==6.1.*
-sphinx_rtd_theme
+sphinx-rtd-theme
 sphinxcontrib-bibtex
 sqlalchemy
 uvicorn[standard]
