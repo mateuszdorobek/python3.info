@@ -234,7 +234,7 @@ html_context = globals().get('html_context', {})
 html_static_path = globals().get('html_static_path', [])
 
 if os.path.isfile('_static/img/favicon.png'):
-    html_favicon = '_static/img/favicon.png'
+    html_favicon = '/_static/img/favicon.png'
 elif os.path.isfile('../_static/img/favicon.png'):
     html_favicon = '../_static/img/favicon.png'
 
@@ -246,30 +246,30 @@ elif os.path.isdir('../_static'):
 if html_theme == 'sphinx_rtd_theme':
     html_context.update({
         'css_files': [
-            '_static/css/dark.css',
-            '_static/css/print.css'],
+            '/_static/css/dark.css',
+            '/_static/css/print.css'],
         'script_files': [
-            '_static/js/jquery.min.js',
-            '_static/js/admonition-important.js',
-            '_static/js/assignment-numbers.js',
-            '_static/js/menu-search.js',
-            '_static/js/menu-autonumber.js',
-            '_static/js/menu-cite.js',
-            '_static/js/menu-donatebutton.js',
-            '_static/js/menu-futherreading.js',
-            '_static/js/copybutton.js',
-            '_static/js/code-editable.js',
+            '/_static/js/jquery.min.js',
+            '/_static/js/admonition-important.js',
+            '/_static/js/assignment-numbers.js',
+            '/_static/js/menu-search.js',
+            '/_static/js/menu-autonumber.js',
+            '/_static/js/menu-cite.js',
+            '/_static/js/menu-donatebutton.js',
+            '/_static/js/menu-futherreading.js',
+            '/_static/js/copybutton.js',
+            '/_static/js/code-editable.js',
             mathjax_path]})
 
 if 'script_files' not in html_context:
     html_context['script_files'] = []
 
 if 'html_menu_autohide' in globals() and html_menu_autohide is True:
-    html_context['script_files'].append('_static/js/menu-autohide.js')
+    html_context['script_files'].append('/_static/js/menu-autohide.js')
 
 if html_theme == 'thesis':
     html_context.update({
-        'css_files': ['_static/theme-overrides.css'],
+        'css_files': ['/_static/theme-overrides.css'],
         'script_files': [mathjax_path]})
 
 latex_documents = [('index', f'{project_slug}.tex', project, author, latex_documentclass)]
