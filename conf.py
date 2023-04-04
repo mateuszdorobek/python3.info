@@ -124,9 +124,9 @@ if 'nbsphinx' in extensions:
 
 if 'sphinx_sitemap' in extensions:
     # https://sphinx-sitemap.readthedocs.io/en/latest/index.html
-    sitemap_url_scheme = '{link}'
-    sitemap_filename = 'sitemap.xml'
-    sitemap_locales = [None]
+    # sitemap_url_scheme = '{link}'
+    # sitemap_filename = 'sitemap.xml'
+    # sitemap_locales = [None]
     html_extra_path = ['robots.txt']
 
 if 'sphinxcontrib.bibtex' in extensions:
