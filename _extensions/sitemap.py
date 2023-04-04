@@ -34,7 +34,7 @@ def on_finish(app: Sphinx, exception):
     Generates the sitemap.xml from the collected HTML page links.
     :param app: The Sphinx Application instance
     """
-    SITEMAP_FILE = f'{app.outdir}/sitemap.xml'
+    SITEMAP_FILE = f'{app.outdir}/sitemap1.xml'
     TEMPLATE_ROW = """
     <url>
         <loc>{url}</loc>
