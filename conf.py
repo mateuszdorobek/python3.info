@@ -21,6 +21,8 @@ html_static_path = [
     '_data/sqlite3',
     '_data/xml',
     '_data/xlsx',
+    'sitemap.xml',
+    'robots.txt',
 ]
 
 bibtex_bibfiles = [
@@ -78,7 +80,6 @@ extensions = [
     'sphinxcontrib.bibtex',
     # 'recommonmark',
     # 'nbsphinx',
-    'sphinx_sitemap',
 ]
 
 source_suffix = {
@@ -121,13 +122,6 @@ if 'nbsphinx' in extensions:
                           'nbsphinx.thumbnail',
                           'nbsphinx.notebooktitle',
                           'nbsphinx.ipywidgets']
-
-if 'sphinx_sitemap' in extensions:
-    # https://sphinx-sitemap.readthedocs.io/en/latest/index.html
-    # sitemap_url_scheme = '{link}'
-    # sitemap_filename = 'sitemap.xml'
-    # sitemap_locales = [None]
-    html_extra_path = ['robots.txt']
 
 if 'sphinxcontrib.bibtex' in extensions:
     bibtex_bibliography_header = ".. rubric:: References"

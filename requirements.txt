@@ -1,4 +1,3 @@
-sphinx-sitemap
 # atlassian-python-api
 # black
 # coverage

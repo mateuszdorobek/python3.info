@@ -22,12 +22,14 @@ Hint:
     Separate them using space.
 """
 
+from datetime import datetime, timezone
 import logging
 import sys
 from pathlib import Path
 from argparse import ArgumentParser, Action
 from shutil import rmtree
 from subprocess import Popen, PIPE, TimeoutExpired
+from conf import html_baseurl
 
 sys.tracebacklimit = 8
 logging.basicConfig(level='INFO', format='%(message)s')
@@ -148,6 +150,37 @@ class Doctest(Action):
             exit(1)
 
 
+class Sitemap(Action):
+    TEMPLATE_ROW = """
+    <url>
+        <loc>{url}</loc>
+        <lastmod>{lastmod:%Y-%m-%dT%H:%M:%S%z}</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>{priority}</priority>
+    </url>"""
+
+    def __call__(self, parser, namespace, chapter, *args, **kwargs):
+        Path('sitemap.xml').write_text('')
+        sitemap = Path('sitemap.xml').open(mode='a')
+        sitemap.write('<?xml version="1.0" encoding="UTF-8"?>\n')
+        sitemap.write('<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n')
+        for file in Path().rglob('*.rst'):
+            path = str(file).replace('.rst', '.html')
+            if path == 'index.html':
+                priority = '1.0'
+            elif 'index.html' in path:
+                priority = '0.8'
+            else:
+                priority = '0.5'
+            row = self.TEMPLATE_ROW.format(
+                url=f'{html_baseurl}/{path}',
+                lastmod=datetime.fromtimestamp(file.stat().st_mtime).replace(tzinfo=timezone.utc),
+                priority=priority)
+            sitemap.write(row)
+        sitemap.write('</urlset>\n')
+        sitemap.close()
+
+
 if __name__ == '__main__':
     parser = ArgumentParser()
 
@@ -162,6 +195,10 @@ if __name__ == '__main__':
     parser.add_argument('--install',
                         nargs='?', metavar='CHAPTER', action=Install,
                         help='install requirements')
+
+    parser.add_argument('--sitemap',
+                        nargs=0, action=Sitemap,
+                        help='generate sitemap.xml')
 
     parser.add_argument('--gather',
                         nargs=0, action=Gather,

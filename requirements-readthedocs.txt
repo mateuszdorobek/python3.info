@@ -2,4 +2,3 @@ sphinx==6.1.*
 sphinx_rtd_theme
 sphinxcontrib-bibtex
 # furo
-sphinx-sitemap
