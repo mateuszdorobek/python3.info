@@ -225,6 +225,10 @@ html_theme_path = ['_themes']
 html_secnumber_suffix = '. '
 html_title = project
 html_copy_source = False
+html_extra_path = [
+    'robots.txt',
+    'sitemap.xml',
+]
 
 html_context = globals().get('html_context', {})
 html_static_path = globals().get('html_static_path', [])

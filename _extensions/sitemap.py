@@ -38,7 +38,7 @@ def on_finish(app: Sphinx, exception):
     TEMPLATE_ROW = """
     <url>
         <loc>{url}</loc>
-        <lastmod>{lastmod:%Y-%m-%dT%H:%M:%S%z}</lastmod>
+        <lastmod>{lastmod:%Y-%m-%d}</lastmod>
         <changefreq>daily</changefreq>
         <priority>{priority}</priority>
     </url>"""
@@ -56,7 +56,7 @@ def on_finish(app: Sphinx, exception):
             priority = '0.5'
         row = TEMPLATE_ROW.format(
             url=f'{app.builder.config.html_baseurl}/{path}',
-            lastmod=datetime.fromtimestamp(file.stat().st_mtime).replace(tzinfo=timezone.utc),
+            lastmod=datetime.fromtimestamp(file.stat().st_mtime),
             priority=priority)
         sitemap.write(row)
     sitemap.write('\n</urlset>\n')

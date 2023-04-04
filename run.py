@@ -154,7 +154,7 @@ class Sitemap(Action):
     TEMPLATE_ROW = """
     <url>
         <loc>{url}</loc>
-        <lastmod>{lastmod:%Y-%m-%dT%H:%M:%S%z}</lastmod>
+        <lastmod>{lastmod:%Y-%m-%d}</lastmod>
         <changefreq>daily</changefreq>
         <priority>{priority}</priority>
     </url>"""
@@ -174,7 +174,7 @@ class Sitemap(Action):
                 priority = '0.5'
             row = self.TEMPLATE_ROW.format(
                 url=f'{html_baseurl}/{path}',
-                lastmod=datetime.fromtimestamp(file.stat().st_mtime).replace(tzinfo=timezone.utc),
+                lastmod=datetime.fromtimestamp(file.stat().st_mtime),
                 priority=priority)
             sitemap.write(row)
         sitemap.write('</urlset>\n')
