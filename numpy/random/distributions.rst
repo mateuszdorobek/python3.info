@@ -8,7 +8,7 @@ Continuous Uniform Distribution
 
 .. figure:: img/random-distribution-uniform.png
 
-    Continuous Uniform Distribution :cite:`NumpyUniformDistribution`
+    Continuous Uniform Distribution [#NumpyUniformDistribution]_
 
 >>> import numpy as np
 >>> np.random.seed(0)
@@ -34,7 +34,7 @@ Normal (Gaussian) Distribution
 
 .. figure:: img/random-distribution-normal.png
 
-    Normal (Gaussian) distribution :cite:`NumpyNormalDistribution`
+    Normal (Gaussian) distribution [#NumpyNormalDistribution]_
 
 Defaults:
 
@@ -69,7 +69,7 @@ Poisson Distribution
 
 .. figure:: img/random-distribution-poisson.png
 
-    Poisson distribution :cite:`NumpyPoissonDistribution`
+    Poisson distribution [#NumpyPoissonDistribution]_
 
 >>> import numpy as np
 >>> np.random.seed(0)
@@ -88,6 +88,13 @@ array([9, 7, 8, 5, 5])
 >>> np.random.poisson(lam=6.0, size=(2,3))
 array([[5, 5, 7],
        [3, 5, 6]])
+
+
+References
+----------
+.. [#NumpyNormalDistribution] Wikipedia. Normal distribution. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Normal_distribution
+.. [#NumpyPoissonDistribution] Wikipedia. Poisson distribution. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Poisson_distribution
+.. [#NumpyUniformDistribution] Wikipedia. Continuous Uniform Distribution. Year: 2020. Retrieved: 2020-08-17. URL: https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)
 
 
 Assignments

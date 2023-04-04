@@ -18,7 +18,7 @@ poly1d([1, 2, 3, 4])
 
 .. figure:: img/polynomial-3deg.png
 
-    Polynomial of degree three ``Ax^3 + Bx^2 + Cx^1 + D = 0`` :cite:`NumpyPolynomial`
+    Polynomial of degree three ``Ax^3 + Bx^2 + Cx^1 + D = 0`` [#NumpyPolynomial]_
 
 Polynomial of degree six:
 
@@ -32,7 +32,7 @@ poly1d([1, 2, 3, 4, 5, 6, 7])
 
 .. figure:: img/polynomial-6deg.png
 
-    Polynomial of degree six ``Ax^6 + Bx^5 + Cx^4 + Dx^3 + Ex^2 + Fx + G = 0`` :cite:`NumpyPolynomial`
+    Polynomial of degree six ``Ax^6 + Bx^5 + Cx^4 + Dx^3 + Ex^2 + Fx + G = 0`` [#NumpyPolynomial]_
 
 
 Find Coefficients
@@ -143,6 +143,11 @@ Sum of Two Polynomials
 >>>
 >>> np.polyadd(a, b)
 array([9, 6, 6])
+
+
+References
+----------
+.. [#NumpyPolynomial] Wikipedia. Polynomial. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Polynomial
 
 
 Assignments

@@ -310,7 +310,7 @@ Correlation coefficient
 
 .. figure:: img/statistics-correlation-coefficient.png
 
-    Examples of scatter diagrams with different values of correlation coefficient (ρ) :cite:`NumpyPearsonCorrelationCoefficient`
+    Examples of scatter diagrams with different values of correlation coefficient (ρ) [#NumpyPearsonCorrelationCoefficient]_
 
 >>> import numpy as np
 
@@ -358,3 +358,14 @@ array([[ 1.        , -0.99587059],
 
 
 .. todo:: Assignments
+
+
+References
+----------
+.. [#NumpyPearsonCorrelaetionCoefficient] Wikipedia. Pearson correlation coefficient. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Pearson_correlation_coefficient
+.. [#NumpyNormalDistribution] Wikipedia. Normal distribution. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Normal_distribution
+.. [#NumpyPoissonDistribution] Wikipedia. Poisson distribution. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Poisson_distribution
+.. [#NumpyUniformDistribution] Wikipedia. Continuous Uniform Distribution. Year: 2020. Retrieved: 2020-08-17. URL: https://en.wikipedia.org/wiki/Uniform_distribution_(continuous)
+.. [#NumpyPolynomial] Wikipedia. Polynomial. Year: 2019. Retrieved: 2019-10-22. URL: https://en.wikipedia.org/wiki/Polynomial
+.. [#NumpyBroadcastingRules] Alex Chabot-Leclerc. Introduction to Numerical Computing with NumPy: Broadcasting Rules. Year: 2019. Retrieved: 2019-11-31. URL: https://youtu.be/ZB7BZMhfPgk?t=5142
+.. [#NumpyMultidimArrays] Alex Chabot-Leclerc. Introduction to Numerical Computing with NumPy: Visualizing Multi-Dimensional Arrays. Year: 2019. Retrieved: 2019-12-05. URL: https://youtu.be/ZB7BZMhfPgk?t=5142

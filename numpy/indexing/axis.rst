@@ -6,7 +6,7 @@ Array Axis
 
 .. figure:: img/array-axis.png
 
-    Visualizing Multi-Dimensional Arrays :cite:`NumpyMultidimArrays`
+    Visualizing Multi-Dimensional Arrays [#NumpyMultidimArrays]_
 
 
 SetUp
@@ -328,3 +328,8 @@ array([[ 3,  6,  7],
 
 
 .. todo:: Assignments
+
+
+References
+----------
+.. [#NumpyMultidimArrays] Alex Chabot-Leclerc. Introduction to Numerical Computing with NumPy: Visualizing Multi-Dimensional Arrays. Year: 2019. Retrieved: 2019-12-05. URL: https://youtu.be/ZB7BZMhfPgk?t=5142

@@ -25,10 +25,6 @@ html_static_path = [
     'robots.txt',
 ]
 
-bibtex_bibfiles = [
-    'network/references.bib',
-    'numpy/references.bib']
-
 # -- Standard book config -----------------------------------------------------
 import os
 import re

@@ -15,7 +15,7 @@ SetUp
 
 Broadcasting Rules
 ------------------
-* Source :cite:`NumpyBroadcastingRules`
+* Source [#NumpyBroadcastingRules]_
 
 #. Operations between multiple array objects are first checked for proper
    shape match
@@ -285,6 +285,10 @@ array([[ 4.,  0.],
 >>> np.dot(c, a)
 array([[2., 4.],
        [0., 4.]])
+
+References
+----------
+.. [#NumpyBroadcastingRules] Alex Chabot-Leclerc. Introduction to Numerical Computing with NumPy: Broadcasting Rules. Year: 2019. Retrieved: 2019-11-31. URL: https://youtu.be/ZB7BZMhfPgk?t=5142
 
 
 Assignments
