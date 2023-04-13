@@ -84,19 +84,10 @@ DevOps
     devops/docker.rst
 
 
-Use Cases
+Case Study
 *********
 .. toctree::
     :maxdepth: 1
-    :caption: Use Cases
+    :caption: Case Study
 
-    usecase/example.rst
-
-
-Appendix
-********
-.. toctree::
-    :maxdepth: 1
-    :caption: Appendix
-
-    further-reading.rst
+    case-study/example.rst

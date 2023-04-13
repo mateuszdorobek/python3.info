@@ -65,7 +65,7 @@ Many files:
 ... async def upload_files(files: list[bytes] = File(...)):
 ...     result = []
 ...     for i, file in enumerate(files):
-...         filename = '/tmp/myfile-{i}.bin'
+...         filename = f'/tmp/myfile-{i}.bin'
 ...         Path(filename).write_bytes(file)
 ...         result.append({'file': filename, 'bytes': len(file)})
 ...     return result

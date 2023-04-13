@@ -2,71 +2,63 @@ About
 *****
 .. toctree::
     :maxdepth: 1
-    :caption: Matplotlib
+    :caption: About
 
-    about.rst
+    about/about.rst
 
 
 Figure
 ******
 .. toctree::
     :maxdepth: 1
-    :caption: Matplotlib
+    :caption: Figure
 
-    plots.rst
-    subplots.rst
-    styling.rst
-    scales.rst
-    config.rst
-    interactive.rst
-    import-export.rst
+    figure/plots.rst
+    figure/subplot.rst
+    figure/styling.rst
+    figure/scales.rst
+    figure/config.rst
+    figure/interactive.rst
+    figure/import-export.rst
+    figure/multiple-figures.rst
 
 
 Style
 *****
 .. toctree::
     :maxdepth: 1
-    :caption: Matplotlib
+    :caption: Style
 
-    style-intro.rst
-    style-basic.rst
+    style/intro.rst
+    style/basic.rst
+    style/advanced.rst
+    style/customization.rst
+    style/animation.rst
 
 
 Chart
 *****
 .. toctree::
     :maxdepth: 1
-    :caption: Matplotlib
+    :caption: Chart
 
-    chart-plot.rst
-    chart-scatter.rst
-    chart-bar.rst
-    chart-histogram.rst
-    chart-box.rst
-    chart-stacked.rst
-    chart-pie.rst
-    chart-3d.rst
+    chart/plot.rst
+    chart/scatter.rst
+    chart/bar.rst
+    chart/histogram.rst
+    chart/box.rst
+    chart/stacked.rst
+    chart/pie.rst
+    chart/3d.rst
 
 
-Advanced
-********
+Case Study
+**********
 .. toctree::
     :maxdepth: 1
-    :caption: Matplotlib
+    :caption: Case Study
 
-    style-advanced.rst
-    customization.rst
-    multiple-figures.rst
-    animation.rst
-
-
-Recap
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Matplotlib
-
-    example.rst
-    lifecycle.rst
-    case-studies.rst
-    assignments.rst
+    case-study/example.rst
+    case-study/lifecycle.rst
+    case-study/case-studies.rst
+    case-study/assignments.rst

@@ -4,11 +4,11 @@ Paradigm
     :maxdepth: 1
     :caption: Paradigm
 
-    polymorphism.rst
-    interface.rst
-    str-interning.rst
-    dependency-injection.rst
-    good-practices.rst
+    paradigm/polymorphism.rst
+    paradigm/interface.rst
+    paradigm/str-interning.rst
+    paradigm/dependency-injection.rst
+    paradigm/good-practices.rst
 
 
 Python
@@ -17,19 +17,11 @@ Python
     :maxdepth: 1
     :caption: Python
 
-    method-resolution-order.rst
-    namespace.rst
-    new-style-classes.rst
-    hash.rst
-    slots.rst
-    metaclass.rst
-
-
-Dynamic Typing
-**************
-.. toctree::
-    :maxdepth: 1
-    :caption: Dynamic Typing
-
-    dynamic-typing.rst
-    monkey-patching.rst
+    python/method-resolution-order.rst
+    python/namespace.rst
+    python/new-style-classes.rst
+    python/hash.rst
+    python/dynamic-typing.rst
+    python/monkey-patching.rst
+    python/slots.rst
+    python/metaclass.rst

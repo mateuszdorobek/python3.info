@@ -41,11 +41,11 @@ Python
     python/performance.rst
 
 
-Data Visualization
-******************
+Visualization
+*************
 .. toctree::
     :maxdepth: 1
-    :caption: Data Visualization
+    :caption: Visualization
 
     visualization/plotly.rst
     visualization/bokeh.rst

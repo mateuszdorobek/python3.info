@@ -10,16 +10,16 @@ About
     about/survey.rst
 
 
-Good Engineering Practices
-**************************
+Quality
+*******
 .. toctree::
     :maxdepth: 1
-    :caption: Good Engineering Practices
+    :caption: Quality
 
-    good-engineering-practice/pep8.rst
-    good-engineering-practice/pep20.rst
-    good-engineering-practice/code-smells.rst
-    good-engineering-practice/documentation.rst
+    quality/pep8.rst
+    quality/pep20.rst
+    quality/code-smells.rst
+    quality/documentation.rst
 
 
 Tests
@@ -45,15 +45,15 @@ Debugging
     debugging/introspection.rst
 
 
-Type Annotation
-***************
+Typing
+******
 .. toctree::
     :maxdepth: 1
-    :caption: Type Annotation
+    :caption: Typing
 
-    type-annotation/checking.rst
-    type-annotation/annotating.rst
-    type-annotation/introspection.rst
+    typing/checking.rst
+    typing/annotating.rst
+    typing/introspection.rst
 
 
 CI/CD

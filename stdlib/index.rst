@@ -1,8 +1,8 @@
-Modules and Packages
-********************
+Modules
+*******
 .. toctree::
     :maxdepth: 1
-    :caption: Modules and Packages
+    :caption: Modules
 
     modules/import.rst
     modules/tools.rst
@@ -11,11 +11,11 @@ Modules and Packages
 
 
 
-Mathematics
-***********
+Math
+****
 .. toctree::
     :maxdepth: 1
-    :caption: Mathematics
+    :caption: Math
 
     math/precision.rst
     math/int.rst

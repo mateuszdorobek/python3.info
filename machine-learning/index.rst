@@ -117,4 +117,3 @@ References
     :caption: References
 
     introduction/references.rst
-    _notes.rst

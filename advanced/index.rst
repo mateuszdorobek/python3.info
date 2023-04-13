@@ -4,8 +4,9 @@ About
     :maxdepth: 1
     :caption: About
 
-    about/entrytest.rst
     about/agenda.rst
+    about/certificate.rst
+    about/entrytest.rst
 
 
 Syntax
@@ -36,7 +37,7 @@ Functional Programming
 **********************
 .. toctree::
     :maxdepth: 1
-    :caption: Functions
+    :caption: Functional Programming
 
     funcprog/about.rst
     funcprog/scope.rst
@@ -110,11 +111,11 @@ Object Oriented Programming
     oop/class-metaclass.rst
 
 
-Protocols
-*********
+Protocol
+********
 .. toctree::
     :maxdepth: 1
-    :caption: Idioms
+    :caption: Protocol
 
     protocol/about.rst
     protocol/iterator.rst
@@ -141,55 +142,57 @@ Performance
     performance/compilers.rst
 
 
-Concurrency
-***********
+AsyncIO
+*******
 .. toctree::
     :maxdepth: 1
-    :caption: Concurrency
+    :caption: AsyncIO
 
-    concurrency/about.rst
-
-    concurrency/asyncio-about.rst
-    concurrency/asyncio-awaitable.rst
-    concurrency/asyncio-coroutine.rst
-    concurrency/asyncio-sleep.rst
-    concurrency/asyncio-run.rst
-    concurrency/asyncio-wait.rst
-    concurrency/asyncio-wait-for.rst
-    concurrency/asyncio-task.rst
-    concurrency/asyncio-future.rst
-    concurrency/asyncio-shield.rst
-    concurrency/asyncio-debug.rst
-    concurrency/asyncio-eventloop.rst
-    concurrency/asyncio-queue.rst
-    concurrency/asyncio-stream.rst
-    concurrency/asyncio-synchronization.rst
-    concurrency/asyncio-iterator.rst
-    concurrency/asyncio-generator.rst
-    concurrency/asyncio-comprehension.rst
-    concurrency/asyncio-contextmanager.rst
-    concurrency/asyncio-3rdparty.rst
-
-    concurrency/multiprocessing-about.rst
-    concurrency/multiprocessing-server.rst
-    concurrency/multiprocessing-client.rst
-    concurrency/multiprocessing-3rdparty.rst
-
-    concurrency/threading-about.rst
-    concurrency/threading-timer.rst
-    concurrency/threading-queues.rst
-    concurrency/threading-create.rst
-    concurrency/threading-synchronization.rst
-    concurrency/threading-join.rst
-    concurrency/threading-worker.rst
+    asyncio/_about.rst
+    asyncio/about.rst
+    asyncio/awaitable.rst
+    asyncio/coroutine.rst
+    asyncio/sleep.rst
+    asyncio/run.rst
+    asyncio/wait.rst
+    asyncio/wait-for.rst
+    asyncio/task.rst
+    asyncio/future.rst
+    asyncio/shield.rst
+    asyncio/debug.rst
+    asyncio/eventloop.rst
+    asyncio/queue.rst
+    asyncio/stream.rst
+    asyncio/synchronization.rst
+    asyncio/iterator.rst
+    asyncio/generator.rst
+    asyncio/comprehension.rst
+    asyncio/contextmanager.rst
+    asyncio/3rdparty.rst
 
 
-Recap
-*****
+Multiprocessing
+***************
 .. toctree::
     :maxdepth: 1
-    :caption: Recap
+    :caption: Multiprocessing
 
-    ../about/further-reading.rst
-    about/recap.rst
-    about/certificate.rst
+    multiprocessing/about.rst
+    multiprocessing/server.rst
+    multiprocessing/client.rst
+    multiprocessing/3rdparty.rst
+
+
+Threading
+*********
+.. toctree::
+    :maxdepth: 1
+    :caption: Threading
+
+    threading/about.rst
+    threading/timer.rst
+    threading/queues.rst
+    threading/create.rst
+    threading/synchronization.rst
+    threading/join.rst
+    threading/worker.rst

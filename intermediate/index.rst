@@ -80,28 +80,28 @@ Idiom
     idiom/itertools.rst
 
 
-Type Annotation
-***************
+Typing
+******
 .. toctree::
     :maxdepth: 1
-    :caption: Type Annotation
+    :caption: Typing
 
-    type-annotation/type-basic.rst
-    type-annotation/type-annotations.rst
-    type-annotation/type-sequence.rst
-    type-annotation/type-mapping.rst
-    type-annotation/type-nested.rst
-    type-annotation/type-typeddict.rst
-    type-annotation/type-namedtuple.rst
-    type-annotation/type-callable.rst
-    type-annotation/type-type.rst
-    type-annotation/annotated.rst
-    type-annotation/extra.rst
-    type-annotation/deprecated.rst
-    type-annotation/package-check.rst
-    type-annotation/package-annotate.rst
-    type-annotation/package-cython.rst
-    type-annotation/package-mypyc.rst
+    typing/type-basic.rst
+    typing/type-annotations.rst
+    typing/type-sequence.rst
+    typing/type-mapping.rst
+    typing/type-nested.rst
+    typing/type-typeddict.rst
+    typing/type-namedtuple.rst
+    typing/type-callable.rst
+    typing/type-type.rst
+    typing/annotated.rst
+    typing/extra.rst
+    typing/deprecated.rst
+    typing/package-check.rst
+    typing/package-annotate.rst
+    typing/package-cython.rst
+    typing/package-mypyc.rst
 
 
 Dataclass
@@ -155,11 +155,11 @@ CSV
     csv/csv-dictwriter.rst
 
 
-Regular Expressions
-*******************
+Regex
+*****
 .. toctree::
     :maxdepth: 1
-    :caption: Regular Expressions
+    :caption: Regex
 
     regex/syntax-about.rst
     regex/syntax-qualifier.rst
@@ -186,11 +186,11 @@ Regular Expressions
     regex/cheatsheet.rst
 
 
-Datetime and Timezones
-**********************
+Datetime
+********
 .. toctree::
     :maxdepth: 1
-    :caption: Datetime and Timezones
+    :caption: Datetime
 
     datetime/create.rst
     datetime/iso.rst
@@ -230,11 +230,11 @@ Operator
     operator/other.rst
 
 
-Modules and Packages
-********************
+Modules
+*******
 .. toctree::
     :maxdepth: 1
-    :caption: Modules and Packages
+    :caption: Modules
 
     modules/layout.rst
     modules/venv.rst

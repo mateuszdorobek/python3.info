@@ -50,28 +50,28 @@ Install
     install/doctest.rst
 
 
-Python Basics
-*************
+Basics
+******
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Python Basics
+    :caption: Basics
 
     basics/index.rst
 
 
-Python Intermediate
-*******************
+Intermediate
+************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Python Intermediate
+    :caption: Intermediate
 
     intermediate/index.rst
 
 
-Python Advanced
-***************
+Advanced
+********
 .. toctree::
     :maxdepth: 2
     :numbered:
@@ -160,14 +160,14 @@ Network
     network/index.rst
 
 
-HTTP and Microservices
-**********************
+Microservices
+*************
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: HTTP and Microservices
+    :caption: Microservices
 
-    http/index.rst
+    microservices/index.rst
 
 
 Django
@@ -237,24 +237,15 @@ Dragon
     :numbered:
     :caption: Dragon
 
-    dragon/dragon-about.rst
-    dragon/dragon-v1.rst
-    dragon/dragon-v2.rst
-    dragon/dragon-v3.rst
-    dragon/adr-about.rst
-    dragon/adr-usecase.rst
-    dragon/adr-init-name.rst
-    dragon/adr-init-position.rst
-    dragon/adr-position-set.rst
-    dragon/adr-position-change.rst
-    dragon/adr-damage-make.rst
-    dragon/adr-damage-take.rst
+    dragon/index.rst
 
 
 Appendixes
 **********
 .. toctree::
     :maxdepth: 1
+    :numbered:
+    :caption: Appendixes
 
     about/progress.rst
     about/references.rst

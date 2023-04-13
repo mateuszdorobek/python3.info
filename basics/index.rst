@@ -5,9 +5,9 @@ About
     :caption: About
 
     about/agenda.rst
+    about/certificate.rst
     about/ide.rst
     about/language.rst
-
 
 Syntax
 ******
@@ -222,14 +222,3 @@ Object Oriented Programming
     oop/inheritance-patterns.rst
     oop/architecture-rationale.rst
     oop/architecture-classdiagram.rst
-
-
-Recap
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Recap
-
-    about/good-practices.rst
-    about/certificate.rst
-    ../about/further-reading.rst
