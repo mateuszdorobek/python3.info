@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+
+    <title>{{ title }}</title>
+
+    <meta name="author" content="{{ author }}">
+    <meta name="description" content="{{ description }}">
+
+	{% if analytics_code %}
+		<!-- Global site tag (gtag.js) - Google Analytics -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id={{ analytics_code }}"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', '{{ analytics_code }}');
+		</script>
+	{% endif %}
+
+    <link rel="cannonical" href="{{ base_url }}">
+	<link rel="stylesheet" href="{{ pathto('_static/css/main.css', 1) }}" type="text/css" />
+	<link rel="stylesheet" href="{{ pathto('_static/css/print.css', 1) }}" type="text/css" media="print" />
+    <link rel="icon" type="image/png" href="{{ pathto('_static/img/favicon.png', 1) }}" />
+</head>
+<body>
+    <header>
+    </header>
+
+    <nav>
+        {% block toctree %}{% endblock %}
+    </nav>
+
+    <main>
+        {% block body %}{% endblock %}
+    </main>
+
+    <footer>
+
+        {% if prev %}
+            <a href="{{ prev.link|e }}">&lt;&lt; Prev</a>
+        {% endif %}
+        {% if next %}
+            <a href="{{ next.link|e }}">{{ next.title }} &gt;&gt;</a>
+        {% endif %}
+    </footer>
+</body>
+</html>

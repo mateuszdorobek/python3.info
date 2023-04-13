@@ -12,7 +12,7 @@ Syntax
 ******
 .. toctree::
     :maxdepth: 1
-    :caption: Unpack
+    :caption: Syntax
 
     syntax/assignment-expression.rst
 

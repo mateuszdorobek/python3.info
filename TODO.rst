@@ -138,6 +138,8 @@ Machine Learning
 
 Python PEP
 ----------
+* pyproject.toml run configuration: run, test, deploy, other: migrate, makemigrations, makemessages, compilemessages etc.
+* Standard way of running your project with pyproject.toml: python run, or python migrate
 * vars() should handle slots
 * Simple interface for HTTP requests (similar to requests)
 * http.get() http.post(), http.put(), http.delete()

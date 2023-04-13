@@ -38,7 +38,7 @@ log = logging.getLogger('pybook')
 
 
 def get_toc(book: str) -> list[str]:
-    path = SRC_DIR / book / '_index.rst'
+    path = SRC_DIR / book / 'index.rst'
     filename = '([-\w/]*\.rst)'
     return re.findall(
         pattern=f'^\s+{filename}$',
