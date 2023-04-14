@@ -1,11 +1,13 @@
 OOP Object Constructor
 ======================
+In Python by definition both methods ``__new__()`` and ``__init__()``
+combined and called consecutively are constructors. This is something
+which is not existing in other programming languages, hence programmers
+has problem with grasping this idea.
 
-
-``__new__`` will always get called when an object has to be created. There
-are some situations where ``__init__`` will not get called. One example is
-when you unpickle objects from a pickle file, they will get allocated
-(``__new__``) but not initialised (``__init__``) [#Noufal2011]_.
+In most cases people will take their "experience" and "habits" from other
+languages, mixed with vogue knowledge about ``__new__()`` and call
+``__init__()`` a constructor.
 
 In Object Oriented Programming constructor is:
 
@@ -34,19 +36,15 @@ Python ``__new__()`` method:
     e. Yes (before instantiating) / No (after instantiating)
     f. No
 
-In Python by definition both methods ``__new__()`` and ``__init__()``
-combined and called consecutively are constructors. This is something
-which is not existing in other programming languages, hence programmers
-has problem with grasping this idea.
-
-In most cases people will take their "experience" and "habits" from other
-languages, mixed with vogue knowledge about ``__new__()`` and call
-``__init__()`` a constructor.
+Method ``__new__`` will always get called when an object has to be created.
+There are some situations where ``__init__`` will not get called. One example
+is when you unpickle objects from a pickle file, they will get allocated
+(``__new__``) but not initialised (``__init__``) [#Noufal2011]_.
 
 
 Example
 -------
->>> class Astronaut:
+>>> class User:
 ...     def __new__(cls, *args, **kwargs):
 ...         print('New: before instantiating')
 ...         result = super().__new__(cls, *args, **kwargs)
@@ -57,7 +55,7 @@ Example
 ...         print('Init: initializing')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 New: before instantiating
 New: after instantiating
 Init: initializing
@@ -95,13 +93,13 @@ instance's ``__init__()`` method will not be invoked [#pydocDatamodelNew]_.
 It is also commonly overridden in custom metaclasses in order to customize
 class creation [#pydocDatamodelNew]_.
 
->>> class Astronaut:
+>>> class User:
 ...     def __new__(cls):
 ...         print('Constructing object')
 ...         return super().__new__(cls)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Constructing object
 
 
@@ -122,12 +120,12 @@ the derived class's ``__init__()`` method, if any, must explicitly call it
 to ensure proper initialization of the base class part of the instance;
 for example: ``super().__init__([args...])`` [#pydocDatamodelInit]_.
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         print('Initializing object')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Initializing object
 
 Because ``__new__()`` and ``__init__()`` work together in constructing objects
@@ -135,20 +133,20 @@ Because ``__new__()`` and ``__init__()`` work together in constructing objects
 value may be returned by ``__init__()``; doing so will cause a ``TypeError``
 to be raised at runtime.
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         print('Initializing object')
 ...         return True
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Traceback (most recent call last):
 TypeError: __init__() should return None, not 'bool'
 
 
 Return
 ------
->>> class Astronaut:
+>>> class User:
 ...     def __new__(cls):
 ...         print('Constructing object')
 ...         return super().__new__(cls)
@@ -157,14 +155,14 @@ Return
 ...         print('Initializing object')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Constructing object
 Initializing object
 
 Missing ``return`` from constructor. The instantiation is evaluated to
 ``None`` since we don't return anything from the constructor:
 
->>> class Astronaut:
+>>> class User:
 ...     def __new__(cls):
 ...         print('Constructing object')
 ...         super().__new__(cls)
@@ -173,37 +171,76 @@ Missing ``return`` from constructor. The instantiation is evaluated to
 ...         print('Initializing object')  # -> is actually never called
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Constructing object
 >>>
->>> type(astro)
+>>> type(mark)
 <class 'NoneType'>
 
 Return invalid from constructor:
 
->>> class Astronaut:
+>>> class User:
 ...     def __new__(cls):
 ...         return 'Mark Watney'
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> type(astro)
+>>> type(mark)
 <class 'str'>
->>> astro
+>>>
+>>> mark
 'Mark Watney'
 
 Return invalid from initializer:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         return 'Mark Watney'
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Traceback (most recent call last):
 TypeError: __init__() should return None, not 'str'
 
 
-Do not trigger methods for user
+Injecting New
+-------------
+>>> from datetime import datetime
+>>> import logging
+>>> from uuid import uuid4
+>>>
+>>>
+>>> def trace_object(cls, *args, **kwargs):
+...     instance = object.__new__(cls)
+...     instance._log = logging.getLogger(f'{cls.__name__}')
+...     instance._since = datetime.now()
+...     instance._uuid = str(uuid4())
+...     return instance
+
+
+Without injecting:
+
+>>> class User:
+...     pass
+>>>
+>>> mark = User()
+>>> vars(mark)
+{}
+
+With injecting:
+
+>>> class User:
+...     pass
+>>>
+>>> User.__new__ = trace_object
+>>>
+>>> mark = User()
+>>> vars(mark)  # doctest: +SKIP
+{'_log': <Logger myapp.User (INFO)>,
+ '_since': datetime.datetime(1969, 7, 21, 2, 56, 15),
+ '_uuid': '971827b5-5bc5-4a4b-9c8a-ecf5e4dbcfe3'}
+
+
+Do not Trigger Methods for User
 -------------------------------
 * It is better when user can choose a moment when call ``.connect()`` method
 
@@ -536,19 +573,19 @@ Use Case - 0x06
 ...         pass
 >>>
 >>>
->>> class Astronaut(BaseClass):
+>>> class User(BaseClass):
 ...     def __init__(self, *args, **kwargs):
 ...         ...
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> vars(astro)  # doctest: +SKIP +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +SKIP +NORMALIZE_WHITESPACE
 {'_since': datetime.datetime(1969, 7, 21, 2, 56, 15),
  '_uuid': '83cefe23-3491-4661-b1f4-3ca570feab0a',
- '_log': <Logger Astronaut (WARNING)>}
+ '_log': <Logger User (WARNING)>}
 >>>
->>> astro._error(123456, 'An error occurred')  # doctest: +SKIP
+>>> mark._error(123456, 'An error occurred')  # doctest: +SKIP
 1969-07-21T02:56:15Z [ERROR:123456] An error occurred
 
 

@@ -47,43 +47,38 @@ English
 
 Polish
 ------
-#. Ile lat programujesz w Pythonie:
+1. Ile lat profesjonalnie programujesz w języku Python?
 
-    * 0-1
-    * 1-3
-    * 3-5
-    * 5-10
-    * 10 lub więcej
+    * 0 - 1 lat
+    * 1 - 3 lat
+    * 3 - 5 lat
+    * 5 - 10 lat
+    * powyżej 10 lat
 
-#. Ile lat programujesz w innych językach niż Python:
+2. Ile lat profesjonalnie programujesz w innych językach?
 
-    * 0-1
-    * 1-3
-    * 3-5
-    * 5-10
-    * 10 or more
+    * 0 - 1 lat
+    * 1 - 3 lat
+    * 3 - 5 lat
+    * 5 - 10 lat
+    * powyżej 10 lat
 
-#. Do jakich zastosowań chciałbyś wykorzystać Pythona [możesz zaznaczyć wiele]:
+3. Do jakich zastosowań chciałbyś wykorzystać Pythona (można zaznaczyć wiele):
 
-    * analiza numeryczna
-    * machine learning lub data science
-    * tworzenie aplikacji webowych
-    * administracja systemami operacyjnymi
-    * automatyzacja testów i CI/CD
-    * naukowe lub inżynieryjne
-    * programowanie ogólne
-    * zabawy lub nauki programowania
-    * inne...
+    * sysop: administracja sieciami/systemami/aplikacjami, cloud, provisioning
+    * sec: bezpieczeństwo sieciowe/systemowe/aplikacji
+    * ci/cd: DevOps, CI/CD, automatyzacja testów
+    * web: aplikacje webowe
+    * net: programowanie sieciowe (TCP, UDP, POP3, SMTP, IMAP, FTP, SSH, etc.)
+    * gp: programowanie ogólne
+    * sci: nauka, inżynieria
+    * ml/ds: machine learning, data science, analiza numeryczna
+    * fun: do zabawy lub nauki programowania
 
-#. Jakie tematy z agendy są najważniejsze dla Ciebie:
+4. Potwierdzam posiadanie umiejętności wymienionych w wymaganiach szkolenia:
 
-    * [pytanie otwarte]
+    * tak (wymagane)
 
-#. Jakie inne kwestie mogłyby być poruszone:
+5. Potwierdzam zapoznanie się z programem szkolenia:
 
-    * [pytanie otwarte]
-
-#. Zgody [wymagane]:
-
-    * Przeczytałem/am i zrozumiałem/am program szkolenia
-    * Mam wszystkie wymagania i doświadczenie wymienione w wymaganiach uczestnictwa
+    * tak (wymagane)

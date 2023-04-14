@@ -8,6 +8,11 @@ About
 
     LICENSE.rst
     about/versions.rst
+    about/progress.rst
+    about/references.rst
+    about/survey.rst
+    about/history.rst
+    about/further-reading.rst
 
 
 Agenda
@@ -75,7 +80,7 @@ Advanced
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Python Advanced
+    :caption: Advanced
 
     advanced/index.rst
 
@@ -210,24 +215,14 @@ Machine Learning
     machine-learning/index.rst
 
 
-Object Oriented Programming
-***************************
+OOP
+***
 .. toctree::
     :maxdepth: 2
     :numbered:
-    :caption: Object Oriented Programming
+    :caption: OOP
 
     oop/index.rst
-
-
-Blogposts
-*********
-.. toctree::
-    :maxdepth: 1
-    :numbered:
-    :caption: Blogposts
-
-    _blogpost/ml-introduction.rst
 
 
 Dragon
@@ -238,17 +233,3 @@ Dragon
     :caption: Dragon
 
     dragon/index.rst
-
-
-Appendixes
-**********
-.. toctree::
-    :maxdepth: 1
-    :numbered:
-    :caption: Appendixes
-
-    about/progress.rst
-    about/references.rst
-    about/survey.rst
-    about/history.rst
-    about/further-reading.rst

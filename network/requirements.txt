@@ -1,11 +1,6 @@
-sphinx==6.1.*
-sphinx_rtd_theme
-sphinxcontrib-bibtex
 requests
-
 BeautifulSoup4
 lxml
-
 # dnspython
 # pysftp
 # paramiko

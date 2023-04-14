@@ -50,11 +50,11 @@ Admin
     admin/about.rst
 
 
-Orm
+ORM
 ***
 .. toctree::
     :maxdepth: 1
-    :caption: Orm
+    :caption: ORM
 
     orm/about.rst
     orm/create.rst

@@ -192,11 +192,11 @@ Exception
     exception/exit-status.rst
 
 
-Object Oriented Programming
-***************************
+OOP
+***
 .. toctree::
     :maxdepth: 1
-    :caption: Object Oriented Programming
+    :caption: OOP
 
     oop/class-define.rst
     oop/class-instance.rst

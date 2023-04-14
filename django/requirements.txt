@@ -1,6 +1,3 @@
-sphinx==6.1.*
-sphinx_rtd_theme
-
 django
 # pillow
 # django-debug-toolbar

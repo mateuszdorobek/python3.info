@@ -8,6 +8,20 @@
       "arguments": []
     },
     {
+      "type": "python-tests",
+      "name": "Doctest Test",
+      "testFramework": "doctest",
+      "target": "$FILE$",
+      "arguments": []
+    },
+    {
+      "type": "command",
+      "program": "python",
+      "name": "Run Doctests",
+      "args": ["-m", "doctest", "-v", "$FILE$"],
+      "workingDir": "$PROJECT_DIR$"
+    },
+    {
       "type": "python",
       "name": "Run Python",
       "workingDir": "$PROJECT_DIR$",

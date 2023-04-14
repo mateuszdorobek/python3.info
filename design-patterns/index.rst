@@ -95,11 +95,11 @@ Operator
     operator/other.rst
 
 
-Object Oriented Programming
-***************************
+OOP
+***
 .. toctree::
     :maxdepth: 1
-    :caption: Object Oriented Programming
+    :caption: OOP
 
     oop/attribute-mutable.rst
     oop/attribute-classvar.rst

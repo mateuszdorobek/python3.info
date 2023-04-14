@@ -1,8 +1,2 @@
-sphinx==6.1.*
-sphinx_rtd_theme
-
-requests
-numpy
-pytz
-
-# cython
+mypy
+tzdata

@@ -117,3 +117,13 @@ References
     :caption: References
 
     introduction/references.rst
+
+
+Articles
+********
+.. toctree::
+    :maxdepth: 1
+    :caption: Articles
+
+    _blog/ml-introduction.rst
+    _blog/various-notes.rst

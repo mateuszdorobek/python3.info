@@ -7,13 +7,13 @@ OOP Attribute Slots
 * Store value references in slots instead of ``__dict__``
 * Denying ``__dict__`` and ``__weakref__`` creation
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
 
 When inheriting from a class without ``__slots__``, the ``__dict__``
 and ``__weakref__`` attribute of the instances will always be accessible.
@@ -115,82 +115,85 @@ references [#Mazdak2016]_.
 
 Empty Slots
 -----------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ()
 >>>
 >>>
->>> astro = Astronaut()
->>>
->>> astro.fullname = 'Mark Watney'
+>>> mark = User()
+
+>>> mark.fullname = 'Mark Watney'
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'fullname'
+AttributeError: 'User' object has no attribute 'fullname'
 
 
 One Slot
 --------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('fullname',)
 >>>
 >>>
->>> astro = Astronaut()
->>>
->>> astro.fullname = 'Mark Watney'
->>> astro.role = 'Botanist'
+>>> mark = User()
+
+>>> mark.fullname = 'Mark Watney'
+
+>>> mark.role = 'Botanist'
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'role'
 
 
 Many Slots
 ----------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>>
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.role = 'Botanist'
+>>> mark = User()
+
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+
+>>> mark.role = 'Botanist'
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'role'
 
 
 Get Value
 ---------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>>
->>> print(astro.firstname)
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+
+>>> print(mark.firstname)
 Mark
->>> print(astro.lastname)
+>>>
+>>> print(mark.lastname)
 Watney
 
 
 Slots and Methods
 -----------------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 ...
 ...     def say_hello(self):
 ...         print(f'My name... {self.firstname} {self.lastname}')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>>
->>> astro.say_hello()
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+
+>>> mark.say_hello()
 My name... Mark Watney
 
 
 Slots and Init
 --------------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 ...
 ...     def __init__(self, firstname, lastname):
@@ -198,14 +201,18 @@ Slots and Init
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> print(astro.firstname)
+>>> print(mark.firstname)
 Mark
->>> print(astro.lastname)
+>>>
+>>> print(mark.lastname)
 Watney
 
->>> class Astronaut:
+Even inside of ``__init__`` function you cannot assign to not slotted
+attribute:
+
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 ...
 ...     def __init__(self, firstname, lastname, role):
@@ -214,51 +221,54 @@ Watney
 ...         self.role = role
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', 'Botanist')
+>>> mark = User('Mark', 'Watney', 'Botanist')
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'role'
 
 
 Vars
 ----
 * Using ``__slots__`` will prevent from creating ``__dict__``
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>>
->>> vars(astro)
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+
+Builtin function ``vars()`` will not work on slots:
+
+>>> vars(mark)
 Traceback (most recent call last):
 TypeError: vars() argument must have __dict__ attribute
->>>
->>> print(astro.__dict__)
+
+This is because ``vars()`` display content of ``__dict__``:
+
+>>> print(mark.__dict__)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute '__dict__'
+AttributeError: 'User' object has no attribute '__dict__'
 
 
 Slots Internals
 ---------------
 * Slots are descriptors
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
->>>
->>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
               '__slots__': ('firstname', 'lastname'),
-              'firstname': <member 'firstname' of 'Astronaut' objects>,
-              'lastname': <member 'lastname' of 'Astronaut' objects>,
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>,
               '__doc__': None})
+
+>>> User.firstname
+<member 'firstname' of 'User' objects>
 >>>
->>> Astronaut.firstname
-<member 'firstname' of 'Astronaut' objects>
->>>
->>> type(Astronaut.firstname)
+>>> type(User.firstname)
 <class 'member_descriptor'>
 
 
@@ -272,19 +282,18 @@ be used as the slot names. The values of the dictionary can be used to
 provide per-attribute docstrings that will be recognised by
 ``inspect.getdoc()`` and displayed in the output of ``help()``.
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = {
 ...         'firstname': 'Docstring for firstname attribute',
 ...         'lastname': 'Docstring for lastname attribute',
 ...     }
->>>
->>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
               '__slots__': {'firstname': 'Docstring for firstname attribute',
                             'lastname': 'Docstring for lastname attribute'},
-              'firstname': <member 'firstname' of 'Astronaut' objects>,
-              'lastname': <member 'lastname' of 'Astronaut' objects>,
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>,
               '__doc__': None})
 
 
@@ -292,18 +301,18 @@ Get Attributes and Values
 -------------------------
 * To get values iterate over ``self.__slots__`` and use ``getattr(self, x)``
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>>
->>> print(astro.__slots__)
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+
+>>> print(mark.__slots__)
 ('firstname', 'lastname')
->>>
->>> {x: getattr(astro, x) for x in astro.__slots__}
+
+>>> {x: getattr(mark, x) for x in mark.__slots__}
 {'firstname': 'Mark', 'lastname': 'Watney'}
 
 
@@ -312,23 +321,23 @@ Slots and Dunder Dict
 * Using ``__slots__`` will prevent from creating ``__dict__``
 * Adding ``__dict__`` to ``__slots__`` will combine both worlds
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('__dict__', 'firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'   # will use __slots__
->>> astro.lastname = 'Watney'  # will use __slots__
->>> astro.role = 'Botanist'    # will use __dict__
->>> astro.mission = 'Ares3'    # will use __dict__
->>>
->>> print(astro.__slots__)
+>>> mark = User()
+>>> mark.firstname = 'Mark'   # will use __slots__
+>>> mark.lastname = 'Watney'  # will use __slots__
+>>> mark.role = 'Botanist'    # will use __dict__
+>>> mark.mission = 'Ares3'    # will use __dict__
+
+>>> print(mark.__slots__)
 ('__dict__', 'firstname', 'lastname')
->>>
->>> vars(astro)
+
+>>> vars(mark)
 {'role': 'Botanist', 'mission': 'Ares3'}
->>>
->>> {x:getattr(astro, x) for x in astro.__slots__ if x != '__dict__'} | vars(astro)  # doctest: +NORMALIZE_WHITESPACE
+
+>>> {x:getattr(mark, x) for x in mark.__slots__ if x != '__dict__'} | vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'role': 'Botanist',
@@ -344,72 +353,77 @@ Inheritance
 >>> class Person:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
->>> class Astronaut(Person):
+>>> class User(Person):
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.role = 'Botanist'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.role = 'Botanist'
 >>>
->>> print(astro.firstname)
+>>>
+>>> print(mark.firstname)
 Mark
->>> print(astro.lastname)
+>>>
+>>> print(mark.lastname)
 Watney
->>> print(astro.role)
+>>>
+>>> print(mark.role)
 Botanist
 >>>
 >>>
->>> vars(astro)
+>>> vars(mark)
 {'role': 'Botanist'}
 >>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+>>>
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
-              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
-              '__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
               '__doc__': None})
+
 
 >>> class Person:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
->>> class Astronaut(Person):
+>>> class User(Person):
 ...     __slots__ = ()
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.role = 'Botanist'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.role = 'Botanist'
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'role'
 >>>
 >>>
->>> vars(astro)
+>>> vars(mark)
 Traceback (most recent call last):
 TypeError: vars() argument must have __dict__ attribute
 >>>
->>> vars(Astronaut)
+>>> vars(User)
 mappingproxy({'__module__': '__main__', '__slots__': (), '__doc__': None})
 
 
 >>> class Person:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
->>> class Astronaut(Person):
+>>> class User(Person):
 ...     __slots__ = ('role',)
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.role = 'Botanist'
->>> astro.agency = 'NASA'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.role = 'Botanist'
+>>> mark.agency = 'NASA'
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'agency'
+AttributeError: 'User' object has no attribute 'agency'
 >>>
 >>>
->>> vars(astro)
+>>> vars(mark)
 Traceback (most recent call last):
 TypeError: vars() argument must have __dict__ attribute
 >>>
@@ -420,85 +434,85 @@ mappingproxy({'__module__': '__main__',
               'lastname': <member 'lastname' of 'Person' objects>,
               '__doc__': None})
 >>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
               '__slots__': ('role',),
-              'role': <member 'role' of 'Astronaut' objects>,
+              'role': <member 'role' of 'User' objects>,
               '__doc__': None})
 
 
 Change Slots
 ------------
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.__slots__
+>>> mark.__slots__
 ('firstname', 'lastname')
 >>>
->>> astro.__slots__ = ('myslot1', 'myslot2')
+>>> mark.__slots__ = ('myslot1', 'myslot2')
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object attribute '__slots__' is read-only
+AttributeError: 'User' object attribute '__slots__' is read-only
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> Astronaut.__slots__ = ('myslot1', 'myslot2')
->>> Astronaut.__slots__
+>>> User.__slots__ = ('myslot1', 'myslot2')
+>>> User.__slots__
 ('myslot1', 'myslot2')
 >>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
               '__slots__': ('myslot1', 'myslot2'),
-              'firstname': <member 'firstname' of 'Astronaut' objects>,
-              'lastname': <member 'lastname' of 'Astronaut' objects>,
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>,
               '__doc__': None})
 
->>> class Astronaut:
+>>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
 >>>
->>> Astronaut.__slots__ = ('myslot1', 'myslot2')
->>> Astronaut.__slots__
+>>> User.__slots__ = ('myslot1', 'myslot2')
+>>> User.__slots__
 ('myslot1', 'myslot2')
 >>>
 >>>
->>> Astronaut.firstname
-<member 'firstname' of 'Astronaut' objects>
+>>> User.firstname
+<member 'firstname' of 'User' objects>
 >>>
->>> Astronaut.lastname
-<member 'lastname' of 'Astronaut' objects>
+>>> User.lastname
+<member 'lastname' of 'User' objects>
 >>>
->>> Astronaut.myslot1
+>>> User.myslot1
 Traceback (most recent call last):
-AttributeError: type object 'Astronaut' has no attribute 'myslot1'
+AttributeError: type object 'User' has no attribute 'myslot1'
 >>>
->>> Astronaut.myslot2
+>>> User.myslot2
 Traceback (most recent call last):
-AttributeError: type object 'Astronaut' has no attribute 'myslot2'
+AttributeError: type object 'User' has no attribute 'myslot2'
 >>>
->>> astro.firstname
+>>> mark.firstname
 'Mark'
 >>>
->>> astro.lastname
+>>> mark.lastname
 'Watney'
 >>>
->>> astro.myslot1
+>>> mark.myslot1
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'myslot1'
+AttributeError: 'User' object has no attribute 'myslot1'
 >>>
->>> astro.myslot2
+>>> mark.myslot2
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'myslot2'
+AttributeError: 'User' object has no attribute 'myslot2'
 
 
 Slots in Dataclasses
@@ -644,37 +658,29 @@ Use Case - 0x02
 ...                            if hasattr(o, x))
 ...         return s
 ...     return sizeof(o)
+
+Test:
+
+>>> class User:
+...    __slots__ = ('firstname', 'lastname')
+>>>
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>>
+>>> deepsizeof(mark)
+156
+
+>>> class User:
+...     pass
 >>>
 >>>
->>> # doctest: +SKIP
-... if __name__ == '__main__':
-...     class Astronaut:
-...        __slots__ = ('firstname', 'lastname')
-...
-...     class Cosmonaut:
-...         pass
-...
-...     a = Astronaut()
-...     a.firstname = 'Mark'
-...     a.lastname = 'Watney'
-...
-...     c = Cosmonaut()
-...     c.firstname = 'Mark'
-...     c.lastname = 'Watney'
-...
-...     print('Astronaut', deepsizeof(a))
-...     print('Cosmonaut', deepsizeof(c))
-DEBUG:deepsizeof:Size: 48, Type: <class 'Astronaut'>, Repr: <Astronaut object at 0x10790b940>
-DEBUG:deepsizeof:Size: 53, Type: <class 'str'>, Repr: 'Mark'
-DEBUG:deepsizeof:Size: 55, Type: <class 'str'>, Repr: 'Watney'
-DEBUG:deepsizeof:Size: 48, Type: <class 'Cosmonaut'>, Repr: <Cosmonaut object at 0x10790b9d0>
-DEBUG:deepsizeof:Size: 104, Type: <class 'dict'>, Repr: {'firstname': 'Mark', 'lastname': 'Watney'}
-DEBUG:deepsizeof:Size: 58, Type: <class 'str'>, Repr: 'firstname'
-DEBUG:deepsizeof:Size: 53, Type: <class 'str'>, Repr: 'Mark'
-DEBUG:deepsizeof:Size: 57, Type: <class 'str'>, Repr: 'lastname'
-DEBUG:deepsizeof:Size: 55, Type: <class 'str'>, Repr: 'Watney'
-Astronaut 156
-Cosmonaut 375
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>>
+>>> deepsizeof(mark)
+575
 
 
 Further Reading

@@ -30,7 +30,7 @@ class PyBookTest(IsolatedAsyncioTestCase):
         with self.subTest(msg='Python Version'):
             self.assertIn('3.11', resp.text)
             self.assertIn('3.10', resp.text)
-            self.assertIn('3.9', resp.text)
+            self.assertNotIn('3.9', resp.text)
             self.assertNotIn('3.8', resp.text)
             self.assertNotIn('3.7', resp.text)
             self.assertNotIn('3.6', resp.text)

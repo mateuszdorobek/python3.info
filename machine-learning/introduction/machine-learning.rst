@@ -115,7 +115,7 @@ praktycznym wykorzystaniu uczenia maszynowego do rozwiązywania problemów.
 * `Basic Loops`
 * `Basic Files`
 * `Basic Functions`
-* `Basic Object Oriented Programming`
+* `Basic OOP`
 * `Stdlib Mathematics`
 * `Stdlib Serialization`
 * `Stdlib Modules and Packages`

@@ -145,44 +145,47 @@ Example
 -------
 * Source [#MypycDocs]_
 
->>> # doctest: +SKIP
-... def fib(n: int) -> int:
+File ``mylib.py``:
+
+>>> def fib(n: int) -> int:
 ...     if n <= 1:
 ...         return n
 ...     else:
 ...         return fib(n-2) + fib(n-1)
+
+File ``main.py``:
+
+>>> # doctest: +SKIP
+... from time import time
+... from mylib import fib
 ...
 ...
-... import time
-...
-... start = time.time()
+... start = time()
 ... fib(32)
-... stop = time.time()
+... stop = time()
 ...
-... print('Duration in seconds:', stop-start)
+... duration = round(stop-start, 4)
+... print(f'Duration in seconds: {duration}')
 
 .. code-block:: console
 
-    $ python3 fib.py
-    Duration in seconds: 0.4125328063964844
+    $ python main.py
+    Duration in seconds: 0.4125
 
 .. code-block:: console
 
-    $ mypyc fib.py
-    $ python3 -c "import fib"
-    Duration in seconds: 0.04097270965576172
+    $ mypyc mylib.py
+    $ python main.py
+    Duration in seconds: 0.0409
 
 After compilation, the program is about 10x faster.
 
 Mypy will generate a C extension for fib in the current working directory.
 For example, on a Linux system the generated file may be called:
-``fib.cpython-310m-x86_64-linux-gnu.so``
+``fib.cpython-311m-x86_64-linux-gnu.so``
 
 Since C extensions can't be run as programs, use ``python3 -c`` to run
-the compiled module as a program
-
-.. note:: ``__name__`` in ``fib.py``
-          would now be ``"fib"``, not ``"__main__"``
+the compiled module as a program or import it from the other Python file.
 
 
 Automation
