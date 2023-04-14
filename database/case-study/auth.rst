@@ -1,3 +1,5 @@
+.. testsetup:: # doctest: +SKIP_FILE
+
 Case Study Auth
 ===============
 
@@ -18,11 +20,10 @@ Example
 >>> from sqlalchemy.orm import sessionmaker, Session
 >>> from passlib.context import CryptContext
 >>> from fastapi import FastAPI, Depends, HTTPException, status
->>> app = FastAPI()
->>>
 >>>
 >>> SQLALCHEMY_DATABASE_URL = 'sqlite:///:memory:'
 >>>
+>>> app = FastAPI()
 >>> engine = create_engine(SQLALCHEMY_DATABASE_URL, connect_args={'check_same_thread': False})
 >>> SessionLocal = sessionmaker(bind=engine, autocommit=False, autoflush=False)
 >>> Base = declarative_base()

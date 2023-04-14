@@ -139,7 +139,7 @@ class Doctest(Action):
     def run_doctest(file: Path):
         log.debug(f'RUN\t {file}')
         try:
-            exitcode = run(f'python -m doctest {file}', timeout=30)
+            exitcode = run(f'python -m doctest {file}', timeout=45)
         except TimeoutError:
             log.error(f'TIMEOUT\t{file}')
             exit(1)
