@@ -1,5 +1,5 @@
-Type Annotation Deprecated
-==========================
+Typing Deprecated
+=================
 
 The redundant types are deprecated as of Python 3.9 but no deprecation
 warnings will be issued by the interpreter. It is expected that type

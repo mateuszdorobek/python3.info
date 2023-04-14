@@ -1,5 +1,5 @@
-Type Annotation Basics
-======================
+Typing Basic
+============
 * Also known as: "type annotations", "type hints", "gradual typing"
 * Types are not required, and never will be
 * Good IDE will give you hints

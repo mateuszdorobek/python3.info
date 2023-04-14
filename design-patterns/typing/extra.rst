@@ -1,5 +1,5 @@
-Type Annotation Extra
-=====================
+Typing Extra
+============
 
 
 TypeGuard

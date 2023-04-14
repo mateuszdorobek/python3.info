@@ -1,5 +1,5 @@
-Type Annotation Mypyc
-=====================
+Typing Mypyc
+============
 * Mypyc compiles Python modules to C extensions.
 * It uses standard Python type hints to generate fast code.
 * Source: https://mypyc.readthedocs.io/en/latest/

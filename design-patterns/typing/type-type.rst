@@ -1,5 +1,5 @@
-Type Annotation Types
-=====================
+Typing Type
+===========
 * All classes are types
 * Since 3.11: :pep:`673` - Self Type
 * Since 3.7: ``from __future__ import annotations``

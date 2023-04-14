@@ -1,5 +1,5 @@
-Annotated
-=========
+Typing Annotated
+================
 * Since Python 3.9 :pep:`593` -- Flexible function and variable annotations
 * https://docs.python.org/3/library/typing.html#typing.Annotated
 * https://github.com/annotated-types/annotated-types

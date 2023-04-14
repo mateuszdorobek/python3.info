@@ -1,5 +1,5 @@
-Type Annotation NamedTuple
-==========================
+Typing NamedTuple
+=================
 
 
 SetUp

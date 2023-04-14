@@ -1,5 +1,5 @@
-Type Annotation Annotate
-========================
+Typing Annotate
+===============
 
 
 PyAnnotate

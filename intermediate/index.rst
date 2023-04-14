@@ -88,7 +88,7 @@ Typing
 
     typing/type-basic.rst
     typing/type-annotations.rst
-    typing/type-sequence.rst
+    typing/type-iterable.rst
     typing/type-mapping.rst
     typing/type-nested.rst
     typing/type-typeddict.rst

@@ -1,5 +1,5 @@
-Type Annotation Primitives
-==========================
+Typing Annotations
+==================
 
 
 Alias

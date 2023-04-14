@@ -1,5 +1,5 @@
-Type Annotation TypedDict
-=========================
+Typing TypedDict
+================
 * Since Python 3.8
 * :pep:`589` -- TypedDict: Type Hints for Dictionaries with a Fixed Set of Keys
 * :pep:`655` –- Marking individual TypedDict items as required or potentially-missing

@@ -1,5 +1,5 @@
-Type Annotation Mapping
-=======================
+Typing Mapping
+==============
 * Before Python 3.9 you need ``from typing import Dict``
 * Since Python 3.9: :pep:`585` -- Type Hinting Generics In Standard Collections
 * Since Python 3.10: :pep:`604` -- Allow writing union types as X | Y
