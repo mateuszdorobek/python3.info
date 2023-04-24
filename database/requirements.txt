@@ -1,5 +1,5 @@
-# SQLAlchemy
-# fastapi
-# uvicorn
-# pydantic
+SQLAlchemy
+fastapi
+uvicorn
+pydantic
 # passlib[bcrypt]

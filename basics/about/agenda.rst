@@ -7,7 +7,7 @@ Agenda
 
 Day 1
 -----
-* 10 min - Intro: Welcome message, course introduction, agenda, spreadsheet
+* 10 min - Intro: welcome message, course introduction, agenda, spreadsheet
 * 80 min - Setup: IDE, Git, repository, Python, doctest
 * 60 min - Syntax: variables, comments, operators, builtins
 * 100 min - Numeric types: int, float
@@ -27,9 +27,9 @@ Day 2
 
 Day 3
 -----
-* 120 min - Loop: While
-* 60 min - Loop: For
-* 60 min - Loop: nested, unpacking, dict iteration
+* 120 min - Loop: while (patterns: until, flag, infinite)
+* 60 min - Loop: for (patterns: foreach, range-len)
+* 60 min - Loop: nested, unpacking, enumerate, dict iteration
 * 75 min - Comprehensions: list, tuple, set, dict, nested
 
 
