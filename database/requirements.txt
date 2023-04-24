@@ -2,4 +2,4 @@ SQLAlchemy
 fastapi
 uvicorn
 pydantic
-# passlib[bcrypt]
+passlib[bcrypt]
