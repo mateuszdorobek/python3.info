@@ -104,11 +104,37 @@ OOP
     oop/abstract-class.rst
     oop/abstract-protocol.rst
     oop/abstract-polymorphism.rst
-    oop/object-relations.rst
     oop/object-identity.rst
     oop/object-constructor.rst
     oop/class-factory.rst
     oop/class-metaclass.rst
+
+
+Operator
+********
+.. toctree::
+    :maxdepth: 1
+    :caption: Operator
+
+    operator/string-about.rst
+    operator/string-str.rst
+    operator/string-repr.rst
+    operator/string-format.rst
+    operator/string-operators.rst
+
+    operator/about.rst
+    operator/left.rst
+    operator/increment.rst
+    operator/right.rst
+
+    operator/equality.rst
+    operator/comparison.rst
+    operator/contains.rst
+    operator/bitwise.rst
+    operator/module.rst
+    operator/builtin.rst
+    operator/accessors.rst
+    operator/other.rst
 
 
 Protocol

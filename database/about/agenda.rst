@@ -17,6 +17,7 @@ Day 1
 
 Day 2 i 3
 ---------
+* 120 min - Object Relation Mapping
 * Wprowadzenie do systemów ORM
 * Założenia projektowe baz danych i optymalizacja przechowywania informacji
 * Typy normalizacji baz danych

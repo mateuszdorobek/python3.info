@@ -185,3 +185,18 @@ Further Reading
 References
 ----------
 .. [#pyDocTyping] https://docs.python.org/3/library/typing.html#module-contents
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/typing_nested_a.py
+    :caption: :download:`Solution <assignments/typing_nested_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_nested_b.py
+    :caption: :download:`Solution <assignments/typing_nested_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_nested_c.py
+    :caption: :download:`Solution <assignments/typing_nested_c.py>`
+    :end-before: # Solution

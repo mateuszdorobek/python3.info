@@ -31,7 +31,7 @@ Przepisywanie architektury
 Tworzenie nowej usługi
 ----------------------
 * end to end
-* założenie repo w Bitbucket
+* założenie repo w Github
 * projekt w JIRA
 * CI/CD
 * Deployment

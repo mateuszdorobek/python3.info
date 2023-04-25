@@ -21,22 +21,6 @@ Star
     star/signature.rst
 
 
-Enum
-****
-.. toctree::
-    :maxdepth: 1
-    :caption: Enum
-
-    enum/about.rst
-    enum/intenum.rst
-    enum/strenum.rst
-    enum/auto.rst
-    enum/flag.rst
-    enum/check.rst
-    enum/builtin.rst
-    enum/use-cases.rst
-
-
 Match
 *****
 .. toctree::
@@ -55,29 +39,6 @@ Match
     match/pattern-walrus.rst
     match/guard.rst
     match/subpattern.rst
-
-
-Idiom
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Idiom
-
-    idiom/about.rst
-    idiom/range.rst
-    idiom/reversed.rst
-    idiom/all.rst
-    idiom/any.rst
-    idiom/enumerate.rst
-    idiom/zip.rst
-    idiom/map.rst
-    idiom/filter.rst
-    idiom/reduce.rst
-    idiom/next.rst
-    idiom/iter.rst
-    idiom/chain.rst
-    idiom/patterns.rst
-    idiom/itertools.rst
 
 
 Typing
@@ -155,6 +116,29 @@ CSV
     csv/csv-dictwriter.rst
 
 
+TOML
+****
+.. toctree::
+    :maxdepth: 1
+    :caption: TOML
+
+    tomllib/about.rst
+    tomllib/pyproject-toml.rst
+
+
+Pickle
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Pickle
+
+    pickle/about.rst
+    pickle/dump.rst
+    pickle/load.rst
+    pickle/objects.rst
+    pickle/file.rst
+
+
 Regex
 *****
 .. toctree::
@@ -203,31 +187,43 @@ Datetime
     datetime/timezones.rst
 
 
-Operator
-********
+Idiom
+*****
 .. toctree::
     :maxdepth: 1
-    :caption: Operator
+    :caption: Idiom
 
-    operator/string-about.rst
-    operator/string-str.rst
-    operator/string-repr.rst
-    operator/string-format.rst
-    operator/string-operators.rst
+    idiom/about.rst
+    idiom/range.rst
+    idiom/reversed.rst
+    idiom/all.rst
+    idiom/any.rst
+    idiom/enumerate.rst
+    idiom/zip.rst
+    idiom/map.rst
+    idiom/filter.rst
+    idiom/reduce.rst
+    idiom/next.rst
+    idiom/iter.rst
+    idiom/chain.rst
+    idiom/patterns.rst
+    idiom/itertools.rst
 
-    operator/about.rst
-    operator/left.rst
-    operator/increment.rst
-    operator/right.rst
 
-    operator/equality.rst
-    operator/comparison.rst
-    operator/contains.rst
-    operator/bitwise.rst
-    operator/module.rst
-    operator/builtin.rst
-    operator/accessors.rst
-    operator/other.rst
+Enum
+****
+.. toctree::
+    :maxdepth: 1
+    :caption: Enum
+
+    enum/about.rst
+    enum/intenum.rst
+    enum/strenum.rst
+    enum/auto.rst
+    enum/flag.rst
+    enum/check.rst
+    enum/builtin.rst
+    enum/use-cases.rst
 
 
 Modules
@@ -239,7 +235,6 @@ Modules
     modules/layout.rst
     modules/venv.rst
     modules/pip.rst
-    modules/pyproject-toml.rst
 
 
 Logging
@@ -259,11 +254,11 @@ Logging
     logging/use-cases.rst
 
 
-Mathematics
-***********
+Math
+****
 .. toctree::
     :maxdepth: 1
-    :caption: Mathematics
+    :caption: Math
 
     math/ieee754.rst
     math/random.rst

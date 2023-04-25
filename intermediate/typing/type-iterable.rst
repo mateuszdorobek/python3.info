@@ -166,3 +166,10 @@ Further Reading
 References
 ----------
 .. [#pyDocTyping] https://docs.python.org/3/library/typing.html#module-contents
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/typing_iterable_a.py
+    :caption: :download:`Solution <assignments/typing_iterable_a.py>`
+    :end-before: # Solution

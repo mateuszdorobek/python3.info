@@ -179,3 +179,26 @@ Further Reading
 References
 ----------
 .. [#Briggs2021] Briggs, J. Type Annotations in Python. Year: 2021. Retrieved: 2022-04-08. URL: https://towardsdatascience.com/type-annotations-in-python-d90990b172dc
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/typing_annotations_a.py
+    :caption: :download:`Solution <assignments/typing_annotations_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_annotations_b.py
+    :caption: :download:`Solution <assignments/typing_annotations_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_annotations_c.py
+    :caption: :download:`Solution <assignments/typing_annotations_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_annotations_d.py
+    :caption: :download:`Solution <assignments/typing_annotations_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/typing_annotations_e.py
+    :caption: :download:`Solution <assignments/typing_annotations_e.py>`
+    :end-before: # Solution

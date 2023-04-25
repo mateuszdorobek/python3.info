@@ -183,23 +183,24 @@ Literal String
 
 SetUp:
 
->>> from typing import LiteralSting  # doctest: +SKIP
+>>> from typing import LiteralString
 
 Example:
 
->>> # doctest: +SKIP
-... def execute(sql: LiteralString) -> ...
-...     ...
-...
-...
-... execute('SELECT * FROM users WHERE login="mwatney"')                  # ok
-... execute('SELECT * FROM users WHERE login=' + username)                # ok
-... execute(f'SELECT * FROM users WHERE login=%s' % username)             # error
-... execute(f'SELECT * FROM users WHERE login=%(login)s' % {'login': username}) # error
-... execute(f'SELECT * FROM users WHERE login={}'.format(username))       # error
-... execute(f'SELECT * FROM users WHERE login={0}'.format(username))      # error
-... execute(f'SELECT * FROM users WHERE login={login}'.format(username))  # error
-... execute(f'SELECT * FROM users WHERE login={username}')                # error
+>>> def execute(sql: LiteralString):
+...    ...
+>>>
+>>> username = 'mwatney'
+>>>
+>>>
+>>> execute('SELECT * FROM users WHERE login="mwatney"')                  # ok
+>>> execute('SELECT * FROM users WHERE login=' + username)                # ok
+>>> execute('SELECT * FROM users WHERE login=%s' % username)             # error
+>>> execute('SELECT * FROM users WHERE login=%(login)s' % {'login': username}) # error
+>>> execute('SELECT * FROM users WHERE login={}'.format(username))       # error
+>>> execute('SELECT * FROM users WHERE login={0}'.format(username))      # error
+>>> execute('SELECT * FROM users WHERE login={login}'.format(login=username))  # error
+>>> execute(f'SELECT * FROM users WHERE login={username}')                # error
 
 
 Use Case - 0x01

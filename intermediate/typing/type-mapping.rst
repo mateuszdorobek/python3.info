@@ -59,3 +59,10 @@ Further Reading
 ---------------
 * More information in `Type Annotations`
 * More information in `CI/CD Type Checking`
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/typing_mapping_a.py
+    :caption: :download:`Solution <assignments/typing_mapping_a.py>`
+    :end-before: # Solution

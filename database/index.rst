@@ -17,7 +17,16 @@ Theory
 
     theory/about.rst
     theory/uml-erd.rst
-    theory/orm.rst
+
+
+ORM
+***
+.. toctree::
+    :maxdepth: 1
+    :caption: Theory
+
+    orm/about.rst
+    orm/use-cases.rst
 
 
 Normalization

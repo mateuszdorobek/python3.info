@@ -519,8 +519,8 @@ Writing configuration
                           'Compression': 'yes',
                           'CompressionLevel': '9'}
 
-    config['bitbucket.org'] = {}
-    config['bitbucket.org']['User'] = 'hg'
+    config['github.com'] = {}
+    config['github.com']['User'] = 'hg'
     config['topsecret.server.com'] = {}
 
     topsecret = config['topsecret.server.com']
@@ -539,7 +539,7 @@ Writing configuration
     CompressionLevel = 9
     ForwardX11 = yes
 
-    [bitbucket.org]
+    [github.com]
     User = hg
 
     [topsecret.server.com]
@@ -555,12 +555,12 @@ Reading configuration
     config = configparser.ConfigParser()
 
     config.read('myfile.ini')          # ['myfile.ini']
-    config.sections()                   # ['bitbucket.org', 'topsecret.server.com']
+    config.sections()                   # ['github.com', 'topsecret.server.com']
 
-    'bitbucket.org' in config           # True
+    'github.com' in config           # True
     'example.com' in config             # False
 
-    config['bitbucket.org']['User']     # 'hg'
+    config['github.com']['User']     # 'hg'
     config['DEFAULT']['Compression']    # 'yes'
 
     config.getboolean('BatchMode', fallback=True)        # True
@@ -572,7 +572,7 @@ Reading configuration
     topsecret.get('Port', 8000)                 # '50022'
 
 
-    for key in config['bitbucket.org']:  # 'bitbucket.org' has laso entries from DEFAULT
+    for key in config['github.com']:  # 'github.com' has laso entries from DEFAULT
         print(key)
 
         # user

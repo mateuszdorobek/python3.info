@@ -23,78 +23,6 @@ UML
     uml/sequence-diagram.rst
 
 
-Typing
-******
-.. toctree::
-    :maxdepth: 1
-    :caption: Typing
-
-    typing/type-basic.rst
-    typing/type-annotations.rst
-    typing/type-iterable.rst
-    typing/type-mapping.rst
-    typing/type-nested.rst
-    typing/type-typeddict.rst
-    typing/type-namedtuple.rst
-    typing/type-callable.rst
-    typing/type-type.rst
-    typing/annotated.rst
-    typing/extra.rst
-    typing/deprecated.rst
-    typing/package-check.rst
-    typing/package-annotate.rst
-    typing/package-cython.rst
-    typing/package-mypyc.rst
-
-
-Dataclass
-*********
-.. toctree::
-    :maxdepth: 1
-    :caption: Dataclass
-
-    dataclass/about.rst
-    dataclass/define-basic.rst
-    dataclass/define-special.rst
-    dataclass/define-relations.rst
-    dataclass/mechanism.rst
-    dataclass/postinit.rst
-    dataclass/mutable-args.rst
-    dataclass/field.rst
-    dataclass/metadata.rst
-    dataclass/parameters.rst
-    dataclass/helpers.rst
-    dataclass/inheritance.rst
-    dataclass/introspect.rst
-
-
-Operator
-********
-.. toctree::
-    :maxdepth: 1
-    :caption: Operator
-
-    operator/string-about.rst
-    operator/string-str.rst
-    operator/string-repr.rst
-    operator/string-format.rst
-    operator/string-operators.rst
-
-    operator/about.rst
-    operator/left.rst
-    operator/increment.rst
-    operator/right.rst
-
-    operator/equality.rst
-    operator/comparison.rst
-    operator/contains.rst
-    operator/boolean.rst
-    operator/module.rst
-    operator/builtin.rst
-    operator/accessors.rst
-    operator/other.rst
-
-
 OOP
 ***
 .. toctree::
@@ -119,7 +47,6 @@ OOP
     oop/abstract-polymorphism.rst
     oop/object-identity.rst
     oop/object-constructor.rst
-
 
 
 Protocols

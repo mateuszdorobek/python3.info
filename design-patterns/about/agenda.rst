@@ -22,16 +22,7 @@ Day 1
 
 Day 2
 -----
-* 100m - Type Annotation
-* 100m - Dataclasses (dataclasses)
-* Type Annotations
-	* Typy danych
-	* Sekwencje
-	* Mapy
-	* Funkcje
-	* Klasy i obiekty
 * Programowanie obiektowe
-	* Dataclass
 	* Modyfikatory dostępu
 	* Przeciążanie operatorów
 	* Dziedziczenie, kompozycja, klasy domieszkowe

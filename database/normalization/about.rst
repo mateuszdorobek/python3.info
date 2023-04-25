@@ -13,6 +13,21 @@ Normalization About
 * 4th: No multi-valued dependencies
 
 
+Normal forms
+------------
+* UNF: Unnormalized form
+* 1NF: First normal form
+* 2NF: Second normal form
+* 3NF: Third normal form
+* EKNF: Elementary key normal form
+* BCNF: Boyce–Codd normal form
+* 4NF: Fourth normal form
+* ETNF: Essential tuple normal form
+* 5NF: Fifth normal form
+* DKNF: Domain-key normal form
+* 6NF: Sixth normal form
+
+
 Glossary
 --------
 .. glossary::
@@ -50,9 +65,25 @@ Recap
 
     Image credit: [#Lowgren2021]_
 
+
 References
 ----------
-.. [#WikipediaDatabaseNormalization] Database normalization. https://en.wikipedia.org/wiki/Database_normalization
+.. [#WikipediaDatabaseNormalization]
+   Wikipedia Contributors.
+   Database normalization.
+   Year: 2021.
+   Retrieved: 2022-02-05.
+   URL: https://en.wikipedia.org/wiki/Database_normalization
+
+.. [#Codd1972]
+   Codd, E. F.
+   Further Normalization of the Data Base Relational Model.
+   Presented at: Courant Computer Science Symposia Series 6, Data Base Systems, New York City, May 24–25, 1971.)
+   IBM Research Report RJ909 (August 31, 1971).
+   Republished in Randall J. Rustin (ed.),
+   Data Base Systems: Courant Computer Science Symposia Series 6.
+   Publisher: Prentice-Hall.
+   Year: 1972.
 
 .. [#Lowgren2021]
    Lowgren, Jesper.
@@ -60,5 +91,3 @@ References
    Year: 2021.
    Retrieved: 2022-02-05.
    URL: https://www.youtube.com/watch?v=SK4H5tTT6-M
-
-.. [#Codd1972] Codd, E. F. Further Normalization of the Data Base Relational Model. (Presented at Courant Computer Science Symposia Series 6, Data Base Systems, New York City, May 24–25, 1971.) IBM Research Report RJ909 (August 31, 1971). Republished in Randall J. Rustin (ed.), Data Base Systems: Courant Computer Science Symposia Series 6. Prentice-Hall, 1972.
