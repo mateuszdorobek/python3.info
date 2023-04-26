@@ -1,4 +1,3 @@
 mypy
 tzdata
 requests
-numpy

@@ -252,7 +252,6 @@ TypeError: Astronaut already specifies __slots__
 mappingproxy({'__module__': '__main__',
               '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
               'say_hello': <function Astronaut.say_hello at 0x...>,
-              '__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
               '__doc__': 'Astronaut(firstname: str, lastname: str)',
               '__dataclass_params__': _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False),
               '__dataclass_fields__': {'firstname': Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
