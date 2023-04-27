@@ -147,41 +147,22 @@ Vector(x=11, y=22)
 
 Use Case - 0x01
 ---------------
-Imports:
-
->>> from dataclasses import dataclass, field
->>> from pprint import pprint
-
-Definition:
-
->>> @dataclass
-... class Astronaut:
-...     firstname: str
-...     lastname: str
->>>
->>>
->>> @dataclass
-... class Crew:
-...     members: list[Astronaut] = field(default_factory=list)
+>>> class Group:
+...     def __init__(self):
+...         self.members = []
 ...
 ...     def __iadd__(self, other):
 ...         self.members.append(other)
 ...         return self
-
-Usage:
-
->>> ares3 = Crew()
->>> ares3 += Astronaut('Mark', 'Watney')
->>> ares3 += Astronaut('Melissa', 'Lewis')
-
->>> pprint(ares3)
-Crew(members=[Astronaut(firstname='Mark', lastname='Watney'),
-              Astronaut(firstname='Melissa', lastname='Lewis')])
-
->>> for member in ares3.members:
-...     print(member)
-Astronaut(firstname='Mark', lastname='Watney')
-Astronaut(firstname='Melissa', lastname='Lewis')
+>>>
+>>>
+>>> admins = Group()
+>>> admins += 'mwatney'
+>>> admins += 'mlewis'
+>>> admins += 'rmartinez'
+>>>
+>>> admins.members
+['mwatney', 'mlewis', 'rmartinez']
 
 
 Assignments

@@ -96,3 +96,14 @@ Assignments
     :caption: :download:`Solution <assignments/idiom_enumerate_a.py>`
     :end-before: # Solution
 
+.. literalinclude:: assignments/idiom_enumerate_b.py
+    :caption: :download:`Solution <assignments/idiom_enumerate_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_enumerate_c.py
+    :caption: :download:`Solution <assignments/idiom_enumerate_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_enumerate_d.py
+    :caption: :download:`Solution <assignments/idiom_enumerate_d.py>`
+    :end-before: # Solution

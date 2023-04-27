@@ -11,7 +11,7 @@ English:
        b. returns True if argument is odd
        c. returns False if argument is even
     2. Use `filter()` to apply function `odd()` to DATA
-    3. Define `result: filter` with evaluated result
+    3. Define `result: filter` with result
     4. Run doctests - all must succeed
 
 Polish:
@@ -20,7 +20,7 @@ Polish:
        b. zwraca True jeżeli argument jest nieparzysty
        c. zwraca False jeżeli argument jest parzysty
     2. Użyj `filter()` zaaplikować funkcję `odd()` do DATA
-    3. Zdefiniuj `result: filter` z ewaluaownym wynikiem
+    3. Zdefiniuj `result: filter` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -54,9 +54,9 @@ Tests:
 DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-# Returns its argument cubed (raised to the power of 3)
+# Returns if number is odd (modulo divisible by 2 without reminder)
 # type: Callable[[int], int]
-def odd():
+def odd(x):
     ...
 
 # Cube numbers in DATA

@@ -12,7 +12,8 @@ English:
     2. Redefine `result` with odd numbers from `result`
     3. Redefine `result` with cubed numbers from `result`
     4. Redefine `result` with evaluated `result`
-    5. Run doctests - all must succeed
+    5. At the end `result` must be a `list` type
+    6. Run doctests - all must succeed
 
 Polish:
     1. Użyj `range()` aby otrzymać liczby:
@@ -21,7 +22,8 @@ Polish:
     2. Przedefiniuj `result` z nieparzystymi liczbami z `result`
     3. Przedefiniuj `result` z podniesionymi do sześcianiu liczbami z `result`
     4. Przedefiniuj `result` z ewaluaownym `result`
-    5. Uruchom doctesty - wszystkie muszą się powieść
+    5. Na końcu `result` musi być typu `list`
+    6. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * range()

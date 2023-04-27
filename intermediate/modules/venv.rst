@@ -17,23 +17,26 @@ Both ``venv`` and ``virtualenv`` are used to create isolated
 Python environments. Since Python 3.3, a subset of ``virtualenv``
 has been integrated into the standard library under the ``venv`` module.
 
+Both ``venv`` and ``virtualenv``:
+
+    * Author: Bernat Gabor
+    * Support: Python 3
+
 Module ``venv``:
 
     * Python: version 3 only
     * Install: not required - bundled with Python since Python 3.3
     * Usage: ``python3.11 -m venv DIRECTORY``
-    * Development: slower and synchronized with Python releases
+    * Development: synchronized with Python releases
     * Features: all you need
-    * Author: Bernat Gabor
 
 Module ``virtualenv``:
 
     * Python: version 2 and 3
     * Install: ``pip install virtualenv``
     * Usage: ``virtualenv DIRECTORY``
-    * Development: faster and independent from Python releases
+    * Development: independent from Python releases
     * Features: all from ``venv`` plus extra (which typically you don't need)
-    * Author: Bernat Gabor
 
 In my opinion builtin ``venv`` is all you need. Moreover no installation
 is required to use it.
@@ -149,7 +152,7 @@ Directory Naming Convention
 
 .. code-block:: text
 
-    venv
+    venv  # may be confused with `venv` Python module, mind: `sys.path`
     venv-py
     venv-py310
     venv-py311
@@ -162,7 +165,8 @@ Directory Naming Convention
     venv-py311-dj50a1
     venv-py311-dj50b1
     venv-py311-dj50rc1
-    venv-py311-np123-pd15
+    venv-py311-np124-pd15
+    venv-py311-np124-pd20
 
 
 Good Practices
@@ -222,7 +226,7 @@ Zsh Prompt
 
 .. code-block:: zsh
 
-    export PROMPT='\n%F{blue}project_name> %F{white}'
+    export PROMPT='%F{cyan}project_name> %F{white}'
 
 
 Further Reading
@@ -232,21 +236,6 @@ Further Reading
 
 Assignments
 -----------
-.. todo:: Convert assignments to literalinclude
-
-Virtualenv
-^^^^^^^^^^
-* Assignment: Virtualenv
-* Complexity: easy
-* Lines of code: 0 lines
-* Time: 2 min
-
-English:
-    1. Create ``venv``
-    2. Add ``venv`` as a Python interpreter in your IDE
-    3. Run doctests - all must succeed
-
-Polish:
-    1. Stwórz ``venv``
-    2. Dodaj ``venv`` jako interpreter Python w Twoim IDE
-    3. Uruchom doctesty - wszystkie muszą się powieść
+.. literalinclude:: assignments/modules_venv.py
+    :caption: :download:`Solution <assignments/modules_venv.py>`
+    :end-before: # Solution

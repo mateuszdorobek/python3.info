@@ -5,30 +5,28 @@
 * Time: 5 min
 
 English:
-    1. Use generator expression to create `result`
-    2. Use `range()` to get numbers:
+    1. Define `result` with numbers from `range()`:
        a. from 0 (inclusive)
        b. to 10 (exclusive)
-    3. Use `filter()` to get odd numbers from `result`
+    2. Use `filter()` to get odd numbers from `result`
        (and assign to `result`)
-    4. Use `map()` to cube all numbers in `result`
-    5. Create `result: float` with arithmetic mean of `result`
-    6. Do not use `lambda` expressions
-    7. Note, that all the time you are working on one data stream
-    8. Run doctests - all must succeed
+    3. Use `map()` to cube all numbers in `result`
+    4. Create `result: float` with arithmetic mean of `result`
+    5. Do not use `lambda` expressions
+    6. Note, that all the time you are working on one data stream
+    7. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażenia generatorowego do stworzenia `result`
-    2. Użyj `range()` aby otrzymać liczby:
+    1. Zdefiniu `result` z liczbami z `range()`:
        a. od 0 (włącznie)
        b. do 10 (rozłącznie)
-    3. Użyj `filter()` aby otrzymać liczby nieparzyste z `result`
+    2. Użyj `filter()` aby otrzymać liczby nieparzyste z `result`
        (i przypisz je do `result`)
-    4. Użyj `map()` aby podnieść wszystkie liczby w `result` do sześcianu
-    5. Stwórz `result: float` ze średnią arytmetyczną z `result`
-    6. Nie używaj wyrażeń lambda
-    7. Zwróć uwagę, że cały czas pracujesz na jednym strumieniu danych
-    8. Uruchom doctesty - wszystkie muszą się powieść
+    3. Użyj `map()` aby podnieść wszystkie liczby w `result` do sześcianu
+    4. Stwórz `result: float` ze średnią arytmetyczną z `result`
+    5. Nie używaj wyrażeń lambda
+    6. Zwróć uwagę, że cały czas pracujesz na jednym strumieniu danych
+    7. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * type cast to `list()` to expand generator before calculating mean

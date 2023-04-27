@@ -29,6 +29,24 @@ Use Case - 0x01
 
 Use Case - 0x02
 ---------------
+>>> class User:
+...     def __init__(self, uid, name):
+...         self.uid = uid
+...         self.name = name
+...
+...     def __gt__(self, other):
+...         return self.uid < other.uid  # mind, that the greater uid the worse
+>>>
+>>>
+>>> root = User(0, 'root')
+>>> mark = User(1000, 'mwatney')
+>>>
+>>> root > mark
+True
+
+
+Use Case - 0x03
+---------------
 * Numpy
 
 SetUp:

@@ -29,15 +29,18 @@ True
 
 Use Case - 0x02
 ---------------
->>> DATA = [{'is_astronaut': True,  'name': 'Pan Twardowski'},
-...         {'is_astronaut': True,  'name': 'Mark Watney'},
-...         {'is_astronaut': False, 'name': 'José Jiménez'},
-...         {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...         {'is_astronaut': False, 'name': 'Alex Vogel'}]
+>>> USERS = [
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': True,  'name': 'Melisa Lewis'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
+...     {'is_admin': False, 'name': 'Beth Johanssen'},
+...     {'is_admin': False, 'name': 'Chris Beck'},
+... ]
 >>>
 >>>
->>> if any(person['is_astronaut'] for person in DATA):
-...     print('At least one person is astronaut')
+>>> if any(user['is_admin'] for user in USERS):
+...     print('At least one person is an administrator')
 ... else:
-...     print('There are no astronauts')
-At least one person is astronaut
+...     print('There are no administrators')
+At least one person is an administrator

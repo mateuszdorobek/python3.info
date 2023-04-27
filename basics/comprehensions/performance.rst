@@ -85,7 +85,9 @@ Setup:
 ...             if not value >= 1.0:
 ...                 result = False
 ...                 break
-3.49 µs ± 596 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+...     if not result:
+...         break
+1.49 µs ± 596 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
 >>> %%timeit -n 1000 -r 1000  # doctest: +SKIP
 ... result = all(value >= 1.0

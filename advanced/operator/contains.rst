@@ -6,31 +6,62 @@ Operator Contains
 
 Example
 -------
->>> class Crew:
+>>> class Group:
 ...     def __init__(self):
 ...         self.members = []
 ...
-...     def __iadd__(self, astronaut):
-...         self.members.append(astronaut)
+...     def __iadd__(self, user):
+...         self.members.append(user)
 ...         return self
 ...
-...     def __contains__(self, astronaut):
+...     def __contains__(self, user):
+...         return user in self.members
+>>>
+>>>
+>>> admins = Group()
+>>> admins += 'mwatney'
+>>> admins += 'mlewis'
+>>> admins += 'rmartinez'
+>>>
+>>> admins.members
+['mwatney', 'mlewis', 'rmartinez']
+>>>
+>>> 'mwatney' in admins
+True
+>>>
+>>> 'avogel' in admins
+False
+
+
+Implementation
+--------------
+>>> class Group:
+...     def __init__(self):
+...         self.members = []
+...
+...     def __iadd__(self, user):
+...         self.members.append(user)
+...         return self
+...
+...     def __contains__(self, user):
 ...         for member in self.members:
-...             if member == astronaut:
+...             if member == user:
 ...                 return True
 ...         return False
 >>>
 >>>
->>> ares3 = Crew()
->>> ares3 += 'Mark Watney'
->>> ares3 += 'Melissa Lewis'
->>> ares3 += 'Rick Martinez'
+>>> admins = Group()
+>>> admins += 'mwatney'
+>>> admins += 'mlewis'
+>>> admins += 'rmartinez'
 >>>
+>>> admins.members
+['mwatney', 'mlewis', 'rmartinez']
 >>>
->>> 'Mark Watney' in ares3
+>>> 'mwatney' in admins
 True
 >>>
->>> 'Alex Vogel' in ares3
+>>> 'avogel' in admins
 False
 
 

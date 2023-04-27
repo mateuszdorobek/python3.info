@@ -19,7 +19,7 @@ Daylight Saving Time
 * Daylight Saving Time date is different for each country and even US state
 * Australia is 9h 30m shifted
 * India is 3h 30m shifted
-* Nepal is 3h 15m shifted
+* Nepal is 3h 45m shifted
 * In southern hemisphere the Daylight Saving Time is opposite direction
 * They subtract hour in March and add in October
 * Samoa is on the international date line

@@ -218,103 +218,75 @@ Astronaut(firstname='Melissa', lastname='Lewis')
 
 Use Case - 0x03
 ---------------
->>> a = np.array([1, 2, 3])
+SetUp:
+
+>>> import numpy as np
+
+Example 1:
+
+>>> a = [1, 2, 3]
 >>> b = [4, 5, 6]
 >>>
->>> a
-array([1, 2, 3])
+>>> a + b
+[1, 2, 3, 4, 5, 6]
 >>>
->>> b
-[4, 5, 6]
+>>> a.__add__(b)
+[1, 2, 3, 4, 5, 6]
 
+Example 2:
+
+>>> a = np.array([1, 2, 3])
+>>> b = np.array([4, 5, 6])
+>>>
 >>> a + b
 array([5, 7, 9])
 >>>
 >>> a.__add__(b)
 array([5, 7, 9])
 
->>> b + a
+Example 3:
+
+>>> a = np.array([1, 2, 3])
+>>> b = [4, 5, 6]
+>>>
+>>> a + b
 array([5, 7, 9])
 >>>
->>> b.__add__(a)
+>>> a.__add__(b)
+array([5, 7, 9])
+
+Why this works:
+
+>>> class ndarray:
+...     def __add__(self, other):
+...         if type(other) is not ndarray:
+...             other = np.array(other)
+
+Example 4:
+
+>>> a = [1, 2, 3]
+>>> b = np.array([4, 5, 6])
+>>>
+>>> a + b
+array([5, 7, 9])
+>>>
+>>> a.__add__(b)
 Traceback (most recent call last):
 TypeError: can only concatenate list (not "numpy.ndarray") to list
-
->>> a.__radd__(b)
+>>>
+>>> b.__radd__(a)
 array([5, 7, 9])
 
+Why this works:
 
-Use Case - 0x04
----------------
-This is our function library.
-
-Transformation functions (non-reducing) -
-takes one argument and returns one value:
-
->>> def increment(x):
-...     return x + 1
->>>
->>> def decrement(x):
-...     return x - 1
->>>
->>> def square(x):
-...     return x ** 2
->>>
->>> def cube(x):
-...     return x ** 3
-
-Reducing functions - takes two arguments returns one value:
-
->>> def add(x, y):
-...     return x + y
->>>
->>> def sub(x, y):
-...     return x - y
->>>
->>> def mul(x, y):
-...     return x * x
-
-We have data to compute:
-
->>> data = [
-...     [1, 2, 3],
-...     [4, 5, 6],
-...     [7, 8, 9],
-... ]
-
-On this data, we want to apply the following transformations:
-
->>> transformations = [increment, square, decrement, cube]
-
-We need to create apply function, which takes data and apply
-the transformation:
-
->>> def apply(data, fn):
-...     return map(fn, data)
-
-Let's do it parallel. We will create three independent workers.
-Each worker will get part of the data (one-third) and will apply
-all the transformation (map) to their data subset.
-
->>> workerA = reduce(apply, transformations, data[0])  # [27, 512, 3375]
->>> workerB = reduce(apply, transformations, data[1])  # [13824, 42875, 110592]
->>> workerC = reduce(apply, transformations, data[2])  # [250047, 512000, 970299]
-
-Note, that all workers will produce generators (maps).
-We need to merge the results using ``reduce`` function,
-but before that we need to evaluate maps to lists.
-
->>> def merge(x, y):
-...     return list(x) + list(y)
-
->>> merged = reduce(merge, [workerA, workerB, workerC])
->>> result = reduce(add, merged)
-
->>> print(result)
-1903551
-
->>> print(merged)
-[27, 512, 3375, 13824, 42875, 110592, 250047, 512000, 970299]
+>>> class ndarray:
+...     def __add__(self, other):
+...         if type(other) is not ndarray:
+...             other = np.array(other)
+...
+...     def __radd__(self, other):
+...         if type(other) is not ndarray:
+...             other = np.array(other)
 
 
 Assignments

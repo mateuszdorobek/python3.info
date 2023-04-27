@@ -76,11 +76,6 @@ iterable in the calculation, and serves as a default when the iterable is
 empty. If initializer is not given and iterable contains only one item, the
 first item is returned.
 
-.. figure:: img/funcprog-map-reduce.gif
-
-    Computational graph for map-reduce. [#dask]_
-
-
 Roughly equivalent to:
 
 >>> def reduce(function, iterable, initializer=None):
@@ -93,27 +88,21 @@ Roughly equivalent to:
 ...         value = function(value, element)
 ...     return value
 
->>> from functools import reduce
->>>
->>>
->>> DATA = [1, 2, 3, 4, 5]
->>>
->>> def add(x, y):
-...     return (x + y)
->>>
->>> result = reduce(add, DATA)
->>>
->>> print(result)
-15
+SetUp:
 
 >>> from functools import reduce
 >>>
->>>
 >>> DATA = [1, 2, 3, 4, 5]
+
+Usage:
+
+>>> def add(x, y):
+...     return (x + y)
 >>>
->>> result = reduce(lambda x, y: x + y, DATA)
->>>
->>> print(result)
+>>> reduce(add, DATA)
+15
+
+>>> reduce(lambda x, y: x + y, DATA)
 15
 
 

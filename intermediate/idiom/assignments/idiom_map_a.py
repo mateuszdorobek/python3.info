@@ -10,15 +10,15 @@ English:
        a. takes one argument
        b. returns its argument cubed (raised to the power of 3)
     2. Use `map()` to apply function `cube()` to DATA
-    3. Define `result: list[int]` with evaluated result
+    3. Define `result: map` with result
     4. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj funckję `cube()`:
        a. przyjmuje jeden argument
        b. zwraca argument podniesiony do sześcianu (do 3 potęgi)
-    2. Użyj `map()` zaaplikować funkcję `cube()` do DATA
-    3. Zdefiniuj `result: list[int]` z ewaluaownym wynikiem
+    2. Użyj `map()` aby zaaplikować funkcję `cube()` do DATA
+    3. Zdefiniuj `result: map` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -53,11 +53,11 @@ DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 # Returns its argument cubed (raised to the power of 3)
 # type: Callable[[int], int]
-def cube():
+def cube(x):
     ...
 
 # Cube numbers in DATA
-# type: list[float]
+# type: map
 result = ...
 
 

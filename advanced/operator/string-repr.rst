@@ -76,16 +76,22 @@ Nested
 ...     MyClass(),
 ... ]
 >>>
+>>>
 >>> print(data)
 [repr, repr, repr]
+>>>
 >>> data
 [repr, repr, repr]
+>>>
 >>> str(data)
 '[repr, repr, repr]'
+>>>
 >>> repr(data)
 '[repr, repr, repr]'
 
 
+Use Case - 0x01
+---------------
 Printing ``list`` will call ``__repr__()`` method on each element:
 
 >>> class User:
