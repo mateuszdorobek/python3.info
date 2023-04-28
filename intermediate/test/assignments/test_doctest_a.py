@@ -45,10 +45,8 @@ Tests:
 def km_to_meters(kilometers):
     if type(kilometers) not in {int, float}:
         raise TypeError('Invalid argument type')
-
     if kilometers < 0:
         raise ValueError('Argument must be not negative')
-
     return float(kilometers * 1000)
 
 
@@ -72,25 +70,25 @@ def km_to_meters(kilometers):
 
 >>> km_to_meters(True)
 Traceback (most recent call last):
-TypeError
+TypeError: Invalid argument type
 
 >>> km_to_meters(-1)
 Traceback (most recent call last):
-ValueError
+ValueError: Argument must be not negative
 
 >>> km_to_meters(-1.0)
 Traceback (most recent call last):
-ValueError
+ValueError: Argument must be not negative
 
 >>> km_to_meters('one')
 Traceback (most recent call last):
-TypeError
+TypeError: Invalid argument type
 
 >>> km_to_meters([1])
 Traceback (most recent call last):
-TypeError
+TypeError: Invalid argument type
 
 >>> km_to_meters([1.0])
 Traceback (most recent call last):
-TypeError
+TypeError: Invalid argument type
 """

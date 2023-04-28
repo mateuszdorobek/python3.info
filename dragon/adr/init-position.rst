@@ -26,10 +26,13 @@ Example:
 >>> dragon = Dragon('Wawelski', 0, 0, 0)  # 3D
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
 
+>>> dragon = Dragon('Wawelski', None, None)  # default point
+>>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', None, None)
+
 Use Case:
 
->>> knn = KNearestNeighbors(3)           # ok
->>> knn = KNearestNeighbors(3, [1,2,3])  # bad
+>>> knn = KNearestNeighbors(3)             # ok
+>>> knn = KNearestNeighbors(3, [1, 2, 3])  # bad
 
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
@@ -61,33 +64,34 @@ Pros and Cons:
 Example:
 
 >>> dragon = Dragon('Wawelski', x=0, y=0)
->>> dragon = Dragon('Wawelski', texture='img/dragon/alive.png', x=0, y=0)
+>>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0)
+
+>>> dragon = Dragon('Wawelski', x=None, y=None)
+>>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None)
 
 Use Case:
 
->>> knn = KNearestNeighbors(nearest_neighbors=3)  # bad
->>> knn = KNearestNeighbors(k=3)                  # ok
->>> knn = KNearestNeighbors(k=3, w=[1,2,3])       # bad
+>>> knn = KNearestNeighbors(k=3)                    # ok
+>>> knn = KNearestNeighbors(k=3, w=[1,2,3])         # bad
 
 
 Option 3
 --------
 >>> dragon = Dragon('Wawelski', posx=50, posy=120)
->>> dragon = Dragon('Wawelski', posX=50, posY=120)
 
 Pros and Cons:
 
 * Good: simple, easy to use
 * Good: you can assign ``None`` by default to set default point
-* Good: extensible, easy to add ``posZ`` with default value ``0``
+* Good: extensible, easy to add ``posz`` with default value ``0``
 * Good: Extensible to 3D
 * Bad: not verbose
 * Decision: rejected, not explicit enough
 
 Example:
 
+>>> dragon = Dragon('Wawelski', posx=0, posy=0)  # maybe, bad
 >>> dragon = Dragon('Wawelski', posx=0, posy=0, posz=0)  # maybe, bad
->>> dragon = Dragon('Wawelski', posX=0, posY=0, posZ=0)  # maybe, bad
 
 Use Case:
 
@@ -97,15 +101,14 @@ Use Case:
 Option 4
 --------
 >>> dragon = Dragon('Wawelski', positionx=50, positiony=120)
->>> dragon = Dragon('Wawelski', positionX=50, positionY=120)
 
 Pros and Cons:
 
 * Good: simple, easy to use
 * Good: you can assign ``None`` by default to set default point
-* Good: extensible, easy to add ``positionZ`` with default value ``0``
+* Good: extensible, easy to add ``positionz`` with default value ``0``
 * Good: Extensible to 3D
-* Bad: CamelCase `positionX` and `positionY` does not conform to PEP-8
+* Bad: CamelCase `positionx` and `positiony` does not conform to PEP-8
 * Decision: candidate, but names could be better
 
 Example:
@@ -113,12 +116,9 @@ Example:
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0)  # maybe
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0, positionz=0)  # maybe
 
->>> dragon = Dragon('Wawelski', positionX=0, positionY=0)  # bad, PEP-8
->>> dragon = Dragon('Wawelski', positionX=0, positionY=0, positionZ=0)  # bad, PEP-8
-
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, weightsk=[1,2,3])  # ok
+>>> knn = KNearestNeighbors(k=3, weights=[1,2,3])  # ok
 
 >>> df.plot(kind='line', subplots=True, color='grey', sharey=True)  # bad
 
@@ -157,14 +157,14 @@ Pros and Cons:
 
 * Good: data is stored together (``x`` and ``y`` coordinates)
 * Good: simple, easy to use
-* Good: you can assign ``None`` to set default ``pos``
+* Good: you can assign ``None`` to set default ``position``
 * Good: can set only one axis to ``None``
 * Good: always has to pass both ``x`` and ``y`` coordinates together
 * Bad: always has to pass both ``x`` and ``y`` coordinates together
 * Bad: you have to know that first is ``x`` and second is ``y``
 * Bad: order is important, you cannot change it
 * Bad: unpacking
-* Bad: not extensible, ``pos`` will always be 2D
+* Bad: not extensible, ``position`` will always be 2D
 * Bad: could be refactored to 3D using regexp: ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
 * Decision: rejected, not extensible
 
@@ -207,7 +207,6 @@ Use Case:
 >>>
 >>> x, y
 (50, 120)
-
 
 
 Option 7
@@ -560,7 +559,7 @@ Use Case:
 Decision
 --------
 >>> class Dragon:
-...     def __init__(name: str, /, *, position_x: int, position_y: int, ) -> None:
+...     def __init__(name: str, /, *, position_x: int, position_y: int) -> None:
 ...         ...
 >>>
 >>>
@@ -581,7 +580,7 @@ Future
 ...         ...
 >>>
 >>>
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=120))
 
 * Choices: ``NameTuple``, ``dataclass(frozen=True, slots=True)``
 * Good: explicit

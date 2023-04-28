@@ -13,7 +13,8 @@ English:
         c. list[int|float]
         d. tuple[int|float,...]
         e. set[int|float]
-        f. In other case raise an exception: TypeError with message: "Invalid type"
+        f. In other case raise an exception: TypeError
+           with message: "Invalid argument type"
     3. Run doctests - all must succeed
 
 Polish:
@@ -24,7 +25,8 @@ Polish:
         c. list[int|float]
         d. tuple[int|float,...]
         e. set[int|float]
-        f. W przeciwnym wypadku podnieś wyjątek: TypeError z komunikatem: "Invalid type"
+        f. W przeciwnym wypadku podnieś wyjątek: TypeError
+           z komunikatem: "Invalid argument type"
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -35,12 +37,10 @@ Tests:
 def celsius_to_kelvin(degrees):
     if type(degrees) in (int, float):
         return 273.15 + degrees
-
     if type(degrees) in (list, tuple, set):
         cls = type(degrees)
         return cls(x+273.15 for x in degrees)
-
-    raise TypeError('Invalid argument')
+    raise TypeError('Invalid argument type')
 
 
 # Solution
@@ -55,7 +55,7 @@ True
 272.15
 >>> celsius_to_kelvin('a')
 Traceback (most recent call last):
-TypeError: Invalid type of an argument
+TypeError: Invalid argument type
 >>> celsius_to_kelvin([0, 1])
 [273.15, 274.15]
 >>> celsius_to_kelvin((0, 1))

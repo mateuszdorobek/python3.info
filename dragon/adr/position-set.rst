@@ -30,10 +30,11 @@ Example:
 Use Case:
 
 >>> locmem.store()
->>> locmem.retrieve()
 >>> database.insert()
->>> database.select()
 >>> filesystem.write()
+
+>>> locmem.retrieve()
+>>> database.select()
 >>> filesystem.read()
 
 

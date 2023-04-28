@@ -1,12 +1,30 @@
 Test Unittest
 =============
+* https://martinfowler.com/articles/microservice-testing/#testing-component-out-of-process-diagram
+* https://docs.python.org/3/library/unittest.mock.html
 
 .. figure:: img/fun-geekandpoke-development-driven-tests.jpg
 
     Development driven tests
 
-* https://martinfowler.com/articles/microservice-testing/#testing-component-out-of-process-diagram
-* https://docs.python.org/3/library/unittest.mock.html
+>>> def is_adult(age: int|float) -> bool:
+...     if age >= 18:
+...         return True
+...     else:
+...         return False
+>>>
+>>>
+>>> def test_isadult_minor():
+...     assert is_adult(10) == False
+>>>
+>>> def test_isadult_adult():
+...     assert is_adult(30) == True
+>>>
+>>> def test_isadult_almost():
+...     assert is_adult(17.99) == False
+>>>
+>>> def test_isadult_barely():
+...     assert is_adult(18.00) == True
 
 
 Glossary
@@ -35,10 +53,6 @@ Glossary
         program modules together with associated control data, usage
         procedures, and operating procedures, are tested to determine
         whether they are fit for use.
-
-
-Running tests
--------------
 
 
 Running tests with your IDE

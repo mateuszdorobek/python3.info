@@ -9,7 +9,6 @@ Dragon ADR Position Change
 * Move dragon down by 5
 
 
-
 Option 1
 --------
 >>> dragon.position_x += int
@@ -492,6 +491,11 @@ Use Case:
 
 >>> read_csv('iris.csv', delimiter=';', encoding='utf-8', verbose=True)
 
+>>> user.login_username('mwatney')
+>>> user.login_password('Ares3')
+
+>>> user.login(username='mwatney', password='Ares3')
+
 .. code-block:: css
     :caption: CSS: self explanatory
 
@@ -537,10 +541,11 @@ Consequences:
 Use Case:
 
 >>> locmem.store(key='...', value='..')
->>> locmem.retrieve(key='...')
 >>> database.insert(column='...', value='...')
->>> database.select(column='...')
 >>> filesystem.write(filename='...', content='...')
+
+>>> locmem.retrieve(key='...')
+>>> database.select(column='...')
 >>> filesystem.read(filename='...')
 
 
@@ -591,7 +596,8 @@ Example:
 >>> dragon.move_to([
 ...     (10, -20),
 ...     (50, -120),
-...     (5, 0)])
+...     (5, 0),
+... ])
 
 Pros and Cons:
 
@@ -616,12 +622,14 @@ Example:
 >>> dragon.move_to([
 ...     (10, -20),
 ...     (50, -120),
-...     (5)])
+...     (5),
+... ])
 
 >>> dragon.move_to([
 ...     (10, -20, 0),
 ...     (50, -120, 0),
-...     (5, 0, 0)])
+...     (5, 0, 0),
+... ])
 
 
 Option 15
@@ -639,7 +647,8 @@ Example:
 
 >>> dragon.move_to([
 ...     {'x':10, 'y':-20},
-...     {'x':10, 'y':-15}])
+...     {'x':10, 'y':-15},
+... ])
 
 Pros and Cons:
 
@@ -687,7 +696,7 @@ Example:
 
 Use Case:
 
->>> path: list[Point] = get_path(from_x, from_y, to_x, to_y)
+>>> path: list[Point] = get_path(from_point, to_point)
 >>> dragon.move(path)
 
 
@@ -788,7 +797,8 @@ Example:
 >>> dragon.move([
 ...     Direction('left', distance=20),
 ...     Direction('left', distance=10),
-...     Direction('right', distance=20)])
+...     Direction('right', distance=20),
+... ])
 
 Pros and Cons:
 
@@ -857,7 +867,8 @@ Example:
 >>> dragon.move([
 ...     Left(20),
 ...     Left(10),
-...     Right(20)])
+...     Right(20),
+... ])
 
 Pros and Cons:
 
