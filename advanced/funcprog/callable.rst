@@ -96,8 +96,8 @@ Downloading from https://python3.info
 <Response [200]>
 
 
-Type Annotation
----------------
+Typing
+------
 >>> from typing import Callable
 >>>
 >>>

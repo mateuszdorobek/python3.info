@@ -67,8 +67,8 @@ Features of AsyncIO library:
     Source: Langa, Ł. import asyncio: Learn Python's AsyncIO [#Langa2020]_
 
 
-Type Annotations
-----------------
+Typing
+------
 >>> from collections.abc import Awaitable
 >>> from collections.abc import Coroutine
 >>> from collections.abc import AsyncIterable

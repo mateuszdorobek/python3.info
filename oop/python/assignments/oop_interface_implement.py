@@ -71,7 +71,7 @@ class IrisInterface:
         raise NotImplementedError
 
 
-# type: Type
+# type: type
 class Setosa:
     ...
 

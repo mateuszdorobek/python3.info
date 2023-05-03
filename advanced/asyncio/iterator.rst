@@ -22,6 +22,6 @@ Example
 ...         return line
 
 
-Type Annotation
----------------
+Typing
+------
 * ``collections.abc.AsyncGenerator``

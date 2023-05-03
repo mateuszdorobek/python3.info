@@ -148,7 +148,7 @@ data = json.loads(DATA)
 # d. `list[dict]` field: user_permissions
 # Leave `permission` attribute as `list[dict]`
 # Note, that fields order is important for tests to pass
-# type: Type
+# type: type
 class User:
     ...
 

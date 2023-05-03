@@ -24,7 +24,7 @@ Write Data to JSON File
              ensure_ascii: bool = ...,
              check_circular: bool = ...,
              allow_nan: bool = ...,
-             cls: Type[JSONEncoder] | None = ...,
+             cls: type[JSONEncoder] | None = ...,
              indent: None | int | str = ...,
              separators: tuple[str, str] | None = ...,
              default: (Any) -> Any | None = ...,
@@ -58,7 +58,7 @@ Read Data From JSON File
 
     def load(fp: SupportsRead[str | bytes],
              *,
-             cls: Type[JSONDecoder] | None = ...,
+             cls: type[JSONDecoder] | None = ...,
              object_hook: (dict) -> Any | None = ...,
              parse_float: (str) -> Any | None = ...,
              parse_int: (str) -> Any | None = ...,

@@ -57,7 +57,7 @@ from dataclasses import dataclass
 
 
 # Use Dataclass to define class `Point` with attributes: `x` and `y`
-# type: Type
+# type: type
 @dataclass
 class Point:
     x: int = 0

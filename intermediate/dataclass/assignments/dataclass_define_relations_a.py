@@ -84,19 +84,19 @@ DATA = """
 
 
 # Using `dataclass` model `DATA`, create class `Category`
-# type: Type
+# type: type
 class Category:
     ...
 
 
 # Using `dataclass` model `DATA`, create class `Tag`
-# type: Type
+# type: type
 class Tag:
     ...
 
 
 # Using `dataclass` model `DATA`, create class `Pet`
-# type: Type
+# type: type
 class Pet:
     ...
 

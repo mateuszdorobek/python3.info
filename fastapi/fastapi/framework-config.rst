@@ -22,14 +22,14 @@ FastAPI Config
 ...     error_msg_templates: dict[str, str] = {}
 ...     arbitrary_types_allowed: bool = False
 ...     orm_mode: bool = False
-...     getter_dict: Type['GetterDict'] = 'GetterDict'
+...     getter_dict: type['GetterDict'] = 'GetterDict'
 ...     alias_generator: Callable[[str], str] | None = None
 ...     keep_untouched: tuple[type, ...] = ()
 ...     schema_extra: dict[str, Any] = {}
 ...     json_loads: Callable[[str], Any] = json.loads
 ...     json_dumps: Callable[..., str] = json.dumps
 ...     # key type should include ForwardRef, but that breaks with python3.6
-...     json_encoders: dict[Type[Any] | str, Callable] = {}
+...     json_encoders: dict[type[Any] | str, Callable] = {}
 ...     underscore_attrs_are_private: bool = False
 ...
 ...     # whether inherited models as fields should be reconstructed as base model

@@ -41,7 +41,7 @@ Tests:
 # - `__init__()` taking `x` and `y` and stores them as attributes
 # - Use `object.__new__(cls)`
 # - Despite PyCharm suggestion, __new__ and __init__ signatures are different
-# type: Type
+# type: type
 class Point:
     ...
 

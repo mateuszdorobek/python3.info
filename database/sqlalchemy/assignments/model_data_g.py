@@ -127,7 +127,7 @@ DATA = ('[{"model":"authorization.user","pk":1,"fields":{"firstname":"Meli'
         'modify","view"]}]}}]')
 
 # Using `dataclass` model data as class `User`
-# type: Type
+# type: type
 class User:
     ...
 

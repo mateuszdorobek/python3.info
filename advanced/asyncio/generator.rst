@@ -10,6 +10,6 @@ Example
 ...     yield 'done'
 
 
-Type Annotation
----------------
+Typing
+------
 * ``collections.abc.AsyncGenerator``

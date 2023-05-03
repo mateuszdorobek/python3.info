@@ -50,7 +50,7 @@ Arguments to ``confloat``
 Arguments to ``confrozenset``
 -----------------------------
 * type method for constraining frozen sets
-* ``item_type: Type[T]``: type of the frozenset items
+* ``item_type: type[T]``: type of the frozenset items
 * ``min_items: int = None``: minimum number of items in the frozenset
 * ``max_items: int = None``: maximum number of items in the frozenset
 
@@ -69,7 +69,7 @@ Arguments to ``conint``
 Arguments to ``conlist``
 ------------------------
 * type method for constraining lists
-* ``item_type: Type[T]``: type of the list items
+* ``item_type: type[T]``: type of the list items
 * ``min_items: int = None``: minimum number of items in the list
 * ``max_items: int = None``: maximum number of items in the list
 * ``unique_items: bool = None``: enforces list elements to be unique
@@ -78,7 +78,7 @@ Arguments to ``conlist``
 Arguments to ``conset``
 -----------------------
 * type method for constraining sets
-* ``item_type: Type[T]``: type of the set items
+* ``item_type: type[T]``: type of the set items
 * ``min_items: int = None``: minimum number of items in the set
 * ``max_items: int = None``: maximum number of items in the set
 

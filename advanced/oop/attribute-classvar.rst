@@ -89,8 +89,8 @@ Note, the last example makes not meaningful sense. Instance variables
 will shadow class variables.
 
 
-Type Annotations
-----------------
+Typing
+------
 Type annotations are not variable definition:
 
 >>> x: int

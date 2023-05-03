@@ -65,7 +65,7 @@ def abspath(func):
     return wrapper
 
 
-# type: Type
+# type: type
 class Abspath:
     ...
 

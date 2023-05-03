@@ -43,7 +43,7 @@ Tests:
 
 # Implement method to set: self.name, self.country, self.date
 # Attributes must be set from arguments passed to __init__()
-# type: Type[Astronaut]
+# type: type[Astronaut]
 class Astronaut:
     name: str
     country: str
@@ -55,7 +55,7 @@ class Astronaut:
 
 # Implement method to set: self.name, self.country, self.date
 # Attributes must be set from arguments passed to __init__()
-# type: Type[Astronaut]
+# type: type[Astronaut]
 class SpaceAgency:
     name: str
     country: str

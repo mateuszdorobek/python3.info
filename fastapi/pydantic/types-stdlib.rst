@@ -247,7 +247,7 @@ type is performed.
 
 Type
 ----
-``pydantic`` supports the use of ``Type[T]`` to specify that a field may only
+``pydantic`` supports the use of ``type[T]`` to specify that a field may only
 accept classes (not instances) that are subclasses of ``T``.
 
 You may also use ``Type`` to specify that any class is allowed.

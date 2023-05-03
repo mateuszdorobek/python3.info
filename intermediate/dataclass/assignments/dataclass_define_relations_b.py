@@ -91,14 +91,14 @@ DATA = [
 
 
 # Model `DATA` using `dataclass`
-# type: Type
+# type: type
 @dataclass
 class Address:
     ...
 
 
 # Model `DATA` using `dataclass`
-# type: Type
+# type: type
 @dataclass
 class Astronaut:
     ...

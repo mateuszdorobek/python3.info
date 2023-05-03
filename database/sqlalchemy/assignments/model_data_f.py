@@ -110,12 +110,12 @@ DATA = [
 
 
 # Model `DATA` using `dataclasses`, do not use: `str | None` syntax
-# type: Type
+# type: type
 class Address:
     ...
 
 # Model `DATA` using `dataclasses`, do not use: `str | None` syntax
-# type: Type
+# type: type
 class Astronaut:
     ...
 

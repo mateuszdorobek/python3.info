@@ -30,8 +30,8 @@ Protocol
 Do something with: cm
 
 
-Type Annotations
-----------------
+Typing
+------
 * ``contextlib.AbstractContextManager``
 * ``contextlib.AbstractAsyncContextManager``
 
