@@ -1,5 +1,5 @@
-FuncProg Pure Functions
-=======================
+Functional Pure Functions
+=========================
 * Pure functions have no side effects (i.e. memory, state, I/O)
 * Calling the pure function again with the same arguments returns the same result (this can enable caching optimizations such as memoization)
 * If the result of a pure expression is not used, it can be removed without affecting other expressions

@@ -39,26 +39,26 @@ Functional Programming
     :maxdepth: 1
     :caption: Functional Programming
 
-    funcprog/about.rst
-    funcprog/apply-map.rst
-    funcprog/apply-filter.rst
-    funcprog/apply-reduce.rst
-    funcprog/paradigm-lambda.rst
-    funcprog/paradigm-scope.rst
-    funcprog/paradigm-pure-function.rst
-    funcprog/paradigm-recurrence.rst
-    funcprog/paradigm-immutable.rst
-    funcprog/paradigm-first-class.rst
-    funcprog/paradigm-higher-order.rst
-    funcprog/paradigm-referential-transparency.rst
-    funcprog/paradigm-namespace.rst
-    funcprog/paradigm-function-attributes.rst
-    funcprog/paradigm-callable.rst
-    funcprog/pattern-closure.rst
-    funcprog/pattern-callback.rst
-    funcprog/pattern-mapreduce.rst
-    funcprog/pattern-maybe.rst
-    funcprog/stdlib-functools.rst
+    functional/about.rst
+    functional/apply-map.rst
+    functional/apply-filter.rst
+    functional/apply-reduce.rst
+    functional/paradigm-lambda.rst
+    functional/paradigm-scope.rst
+    functional/paradigm-pure-function.rst
+    functional/paradigm-recurrence.rst
+    functional/paradigm-immutable.rst
+    functional/paradigm-first-class.rst
+    functional/paradigm-higher-order.rst
+    functional/paradigm-referential-transparency.rst
+    functional/paradigm-namespace.rst
+    functional/paradigm-function-attributes.rst
+    functional/paradigm-callable.rst
+    functional/pattern-closure.rst
+    functional/pattern-callback.rst
+    functional/pattern-mapreduce.rst
+    functional/pattern-maybe.rst
+    functional/stdlib-functools.rst
 
 
 Decorators

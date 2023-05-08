@@ -138,6 +138,7 @@ Machine Learning
 
 Python PEP
 ----------
+* http.fetch(method='GET', url='...', data={}, headers={}, json=True, decode_response=True, encoding='utf-8')
 * pyproject.toml run configuration: run, test, deploy, other: migrate, makemigrations, makemessages, compilemessages etc.
 * Standard way of running your project with pyproject.toml: python run, or python migrate
 * vars() should handle slots

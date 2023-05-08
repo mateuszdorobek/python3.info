@@ -1,5 +1,5 @@
-FuncProg Immutable
-==================
+Functional Immutable
+====================
 * Purely functional data structures have persistence
 * (keeps previous versions of the data structure unmodified)
 

@@ -1,5 +1,5 @@
-Idiom Filter
-============
+Functional Filter
+=================
 * ``filter(callable, *iterables)``
 * Select elements from sequence
 * Generator (lazy evaluated)

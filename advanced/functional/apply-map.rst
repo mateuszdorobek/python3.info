@@ -1,5 +1,5 @@
-Idiom Map
-=========
+Functional Map
+==============
 * Map (convert) elements in sequence
 * Generator (lazy evaluated)
 * ``map(callable, *iterables)``

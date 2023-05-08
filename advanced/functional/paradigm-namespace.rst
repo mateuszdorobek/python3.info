@@ -1,5 +1,5 @@
-FuncProg Namespace
-==================
+Functional Namespace
+====================
 * Functions provide namespaces
 * Only code inside that namespace can access it's locals
 

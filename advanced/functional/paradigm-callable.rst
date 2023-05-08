@@ -1,5 +1,5 @@
-FuncProg Callable
-=================
+Functional Callable
+===================
 
 >>> def hello():
 ...     return 'Hello World'
@@ -56,44 +56,6 @@ Calling str
 >>>
 >>> callable(data)
 True
-
-
-Callbacks
----------
-Callback Design Pattern:
-
->>> def fetch(url, on_success, on_error):
-...     try:
-...         result = f'Downloading from {url}'
-...     except Exception as error:
-...         on_error(error)
-...     else:
-...         on_success(result)
->>>
->>>
->>> fetch(
-...     url='https://python3.info',
-...     on_success=lambda result: print(result),
-...     on_error=lambda error: print(error))
-Downloading from https://python3.info
-
->>> from http import HTTPStatus
->>> import requests
->>>
->>>
->>> def fetch(url, on_success=lambda: ..., on_error=lambda: ...):
-...     result = requests.get(url)
-...     if result.status_code == HTTPStatus.OK:
-...         return on_success(result)
-...     else:
-...         return on_error(result)
->>>
->>>
->>> fetch(  # doctest: +SKIP
-...     url='https://python3.info/',
-...     on_success=lambda result: print(result),
-...     on_error=lambda error: print(error))
-<Response [200]>
 
 
 Typing

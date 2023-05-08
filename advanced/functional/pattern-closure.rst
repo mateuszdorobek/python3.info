@@ -1,5 +1,5 @@
-Pattern Closure
-===============
+Functional Pattern Closure
+==========================
 * Technique by which the data is attached to some code even after end of those other original functions is called as closures
 * When the interpreter detects the dependency of inner nested function on the outer function, it stores or makes sure that the variables in which inner function depends on are available even if the outer function goes away
 * Closures provides some form of data hiding

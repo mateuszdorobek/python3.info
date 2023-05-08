@@ -1,5 +1,5 @@
-Pattern Maybe
-=============
+Functional Pattern Maybe
+========================
 * Maybe monad
 * Continues execution, even, if there is an error
 * Final state will be none

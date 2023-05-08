@@ -1,5 +1,5 @@
-Pattern MapReduce
-=================
+Functional Pattern MapReduce
+============================
 * split-apply-combine strategy
 
 Apply function of two arguments cumulatively to the items of iterable, from

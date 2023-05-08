@@ -1,5 +1,5 @@
-FuncProg About
-==============
+Functional About
+================
 * Programming paradigm
 * Programs are constructed by applying and composing functions
 * Functions are treated as first-class citizens

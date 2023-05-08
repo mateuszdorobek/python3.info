@@ -1,5 +1,5 @@
-FuncProg Scope
-==============
+Functional Scope
+================
 * Values defined in function does not leak out
 * Functions has access to global values
 * Shadowing is when you define variable with name identical to the one

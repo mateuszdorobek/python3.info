@@ -1,5 +1,5 @@
-FuncProg Functools
-==================
+Functional Stdlib Functools
+===========================
 * ``import functools``
 * ``functools.partial()``
 * ``functools.partialmethod()``

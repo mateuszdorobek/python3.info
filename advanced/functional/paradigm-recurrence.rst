@@ -1,5 +1,5 @@
-FuncProg Recurrence
-===================
+Functional Recurrence
+=====================
 * Also known as recursion
 * Iteration in functional languages is usually accomplished via recursion
 * Recursive functions invoke themselves

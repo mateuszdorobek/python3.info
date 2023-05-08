@@ -1,5 +1,5 @@
-FuncProg Lambda
-===============
+Functional Lambda
+=================
 * Lambda - Anonymous functions
 * When function is used once
 * When function is short

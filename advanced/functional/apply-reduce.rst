@@ -1,5 +1,5 @@
-Idiom Reduce
-============
+Functional Reduce
+=================
 * Reduce sequence using function
 * Built-in
 

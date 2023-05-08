@@ -1,5 +1,5 @@
-FuncProg Function Attributes
-============================
+Functional Function Attributes
+==============================
 
 >>> def add(a, b):
 ...     return a + b
@@ -285,4 +285,3 @@ Use Case - 0x04
  8: 40320,
  9: 362880,
  10: 3628800}
-

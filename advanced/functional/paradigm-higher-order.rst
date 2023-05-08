@@ -1,5 +1,5 @@
-FuncProg Higher-Order
-=====================
+Functional Higher-Order
+=======================
 * Function can take other function as arguments
 * Function can return function
 
