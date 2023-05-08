@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog About Chain
+* Assignment: Functional About Chain
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 5 min

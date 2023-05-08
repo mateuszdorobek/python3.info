@@ -84,7 +84,7 @@ Recursion Depth Limit
 
 Use Case - 0x01
 ---------------
-.. figure:: img/funcprog-recurrence-hanoi.jpg
+.. figure:: img/functional-recurrence-hanoi.jpg
 
     Hanoi Tower as a standard example of a recurrence. Source: [#hanoi]_
 
@@ -141,6 +141,6 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/funcprog_recurrence_a.py
-    :caption: :download:`Solution <assignments/funcprog_recurrence_a.py>`
+.. literalinclude:: assignments/functional_recurrence_a.py
+    :caption: :download:`Solution <assignments/functional_recurrence_a.py>`
     :end-before: # Solution

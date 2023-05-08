@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog About JSON
+* Assignment: Functional About JSON
 * Complexity: medium
 * Lines of code: 5 lines
 * Time: 8 min

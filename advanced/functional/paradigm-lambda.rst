@@ -254,6 +254,6 @@ Further Reading
 
 Assignments
 -----------
-.. literalinclude:: assignments/funcprog_lambda_a.py
-    :caption: :download:`Solution <assignments/funcprog_lambda_a.py>`
+.. literalinclude:: assignments/functional_lambda_a.py
+    :caption: :download:`Solution <assignments/functional_lambda_a.py>`
     :end-before: # Solution

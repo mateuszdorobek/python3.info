@@ -1,5 +1,5 @@
 """
-* Assignment: FuncProg Recurrence Fibonacci
+* Assignment: Functional Recurrence Fibonacci
 * Required: yes
 * Complexity: easy
 * Lines of code: 4 lines

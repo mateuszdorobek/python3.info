@@ -22,7 +22,7 @@ Intermediate
 Advanced
 --------
 * Move Interface, ABC, Protocol to Protocols
-* Funcprog: Monads, Bridges, Atoms
+* Functional: Monads, Bridges, Atoms
 * Add exception groups (3.11)
 * OOP: Add staticmethod assignments
 * OOP: improve classmethod assignments
@@ -138,7 +138,9 @@ Machine Learning
 
 Python PEP
 ----------
-* http.fetch(method='GET', url='...', data={}, headers={}, json=True, decode_response=True, encoding='utf-8')
+* async def http.fetch(method='GET', url='...', data={}, headers={}, json=True, decode_response=True, encoding='utf-8')
+* https://developer.mozilla.org/en-US/docs/Web/API/fetch
+* https://fetch.spec.whatwg.org/#fetch-method
 * pyproject.toml run configuration: run, test, deploy, other: migrate, makemigrations, makemessages, compilemessages etc.
 * Standard way of running your project with pyproject.toml: python run, or python migrate
 * vars() should handle slots

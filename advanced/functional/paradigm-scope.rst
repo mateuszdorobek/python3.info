@@ -370,6 +370,6 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/funcprog_scope_a.py
-    :caption: :download:`Solution <assignments/funcprog_scope_a.py>`
+.. literalinclude:: assignments/functional_scope_a.py
+    :caption: :download:`Solution <assignments/functional_scope_a.py>`
     :end-before: # Solution

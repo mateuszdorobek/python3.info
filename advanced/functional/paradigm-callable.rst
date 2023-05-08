@@ -115,6 +115,6 @@ Typing
 
 Assignments
 -----------
-.. literalinclude:: assignments/funcprog_callable_a.py
-    :caption: :download:`Solution <assignments/funcprog_callable_a.py>`
+.. literalinclude:: assignments/functional_callable_a.py
+    :caption: :download:`Solution <assignments/functional_callable_a.py>`
     :end-before: # Solution

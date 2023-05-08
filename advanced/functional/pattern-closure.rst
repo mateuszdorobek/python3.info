@@ -165,10 +165,10 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/funcprog_closure_a.py
-    :caption: :download:`Solution <assignments/funcprog_closure_a.py>`
+.. literalinclude:: assignments/functional_closure_a.py
+    :caption: :download:`Solution <assignments/functional_closure_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/funcprog_closure_b.py
-    :caption: :download:`Solution <assignments/funcprog_closure_b.py>`
+.. literalinclude:: assignments/functional_closure_b.py
+    :caption: :download:`Solution <assignments/functional_closure_b.py>`
     :end-before: # Solution

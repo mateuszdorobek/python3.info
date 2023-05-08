@@ -788,103 +788,103 @@
         <priority>0.8</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/callable.html</loc>
+        <loc>https://python3.info/advanced/functional/callable.html</loc>
         <lastmod>2023-04-04</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/recurrence.html</loc>
+        <loc>https://python3.info/advanced/functional/recurrence.html</loc>
         <lastmod>2022-11-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pattern-closure.html</loc>
+        <loc>https://python3.info/advanced/functional/pattern-closure.html</loc>
         <lastmod>2022-12-23</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pure-function.html</loc>
+        <loc>https://python3.info/advanced/functional/pure-function.html</loc>
         <lastmod>2022-08-30</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/scope.html</loc>
+        <loc>https://python3.info/advanced/functional/scope.html</loc>
         <lastmod>2022-11-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/namespace.html</loc>
+        <loc>https://python3.info/advanced/functional/namespace.html</loc>
         <lastmod>2023-01-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/first-class.html</loc>
+        <loc>https://python3.info/advanced/functional/first-class.html</loc>
         <lastmod>2023-04-04</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/referential-transparency.html</loc>
+        <loc>https://python3.info/advanced/functional/referential-transparency.html</loc>
         <lastmod>2022-12-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pattern-callback.html</loc>
+        <loc>https://python3.info/advanced/functional/pattern-callback.html</loc>
         <lastmod>2023-01-29</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/function-attributes.html</loc>
+        <loc>https://python3.info/advanced/functional/function-attributes.html</loc>
         <lastmod>2022-11-22</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/functools.html</loc>
+        <loc>https://python3.info/advanced/functional/functools.html</loc>
         <lastmod>2022-12-03</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pattern-mapreduce.html</loc>
+        <loc>https://python3.info/advanced/functional/pattern-mapreduce.html</loc>
         <lastmod>2022-12-20</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pattern-maybe.html</loc>
+        <loc>https://python3.info/advanced/functional/pattern-maybe.html</loc>
         <lastmod>2022-12-20</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/pattern-lambda.html</loc>
+        <loc>https://python3.info/advanced/functional/pattern-lambda.html</loc>
         <lastmod>2023-04-04</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/about.html</loc>
+        <loc>https://python3.info/advanced/functional/about.html</loc>
         <lastmod>2023-01-24</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/higher-order.html</loc>
+        <loc>https://python3.info/advanced/functional/higher-order.html</loc>
         <lastmod>2023-04-04</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>
     </url>
     <url>
-        <loc>https://python3.info/advanced/funcprog/immutable.html</loc>
+        <loc>https://python3.info/advanced/functional/immutable.html</loc>
         <lastmod>2022-12-13</lastmod>
         <changefreq>daily</changefreq>
         <priority>0.5</priority>

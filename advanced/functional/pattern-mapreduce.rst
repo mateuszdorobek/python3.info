@@ -12,7 +12,7 @@ iterable in the calculation, and serves as a default when the iterable is
 empty. If initializer is not given and iterable contains only one item, the
 first item is returned.
 
-.. figure:: img/funcprog-map-reduce.gif
+.. figure:: img/functional-map-reduce.gif
 
     Computational graph for map-reduce. [#dask]_
 

@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog About DateFormats
+* Assignment: Functional About DateFormats
 * Complexity: easy
 * Lines of code: 12 lines
 * Time: 5 min

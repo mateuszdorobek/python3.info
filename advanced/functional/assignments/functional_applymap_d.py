@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog About Log
+* Assignment: Functional About Log
 * Complexity: medium
 * Lines of code: 7 lines
 * Time: 8 min

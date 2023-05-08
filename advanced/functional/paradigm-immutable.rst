@@ -37,14 +37,14 @@ Immutable:
 
 Mutable vs Immutable
 --------------------
-.. figure:: img/funcprog-immutable-tuple.png
-.. figure:: img/funcprog-immutable-str.png
-.. figure:: img/funcprog-immutable-tables.png
+.. figure:: img/functional-immutable-tuple.png
+.. figure:: img/functional-immutable-str.png
+.. figure:: img/functional-immutable-tables.png
 
 
 Changes
 -------
-.. figure:: img/funcprog-immutable-sharedstate.png
+.. figure:: img/functional-immutable-sharedstate.png
 
 
 Immutable Types

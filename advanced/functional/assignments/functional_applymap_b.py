@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog About FromISOFormat
+* Assignment: Functional About FromISOFormat
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 3 min

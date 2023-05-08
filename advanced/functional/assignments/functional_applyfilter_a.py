@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog Apply Map
+* Assignment: Functional Apply Map
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines

@@ -1,5 +1,5 @@
 """
-* Assignment: Funcprog Apply Filter
+* Assignment: Functional Apply Filter
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
