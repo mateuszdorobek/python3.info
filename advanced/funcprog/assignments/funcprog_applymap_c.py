@@ -1,16 +1,18 @@
 """
-* Assignment: Datetime Parse Many
-* Complexity: medium
-* Lines of code: 7 lines
+* Assignment: Funcprog About DateFormats
+* Complexity: easy
+* Lines of code: 12 lines
 * Time: 5 min
 
 English:
     1. Define `result: list[datetime]` with parsed `DATA` dates
-    2. Run doctests - all must succeed
+    2. Use `map()`
+    3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj `result: list[datetime]` ze sparsowanymi datami `DATA`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    2. Użyj `map()`
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * `for ... in`
@@ -25,6 +27,8 @@ Tests:
 
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
+    >>> assert type(result) is map, \
+    'Variable `result` has invalid type, must be a map'
     >>> result = list(result)
     >>> assert type(result) is list, \
     'Variable `result` has invalid type, must be a list'

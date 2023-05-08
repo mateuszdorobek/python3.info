@@ -62,5 +62,5 @@ LABEL_ENCODER = dict(enumerate(class_labels))
 for line in lines:
     *values, species = line.strip().split(',')
     species = LABEL_ENCODER[int(species)]
-    row = values + [species]
-    result.append(tuple(row))
+    row = tuple(values) + (species,)
+    result.append(row)

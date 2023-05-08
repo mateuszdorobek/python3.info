@@ -30,7 +30,7 @@ Generators
     generator/inspect.rst
     generator/yield-from.rst
     generator/send.rst
-    generator/itertools.rst
+    generator/stdlib-itertools.rst
 
 
 Functional Programming
@@ -40,22 +40,25 @@ Functional Programming
     :caption: Functional Programming
 
     funcprog/about.rst
-    funcprog/scope.rst
-    funcprog/pure-function.rst
-    funcprog/recurrence.rst
-    funcprog/immutable.rst
-    funcprog/first-class.rst
-    funcprog/higher-order.rst
-    funcprog/referential-transparency.rst
-    funcprog/namespace.rst
-    funcprog/function-attributes.rst
-    funcprog/functools.rst
-    funcprog/callable.rst
+    funcprog/apply-map.rst
+    funcprog/apply-filter.rst
+    funcprog/apply-reduce.rst
+    funcprog/paradigm-lambda.rst
+    funcprog/paradigm-scope.rst
+    funcprog/paradigm-pure-function.rst
+    funcprog/paradigm-recurrence.rst
+    funcprog/paradigm-immutable.rst
+    funcprog/paradigm-first-class.rst
+    funcprog/paradigm-higher-order.rst
+    funcprog/paradigm-referential-transparency.rst
+    funcprog/paradigm-namespace.rst
+    funcprog/paradigm-function-attributes.rst
+    funcprog/paradigm-callable.rst
     funcprog/pattern-closure.rst
     funcprog/pattern-callback.rst
-    funcprog/pattern-lambda.rst
     funcprog/pattern-mapreduce.rst
     funcprog/pattern-maybe.rst
+    funcprog/stdlib-functools.rst
 
 
 Decorators
@@ -77,7 +80,7 @@ Decorators
     decorator/decorator-method.rst
     decorator/decorator-class.rst
     decorator/decorator-parameters.rst
-    decorator/functools.rst
+    decorator/stdlib-functools.rst
     decorator/recap.rst
 
 
