@@ -1,43 +1,37 @@
 """
-* Assignment: Functional Apply Filter
+* Assignment: Functional Apply Map
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 3 min
 
 English:
-    1. Define function `odd()`:
+    1. Define function `cube()`:
        a. takes one argument
-       b. returns True if argument is odd
-       c. returns False if argument is even
-    2. Use `filter()` to apply function `odd()` to DATA
-    3. Define `result: filter` with result
+       b. returns its argument cubed (raised to the power of 3)
+    2. Use `map()` to apply function `cube()` to DATA
+    3. Define `result: map` with result
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj funckję `odd()`:
+    1. Zdefiniuj funckję `cube()`:
        a. przyjmuje jeden argument
-       b. zwraca True jeżeli argument jest nieparzysty
-       c. zwraca False jeżeli argument jest parzysty
-    2. Użyj `filter()` zaaplikować funkcję `odd()` do DATA
-    3. Zdefiniuj `result: filter` z wynikiem
+       b. zwraca argument podniesiony do sześcianu (do 3 potęgi)
+    2. Użyj `map()` aby zaaplikować funkcję `cube()` do DATA
+    3. Zdefiniuj `result: map` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
-
-Hints:
-    * filter()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
-    >>> assert isfunction(odd), \
-    'Object `odd` must be a function'
-
+    >>> assert isfunction(cube), \
+    'Object `cube` must be a function'
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
 
-    >>> assert type(result) is filter, \
-    'Variable `result` has invalid type, should be filter'
+    >>> assert type(result) is map, \
+    'Variable `result` has invalid type, should be map'
 
     >>> result = list(result)
     >>> assert type(result) is list, \
@@ -47,25 +41,25 @@ Tests:
     'All rows in `result` should be int'
 
     >>> result
-    [1, 3, 5, 7, 9]
+    [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 """
 
 
 DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
-# Returns if number is odd (modulo divisible by 2 without reminder)
+# Returns its argument cubed (raised to the power of 3)
 # type: Callable[[int], int]
-def odd(x):
+def cube(x):
     ...
 
 # Cube numbers in DATA
-# type: filter
+# type: map
 result = ...
 
 
 # Solution
-def odd(x):
-    return x % 2
+def cube(x):
+    return x ** 3
 
-result = filter(odd, DATA)
+result = map(cube, DATA)

@@ -28,7 +28,6 @@ References:
 
 Hints:
     * `str.splitlines()`
-    * `str.split()`
     * `str.split(', ', maxsplit=3)`
     * `date.fromisoformat()`
     * `time.fromisoformat()`
@@ -166,7 +165,7 @@ DATA = """1969-07-14, 21:00:00, INFO, Terminal countdown started
 1969-07-24, 17:29, INFO, Crew egress"""
 
 # representation of DATA; dict keys: when, level, message
-# type: list[dict]
+# type: map
 result = ...
 
 # Solution

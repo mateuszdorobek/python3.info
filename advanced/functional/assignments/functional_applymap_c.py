@@ -1,16 +1,16 @@
 """
 * Assignment: Functional About DateFormats
-* Complexity: easy
-* Lines of code: 12 lines
+* Complexity: medium
+* Lines of code: 7 lines
 * Time: 5 min
 
 English:
-    1. Define `result: list[datetime]` with parsed `DATA` dates
+    1. Define `result: map` with parsed `DATA` dates
     2. Use `map()`
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: list[datetime]` ze sparsowanymi datami `DATA`
+    1. Zdefiniuj `result: map` ze sparsowanymi datami `DATA`
     2. Użyj `map()`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -58,7 +58,7 @@ FORMATS = [
 
 
 # DATA elements in datetime format
-# type: list[datetime]
+# type: map
 result = ...
 
 
@@ -71,3 +71,8 @@ def parse(dt):
             continue
 
 result = map(parse, DATA)
+
+
+# Alternative Solution
+# but, it works only if the order of DATA fits the other of FORMATS
+# result = map(datetime.strptime, DATA, FORMATS)

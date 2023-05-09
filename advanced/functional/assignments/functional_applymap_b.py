@@ -5,12 +5,12 @@
 * Time: 3 min
 
 English:
-    1. Define `result: list[datetime]` with parsed `DATA` dates
+    1. Define `result: map` with parsed `DATA` dates
     2. Use `map()` and `datetime.fromisoformat()`
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: list[datetime]` ze sparsowanymi datami `DATA`
+    1. Zdefiniuj `result: map` ze sparsowanymi datami `DATA`
     2. Użyj `map()` oraz `datetime.fromisoformat()`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -41,7 +41,7 @@ DATA = ['1961-04-12 06:07',
         '1961-04-12 06:07:00']
 
 # parsed DATA
-# type: list[datetime]
+# type: map
 result = ...
 
 # Solution

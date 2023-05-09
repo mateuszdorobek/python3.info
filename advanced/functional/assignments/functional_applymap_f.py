@@ -20,7 +20,9 @@ Polish:
 
 Hint:
     * `dict.pop()`
-    * `globals()`
+    * `globals()[clsname]`
+    * `cls(**dict)`
+    * `json.loads()`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -81,6 +83,7 @@ class Versicolor(Iris):
 
 
 # JSON decoded DATA
+# type: map
 result = ...
 
 

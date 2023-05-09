@@ -5,12 +5,12 @@
 * Time: 5 min
 
 English:
-    1. Convert `DATA` to `result: list[tuple[str]]`
+    1. Convert `DATA` to `result: map`
     2. Convert numeric values to `float`
     3. Run doctests - all must succeed
 
 Polish:
-    1. Przekonwertuj `DATA` to `result: list[tuple[str]]`
+    1. Przekonwertuj `DATA` to `result: map`
     2. Przekonwertuj wartości numeryczne do `float`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -47,7 +47,7 @@ DATA = """5.8,2.7,5.1,1.9,virginica
 5.7,2.8,4.1,1.3,versicolor"""
 
 # values from file (note the list[tuple] format!)
-# type: list[tuple]
+# type: map
 result = ...
 
 # Solution
