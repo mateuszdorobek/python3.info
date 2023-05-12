@@ -134,7 +134,7 @@ Example
 >>>
 >>> @app.post('/astronaut', status_code=status.HTTP_201_CREATED)
 ... def post(request: AstronautSchema, db: Session = Depends(get_db)):
-...     astro = AstronautModel(**request.dict())
+...     mark = AstronautModel(**request.dict())
 ...     db.add(astro)
 ...     db.commit()
 ...     db.refresh(astro)

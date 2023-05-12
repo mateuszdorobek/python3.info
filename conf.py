@@ -1,7 +1,7 @@
 project = 'Python: From None to Machine Learning'
 html_baseurl = 'https://python3.info'
 author = 'Matt Harasymczuk'
-email = 'matt@astrotech.io'
+email = 'matt@astronaut.center'
 
 needs_sphinx = '6.1'
 project_language = 'en'

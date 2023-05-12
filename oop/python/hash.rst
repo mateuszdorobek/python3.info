@@ -98,8 +98,8 @@ Set Definition
             self.name = name
 
 
-    astro = Astronaut('Mark Watney')
-    data = {astro, astro}
+    mark = Astronaut('Mark Watney')
+    data = {mark, mark}
     print(data)
     # {<__main__.Astronaut object at 0x105be25b0>}
 
@@ -121,8 +121,8 @@ Set Definition
             return hash(self) == hash(other)
 
 
-    astro = Astronaut('Mark Watney')
-    data = {astro, astro}
+    mark = Astronaut('Mark Watney')
+    data = {mark, mark}
     print(data)
     # {<__main__.Astronaut object at 0x105bc77c0>}
 
@@ -152,13 +152,13 @@ Use Case - 0x01
 
 
     data = set()
-    astro = Astronaut('Mark Watney')
+    mark = Astronaut('Mark Watney')
 
-    data.add(astro)
+    data.add(mark)
     print(data)
     # {<__main__.Astronaut object at 0x105bde070>}
 
-    data.add(astro)
+    data.add(mark)
     print(data)
     # {<__main__.Astronaut object at 0x105bde070>}
 

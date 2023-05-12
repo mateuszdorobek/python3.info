@@ -41,7 +41,7 @@ Definition:
 
 Use:
 
->>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
 >>>
 >>> fields(Astronaut)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 (Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
@@ -74,21 +74,21 @@ Definition:
 ...     missions: list[Mission]
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
 
 Use:
 
->>> asdict(astro)  # doctest: +NORMALIZE_WHITESPACE
+>>> asdict(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'missions': [{'year': 2035, 'name': 'Ares3'}]}
 
->>> vars(astro)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'missions': [Mission(year=2035, name='Ares3')]}
 
->>> dict(astro)
+>>> dict(mark)
 Traceback (most recent call last):
 TypeError: 'Astronaut' object is not iterable
 
@@ -120,9 +120,9 @@ Definition:
 
 Use:
 
->>> astro = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
 >>>
->>> astuple(astro)
+>>> astuple(mark)
 ('Mark', 'Watney', [(2035, 'Ares3')])
 
 
@@ -163,12 +163,12 @@ Use:
 ...     lastname: str
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 >>>
 >>> is_dataclass(Astronaut)
 True
 >>>
->>> is_dataclass(astro)
+>>> is_dataclass(mark)
 True
 
 Normal class:
@@ -182,10 +182,10 @@ Normal class:
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 >>>
 >>> is_dataclass(Astronaut)
 False
 >>>
->>> is_dataclass(astro)
+>>> is_dataclass(mark)
 False

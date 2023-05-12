@@ -115,7 +115,7 @@ Use Case - 0x01
 ...             raise ValueError('Age is not valid for an astronaut')
 >>>
 >>>
->>> astro = Astronaut(firstname='Mark',
+>>> mark = Astronaut(firstname='Mark',
 ...                   lastname='Watney',
 ...                   born=date(1961, 4, 12),
 ...                   age=44,
@@ -124,8 +124,8 @@ Use Case - 0x01
 ...                   assignments=['STS-136'],
 ...                   missions=[Mission(2035, 'Ares 3'), Mission(1973, 'Apollo 18')])
 >>>
->>> asdict(astro)
+>>> asdict(mark)
 {'firstname': 'Mark', 'lastname': 'Watney', 'born': datetime.date(1961, 4, 12), 'job': 'astronaut', 'agency': 'NASA', 'age': 44, 'height': 175.5, 'weight': 75.5, 'groups': ['astronauts', 'managers'], 'friends': {}, 'assignments': ['STS-136'], 'missions': [{'year': 2035, 'name': 'Ares 3'}, {'year': 1973, 'name': 'Apollo 18'}], 'experience': datetime.timedelta(0), 'account_last_login': None, 'account_created': datetime.datetime(1961, 4, 12, 6, 7, tzinfo=datetime.timezone.utc), 'AGE_MIN': 30, 'AGE_MAX': 50}
 >>>
->>> pickle.dumps(asdict(astro))
+>>> pickle.dumps(asdict(mark))
 b'\x80\x04\x95\xd6\x01\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94\x8c\x04born\x94\x8c\x08datetime\x94\x8c\x04date\x94\x93\x94C\x04\x07\xa9\x04\x0c\x94\x85\x94R\x94\x8c\x03job\x94\x8c\tastronaut\x94\x8c\x06agency\x94\x8c\x04NASA\x94\x8c\x03age\x94K,\x8c\x06height\x94G@e\xf0\x00\x00\x00\x00\x00\x8c\x06weight\x94G@R\xe0\x00\x00\x00\x00\x00\x8c\x06groups\x94]\x94(\x8c\nastronauts\x94\x8c\x08managers\x94e\x8c\x07friends\x94}\x94\x8c\x0bassignments\x94]\x94\x8c\x07STS-136\x94a\x8c\x08missions\x94]\x94(}\x94(\x8c\x04year\x94M\xf3\x07\x8c\x04name\x94\x8c\x06Ares 3\x94u}\x94(h\x1fM\xb5\x07h \x8c\tApollo 18\x94ue\x8c\nexperience\x94h\x06\x8c\ttimedelta\x94\x93\x94K\x00K\x00K\x00\x87\x94R\x94\x8c\x12account_last_login\x94N\x8c\x0faccount_created\x94h\x06\x8c\x08datetime\x94\x93\x94C\n\x07\xa9\x04\x0c\x06\x07\x00\x00\x00\x00\x94h\x06\x8c\x08timezone\x94\x93\x94h&K\x00K\x00K\x00\x87\x94R\x94\x85\x94R\x94\x86\x94R\x94\x8c\x07AGE_MIN\x94K\x1e\x8c\x07AGE_MAX\x94K2u.'

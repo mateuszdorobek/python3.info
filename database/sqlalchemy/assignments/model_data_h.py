@@ -33,12 +33,12 @@ Tests:
 
     >>> assert type(result) is list
 
-    >>> assert all(type(astro) is Astronaut
-    ...            for astro in result)
+    >>> assert all(type(user) is Astronaut
+    ...            for user in result)
 
     >>> assert all(type(addr) is Address
-    ...            for astro in result
-    ...            for addr in astro.addresses)
+    ...            for user in result
+    ...            for addr in user.addresses)
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
     [Astronaut(firstname='José',
@@ -112,5 +112,5 @@ result = []
 
 for row in DATA:
     addresses = [Address(**addr) for addr in row.pop('addresses')]
-    astro = Astronaut(**row, addresses=addresses)
-    result.append(astro)
+    user = Astronaut(**row, addresses=addresses)
+    result.append(user)

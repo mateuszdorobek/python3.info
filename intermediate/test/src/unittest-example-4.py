@@ -20,7 +20,7 @@ class Astronaut:
 
 class AstronautTest(TestCase):
     def setUp(self):
-        self.astro = Astronaut(name='José Jiménez', agency='NASA')
+        self.mark = Astronaut(name='José Jiménez', agency='NASA')
 
     def test_recruiting_new_astronaut(self):
         jose = Astronaut(name='José Jiménez')

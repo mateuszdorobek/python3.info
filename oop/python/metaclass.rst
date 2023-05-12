@@ -394,12 +394,12 @@ Method Resolution Order
         pass
 
 
-    astro = Astronaut()
+    mark = Astronaut()
 
-    isinstance(astro, Astronaut)
+    isinstance(mark, Astronaut)
     # True
 
-    isinstance(astro, object)
+    isinstance(mark, object)
     # True
 
     Astronaut.__mro__
@@ -415,15 +415,15 @@ Method Resolution Order
         pass
 
 
-    astro = Astronaut()
+    mark = Astronaut()
 
-    isinstance(astro, Astronaut)
+    isinstance(mark, Astronaut)
     # True
 
-    isinstance(astro, object)
+    isinstance(mark, object)
     # True
 
-    isinstance(astro, AstroMeta)
+    isinstance(mark, AstroMeta)
     # False
 
     isinstance(Astronaut, AstroMeta)
@@ -533,7 +533,7 @@ Abstract Base Class:
             pass
 
 
-    astro = Astronaut()
+    mark = Astronaut()
     # Traceback (most recent call last):
     # TypeError: Can't instantiate abstract class Astronaut with abstract methods say_hello
 
@@ -688,8 +688,8 @@ Inheritance and ``__init__()`` method:
         pass
 
 
-    astro = Astronaut()
-    print(astro._logger)
+    mark = Astronaut()
+    print(mark._logger)
     # <Logger Astronaut (WARNING)>
 
 Inheritance and ``__new__()`` method:
@@ -710,8 +710,8 @@ Inheritance and ``__new__()`` method:
         pass
 
 
-    astro = Astronaut()
-    print(astro._logger)
+    mark = Astronaut()
+    print(mark._logger)
     # <Logger Astronaut (WARNING)>
 
 Inheritance for abstract base class validation:
@@ -728,7 +728,7 @@ Inheritance for abstract base class validation:
             pass
 
 
-    astro = Astronaut()
+    mark = Astronaut()
     # Traceback (most recent call last):
     # TypeError: Can't instantiate abstract class Astronaut with abstract methods hello
 

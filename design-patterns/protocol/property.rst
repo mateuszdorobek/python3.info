@@ -284,8 +284,8 @@ Use Case - 0x01
 ...         return f'{self._firstname} {self._lastname[0]}.'
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro.name)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark.name)
 Mark W.
 
 
@@ -303,8 +303,8 @@ Use Case - 0x02
 ...         return f'{self._firstname} {self._lastname[0]}.'
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro.name)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark.name)
 Mark W.
 
 
@@ -350,9 +350,9 @@ Accessing class fields using setter and getter:
 ...         return self._name
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.set_name('Mark Watney')
->>> print(astro.get_name())
+>>> mark = Astronaut()
+>>> mark.set_name('Mark Watney')
+>>> print(mark.get_name())
 Mark Watney
 
 Accessing class fields. Either put ``name`` as an argument for ``__init__()`` or create dynamic field in runtime:
@@ -362,9 +362,9 @@ Accessing class fields. Either put ``name`` as an argument for ``__init__()`` or
 ...         self.name = name
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark = Astronaut()
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 
 
@@ -451,14 +451,14 @@ Use Case - 0x01
 ...         self._name = None
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.set_name('MARK WaTNeY')
->>> print(astro.get_name())
+>>> mark.set_name('MARK WaTNeY')
+>>> print(mark.get_name())
 Mark W.
 >>>
->>> astro.del_name()
->>> print(astro.get_name())
+>>> mark.del_name()
+>>> print(mark.get_name())
 None
 
 >>> class Astronaut:
@@ -482,14 +482,14 @@ None
 ...         self._name = None
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.name = 'MARK WaTNeY'
->>> print(astro.name)
+>>> mark.name = 'MARK WaTNeY'
+>>> print(mark.name)
 Mark W.
 >>>
->>> del astro.name
->>> print(astro.name)
+>>> del mark.name
+>>> print(mark.name)
 None
 
 
@@ -517,8 +517,8 @@ Use Case - 0x02
 ...         return round(age.days/YEAR, 1)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', date(1969, 7, 21))
->>> print(astro.age)
+>>> mark = Astronaut('Mark', 'Watney', date(1969, 7, 21))
+>>> print(mark.age)
 30.4
 
 
@@ -548,8 +548,8 @@ Use Case - 0x03
 ...         return self.__cache['age']
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', date(1969, 7, 21))
->>> print(astro.age)
+>>> mark = Astronaut('Mark', 'Watney', date(1969, 7, 21))
+>>> print(mark.age)
 30.4
 
 
@@ -638,23 +638,23 @@ Use Case - 0x04
 ...     def name(self):
 ...         self._name = None
 
->>> astro = Astronaut('Mark Watney')
->>> astro.name = 'Melissa Lewis'
->>> astro.name = 'Rick Martinez 1'
+>>> mark = Astronaut('Mark Watney')
+>>> mark.name = 'Melissa Lewis'
+>>> mark.name = 'Rick Martinez 1'
 Traceback (most recent call last):
 ValueError: Name cannot have digits
 
->>> astro = Astronaut('Mark Watney')
->>> astro = Astronaut('Rick Martinez 1')
+>>> mark = Astronaut('Mark Watney')
+>>> rick = Astronaut('Rick Martinez 1')
 Traceback (most recent call last):
 ValueError: Name cannot have digits
 
->>> astro = Astronaut('Mark Watney')
->>> print(f'Name is: {astro.name}')
+>>> mark = Astronaut('Mark Watney')
+>>> print(f'Name is: {mark.name}')
 Name is: Mark Watney
 >>>
->>> del astro.name
->>> print(f'Name is: {astro.name}')
+>>> del mark.name
+>>> print(f'Name is: {mark.name}')
 Name is: None
 
 

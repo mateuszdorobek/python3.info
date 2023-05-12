@@ -458,7 +458,7 @@ Use Case - 0x07
 ...         resp = await request('GET', '/LICENSE.html')
 ...         self.assertEqual(resp.status_code, HTTPStatus.OK)
 ...         self.assertIn('Matt Harasymczuk', resp.text)
-...         self.assertIn('matt@astrotech.io', resp.text)
+...         self.assertIn('matt@astronaut.center', resp.text)
 ...         self.assertIn('last update: ', resp.text)
 ...         self.assertIn('Creative Commons Attribution-ShareAlike 4.0 International Public License', resp.text)
 ...

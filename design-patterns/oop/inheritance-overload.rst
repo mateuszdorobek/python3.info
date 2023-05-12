@@ -23,8 +23,8 @@ Overload Method
 ...         print('Howdy')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.say_hello()
+>>> mark = Astronaut()
+>>> mark.say_hello()
 Howdy
 
 
@@ -39,7 +39,7 @@ Overload Init
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Person init
 
 >>> class Person:
@@ -52,7 +52,7 @@ Person init
 ...         print('Astronaut init')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Astronaut init
 
 
@@ -68,13 +68,13 @@ Overload ClassVars
 ...     job = 'astronaut'
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.firstname
+>>> mark.firstname
 'Mark'
->>> astro.lastname
+>>> mark.lastname
 'Watney'
->>> astro.job
+>>> mark.job
 'astronaut'
 
 
@@ -92,8 +92,8 @@ Overload Attribute
 ...         self.job = 'astronaut'
 >>>
 >>>
->>> astro = Astronaut()
->>> vars(astro)
+>>> mark = Astronaut()
+>>> vars(mark)
 {'job': 'astronaut'}
 
 

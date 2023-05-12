@@ -271,12 +271,12 @@ In this case, the `Multi level inheritance` is a bad pattern here:
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
+>>> print(mark.to_pickle())  # doctest: +SKIP
 b'\x80\x04\x95I\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut' \
 b'\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark' \
 b'\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
@@ -325,12 +325,12 @@ by considering inheritance a bad practice. They use composition:
 ...         return self.__pickle_serializer.to_pickle(self)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
+>>> print(mark.to_pickle())  # doctest: +SKIP
 b'\x80\x04\x95\xa3\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94\x8c\x1b_Astronaut__json_serializer\x94h\x00\x8c\x06ToJSON\x94\x93\x94\x8c\x1d_Astronaut__pickle_serializer\x94h\x00\x8c\x08ToPickle\x94\x93\x94ub.'
 >>>
 >>>
@@ -339,7 +339,7 @@ b'\x80\x04\x95\xa3\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronau
 ...     def to_json(self):
 ...         return ...
 >>>
->>> astro = Astronaut('Mark', 'Watney', json_serializer=MyBetterSerializer)
+>>> mark = Astronaut('Mark', 'Watney', json_serializer=MyBetterSerializer)
 
 This work as intended, and nothing changed for the end-user. This maybe
 a good pattern for Java, but for Python ecosystem is over-engineered
@@ -371,12 +371,12 @@ mechanism:
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
+>>> print(mark.to_pickle())  # doctest: +SKIP
 b'\x80\x04\x95I\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut' \
 b'\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark' \
 b'\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'

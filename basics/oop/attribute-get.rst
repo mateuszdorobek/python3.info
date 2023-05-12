@@ -24,11 +24,11 @@ Accessing not Existing Attributes
 ...     lastname: str
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
 >>>
->>> print(astro.missions)
+>>> print(mark.missions)
 Traceback (most recent call last):
 AttributeError: 'Astronaut' object has no attribute 'missions'
 
@@ -72,32 +72,32 @@ Select Attributes
 ...     weight: float
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.age = 44
->>> astro.height = 185.5
->>> astro.weight = 75.5
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 44
+>>> mark.height = 185.5
+>>> mark.weight = 75.5
 >>>
->>> vars(astro)
+>>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney', 'age': 44, 'height': 185.5, 'weight': 75.5}
 >>>
->>> list(vars(astro).values())
+>>> list(vars(mark).values())
 ['Mark', 'Watney', 44, 185.5, 75.5]
 >>>
->>> [x for x in vars(astro).values() if type(x) is str]
+>>> [x for x in vars(mark).values() if type(x) is str]
 ['Mark', 'Watney']
 >>>
->>> [x for x in vars(astro).values() if type(x) in (float, int)]
+>>> [x for x in vars(mark).values() if type(x) in (float, int)]
 [44, 185.5, 75.5]
 >>>
->>> {k:v for k,v in vars(astro).items()}
+>>> {k:v for k,v in vars(mark).items()}
 {'firstname': 'Mark', 'lastname': 'Watney', 'age': 44, 'height': 185.5, 'weight': 75.5}
 >>>
->>> {k:v for k,v in vars(astro).items() if k in ['firstname', 'lastname']}
+>>> {k:v for k,v in vars(mark).items() if k in ['firstname', 'lastname']}
 {'firstname': 'Mark', 'lastname': 'Watney'}
 >>>
->>> {k:v for k,v in vars(astro).items() if type(v) is str}
+>>> {k:v for k,v in vars(mark).items() if type(v) is str}
 {'firstname': 'Mark', 'lastname': 'Watney'}
 
 
@@ -135,25 +135,25 @@ Use Case - 0x02
 ...     agency: str
 >>>
 >>>
->>> watney = Astronaut()
->>> watney.firstname = 'Mark'
->>> watney.lastname = 'Watney'
->>> watney.mission = 'Ares 3'
->>> watney.agency = 'NASA'
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.mission = 'Ares 3'
+>>> mark.agency = 'NASA'
 >>>
->>> lewis = Astronaut()
->>> lewis.firstname = 'Melissa'
->>> lewis.lastname = 'Lewis'
->>> lewis.mission = 'Ares 3'
->>> lewis.agency = 'NASA'
+>>> melissa = Astronaut()
+>>> melissa.firstname = 'Melissa'
+>>> melissa.lastname = 'Lewis'
+>>> melissa.mission = 'Ares 3'
+>>> melissa.agency = 'NASA'
 >>>
->>> vars(watney)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'mission': 'Ares 3',
  'agency': 'NASA'}
 >>>
->>> vars(lewis)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(melissa)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Melissa',
  'lastname': 'Lewis',
  'mission': 'Ares 3',

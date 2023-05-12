@@ -57,7 +57,7 @@ Example
 ...         print('Init: initializing')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 New: before instantiating
 New: after instantiating
 Init: initializing
@@ -101,7 +101,7 @@ class creation [#pydocDatamodelNew]_.
 ...         return super().__new__(cls)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Constructing object
 
 
@@ -127,7 +127,7 @@ for example: ``super().__init__([args...])`` [#pydocDatamodelInit]_.
 ...         print('Initializing object')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Initializing object
 
 Because ``__new__()`` and ``__init__()`` work together in constructing objects
@@ -141,7 +141,7 @@ to be raised at runtime.
 ...         return True
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Traceback (most recent call last):
 TypeError: __init__() should return None, not 'bool'
 
@@ -157,7 +157,7 @@ Return
 ...         print('Initializing object')
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Constructing object
 Initializing object
 
@@ -173,10 +173,10 @@ Missing ``return`` from constructor. The instantiation is evaluated to
 ...         print('Initializing object')  # -> is actually never called
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Constructing object
 >>>
->>> type(astro)
+>>> type(mark)
 <class 'NoneType'>
 
 Return invalid from constructor:
@@ -185,11 +185,11 @@ Return invalid from constructor:
 ...     def __new__(cls):
 ...         return 'Mark Watney'
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> type(astro)
+>>> type(mark)
 <class 'str'>
->>> astro
+>>> mark
 'Mark Watney'
 
 Return invalid from initializer:
@@ -198,7 +198,7 @@ Return invalid from initializer:
 ...     def __init__(self):
 ...         return 'Mark Watney'
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 Traceback (most recent call last):
 TypeError: __init__() should return None, not 'str'
 
@@ -541,14 +541,14 @@ Use Case - 0x06
 ...         ...
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> vars(astro)  # doctest: +SKIP +NORMALIZE_WHITESPACE
+>>> vars(mark)  # doctest: +SKIP +NORMALIZE_WHITESPACE
 {'_since': datetime.datetime(1969, 7, 21, 2, 56, 15),
  '_uuid': '83cefe23-3491-4661-b1f4-3ca570feab0a',
  '_log': <Logger Astronaut (WARNING)>}
 >>>
->>> astro._error(123456, 'An error occurred')  # doctest: +SKIP
+>>> mark._error(123456, 'An error occurred')  # doctest: +SKIP
 1969-07-21T02:56:15Z [ERROR:123456] An error occurred
 
 

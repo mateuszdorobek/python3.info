@@ -20,8 +20,8 @@ Super
 ...         self.job = 'astronaut'
 >>>
 >>>
->>> astro = Astronaut()
->>> print(vars(astro))
+>>> mark = Astronaut()
+>>> print(vars(mark))
 {'firstname': 'Mark', 'lastname': 'Watney', 'job': 'astronaut'}
 
 >>> class Person:
@@ -37,8 +37,8 @@ Super
 ...         super().__init__()
 >>>
 >>>
->>> astro = Astronaut()
->>> print(vars(astro))
+>>> mark = Astronaut()
+>>> print(vars(mark))
 {'job': None, 'firstname': 'Mark', 'lastname': 'Watney'}
 
 

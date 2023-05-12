@@ -41,9 +41,9 @@ Instance variables are defined on an instance:
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
 
 Instance variables are defined in init:
 
@@ -71,9 +71,9 @@ Class and instance variables defined in code:
 >>> Astronaut.firstname = 'Mark'
 >>> Astronaut.lastname = 'Watney'
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Melissa'
->>> astro.lastname = 'Lewis'
+>>> melissa = Astronaut()
+>>> melissa.firstname = 'Melissa'
+>>> melissa.lastname = 'Lewis'
 
 Class and instance variables defined in class:
 
@@ -290,9 +290,9 @@ Mechanism
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Melissa', 'Lewis')
+>>> mark = Astronaut('Melissa', 'Lewis')
 >>>
->>> vars(astro)
+>>> vars(mark)
 {'firstname': 'Melissa', 'lastname': 'Lewis'}
 >>>
 >>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS

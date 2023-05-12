@@ -91,7 +91,7 @@ Example
 >>>
 >>> @app.post('/astronaut', status_code=status.HTTP_201_CREATED, response_model=AstronautOut, tags=['Astronaut'])
 ... def post(request: AstronautIn, db: Session = Depends(get_db)):
-...     astro = Astronaut(creator_id=1, **request.dict())
+...     mark = Astronaut(creator_id=1, **request.dict())
 ...     db.add(astro)
 ...     db.commit()
 ...     db.refresh(astro)

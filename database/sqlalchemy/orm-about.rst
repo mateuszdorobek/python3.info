@@ -39,16 +39,16 @@ Active Record
 Create an object:
 
 >>> # doctest: +SKIP
-... astro = Astronaut(firstname='Mark', lastname='Watney')
-... astro.save()
+... mark = Astronaut(firstname='Mark', lastname='Watney')
+... mark.save()
 
 Usage:
 
 >>> # doctest: +SKIP
-... astro = User.query(firstname='Mark', lastname='Watney').fetch()
-... astro.firstname = 'Melissa'
-... astro.lastname = 'Lewis'
-... astro.save()
+... mark = User.query(firstname='Mark', lastname='Watney').fetch()
+... mark.firstname = 'Melissa'
+... mark.lastname = 'Lewis'
+... mark.save()
 
 
 Data Mapper
@@ -62,7 +62,7 @@ Create an object:
 
 >>> # doctest: +SKIP
 ... with Session.begin() as session:
-...     astro = Astronaut(firstname='Mark', lastname='Watney')
+...     mark = Astronaut(firstname='Mark', lastname='Watney')
 ...     session.add(astro)
 
 Usage:
@@ -258,11 +258,11 @@ Adding Objects
 --------------
 Let's create an transient object (object not yet added to the session):
 
->>> astro = Astronaut(firstname='Mark', lastname='Watney')
+>>> mark = Astronaut(firstname='Mark', lastname='Watney')
 
 New objects are placed into the Session using ``add()``
 
->>> session.add(astro)
+>>> session.add(mark)
 
 This did not modify the database, however the object is now known as 'pending'.
 We can see the 'pending' objects by looking at the ``session.new`` attribute.
@@ -471,7 +471,7 @@ We can also qualify the rows we want to get back with methods like ``.one()``
 [#ytSQLAlchemy20]_:
 
 >>> result = session.execute(query)
->>> astro = result.scalars().one()
+>>> mark = result.scalars().one()
 >>>
 >>> print(astro)
 Astronaut(firstname='Mark', lastname='Watney')

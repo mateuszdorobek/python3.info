@@ -13,12 +13,12 @@ Slots
         __slots__ = ('firstname', 'lastname')
 
 
-    astro = Astronaut()
+    mark = Astronaut()
 
-    astro.firstname = 'Mark'
-    astro.lastname = 'Watney'
+    mark.firstname = 'Mark'
+    mark.lastname = 'Watney'
 
-    astro.mission = 'Ares 3'
+    mark.mission = 'Ares 3'
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'mission'
 
@@ -31,9 +31,9 @@ Example
         __slots__ = ()
 
 
-    astro = Astronaut()
+    mark = Astronaut()
 
-    astro.name = 'Mark Watney'
+    mark.name = 'Mark Watney'
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'name'
 
@@ -43,10 +43,10 @@ Example
         __slots__ = ('name',)
 
 
-    astro = Astronaut()
+    mark = Astronaut()
 
-    astro.name = 'Mark Watney'
-    astro.mission = 'Ares 3'
+    mark.name = 'Mark Watney'
+    mark.mission = 'Ares 3'
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'mission'
 
@@ -61,13 +61,13 @@ Example
         __slots__ = ('name',)
 
 
-    astro = Astronaut()
-    astro.name = 'Mark Watney'
+    mark = Astronaut()
+    mark.name = 'Mark Watney'
 
-    print(astro.__slots__)
+    print(mark.__slots__)
     # ('name',)
 
-    print(astro.__dict__)
+    print(mark.__dict__)
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute '__dict__'
 
@@ -77,14 +77,14 @@ Example
         __slots__ = ('__dict__', 'name')
 
 
-    astro = Astronaut()
-    astro.name = 'Mark Watney'   # will use __slots__
-    astro.mission = 'Ares 3'     # will use __dict__
+    mark = Astronaut()
+    mark.name = 'Mark Watney'   # will use __slots__
+    mark.mission = 'Ares 3'     # will use __dict__
 
-    print(astro.__slots__)
+    print(mark.__slots__)
     # ('__dict__', 'name')
 
-    print(astro.__dict__)
+    print(mark.__dict__)
     # {'mission': 'Ares 3'}
 
 
@@ -99,9 +99,9 @@ Slots and Methods
             print(f'My name... {self.name}')
 
 
-    astro = Astronaut()
-    astro.name = 'Mark Watney'
-    astro.say_hello()
+    mark = Astronaut()
+    mark.name = 'Mark Watney'
+    mark.say_hello()
 
 
 Slots and Init
@@ -115,11 +115,11 @@ Slots and Init
             self.name = name
 
 
-    astro = Astronaut('Mark Watney')
-    print(astro.name)
+    mark = Astronaut('Mark Watney')
+    print(mark.name)
     # Mark Watney
 
-.. code-block:: python
+.. codemark-block:: python
 
     class Astronaut:
         __slots__ = ('name',)
@@ -129,7 +129,7 @@ Slots and Init
             self.mission = mission
 
 
-    astro = Astronaut('Mark Watney', 'Ares 3')
+    mark = Astronaut('Mark Watney', 'Ares 3')
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'mission'
 
@@ -148,11 +148,11 @@ Inheritance
         pass
 
 
-    astro = Astronaut()
-    astro.name = 'Mark Watney'
-    astro.mission = 'Ares 3'
+    mark = Astronaut()
+    mark.name = 'Mark Watney'
+    mark.mission = 'Ares 3'
 
-    print(astro.mission)
+    print(mark.mission)
     # Ares 3
 
 .. code-block:: python
@@ -164,10 +164,10 @@ Inheritance
         __slots__ = ('name', 'mission')
 
 
-    astro = Astronaut()
-    astro.firstname = 'Mark Watney'
-    astro.mission = 'Ares 3'
-    astro.rank = 'Senior'
+    mark = Astronaut()
+    mark.firstname = 'Mark Watney'
+    mark.mission = 'Ares 3'
+    mark.rank = 'Senior'
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'rank'
 
@@ -181,10 +181,10 @@ Inheritance
         __slots__ = ('mission',)
 
 
-    astro = Astronaut()
-    astro.name = 'Mark Watney'
-    astro.mission = 'Ares 3'
-    astro.rank = 'Senior'
+    mark = Astronaut()
+    mark.name = 'Mark Watney'
+    mark.mission = 'Ares 3'
+    mark.rank = 'Senior'
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute 'rank'
 
@@ -197,25 +197,25 @@ Use Case - 0x01
         __slots__ = ('firstname', 'lastname')
 
 
-    astro = Astronaut()
-    astro.firstname = 'Mark'
-    astro.lastname = 'Watney'
+    mark = Astronaut()
+    mark.firstname = 'Mark'
+    mark.lastname = 'Watney'
 
-    print(astro.firstname)
+    print(mark.firstname)
     # Mark
 
-    print(astro.lastname)
+    print(mark.lastname)
     # Watney
 
-    print(astro.__slots__)
+    print(mark.__slots__)
     # ('firstname', 'lastname')
 
-    print(astro.__dict__)
+    print(mark.__dict__)
     # Traceback (most recent call last):
     # AttributeError: 'Astronaut' object has no attribute '__dict__'
 
-    result = {attr: getattr(astro, attr)
-              for attr in astro.__slots__}
+    result = {attr: getattr(mark, attr)
+              for attr in mark.__slots__}
 
     print(result)
     # {'firstname': 'Mark', 'lastname': 'Watney'}

@@ -111,15 +111,15 @@ Use case:
 ...         print(f'My name... {self.firstname} {self.lastname}')
 >>>
 >>>
->>> astro = Astronaut('Jose', 'Jimenez')
->>> astro.say_hello()
+>>> jose = Astronaut('Jose', 'Jimenez')
+>>> jose.say_hello()
 My name... Jose Jimenez
 >>>
 >>> Astronaut.say_hello()
 Traceback (most recent call last):
 TypeError: Astronaut.say_hello() missing 1 required positional argument: 'self'
 >>>
->>> Astronaut.say_hello(astro)
+>>> Astronaut.say_hello(jose)
 My name... Jose Jimenez
 
 
@@ -205,9 +205,9 @@ Accessing class fields using setter and getter:
 ...         return self._name
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.set_name('Mark Watney')
->>> result = astro.get_name()
+>>> mark = Astronaut()
+>>> mark.set_name('Mark Watney')
+>>> result = mark.get_name()
 >>> print(result)
 Mark Watney
 

@@ -22,11 +22,11 @@ Tests:
 
     >>> result = list(result)
     >>> assert type(result) is list
-    >>> assert all(type(astro) is User for astro in result)
+    >>> assert all(type(user) is User for user in result)
 
     >>> assert all(type(addr) is Address
-    ...            for astro in result
-    ...            for addr in astro.addresses)
+    ...            for user in result
+    ...            for addr in user.addresses)
 
     >>> pprint(result)  # doctest: +NORMALIZE_WHITESPACE
     [User(firstname='Mark',

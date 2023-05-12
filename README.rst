@@ -20,7 +20,7 @@ Author
     :widths: 15, 65
 
     "author", "`Matt Harasymczuk <https://www.astronaut.center>`_"
-    "email", "matt@astrotech.io"
+    "email", "matt@astronaut.center"
     "www", "https://www.astronaut.center"
     "github", "https://github.com/astromatt"
     "linkedin", "https://linkedin.com/in/mattharasymczuk"
@@ -45,6 +45,6 @@ Big Picture
 
 Note
 ====
-* For consulting or training course requests please email matt@astrotech.io
+* For consulting or training course requests please email matt@astronaut.center
 * Before training course please setup your environment
 * More information in `Install`

@@ -35,8 +35,8 @@ Initial Validation in Classes
 ...             self.age = age
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', age=44)
->>> vars(astro)
+>>> mark = Astronaut('Mark', 'Watney', age=44)
+>>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney', 'age': 44}
 >>>
 >>> Astronaut('Mark', 'Watney', age=60)

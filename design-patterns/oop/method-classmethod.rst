@@ -114,14 +114,14 @@ Use Case - 0x01
 ...     pass
 >>>
 >>>
->>> astro = Astronaut.get_instance()
->>> cosmo = Cosmonaut.get_instance()
+>>> a = Astronaut.get_instance()
+>>> b = Cosmonaut.get_instance()
 >>>
 >>>
->>> print(astro)  # doctest: +SKIP
+>>> print(a)  # doctest: +SKIP
 <__main__.Astronaut object at 0x102453ee0>
 >>>
->>> print(cosmo)  # doctest: +SKIP
+>>> print(b)  # doctest: +SKIP
 <__main__.Cosmonaut object at 0x102453ee0>
 
 

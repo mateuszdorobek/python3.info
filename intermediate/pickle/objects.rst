@@ -30,8 +30,8 @@ Serialize and Deserialize Objects
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> result = pickle.dumps(vars(astro))
+>>> mark = Astronaut('Mark', 'Watney')
+>>> result = pickle.dumps(vars(mark))
 >>>
 >>> result
 b'\x80\x04\x95,\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94u.'
@@ -39,7 +39,6 @@ b'\x80\x04\x95,\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark
 >>> data = pickle.loads(result)
 >>> Astronaut(**data)  # doctest: +ELLIPSIS
 <__main__.Astronaut object at 0x...>
-
 
 
 Examples

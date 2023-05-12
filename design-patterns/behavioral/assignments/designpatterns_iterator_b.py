@@ -20,22 +20,22 @@ Tests:
 
     >>> assert isclass(Astronaut)
 
-    >>> astro = Astronaut('Mark', 'Watney')
-    >>> assert hasattr(astro, 'firstname')
-    >>> assert hasattr(astro, 'lastname')
-    >>> assert hasattr(astro, 'missions')
-    >>> assert hasattr(astro, '__iter__')
-    >>> assert hasattr(astro, '__next__')
-    >>> assert ismethod(astro.__iter__)
-    >>> assert ismethod(astro.__next__)
+    >>> mark = Astronaut('Mark', 'Watney')
+    >>> assert hasattr(mark, 'firstname')
+    >>> assert hasattr(mark, 'lastname')
+    >>> assert hasattr(mark, 'missions')
+    >>> assert hasattr(mark, '__iter__')
+    >>> assert hasattr(mark, '__next__')
+    >>> assert ismethod(mark.__iter__)
+    >>> assert ismethod(mark.__next__)
 
-    >>> astro = Astronaut('Pan', 'Twardowski', missions=(
+    >>> mark = Astronaut('Pan', 'Twardowski', missions=(
     ...     Mission(1969, 'Apollo 11'),
     ...     Mission(2024, 'Artemis 3'),
     ...     Mission(2035, 'Ares 3'),
     ... ))
 
-    >>> for mission in astro:
+    >>> for mission in mark:
     ...     print(mission)
     Mission(year=1969, name='Apollo 11')
     Mission(year=2024, name='Artemis 3')

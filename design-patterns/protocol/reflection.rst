@@ -45,18 +45,18 @@ NameError: You can set only x, y, z attributes
 ...         self.name = name
 >>>
 >>>
->>> astro = Astronaut('Mark Watney')
+>>> mark = Astronaut('Mark Watney')
 >>>
->>> if astro._salary is None:
-...     astro._salary = 100
+>>> if mark._salary is None:
+...     mark._salary = 100
 Traceback (most recent call last):
 AttributeError: 'Astronaut' object has no attribute '_salary'
 >>>
 >>>
->>> if not hasattr(astro, '_salary'):
-...     astro._salary = 100
+>>> if not hasattr(mark, '_salary'):
+...     mark._salary = 100
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 100
 
 >>> def input(prompt):
@@ -64,7 +64,7 @@ AttributeError: 'Astronaut' object has no attribute '_salary'
 >>>
 >>>
 >>> attrname = input('Type attribute name: ')   # _salary
->>> value = getattr(astro, attrname, 'no such attribute')
+>>> value = getattr(mark, attrname, 'no such attribute')
 >>> print(value)  # doctest: +SKIP
 100
 
@@ -73,7 +73,7 @@ AttributeError: 'Astronaut' object has no attribute '_salary'
 >>>
 >>>
 >>> attrname = input('Type attribute name: ')  # notexisting
->>> value = getattr(astro, attrname, 'no such attribute')
+>>> value = getattr(mark, attrname, 'no such attribute')
 >>> print(value)
 no such attribute
 
@@ -119,9 +119,9 @@ Set Attribute
 * Called when trying to set attribute to a value
 * Call Stack:
 
-    * ``astro.name = 'Mark Watney'``
-    * => ``setattr(astro, 'name', 'Mark Watney')``
-    * => ``astro.__setattr__('name', 'Mark Watney')``
+    * ``mark.name = 'Mark Watney'``
+    * => ``setattr(mark, 'name', 'Mark Watney')``
+    * => ``mark.__setattr__('name', 'Mark Watney')``
 
 >>> class Astronaut:
 ...     def __setattr__(self, attrname, value):
@@ -131,13 +131,13 @@ Set Attribute
 ...             return super().__setattr__(attrname, value)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> astro._salary = 100
+>>> mark._salary = 100
 Traceback (most recent call last):
 PermissionError: Field is protected
 
@@ -147,9 +147,9 @@ Delete Attribute
 * Called when trying to delete attribute
 * Call stack:
 
-    * ``del astro.name``
-    * => ``delattr(astro, 'name')``
-    * => ``astro.__delattr__(name)``
+    * ``del mark.name``
+    * => ``delattr(mark, 'name')``
+    * => ``mark.__delattr__(name)``
 
 >>> class Astronaut:
 ...     def __delattr__(self, attrname):
@@ -159,13 +159,13 @@ Delete Attribute
 ...             return super().__delattr__(attrname)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.name = 'Mark Watney'
->>> astro._salary = 100
+>>> mark.name = 'Mark Watney'
+>>> mark._salary = 100
 >>>
->>> del astro.name
->>> del astro._salary
+>>> del mark.name
+>>> del mark._salary
 Traceback (most recent call last):
 PermissionError: Field is protected
 
@@ -177,11 +177,11 @@ Get Attribute
 * If attribute is not found, then raises ``AttributeError`` and calls ``__getattr__()``
 * Call stack:
 
-    * ``astro.name``
-    * => ``getattr(astro, 'name')``
-    * => ``astro.__getattribute__('name')``
-    * if ``astro.__getattribute__('name')`` raises ``AttributeError``
-    * => ``astro.__getattr__('name')``
+    * ``mark.name``
+    * => ``getattr(mark, 'name')``
+    * => ``mark.__getattribute__('name')``
+    * if ``mark.__getattribute__('name')`` raises ``AttributeError``
+    * => ``mark.__getattr__('name')``
 
 >>> class Astronaut:
 ...     def __getattribute__(self, attrname):
@@ -191,13 +191,13 @@ Get Attribute
 ...             return super().__getattribute__(attrname)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Traceback (most recent call last):
 PermissionError: Field is protected
 
@@ -218,13 +218,13 @@ Example ``__getattr__()``:
 ...         return 'Sorry, field does not exist'
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
+>>> mark = Astronaut()
+>>> mark.name = 'Mark Watney'
 >>>
->>> print(astro.name)
+>>> print(mark.name)
 Mark Watney
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Sorry, field does not exist
 
 >>> class Astronaut:
@@ -244,20 +244,20 @@ Sorry, field does not exist
 >>>
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
+>>> mark = Astronaut()
+>>> mark.name = 'Mark Watney'
 >>>
->>> astro.name  # doctest: +NORMALIZE_WHITESPACE
+>>> mark.name  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Result was: "Mark Watney"
 'Mark Watney'
 >>>
->>> astro._salary  # doctest: +NORMALIZE_WHITESPACE
+>>> mark._salary  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Not found. Getattr called...
 Creating attribute _salary with `None` value
 >>>
->>> astro._salary  # doctest: +NORMALIZE_WHITESPACE
+>>> mark._salary  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Result was: "None"
 
@@ -273,16 +273,16 @@ Has Attribute
 ...         self.name = name
 >>>
 >>>
->>> astro = Astronaut('Mark Watney')
+>>> mark = Astronaut('Mark Watney')
 >>>
->>> hasattr(astro, 'name')
+>>> hasattr(mark, 'name')
 True
 >>>
->>> hasattr(astro, 'mission')
+>>> hasattr(mark, 'mission')
 False
 >>>
->>> astro.mission = 'Ares3'
->>> hasattr(astro, 'mission')
+>>> mark.mission = 'Ares3'
+>>> hasattr(mark, 'mission')
 True
 
 
@@ -302,17 +302,17 @@ Use Case - 0x01
 ...             return super().__setattr__(attrname, value)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> astro._salary = 100
+>>> mark._salary = 100
 Traceback (most recent call last):
 PermissionError: Field is protected
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Traceback (most recent call last):
 PermissionError: Field is protected
 

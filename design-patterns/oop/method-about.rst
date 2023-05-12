@@ -53,11 +53,11 @@ Method
 ...     def say_hello(self):
 ...         return 'hello'
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 
-Let's check the type of a ``astro.say_hello``:
+Let's check the type of a ``mark.say_hello``:
 
->>> type(astro.say_hello)
+>>> type(mark.say_hello)
 <class 'method'>
 
 Note, that ``say_hello()`` is a method!!

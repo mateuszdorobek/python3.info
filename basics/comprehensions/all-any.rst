@@ -7,17 +7,19 @@ Any
 >>> any(x for x in range(0,5))
 True
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> users = [{'is_admin': False, 'name': 'Mark Watney'},
+...          {'is_admin': True,  'name': 'Melissa Lewis'},
+...          {'is_admin': False, 'name': 'Rick Martinez'},
+...          {'is_admin': False, 'name': 'Alex Vogel'},
+...          {'is_admin': True,  'name': 'Beth Johanssen'},
+...          {'is_admin': False, 'name': 'Chris Beck'}]
 >>>
 >>>
->>> if any(person['is_astronaut'] for person in PEOPLE):
-...     print('At least one person is astronaut')
+>>> if any(user['is_admin'] for user in users):
+...     print('At least one user is admin')
 ... else:
-...     print('There are no astronauts')
-At least one person is astronaut
+...     print('There are no admins')
+At least one user is admin
 
 
 All
@@ -25,17 +27,19 @@ All
 >>> all(x for x in range(0,5))
 False
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> users = [{'is_admin': False, 'name': 'Mark Watney'},
+...          {'is_admin': True,  'name': 'Melissa Lewis'},
+...          {'is_admin': False, 'name': 'Rick Martinez'},
+...          {'is_admin': False, 'name': 'Alex Vogel'},
+...          {'is_admin': True,  'name': 'Beth Johanssen'},
+...          {'is_admin': False, 'name': 'Chris Beck'}]
 >>>
 >>>
->>> if all(person['is_astronaut'] for person in PEOPLE):
-...     print('Everyone is astronaut')
+>>> if all(user['is_admin'] for user in users):
+...     print('Everyone has admin permissions')
 ... else:
-...     print('Not everyone is astronaut')
-Not everyone is astronaut
+...     print('Not everyone is admin')
+Not everyone is admin
 
 >>> DATA = [
 ...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),

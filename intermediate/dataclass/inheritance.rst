@@ -67,7 +67,7 @@ this method from a parent class:
 ...         print('Astronaut post init')
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 Astronaut post init
 
 
@@ -95,6 +95,6 @@ to pass them like for ``__init__()`` function.
 ...         print('Astronaut post init')
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = Astronaut('Mark', 'Watney')
 Person post init
 Astronaut post init

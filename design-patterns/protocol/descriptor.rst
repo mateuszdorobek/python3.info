@@ -165,19 +165,19 @@ False
 ...     def hello(self):
 ...         pass
 >>>
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> type(astro.hello)
+>>> type(mark.hello)
 <class 'method'>
->>> hasattr(astro.hello, '__get__')
+>>> hasattr(mark.hello, '__get__')
 True
->>> hasattr(astro.hello, '__set__')
+>>> hasattr(mark.hello, '__set__')
 False
->>> hasattr(astro.hello, '__delete__')
+>>> hasattr(mark.hello, '__delete__')
 False
->>> hasattr(astro.hello, '__set_name__')
+>>> hasattr(mark.hello, '__set_name__')
 False
->>> dir(astro.hello)  # doctest: +NORMALIZE_WHITESPACE
+>>> dir(mark.hello)  # doctest: +NORMALIZE_WHITESPACE
 ['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__',
  '__format__', '__func__', '__ge__', '__getattribute__', '__getstate__',
  '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
@@ -307,23 +307,23 @@ Use Case - 0x03
 ...     height = Between(150, 210)
 ...     weight = Between(50, 90)
 
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.age = 40
->>> astro.height = 175
->>> astro.weight = 75
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 40
+>>> mark.height = 175
+>>> mark.weight = 75
 
->>> astro.age = 18
+>>> mark.age = 18
 Traceback (most recent call last):
 ValueError: Value of field "age" is not between 30 and 50
 >>>
->>> astro.weight = 100
+>>> mark.weight = 100
 Traceback (most recent call last):
 ValueError: Value of field "weight" is not between 50 and 90
 >>>
->>> astro.height = 220
+>>> mark.height = 220
 Traceback (most recent call last):
 ValueError: Value of field "height" is not between 150 and 210
 
@@ -392,36 +392,36 @@ Use Case - 0x04
 ...     weight: float = Between(50, 90)
 ...     email: str = MatchesRegex('^[a-z]+@nasa.gov$')
 
->>> astro = Astronaut()
+>>> mark = Astronaut()
 >>>
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.age = 40
->>> astro.height = 175
->>> astro.weight = 80
->>> astro.email = 'mwatney@nasa.gov'
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 40
+>>> mark.height = 175
+>>> mark.weight = 80
+>>> mark.email = 'mwatney@nasa.gov'
 
->>> astro.firstname = 'MarkMarkMarkMarkMarkMark'
+>>> mark.firstname = 'MarkMarkMarkMarkMarkMark'
 Traceback (most recent call last):
 ValueError: Astronaut.firstname value: MarkMarkMarkMarkMarkMark is longer than 20
 
->>> astro.lastname = 'WatneyWatneyWatneyWatneyWatneyWatney'
+>>> mark.lastname = 'WatneyWatneyWatneyWatneyWatneyWatney'
 Traceback (most recent call last):
 ValueError: Astronaut.lastname value: WatneyWatneyWatneyWatneyWatneyWatney is longer than 30
 
->>> astro.age = 60
+>>> mark.age = 60
 Traceback (most recent call last):
 ValueError: Astronaut.age value: 60 is not between 30 and 50
 
->>> astro.height = 220
+>>> mark.height = 220
 Traceback (most recent call last):
 ValueError: Astronaut.height value: 220 is not between 150 and 210
 
->>> astro.weight = 100
+>>> mark.weight = 100
 Traceback (most recent call last):
 ValueError: Astronaut.weight value: 100 is not between 50 and 90
 
->>> astro.email = 'invalid-email@nasa.gov'
+>>> mark.email = 'invalid-email@nasa.gov'
 Traceback (most recent call last):
 ValueError: Astronaut.email value: invalid-email@nasa.gov does not match pattern: ^[a-z]+@nasa.gov$
 
@@ -499,7 +499,7 @@ Use Case - 0x05
 ...     weight: float = Between(min=50, max=90)
 ...     email: str = Matches('^[a-z]+@nasa.gov$')
 
->>> astro = Astronaut(
+>>> mark = Astronaut(
 ...     firstname = 'Mark',
 ...     lastname = 'Watney',
 ...     age = 40,

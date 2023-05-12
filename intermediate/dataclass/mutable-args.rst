@@ -24,17 +24,17 @@ languages work (including PHP, Ruby, Perl etc).
 ...         self.missions = missions
 >>>
 >>>
->>> watney = Astronaut('Mark Watney')
->>> lewis = Astronaut('Melissa Lewis')
+>>> mark = Astronaut('Mark Watney')
+>>> melissa = Astronaut('Melissa Lewis')
 >>>
->>> watney.missions.append('Ares 1')
->>> watney.missions.append('Ares 2')
->>> watney.missions.append('Ares 3')
+>>> mark.missions.append('Ares 1')
+>>> mark.missions.append('Ares 2')
+>>> mark.missions.append('Ares 3')
 >>>
->>> print(f'Name: {watney.name}, Missions: {watney.missions}')
+>>> print(f'Name: {mark.name}, Missions: {mark.missions}')
 Name: Mark Watney, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
 >>>
->>> print(f'Name: {lewis.name}, Missions: {lewis.missions}')
+>>> print(f'Name: {melissa.name}, Missions: {melissa.missions}')
 Name: Melissa Lewis, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
 
 >>> class Astronaut:
@@ -43,17 +43,17 @@ Name: Melissa Lewis, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
 ...         self.missions = missions if missions else []
 >>>
 >>>
->>> watney = Astronaut('Mark Watney')
->>> lewis = Astronaut('Melissa Lewis')
+>>> mark = Astronaut('Mark Watney')
+>>> melissa = Astronaut('Melissa Lewis')
 >>>
->>> watney.missions.append('Ares 1')
->>> watney.missions.append('Ares 2')
->>> watney.missions.append('Ares 3')
+>>> mark.missions.append('Ares 1')
+>>> mark.missions.append('Ares 2')
+>>> mark.missions.append('Ares 3')
 >>>
->>> print(f'Name: {watney.name}, Missions: {watney.missions}')
+>>> print(f'Name: {mark.name}, Missions: {mark.missions}')
 Name: Mark Watney, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
 >>>
->>> print(f'Name: {lewis.name}, Missions: {lewis.missions}')
+>>> print(f'Name: {melissa.name}, Missions: {melissa.missions}')
 Name: Melissa Lewis, Missions: []
 
 
@@ -66,8 +66,8 @@ List of Strings
 ...     missions: list[str] = field(default_factory=list)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark)
 Astronaut(firstname='Mark', lastname='Watney', missions=[])
 
 
@@ -86,8 +86,8 @@ List of Objects
 ...     missions: list[Mission] = field(default_factory=list)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark)
 Astronaut(firstname='Mark', lastname='Watney', missions=[])
 
 
@@ -100,8 +100,8 @@ Dict
 ...     missions: dict[int,str] = field(default_factory=dict)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark)
 Astronaut(firstname='Mark', lastname='Watney', missions={})
 
 
@@ -114,6 +114,6 @@ Default Values
 ...     groups: list[str] = field(default_factory=lambda: ['astronauts', 'managers'])
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro)
+>>> mark = Astronaut('Mark', 'Watney')
+>>> print(mark)
 Astronaut(firstname='Mark', lastname='Watney', groups=['astronauts', 'managers'])

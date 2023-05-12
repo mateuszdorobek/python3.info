@@ -181,12 +181,12 @@ What's the difference?
 
 Instance
 --------
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> mark: Astronaut = Astronaut()
->>> melissa: Astronaut = Astronaut()
+>>> mark: User = User()
+>>> melissa: User = User()
 
 
 Dependency Inversion Principle
@@ -194,18 +194,18 @@ Dependency Inversion Principle
 * Always depend upon abstraction not an implementation
 * More information in `OOP SOLID`
 
->>> class Person:
+>>> class Account:
 ...     pass
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     pass
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     pass
 >>>
 >>>
->>> mark: Person = Astronaut()
->>> melissa: Person = Cosmonaut()
+>>> mark: Account = User()
+>>> melissa: Account = Admin()
 
 
 Final Class
@@ -220,7 +220,19 @@ class as final:
 >>>
 >>>
 >>> @final
-... class Astronaut:
+... class User:
+...     pass
+
+Error: 'Astronaut' is marked as ``@final`` and should not be subclassed:
+
+>>> from typing import final
+>>>
+>>>
+>>> @final
+... class Person:
+...     pass
+>>>
+>>> class Astronaut(Person):
 ...     pass
 
 
@@ -237,6 +249,21 @@ method as final:
 >>>
 >>> class Astronaut:
 ...     @final
+...     def say_hello(self) -> None:
+...         pass
+
+The following code will yield with an error: 'Person.say_hello' is marked
+as ``@final`` and should not be overridden:
+
+>>> from typing import final
+>>>
+>>>
+>>> class Person:
+...     @final
+...     def say_hello(self) -> None:
+...         pass
+>>>
+>>> class Astronaut(Person):
 ...     def say_hello(self) -> None:
 ...         pass
 
@@ -260,36 +287,6 @@ attribute as final:
 ...     def __init__(self) -> None:
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
-
-
-Errors
-------
-Error: 'Astronaut' is marked as ``@final`` and should not be subclassed:
-
->>> from typing import final
->>>
->>>
->>> @final
-... class Person:
-...     pass
->>>
->>> class Astronaut(Person):
-...     pass
-
-The following code will yield with an error: 'Person.say_hello' is marked
-as ``@final`` and should not be overridden:
-
->>> from typing import final
->>>
->>>
->>> class Person:
-...     @final
-...     def say_hello(self) -> None:
-...         pass
->>>
->>> class Astronaut(Person):
-...     def say_hello(self) -> None:
-...         pass
 
 The following code will yield with an error: final attribute (``y``) without
 an initializer:

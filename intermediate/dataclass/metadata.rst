@@ -51,7 +51,7 @@ Validation
 ...             raise ValueError('Invalid age')
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', age=99)
+>>> mark = Astronaut('Mark', 'Watney', age=99)
 Traceback (most recent call last):
 ValueError: Invalid age
 

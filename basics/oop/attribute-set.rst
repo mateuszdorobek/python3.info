@@ -91,16 +91,16 @@ Example
 ...     friends: list['Astronaut'] | None
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.agency = 'NASA'
->>> astro.flown = True
->>> astro.age = 40
->>> astro.height = 185.5
->>> astro.weight = 75.5
->>> astro.missions = ['Ares1', 'Ares3']
->>> astro.friends = None
+>>> mark = Astronaut()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.agency = 'NASA'
+>>> mark.flown = True
+>>> mark.age = 40
+>>> mark.height = 185.5
+>>> mark.weight = 75.5
+>>> mark.missions = ['Ares1', 'Ares3']
+>>> mark.friends = None
 
 
 Use Case - 0x01

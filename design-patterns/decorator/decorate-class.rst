@@ -56,8 +56,8 @@ Example
 ...         return f'My name... {name}'
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.hello('José Jiménez')
+>>> mark = Astronaut()
+>>> mark.hello('José Jiménez')
 'My name... José Jiménez'
 
 
