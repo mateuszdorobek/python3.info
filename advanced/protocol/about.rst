@@ -328,10 +328,10 @@ delegate, and contravariant type parameters can be used as parameter types.
 
 Default Value
 -------------
->>> class Astronaut(Protocol):
+>>> class User(Protocol):
 ...     firstname: str
 ...     lastname: str
-...     job: str = 'astronaut'
+...     role: str = 'admin'
 
 
 Merging and extending protocols
@@ -476,18 +476,18 @@ as for ``collections.abc`` classes, essentially making them 'runtime
 protocols':
 
 >>> @runtime_checkable
-... class Person(Protocol):
+... class Account(Protocol):
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str = 'Mark'
 ...     lastname: str = 'Watney'
-...     job: str = 'astronaut'
+...     groups: list[str] = ['admins']
 >>>
 >>>
->>> isinstance(Astronaut, Person)
+>>> isinstance(User, Account)
 True
 
 >>> class Message(Protocol):

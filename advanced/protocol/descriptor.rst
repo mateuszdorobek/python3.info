@@ -137,21 +137,21 @@ False
  '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__',
  '__subclasshook__']
 
->>> class Astronaut:
+>>> class User:
 ...     def hello(self):
 ...         pass
 >>>
->>> type(Astronaut.hello)
+>>> type(User.hello)
 <class 'function'>
->>> hasattr(Astronaut.hello, '__get__')
+>>> hasattr(User.hello, '__get__')
 True
->>> hasattr(Astronaut.hello, '__set__')
+>>> hasattr(User.hello, '__set__')
 False
->>> hasattr(Astronaut.hello, '__delete__')
+>>> hasattr(User.hello, '__delete__')
 False
->>> hasattr(Astronaut.hello, '__set_name__')
+>>> hasattr(User.hello, '__set_name__')
 False
->>> dir(Astronaut.hello)  # doctest: +NORMALIZE_WHITESPACE
+>>> dir(User.hello)  # doctest: +NORMALIZE_WHITESPACE
 ['__annotations__', '__builtins__', '__call__', '__class__', '__closure__',
  '__code__', '__defaults__', '__delattr__', '__dict__', '__dir__', '__doc__',
  '__eq__', '__format__', '__ge__', '__get__', '__getattribute__',
@@ -161,23 +161,23 @@ False
  '__reduce_ex__', '__repr__', '__setattr__', '__sizeof__', '__str__',
  '__subclasshook__']
 
->>> class Astronaut:
+>>> class User:
 ...     def hello(self):
 ...         pass
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> type(astro.hello)
+>>> type(mark.hello)
 <class 'method'>
->>> hasattr(astro.hello, '__get__')
+>>> hasattr(mark.hello, '__get__')
 True
->>> hasattr(astro.hello, '__set__')
+>>> hasattr(mark.hello, '__set__')
 False
->>> hasattr(astro.hello, '__delete__')
+>>> hasattr(mark.hello, '__delete__')
 False
->>> hasattr(astro.hello, '__set_name__')
+>>> hasattr(mark.hello, '__set_name__')
 False
->>> dir(astro.hello)  # doctest: +NORMALIZE_WHITESPACE
+>>> dir(mark.hello)  # doctest: +NORMALIZE_WHITESPACE
 ['__call__', '__class__', '__delattr__', '__dir__', '__doc__', '__eq__',
  '__format__', '__func__', '__ge__', '__getattribute__', '__getstate__',
  '__gt__', '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
@@ -300,30 +300,30 @@ Use Case - 0x03
 ...         setattr(cls, self.attrname, None)
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age = Between(30, 50)
 ...     height = Between(150, 210)
 ...     weight = Between(50, 90)
 
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.age = 40
->>> astro.height = 175
->>> astro.weight = 75
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 40
+>>> mark.height = 175
+>>> mark.weight = 75
 
->>> astro.age = 18
+>>> mark.age = 18
 Traceback (most recent call last):
 ValueError: Value of field "age" is not between 30 and 50
 >>>
->>> astro.weight = 100
+>>> mark.weight = 100
 Traceback (most recent call last):
 ValueError: Value of field "weight" is not between 50 and 90
 >>>
->>> astro.height = 220
+>>> mark.height = 220
 Traceback (most recent call last):
 ValueError: Value of field "height" is not between 150 and 210
 
@@ -384,7 +384,7 @@ Use Case - 0x04
 ...                              f'does not match pattern: {self.pattern}')
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str = MaxLength(20)
 ...     lastname: str = MaxLength(30)
 ...     age: int = Between(30, 50)
@@ -392,38 +392,38 @@ Use Case - 0x04
 ...     weight: float = Between(50, 90)
 ...     email: str = MatchesRegex('^[a-z]+@nasa.gov$')
 
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
->>> astro.age = 40
->>> astro.height = 175
->>> astro.weight = 80
->>> astro.email = 'mwatney@nasa.gov'
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.age = 40
+>>> mark.height = 175
+>>> mark.weight = 80
+>>> mark.email = 'mwatney@nasa.gov'
 
->>> astro.firstname = 'MarkMarkMarkMarkMarkMark'
+>>> mark.firstname = 'MarkMarkMarkMarkMarkMark'
 Traceback (most recent call last):
-ValueError: Astronaut.firstname value: MarkMarkMarkMarkMarkMark is longer than 20
+ValueError: User.firstname value: MarkMarkMarkMarkMarkMark is longer than 20
 
->>> astro.lastname = 'WatneyWatneyWatneyWatneyWatneyWatney'
+>>> mark.lastname = 'WatneyWatneyWatneyWatneyWatneyWatney'
 Traceback (most recent call last):
-ValueError: Astronaut.lastname value: WatneyWatneyWatneyWatneyWatneyWatney is longer than 30
+ValueError: User.lastname value: WatneyWatneyWatneyWatneyWatneyWatney is longer than 30
 
->>> astro.age = 60
+>>> mark.age = 60
 Traceback (most recent call last):
-ValueError: Astronaut.age value: 60 is not between 30 and 50
+ValueError: User.age value: 60 is not between 30 and 50
 
->>> astro.height = 220
+>>> mark.height = 220
 Traceback (most recent call last):
-ValueError: Astronaut.height value: 220 is not between 150 and 210
+ValueError: User.height value: 220 is not between 150 and 210
 
->>> astro.weight = 100
+>>> mark.weight = 100
 Traceback (most recent call last):
-ValueError: Astronaut.weight value: 100 is not between 50 and 90
+ValueError: User.weight value: 100 is not between 50 and 90
 
->>> astro.email = 'invalid-email@nasa.gov'
+>>> mark.email = 'invalid-email@nasa.gov'
 Traceback (most recent call last):
-ValueError: Astronaut.email value: invalid-email@nasa.gov does not match pattern: ^[a-z]+@nasa.gov$
+ValueError: User.email value: invalid-email@nasa.gov does not match pattern: ^[a-z]+@nasa.gov$
 
 
 Use Case - 0x05
@@ -491,7 +491,7 @@ Use Case - 0x05
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str = MaxLength(50)
 ...     lastname: str = MaxLength(50)
 ...     age: int = Between(min=30, max=50)
@@ -499,7 +499,7 @@ Use Case - 0x05
 ...     weight: float = Between(min=50, max=90)
 ...     email: str = Matches('^[a-z]+@nasa.gov$')
 
->>> astro = Astronaut(
+>>> mark = User(
 ...     firstname = 'Mark',
 ...     lastname = 'Watney',
 ...     age = 40,
@@ -583,14 +583,14 @@ Use Case - 0x06
 ...     def is_valid(self, value) -> bool:
 ...         return True if self.pattern.match(value) else False
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str = String(max_length=20)
 ...     lastname: str = String(max_length=30)
 ...     email: str = Email(domain='@nasa.gov')
 ...     phone: str = Phone(regex=r'^\+48 \d{3} \d{3} \d{3}$')
 ...     age: int = Integer(min=30, max=50)
 
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 >>> mark.age = 40
@@ -632,7 +632,7 @@ ValueError: _email value "mwantey@nasa.gov.pl" is not in domain @nasa.gov
  '_email': 'mwantey@nasa.gov',
  '_phone': '+48 123 456 789'}
 
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
               '__annotations__': {'firstname': <class 'str'>,
                                   'lastname': <class 'str'>,
@@ -644,8 +644,8 @@ mappingproxy({'__module__': '__main__',
               'email': Email(attrname='_email', domain='@nasa.gov'),
               'phone': Phone(attrname='_phone', pattern=re.compile('^\\+48 \\d{3} \\d{3} \\d{3}$')),
               'age': Integer(attrname='_age', min=30, max=50),
-              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
-'__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+'__weakref__': <attribute '__weakref__' of 'User' objects>,
 '__doc__': None})
 
 

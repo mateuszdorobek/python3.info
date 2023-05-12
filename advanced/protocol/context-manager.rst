@@ -10,6 +10,8 @@ Protocol Context Manager
 * Network streams
 * HTTP sessions
 * Since Python 3.10: Parenthesized context managers [#pydocpython310]_
+* https://peps.python.org/pep-0707/
+* `__leave__()` https://github.com/faster-cpython/ideas/issues/550#issuecomment-1410120100
 
 
 Protocol
@@ -38,7 +40,7 @@ Typing
 
 Example
 -------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -55,7 +57,7 @@ Example
 
 Now we can use context manager:
 
->>> with Astronaut('Mark', 'Watney') as mark:
+>>> with User('Mark', 'Watney') as mark:
 ...     mark.say_hello()
 ...
 Entering the block
@@ -64,7 +66,7 @@ Exiting the block
 
 Is equivalent to:
 
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
 >>> mark = mark.__enter__()
 Entering the block
@@ -249,7 +251,7 @@ Use Case - 0x03
 >>> DATABASE = ':memory:'
 >>>
 >>> SQL_CREATE_TABLE = """
-...     CREATE TABLE IF NOT EXISTS astronauts (
+...     CREATE TABLE IF NOT EXISTS users (
 ...         id INTEGER PRIMARY KEY AUTOINCREMENT,
 ...         firstname TEXT NOT NULL,
 ...         lastname TEXT NOT NULL,
@@ -258,16 +260,18 @@ Use Case - 0x03
 ... """
 >>>
 >>> SQL_INSERT = """
-...     INSERT INTO astronauts VALUES(NULL, :firstname, :lastname, :age)
+...     INSERT INTO users VALUES(NULL, :firstname, :lastname, :age)
 ... """
 >>>
 >>> SQL_SELECT = """
-...     SELECT * FROM astronauts
+...     SELECT * FROM users
 ... """
 >>>
->>> DATA = [{'firstname': 'Pan', 'lastname': 'Twardowski', 'age': 44},
-...         {'firstname': 'Mark', 'lastname': 'Watney', 'age': 33},
-...         {'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 36}]
+>>> DATA = [
+...     {'firstname': 'Mark', 'lastname': 'Watney', 'age': 41},
+...     {'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 40},
+...     {'firstname': 'Rick', 'lastname': 'Martinez', 'age': 39},
+... ]
 >>>
 >>>
 >>> with sqlite3.connect(DATABASE) as db:  # doctest: +ELLIPSIS
@@ -280,9 +284,9 @@ Use Case - 0x03
 ...
 <sqlite3.Cursor object at 0x...>
 <sqlite3.Cursor object at 0x...>
-{'id': 1, 'firstname': 'Pan', 'lastname': 'Twardowski', 'age': 44}
-{'id': 2, 'firstname': 'Mark', 'lastname': 'Watney', 'age': 33}
-{'id': 3, 'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 36}
+{'id': 1, 'firstname': 'Mark', 'lastname': 'Watney', 'age': 41}
+{'id': 2, 'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 40}
+{'id': 3, 'firstname': 'Rick', 'lastname': 'Martinez', 'age': 39}
 
 
 Use Case - 0x04
@@ -427,43 +431,62 @@ Duration: 5.3505 seconds
 Use Case - 0x07
 ---------------
 >>> from unittest import IsolatedAsyncioTestCase
->>> import httpx as httpx  # doctest: +SKIP
+>>> from httpx import AsyncClient, Response, HTTPStatusError
+>>> from http import HTTPStatus
+>>>
 >>>
 >>> BASE_URL = 'https://python3.info'
 >>>
->>>
->>> async def request(method='GET', path='/', data=None):
-...     async with httpx.AsyncClient(base_url=BASE_URL) as client:
-...         return await client.request(method=method, url=path, data=data)
+>>> async def request(method: str = 'GET',
+...             path: str = '/',
+...             data: dict | None = None,
+...             headers: dict | None = None,
+...             ) -> Response:
+...     async with AsyncClient(base_url=BASE_URL) as ac:
+...         return await ac.request(method=method, url=path, data=data, headers=headers)
 ...
 ...
->>> class MyAppTest(IsolatedAsyncioTestCase):
+>>> class WebsiteTest(IsolatedAsyncioTestCase):
 ...     async def test_index(self):
 ...         resp = await request('GET', '/index.html')
-...         self.assertEqual(resp.status_code, 200)
+...         self.assertEqual(resp.status_code, HTTPStatus.OK)
+...         self.assertIn('Python 3: From None to Machine Learning', resp.text)
+...         self.assertIn('Matt Harasymczuk', resp.text)
+...         self.assertIn('Creative Commons Attribution-ShareAlike 4.0 International License', resp.text)
 ...
 ...     async def test_license(self):
 ...         resp = await request('GET', '/LICENSE.html')
-...         self.assertEqual(resp.status_code, 200)
-...         text = 'Creative Commons Attribution-ShareAlike 4.0 International Public License'
-...         self.assertIn(text, resp.text)
+...         self.assertEqual(resp.status_code, HTTPStatus.OK)
+...         self.assertIn('Matt Harasymczuk', resp.text)
+...         self.assertIn('matt@astrotech.io', resp.text)
+...         self.assertIn('last update: ', resp.text)
+...         self.assertIn('Creative Commons Attribution-ShareAlike 4.0 International Public License', resp.text)
+...
+...     async def test_login(self):
+...         resp = await request('POST', '/login.html', data={'username':'mwatney', 'password': 'Ares3'})
+...         self.assertEqual(resp.status_code, HTTPStatus.FORBIDDEN)
+...         with self.assertRaises(HTTPStatusError):
+...             resp.raise_for_status()
 ...
 ...     async def test_install(self):
 ...         resp = await request('GET', '/install.html')
-...         self.assertEqual(resp.status_code, 200)
-...
-...         with self.subTest(msg='Python Version'):
-...             self.assertIn('3.11', resp.text)
-...             self.assertIn('3.10', resp.text)
-...             self.assertIn('3.9', resp.text)
+...         self.assertEqual(resp.status_code, HTTPStatus.OK)
+...         with self.subTest('Python'):
 ...             self.assertNotIn('3.8', resp.text)
-...             self.assertNotIn('3.7', resp.text)
-...             self.assertNotIn('3.6', resp.text)
-...
-...         with self.subTest(msg='PyCharm Version'):
-...             self.assertIn('2022.1', resp.text)
-...             with self.assertRaises(AssertionError):
-...                 self.assertIn('2022.0', resp.text)
+...             self.assertNotIn('3.9', resp.text)
+...             self.assertIn('3.10', resp.text)
+...             self.assertIn('3.11', resp.text)
+...         with self.subTest('PyCharm'):
+...             self.assertNotIn('2021.1', resp.text)
+...             self.assertNotIn('2021.2', resp.text)
+...             self.assertNotIn('2021.3', resp.text)
+...             self.assertNotIn('2022.1', resp.text)
+...             self.assertNotIn('2022.2', resp.text)
+...             self.assertNotIn('2022.3', resp.text)
+...             self.assertIn('2023.1', html.text)
+...         with self.subTest('Git'):
+...             self.assertIn('2.33 lub nowszy', resp.text)
+
 
 
 Use Case - 0x08

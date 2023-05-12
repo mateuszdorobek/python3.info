@@ -6,18 +6,18 @@
 
 English:
     1. Overload operator `+=`
-    2. Make `Astronaut` objects able to add `Missions`, for example:
-       a. `mark = Astronaut(firstname='Mark', lastname='Watney')`
-       b. `mark += Mission(2035, 'Ares3')`
-       c. `mark += Mission(2040, 'Ares5')`
+    2. Make `User` objects able to add `Groups`, for example:
+       a. `mark = User(firstname='Mark', lastname='Watney')`
+       b. `mark += Group(1, 'admins')`
+       c. `mark += Group(2, 'staff')`
     3. Run doctests - all must succeed
 
 Polish:
     1. Przeciąż operator `+=`
-    2. Spraw aby do obiektów klasy `Astronaut` można dodać `Mission`, przykład:
-       a. `mark = Astronaut(firstname='Mark', lastname='Watney')`
-       b. `mark += Mission(2035, 'Ares3')`
-       c. `mark += Mission(2040, 'Ares5')`
+    2. Spraw aby do obiektów klasy `User` można dodać `Group`, przykład:
+       a. `mark = User(firstname='Mark', lastname='Watney')`
+       b. `mark += Group(1, 'admins')`
+       c. `mark += Group(2, 'staff')`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -25,49 +25,46 @@ Hints:
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
+    >>> from pprint import pprint
 
-    >>> astro = Astronaut(firstname='Mark', lastname='Watney', missions=[
-    ...     Mission(1969, 'Apollo 11'),
-    ... ])
-    >>> astro += Mission(2024, 'Artemis 3')
-    >>> astro += Mission(2035, 'Ares 3')
+    >>> mark = User(firstname='Mark', lastname='Watney', groups=[])
+    >>> mark += Group(1, 'admins')
+    >>> mark += Group(2, 'staff')
 
-    >>> print(astro)  # doctest: +NORMALIZE_WHITESPACE
-    Astronaut(firstname='Mark', lastname='Watney',
-              missions=[Mission(year=1969, name='Apollo 11'),
-                        Mission(year=2024, name='Artemis 3'),
-                        Mission(year=2035, name='Ares 3')])
+    >>> pprint(mark, width=50)
+    User(firstname='Mark',
+         lastname='Watney',
+         groups=[Group(gid=1, name='admins'),
+                 Group(gid=2, name='staff')])
 """
 
 from dataclasses import dataclass
 
 
 @dataclass
-class Astronaut:
+class Group:
+    gid: int
+    name: str
+
+# Make `User` objects able to add `Groups`, for example:
+# a. `mark = User(firstname='Mark', lastname='Watney')`
+# b. `mark += Group(1, 'admins')`
+# c. `mark += Group(2, 'staff')`
+# type: type[User]
+@dataclass
+class User:
     firstname: str
     lastname: str
-    missions: list
-
-
-@dataclass
-class Mission:
-    year: int
-    name: str
+    groups: list[Group]
 
 
 # Solution
 @dataclass
-class Astronaut:
+class User:
     firstname: str
     lastname: str
-    missions: list
+    groups: list[Group]
 
     def __iadd__(self, other):
-        self.missions.append(other)
+        self.groups.append(other)
         return self
-
-
-@dataclass
-class Mission:
-    year: int
-    name: str

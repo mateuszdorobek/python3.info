@@ -14,7 +14,7 @@ SetUp:
 Definition:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     birthday: date
@@ -23,171 +23,315 @@ Definition:
 ...     def age(self):
 ...         diff = date.today() - self.birthday
 ...         years = diff.days / 365.25
-...         return round(years, 1)
+...         return int(years)
 
 Usage:
 
->>> mark = Astronaut('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
 >>> mark.age  # doctest: +SKIP
-53.4
+53
 
 >>> mark.age = 40
 Traceback (most recent call last):
-AttributeError: property 'age' of 'Astronaut' object has no setter
+AttributeError: property 'age' of 'User' object has no setter
 
 
-Problem
--------
->>> class Point:
-...     x: int
+Getter
+------
+>>> YEAR = 365.25
+
+>>> class User:
+...     def __init__(self, firstname, lastname, birthday):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.birthday = birthday
 ...
-...     def get_x(self): pass
-...     def set_x(self, newvalue): pass
-...     def del_x(self): pass
+...     def get_age(self):
+...         today = date.today()
+...         days = (today - self.birthday).days
+...         return int(days/YEAR)
 >>>
 >>>
->>> pt = Point()
->>> pt.set_x(1)
+>>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark.get_age()  # doctest: +SKIP
+53
+
+>>> class User:
+...     def __init__(self, firstname, lastname, birthday):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.birthday = birthday
+...
+...     @property
+...     def age(self):
+...         today = date.today()
+...         days = (today - self.birthday).days
+...         return int(days/YEAR)
+>>>
+>>>
+>>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark.age  # doctest: +SKIP
+53
+
+
+Setter and Getter Methods
+-------------------------
+* Not only Java, but C++ and many others too
 
 >>> class Point:
-...     x: int
-...     y: int
+...     _x: int
+...     _y: int
+...     _z: int
 ...
-...     def get_x(self): pass
-...     def set_x(self, newvalue): pass
-...     def del_x(self): pass
-...     def get_y(self): pass
-...     def set_y(self, newvalue): pass
-...     def del_y(self): pass
->>>
->>>
->>> pt = Point()
->>> pt.set_x(1)
->>> pt.set_y(1)
+...     def set_x(self, value):
+...         self._x = value
+...
+...     def get_x(self):
+...         return self._x
+...
+...     def set_y(self, value):
+...         self._y = value
+...
+...     def get_y(self):
+...         return self._y
+...
+...     def set_z(self, value):
+...         self._z = value
+...
+...     def get_z(self):
+...         return self._z
 
+End-users code:
+
+>>> pt = Point()
+>>>
+>>> pt.set_x(1)
+>>> pt.set_y(2)
+>>> pt.set_z(3)
+>>>
+>>> print(pt.get_x(), pt.get_y(), pt.get_z())
+1 2 3
+
+Let's introduce feature, that z-axis cannot be negative (value below 0).
+Although we cannot change previously defined API (methods). If we change API
+it will break our end-users code and we don't want that. However we can
+change our class code without any problem.
+
+Not a big of a deal. We already have placeholders to inject such validation.
+What was previously considered as an overhead, eventually gave us future proof.
+Very good!
+
+But this is the Java way...
+
+>>> class Point:
+...     _x: int
+...     _y: int
+...     _z: int
+...
+...     def set_x(self, value):
+...         self._x = value
+...
+...     def get_x(self):
+...         return self._x
+...
+...     def set_y(self, value):
+...         self._y = value
+...
+...     def get_y(self):
+...         return self._y
+...
+...     def set_z(self, value):
+...         if value < 0:
+...             raise ValueError('Value cannot be negative')
+...         self._z = value
+...
+...     def get_z(self):
+...         return self._z
+
+End-users code is left unchanged:
+
+>>> pt = Point()
+>>>
+>>> pt.set_x(1)
+>>> pt.set_y(2)
+>>> pt.set_z(3)
+>>>
+>>> print(pt.get_x(), pt.get_y(), pt.get_z())
+1 2 3
+
+And new feature is working:
+
+>>> pt.set_z(-1)
+Traceback (most recent call last):
+ValueError: Value cannot be negative
+
+
+Pythonic Way
+------------
 >>> class Point:
 ...     x: int
 ...     y: int
 ...     z: int
+
+End-user's code:
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+>>> print(pt.x, pt.y, pt.z)
+1 2 3
+
+Let's introduce the same feature, that z-axis cannot be negative.
+And still we cannot change previously defined API (methods).
+
+Woops, we don't have placeholders to inject such validation. We previously
+considered this as an overhead and we removed it. We are not future proof.
+
+However in Python, you have properties, which is exactly for that reason.
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z = property()
 ...
-...     def get_x(self) -> int: pass
-...     def get_x(self): pass
-...     def set_x(self, newvalue): pass
-...     def del_x(self): pass
-...     def get_y(self): pass
-...     def set_y(self, newvalue): pass
-...     def del_y(self): pass
-...     def get_z(self): pass
-...     def set_z(self, newvalue): pass
-...     def del_z(self): pass
+...     @z.getter
+...     def z(self):
+...         return self._z
+...
+...     @z.setter
+...     def z(self, value):
+...         if value < 0:
+...             raise ValueError('Value cannot be negative')
+...         self._z = value
+
+End-users code is left unchanged:
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+>>> print(pt.x, pt.y, pt.z)
+1 2 3
+
+And new feature is working:
+
+>>> pt.z = -1
+Traceback (most recent call last):
+ValueError: Value cannot be negative
+
+
+Encapsulation
+-------------
+Defining setter, getter and deleter methods for each property is not
+a valid way to do an encapsulation. In Java there is Project Lombok
+which can generate setters and getters for your fields automatically
+and you can overwrite only those which need to be overwritten. But,
+this not a sustainable solution and it requires a 3rd-party library
+installation as dependency.
+
+Setter and getter way:
+
+>>> class Point:
+...     _x: int
+...     _y: int
+...     _z: int
+...
+...     def set_x(self, value):
+...         self._x = value
+...
+...     def get_x(self):
+...         return self._x
+...
+...     def set_y(self, value):
+...         self._y = value
+...
+...     def get_y(self):
+...         return self._y
+...
+...     def set_z(self, value):
+...         self._z = value
+...
+...     def get_z(self):
+...         return self._z
 >>>
 >>>
 >>> pt = Point()
 >>> pt.set_x(1)
->>> pt.set_y(1)
->>> pt.set_z(1)
+>>> pt.set_y(2)
+>>> pt.set_z(3)
+>>> print(pt.get_x(), pt.get_y(), pt.get_z())
+1 2 3
 
+Python properties way:
 
-What if...
-----------
 >>> class Point:
-...     x: int
-...     y: int
-...     z: int
+...     x = property()
+...     y = property()
+...     z = property()
 ...
-...     def set_position(self, x, y, z):
-...         self.x = x
-...         self.y = y
-...         self.z = z
->>>
->>> pt = Point()
->>> pt.set_position(1, 2, 3)
-
-Works for point.
-How about astronauts
-
->>> class Astronaut:
-...     firstname: str
-...     middlename: str
-...     lastname: str
+...     @x.setter
+...     def x(self, value):
+...         if value < 0:
+...             raise ValueError
+...         self._x = value
 ...
-...     def set_name(self, name):
-...         first, mid, last = name.split()
-...         self.firstname = first
-...         self.middlename = mid
-...         self.lastname = last
-
-Do everyone have a middle name?
-Do everyone have first or lastname?
-
-
-Solution
---------
->>> class Point:
-...     x: int
-...     y: int
-...     z: int
+...     @x.getter
+...     def x(self):
+...         return self._x
+...
+...     @y.setter
+...     def y(self, value):
+...         if value < 0:
+...             raise ValueError
+...         self._y = value
+...
+...     @y.getter
+...     def y(self):
+...         return self._y
+...
+...     @z.setter
+...     def z(self, value):
+...         if value < 0:
+...             raise ValueError
+...         self._z = value
+...
+...     @z.getter
+...     def z(self):
+...         return self._z
 >>>
 >>>
 >>> pt = Point()
 >>> pt.x = 1
 >>> pt.y = 2
 >>> pt.z = 3
+>>> print(pt.x, pt.y, pt.z)
+1 2 3
 
-But what if we want to make validation:
-
->>> class Point:
-...     x: int
-...     y: int
-...     z: int
-...
-...     def set_x(self, newvalue):
-...         if newvalue > 0:
-...             self.x = newvalue
-...         else:
-...             raise ValueError
-...
-...     def set_y(self, newvalue):
-...         if newvalue > 0:
-...             self.y = newvalue
-...         else:
-...             raise ValueError
-...
-...     def set_z(self, newvalue):
-...         if newvalue > 0:
-...             self.z = newvalue
-...         else:
-...             raise ValueError
-
-We can refactor this code:
+Real encapsulation is about something else. It is about creating an
+abstraction over your implementation in order to be allowed to change
+it in future.
 
 >>> class Point:
-...     x: int
-...     y: int
-...     z: int
+...     _x: int
+...     _y: int
+...     _z: int
 ...
-...     def _is_valid(self, value):
-...         if newvalue > 0:
-...             return value
-...         else:
-...             raise ValueError
+...     def set_position(self, x, y, z):
+...         self._x = x
+...         self._y = y
+...         self._z = z
 ...
-...     def set_x(self, newvalue):
-...         self.x = self._valid(newvalue)
-...
-...     def set_y(self, newvalue):
-...         self.y = self._valid(newvalue)
-...
-...     def set_z(self, newvalue):
-...         self.z = self._valid(newvalue)
+...     def get_position(self):
+...         return self._x, self._y, self._z
+>>>
+>>>
+>>> pt = Point()
+>>> pt.set_position(1, 2, 3)
+>>> print(pt.get_position())
+(1, 2, 3)
 
-But problem persist.
-
-What if all parameters can have different ranges:
-
-    - age between 0 and 130
-    - height between 150 and 210
-    - name first capital letter, then lowercased letters
+Now, I can change from 2D to 3D without a big of a hassle.
 
 
 Protocol
@@ -216,8 +360,74 @@ Protocol
 ...         ...
 
 
-Example
--------
+Property class
+--------------
+* Property's arguments are method references ``get_name``, ``set_name``, ``del_name`` and a docstring
+* Not recommended
+
+>>> class User:
+...     def __init__(self, name=None):
+...         self._name = name
+...
+...     def get_name(self):
+...         return self._name
+...
+...     def set_name(self, value):
+...         self._name = value
+...
+...     def del_name(self):
+...         del self._name
+...
+...     name = property(get_name, set_name, del_name, "I am the 'name' property.")
+
+
+Property Descriptor
+-------------------
+* Prefer ``name = property()``
+
+>>> class User:
+...     name = property()
+...
+...     def __init__(self, name=None):
+...         self._name = name
+...
+...     @name.getter
+...     def name(self):
+...         return self._name
+...
+...     @name.setter
+...     def name(self, value):
+...         self._name = value
+...
+...     @name.deleter
+...     def name(self):
+...         del self._name
+
+
+Property Decorator
+------------------
+* Typically used when, there is only getter and no setter and deleter methods
+
+>>> class User:
+...     def __init__(self, name=None):
+...         self._name = name
+...
+...     @property
+...     def name(self):
+...         return self._name
+...
+...     @name.setter
+...     def name(self, value):
+...         self._name = value
+...
+...     @name.deleter
+...     def name(self):
+...         del self._name
+
+
+
+Use Case - 0x01
+---------------
 * Kelvin is an absolute scale (no values below zero)
 
 >>> class KelvinTemperature:
@@ -272,9 +482,9 @@ Example
 ...         self._value = newvalue
 
 
-Use Case - 0x01
+Use Case - 0x02
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self._firstname = firstname
 ...         self._lastname = lastname
@@ -284,14 +494,14 @@ Use Case - 0x01
 ...         return f'{self._firstname} {self._lastname[0]}.'
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro.name)
+>>> mark = User('Mark', 'Watney')
+>>> print(mark.name)
 Mark W.
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     name = property()
 ...
 ...     def __init__(self, firstname, lastname):
@@ -303,12 +513,12 @@ Use Case - 0x02
 ...         return f'{self._firstname} {self._lastname[0]}.'
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
->>> print(astro.name)
+>>> mark = User('Mark', 'Watney')
+>>> print(mark.name)
 Mark W.
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 >>> class Temperature:
 ...     kelvin = property()
@@ -332,110 +542,9 @@ Traceback (most recent call last):
 ValueError: Negative Kelvin Temperature
 
 
-Attribute Access
-----------------
-* Java way: Setter and Getter
-* Pythonic way: Properties, Reflection, Descriptors
-
-Accessing class fields using setter and getter:
-
->>> class Astronaut:
-...     def __init__(self, name=None):
-...         self._name = name
-...
-...     def set_name(self, name):
-...         self._name = name
-...
-...     def get_name(self):
-...         return self._name
->>>
->>>
->>> astro = Astronaut()
->>> astro.set_name('Mark Watney')
->>> print(astro.get_name())
-Mark Watney
-
-Accessing class fields. Either put ``name`` as an argument for ``__init__()`` or create dynamic field in runtime:
-
->>> class Astronaut:
-...     def __init__(self, name=None):
-...         self.name = name
->>>
->>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
-Mark Watney
-
-
-Property class
---------------
-* Property's arguments are method references ``get_name``, ``set_name``, ``del_name`` and a docstring
-* Not recommended
-
->>> class Astronaut:
-...     def __init__(self, name=None):
-...         self._name = name
-...
-...     def get_name(self):
-...         return self._name
-...
-...     def set_name(self, value):
-...         self._name = value
-...
-...     def del_name(self):
-...         del self._name
-...
-...     name = property(get_name, set_name, del_name, "I am the 'name' property.")
-
-
-Property Descriptor
--------------------
-* Prefer ``name = property()``
-
->>> class Astronaut:
-...     name = property()
-...
-...     def __init__(self, name=None):
-...         self._name = name
-...
-...     @name.getter
-...     def name(self):
-...         return self._name
-...
-...     @name.setter
-...     def name(self, value):
-...         self._name = value
-...
-...     @name.deleter
-...     def name(self):
-...         del self._name
-
-
-Property Decorator
-------------------
-* Typically used when, there is only getter and no setter and deleter methods
-
->>> class Astronaut:
-...     def __init__(self, name=None):
-...         self._name = name
-...
-...     @property
-...     def name(self):
-...         return self._name
-...
-...     @name.setter
-...     def name(self, value):
-...         self._name = value
-...
-...     @name.deleter
-...     def name(self):
-...         del self._name
-
-
-Use Case - 0x01
+Use Case - 0x05
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         self._name = None
 ...
@@ -451,17 +560,17 @@ Use Case - 0x01
 ...         self._name = None
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.set_name('MARK WaTNeY')
->>> print(astro.get_name())
+>>> mark.set_name('MARK WaTNeY')
+>>> print(mark.get_name())
 Mark W.
 >>>
->>> astro.del_name()
->>> print(astro.get_name())
+>>> mark.del_name()
+>>> print(mark.get_name())
 None
 
->>> class Astronaut:
+>>> class User:
 ...     name = property()
 ...
 ...     def __init__(self):
@@ -482,47 +591,18 @@ None
 ...         self._name = None
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.name = 'MARK WaTNeY'
->>> print(astro.name)
+>>> mark.name = 'MARK WaTNeY'
+>>> print(mark.name)
 Mark W.
 >>>
->>> del astro.name
->>> print(astro.name)
+>>> del mark.name
+>>> print(mark.name)
 None
 
 
-Use Case - 0x02
----------------
-* Calculate age
-
->>> from dataclasses import dataclass
->>> from datetime import date
->>>
->>> DAY = 1
->>> YEAR = 365.25 * DAY
->>> TODAY = date(2000, 1, 1)  # date.today()
->>>
->>>
->>> @dataclass
-... class Astronaut:
-...     firstname: str
-...     lastname: str
-...     birthday: date
-...
-...     @property
-...     def age(self):
-...         age = TODAY - self.birthday
-...         return round(age.days/YEAR, 1)
->>>
->>>
->>> astro = Astronaut('Mark', 'Watney', date(1969, 7, 21))
->>> print(astro.age)
-30.4
-
-
-Use Case - 0x03
+Use Case - 0x06
 ---------------
 * Cached Property
 
@@ -534,7 +614,7 @@ Use Case - 0x03
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     date_of_birth: date
@@ -548,12 +628,12 @@ Use Case - 0x03
 ...         return self.__cache['age']
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney', date(1969, 7, 21))
->>> print(astro.age)
+>>> mark = User('Mark', 'Watney', date(1969, 7, 21))
+>>> print(mark.age)
 30.4
 
 
-Use Case - 0x04
+Use Case - 0x07
 ---------------
 >>> class Temperature:
 ...     def __init__(self, initial_temperature):
@@ -615,9 +695,9 @@ Resetting temperature
 0.0
 
 
-Use Case - 0x04
+Use Case - 0x08
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     name = property()
 ...     _name: str
 ...
@@ -638,27 +718,24 @@ Use Case - 0x04
 ...     def name(self):
 ...         self._name = None
 
->>> astro = Astronaut('Mark Watney')
->>> astro.name = 'Melissa Lewis'
->>> astro.name = 'Rick Martinez 1'
+>>> mark = User('Mark Watney')
+>>> mark.name = 'Melissa Lewis'
+>>> mark.name = 'Rick Martinez 1'
 Traceback (most recent call last):
 ValueError: Name cannot have digits
 
->>> astro = Astronaut('Mark Watney')
->>> astro = Astronaut('Rick Martinez 1')
+>>> mark = User('Mark Watney')
+>>> mark = User('Rick Martinez 1')
 Traceback (most recent call last):
 ValueError: Name cannot have digits
 
->>> astro = Astronaut('Mark Watney')
->>> print(f'Name is: {astro.name}')
+>>> mark = User('Mark Watney')
+>>> print(f'Name is: {mark.name}')
 Name is: Mark Watney
 >>>
->>> del astro.name
->>> print(f'Name is: {astro.name}')
+>>> del mark.name
+>>> print(f'Name is: {mark.name}')
 Name is: None
-
-
-
 
 
 Assignments

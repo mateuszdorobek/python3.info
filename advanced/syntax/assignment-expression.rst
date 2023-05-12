@@ -414,25 +414,26 @@ StopIteration
 
 Use Case - 0x05
 ---------------
->>> DATA = [{'is_astronaut': True,  'name': 'Mark Watney'},
-...         {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...         {'is_astronaut': False, 'name': 'José Jiménez'},
-...         {'is_astronaut': True,  'name': 'Rick Martinez'},
-...         {'is_astronaut': False, 'name': 'Alex Vogel'}]
+>>> DATA = [{'is_admin': False, 'name': 'Mark Watney'},
+...         {'is_admin': True,  'name': 'Melissa Lewis'},
+...         {'is_admin': False, 'name': 'Rick Martinez'},
+...         {'is_admin': False, 'name': 'Alex Vogel'},
+...         {'is_admin': True,  'name': 'Beth Johanssen'},
+...         {'is_admin': False, 'name': 'Chris Beck'}]
 
 Comprehension:
 
 >>> result = [{'firstname': person['name'].title().split()[0],
 ...            'lastname': person['name'].title().split()[1]}
 ...           for person in DATA
-...           if person['is_astronaut']]
+...           if person['is_admin']]
 
 One assignment expression:
 
 >>> result = [{'firstname': name[0],
 ...            'lastname': name[1]}
 ...           for person in DATA
-...           if person['is_astronaut']
+...           if person['is_admin']
 ...           and (name := person['name'].title().split())]
 
 Many assignment expressions:
@@ -440,7 +441,7 @@ Many assignment expressions:
 >>> result = [{'firstname': firstname,
 ...            'lastname': lastname}
 ...           for person in DATA
-...           if person['is_astronaut']
+...           if person['is_admin']
 ...           and (name := person['name'].title().split())
 ...           and (firstname := name[0])
 ...           and (lastname := name[1])]
@@ -448,31 +449,8 @@ Many assignment expressions:
 In all cases result is the same:
 
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'firstname': 'Mark', 'lastname': 'Watney'},
- {'firstname': 'Melissa', 'lastname': 'Lewis'},
- {'firstname': 'Rick', 'lastname': 'Martinez'}]
-
-
-Use Case - 0x06
----------------
->>> DATA = [{'is_astronaut': True,  'name': 'Mark Watney'},
-...         {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...         {'is_astronaut': False, 'name': 'José Jiménez'},
-...         {'is_astronaut': True,  'name': 'Rick Martinez'},
-...         {'is_astronaut': False, 'name': 'Alex Vogel'}]
->>>
->>>
->>> astronauts = [{'firstname': firstname, 'lastname': lastname}
-...                for person in DATA
-...                if person['is_astronaut']
-...                and (name := person['name'].split())
-...                and (firstname := name[0].capitalize())
-...                and (lastname := f'{name[1][0]}.')]
->>>
->>> print(astronauts)  # doctest: +NORMALIZE_WHITESPACE
-[{'firstname': 'Mark', 'lastname': 'W.'},
- {'firstname': 'Melissa', 'lastname': 'L.'},
- {'firstname': 'Rick', 'lastname': 'M.'}]
+[{'firstname': 'Melissa', 'lastname': 'Lewis'},
+ {'firstname': 'Beth', 'lastname': 'Johanssen'}]
 
 
 Use Case - 0x07

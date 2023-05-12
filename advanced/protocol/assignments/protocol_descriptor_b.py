@@ -10,10 +10,10 @@ English:
         b. `min: float`
         c. `max: float`
         d. `value: float`
-    2. Define class `Astronaut` with attributes:
+    2. Define class `User` with attributes:
         a. `age = ValueRange('Age', min=28, max=42)`
         b. `height = ValueRange('Height', min=150, max=200)`
-    3. Setting `Astronaut` attribute should invoke boundary check of `ValueRange`
+    3. Setting `User` attribute should invoke boundary check of `ValueRange`
     4. Run doctests - all must succeed
 
 Polish:
@@ -22,22 +22,22 @@ Polish:
         b. `min: float`
         c. `max: float`
         d. `value: float`
-    2. Zdefiniuj klasę `Astronaut` z atrybutami:
+    2. Zdefiniuj klasę `User` z atrybutami:
         a. `age = ValueRange('Age', min=28, max=42)`
         b. `height = ValueRange('Height', min=150, max=200)`
-    3. Ustawianie atrybutu `Astronaut` powinno wywołać sprawdzanie zakresu z `ValueRange`
+    3. Ustawianie atrybutu `User` powinno wywołać sprawdzanie zakresu z `ValueRange`
     6. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> mark = Astronaut('Mark Watney', 36, 170)
+    >>> mark = User('Mark Watney', 36, 170)
 
-    >>> melissa = Astronaut('Melissa Lewis', 44, 170)
+    >>> melissa = User('Melissa Lewis', 44, 170)
     Traceback (most recent call last):
     ValueError: Age is not between 28 and 42
 
-    >>> alex = Astronaut('Alex Vogel', 40, 201)
+    >>> alex = User('Alex Vogel', 40, 201)
     Traceback (most recent call last):
     ValueError: Height is not between 150 and 200
 """
@@ -51,7 +51,7 @@ class ValueRange:
         pass
 
 
-class Astronaut:
+class User:
     age = ValueRange('Age', min=28, max=42)
     height = ValueRange('Height', min=150, max=200)
 
@@ -75,7 +75,7 @@ class ValueRange:
         self.value = value
 
 
-class Astronaut:
+class User:
     age = ValueRange('Age', min=28, max=42)
     height = ValueRange('Height', min=150, max=200)
 
@@ -88,4 +88,4 @@ class Astronaut:
         name = self.name
         age = self.age.value
         height = self.height.value
-        return f'Astronaut({name=}, {age=}, {height=})'
+        return f'User({name=}, {age=}, {height=})'

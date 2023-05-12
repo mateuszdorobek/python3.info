@@ -6,72 +6,72 @@
 
 English:
     1. Modify classes to implement iterator protocol
-    2. Iterator should return instances of `Mission`
+    2. Iterator should return instances of `Group`
     3. Run doctests - all must succeed
 
 Polish:
     1. Zmodyfikuj klasy aby zaimplementować protokół iterator
-    2. Iterator powinien zwracać instancje `Mission`
+    2. Iterator powinien zwracać instancje `Group`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass, ismethod
 
-    >>> assert isclass(Astronaut)
+    >>> assert isclass(User)
 
-    >>> astro = Astronaut('Mark', 'Watney')
-    >>> assert hasattr(astro, 'firstname')
-    >>> assert hasattr(astro, 'lastname')
-    >>> assert hasattr(astro, 'missions')
-    >>> assert hasattr(astro, '__iter__')
-    >>> assert hasattr(astro, '__next__')
-    >>> assert ismethod(astro.__iter__)
-    >>> assert ismethod(astro.__next__)
+    >>> mark = User('Mark', 'Watney')
+    >>> assert hasattr(mark, 'firstname')
+    >>> assert hasattr(mark, 'lastname')
+    >>> assert hasattr(mark, 'groups')
+    >>> assert hasattr(mark, '__iter__')
+    >>> assert hasattr(mark, '__next__')
+    >>> assert ismethod(mark.__iter__)
+    >>> assert ismethod(mark.__next__)
 
-    >>> astro = Astronaut('Pan', 'Twardowski', missions=(
-    ...     Mission(1969, 'Apollo 11'),
-    ...     Mission(2024, 'Artemis 3'),
-    ...     Mission(2035, 'Ares 3'),
+    >>> mark = User('Mark', 'Watney', groups=(
+    ...     Group(gid=1, name='admins'),
+    ...     Group(gid=2, name='staff'),
+    ...     Group(gid=3, name='managers'),
     ... ))
 
-    >>> for mission in astro:
+    >>> for mission in mark:
     ...     print(mission)
-    Mission(year=1969, name='Apollo 11')
-    Mission(year=2024, name='Artemis 3')
-    Mission(year=2035, name='Ares 3')
+    Group(gid=1, name='admins')
+    Group(gid=2, name='staff')
+    Group(gid=3, name='managers')
 """
 
 from dataclasses import dataclass
 
 
 @dataclass
-class Astronaut:
+class User:
     firstname: str
     lastname: str
-    missions: tuple = ()
+    groups: tuple = ()
 
 
 @dataclass
-class Mission:
-    year: int
+class Group:
+    gid: int
     name: str
 
 
 # Solution
 @dataclass
-class Astronaut:
+class User:
     firstname: str
     lastname: str
-    missions: tuple = ()
+    groups: list[Group] | None = None
 
     def __iter__(self):
         self._iter_index = 0
         return self
 
     def __next__(self):
-        if self._iter_index >= len(self.missions):
+        if self._iter_index >= len(self.groups):
             raise StopIteration
-        result = self.missions[self._iter_index]
+        result = self.groups[self._iter_index]
         self._iter_index += 1
         return result

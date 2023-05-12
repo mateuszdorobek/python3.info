@@ -14,92 +14,89 @@ Polish:
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * Define `Crew.__str__()`
-    * Define `Astronaut.__str__()` and `Astronaut.__repr__()`
-    * Define `Mission.__repr__()`
+    * Define `Accounts.__str__()`
+    * Define `User.__str__()` and `User.__repr__()`
+    * Define `Group.__repr__()`
+    * Printing list will call repr on all elements
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> melissa = Astronaut('Melissa Lewis')
-    >>> print(f'Commander: \\n{melissa}\\n')  # doctest: +NORMALIZE_WHITESPACE
-    Commander:
-    Melissa Lewis
+    >>> result = User('Mark', 'Watney')
+    >>> print(result)
+    Mark Watney
 
-    >>> mark = Astronaut('Mark Watney', missions=[
-    ...     Mission(2035, 'Ares 3')])
-    >>> print(f'Space Pirate: \\n{mark}\\n')  # doctest: +NORMALIZE_WHITESPACE
-    Space Pirate:
-    Mark Watney veteran of [
-          2035: Ares 3]
-
-    >>> crew = Crew([
-    ...     Astronaut('Pan Twardowski', missions=[
-    ...         Mission(1969, 'Apollo 11'),
-    ...         Mission(2024, 'Artemis 3'),
-    ...     ]),
-    ...     Astronaut('José Jiménez'),
-    ...     Astronaut('Mark Watney', missions=[
-    ...         Mission(2035, 'Ares 3'),
-    ...     ]),
+    >>> result = User('Mark', 'Watney', groups=[
+    ...     Group(gid=2, name='staff'),
     ... ])
+    >>> print(result)
+    Mark Watney member of [gid=2(staff)]
 
-    >>> print(f'Crew: \\n{crew}')  # doctest: +NORMALIZE_WHITESPACE
-    Crew:
-    Pan Twardowski veteran of [
-          1969: Apollo 11,
-          2024: Artemis 3]
-    José Jiménez
-    Mark Watney veteran of [
-          2035: Ares 3]
+    >>> result = Accounts([
+    ...     User('Mark', 'Watney', groups=[
+    ...         Group(gid=2, name='staff'),
+    ...     ]),
+    ...     User('Melissa', 'Lewis', groups=[
+    ...         Group(gid=1, name='admins'),
+    ...         Group(gid=2, name='staff'),
+    ...     ]),
+    ...     User('Rick', 'Martinez'),
+    ... ])
+    >>>
+    >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
+    Mark Watney member of [gid=2(staff)]
+    Melissa Lewis member of [gid=1(admins), gid=2(staff)]
+    Rick Martinez
 """
 
 
-class Crew:
-    def __init__(self, members):
-        self.members = members
+class Accounts:
+    def __init__(self, users):
+        self.users = users
 
 
-class Astronaut:
-    def __init__(self, name, missions=None):
-        self.name = name
-        self.missions = missions if missions else []
+class User:
+    def __init__(self, firstname, lastname, groups=None):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.groups = groups if groups else []
 
 
-class Mission:
-    def __init__(self, year, name):
-        self.year = year
+class Group:
+    def __init__(self, gid, name):
+        self.gid = gid
         self.name = name
 
 
 # Solution
-class Crew:
-    def __init__(self, members):
-        self.members = members
+class Accounts:
+    def __init__(self, users):
+        self.users = users
 
     def __str__(self):
-        return '\n'.join(map(str, self.members))
+        return '\n'.join(map(str, self.users))
 
 
-class Astronaut:
-    def __init__(self, name, missions=()):
-        self.name = name
-        self.missions = missions if missions else []
+class User:
+    def __init__(self, firstname, lastname, groups=None):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.groups = groups if groups else []
 
     def __str__(self):
-        if self.missions:
-            return f'{self.name} veteran of {self.missions}'
+        if self.groups:
+            return f'{self.firstname} {self.lastname} member of {self.groups}'
         else:
-            return f'{self.name}'
+            return f'{self.firstname} {self.lastname}'
 
     def __repr__(self):
         return self.__str__()
 
 
-class Mission:
-    def __init__(self, year, name):
-        self.year = year
+class Group:
+    def __init__(self, gid, name):
+        self.gid = gid
         self.name = name
 
     def __repr__(self):
-        return f'\n\t{self.year}: {self.name}'
+        return f'gid={self.gid}({self.name})'

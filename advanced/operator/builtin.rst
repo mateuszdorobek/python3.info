@@ -61,22 +61,22 @@ Length
 
 This is because ``len(data)`` calls ``data.__len__()``.
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 ...
 >>>
->>> a = Astronaut()
+>>> a = User()
 >>>
 >>> len(a)
 Traceback (most recent call last):
-TypeError: object of type 'Astronaut' has no len()
+TypeError: object of type 'User' has no len()
 
->>> class Astronaut:
+>>> class User:
 ...     def __len__(self):
 ...         return 69
 >>>
 >>>
->>> a = Astronaut()
+>>> a = User()
 >>>
 >>> len(a)
 69
@@ -84,22 +84,22 @@ TypeError: object of type 'Astronaut' has no len()
 
 Float
 -----
->>> class Astronaut:
+>>> class User:
 ...     pass
 ...
 >>>
->>> a = Astronaut()
+>>> a = User()
 >>>
 >>> float(a)
 Traceback (most recent call last):
-TypeError: float() argument must be a string or a real number, not 'Astronaut'
+TypeError: float() argument must be a string or a real number, not 'User'
 
->>> class Astronaut:
+>>> class User:
 ...     def __float__(self):
 ...         return 13.37
 ...
 >>>
->>> a = Astronaut()
+>>> a = User()
 >>>
 >>> float(a)
 13.37
@@ -140,7 +140,7 @@ Round
 
 Use Case - 0x01
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     def __float__(self) -> float:
 ...         return 1961.0
 ...
@@ -154,25 +154,25 @@ Use Case - 0x01
 ...         return 'My name... José Jiménez'
 ...
 ...     def __repr__(self) -> str:
-...         return f'Astronaut()'
+...         return f'User()'
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> float(astro)
+>>> float(mark)
 1961.0
 >>>
->>> int(astro)
+>>> int(mark)
 1969
 >>>
->>> len(astro)
+>>> len(mark)
 170
 >>>
->>> repr(astro)
-'Astronaut()'
+>>> repr(mark)
+'User()'
 >>>
->>> str(astro)
+>>> str(mark)
 'My name... José Jiménez'
 >>>
->>> print(astro)
+>>> print(mark)
 My name... José Jiménez

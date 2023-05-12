@@ -21,71 +21,73 @@ Hints:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> astro = Astronaut(firstname='Mark', lastname='Watney', missions=[
-    ...     Mission(1969, 'Apollo 11'),
-    ...     Mission(2024, 'Artemis 3'),
-    ...     Mission(2035, 'Ares 3'),
+    >>> mark = User(firstname='Mark', lastname='Watney', groups=[
+    ...     Group(gid=1, name='admins'),
+    ...     Group(gid=2, name='staff'),
+    ...     Group(gid=3, name='managers'),
     ... ])
 
-    >>> Mission(2035, 'Ares 3') == Mission(2035, 'Ares 3')
+    >>> Group(gid=1, name='admins') == Group(gid=1, name='admins')
     True
-    >>> Mission(2035, 'Ares 3') == Mission(1973, 'Apollo 18')
+    >>> Group(gid=1, name='admins') == Group(gid=2, name='staff')
     False
-    >>> Mission(2035, 'Ares 3') == Mission(2035, 'Apollo 18')
+    >>> Group(gid=1, name='admins') == Group(gid=3, name='managers')
     False
-    >>> Mission(2035, 'Ares 3') == Mission(1973, 'Ares 3')
+    >>> Group(gid=1, name='admins') == Group(gid=0, name='root')
     False
 
-    >>> Mission(2024, 'Artemis 3') in astro
+    >>> Group(gid=1, name='admins') in mark
     True
-    >>> Mission(1973, 'Apollo 18') in astro
+    >>> Group(gid=2, name='staff') in mark
+    True
+    >>> Group(gid=0, name='root') in mark
     False
 """
 
 
-class Mission:
-    year: int
+class Group:
+    gid: int
     name: str
 
-    def __init__(self, year: int, name: str) -> None:
-        self.year = year
+    def __init__(self, gid: int, name: str) -> None:
+        self.gid = gid
         self.name = name
 
 
-class Astronaut:
+class User:
     firstname: str
     lastname: str
-    missions: list
+    groups: list[Group]
 
-    def __init__(self, firstname: str, lastname: str, missions: list) -> None:
+    def __init__(self, firstname: str, lastname: str, groups: list) -> None:
         self.firstname = firstname
         self.lastname = lastname
-        self.missions = missions
+        self.groups = groups
 
 
 # Solution
-class Mission:
-    year: int
+class Group:
+    gid: int
     name: str
 
-    def __init__(self, year: int, name: str) -> None:
-        self.year = year
+    def __init__(self, gid: int, name: str) -> None:
+        self.gid = gid
         self.name = name
 
     def __eq__(self, other):
-        return (self.year == other.year) \
+        return (self.gid == other.gid) \
            and (self.name == other.name)
 
 
-class Astronaut:
+class User:
     firstname: str
     lastname: str
-    missions: list
+    groups: list[Group]
 
-    def __init__(self, firstname: str, lastname: str, missions: list) -> None:
+    def __init__(self, firstname: str, lastname: str, groups: list) -> None:
         self.firstname = firstname
         self.lastname = lastname
-        self.missions = missions
+        self.groups = groups
 
     def __contains__(self, flight):
-        return flight in self.missions
+        return flight in self.groups

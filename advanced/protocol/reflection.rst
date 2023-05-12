@@ -1,35 +1,300 @@
 Protocol Reflection
 ===================
 * When accessing an attribute
-* ``setattr(obj, 'attrname', 'new_value') -> None``
-* ``delattr(obj, 'attrname') -> None``
-* ``getattr(obj, 'attrname', 'default_value') -> Any``
-* ``hasattr(obj, 'attrname') -> bool``
+* ``setattr(obj, attrname, value) -> None``
+* ``delattr(obj, attrname) -> None``
+* ``getattr(obj, attrname, default) -> Any``
+* ``hasattr(obj, attrname) -> bool``
+* ``__setattr__(self, attrname, value) -> None``
+* ``__delattr__(self, attrname) -> None``
+* ``__getattribute__(self, attrname) -> Any``
+* ``__getattr__(self, attrname) -> Any``
 
+Protocol:
 
-
->>> class Point:
-...     def __init__(self, x, y, z):
-...         self.x = x
-...         self.y = y
-...         self.z = z
+>>> class Reflection:
 ...
-...     def __setattr__(self, attrname, attrvalue):
-...         if attrname not in {'x', 'y', 'z'}:
-...             raise NameError('You can set only x, y, z attributes')
-...         if type(attrvalue) not in (int,float):
-...             raise TypeError('Attribute value must be int or float')
-...         if attrvalue < 0:
-...             raise ValueError('Attribute cannot be less than 0')
-...         return super().__setattr__(attrname, attrvalue)
+...     def __setattr__(self, attrname, value):
+...         ...
+...
+...     def __delattr__(self, attrname):
+...         ...
+...
+...     def __getattribute__(self, attrname):
+...         ...
+...
+...     def __getattr__(self, attrname):
+...         ...
 
->>> pt = Point(1,2,3)
->>>
+
+Problem
+-------
+>>> class Point:
+...     x = property()
+...     y = property()
+...     z = property()
+...
+...     @x.setter
+...     def x(self, value):
+...         if value < 0:
+...             raise ValueError('Coordinate cannot be negative')
+...         self._x = value
+...
+...     @x.getter
+...     def x(self):
+...         return self._x
+...
+...     @y.setter
+...     def y(self, value):
+...         if value < 0:
+...             raise ValueError('Coordinate cannot be negative')
+...         self._y = value
+...
+...     @y.getter
+...     def y(self):
+...         return self._y
+...
+...     @z.setter
+...     def z(self, value):
+...         if value < 0:
+...             raise ValueError('Coordinate cannot be negative')
+...         self._z = value
+...
+...     @z.getter
+...     def z(self):
+...         return self._z
+
+>>> pt = Point()
 >>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
 >>>
 >>> pt.x = -1
 Traceback (most recent call last):
-ValueError: Attribute cannot be less than 0
+ValueError: Coordinate cannot be negative
+>>>
+>>> pt.y = -2
+Traceback (most recent call last):
+ValueError: Coordinate cannot be negative
+>>>
+>>> pt.z = -3
+Traceback (most recent call last):
+ValueError: Coordinate cannot be negative
+
+
+Set Attribute
+-------------
+* Called when trying to set attribute to a value
+* Typing ``obj.attrname = value``
+* Will call ``setattr(obj, attrname, value)``
+* Which triggers ``obj.__setattr__(attrname, value)``
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __setattr__(self, attrname, value):
+...         if value < 0:
+...             raise ValueError('Coordinate cannot be negative')
+...         super().__setattr__(attrname, value)
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+
+>>> pt.x = -1
+Traceback (most recent call last):
+ValueError: Coordinate cannot be negative
+>>>
+>>> pt.y = -2
+Traceback (most recent call last):
+ValueError: Coordinate cannot be negative
+>>>
+>>> pt.z = -3
+Traceback (most recent call last):
+ValueError: Coordinate cannot be negative
+
+This is because, when you do: ``pt.x = 1`` Python will call
+``setattr(pt, 'x', 1)`` for you, which triggers ``pt.__setattr__('x', 1)``.
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.x
+1
+
+>>> pt = Point()
+>>> setattr(pt, 'x', 1)
+>>> pt.x
+1
+
+>>> pt = Point()
+>>> pt.__setattr__('x', 1)
+>>> pt.x
+1
+
+
+Delete Attribute
+----------------
+* Called when trying to delete attribute
+* Typing ``del obj.attrname``
+* Will call ``delattr(obj, attrname)``
+* Which triggers ``mark.__delattr__(name)``
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __delattr__(self, attrname):
+...         self.__setattr__(attrname, 0)
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+
+>>> del pt.x, pt.y, pt.z
+>>> pt.x, pt.y, pt.z
+(0, 0, 0)
+
+>>> del pt.x
+>>> pt.x
+0
+
+>>> delattr(pt, 'x')
+>>> pt.x
+0
+
+>>> pt.__delattr__('x')
+>>> pt.x
+0
+
+
+Get Attribute If Exists
+-----------------------
+* Called for every time, when you want to access any attribute
+* Before even checking if this attribute exists
+* If attribute is not found, then raises ``AttributeError`` and calls ``__getattr__()``
+* Typing ``obj.attrname``
+* Will call ``getattr(obj, attrname)``
+* Which triggers ``obj.__getattribute__(attrname)``
+* If ok: then return value
+* If error: then call ``obj.__getattr__(attrname)``
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __getattribute__(self, attrname):
+...         if attrname == 'y':
+...             raise PermissionError(f'Attribute {attrname} access is forbidden')
+...         return super().__getattribute__(attrname)
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+
+>>> pt.x
+1
+
+>>> pt.y
+Traceback (most recent call last):
+PermissionError: Attribute y access is forbidden
+
+
+Get Attribute If Missing
+------------------------
+* Called whenever you request an attribute that hasn't already been defined
+* It will not execute, when attribute already exist
+* Implementing a fallback for missing attributes
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __getattr__(self, attrname):
+...         print(f'Attribute {attrname} does not exist')
+...         super().__setattr__(attrname, 0)
+...         print(f'Attribute {attrname} initialized with value 0')
+
+>>> pt = Point()
+
+>>> vars(pt)
+{}
+
+>>> pt.x
+Attribute x does not exist
+Attribute x initialized with value 0
+>>>
+>>> pt.x
+0
+
+>>> vars(pt)
+{'x': 0}
+
+
+Has Attribute
+-------------
+* Check if object has attribute
+* There is no ``__hasattr__()`` method
+* Calling ``hasattr(obj, attrname)``
+* Will call ``__getattribute__()`` and checks if raises ``AttributeError``
+* If no exception, then return ``True``
+* If exception, then call ``__getattr__()`` and check
+* If ``__getattr__()`` succeeds then return ``True``
+* If ``__getattr__()`` fail then return ``False``
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+
+>>> hasattr(pt, 'x')
+True
+>>>
+>>> hasattr(pt, 'y')
+True
+>>>
+>>> hasattr(pt, 'z')
+False
+>>>
+>>> hasattr(pt, 'other')
+False
+
+
+Use Case - 0x01
+---------------
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __setattr__(self, attrname, value):
+...         if attrname not in ('x', 'y', 'z'):
+...             raise NameError('You can set only x, y, z attributes')
+...         if type(value) not in (int,float):
+...             raise TypeError('Attribute value must be int or float')
+...         if value < 0:
+...             raise ValueError('Attribute value cannot be negative')
+...         return super().__setattr__(attrname, value)
+
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+>>>
+>>> pt.x = -1
+Traceback (most recent call last):
+ValueError: Attribute value cannot be negative
 >>>
 >>> pt.x = 'one'
 Traceback (most recent call last):
@@ -40,90 +305,54 @@ Traceback (most recent call last):
 NameError: You can set only x, y, z attributes
 
 
->>> class Astronaut:
-...     def __init__(self, name):
-...         self.name = name
+Use Case - 0x02
+---------------
+* Get Attribute Both
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def __getattribute__(self, attrname):
+...         if attrname == 'y':
+...             raise PermissionError('Attribute y access is forbidden')
+...         return super().__getattribute__(attrname)
+...
+...     def __getattr__(self, attrname):
+...         print(f'Attribute {attrname} does not exist')
+...         super().__setattr__(attrname, 0)
+...         print(f'Attribute {attrname} initialized with value 0')
+
+>>> pt = Point()
 >>>
+>>> pt.x = 1
+>>> pt.y = 2
 >>>
->>> astro = Astronaut('Mark Watney')
->>>
->>> if astro._salary is None:
-...     astro._salary = 100
+>>> vars(pt)
+{'x': 1, 'y': 2}
+
+>>> pt.x
+1
+
+>>> pt.y
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute '_salary'
+PermissionError: Attribute y access is forbidden
+
+>>> pt.z
+Attribute z does not exist
+Attribute z initialized with value 0
 >>>
->>>
->>> if not hasattr(astro, '_salary'):
-...     astro._salary = 100
->>>
->>> print(astro._salary)
-100
+>>> pt.z
+0
 
->>> def input(prompt):
-...     return '_salary'
->>>
->>>
->>> attrname = input('Type attribute name: ')   # _salary
->>> value = getattr(astro, attrname, 'no such attribute')
->>> print(value)  # doctest: +SKIP
-100
-
->>> def input(prompt):
-...     return 'notexisting'
->>>
->>>
->>> attrname = input('Type attribute name: ')  # notexisting
->>> value = getattr(astro, attrname, 'no such attribute')
->>> print(value)
-no such attribute
+>>> vars(pt)
+{'x': 1, 'y': 2, 'z': 0}
 
 
-Protocol
---------
-* ``__setattr__(self, attrname, value) -> None``
-* ``__delattr__(self, attrname) -> None``
-* ``__getattribute__(self, attrname, default) -> Any``
-* ``__getattr__(self, attrname, default) -> Any``
-
->>> class Reflection:
-...
-...     def __setattr__(self, attrname, value):
-...         ...
-...
-...     def __delattr__(self, attrname):
-...         ...
-...
-...     def __getattribute__(self, attrname, default):
-...         ...
-...
-...     def __getattr__(self, attrname, default):
-...         ...
-
-
-Example
--------
->>> class Immutable:
-...     def __setattr__(self, attrname, value):
-...         raise PermissionError('Immutable')
-
->>> class Protected:
-...     def __setattr__(self, attrname, value):
-...         if attrname.startswith('_'):
-...             raise PermissionError('Field is protected')
-...         else:
-...             return super().__setattr__(attrname, value)
-
-
-Set Attribute
--------------
-* Called when trying to set attribute to a value
-* Call Stack:
-
-    * ``astro.name = 'Mark Watney'``
-    * => ``setattr(astro, 'name', 'Mark Watney')``
-    * => ``astro.__setattr__('name', 'Mark Watney')``
-
->>> class Astronaut:
+Use Case - 0x03
+---------------
+>>> class User:
 ...     def __setattr__(self, attrname, value):
 ...         if attrname.startswith('_'):
 ...             raise PermissionError('Field is protected')
@@ -131,27 +360,19 @@ Set Attribute
 ...             return super().__setattr__(attrname, value)
 >>>
 >>>
->>> astro = Astronaut()
->>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark = User()
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> astro._salary = 100
+>>> mark._salary = 1000
 Traceback (most recent call last):
 PermissionError: Field is protected
 
 
-Delete Attribute
-----------------
-* Called when trying to delete attribute
-* Call stack:
-
-    * ``del astro.name``
-    * => ``delattr(astro, 'name')``
-    * => ``astro.__delattr__(name)``
-
->>> class Astronaut:
+Use Case - 0x04
+---------------
+>>> class User:
 ...     def __delattr__(self, attrname):
 ...         if attrname.startswith('_'):
 ...             raise PermissionError('Field is protected')
@@ -159,31 +380,19 @@ Delete Attribute
 ...             return super().__delattr__(attrname)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
+>>> mark.name = 'Mark Watney'
+>>> mark._salary = 1000
 >>>
->>> astro.name = 'Mark Watney'
->>> astro._salary = 100
->>>
->>> del astro.name
->>> del astro._salary
+>>> del mark.name
+>>> del mark._salary
 Traceback (most recent call last):
 PermissionError: Field is protected
 
 
-Get Attribute
--------------
-* Called for every time, when you want to access any attribute
-* Before even checking if this attribute exists
-* If attribute is not found, then raises ``AttributeError`` and calls ``__getattr__()``
-* Call stack:
-
-    * ``astro.name``
-    * => ``getattr(astro, 'name')``
-    * => ``astro.__getattribute__('name')``
-    * if ``astro.__getattribute__('name')`` raises ``AttributeError``
-    * => ``astro.__getattr__('name')``
-
->>> class Astronaut:
+Use Case - 0x05
+---------------
+>>> class User:
 ...     def __getattribute__(self, attrname):
 ...         if attrname.startswith('_'):
 ...             raise PermissionError('Field is protected')
@@ -191,26 +400,40 @@ Get Attribute
 ...             return super().__getattribute__(attrname)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Traceback (most recent call last):
 PermissionError: Field is protected
 
 
-Get Attribute if Missing
-------------------------
-* Called whenever you request an attribute that hasn't already been defined
-* It will not execute, when attribute already exist
-* Implementing a fallback for missing attributes
+Use Case - 0x06
+---------------
+>>> class User:
+...     def __init__(self, name):
+...         self.name = name
+>>>
+>>>
+>>> mark = User('Mark Watney')
+>>>
+>>> hasattr(mark, 'name')
+True
+>>>
+>>> hasattr(mark, 'mission')
+False
+>>>
+>>> mark.mission = 'Ares3'
+>>> hasattr(mark, 'mission')
+True
 
-Example ``__getattr__()``:
 
->>> class Astronaut:
+Use Case - 0x07
+---------------
+>>> class User:
 ...     def __init__(self):
 ...         self.name = None
 ...
@@ -218,16 +441,16 @@ Example ``__getattr__()``:
 ...         return 'Sorry, field does not exist'
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
+>>> mark = User()
+>>> mark.name = 'Mark Watney'
 >>>
->>> print(astro.name)
+>>> print(mark.name)
 Mark Watney
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Sorry, field does not exist
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         self.name = None
 ...
@@ -244,51 +467,27 @@ Sorry, field does not exist
 >>>
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.name = 'Mark Watney'
+>>> mark = User()
+>>> mark.name = 'Mark Watney'
 >>>
->>> astro.name  # doctest: +NORMALIZE_WHITESPACE
+>>> mark.name  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Result was: "Mark Watney"
 'Mark Watney'
 >>>
->>> astro._salary  # doctest: +NORMALIZE_WHITESPACE
+>>> mark._salary  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Not found. Getattr called...
 Creating attribute _salary with `None` value
 >>>
->>> astro._salary  # doctest: +NORMALIZE_WHITESPACE
+>>> mark._salary  # doctest: +NORMALIZE_WHITESPACE
 Getattribute called...
 Result was: "None"
 
 
-Has Attribute
--------------
-* Check if object has attribute
-* There is no ``__hasattr__()`` method
-* Calls ``__getattribute__()`` and checks if raises ``AttributeError``
-
->>> class Astronaut:
-...     def __init__(self, name):
-...         self.name = name
->>>
->>>
->>> astro = Astronaut('Mark Watney')
->>>
->>> hasattr(astro, 'name')
-True
->>>
->>> hasattr(astro, 'mission')
-False
->>>
->>> astro.mission = 'Ares3'
->>> hasattr(astro, 'mission')
-True
-
-
-Use Case - 0x01
+Use Case - 0x08
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     def __getattribute__(self, attrname):
 ...         if attrname.startswith('_'):
 ...             raise PermissionError('Field is protected')
@@ -302,22 +501,308 @@ Use Case - 0x01
 ...             return super().__setattr__(attrname, value)
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.name = 'Mark Watney'
->>> print(astro.name)
+>>> mark.name = 'Mark Watney'
+>>> print(mark.name)
 Mark Watney
 >>>
->>> astro._salary = 100
+>>> mark._salary = 1000
 Traceback (most recent call last):
 PermissionError: Field is protected
 >>>
->>> print(astro._salary)
+>>> print(mark._salary)
 Traceback (most recent call last):
 PermissionError: Field is protected
 
 
-Use Case - 0x02
+Use Case - 0x09
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+>>>
+>>>
+>>> mark = User('Mark', 'Watney')
+>>>
+>>> if mark._salary is None:
+...     mark._salary = 1000
+Traceback (most recent call last):
+AttributeError: 'User' object has no attribute '_salary'
+>>>
+>>>
+>>> if not hasattr(mark, '_salary'):
+...     mark._salary = 1000
+>>>
+>>> print(mark._salary)
+1000
+
+>>> def input(prompt):
+...     return '_salary'
+>>>
+>>>
+>>> attrname = input('Type attribute name: ')   # _salary
+>>> value = getattr(mark, attrname, 'no such attribute')
+>>> print(value)  # doctest: +SKIP
+1000
+
+>>> def input(prompt):
+...     return 'notexisting'
+>>>
+>>>
+>>> attrname = input('Type attribute name: ')  # notexisting
+>>> value = getattr(mark, attrname, 'no such attribute')
+>>> print(value)
+no such attribute
+
+
+Use Case - 0x0A
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._username = username
+...         self._password = password
+...
+...     def __getattribute__(self, attrname):
+...         if attrname in ('_username', '_password'):
+...             raise PermissionError('Access to this field is forbidden')
+...         return super().__getattribute__(attrname)
+
+>>> mark = User('Mark', 'Watney', username='mwatney', password='Ares3')
+
+>>> mark.firstname
+'Mark'
+>>> mark.lastname
+'Watney'
+
+>>> mark._username
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+>>>
+>>> mark._password
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_username': 'mwatney',
+ '_password': 'Ares3'}
+
+
+Use Case - 0x0B
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._username = username
+...         self._password = password
+...
+...     def __getattribute__(self, attrname):
+...         return super().__getattribute__(attrname)
+...
+...     def __setattr__(self, attrname, value):
+...         if not hasattr(self, attrname) and attrname in ('_username', '_password'):
+...             return super().__setattr__(attrname, value)
+...         if attrname.startswith('_'):
+...             raise PermissionError('Access to this field is forbidden')
+...         return super().__setattr__(attrname, value)
+
+>>> mark = User('Mark', 'Watney', username='mwatney', password='Ares3')
+
+>>> mark._salary = 1000
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_username': 'mwatney',
+ '_password': 'Ares3'}
+
+>>> mark._username = 'mlewis'
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+
+Use Case - 0x0C
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._username = username
+...         self._password = password
+...
+...     def __delattr__(self, attrname):
+...         self.__setattr__(attrname, None)
+
+>>> mark = User('Mark', 'Watney', username='mwatney', password='Ares3')
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_username': 'mwatney',
+ '_password': 'Ares3'}
+
+>>> del mark._username
+>>> del mark._password
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_username': None,
+ '_password': None}
+
+
+Use Case - 0x0D
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._username = username
+...         self._password = password
+...
+...     def __getattribute__(self, attrname):
+...         if attrname.startswith('_'):
+...             raise PermissionError('Access to this field is forbidden')
+...         return super().__getattribute__(attrname)
+
+>>> mark = User('Mark', 'Watney', username='mwatney', password='Ares3')
+
+>>> vars(mark)
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+>>>
+>>> mark.__dict__
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> dir(mark)
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+>>>
+>>> mark.__dir__()
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> help(mark)
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+>>>
+>>> mark.__doc__
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> type(mark)
+<class '__main__.User'>
+>>>
+>>> mark.__class__
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+
+Use Case - 0x0E
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._username = username
+...         self._password = password
+...
+...     def __getattribute__(self, attrname):
+...         if attrname.startswith('_') and not attrname.startswith('__'):
+...             raise PermissionError('Access to this field is forbidden')
+...         return super().__getattribute__(attrname)
+
+>>> mark = User('Mark', 'Watney', username='mwatney', password='Ares3')
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_username': 'mwatney',
+ '_password': 'Ares3'}
+
+>>> mark._username
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> mark._password
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+
+Use Case - 0x0F
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, phone, email, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._phone = phone
+...         self._email = email
+...         self.__username = username
+...         self.__password = password
+...
+...     def __getattribute__(self, attrname):
+...         if attrname.startswith('_') and not attrname.startswith('__'):
+...             raise PermissionError('Access to this field is forbidden')
+...         return super().__getattribute__(attrname)
+
+>>> mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     phone='+1 (234) 555 1337',
+...     email='mwatney@nasa.gov',
+...     username='mwatney',
+...     password='Ares3',
+... )
+
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_phone': '+1 (234) 555 1337',
+ '_email': 'mwatney@nasa.gov',
+ '_User__username': 'mwatney',
+ '_User__password': 'Ares3'}
+
+>>> mark._email
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> mark._phone
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> mark._User__username
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+>>> mark._User__password
+Traceback (most recent call last):
+PermissionError: Access to this field is forbidden
+
+
+Use Case - 0x10
+---------------
+>>> class Immutable:
+...     def __setattr__(self, attrname, value):
+...         raise PermissionError('Immutable')
+
+>>> class Protected:
+...     def __setattr__(self, attrname, value):
+...         if attrname.startswith('_'):
+...             raise PermissionError('Field is protected')
+...         else:
+...             return super().__setattr__(attrname, value)
+
+
+Use Case - 0x11
 ---------------
 >>> class Temperature:
 ...     kelvin: float
@@ -343,7 +828,7 @@ Traceback (most recent call last):
 ValueError: Kelvin temperature cannot be negative
 
 
-Use Case - 0x03
+Use Case - 0x12
 ---------------
 >>> class Temperature:
 ...     kelvin: float
@@ -370,7 +855,7 @@ Use Case - 0x03
 212.0
 
 
-Use Case - 0x04
+Use Case - 0x13
 ---------------
 >>> class Container:
 ...     def __init__(self, **kwargs: dict) -> None:
