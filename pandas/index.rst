@@ -8,23 +8,23 @@ About
     about/types.rst
 
 
-Import & Export
-***************
+Migrations
+**********
 .. toctree::
     :maxdepth: 1
-    :caption: Import & Export
+    :caption: Migrations
 
-    import-export/read.rst
-    import-export/read-csv.rst
-    import-export/read-excel.rst
-    import-export/read-json.rst
-    import-export/read-clipboard.rst
-    import-export/read-str.rst
-    import-export/read-html.rst
-    import-export/read-python.rst
-    import-export/read-sql.rst
-    import-export/read-xml.rst
-    import-export/to.rst
+    migrations/read.rst
+    migrations/read-csv.rst
+    migrations/read-excel.rst
+    migrations/read-json.rst
+    migrations/read-clipboard.rst
+    migrations/read-str.rst
+    migrations/read-html.rst
+    migrations/read-python.rst
+    migrations/read-sql.rst
+    migrations/read-xml.rst
+    migrations/to.rst
 
 
 Series
@@ -101,23 +101,23 @@ Recap
     about/workflow.rst
 
 
-Case Studies
-************
+Case Study
+**********
 .. toctree::
     :maxdepth: 1
-    :caption: Case Studies
+    :caption: Case Study
 
-    case-studies/api-gmail-stats.rst
-    case-studies/csv-covid19.rst
-    case-studies/csv-phones.rst
-    case-studies/excel-sensors.rst
-    case-studies/html-apollo11.rst
-    case-studies/html-esa-astronauts.rst
-    case-studies/html-espn.rst
-    case-studies/html-livescores.rst
-    case-studies/html-nba.rst
-    case-studies/html-percapita.rst
-    case-studies/html-planzajec.rst
-    case-studies/html-talary.rst
-    case-studies/json-coinbase.rst
-    case-studies/pdf-etoll.rst
+    casestudy/api-gmail-stats.rst
+    casestudy/csv-covid19.rst
+    casestudy/csv-phones.rst
+    casestudy/excel-sensors.rst
+    casestudy/html-apollo11.rst
+    casestudy/html-esa-astronauts.rst
+    casestudy/html-espn.rst
+    casestudy/html-livescores.rst
+    casestudy/html-nba.rst
+    casestudy/html-percapita.rst
+    casestudy/html-planzajec.rst
+    casestudy/html-talary.rst
+    casestudy/json-coinbase.rst
+    casestudy/pdf-etoll.rst
