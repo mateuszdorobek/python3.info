@@ -11,67 +11,43 @@ SetUp:
 >>> from dataclasses import dataclass
 >>> from datetime import date
 
-Definition:
 
->>> @dataclass
-... class User:
-...     firstname: str
-...     lastname: str
-...     birthday: date
+Getter Only
+-----------
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
+...
+...     def get_position(self):
+...         return self.x, self.y, self.z
+>>>
+>>>
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
+>>>
+>>> print(pt.get_position())
+(1, 2, 3)
+
+>>> class Point:
+...     x: int
+...     y: int
+...     z: int
 ...
 ...     @property
-...     def age(self):
-...         diff = date.today() - self.birthday
-...         years = diff.days / 365.25
-...         return int(years)
-
-Usage:
-
->>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
->>> mark.age  # doctest: +SKIP
-53
-
->>> mark.age = 40
-Traceback (most recent call last):
-AttributeError: property 'age' of 'User' object has no setter
-
-
-Getter
-------
->>> YEAR = 365.25
-
->>> class User:
-...     def __init__(self, firstname, lastname, birthday):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...         self.birthday = birthday
-...
-...     def get_age(self):
-...         today = date.today()
-...         days = (today - self.birthday).days
-...         return int(days/YEAR)
+...     def position(self):
+...         return self.x, self.y, self.z
 >>>
 >>>
->>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
->>> mark.get_age()  # doctest: +SKIP
-53
-
->>> class User:
-...     def __init__(self, firstname, lastname, birthday):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...         self.birthday = birthday
-...
-...     @property
-...     def age(self):
-...         today = date.today()
-...         days = (today - self.birthday).days
-...         return int(days/YEAR)
+>>> pt = Point()
+>>> pt.x = 1
+>>> pt.y = 2
+>>> pt.z = 3
 >>>
->>>
->>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
->>> mark.age  # doctest: +SKIP
-53
+>>> print(pt.position)
+(1, 2, 3)
 
 
 Setter and Getter Methods
@@ -425,61 +401,42 @@ Property Decorator
 ...         del self._name
 
 
-
 Use Case - 0x01
 ---------------
-* Kelvin is an absolute scale (no values below zero)
+>>> YEAR = 365.25
 
->>> class KelvinTemperature:
-...     value: float
->>>
->>> t = KelvinTemperature()
->>> t.value = -2               # Should raise ValueError('Kelvin cannot be negative')
-
->>> class KelvinTemperature:
-...     value: float
+>>> class User:
+...     def __init__(self, firstname, lastname, birthday):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.birthday = birthday
 ...
-...     def __init__(self, initialvalue):
-...         self.value = initialvalue
->>>
->>> t = KelvinTemperature(-1)   # Should raise ValueError('Kelvin cannot be negative')
->>> t.value = -2                # Should raise ValueError('Kelvin cannot be negative')
-
->>> class KelvinTemperature:
-...     value: float
-...
-...     def __init__(self, initialvalue):
-...         if initialvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         self.value = initialvalue
+...     def get_age(self):
+...         today = date.today()
+...         days = (today - self.birthday).days
+...         return int(days/YEAR)
 >>>
 >>>
->>> t = KelvinTemperature(1)
->>> t.value = -1  # Should raise ValueError('Kelvin cannot be negative')
+>>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark.get_age()  # doctest: +SKIP
+53
 
->>> class KelvinTemperature:
-...     _value: float
+>>> class User:
+...     def __init__(self, firstname, lastname, birthday):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.birthday = birthday
 ...
-...     def __init__(self, initialvalue):
-...         self.set_value(initialvalue)
-...
-...     def set_value(self, newvalue):
-...         if newvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         self._value = newvalue
-
->>> class KelvinTemperature:
-...     _value: float
-...     value = property()
-...
-...     def __init__(self, initialvalue):
-...         self.value = initialvalue
-...
-...     @value.setter
-...     def value(self, newvalue):
-...         if newvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         self._value = newvalue
+...     @property
+...     def age(self):
+...         today = date.today()
+...         days = (today - self.birthday).days
+...         return int(days/YEAR)
+>>>
+>>>
+>>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
+>>> mark.age  # doctest: +SKIP
+53
 
 
 Use Case - 0x02
@@ -498,9 +455,6 @@ Use Case - 0x02
 >>> print(mark.name)
 Mark W.
 
-
-Use Case - 0x03
----------------
 >>> class User:
 ...     name = property()
 ...
@@ -518,31 +472,7 @@ Use Case - 0x03
 Mark W.
 
 
-Use Case - 0x04
----------------
->>> class Temperature:
-...     kelvin = property()
-...     __value: float
-...
-...     def __init__(self, kelvin=None):
-...         self.__value = kelvin
-...
-...     @kelvin.setter
-...     def kelvin(self, newvalue):
-...         if newvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         else:
-...             self.__value = newvalue
->>>
->>>
->>> t = Temperature()
->>> t.kelvin = 10
->>> t.kelvin = -1
-Traceback (most recent call last):
-ValueError: Negative Kelvin Temperature
-
-
-Use Case - 0x05
+Use Case - 0x03
 ---------------
 >>> class User:
 ...     def __init__(self):
@@ -602,7 +532,7 @@ Mark W.
 None
 
 
-Use Case - 0x06
+Use Case - 0x04
 ---------------
 * Cached Property
 
@@ -633,7 +563,131 @@ Use Case - 0x06
 30.4
 
 
+Use Case - 0x05
+---------------
+>>> class User:
+...     name = property()
+...     _name: str
+...
+...     def __init__(self, name):
+...         self.name = name
+...
+...     @name.getter
+...     def name(self):
+...         return self._name
+...
+...     @name.setter
+...     def name(self, new_name):
+...         if any(letter in '0123456789' for letter in new_name):
+...             raise ValueError('Name cannot have digits')
+...         self._name = new_name
+...
+...     @name.deleter
+...     def name(self):
+...         self._name = None
+
+>>> mark = User('Mark Watney')
+>>> mark.name = 'Melissa Lewis'
+>>> mark.name = 'Rick Martinez 1'
+Traceback (most recent call last):
+ValueError: Name cannot have digits
+
+>>> mark = User('Mark Watney')
+>>> mark = User('Rick Martinez 1')
+Traceback (most recent call last):
+ValueError: Name cannot have digits
+
+>>> mark = User('Mark Watney')
+>>> print(f'Name is: {mark.name}')
+Name is: Mark Watney
+>>>
+>>> del mark.name
+>>> print(f'Name is: {mark.name}')
+Name is: None
+
+
+
+Use Case - 0x06
+---------------
+* Kelvin is an absolute scale (no values below zero)
+
+>>> class KelvinTemperature:
+...     value: float
+>>>
+>>> t = KelvinTemperature()
+>>> t.value = -2               # Should raise ValueError('Kelvin cannot be negative')
+
+>>> class KelvinTemperature:
+...     value: float
+...
+...     def __init__(self, initialvalue):
+...         self.value = initialvalue
+>>>
+>>> t = KelvinTemperature(-1)   # Should raise ValueError('Kelvin cannot be negative')
+>>> t.value = -2                # Should raise ValueError('Kelvin cannot be negative')
+
+>>> class KelvinTemperature:
+...     value: float
+...
+...     def __init__(self, initialvalue):
+...         if initialvalue < 0:
+...             raise ValueError('Negative Kelvin Temperature')
+...         self.value = initialvalue
+>>>
+>>>
+>>> t = KelvinTemperature(1)
+>>> t.value = -1  # Should raise ValueError('Kelvin cannot be negative')
+
+>>> class KelvinTemperature:
+...     _value: float
+...
+...     def __init__(self, initialvalue):
+...         self.set_value(initialvalue)
+...
+...     def set_value(self, newvalue):
+...         if newvalue < 0:
+...             raise ValueError('Negative Kelvin Temperature')
+...         self._value = newvalue
+
+>>> class KelvinTemperature:
+...     _value: float
+...     value = property()
+...
+...     def __init__(self, initialvalue):
+...         self.value = initialvalue
+...
+...     @value.setter
+...     def value(self, newvalue):
+...         if newvalue < 0:
+...             raise ValueError('Negative Kelvin Temperature')
+...         self._value = newvalue
+
+
 Use Case - 0x07
+---------------
+>>> class Temperature:
+...     kelvin = property()
+...     __value: float
+...
+...     def __init__(self, kelvin=None):
+...         self.__value = kelvin
+...
+...     @kelvin.setter
+...     def kelvin(self, newvalue):
+...         if newvalue < 0:
+...             raise ValueError('Negative Kelvin Temperature')
+...         else:
+...             self.__value = newvalue
+>>>
+>>>
+>>> t = Temperature()
+>>> t.kelvin = 10
+>>> t.kelvin = -1
+Traceback (most recent call last):
+ValueError: Negative Kelvin Temperature
+
+
+Use Case - 0x08
 ---------------
 >>> class Temperature:
 ...     def __init__(self, initial_temperature):
@@ -693,49 +747,6 @@ Resetting temperature
 >>>
 >>> print(t.value)
 0.0
-
-
-Use Case - 0x08
----------------
->>> class User:
-...     name = property()
-...     _name: str
-...
-...     def __init__(self, name):
-...         self.name = name
-...
-...     @name.getter
-...     def name(self):
-...         return self._name
-...
-...     @name.setter
-...     def name(self, new_name):
-...         if any(letter in '0123456789' for letter in new_name):
-...             raise ValueError('Name cannot have digits')
-...         self._name = new_name
-...
-...     @name.deleter
-...     def name(self):
-...         self._name = None
-
->>> mark = User('Mark Watney')
->>> mark.name = 'Melissa Lewis'
->>> mark.name = 'Rick Martinez 1'
-Traceback (most recent call last):
-ValueError: Name cannot have digits
-
->>> mark = User('Mark Watney')
->>> mark = User('Rick Martinez 1')
-Traceback (most recent call last):
-ValueError: Name cannot have digits
-
->>> mark = User('Mark Watney')
->>> print(f'Name is: {mark.name}')
-Name is: Mark Watney
->>>
->>> del mark.name
->>> print(f'Name is: {mark.name}')
-Name is: None
 
 
 Assignments

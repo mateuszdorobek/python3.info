@@ -68,16 +68,22 @@ Syntax
 ...     def __new__(metacls, clsname, bases, attrs):
 ...         return type(clsname, bases, attrs)
 >>>
->>>
 >>> User = MyType('User', (), {})
+
+>>> class MyType(type):
+...     def __new__(metacls, clsname, bases, attrs):
+...         return type(clsname, bases, attrs)
+>>>
+>>> class User(metaclass=MyType):
+...     pass
 
 
 Example
 -------
->>> class MyMetaclass(type):
+>>> class MyType(type):
 ...     pass
 >>>
->>> class MyClass(metaclass=MyMetaclass):
+>>> class MyClass(metaclass=MyType):
 ...     pass
 >>>
 >>> class MySubclass(MyClass):
@@ -86,14 +92,14 @@ Example
 >>>
 >>> myinstance = MySubclass()
 
->>> type(MyMetaclass)
+>>> type(MyType)
 <class 'type'>
 
 >>> type(MyClass)
-<class '__main__.MyMetaclass'>
+<class '__main__.MyType'>
 
 >>> type(MySubclass)
-<class '__main__.MyMetaclass'>
+<class '__main__.MyType'>
 
 >>> type(myinstance)
 <class '__main__.MySubclass'>
@@ -114,19 +120,19 @@ Metaclasses
 >>> class MyClass(object):
 ...     pass
 
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     pass
 >>>
->>> class MyClass(metaclass=MyMeta):
+>>> class MyClass(metaclass=MyType):
 ...     pass
 
 
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     def __new__(metacls, classname, bases, attrs):
 ...         return type(classname, bases, attrs)
 >>>
 >>>
->>> class MyClass(metaclass=MyMeta):
+>>> class MyClass(metaclass=MyType):
 ...     pass
 
 
@@ -140,11 +146,11 @@ Metaclass as a function
 >>> type(add)
 <class 'function'>
 
->>> def mymeta(classname, bases, attrs):
+>>> def mytype(classname, bases, attrs):
 ...     return type(classname, bases, attrs)
 >>>
 >>>
->>> class MyClass(metaclass=mymeta):
+>>> class MyClass(metaclass=mytype):
 ...     pass
 
 
@@ -162,18 +168,18 @@ Usage
 
 The potential uses for metaclasses are boundless. Some ideas that have been explored include enum, logging, interface checking, automatic delegation, automatic property creation, proxies, frameworks, and automatic resource locking/synchronization. [#pydocclassobject]_
 
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     def __new__(metacls, classname, bases, attrs):
 ...         print(locals())
 ...         return type(classname, bases, attrs)
 >>>
 >>>
->>> class MyClass(metaclass=MyMeta):
+>>> class MyClass(metaclass=MyType):
 ...     myattr = 1
 ...
 ...     def mymethod(self):
 ...         pass  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-{'metacls': <class '__main__.MyMeta'>,
+{'metacls': <class '__main__.MyType'>,
  'classname': 'MyClass',
  'bases': (),
  'attrs': {'__module__': '__main__',
@@ -184,14 +190,14 @@ The potential uses for metaclasses are boundless. Some ideas that have been expl
 
 Keyword Arguments
 -----------------
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     def __new__(metacls, classname, bases, attrs, myvar):
 ...         if myvar:
 ...             ...
 ...         return type(classname, bases, attrs)
 >>>
 >>>
->>> class MyClass(metaclass=MyMeta, myvar=True):
+>>> class MyClass(metaclass=MyType, myvar=True):
 ...     pass
 
 
@@ -216,7 +222,7 @@ mapping. [#pydocsprepare]_
 >>> from typing import Any
 >>>
 >>>
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     @classmethod
 ...     def __prepare__(metacls, name, bases) -> dict:
 ...         pass
@@ -323,10 +329,10 @@ Type Metaclass
 >>> my.__class__.__bases__
 (<class 'object'>,)
 
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     pass
 >>>
->>> class MyClass(metaclass=MyMeta):
+>>> class MyClass(metaclass=MyType):
 ...     pass
 >>>
 >>>
@@ -338,12 +344,12 @@ Type Metaclass
 >>> my.__class__.__bases__
 (<class 'object'>,)
 
->>> class MyMeta(type):
+>>> class MyType(type):
 ...     def __new__(metacls, classname, bases, attrs):
 ...         return type(classname, bases, attrs)
 >>>
 >>>
->>> class MyClass(metaclass=MyMeta):
+>>> class MyClass(metaclass=MyType):
 ...     pass
 
 
