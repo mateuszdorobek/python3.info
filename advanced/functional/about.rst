@@ -26,8 +26,8 @@ Source: [#Inouye2022]_
 Disadvantages
 -------------
 * Potentially poorer performance: Immutable values combined with recursion might lead to a reduction in performance.
-* Coding difficulties:Though writing pure functions is easy, combining it with the rest of the application and I/O operations can be tough.
-* No loops can be challenging:Writing programs in a recursive style instead of loops can be a daunting task.
+* Coding difficulties: Though writing pure functions is easy, combining it with the rest of the application and I/O operations can be tough.
+* No loops can be challenging: Writing programs in a recursive style instead of loops can be a daunting task.
 
 Source: [#Inouye2022]_
 

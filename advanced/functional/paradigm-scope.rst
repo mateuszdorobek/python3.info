@@ -181,10 +181,10 @@ Global Scope
  'firstname': 'Mark',
  'lastname': 'Watney'}
 
->>> class Astronaut:
+>>> class User:
 ...    pass
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>>
 >>> globals()  # doctest: +SKIP +ELLIPSIS
 {'__name__': '__main__',
@@ -194,8 +194,8 @@ Global Scope
  '__spec__': None,
  '__annotations__': {},
  '__builtins__': <module 'builtins' (built-in)>,
- 'Astronaut': <class '__main__.Astronaut'>,
- 'mark': <__main__.Astronaut object at 0x...>}
+ 'User': <class '__main__.User'>,
+ 'mark': <__main__.User object at 0x...>}
 
 
 Local Scope

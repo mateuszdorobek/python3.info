@@ -11,7 +11,7 @@ Functional Filter
 >>>
 >>> result = (x for x in range(0,5) if even(x))
 >>> result = filter(even, range(0,5))
-
+>>>
 >>> result = (x for x in range(0,5) if x%2==0)
 >>> result = filter(lambda x: x%2==0, range(0,5))
 
@@ -116,53 +116,85 @@ Performance
 
 Use Case - 0x01
 ---------------
->>> people = [
-...     {'age': 21, 'name': 'Pan Twardowski'},
-...     {'age': 25, 'name': 'Mark Watney'},
-...     {'age': 18, 'name': 'Melissa Lewis'}]
+>>> users = [
+...     {'age': 41,  'username': 'mwatney'},
+...     {'age': 40,  'username': 'mlewis'},
+...     {'age': 39,  'username': 'rmartinez'},
+...     {'age': 40, 'username': 'avogel'},
+...     {'age': 29,  'username': 'bjohanssen'},
+...     {'age': 36,  'username': 'cbeck'},
+... ]
+
+>>> def above40(person):
+...     return person['age'] >= 40
 >>>
->>>
->>> def adult(person):
-...     return person['age'] >= 21
->>>
->>>
->>> result = filter(adult, people)
+>>> def under40(person):
+...     return person['age'] < 40
+
+>>> result = filter(above40, users)
 >>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'age': 21, 'name': 'Pan Twardowski'},
- {'age': 25, 'name': 'Mark Watney'}]
+[{'age': 41, 'username': 'mwatney'},
+ {'age': 40, 'username': 'mlewis'},
+ {'age': 40, 'username': 'avogel'}]
+
+>>> result = filter(under40, users)
+>>> list(result)  # doctest: +NORMALIZE_WHITESPACE
+[{'age': 39, 'username': 'rmartinez'},
+ {'age': 29, 'username': 'bjohanssen'},
+ {'age': 36, 'username': 'cbeck'}]
 
 
 Use Case - 0x02
 ---------------
->>> people = [
-...     {'is_astronaut': False, 'name': 'Pan Twardowski'},
-...     {'is_astronaut': True, 'name': 'Mark Watney'},
-...     {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+>>> users = [
+...     {'is_staff': True,  'username': 'mwatney'},
+...     {'is_staff': True,  'username': 'mlewis'},
+...     {'is_staff': True,  'username': 'rmartinez'},
+...     {'is_staff': False, 'username': 'avogel'},
+...     {'is_staff': True,  'username': 'bjohanssen'},
+...     {'is_staff': True,  'username': 'cbeck'},
+... ]
 >>>
 >>>
->>> def astronaut(person):
-...     return person['is_astronaut']
+>>> def can_login(user):
+...     return user['is_staff']
 >>>
 >>>
->>> result = filter(astronaut, people)
->>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'is_astronaut': True, 'name': 'Mark Watney'},
- {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+>>> staff = filter(can_login, users)
+>>> list(staff)  # doctest: +NORMALIZE_WHITESPACE
+[{'is_staff': True, 'username': 'mwatney'},
+ {'is_staff': True, 'username': 'mlewis'},
+ {'is_staff': True, 'username': 'rmartinez'},
+ {'is_staff': True, 'username': 'bjohanssen'},
+ {'is_staff': True, 'username': 'cbeck'}]
 
 
 Use Case - 0x03
 ---------------
->>> astronauts = ['Mark Watney', 'Melissa Lewis']
->>> people = ['Mark Watney', 'Melissa Lewis', 'Jimenez']
+>>> users = [
+...     'mwatney',
+...     'mlewis',
+...     'rmartinez',
+...     'avogel',
+...     'bjohanssen',
+...     'cbeck',
+... ]
+>>>
+>>> staff = [
+...     'mwatney',
+...     'mlewis',
+...     'ptwardowski',
+...     'jjimenez',
+... ]
 >>>
 >>>
->>> def is_astronaut(person):
-...     return person in astronauts
+>>> def can_login(user):
+...     return user in staff
 >>>
 >>>
->>> result = filter(is_astronaut, people)
+>>> result = filter(can_login, users)
 >>> list(result)
-['Mark Watney', 'Melissa Lewis']
+['mwatney', 'mlewis']
 
 
 Assignments

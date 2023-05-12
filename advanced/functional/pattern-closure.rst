@@ -18,13 +18,13 @@ Recap
 -----
 Functions can define their own variables:
 
->>> def run():
+>>> def main():
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
 ...     print(f'Hello {firstname} {lastname}')
 >>>
 >>>
->>> run()
+>>> main()
 Hello Mark Watney
 
 Function can access data from outer scope:
@@ -32,11 +32,11 @@ Function can access data from outer scope:
 >>> firstname = 'Mark'
 >>> lastname = 'Watney'
 >>>
->>> def run():
+>>> def main():
 ...     print(f'Hello {firstname} {lastname}')
 >>>
 >>>
->>> run()
+>>> main()
 Hello Mark Watney
 
 
@@ -45,20 +45,20 @@ Nested Function
 * Function inside the function
 * Nested functions can access the variables of the enclosing scope
 
->>> def run():
+>>> def main():
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
-...     def hello():
+...     def say_hello():
 ...         print(f'Hello {firstname} {lastname}')
-...     hello()
+...     say_hello()
 >>>
 >>>
->>> run()
+>>> main()
 Hello Mark Watney
 >>>
->>> hello()
+>>> say_hello()
 Traceback (most recent call last):
-NameError: name 'hello' is not defined
+NameError: name 'say_hello' is not defined
 
 
 What is closure?
@@ -104,21 +104,18 @@ Why?
 ...     lastname = 'Watney'
 ...
 ...     def say_hello():
-...         print(firstname, lastname)
+...         print(f'Hello {firstname} {lastname}')
 ...
 ...     return say_hello
 
 >>> hello = main()
->>>
 >>> hello()
-Mark Watney
->>>
+Hello Mark Watney
 
 >>> hello = main()
 >>> del main
->>>
 >>> hello()
-Mark Watney
+Hello Mark Watney
 
 >>> hello   # doctest: +ELLIPSIS
 <function main.<locals>.say_hello at 0x...>
@@ -136,7 +133,7 @@ How Objects Were Born
 ...     lastname = 'Watney'
 ...
 ...     def say_hello():
-...         print(firstname, lastname)
+...         print(f'Hello {firstname} {lastname}')
 ...
 ...     return locals()
 ...
@@ -149,8 +146,8 @@ How Objects Were Born
 >>> x['lastname']
 'Watney'
 >>>
->>> x['say_hello'].__call__()
-Mark Watney
+>>> x['say_hello']()
+Hello Mark Watney
 
 >>> x  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
 {'say_hello': <function main.<locals>.say_hello at 0x...>,

@@ -168,31 +168,39 @@ Use Case - 0x03
 Use Case - 0x04
 ---------------
 >>> people = [
-...     {'is_astronaut': True, 'name': 'Mark Watney'},
-...     {'is_astronaut': False, 'name': 'Melissa Lewis'},
-...     {'is_astronaut': True, 'name': 'Rick Martinez'}]
+...     {'is_staff': True, 'name': 'Mark Watney'},
+...     {'is_staff': False, 'name': 'Melissa Lewis'},
+...     {'is_staff': True, 'name': 'Rick Martinez'}]
 >>>
 >>>
->>> result = filter(lambda x: x['is_astronaut'], people)
->>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'is_astronaut': True, 'name': 'Mark Watney'},
- {'is_astronaut': True, 'name': 'Rick Martinez'}]
+>>> can_login = filter(lambda x: x['is_staff'], people)
+>>> list(can_login)  # doctest: +NORMALIZE_WHITESPACE
+[{'is_staff': True, 'name': 'Mark Watney'},
+ {'is_staff': True, 'name': 'Rick Martinez'}]
 
 
 Use Case - 0x05
 ---------------
->>> astronauts = ['Mark Watney', 'Melissa Lewis']
+>>> users = [
+...     'mwatney',
+...     'mlewis',
+...     'rmartinez',
+...     'avogel',
+...     'bjohanssen',
+...     'cbeck',
+... ]
 >>>
->>> people = [
-...     'Mark Watney',
-...     'Melissa Lewis',
-...     'Jose Jimenez',
+>>> staff = [
+...     'mwatney',
+...     'mlewis',
+...     'ptwardowski',
+...     'jjimenez',
 ... ]
 >>>
 >>>
->>> result = filter(lambda x: x in astronauts, people)
->>> list(result)
-['Mark Watney', 'Melissa Lewis']
+>>> can_login = filter(staff.__contains__, users)
+>>> list(can_login)
+['mwatney', 'mlewis']
 
 
 Use Case - 0x06
@@ -219,7 +227,7 @@ Use Case - 0x06
 
 Use Case - 0x07
 ---------------
->>> class Pipeline:
+>>> class Apply:
 ...     def __init__(self, values):
 ...         self.values = values
 ...
@@ -234,7 +242,7 @@ Use Case - 0x07
 >>> DATA = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 >>>
 >>> result = (
-...     Pipeline(DATA)
+...     Apply(DATA)
 ...     .filter(lambda x: x % 2 == 0)
 ...     .map(lambda x: x ** 2)
 ...     .map(lambda x: x + 1)
@@ -243,8 +251,6 @@ Use Case - 0x07
 
 >>> list(result.values)
 [15, 27, 47, 75]
-
-
 
 
 Further Reading

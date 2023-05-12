@@ -88,7 +88,7 @@ Comparison
     namedtuple                ,
                               , array
                               , TypedDict
-    dataclass(frozen=True)    , dataclass
+    dataclass(frozen=True)    , dataclass(frozen=False)
 
 
 Array

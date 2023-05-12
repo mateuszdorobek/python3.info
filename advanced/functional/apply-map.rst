@@ -211,11 +211,11 @@ Standard input:
 
 Use Case - 0x06
 ---------------
->>> import requests
+>>> import httpx
 >>>
 >>> url = 'https://python3.info/_static/iris-dirty.csv'
 >>>
->>> data = requests.get(url).text
+>>> data = httpx.get(url).text
 >>> header, *rows = data.splitlines()
 >>> nrows, nfeatures, *class_labels = header.strip().split(',')
 >>> label_encoder = dict(enumerate(class_labels))

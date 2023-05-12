@@ -83,24 +83,24 @@ Typing
 >>> from typing import Callable
 >>>
 >>>
->>> def http_request(url: str,
-...                  on_success: Callable = lambda: ...,
-...                  on_error: Callable = lambda: ...) -> None:
+>>> def fetch(url: str,
+...           on_success: Callable = lambda: ...,
+...           on_error: Callable = lambda: ...) -> None:
 ...     ...
 
 >>> from typing import Callable
 >>>
 >>>
->>> def request(url: str,
-...             on_success: Callable[[int,int], int],
-...             on_error: Callable) -> callable:
+>>> def fetch(url: str,
+...           on_success: Callable[[int,int], int],
+...           on_error: Callable) -> callable:
 ...     ...
 >>>
->>> def handle_success(x: int, y: int) -> int:
+>>> def ok(x: int, y: int) -> int:
 ...     ...
 >>>
->>> request('https://...',
-...         on_success=handle_success,
+>>> fetch('https://...',
+...         on_success=ok,
 ...         on_error=lambda: ...)
 
 >>> from typing import Callable, Iterator, Iterable
