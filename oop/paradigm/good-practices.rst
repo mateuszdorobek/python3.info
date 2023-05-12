@@ -252,7 +252,7 @@ Rationale for Setters and Getters:
 Traceback (most recent call last):
 ValueError: Kelvin cannot be negative
 
-Rationale for Setters and Getters `HabitatOS <https://www.habitatos.space>`_ Z-Wave sensor admin:
+Rationale for Setters and Getters `habitatOS <https://https://www.astronaut.center/habitatOS>`_ Z-Wave sensor admin:
 
 >>> #doctest: +SKIP
 ...

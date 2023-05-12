@@ -21,7 +21,7 @@ try:
     DATABASE_ENGINE = os.environ.get('DATABASE_ENGINE', 'django.db.backends.sqlite3')
     DATABASE_HOST = os.environ.get('DATABASE_HOST', None)
     DATABASE_PORT = os.environ.get('DATABASE_PORT', None)
-    DATABASE_NAME = os.environ.get('DATABASE_NAME', '/tmp/habitatos/db.sqlite3')
+    DATABASE_NAME = os.environ.get('DATABASE_NAME', '/tmp/habitatOS/db.sqlite3')
     DATABASE_USER = os.environ.get('DATABASE_USER', None)
     DATABASE_PASSWORD = os.environ.get('DATABASE_PASSWORD', None)
 
@@ -32,8 +32,8 @@ try:
     HABITATOS_TIME_ZONE = os.environ.get('HABITATOS_TIME_ZONE', 'habitat.time.MissionElapsedTime')
     HABITATOS_SCHEDULE_URL = os.environ.get('HABITATOS_SCHEDULE_URL', None)
 
-    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', 'habitatos')
-    AWS_S3_BUCKET_NAME_STATIC = os.environ.get('AWS_S3_BUCKET_NAME_STATIC', 'habitatos')
+    AWS_STORAGE_BUCKET_NAME = os.environ.get('AWS_STORAGE_BUCKET_NAME', 'habitatOS')
+    AWS_S3_BUCKET_NAME_STATIC = os.environ.get('AWS_S3_BUCKET_NAME_STATIC', 'habitatOS')
     AWS_S3_HOST = os.environ.get('AWS_S3_HOST', None)
     AWS_S3_ACCESS_KEY_ID = os.environ.get('AWS_S3_ACCESS_KEY_ID', None)
     AWS_S3_SECRET_ACCESS_KEY = os.environ.get('AWS_S3_SECRET_ACCESS_KEY', None)
@@ -41,7 +41,7 @@ try:
     GOOGLE_ANALYTICS_CODE = os.environ.get('GOOGLE_ANALYTICS_CODE', None)
 
 except KeyError as e:
-    raise ImproperlyConfigured(f'You must set {e} environment variable. Please refer to the HabitatOS documentation.')
+    raise ImproperlyConfigured(f'You must set {e} environment variable. Please refer to the habitatOS documentation.')
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -211,11 +211,11 @@ DATABASES = {
     }
 }
 
-if os.path.exists('/tmp/habitatos/memcached.sock'):
+if os.path.exists('/tmp/habitatOS/memcached.sock'):
     CACHES = {
         'default': {
             'BACKEND': 'django.core.cache.backends.memcached.PyLibMCCache',
-            'LOCATION': '/tmp/habitatos/memcached.sock',
+            'LOCATION': '/tmp/habitatOS/memcached.sock',
 
             # Use binary memcache protocol (needed for authentication)
             'BINARY': True,

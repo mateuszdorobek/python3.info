@@ -9,9 +9,9 @@ Customizing
     from django.contrib import admin
     from django.utils.translation import gettext_lazy as _
 
-    admin.site.site_header = _('HabitatOS')
+    admin.site.site_header = _('habitatOS')
     admin.site.index_title = _('Dashboard')
-    admin.site.site_title = _('HabitatOS')
+    admin.site.site_title = _('habitatOS')
 
 Permissions
 -----------
@@ -138,7 +138,7 @@ Settings
 .. code-block:: python
 
     GRAPPELLI_SWITCH_USER = True
-    GRAPPELLI_ADMIN_TITLE = _('HabitatOS')
+    GRAPPELLI_ADMIN_TITLE = _('habitatOS')
     GRAPPELLI_INDEX_DASHBOARD = 'habitat.dashboard.aatc.AdminDashboard'
     GRAPPELLI_AUTOCOMPLETE_SEARCH_FIELDS = {
         'auth': {

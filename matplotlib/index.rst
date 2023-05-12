@@ -58,7 +58,7 @@ Case Study
     :maxdepth: 1
     :caption: Case Study
 
-    case-study/example.rst
-    case-study/lifecycle.rst
-    case-study/case-studies.rst
-    case-study/assignments.rst
+    casestudy/example.rst
+    casestudy/lifecycle.rst
+    casestudy/case-studies.rst
+    casestudy/assignments.rst

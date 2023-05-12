@@ -195,11 +195,11 @@ Packaging
         long_description=long_description,
 
         # The project's main homepage.
-        url='https://github.com/astromatt/habitatOS',
+        url='https://github.com/astronaut-center/habitatOS',
 
         # Author details
         author='Matt Harasymczuk',
-        author_email='dev@habitatos.space',
+        author_email='habitatOS@astronaut.center',
 
         # Choose your license
         license='MIT',
@@ -272,7 +272,7 @@ Packaging
     include requirements.txt
     include README.md
     include LICENSE
-    recursive-include HabitatOS *
+    recursive-include habitatOS *
 
     global-exclude __pycache__
     global-exclude *.pyc

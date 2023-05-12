@@ -85,9 +85,9 @@ DevOps
 
 
 Case Study
-*********
+**********
 .. toctree::
     :maxdepth: 1
     :caption: Case Study
 
-    case-study/example.rst
+    casestudy/example.rst

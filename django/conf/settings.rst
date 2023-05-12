@@ -5,7 +5,7 @@ Settings
 * Environmental variables settings
 * .env file
 * Docker/Kubernetes secrets
-* HabitatOS Heroku change settings
+* habitatOS Heroku change settings
 * Debug Toolbar
 
 
@@ -18,8 +18,8 @@ Example
 
 Use Case - 0x01
 ---------------
-* HabitatOS
+* habitatOS
 
 .. literalinclude:: src/django-settings-habitatos.py
     :language: python
-    :caption: HabitatOS settings
+    :caption: habitatOS settings

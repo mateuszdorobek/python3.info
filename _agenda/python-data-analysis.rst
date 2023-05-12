@@ -23,7 +23,7 @@ Polish
     * Przygotowanie do analizy
     * Wizualizacja danych
 
-3. Case studies:
+3. Case Study:
 
     * COVID-19
     * dane sportowe

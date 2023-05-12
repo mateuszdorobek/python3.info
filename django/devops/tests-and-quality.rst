@@ -108,10 +108,10 @@ SonarQube
     sonar.projectKey=habitatOS
     sonar.projectName=habitatOS
     sonar.projectDescription=Operating System for analog extraterrestrial habitats.
-    sonar.links.homepage=https://github.com/astromatt/habitatOS/
-    sonar.links.scm=https://github.com/astromatt/habitatOS/
-    sonar.links.issue=https://github.com/astromatt/habitatOS/issues
-    sonar.links.ci=https://github.com/astromatt/habitatOS/addon/pipelines/home
+    sonar.links.homepage=https://github.com/astronaut-center/habitatOS/
+    sonar.links.scm=https://github.com/astronaut-center/habitatOS/
+    sonar.links.issue=https://github.com/astronaut-center/habitatOS/issues
+    sonar.links.ci=https://github.com/astronaut-center/habitatOS/addon/pipelines/home
 
     sonar.projectBaseDir=habitat
     sonar.sources=.

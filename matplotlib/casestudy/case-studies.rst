@@ -1,5 +1,5 @@
-Case Studies
-============
+Case Study
+==========
 
 
 ISS Ground Track

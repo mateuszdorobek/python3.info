@@ -11,7 +11,7 @@ RESTful Views
 
     urlpatterns += [
         url(r'^api/v1/auth/', include(('rest_framework.urls', 'rest_framework'), namespace='rest_framework')),
-        url(r'^api/v1/', get_schema_view(title='HabitatOS API v1', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])),
+        url(r'^api/v1/', get_schema_view(title='habitatOS API v1', renderer_classes=[OpenAPIRenderer, SwaggerUIRenderer])),
         url(r'^api/$', RedirectView.as_view(permanent=False, url='/api/v1/')),
     ]
 

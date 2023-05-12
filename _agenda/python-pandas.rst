@@ -35,7 +35,7 @@ Polish
     * Techniki pracy z danymi większymi niż ilość RAMu
     * Triki zwiększające wydajność
 
-4. Case studies:
+4. Case Study:
 
     * COVID-19
     * dane sportowe
