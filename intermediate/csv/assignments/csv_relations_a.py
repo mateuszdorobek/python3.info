@@ -34,10 +34,10 @@ Tests:
     'Variable `result` has invalid type, should be str'
 
     >>> print(result)
-    "firstname","lastname","mission1_name","mission1_year","mission2_name","mission2_year"
-    "Mark","Watney","Ares3","2035","",""
-    "Melissa","Lewis","Ares1","2030","Ares3","2035"
-    "Rick","Martinez","","","",""
+    "firstname","group1_gid","group1_name","group2_gid","group2_name","lastname"
+    "Mark","1","staff","","","Watney"
+    "Melissa","1","staff","2","admins","Lewis"
+    "Rick","","","","","Martinez"
     <BLANKLINE>
 """
 
@@ -46,14 +46,14 @@ import csv
 FILE = r'_temporary.csv'
 
 DATA = [
-    {"firstname": "Mark", "lastname": "Watney", "missions": [
-        {"year": "2035", "name": "Ares3"}]},
+    {"firstname": "Mark", "lastname": "Watney", "groups": [
+        {"gid": 1, "name": "staff"}]},
 
-    {"firstname": "Melissa", "lastname": "Lewis", "missions": [
-         {"year": "2030", "name": "Ares1"},
-         {"year": "2035", "name": "Ares3"}]},
+    {"firstname": "Melissa", "lastname": "Lewis", "groups": [
+        {"gid": 1, "name": "staff"},
+        {"gid": 2, "name": "admins"}]},
 
-    {"firstname": "Rick", "lastname": "Martinez", "missions": []}
+    {"firstname": "Rick", "lastname": "Martinez", "groups": []},
 ]
 
 # flatten data, each mission field prefixed with mission and number
@@ -64,12 +64,12 @@ result = ...
 # Solution
 result = []
 
-for astronaut in DATA:
-    for i, mission in enumerate(astronaut.pop('missions'), start=1):
-        for field,value in mission.items():
-            column_name = f'mission{i}_{field}'
-            astronaut[column_name] = value
-    result.append(astronaut)
+for user in DATA:
+    for i, group in enumerate(user.pop('groups'), start=1):
+        for field,value in group.items():
+            column_name = f'group{i}_{field}'
+            user[column_name] = value
+    result.append(user)
 
 fieldnames = set()
 for row in result:

@@ -523,8 +523,8 @@ Flags
 * ``REPORTING_FLAGS``
 
 
-Case Studies
-------------
+Case Study
+----------
 Docstring used for doctest:
 
     >>> def apollo_dsky(noun, verb):

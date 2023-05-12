@@ -149,14 +149,14 @@ Use Case - 0x01
 .. code-block:: text
 
     [
-        {"firstname": "Mark", "lastname": "Watney", "missions": [
-            {"year": "2035", "name": "Ares3"}]},
+        {"firstname": "Mark", "lastname": "Watney", "groups": [
+            {"gid": 1, "name": "staff"}]},
 
-        {"firstname": "Melissa", "lastname": "Lewis", "missions": [
-             {"year": "2030", "name": "Ares1"},
-             {"year": "2035", "name": "Ares3"}]},
+        {"firstname": "Melissa", "lastname": "Lewis", "groups": [
+            {"gid": 1, "name": "staff"},
+            {"gid": 2, "name": "admins"}]},
 
-        {"firstname": "Rick", "lastname": "Martinez", "missions": []}
+        {"firstname": "Rick", "lastname": "Martinez", "groups": []},
     ]
 
 
