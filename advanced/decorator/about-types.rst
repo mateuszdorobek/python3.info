@@ -22,11 +22,11 @@ Usage:
 ...     return 'hello'
 
 >>> @mydecorator
-... class Astronaut:
+... class User:
 ...     def say_hello():
 ...         return 'hello'
 
->>> class Astronaut:
+>>> class User:
 ...     @mydecorator
 ...     def say_hello():
 ...         return 'hello'
@@ -51,11 +51,11 @@ Usage:
 ...     return 'hello'
 
 >>> @MyClass.mydecorator
-... class Astronaut:
+... class User:
 ...     def say_hello():
 ...         return 'hello'
 
->>> class Astronaut:
+>>> class User:
 ...     @MyClass.mydecorator
 ...     def say_hello():
 ...         return 'hello'
@@ -79,11 +79,11 @@ Usage:
 ...     return 'hello'
 
 >>> @MyDecorator
-... class Astronaut:
+... class User:
 ...     def say_hello():
 ...         return 'hello'
 
->>> class Astronaut:
+>>> class User:
 ...     @MyDecorator
 ...     def say_hello():
 ...         return 'hello'

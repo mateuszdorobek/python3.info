@@ -10,8 +10,8 @@ AsyncIO Event Loop
 * Reactors
 * Proactors
 
-For example, Django uses the main thread to wait for incoming requests, so
-we can't run an asyncio event loop there, but we can start a separate
+For example, Django uses the main thread to wait for incoming requests,
+so we can't run an asyncio event loop there, but we can start a separate
 worker thread for our event loop [#Poirier2021]_.
 
 An event loop runs in a thread (typically the main thread) and executes all

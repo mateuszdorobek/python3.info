@@ -1,75 +1,78 @@
 """
-* Assignment: Decorator Function Astronauts
+* Assignment: Decorator Function Staff
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 8 min
 
 English:
-    1. Modify decorator `check_astronauts`
-    2. To answer if person is an astronaut check field:
-       a. `is_astronaut` in `crew: list[dict]`
-    3. Decorator will call function, only if all crew members are astronauts
-    4. If any member is not an astronaut raise `PermissionError` and print
-       his first name and last name
+    1. Modify decorator `can_login`
+    2. To answer if person is staff check field:
+       `is_staff` in `users: list[dict]`
+    3. Decorator will call decorated function, only if all users are staff
+    4. If user is not a staff:
+       raise `PermissionError` with message `USERNAME is not a staff`,
+       where USERNAME is user's username
     5. Run doctests - all must succeed
 
 Polish:
-    1. Zmodufikuj dekorator `check_astronauts`
-    2. Aby odpowiedzieć czy osoba jest astronautą sprawdź pole:
-       a. `is_astronaut` in `crew: list[dict]`
-    3. Dekorator wywoła funkcję, tylko gdy wszyscy załoganci są astronautami
-    4. Jeżeli, jakikolwiek członek nie jest astronautą, podnieś wyjątek
-       `PermissionError` i wypisz jego imię i nazwisko
+    1. Zmodyfikuj dekorator `can_login`
+    2. Aby odpowiedzieć czy osoba jest staffem sprawdź pole:
+       `is_staff` in `users: list[dict]`
+    3. Dekorator wywoła dekorowaną funkcję, tylko gdy każdy członek jest staff
+    4. Jeżeli użytkownik nie jest staffem:
+       podnieś `PermissionError` z komunikatem `USERNAME is not a staff`,
+       gdzie USERNAME to username użytkownika
     5. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
-    >>> assert isfunction(check_astronauts), \
-    'Create check_astronauts() function'
+    >>> assert isfunction(can_login), \
+    'Create can_login() function'
 
-    >>> assert isfunction(check_astronauts(lambda: ...)), \
-    'check_astronauts() should take function as an argument'
+    >>> assert isfunction(can_login(lambda: ...)), \
+    'can_login() should take function as an argument'
 
-    >>> @check_astronauts
-    ... def launch(crew):
-    ...     crew = ', '.join(astro['name'] for astro in crew)
-    ...     return f'Launching: {crew}'
+    >>> @can_login
+    ... def login(users):
+    ...     users = ', '.join(user['username'] for user in users)
+    ...     return f'Logging-in: {users}'
 
-    >>> launch(CREW_PRIMARY)
-    'Launching: Pan Twardowski, Mark Watney, Melissa Lewis'
+    >>> login(group1)
+    'Logging-in: mwatney, mlewis, rmartinez'
 
-    >>> launch(CREW_BACKUP)
+    >>> login(group2)
     Traceback (most recent call last):
-    PermissionError: Alex Vogel is not an astronaut
+    PermissionError: avogel is not a staff
 """
 
-CREW_PRIMARY = [
-    {'is_astronaut': True, 'name': 'Pan Twardowski'},
-    {'is_astronaut': True, 'name': 'Mark Watney'},
-    {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+group1 = [
+    {'is_staff': True, 'username': 'mwatney'},
+    {'is_staff': True, 'username': 'mlewis'},
+    {'is_staff': True, 'username': 'rmartinez'},
+]
 
-CREW_BACKUP = [
-    {'is_astronaut': True, 'name': 'Melissa Lewis'},
-    {'is_astronaut': True, 'name': 'Mark Watney'},
-    {'is_astronaut': False, 'name': 'Alex Vogel'}]
+group2 = [
+    {'is_staff': False, 'username': 'avogel'},
+    {'is_staff': True,  'username': 'bjohanssen'},
+    {'is_staff': True,  'username': 'cbeck'},
+]
 
 
 # type: Callable[[Callable], Callable]
-def check_astronauts(func):
-    def wrapper(crew):
-        return func(crew)
-
+def can_login(func):
+    def wrapper(users):
+        return func(users)
     return wrapper
 
 
 # Solution
-def check_astronauts(func):
-    def wrapper(crew):
-        for member in crew:
-            if not member['is_astronaut']:
-                raise PermissionError(f'{member["name"]} is not an astronaut')
-        return func(crew)
-
+def can_login(func):
+    def wrapper(users):
+        for member in users:
+            if not member['is_staff']:
+                username = member["username"]
+                raise PermissionError(f'{username} is not a staff')
+        return func(users)
     return wrapper

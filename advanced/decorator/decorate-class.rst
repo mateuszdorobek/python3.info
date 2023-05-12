@@ -51,13 +51,13 @@ Example
 >>>
 >>>
 >>> @run
-... class Astronaut:
-...     def hello(self, name):
+... class User:
+...     def say_hello(self, name):
 ...         return f'My name... {name}'
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.hello('José Jiménez')
+>>> mark = User()
+>>> mark.say_hello('José Jiménez')
 'My name... José Jiménez'
 
 
@@ -75,12 +75,12 @@ Use Case - 0x01
 >>>
 >>>
 >>> @logger
-... class Astronaut:
+... class User:
 ...     pass
 >>>
 >>>
->>> print(Astronaut.logger)
-<Logger Astronaut (WARNING)>
+>>> print(User.logger)
+<Logger User (WARNING)>
 
 
 Use Case - 0x02
@@ -97,11 +97,11 @@ Use Case - 0x02
 >>>
 >>>
 >>> @since
-... class Astronaut:
+... class User:
 ...     pass
 >>>
 >>>
->>> print(Astronaut._since)  # doctest: +SKIP
+>>> print(User._since)  # doctest: +SKIP
 datetime.datetime(1969, 7, 21, 2, 56, 15, tzinfo=datetime.timezone.utc)
 
 
@@ -188,12 +188,12 @@ Use Case - 0x05
 ...     return Wrapper
 
 >>> @trace
-... class Astronaut:
+... class User:
 ...     pass
 >>>
 >>>
->>> mark = Astronaut()
->>> melissa = Astronaut()
+>>> mark = User()
+>>> melissa = User()
 
 >>> mark._uuid  # doctest: +SKIP
 '8b383148-1dd8-4eca-aaa2-6e1deba7ff46'
@@ -215,9 +215,9 @@ datetime.datetime(1969, 7, 21, 2, 56, 15, tzinfo=datetime.timezone.utc)
 76.601305
 
 >>> mark._log
-<Logger Astronaut (WARNING)>
+<Logger User (WARNING)>
 >>> melissa._log
-<Logger Astronaut (WARNING)>
+<Logger User (WARNING)>
 >>>
 >>>
 >>> mark._log.warning('Some warning...')  # doctest: +SKIP

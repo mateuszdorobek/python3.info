@@ -201,12 +201,12 @@ File ``settings.py``:
 File ``utils.py``:
 
 >>> from http import HTTPStatus
->>> import requests
+>>> import httpx
 >>>
 >>>
 >>> def _request(url, method='GET'):
 ...     url = BASE_URL + url
-...     resp = requests.request(url, method)
+...     resp = httpx.request(url, method)
 ...     if resp.staus_code != HTTPStatus.OK:
 ...         raise ConnectionError
 ...     return resp

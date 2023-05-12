@@ -61,14 +61,14 @@ Example
 ...     return wrapper
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     @run
-...     def hello(self, name):
+...     def say_hello(self, name):
 ...         return f'My name... {name}'
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.hello('José Jiménez')
+>>> mark = User()
+>>> mark.say_hello('José Jiménez')
 'My name... José Jiménez'
 
 
