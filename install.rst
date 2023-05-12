@@ -15,7 +15,7 @@ uczestnik jest odpowiednio przygotowany do szkolenia. Przygotowanie
 * Python w wersji 3.10, 3.11 (preferowany: 3.11)
   [`pobierz <https://www.python.org/downloads/>`_]
 
-* PyCharm 2022.1, 2022.2, 2022.3 lub nowszy (dowolnie Community lub Professional)
+* PyCharm 2023.1 lub nowszy (dowolnie Community lub Professional)
   [`pobierz <https://www.jetbrains.com/pycharm/download/>`_]
 
 * Git w wersji 2.33 lub nowszy

@@ -21,6 +21,8 @@ Intermediate
 
 Advanced
 --------
+* ContextMan: Zadanie Buffer, kiepski opis zadania, nie wynika co to jest buffer i jak działa
+* ContextMan: Zadanie Buffer, Testy przechodzą nawet jak nie ma bufora (skopiowane z A)
 * Move Interface, ABC, Protocol to Protocols
 * Functional: Monads, Bridges, Atoms
 * Add exception groups (3.11)
@@ -138,6 +140,7 @@ Machine Learning
 
 Python PEP
 ----------
+* array.array('int64'), array.array('uint32'), array.array('bool')
 * async def http.fetch(method='GET', url='...', data={}, headers={}, json=True, decode_response=True, encoding='utf-8')
 * https://developer.mozilla.org/en-US/docs/Web/API/fetch
 * https://fetch.spec.whatwg.org/#fetch-method

@@ -249,7 +249,7 @@ Setuptools is a fully-featured, actively-maintained, and stable library designed
 
 
     setup(
-        name='HabitatOS',
+        name='habitatOS',
 
         # Versions should comply with PEP440.  For a discussion on single-sourcing
         # the version across setup.py and the project code, see
@@ -260,11 +260,11 @@ Setuptools is a fully-featured, actively-maintained, and stable library designed
         long_description=long_description,
 
         # The project's main homepage.
-        url='https://github.com/astromatt/HabitatOS',
+        url='https://github.com/astronaut-center/habitatOS',
 
         # Author details
         author='Matt Harasymczuk',
-        author_email='dev@habitatos.space',
+        author_email='habitatOS@astronaut.center',
 
         # Choose your license
         license='MIT',

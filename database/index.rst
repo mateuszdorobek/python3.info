@@ -176,7 +176,7 @@ SQLAlchemy
     sqlalchemy/func-system.rst
 
     sqlalchemy/extensions.rst
-    sqlalchemy/case-study.rst
+    sqlalchemy/casestudy.rst
     sqlalchemy/use-cases.rst
 
 
@@ -186,6 +186,6 @@ Case Study
     :maxdepth: 1
     :caption: Case Study
 
-    case-study/orm.rst
-    case-study/relationship.rst
-    case-study/auth.rst
+    casestudy/orm.rst
+    casestudy/relationship.rst
+    casestudy/auth.rst

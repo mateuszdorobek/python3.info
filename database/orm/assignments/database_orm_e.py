@@ -22,45 +22,45 @@ Tests:
 
     >>> result = list(result)
     >>> assert type(result) is list
-    >>> assert all(type(astro) is Astronaut for astro in result)
+    >>> assert all(type(astro) is User for astro in result)
 
     >>> assert all(type(addr) is Address
     ...            for astro in result
     ...            for addr in astro.addresses)
 
-    >>> pprint(result)  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(firstname='Mark',
-               lastname='Watney',
-               addresses=[Address(street='2101 E NASA Pkwy',
-                                  city='Houston',
-                                  postcode=77058,
-                                  region='Texas',
-                                  country='USA'),
-                          Address(street='',
-                                  city='Kennedy Space Center',
-                                  postcode=32899,
-                                  region='Florida',
-                                  country='USA')]),
-     Astronaut(firstname='Melissa',
-               lastname='Lewis',
-               addresses=[Address(street='4800 Oak Grove Dr',
-                                  city='Pasadena',
-                                  postcode=91109,
-                                  region='California',
-                                  country='USA'),
-                          Address(street='2825 E Ave P',
-                                  city='Palmdale',
-                                  postcode=93550,
-                                  region='California',
-                                  country='USA')]),
-     Astronaut(firstname='Rick', lastname='Martinez', addresses=[]),
-     Astronaut(firstname='Alex',
-               lastname='Vogel',
-               addresses=[Address(street='Linder Hoehe',
-                                  city='Cologne',
-                                  postcode=51147,
-                                  region='North Rhine-Westphalia',
-                                  country='Germany')])]
+    >>> pprint(result, sort_dicts=False)
+    [User(firstname='Mark',
+          lastname='Watney',
+          addresses=[Address(street='2101 E NASA Pkwy',
+                             city='Houston',
+                             postcode=77058,
+                             region='Texas',
+                             country='USA'),
+                     Address(street='',
+                             city='Kennedy Space Center',
+                             postcode=32899,
+                             region='Florida',
+                             country='USA')]),
+     User(firstname='Melissa',
+          lastname='Lewis',
+          addresses=[Address(street='4800 Oak Grove Dr',
+                             city='Pasadena',
+                             postcode=91109,
+                             region='California',
+                             country='USA'),
+                     Address(street='2825 E Ave P',
+                             city='Palmdale',
+                             postcode=93550,
+                             region='California',
+                             country='USA')]),
+     User(firstname='Rick', lastname='Martinez', addresses=[]),
+     User(firstname='Alex',
+          lastname='Vogel',
+          addresses=[Address(street='Linder Hoehe',
+                             city='Cologne',
+                             postcode=51147,
+                             region='North Rhine-Westphalia',
+                             country='Germany')])]
 """
 
 from dataclasses import dataclass
@@ -107,13 +107,13 @@ class Address:
     ...
 
 @dataclass
-class Astronaut:
+class User:
     ...
 
 
 
 # Iterate over `DATA` and create instances
-# type: list[Astronaut]
+# type: list[User]
 result = ...
 
 
@@ -128,14 +128,14 @@ class Address:
 
 
 @dataclass
-class Astronaut:
+class User:
     firstname: str
     lastname: str
     addresses: list[Address | None]
 
 
-def convert(astronaut: dict) -> Astronaut:
-    addresses = map(lambda x: Address(**x), astronaut.pop('addresses'))
-    return Astronaut(**astronaut, addresses=list(addresses))
+def convert(contact: dict) -> User:
+    addresses = map(lambda x: Address(**x), contact.pop('addresses'))
+    return User(**contact, addresses=list(addresses))
 
 result = map(convert, DATA)

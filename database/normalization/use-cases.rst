@@ -296,30 +296,3 @@ References
 .. [#WikipediaDataIntegrity] Data Integrity.  Wikipedia. Year: 2021. Retrieved: 2021-12-16. URL: https://en.wikipedia.org/wiki/Data_integrity
 .. [#Boritz2011] Boritz, J. IS Practitioners' Views on Core Concepts of Information Integrity. International Journal of Accounting Information Systems. Elsevier. Year: 2011. Retrieved: 2011-08-12.
 .. [#Date2012] Date, C. J. SQL and Relational Theory: How to Write Accurate SQL Code 2nd edition, O'reilly Media, Inc., 2012, pg. 180.
-
-
-Assignments
------------
-.. literalinclude:: assignments/oop_relations_a.py
-    :caption: :download:`Solution <assignments/oop_relations_a.py>`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/oop_relations_b.py
-    :caption: :download:`Solution <assignments/oop_relations_b.py>`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/oop_relations_c.py
-    :caption: :download:`Solution <assignments/oop_relations_c.py>`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/oop_relations_d.py
-    :caption: :download:`Solution <assignments/oop_relations_d.py>`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/oop_relations_e.py
-    :caption: :download:`Solution <assignments/oop_relations_e.py>`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/oop_relations_f.py
-    :caption: :download:`Solution <assignments/oop_relations_f.py>`
-    :end-before: # Solution
