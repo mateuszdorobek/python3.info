@@ -1,52 +1,34 @@
 """
-* Assignment: OOP InheritancePatterns Multilevel
+* Assignment: OOP InheritancePatterns Simple
+* Required: yes
 * Complexity: easy
-* Lines of code: 8 lines
+* Lines of code: 4 lines
 * Time: 3 min
 
 English:
-    1. Create class `MarsMission` from classes `Habitat`, `Rocket`, `Astronaut`
-    2. Use multilevel inheritance
-    3. Assignment demonstrates syntax, so do not add any attributes and methods
-    4. Run doctests - all must succeed
+    1. Create class `Account`
+    2. Create class `User` which inherits from `Account`
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz klasę `MarsMission` z klas `Habitat`, `Rocket`, `Astronaut`
-    2. Użyj wielopoziomowego dziedziczenia
-    3. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    1. Stwórz klasę `Account`
+    2. Stwórz klasę `User`, która dziedziczy po `Account`
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(Habitat)
-    >>> assert isclass(Astronaut)
-    >>> assert isclass(Rocket)
-    >>> assert isclass(MarsMission)
-    >>> assert issubclass(MarsMission, Habitat)
-    >>> assert issubclass(MarsMission, Astronaut)
-    >>> assert issubclass(MarsMission, Rocket)
-
-    >>> assert len(Habitat.__subclasses__()) == 1
-    >>> assert len(Astronaut.__subclasses__()) == 1
-    >>> assert len(Rocket.__subclasses__()) == 1
-    >>> assert len(MarsMission.__subclasses__()) == 0
+    >>> assert isclass(Account)
+    >>> assert isclass(User)
+    >>> assert issubclass(User, Account)
 """
 
 
 # Solution
-class Habitat:
+class Account:
     pass
 
 
-class Astronaut(Habitat):
-    pass
-
-
-class Rocket(Astronaut):
-    pass
-
-
-class MarsMission(Rocket):
+class User(Account):
     pass
