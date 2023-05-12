@@ -107,6 +107,7 @@ OOP
     oop/abstract-class.rst
     oop/abstract-protocol.rst
     oop/abstract-polymorphism.rst
+    oop/object-relations.rst
     oop/object-identity.rst
     oop/object-constructor.rst
     oop/class-factory.rst

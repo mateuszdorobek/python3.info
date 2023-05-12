@@ -1,6 +1,6 @@
 """
-* Assignment: OOP Relations HasPosition
-* Complexity: medium
+* Assignment: OOP ObjectRelations HasPosition
+* Complexity: easy
 * Lines of code: 18 lines
 * Time: 8 min
 
@@ -47,33 +47,33 @@ Tests:
     >>> assert ismethod(HasPosition().set_position)
     >>> assert ismethod(HasPosition().change_position)
 
-    >>> class Astronaut(HasPosition):
+    >>> class User(HasPosition):
     ...     pass
 
-    >>> astro = Astronaut()
+    >>> mark = User()
 
-    >>> astro.set_position(x=1, y=2)
-    >>> astro.get_position()
+    >>> mark.set_position(x=1, y=2)
+    >>> mark.get_position()
     Point(x=1, y=2)
 
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(right=1)
-    >>> astro.get_position()
+    >>> mark.set_position(x=1, y=1)
+    >>> mark.change_position(right=1)
+    >>> mark.get_position()
     Point(x=2, y=1)
 
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(left=1)
-    >>> astro.get_position()
+    >>> mark.set_position(x=1, y=1)
+    >>> mark.change_position(left=1)
+    >>> mark.get_position()
     Point(x=0, y=1)
 
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(down=1)
-    >>> astro.get_position()
+    >>> mark.set_position(x=1, y=1)
+    >>> mark.change_position(down=1)
+    >>> mark.get_position()
     Point(x=1, y=2)
 
-    >>> astro.set_position(x=1, y=1)
-    >>> astro.change_position(up=1)
-    >>> astro.get_position()
+    >>> mark.set_position(x=1, y=1)
+    >>> mark.change_position(up=1)
+    >>> mark.get_position()
     Point(x=1, y=0)
 """
 
@@ -99,6 +99,6 @@ class HasPosition:
 
     def change_position(self, right=0, left=0, up=0, down=0):
         current = self.get_position()
-        x = current.x + right - left
-        y = current.y + down - up
-        self.set_position(x, y)
+        new_x = current.x + right - left
+        new_y = current.y + down - up
+        self.set_position(new_x, new_y)

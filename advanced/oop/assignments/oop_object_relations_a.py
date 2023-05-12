@@ -1,5 +1,5 @@
 """
-* Assignment: OOP Relations Syntax
+* Assignment: OOP ObjectRelations Syntax
 * Complexity: easy
 * Lines of code: 7 lines
 * Time: 5 min

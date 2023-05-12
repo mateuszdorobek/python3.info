@@ -5,104 +5,76 @@
 * Time: 3 min
 
 English:
-    1. Modify abstract class `IrisAbstract`
+    1. Modify abstract class `Account`
     2. Add type annotation to all methods and attributes
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zmodyfikuj klasę abstrakcyjną `IrisAbstract`
+    1. Zmodyfikuj klasę abstrakcyjną `Account`
     2. Dodaj anotację typów do wszystkich metod i atrybutów
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from inspect import isabstract, isclass
+    >>> from inspect import isabstract, isclass, ismethod, signature
 
-    >>> assert isclass(IrisAbstract)
-    >>> assert isabstract(IrisAbstract)
-    >>> assert hasattr(IrisAbstract, '__init__')
-    >>> assert hasattr(IrisAbstract, 'mean')
-    >>> assert hasattr(IrisAbstract, 'sum')
-    >>> assert hasattr(IrisAbstract, 'len')
-    >>> assert hasattr(IrisAbstract.__init__, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.mean, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.sum, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.len, '__isabstractmethod__')
-    >>> assert IrisAbstract.__init__.__isabstractmethod__ == True
-    >>> assert IrisAbstract.mean.__isabstractmethod__ == True
-    >>> assert IrisAbstract.sum.__isabstractmethod__ == True
-    >>> assert IrisAbstract.len.__isabstractmethod__ == True
+    >>> assert isclass(Account)
+    >>> assert isabstract(Account)
+    >>> assert hasattr(Account, '__init__')
+    >>> assert hasattr(Account, 'login')
+    >>> assert hasattr(Account, 'logout')
+    >>> assert hasattr(Account.__init__, '__isabstractmethod__')
+    >>> assert hasattr(Account.login, '__isabstractmethod__')
+    >>> assert hasattr(Account.logout, '__isabstractmethod__')
+    >>> assert Account.__init__.__isabstractmethod__ == True
+    >>> assert Account.login.__isabstractmethod__ == True
+    >>> assert Account.logout.__isabstractmethod__ == True
 
-    >>> IrisAbstract.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>,
-     'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>,
-     'petal_width': <class 'float'>}
+    >>> Account.__annotations__
+    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
 
-    >>> IrisAbstract.__init__.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>,
-     'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>,
-     'petal_width': <class 'float'>,
-     'return': None}
+    >>> Account.__init__.__annotations__
+    {'firstname': <class 'str'>, 'lastname': <class 'str'>, 'return': None}
 
-     >>> IrisAbstract.mean.__annotations__
-     {'return': <class 'float'>}
+    >>> Account.login.__annotations__
+    {'return': None}
 
-     >>> IrisAbstract.sum.__annotations__
-     {'return': <class 'float'>}
-
-     >>> IrisAbstract.len.__annotations__
-     {'return': <class 'int'>}
+    >>> Account.logout.__annotations__
+    {'return': None}
 """
+
 
 from abc import ABC, abstractmethod
 
 
-class IrisAbstract(ABC):
-
+# Modify class to add type annotation to all methods and attributes
+class Account(ABC):
     @abstractmethod
-    def __init__(self, sepal_length, sepal_width, petal_length, petal_width):
+    def __init__(self, firstname, lastname):
         ...
 
     @abstractmethod
-    def mean(self):
+    def login(self):
         ...
 
     @abstractmethod
-    def sum(self):
+    def logout(self):
         ...
 
-    @abstractmethod
-    def len(self):
-        ...
-
-# Modify abstract class `IrisAbstract`
-# Add type annotation to all methods and attributes
 
 # Solution
-class IrisAbstract(ABC):
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+class Account(ABC):
+    firstname: str
+    lastname: str
 
     @abstractmethod
-    def __init__(self,
-                 sepal_length: float,
-                 sepal_width: float,
-                 petal_length: float,
-                 petal_width: float) -> None:
+    def __init__(self, firstname: str, lastname: str) -> None:
         ...
 
     @abstractmethod
-    def mean(self) -> float:
+    def login(self) -> None:
         ...
 
     @abstractmethod
-    def sum(self) -> float:
-        ...
-
-    @abstractmethod
-    def len(self) -> int:
+    def logout(self) -> None:
         ...
