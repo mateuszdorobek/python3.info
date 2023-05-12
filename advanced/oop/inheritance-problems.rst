@@ -210,7 +210,7 @@ Case Study
 ----------
 Problem:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -241,7 +241,7 @@ this will lower the amount of code to maintain. So we refactor and
 ...         return json.dumps(data)
 >>>
 >>>
->>> class Astronaut(Serialize):
+>>> class User(Serialize):
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -265,21 +265,19 @@ In this case, the `Multi level inheritance` is a bad pattern here:
 ...         return pickle.dumps(data)
 >>>
 >>>
->>> class Astronaut(ToPickle):
+>>> class User(ToPickle):
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
-b'\x80\x04\x95I\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut' \
-b'\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark' \
-b'\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
+>>> print(mark.to_pickle())
+b'\x80\x04\x95,\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94u.'
 
 It will work as intended for the end-user, but the code structure is
 disturbed. Not all classes which are serialized to Pickle, are also
@@ -306,7 +304,7 @@ by considering inheritance a bad practice. They use composition:
 ...         return pickle.dumps(data)
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     __json_serializer: ToJSON
@@ -325,21 +323,21 @@ by considering inheritance a bad practice. They use composition:
 ...         return self.__pickle_serializer.to_pickle(self)
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
-b'\x80\x04\x95\xa3\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94\x8c\x1b_Astronaut__json_serializer\x94h\x00\x8c\x06ToJSON\x94\x93\x94\x8c\x1d_Astronaut__pickle_serializer\x94h\x00\x8c\x08ToPickle\x94\x93\x94ub.'
+>>> print(mark.to_pickle())
+b'\x80\x04\x95,\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94u.'
 >>>
 >>>
->>> # It give me ability to write something better
+>>> # It gives me ability to write something better
 >>> class MyBetterSerializer(ToJSON):
 ...     def to_json(self):
 ...         return ...
 >>>
->>> astro = Astronaut('Mark', 'Watney', json_serializer=MyBetterSerializer)
+>>> mark = User('Mark', 'Watney', json_serializer=MyBetterSerializer)
 
 This work as intended, and nothing changed for the end-user. This maybe
 a good pattern for Java, but for Python ecosystem is over-engineered
@@ -365,21 +363,19 @@ mechanism:
 ...         return pickle.dumps(data)
 >>>
 >>>
->>> class Astronaut(ToJSON, ToPickle):
+>>> class User(ToJSON, ToPickle):
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> print(astro.to_json())
+>>> print(mark.to_json())
 {"firstname": "Mark", "lastname": "Watney"}
 >>>
->>> print(astro.to_pickle())  # doctest: +SKIP
-b'\x80\x04\x95I\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\tAstronaut' \
-b'\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark' \
-b'\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
+>>> print(mark.to_pickle())
+b'\x80\x04\x95,\x00\x00\x00\x00\x00\x00\x00}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94u.'
 
 
 Assignments

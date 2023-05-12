@@ -9,19 +9,19 @@ OOP Attribute Access Modifiers
 * ``__name__`` - system attribute (dunder)
 * ``name_`` - avoid name collision with built-ins
 
->>> class Astronaut:
-...     firstname: str          # public
-...     lastname: str           # public
-...     _height: int            # public, but... protected by convention
-...     _weight: int            # public, but... protected by convention
-...     __salary: str           # public, but... private by convention (name mangling)
-...     __address: str          # public, but... private by convention (name mangling)
-...     id_: int                # public, but... public, avoid name collision
-...     type_: str              # public, but... public, avoid name collision
-...     __doc__: str            # public, but... special meaning built-in (dunder)
-...     __module__: str         # public, but... special meaning built-in (dunder)
-...     __version__: str        # public, but... special meaning custom made (dunder)
-...     __author__: str         # public, but... special meaning custom made (dunder)
+>>> class User:
+...     firstname = 'Mark'            # public
+...     lastname = 'Watney'           # public
+...     _phone = '+1 (234) 567-8910'  # public, but... protected by convention
+...     _email = 'mwatney@nasa.gov'   # public, but... protected by convention
+...     __username = 'mwatney'        # public, but... private by convention (name mangling)
+...     __password = 'Ares3'          # public, but... private by convention (name mangling)
+...     type_ = 'admin'               # public, but... public, avoid name collision
+...     id_ = 1                       # public, but... public, avoid name collision
+...     __doc__ = 'whatever'          # public, but... special meaning built-in (dunder)
+...     __module__ = '__main__'       # public, but... special meaning built-in (dunder)
+...     __author__ = 'Mark Watney'    # public, but... special meaning custom made (dunder)
+...     __version__ = '1.0.0'         # public, but... special meaning custom made (dunder)
 
 
 SetUp
@@ -31,20 +31,36 @@ SetUp
 
 Example
 -------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
-...         self.firstname = 'Mark'
-...         self.lastname = 'Watney'
-...         self._salary = 10_000
-...         self._address = '2101 E NASA Pkwy, Houston 77058, Texas, USA'
-...         self.__username = 'mwatney'
-...         self.__password = 'ares3'
-...         self.id_ = 1337
-...         self.type_ = 'astronaut'
-...         self.__doc__ = 'Class representing an Astronaut'
-...         self.__module__ = '__main__'
-...         self.__version__ = '1.0.0'
-...         self.__author__ = 'Mark Watney <mwatney@nasa.gov>'
+...         self.firstname = 'Mark'             # public
+...         self.lastname = 'Watney'            # public
+...         self._phone = '+1 (234) 567-8910'   # convention: protected
+...         self._email = 'mwatney@nasa.gov'    # convention: protected
+...         self.__username = 'mwatney'         # convention: private (name mangling)
+...         self.__password = 'Ares3'           # convention: private (name mangling)
+...         self.type_ = 'admin'                # convention: name collision avoidance (input, type, id, vars, print, sum, max, min)
+...         self.id_ = 1                        # convention: name collision avoidance
+...         self.__doc__ = 'whatever'           # internals: system field
+...         self.__module__ = '__main__'        # internals: system field
+...         self.__author__ = 'Mark Watney'     # convention: special fields
+...         self.__version__ = '1.0.0'          # convention: special fields
+
+>>> mark = User()
+>>>
+>>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+{'firstname': 'Mark',
+ 'lastname': 'Watney',
+ '_phone': '+1 (234) 567-8910',
+ '_email': 'mwatney@nasa.gov',
+ '_User__username': 'mwatney',
+ '_User__password': 'Ares3',
+ 'type_': 'admin',
+ 'id_': 1,
+ '__doc__': 'whatever',
+ '__module__': '__main__',
+ '__author__': 'Mark Watney',
+ '__version__': '1.0.0'}
 
 
 Public Attribute
@@ -52,12 +68,12 @@ Public Attribute
 * ``name`` - public attribute
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 
 To print attributes directly:
 
@@ -67,7 +83,7 @@ Mark
 >>> print(mark.lastname)
 Watney
 
-To list all the attributes once again we can use `vars()`:
+To list all the attributes once again we can use ``vars()``:
 
 >>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney'}
@@ -78,12 +94,12 @@ Protected Attribute
 * ``_name`` - protected attribute (non-public by convention)
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     _firstname: str
 ...     _lastname: str
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 
 Python will allow the following statement, however your IDE should
 warn you "Access to a protected member _firstname of a class":
@@ -94,7 +110,7 @@ Mark
 >>> print(mark._lastname)
 Watney
 
-To list all the attributes once again we can use `vars()`:
+To list all the attributes once again we can use ``vars()``:
 
 >>> vars(mark)
 {'_firstname': 'Mark', '_lastname': 'Watney'}
@@ -105,36 +121,36 @@ Private Attribute
 * ``__name`` - private attribute (name mangling)
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     __firstname: str
 ...     __lastname: str
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 
 There are no attributes with names ``__firstname`` and ``__lastname``:
 
 >>> print(mark.__firstname)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute '__firstname'
+AttributeError: 'User' object has no attribute '__firstname'
 >>>
 >>> print(mark.__lastname)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute '__lastname'
+AttributeError: 'User' object has no attribute '__lastname'
 
 To print attributes directly:
 
->>> print(mark._Astronaut__firstname)
+>>> print(mark._User__firstname)
 Mark
 >>>
->>> print(mark._Astronaut__lastname)
+>>> print(mark._User__lastname)
 Watney
 
 To list all the attributes once again we can use `vars()`:
 
 >>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
-{'_Astronaut__firstname': 'Mark',
- '_Astronaut__lastname': 'Watney'}
+{'_User__firstname': 'Mark',
+ '_User__lastname': 'Watney'}
 
 
 Name Mangling
@@ -215,21 +231,21 @@ System Attributes
 * ``obj.__module__`` - Name of a module in which object was defined
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 
 >>> mark.__class__
-<class '__main__.Astronaut'>
+<class '__main__.User'>
 >>>
 >>> mark.__dict__
 {'firstname': 'Mark', 'lastname': 'Watney'}
 >>>
 >>> mark.__doc__
-'Astronaut(firstname: str, lastname: str)'
+'User(firstname: str, lastname: str)'
 >>>
 >>> mark.__annotations__
 {'firstname': <class 'str'>, 'lastname': <class 'str'>}
@@ -242,7 +258,7 @@ Show Attributes
 ---------------
 * ``vars()`` display ``obj.__dict__``
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
@@ -251,14 +267,14 @@ Show Attributes
 ...         self.__username = 'mwatney'
 ...         self.__password = 'ares3'
 ...         self.id_ = 1337
-...         self.type_ = 'astronaut'
-...         self.__doc__ = 'Class representing an Astronaut'
+...         self.type_ = 'User'
+...         self.__doc__ = 'Class representing an User'
 ...         self.__module__ = '__main__'
 ...         self.__version__ = '1.0.0'
 ...         self.__author__ = 'Mark Watney <mwatney@nasa.gov>'
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 
 All attributes:
 
@@ -267,11 +283,11 @@ All attributes:
  'lastname': 'Watney',
  '_salary': 10000,
  '_address': '2101 E NASA Pkwy, Houston 77058, Texas, USA',
- '_Astronaut__username': 'mwatney',
- '_Astronaut__password': 'ares3',
+ '_User__username': 'mwatney',
+ '_User__password': 'ares3',
  'id_': 1337,
- 'type_': 'astronaut',
- '__doc__': 'Class representing an Astronaut',
+ 'type_': 'User',
+ '__doc__': 'Class representing an User',
  '__module__': '__main__',
  '__version__': '1.0.0',
  '__author__': 'Mark Watney <mwatney@nasa.gov>'}
@@ -287,7 +303,7 @@ Public attributes:
 >>>
 >>>
 >>> get_public_attributes(mark)
-{'firstname': 'Mark', 'id_': 1337, 'lastname': 'Watney', 'type_': 'astronaut'}
+{'firstname': 'Mark', 'id_': 1337, 'lastname': 'Watney', 'type_': 'User'}
 
 Protected attributes:
 
@@ -315,7 +331,7 @@ Private attributes:
 >>>
 >>>
 >>> get_private_attributes(mark)
-{'_Astronaut__password': 'ares3', '_Astronaut__username': 'mwatney'}
+{'_User__password': 'ares3', '_User__username': 'mwatney'}
 
 System attributes:
 
@@ -331,7 +347,7 @@ System attributes:
 >>> get_system_attributes(mark)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 {'__author__': 'Mark Watney <mwatney@nasa.gov>',
  '__dict__': {...},
- '__doc__': 'Class representing an Astronaut',
+ '__doc__': 'Class representing an User',
  '__module__': '__main__',
  '__version__': '1.0.0'}
 

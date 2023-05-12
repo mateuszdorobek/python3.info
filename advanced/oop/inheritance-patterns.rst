@@ -364,3 +364,7 @@ Assignments
 .. literalinclude:: assignments/oop_inheritance_patterns_d.py
     :caption: :download:`Solution <assignments/oop_inheritance_patterns_d.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/oop_inheritance_patterns_e.py
+    :caption: :download:`Solution <assignments/oop_inheritance_patterns_e.py>`
+    :end-before: # Solution

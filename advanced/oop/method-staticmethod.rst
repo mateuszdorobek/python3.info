@@ -7,9 +7,13 @@ OOP Method Staticmethod
 * No need to create a class instance
 * Will not pass instance (``self``) as a first method argument
 
->>> class MyClass:
+>>> class User:
+...     def say_hello():
+...         pass
+
+>>> class User:
 ...     @staticmethod
-...     def mymethod():
+...     def say_hello():
 ...         pass
 
 
@@ -17,7 +21,7 @@ Problem
 -------
 Assume we received ``DATA`` from the REST API endpoint:
 
->>> DATA = '{"firstname": "Pan", "lastname": "Twardowski"}'
+>>> DATA = '{"firstname": "Mark", "lastname": "Watney"}'
 
 Let's define a ``User`` class:
 
@@ -62,7 +66,7 @@ User object without passing those values. In both cases this will work,
 but it is not good:
 
 >>> User(None, None).from_json(DATA)
-User(firstname='Pan', lastname='Twardowski')
+User(firstname='Mark', lastname='Watney')
 
 
 Solution
@@ -117,10 +121,10 @@ in order to get some more readability:
 ...         return User(**data)
 >>>
 >>>
->>> DATA = '{"firstname": "Pan", "lastname": "Twardowski"}'
+>>> DATA = '{"firstname": "Mark", "lastname": "Watney"}'
 >>>
 >>> User.from_json(DATA)
-User(firstname='Pan', lastname='Twardowski')
+User(firstname='Mark', lastname='Watney')
 
 
 Namespace
@@ -222,32 +226,29 @@ Use Case - 0x02
 ...         ...
 >>>
 >>> http.get('https://python3.info')
->>> http.post('https://python3.info', data={'astronaut': 'Mark Watney'})
+>>> http.post('https://python3.info', data={'username': 'mwatney'})
 
 
 Use Case - 0x03
 ---------------
-* Hello
-
->>> def astronaut_say_hello():
-...     print('hello')
+>>> def user_login():
+...     print('Logged-in')
 >>>
->>> def astronaut_say_goodbye():
-...     print('goodbye')
+>>> def user_logout():
+...     print('Logged-out')
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     pass
 
->>> class Astronaut:
+>>> class User:
+...     @staticmethod
+...     def login(self):
+...         print('Logged-in')
 ...
 ...     @staticmethod
-...     def say_hello(self):
-...         print('hello')
-...
-...     @staticmethod
-...     def say_goodbye(self):
-...         print('goodbye')
+...     def logout(self):
+...         print('Logged-out')
 
 
 Use Case - 0x04
@@ -279,7 +280,7 @@ Use Case - 0x04
 
 Use Case - 0x05
 ---------------
-Helper `HabitatOS <https://www.habitatos.space>`_ Z-Wave sensor model:
+Helper `habitatOS <https://astronaut.center/habitatOS>`_ Z-Wave sensor model:
 
 >>> from datetime import datetime, timezone
 >>> from decimal import Decimal, InvalidOperation

@@ -359,10 +359,10 @@ x=1, y=2, z=3
 
 Default Value
 -------------
->>> class Astronaut(Protocol):
+>>> class User(Protocol):
 ...     firstname: str
 ...     lastname: str
-...     job: str = 'astronaut'
+...     group: str = 'admins'
 
 
 Merging and extending protocols
@@ -545,34 +545,34 @@ and instance of a protocol). With methods is easier. Methods always exists.
 Example below shows class with already filled information and therefore
 those fields exists.
 
->>> class Person(Protocol):
-...     firstname: str
-...     lastname: str
+>>> class Account(Protocol):
+...     username: str
+...     password: str
 >>>
 >>>
->>> class Astronaut:
-...     firstname: str = 'Mark'
-...     lastname: str = 'Watney'
-...     job: str = 'astronaut'
+>>> class User:
+...     username: str = 'Mark'
+...     password: str = 'Watney'
+...     groups: str = ['staff', 'admins']
 >>>
 >>>
->>> isinstance(Astronaut, Person)
+>>> isinstance(User, Account)
 Traceback (most recent call last):
 TypeError: Instance and class checks can only be used with @runtime_checkable protocols
 
 >>> @runtime_checkable
-... class Person(Protocol):
-...     firstname: str
-...     lastname: str
+... class Account(Protocol):
+...     username: str
+...     password: str
 >>>
 >>>
->>> class Astronaut:
-...     firstname: str = 'Mark'
-...     lastname: str = 'Watney'
-...     job: str = 'astronaut'
+>>> class User:
+...     username: str = 'Mark'
+...     password: str = 'Watney'
+...     groups: str = ['staff', 'admins']
 >>>
 >>>
->>> isinstance(Astronaut, Person)
+>>> isinstance(User, Account)
 True
 
 

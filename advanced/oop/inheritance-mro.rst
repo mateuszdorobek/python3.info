@@ -7,7 +7,7 @@ Python computes a method resolution order (MRO) based on your class
 inheritance tree. The MRO satisfies 3 properties:
 
 * Children of a class come before their parents
-* Left parents come before right parents
+* User parents come before Admin parents
 * A class only appears once in the MRO
 
 If no such ordering exists, Python errors. The inner workings of this
@@ -16,20 +16,20 @@ https://www.python.org/download/releases/2.3/mro/
 
 .. code-block:: text
 
-        Parent
-        /   \
-       /     \
-    Left    Right
-       \     /
-        \   /
-        Child
+      Account
+       /   \
+      /     \
+    User   Admin
+      \     /
+       \   /
+     MyAccount
 
 Thus, in examples above, it is:
 
-* Child
-* Left
-* Right
-* Parent
+* MyAccount
+* User
+* Admin
+* Account
 
 When a method is called, the first occurrence of that method in the MRO
 is the one that is called. Any class that doesn't implement that method
@@ -40,23 +40,23 @@ super in the methods.
 
 Note that you can see the MRO in python by using the ``.mro()`` method:
 
->>> class Parent(object):
+>>> class Account(object):
 ...     pass
 >>>
->>> class Left(Parent):
+>>> class User(Account):
 ...     pass
 >>>
->>> class Right(Parent):
+>>> class Admin(Account):
 ...     pass
 >>>
->>> class Child(Left, Right):
+>>> class MyAccount(User, Admin):
 ...     pass
 
->>> Child.mro()  # doctest: +NORMALIZE_WHITESPACE
-[<class '__main__.Child'>,
- <class '__main__.Left'>,
- <class '__main__.Right'>,
- <class '__main__.Parent'>,
+>>> MyAccount.mro()  # doctest: +NORMALIZE_WHITESPACE
+[<class '__main__.MyAccount'>,
+ <class '__main__.User'>,
+ <class '__main__.Admin'>,
+ <class '__main__.Account'>,
  <class 'object'>]
 
 Note that in Python 3, you don't need to pass any arguments to ``super()``,
@@ -69,93 +69,93 @@ any more.
 
 Problem
 -------
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 >>>
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     def __init__(self):
-...         print('Cosmonaut')
+...         print('Admin')
 >>>
 >>>
->>> class Crew(Astronaut, Cosmonaut):
+>>> class MyAccount(User, Admin):
 ...     def __init__(self):
-...         print('Crew')
+...         print('MyAccount')
 >>>
 >>>
->>> crew = Crew()
-Crew
+>>> me = MyAccount()
+MyAccount
 
 
 Small Diamond
 -------------
 .. figure:: img/oop-mro-diamond-small-empty.png
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 >>>
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     def __init__(self):
-...         print('Cosmonaut')
+...         print('Admin')
 >>>
 >>>
->>> class Crew(Astronaut, Cosmonaut):
+>>> class MyAccount(User, Admin):
 ...     pass
 >>>
 >>>
->>> crew = Crew()
-Astronaut
+>>> me = MyAccount()
+User
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 >>>
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     def __init__(self):
-...         print('Cosmonaut')
+...         print('Admin')
 >>>
 >>>
->>> class Crew(Astronaut, Cosmonaut):
+>>> class MyAccount(User, Admin):
 ...     def __init__(self):
 ...         super().__init__()
 >>>
 >>>
->>> crew = Crew()
-Astronaut
+>>> me = MyAccount()
+User
 
 .. figure:: img/oop-mro-diamond-small-path.png
 
->>> Crew.mro()  # doctest: +NORMALIZE_WHITESPACE
-[<class '__main__.Crew'>,
- <class '__main__.Astronaut'>,
- <class '__main__.Cosmonaut'>,
- <class '__main__.Person'>,
+>>> MyAccount.mro()  # doctest: +NORMALIZE_WHITESPACE
+[<class '__main__.MyAccount'>,
+ <class '__main__.User'>,
+ <class '__main__.Admin'>,
+ <class '__main__.Account'>,
  <class 'object'>]
 
->>> Crew.__mro__  # doctest: +NORMALIZE_WHITESPACE
-(<class '__main__.Crew'>,
- <class '__main__.Astronaut'>,
- <class '__main__.Cosmonaut'>,
- <class '__main__.Person'>,
+>>> MyAccount.__mro__  # doctest: +NORMALIZE_WHITESPACE
+(<class '__main__.MyAccount'>,
+ <class '__main__.User'>,
+ <class '__main__.Admin'>,
+ <class '__main__.Account'>,
  <class 'object'>)
 
 
@@ -163,110 +163,110 @@ Large Diamond
 -------------
 .. figure:: img/oop-mro-diamond-large-empty.png
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 >>>
->>> class VeteranAstronaut(Astronaut):
+>>> class SuperUser(User):
 ...     def __init__(self):
-...         print('VeteranAstronaut')
+...         print('SuperUser')
 >>>
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     def __init__(self):
-...         print('Cosmonaut')
+...         print('Admin')
 >>>
->>> class VeteranCosmonaut(Cosmonaut):
+>>> class SuperAdmin(Admin):
 ...     def __init__(self):
-...         print('VeteranCosmonaut')
+...         print('SuperAdmin')
 >>>
 >>>
->>> class Crew(VeteranAstronaut, VeteranCosmonaut):
+>>> class MyAccount(SuperUser, SuperAdmin):
 ...     def __init__(self):
 ...         super().__init__()
 >>>
 >>>
->>> crew = Crew()
-VeteranAstronaut
+>>> me = MyAccount()
+SuperUser
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 >>>
->>> class VeteranAstronaut(Astronaut):
-...     def __init__(self):
-...         super().__init__()
-...         print('VeteranAstronaut')
->>>
->>>
->>> class Cosmonaut(Person):
-...     def __init__(self):
-...         print('Cosmonaut')
->>>
->>> class VeteranCosmonaut(Cosmonaut):
+>>> class SuperUser(User):
 ...     def __init__(self):
 ...         super().__init__()
-...         print('VeteranCosmonaut')
+...         print('SuperUser')
 >>>
 >>>
->>> class Crew(VeteranAstronaut, VeteranCosmonaut):
+>>> class Admin(Account):
+...     def __init__(self):
+...         print('Admin')
+>>>
+>>> class SuperAdmin(Admin):
+...     def __init__(self):
+...         super().__init__()
+...         print('SuperAdmin')
+>>>
+>>>
+>>> class MyAccount(SuperUser, SuperAdmin):
 ...     pass
 >>>
 >>>
->>> crew = Crew()
-Astronaut
-VeteranAstronaut
+>>> me = MyAccount()
+User
+SuperUser
 
 
 Problematic super()
 -------------------
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person')
+...         print('Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut')
+...         print('User')
 ...         super().__init__()
 >>>
->>> class VeteranAstronaut(Astronaut):
+>>> class SuperUser(User):
 ...     def __init__(self):
-...         print('VeteranAstronaut')
-...         super().__init__()
->>>
->>>
->>> class Cosmonaut(Person):
-...     def __init__(self):
-...         print('Cosmonaut')
-...         super().__init__()
->>>
->>> class VeteranCosmonaut(Cosmonaut):
-...     def __init__(self):
-...         print('VeteranCosmonaut')
+...         print('SuperUser')
 ...         super().__init__()
 >>>
 >>>
->>> class Crew(VeteranAstronaut, VeteranCosmonaut):
+>>> class Admin(Account):
+...     def __init__(self):
+...         print('Admin')
+...         super().__init__()
+>>>
+>>> class SuperAdmin(Admin):
+...     def __init__(self):
+...         print('SuperAdmin')
+...         super().__init__()
+>>>
+>>>
+>>> class MyAccount(SuperUser, SuperAdmin):
 ...     pass
 >>>
 >>>
->>> crew = Crew()
-VeteranAstronaut
-Astronaut
-VeteranCosmonaut
-Cosmonaut
-Person
+>>> me = MyAccount()
+SuperUser
+User
+SuperAdmin
+Admin
+Account
 
 
 Why?!
@@ -275,13 +275,13 @@ Why?!
 
 .. figure:: img/oop-mro-diamond-large-path.png
 
->>> Crew.mro()  # doctest: +NORMALIZE_WHITESPACE
-[<class '__main__.Crew'>,
- <class '__main__.VeteranAstronaut'>,
- <class '__main__.Astronaut'>,
- <class '__main__.VeteranCosmonaut'>,
- <class '__main__.Cosmonaut'>,
- <class '__main__.Person'>,
+>>> MyAccount.mro()  # doctest: +NORMALIZE_WHITESPACE
+[<class '__main__.MyAccount'>,
+ <class '__main__.SuperUser'>,
+ <class '__main__.User'>,
+ <class '__main__.SuperAdmin'>,
+ <class '__main__.Admin'>,
+ <class '__main__.Account'>,
  <class 'object'>]
 
 

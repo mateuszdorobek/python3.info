@@ -9,11 +9,13 @@ OOP Attribute Slots
 
 >>> class User:
 ...     __slots__ = ('firstname', 'lastname')
->>>
->>>
+...
 >>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
+>>> mark.notexisting = True
+Traceback (most recent call last):
+AttributeError: 'User' object has no attribute 'notexisting'
 
 When inheriting from a class without ``__slots__``, the ``__dict__``
 and ``__weakref__`` attribute of the instances will always be accessible.
@@ -113,48 +115,40 @@ counted as a reference. Otherwise, if counted, they will be called strong
 references [#Mazdak2016]_.
 
 
-Empty Slots
+Recap
+-----
+>>> class User:
+...     pass
+
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
+>>> mark.email = 'mwatney@nasa.gov'
+
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney', 'email': 'mwatney@nasa.gov'}
+
+>>> mark.__dict__
+{'firstname': 'Mark', 'lastname': 'Watney', 'email': 'mwatney@nasa.gov'}
+
+
+Declaration
 -----------
 >>> class User:
-...     __slots__ = ()
->>>
->>>
->>> mark = User()
-
->>> mark.fullname = 'Mark Watney'
-Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'fullname'
-
-
-One Slot
---------
->>> class User:
-...     __slots__ = ('fullname',)
->>>
->>>
->>> mark = User()
-
->>> mark.fullname = 'Mark Watney'
-
->>> mark.role = 'Botanist'
-Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'role'
-
-
-Many Slots
-----------
->>> class User:
 ...     __slots__ = ('firstname', 'lastname')
->>>
 >>>
 >>> mark = User()
 
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 
->>> mark.role = 'Botanist'
+>>> mark.email = 'mwatney@nasa.gov'
 Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'email'
+
+>>> mark.phone = '+1 234 567 8910'
+Traceback (most recent call last):
+AttributeError: 'User' object has no attribute 'phone'
 
 
 Get Value
@@ -249,6 +243,40 @@ This is because ``vars()`` display content of ``__dict__``:
 >>> print(mark.__dict__)
 Traceback (most recent call last):
 AttributeError: 'User' object has no attribute '__dict__'
+
+
+Slots vs Attributes
+-------------------
+>>> class User:
+...     pass
+...
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
+
+>>> class User:
+...     firstname = 'Mark'
+...     lastname = 'Watney'
+...
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              'firstname': 'Mark',
+              'lastname': 'Watney',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
+
+>>> class User:
+...     __slots__ = ('firstname', 'lastname')
+...
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__slots__': ('firstname', 'lastname'),
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>,
+              '__doc__': None})
 
 
 Slots Internals
@@ -562,7 +590,7 @@ Use Case - 0x01
 ...     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ... ]
 >>>
->>> @dataclass(slots=True)
+>>> @dataclass(slots=True, frozen=True)
 ... class Iris:
 ...     sl: float
 ...     sw: float

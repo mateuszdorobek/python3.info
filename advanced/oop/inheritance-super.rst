@@ -7,39 +7,39 @@ Super
 * Order is important
 * Raymond Hettinger - Super considered super! - PyCon 2015 [#Hettinger2015]_
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
-...         self.job = None
+...         self.groups = []
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
 ...         super().__init__()
-...         self.job = 'astronaut'
+...         self.groups = ['admins']
 >>>
 >>>
->>> astro = Astronaut()
->>> print(vars(astro))
-{'firstname': 'Mark', 'lastname': 'Watney', 'job': 'astronaut'}
+>>> mark = User()
+>>> print(vars(mark))
+{'firstname': 'Mark', 'lastname': 'Watney', 'groups': ['admins']}
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
-...         self.job = None
+...         self.groups = []
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         self.job = 'astronaut'
+...         self.groups = ['admins']
 ...         super().__init__()
 >>>
 >>>
->>> astro = Astronaut()
->>> print(vars(astro))
-{'job': None, 'firstname': 'Mark', 'lastname': 'Watney'}
+>>> mark = User()
+>>> print(vars(mark))
+{'groups': [], 'firstname': 'Mark', 'lastname': 'Watney'}
 
 
 Init and Multiple Inheritance
@@ -68,8 +68,8 @@ being operated on.
 ...         super().__init__()
 >>>
 >>>
->>> h = Hero('Mark Watney')
->>> vars(h)
+>>> mark = Hero('Mark Watney')
+>>> vars(mark)
 {'name': 'Mark Watney', 'x': 0, 'y': 0}
 
 >>> class HasPosition:
@@ -154,13 +154,13 @@ mappingproxy({'__module__': '__main__',
 
 Init subclass can also take keyword arguments:
 
->>> class Person:
-...     def __init_subclass__(cls, /, job, **kwargs):
+>>> class Account:
+...     def __init_subclass__(cls, /, group, **kwargs):
 ...         super().__init_subclass__(**kwargs)
-...         cls.job = job
+...         cls.group = group
 >>>
 >>>
->>> class Astronaut(Person, job='astronaut'):
+>>> class User(Account, group='admins'):
 ...     pass
 
 

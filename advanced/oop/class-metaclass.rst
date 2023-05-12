@@ -57,19 +57,19 @@ Syntax
 ------
 * Metaclass is a callable which returns a class
 
->>> Astronaut = type('Astronaut', (), {})
+>>> User = type('User', (), {})
 
->>> def mymetaclass(clsname, bases, attrs):
-...     return type('Astronaut', (), {})
+>>> def mytype(clsname, bases, attrs):
+...     return type('User', (), {})
 >>>
->>> Astronaut = mymetaclass('Astronaut', (), {})
+>>> User = mytype('User', (), {})
 
->>> class MyMetaclass(type):
-...     def __new__(mcs, clsname, bases, attrs):
+>>> class MyType(type):
+...     def __new__(metacls, clsname, bases, attrs):
 ...         return type(clsname, bases, attrs)
 >>>
 >>>
->>> Astronaut = MyMetaclass('Astronaut', (), {})
+>>> User = MyType('User', (), {})
 
 
 Example
@@ -122,7 +122,7 @@ Metaclasses
 
 
 >>> class MyMeta(type):
-...     def __new__(mcs, classname, bases, attrs):
+...     def __new__(metacls, classname, bases, attrs):
 ...         return type(classname, bases, attrs)
 >>>
 >>>
@@ -163,7 +163,7 @@ Usage
 The potential uses for metaclasses are boundless. Some ideas that have been explored include enum, logging, interface checking, automatic delegation, automatic property creation, proxies, frameworks, and automatic resource locking/synchronization. [#pydocclassobject]_
 
 >>> class MyMeta(type):
-...     def __new__(mcs, classname, bases, attrs):
+...     def __new__(metacls, classname, bases, attrs):
 ...         print(locals())
 ...         return type(classname, bases, attrs)
 >>>
@@ -173,7 +173,7 @@ The potential uses for metaclasses are boundless. Some ideas that have been expl
 ...
 ...     def mymethod(self):
 ...         pass  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-{'mcs': <class '__main__.MyMeta'>,
+{'metacls': <class '__main__.MyMeta'>,
  'classname': 'MyClass',
  'bases': (),
  'attrs': {'__module__': '__main__',
@@ -185,7 +185,7 @@ The potential uses for metaclasses are boundless. Some ideas that have been expl
 Keyword Arguments
 -----------------
 >>> class MyMeta(type):
-...     def __new__(mcs, classname, bases, attrs, myvar):
+...     def __new__(metacls, classname, bases, attrs, myvar):
 ...         if myvar:
 ...             ...
 ...         return type(classname, bases, attrs)
@@ -198,7 +198,7 @@ Keyword Arguments
 Methods
 -------
 * ``__prepare__(metacls, name, bases, **kwargs) -> dict`` - on class namespace initialization
-* ``__new__(mcs, classname, bases, attrs) -> cls`` - before class creation
+* ``__new__(metacls, classname, bases, attrs) -> cls`` - before class creation
 * ``__init__(self, name, bases, attrs) -> None`` - after class creation
 * ``__call__(self, *args, **kwargs)`` - allows custom behavior when the class is called
 
@@ -221,7 +221,7 @@ mapping. [#pydocsprepare]_
 ...     def __prepare__(metacls, name, bases) -> dict:
 ...         pass
 ...
-...     def __new__(mcs, classname, bases, attrs) -> Any:
+...     def __new__(metacls, classname, bases, attrs) -> Any:
 ...         pass
 ...
 ...     def __init__(self, *args, **kwargs) -> None:
@@ -243,20 +243,20 @@ Use Case - 0x01
 ...         cls._logger = logging.getLogger(cls.__name__)
 >>>
 >>>
->>> class Astronaut(metaclass=Logger):
+>>> class User(metaclass=Logger):
 ...     pass
 >>>
 >>>
->>> class Cosmonaut(metaclass=Logger):
+>>> class Admin(metaclass=Logger):
 ...     pass
 >>>
 >>>
 >>>
->>> print(Astronaut._logger)
-<Logger Astronaut (WARNING)>
+>>> print(User._logger)
+<Logger User (WARNING)>
 >>>
->>> print(Cosmonaut._logger)
-<Logger Cosmonaut (WARNING)>
+>>> print(Admin._logger)
+<Logger Admin (WARNING)>
 
 
 Type Metaclass
@@ -339,7 +339,7 @@ Type Metaclass
 (<class 'object'>,)
 
 >>> class MyMeta(type):
-...     def __new__(mcs, classname, bases, attrs):
+...     def __new__(metacls, classname, bases, attrs):
 ...         return type(classname, bases, attrs)
 >>>
 >>>
@@ -349,45 +349,45 @@ Type Metaclass
 
 Method Resolution Order
 -----------------------
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> isinstance(astro, Astronaut)
+>>> isinstance(mark, User)
 True
 >>>
->>> isinstance(astro, object)
+>>> isinstance(mark, object)
 True
 >>>
->>> Astronaut.__mro__
-(<class '__main__.Astronaut'>, <class 'object'>)
+>>> User.__mro__
+(<class '__main__.User'>, <class 'object'>)
 
->>> class AstroMeta(type):
+>>> class MyType(type):
 ...     pass
 >>>
 >>>
->>> class Astronaut(metaclass=AstroMeta):
+>>> class User(metaclass=MyType):
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> isinstance(astro, Astronaut)
+>>> isinstance(mark, User)
 True
 >>>
->>> isinstance(astro, object)
+>>> isinstance(mark, object)
 True
 >>>
->>> isinstance(astro, AstroMeta)
+>>> isinstance(mark, MyType)
 False
 >>>
->>> isinstance(Astronaut, AstroMeta)
+>>> isinstance(User, MyType)
 True
 >>>
->>> Astronaut.__mro__
-(<class '__main__.Astronaut'>, <class 'object'>)
+>>> User.__mro__
+(<class '__main__.User'>, <class 'object'>)
 
 
 Example
@@ -401,20 +401,20 @@ Example
 ...     return obj
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> Astronaut.__new__ = new
+>>> User.__new__ = new
 >>>
->>> mark = Astronaut()
->>> melissa = Astronaut()
+>>> mark = User()
+>>> melissa = User()
 >>>
 >>> print(mark._logger)
-<Logger Astronaut (WARNING)>
+<Logger User (WARNING)>
 >>>
 >>> print(melissa._logger)
-<Logger Astronaut (WARNING)>
+<Logger User (WARNING)>
 
 >>> import logging
 >>>
@@ -452,18 +452,18 @@ Injecting logger instance:
 ...     def __init__(cls, *args, **kwargs):
 ...         cls._logger = logging.getLogger(cls.__name__)
 >>>
->>> class Astronaut(metaclass=Logger):
+>>> class User(metaclass=Logger):
 ...     pass
 >>>
->>> class Cosmonaut(metaclass=Logger):
+>>> class Admin(metaclass=Logger):
 ...     pass
 >>>
 >>>
->>> print(Astronaut._logger)
-<Logger Astronaut (WARNING)>
+>>> print(User._logger)
+<Logger User (WARNING)>
 >>>
->>> print(Cosmonaut._logger)
-<Logger Cosmonaut (WARNING)>
+>>> print(Admin._logger)
+<Logger Admin (WARNING)>
 
 
 Use Case - 0x02
@@ -473,15 +473,15 @@ Abstract Base Class:
 >>> from abc import ABCMeta, abstractmethod
 >>>
 >>>
->>> class Astronaut(metaclass=ABCMeta):
+>>> class User(metaclass=ABCMeta):
 ...     @abstractmethod
 ...     def say_hello(self):
 ...         pass
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Astronaut with abstract method say_hello
+TypeError: Can't instantiate abstract class User with abstract method say_hello
 
 
 Use Case - 0x03
@@ -500,40 +500,37 @@ Use Case - 0x03
 ...                 cls.listeners[clsname] += [func]
 ...         return wrapper
 ...
-...     def __new__(mcs, classname, bases, attrs):
-...         for listener in mcs.listeners.get(classname, []):
+...     def __new__(metacls, classname, bases, attrs):
+...         for listener in metacls.listeners.get(classname, []):
 ...             listener.__call__(classname, bases, attrs)
 ...         return type(classname, bases, attrs)
 >>>
 >>>
->>> @EventListener.register('Astronaut')
-... def hello_class(clsname, bases, attrs):
-...     print(f'Hello new class {clsname}')
+>>> @EventListener.register('User')
+... def info(clsname, bases, attrs):
+...     print(f'Info: New class {clsname}')
 >>>
 >>>
->>> @EventListener.register('Astronaut', 'Person')
-... def print_name(clsname, bases, attrs):
-...     print('New class created')
-...     print('Classname:', clsname)
-...     print('Bases:', bases)
-...     print('Attrs:', attrs)
+>>> @EventListener.register('User', 'Admin')
+... def debug(clsname, bases, attrs):
+...     print(f'Debug: Classname: {clsname}')
+...     print(f'Debug: Bases: {bases}')
+...     print(f'Debug: Attrs: {attrs}')
 >>>
 >>>
->>> class Person(metaclass=EventListener):
+>>> class User(metaclass=EventListener):
 ...     pass
-New class created
-Classname: Person
-Bases: ()
-Attrs: {'__module__': '__main__', '__qualname__': 'Person'}
+Info: New class User
+Debug: Classname: User
+Debug: Bases: ()
+Debug: Attrs: {'__module__': '__main__', '__qualname__': 'User'}
 >>>
 >>>
->>> class Astronaut(Person, metaclass=EventListener):
+>>> class Admin(User, metaclass=EventListener):
 ...     pass
-Hello new class Astronaut
-New class created
-Classname: Astronaut
-Bases: (<class '__main__.Person'>,)
-Attrs: {'__module__': '__main__', '__qualname__': 'Astronaut'}
+Debug: Classname: Admin
+Debug: Bases: (<class '__main__.User'>,)
+Debug: Attrs: {'__module__': '__main__', '__qualname__': 'Admin'}
 
 
 Use Case - 0x04
@@ -569,11 +566,11 @@ Use Case - 0x05
 * Final
 
 >>> class Final(type):
-...     def __new__(mcs, classname, base, attrs):
+...     def __new__(metacls, classname, base, attrs):
 ...         for cls in base:
 ...             if isinstance(cls, Final):
 ...                 raise TypeError(f'{cls.__name__} is final and cannot inherit from it')
-...         return type.__new__(mcs, classname, base, attrs)
+...         return type.__new__(metacls, classname, base, attrs)
 >>>
 >>>
 >>> class MyClass(metaclass=Final):
@@ -598,7 +595,7 @@ Access static fields of a class, before creating instance:
 ... #     ...
 ...
 ...
-... class Person(models.Model):
+... class User(models.Model):
 ...     firstname = models.CharField(max_length=255)
 ...     lastname = models.CharField(max_length=255)
 
@@ -616,13 +613,13 @@ Inheritance and ``__init__()`` method:
 ...     def __init__(self):
 ...         self._logger = logging.getLogger(self.__class__.__name__)
 >>>
->>> class Astronaut(Logger):
+>>> class User(Logger):
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
->>> print(astro._logger)
-<Logger Astronaut (WARNING)>
+>>> mark = User()
+>>> print(mark._logger)
+<Logger User (WARNING)>
 
 Inheritance and ``__new__()`` method:
 
@@ -635,28 +632,28 @@ Inheritance and ``__new__()`` method:
 ...         obj._logger = logging.getLogger(obj.__class__.__name__)
 ...         return obj
 >>>
->>> class Astronaut(Logger):
+>>> class User(Logger):
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
->>> print(astro._logger)
-<Logger Astronaut (WARNING)>
+>>> mark = User()
+>>> print(mark._logger)
+<Logger User (WARNING)>
 
 Inheritance for abstract base class validation:
 
 >>> from abc import ABC, abstractmethod
 >>>
 >>>
->>> class Astronaut(ABC):
+>>> class User(ABC):
 ...     @abstractmethod
 ...     def say_hello(self):
 ...         pass
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Astronaut with abstract method say_hello
+TypeError: Can't instantiate abstract class User with abstract method say_hello
 
 Class Decorator:
 
@@ -670,12 +667,12 @@ Class Decorator:
 >>>
 >>>
 >>> @add_logger
-... class Astronaut:
+... class User:
 ...     pass
 >>>
 >>>
->>> print(Astronaut._logger)
-<Logger Astronaut (WARNING)>
+>>> print(User._logger)
+<Logger User (WARNING)>
 
 
 References

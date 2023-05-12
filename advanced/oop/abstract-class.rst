@@ -435,7 +435,9 @@ Rendering Submit Button
 
 Use Case - 0x03
 ---------------
->>> class Person(ABC):
+>>> from abc import ABC, abstractmethod, abstractproperty
+>>>
+>>> class Account(ABC):
 ...     age: int
 ...
 ...     @property
@@ -450,11 +452,65 @@ Use Case - 0x03
 ...             raise ValueError('Age is out of bounds')
 ...         self.age = age
 
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     AGE_MIN = 30
 ...     AGE_MAX = 50
 
->>> mark = Astronaut(age=40)
+>>> mark = User(age=40)
+
+
+Use Case - 0x04
+---------------
+>>> from abc import ABC, abstractmethod
+>>> from datetime import timedelta
+>>>
+>>>
+>>> class Cache(ABC):
+...     @property
+...     @abstractmethod
+...     def timeout(self) -> timedelta:
+...         raise NotImplementedError
+...
+...     @abstractmethod
+...     def set(self, key: str, value: str) -> None:
+...         raise NotImplementedError
+...
+...     @abstractmethod
+...     def get(self, key: str) -> str:
+...         raise NotImplementedError
+...
+...     @abstractmethod
+...     def delete(self, key: str) -> None:
+...         raise NotImplementedError
+>>>
+>>>
+>>> class DatabaseCache(Cache):
+...     timeout = timedelta(minutes=10)
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
+>>>
+>>> class FilesystemCache(Cache):
+...     timeout = timedelta(minutes=10)
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
+>>>
+>>> class LocmemCache(Cache):
+...     timeout = timedelta(minutes=10)
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
+>>>
+>>>
+>>> cache: Cache = LocmemCache()
+>>> cache.set('firstname', 'Mark')
+>>> cache.set('lastname', 'Watney')
+>>> cache.get('firstname')
+>>> cache.get('lastname')
+>>> cache.delete('firstname')
+>>> cache.delete('lastname')
+
 
 
 Further Reading

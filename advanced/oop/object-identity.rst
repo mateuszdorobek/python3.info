@@ -276,54 +276,54 @@ False
 
 Object Identity
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro1 = Astronaut('Mark', 'Watney')
->>> astro2 = Astronaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
 >>>
->>> astro1 is astro2
+>>> a is b
 False
 >>>
->>> id(astro1)  # doctest: +SKIP
+>>> id(a)  # doctest: +SKIP
 4421890496
->>> id(astro2)  # doctest: +SKIP
+>>> id(b)  # doctest: +SKIP
 4421893328
 >>>
->>> hex(id(astro1))  # doctest: +SKIP
+>>> hex(id(a))  # doctest: +SKIP
 '0x10790b1c0'
->>> hex(id(astro2))  # doctest: +SKIP
+>>> hex(id(b))  # doctest: +SKIP
 '0x10790bcd0'
 >>>
->>> print(astro1)  # doctest: +SKIP
-<Astronaut object at 0x107905820>
->>> print(astro2)  # doctest: +SKIP
-<Astronaut object at 0x10790bcd0>
+>>> print(a)  # doctest: +SKIP
+<User object at 0x107905820>
+>>> print(b)  # doctest: +SKIP
+<User object at 0x10790bcd0>
 
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     pass
 >>>
 >>>
->>> Astronaut is Astronaut
+>>> User is User
 True
 >>>
->>> Cosmonaut is Cosmonaut
+>>> Admin is Admin
 True
 >>>
->>> Astronaut is Cosmonaut
+>>> User is Admin
 False
 >>>
->>> id(Astronaut)  # doctest: +SKIP
+>>> id(User)  # doctest: +SKIP
 140570740200304
 >>>
->>> id(Cosmonaut)  # doctest: +SKIP
+>>> id(Admin)  # doctest: +SKIP
 140570185653984
 
 
@@ -392,16 +392,16 @@ True
 >>> a == b
 True
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro1 = Astronaut('Mark', 'Watney')
->>> astro2 = Astronaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
 >>>
->>> astro1 == astro2
+>>> a == b
 False
 
 
@@ -455,17 +455,17 @@ True
 
 Use Case - 0x01
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     pass
 >>>
->>> a = Astronaut()
+>>> a = User()
 >>> a.firstname = 'Mark'
 >>> a.lastname = 'Watney'
 >>>
->>> c = Cosmonaut()
+>>> c = Admin()
 >>> c.firstname = 'Mark'
 >>> c.lastname = 'Watney'
 >>>
@@ -511,7 +511,7 @@ Use Case - 0x02
 ---------------
 * Make Equal
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -521,12 +521,12 @@ Use Case - 0x02
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> a1 = Astronaut('Mark', 'Watney')
->>> a2 = Astronaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
 >>>
->>> a1 == a2
+>>> a == b
 True
->>> a1 is a2
+>>> a is b
 False
 
 
@@ -534,7 +534,7 @@ Use Case - 0x03
 ---------------
 * Equal Problem
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -544,18 +544,18 @@ Use Case - 0x03
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> a = Astronaut('Mark', 'Watney')
->>> c = Cosmonaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
+>>> b = Admin('Mark', 'Watney')
 >>>
->>> a == c
+>>> a == b
 True
->>> a is c
+>>> a is b
 False
 
 
@@ -563,7 +563,7 @@ Use Case - 0x04
 ---------------
 * Make Unequal
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -574,62 +574,18 @@ Use Case - 0x04
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> a = Astronaut('Mark', 'Watney')
->>> c = Cosmonaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
+>>> b = Admin('Mark', 'Watney')
 >>>
->>> a == c
+>>> a == b
 False
->>> a is c
-False
-
-
-Use Case - 0x05
----------------
-* Overload
-* Could be implemented through ``from functools import singledispatchmethod``
-* More information: https://python3.info/advanced/functional/stdlib-functools.html#singledispatchmethod
-
->>> # doctest: +SKIP
-... from functools import singledispatchmethod
-...
-...
-... class Astronaut:
-...     def __init__(self, firstname, lastname):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...
-...     @singledispatchmethod
-...     def __eq__(self, other):
-...         return False
-...
-...     @__eq__.register
-...     def _(self, other: 'Astronaut'):
-...         return self.firstname == other.firstname \
-...            and self.lastname == other.lastname
-...
-...     @__eq__.register
-...     def _(self, other: 'Cosmonaut'):
-...         return False
-...
-...
-... class Cosmonaut:
-...     def __init__(self, firstname, lastname):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...
-...
-... a = Astronaut('Mark', 'Watney')
-... c = Cosmonaut('Mark', 'Watney')
-...
-... a == c
-False
->>> a is c  # doctest: +SKIP
+>>> a is b
 False
 
 

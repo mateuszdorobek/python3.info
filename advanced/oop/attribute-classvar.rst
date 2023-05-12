@@ -14,18 +14,28 @@ Class Variables
 
 Class variables are defined on a class:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> Astronaut.firstname = 'Mark'
->>> Astronaut.lastname = 'Watney'
+>>> User.firstname = 'Mark'
+>>> User.lastname = 'Watney'
 
 Class variables are defined in a class:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
+
+In order to show all the variables use ``vars()`` on the class:
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              'firstname': 'Mark',
+              'lastname': 'Watney',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
 
 
 Instance Variables
@@ -37,47 +47,54 @@ Instance Variables
 
 Instance variables are defined on an instance:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Mark'
->>> astro.lastname = 'Watney'
+>>> mark = User()
+>>> mark.firstname = 'Mark'
+>>> mark.lastname = 'Watney'
 
 Instance variables are defined in init:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
 
 Instance variables with variable values:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
+
+In order to show all the variables use ``vars()`` on an instance:
+
+>>> mark = User('Mark', 'Watney')
+>>>
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
 
 
 Class and Instance Variables
 ----------------------------
 Class and instance variables defined in code:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> Astronaut.firstname = 'Mark'
->>> Astronaut.lastname = 'Watney'
+>>> User.firstname = 'Mark'
+>>> User.lastname = 'Watney'
 >>>
->>> astro = Astronaut()
->>> astro.firstname = 'Melissa'
->>> astro.lastname = 'Lewis'
+>>> mark = User()
+>>> mark.firstname = 'Melissa'
+>>> mark.lastname = 'Lewis'
 
 Class and instance variables defined in class:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
 ...
@@ -88,9 +105,22 @@ Class and instance variables defined in class:
 Note, the last example makes not meaningful sense. Instance variables
 will shadow class variables.
 
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+mappingproxy({'__module__': '__main__',
+              'firstname': 'Mark',
+              'lastname': 'Watney',
+              '__init__': <function User.__init__ at 0x...>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
 
-Typing
-------
+>>> mark = User()
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
+
+
+Annotations
+-----------
 Type annotations are not variable definition:
 
 >>> x: int
@@ -118,28 +148,44 @@ Typically it is written in shorter form:
 These are not attributes at all (sic!). These are type annotations only,
 and they do not exist before initialization in a code:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
+
 Class variables with type annotations:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str = 'Mark'
 ...     lastname: str = 'Watney'
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
+              'firstname': 'Mark',
+              'lastname': 'Watney',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None})
 
 Class variables with proper type annotations:
 
 >>> from typing import ClassVar
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: ClassVar[str] = 'Mark'
 ...     lastname: ClassVar[str] = 'Watney'
 
 Instance variables with type annotations:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...
@@ -148,8 +194,8 @@ Instance variables with type annotations:
 ...         self.lastname = lastname
 
 
-Dataclasses
------------
+Dataclass Fields
+----------------
 * Dataclass uses class variables notation to create instance fields
 * Dataclass do not validate type annotations, unless ``ClassVar``
 
@@ -159,37 +205,84 @@ Dataclasses
 Instance variables:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+mappingproxy({'__module__': '__main__',
+              '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': 'User(firstname: str, lastname: str)',
+              '__dataclass_params__': _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False),
+              '__dataclass_fields__': {'firstname': Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
+               'lastname': Field(name='lastname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)},
+              '__init__': <function User.__init__ at 0x...>,
+              '__repr__': <function User.__repr__ at 0x...>,
+              '__eq__': <function User.__eq__ at 0x...>,
+              '__hash__': None,
+              '__match_args__': ('firstname', 'lastname')})
 
 Instance variables with default values:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str = 'Mark'
 ...     lastname: str = 'Watney'
+
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+mappingproxy({'__module__': '__main__',
+              '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
+              'firstname': 'Mark',
+              'lastname': 'Watney',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': "User(firstname: str = 'Mark', lastname: str = 'Watney')",
+              '__dataclass_params__': _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False),
+              '__dataclass_fields__': {'firstname': Field(name='firstname',type=<class 'str'>,default='Mark',default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
+               'lastname': Field(name='lastname',type=<class 'str'>,default='Watney',default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)},
+              '__init__': <function User.__init__ at 0x...>,
+              '__repr__': <function User.__repr__ at 0x...>,
+              '__eq__': <function User.__eq__ at 0x...>,
+              '__hash__': None,
+              '__match_args__': ('firstname', 'lastname')})
+
+>>> mark = User()
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
+
 
 Class variables must have default values:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: ClassVar[str] = 'Mark'
 ...     lastname: ClassVar[str] = 'Watney'
+
+
+Init Variables
+--------------
+>>> from dataclasses import InitVar
+
+>>> @dataclass
+... class User:
+...     firstname: InitVar[str] = 'Mark'
+...     lastname: InitVar[str] = 'Watney'
 
 
 Class vs. Instance Variables
 ----------------------------
 Lets define a class with class variable:
 
->>> class Astronaut:
+>>> class User:
 ...     agency = 'NASA'
 
-Lets create three instances of ``Astronaut`` class:
+Lets create three instances of ``User`` class:
 
->>> mark = Astronaut()
->>> melissa = Astronaut()
->>> rick = Astronaut()
+>>> mark = User()
+>>> melissa = User()
+>>> rick = User()
 
 We will print ``agency`` field:
 
@@ -202,12 +295,12 @@ NASA
 >>> print(rick.agency)
 NASA
 >>>
->>> print(Astronaut.agency)
+>>> print(User.agency)
 NASA
 
 Lets change field on a class and print ``agency`` field:
 
->>> Astronaut.agency = 'ESA'
+>>> User.agency = 'ESA'
 >>>
 >>>
 >>> print(mark.agency)
@@ -219,7 +312,7 @@ ESA
 >>> print(rick.agency)
 ESA
 >>>
->>> print(Astronaut.agency)
+>>> print(User.agency)
 ESA
 
 Lets change field on an instance and print ``agency`` field:
@@ -236,7 +329,7 @@ ESA
 >>> print(rick.agency)
 ESA
 >>>
->>> print(Astronaut.agency)
+>>> print(User.agency)
 ESA
 
 Note, that the class which defined instance variable shadowed
@@ -244,7 +337,7 @@ the class variable.
 
 Lets change field on a class and print ``agency`` field:
 
->>> Astronaut.agency = 'NASA'
+>>> User.agency = 'NASA'
 >>>
 >>>
 >>> print(mark.agency)
@@ -256,7 +349,7 @@ NASA
 >>> print(rick.agency)
 NASA
 >>>
->>> print(Astronaut.agency)
+>>> print(User.agency)
 NASA
 
 Lets delete field from an instance and print ``agency`` field:
@@ -273,7 +366,7 @@ NASA
 >>> print(rick.agency)
 NASA
 >>>
->>> print(Astronaut.agency)
+>>> print(User.agency)
 NASA
 
 
@@ -281,7 +374,7 @@ Mechanism
 ---------
 * ``vars(obj)`` is will return ``obj.__dict__``
 
->>> class Astronaut:
+>>> class User:
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
 ...
@@ -290,18 +383,18 @@ Mechanism
 ...         self.lastname = lastname
 >>>
 >>>
->>> astro = Astronaut('Melissa', 'Lewis')
+>>> melissa = User('Melissa', 'Lewis')
 >>>
->>> vars(astro)
+>>> vars(melissa)
 {'firstname': 'Melissa', 'lastname': 'Lewis'}
 >>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
 mappingproxy({'__module__': '__main__',
               'firstname': 'Mark',
               'lastname': 'Watney',
-              '__init__': <function Astronaut.__init__ at 0x...>,
-              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
-              '__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+              '__init__': <function User.__init__ at 0x...>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
               '__doc__': None})
 
 
@@ -310,7 +403,7 @@ Use Case - 0x01
 >>> from typing import ClassVar
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -323,7 +416,7 @@ Use Case - 0x02
 >>> from typing import ClassVar
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -346,7 +439,7 @@ Use Case - 0x03
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int

@@ -44,7 +44,7 @@ Dynamic Methods
 
 Init Method
 -----------
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -60,7 +60,7 @@ Init Method
 >>> def hello(self):
 ...     print('hello')
 >>>
->>> Astronaut = type('Astronaut', (), {
+>>> User = type('User', (), {
 ...     'hello': hello,
 ...     '__init__': __init__,
 ... })
@@ -107,7 +107,7 @@ What is a class?
 >>> def mystr(self):
 ...     ...
 >>>
->>> Astronaut = type('Astronaut', (), {
+>>> User = type('User', (), {
 ...     '__init__': myinit,
 ...     '__str__': mystr,
 ...     '__repr__': mystr,
@@ -136,7 +136,7 @@ What is a class?
 0x1063502b0
 
 >>> # doctest: +SKIP
-... Astronaut = {
+... User = {
 ...     '__init__': 0x103fb4540,
 ...     '__str__': 0x1064e2e60,
 ...     '__repr__': 0x1064e2e60,
@@ -148,12 +148,12 @@ What is a class?
 
 Mind, how similar this is to C language struct:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>>
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
@@ -165,12 +165,12 @@ Watney
 
 .. code-block:: c
 
-    struct Astronaut {
+    struct User {
       char firstname[30];
       char lastname[30];
     };
 
-    mark = (struct Astronaut*) malloc(sizeof(struct Astronaut));
+    mark = (struct User*) malloc(sizeof(struct User));
 
     mark->firstname = "Mark";
     mark->lastname = "Watney";
@@ -181,40 +181,40 @@ Watney
 
 Dynamic Class Creation
 ----------------------
->>> Taikonaut()
+>>> Admin()
 Traceback (most recent call last):
-NameError: name 'Taikonaut' is not defined
+NameError: name 'Admin' is not defined
 >>>
 >>>
->>> for classname in ['Astronaut', 'Cosmonaut', 'Taikonaut']:
+>>> for classname in ['Guest', 'User', 'Admin']:
 ...     globals()[classname] = type(classname, (), {})
 >>>
 >>>
->>> Taikonaut
-<class '__main__.Taikonaut'>
->>> Taikonaut()  # doctest: +ELLIPSIS
-<__main__.Taikonaut object at 0x...>
+>>> Admin
+<class '__main__.Admin'>
+>>> Admin()  # doctest: +ELLIPSIS
+<__main__.Admin object at 0x...>
 
 
 Use Case - 0x01
 ---------------
 * Init
 
->>> Astronaut = type('Astronaut', (), {
+>>> User = type('User', (), {
 ...     'firstname': 'Mark',
 ...     'lastname': 'Watney',
 ...     'hello': lambda: print('hello')})
 >>>
->>> Astronaut.hello()
+>>> User.hello()
 hello
 >>>
->>> vars(Astronaut)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+>>> vars(User)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 mappingproxy({'firstname': 'Mark',
               'lastname': 'Watney',
               'hello': <function <lambda> at 0x...>,
               '__module__': '__main__',
-              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
-              '__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
               '__doc__': None})
 
 

@@ -45,7 +45,6 @@ Tests:
 
 """
 
-
 DATA = [
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
         {"street": "2101 E NASA Pkwy",

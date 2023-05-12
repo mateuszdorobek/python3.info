@@ -25,13 +25,13 @@ Recap
 
 Class Function
 --------------
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self):
 ...         return 'hello'
 
-Let's check the type of a ``Astronaut.say_hello``:
+Let's check the type of a ``User.say_hello``:
 
->>> type(Astronaut.say_hello)
+>>> type(User.say_hello)
 <class 'function'>
 
 Note, that ``say_hello()`` is a function not a method!!
@@ -39,25 +39,25 @@ Note, that ``say_hello()`` is a function not a method!!
 What actually metod is? Is there a difference between method or a function?
 Is method a function on an instance?
 
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
 mappingproxy({'__module__': '__main__',
-              'say_hello': <function Astronaut.say_hello at 0x...>,
-              '__dict__': <attribute '__dict__' of 'Astronaut' objects>,
-              '__weakref__': <attribute '__weakref__' of 'Astronaut' objects>,
+              'say_hello': <function User.say_hello at 0x...>,
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
               '__doc__': None})
 
 
 Method
 ------
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self):
 ...         return 'hello'
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 
-Let's check the type of a ``astro.say_hello``:
+Let's check the type of a ``mark.say_hello``:
 
->>> type(astro.say_hello)
+>>> type(mark.say_hello)
 <class 'method'>
 
 Note, that ``say_hello()`` is a method!!

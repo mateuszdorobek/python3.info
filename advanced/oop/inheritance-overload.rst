@@ -13,88 +13,88 @@ OOP Inheritance Overload
 
 Overload Method
 ---------------
->>> class Person:
+>>> class Account:
 ...     def say_hello(self):
-...         print('Hello')
+...         print('Hello Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def say_hello(self):
-...         print('Howdy')
+...         print('Hello User')
 >>>
 >>>
->>> astro = Astronaut()
->>> astro.say_hello()
-Howdy
+>>> mark = User()
+>>> mark.say_hello()
+Hello User
 
 
 Overload Init
 -------------
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person init')
+...         print('Init Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     pass
 >>>
 >>>
->>> astro = Astronaut()
-Person init
+>>> mark = User()
+Init Account
 
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
-...         print('Person init')
+...         print('Init Account')
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         print('Astronaut init')
+...         print('Init User')
 >>>
 >>>
->>> astro = Astronaut()
-Astronaut init
+>>> mark = User()
+Init User
 
 
 Overload ClassVars
 ------------------
->>> class Person:
+>>> class Account:
 ...     firstname = 'Mark'
 ...     lastname = 'Watney'
-...     job = None
+...     group = None
 >>>
 >>>
->>> class Astronaut(Person):
-...     job = 'astronaut'
+>>> class User(Account):
+...     group = 'admins'
 >>>
 >>>
->>> astro = Astronaut()
+>>> mark = User()
 >>>
->>> astro.firstname
+>>> mark.firstname
 'Mark'
->>> astro.lastname
+>>> mark.lastname
 'Watney'
->>> astro.job
-'astronaut'
+>>> mark.group
+'admins'
 
 
 Overload Attribute
 ------------------
->>> class Person:
+>>> class Account:
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
-...         self.job = None
+...         self.group = None
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     def __init__(self):
-...         self.job = 'astronaut'
+...         self.group = 'admins'
 >>>
 >>>
->>> astro = Astronaut()
->>> vars(astro)
-{'job': 'astronaut'}
+>>> mark = User()
+>>> vars(mark)
+{'group': 'admins'}
 
 
 Assignments

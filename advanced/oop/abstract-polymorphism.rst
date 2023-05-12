@@ -160,43 +160,45 @@ Rendering Submit Button
 
 Use Case - 0x01
 ---------------
->>> from abc import ABCMeta, abstractmethod
+>>> from abc import ABC, abstractmethod
 >>> from dataclasses import dataclass
 >>>
 >>>
 >>> @dataclass
-... class Person(metaclass=ABCMeta):
-...     name: str
+... class Account(ABC):
+...     username: str
 ...
 ...     @abstractmethod
-...     def say_hello(self):
+...     def login(self):
 ...         pass
 >>>
 >>>
->>> class Astronaut(Person):
-...     def say_hello(self):
-...         return f'Hello {self.name}'
+>>> class User(Account):
+...     def login(self):
+...         return f'User {self.username} logged-in'
 >>>
->>> class Cosmonaut(Person):
-...     def say_hello(self):
-...         return f'Witaj {self.name}'
->>>
->>>
->>> def hello(crew: list[Person]) -> None:
-...     for member in crew:
-...         print(member.say_hello())
+>>> class Admin(Account):
+...     def login(self):
+...         return f'Admin {self.username} logged-in'
 >>>
 >>>
->>> crew = [Astronaut('Mark Watney'),
-...         Cosmonaut('José Jiménez'),
-...         Astronaut('Melissa Lewis'),
-...         Cosmonaut('Pan Twardowski')]
+>>> def login(accounts: list[Account]) -> None:
+...     for account in accounts:
+...         print(account.login())
 >>>
->>> hello(crew)
-Hello Mark Watney
-Witaj José Jiménez
-Hello Melissa Lewis
-Witaj Pan Twardowski
+>>>
+>>> group = [
+...     User('mwatney'),
+...     Admin('mlewis'),
+...     User('rmartinez'),
+...     User('avogel'),
+... ]
+>>>
+>>> login(group)
+User mwatney logged-in
+Admin mlewis logged-in
+User rmartinez logged-in
+User avogel logged-in
 
 In Python, due to the duck typing and dynamic nature of the language, the
 Interface or abstract class is not needed to do polymorphism:
@@ -205,31 +207,33 @@ Interface or abstract class is not needed to do polymorphism:
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
-...     name: str
+... class User:
+...     username: str
 ...
-...     def say_hello(self):
-...         return f'Hello {self.name}'
+...     def login(self):
+...         return f'User {self.username} logged-in'
 >>>
 >>> @dataclass
-... class Cosmonaut:
-...     name: str
+... class Admin:
+...     username: str
 ...
-...     def say_hello(self):
-...         return f'Witaj {self.name}'
+...     def login(self):
+...         return f'Admin {self.username} logged-in'
 >>>
 >>>
->>> crew = [Astronaut('Mark Watney'),
-...         Cosmonaut('José Jiménez'),
-...         Astronaut('Melissa Lewis'),
-...         Cosmonaut('Pan Twardowski')]
+>>> group = [
+...     User('mwatney'),
+...     Admin('mlewis'),
+...     User('rmartinez'),
+...     User('avogel'),
+... ]
 >>>
->>> for member in crew:
-...     print(member.say_hello())
-Hello Mark Watney
-Witaj José Jiménez
-Hello Melissa Lewis
-Witaj Pan Twardowski
+>>> for account in group:
+...     print(account.login())
+User mwatney logged-in
+Admin mlewis logged-in
+User rmartinez logged-in
+User avogel logged-in
 
 
 Use Case - 0x02
