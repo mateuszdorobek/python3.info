@@ -5,18 +5,18 @@
 * Time: 5 min
 
 English:
-    1. Modify class `Iris` to add attributes:
-        a. Protected attributes: `sepal_length, sepal_width`
-        b. Private attributes: `petal_length, petal_width`
-        c. Public attribute: `species`
+    1. Modify dataclass `User` to add attributes:
+        a. Public: `firstname`, `lastname`
+        b. Protected: `email`, `phone`
+        c. Private: `username`, `password`
     2. Do not use `dataclass`
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zmodyfikuj klasę `Iris` aby dodać atrybuty:
-        a. Chronione atrybuty: `sepal_length, sepal_width`
-        b. Private attributes: `petal_length, petal_width`
-        c. Publiczne atrybuty: `species`
+    1. Zmodyfikuj dataclass `User` aby dodać atrybuty:
+        a. Publiczne: `firstname`, `lastname`
+        b. Chronione: `email`, `phone`
+        c. Prywatne: `username`, `password`
     2. Nie używaj `dataclass`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -24,27 +24,39 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(Iris)
+    >>> assert isclass(User)
 
-    >>> result = Iris(5.1, 3.5, 1.4, 0.2, 'setosa')
-    >>> assert hasattr(result, '_sepal_width')
-    >>> assert hasattr(result, '_sepal_length')
-    >>> assert hasattr(result, '_Iris__petal_width')
-    >>> assert hasattr(result, '_Iris__petal_length')
-    >>> assert hasattr(result, 'species')
+    >>> result = User(
+    ...     firstname='Mark',
+    ...     lastname='Watney',
+    ...     email='mwatney@nasa.gov',
+    ...     phone='+1 234 567 8910',
+    ...     username='mwatney',
+    ...     password='Ares3',
+    ... )
+
+    >>> assert hasattr(result, 'firstname')
+    >>> assert hasattr(result, 'lastname')
+    >>> assert hasattr(result, '_email')
+    >>> assert hasattr(result, '_phone')
+    >>> assert hasattr(result, '_User__username')
+    >>> assert hasattr(result, '_User__password')
 """
 
-
-class Iris:
+# Public attributes: `firstname`, `lastname`
+# Protected attributes: `email`, `phone`
+# Private attributes: `username`, `password`
+# type: type[User]
+class User:
     pass
 
 
 # Solution
-class Iris:
-    def __init__(self, sepal_width: float, sepal_length: float,
-                 petal_width: float, petal_length: float, species: str):
-        self._sepal_width = sepal_width
-        self._sepal_length = sepal_length
-        self.__petal_width = petal_width
-        self.__petal_length = petal_length
-        self.species = species
+class User:
+    def __init__(self, firstname, lastname, email, phone, username, password):
+        self.firstname = firstname
+        self.lastname = lastname
+        self._email = email
+        self._phone = phone
+        self.__username = username
+        self.__password = password

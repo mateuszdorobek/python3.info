@@ -14,7 +14,7 @@ Solution
 ...     pass
 >>>
 >>>
->>> def http_request(url, on_success=noop, on_error=noop):
+>>> def fetch(url, on_success=noop, on_error=noop):
 ...     result = requests.get(url)
 ...     if result.status_code == HTTPStatus.OK:
 ...         on_success(result)
@@ -31,7 +31,7 @@ Solution
 >>>
 >>>
 >>> # doctest: +SKIP
-... http_request(
+... fetch(
 ...     url='https://python3.info',
 ...     on_success=success,
 ...     on_error=error,

@@ -5,14 +5,14 @@
 * Time: 5 min
 
 English:
-    1. Define class `Setosa` implementing `IrisAbstract`
-    2. All method signatures must be identical to `IrisAbstract`
+    1. Define class `User` implementing `Account`
+    2. All method signatures must be identical to `Account`
     3. Don't implement methods, leave `...` or `pass` as content
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę `Setosa` implementującą `IrisAbstract`
-    2. Sygnatury wszystkich metod muszą być identyczne do `IrisAbstract`
+    1. Zdefiniuj klasę `User` implementującą `Account`
+    2. Sygnatury wszystkich metod muszą być identyczne do `Account`
     3. Nie implementuj metod, pozostaw `...` or `pass` jako zawartość
     4. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -20,120 +20,87 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isabstract, isclass, ismethod, signature
 
-    >>> assert isclass(IrisAbstract)
-    >>> assert isabstract(IrisAbstract)
-    >>> assert hasattr(IrisAbstract, '__init__')
-    >>> assert hasattr(IrisAbstract, 'mean')
-    >>> assert hasattr(IrisAbstract, 'sum')
-    >>> assert hasattr(IrisAbstract, 'len')
-    >>> assert hasattr(IrisAbstract.__init__, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.mean, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.sum, '__isabstractmethod__')
-    >>> assert hasattr(IrisAbstract.len, '__isabstractmethod__')
-    >>> assert IrisAbstract.__init__.__isabstractmethod__ == True
-    >>> assert IrisAbstract.mean.__isabstractmethod__ == True
-    >>> assert IrisAbstract.sum.__isabstractmethod__ == True
-    >>> assert IrisAbstract.len.__isabstractmethod__ == True
+    >>> assert isclass(Account)
+    >>> assert isabstract(Account)
+    >>> assert hasattr(Account, '__init__')
+    >>> assert hasattr(Account, 'login')
+    >>> assert hasattr(Account, 'logout')
+    >>> assert hasattr(Account.__init__, '__isabstractmethod__')
+    >>> assert hasattr(Account.login, '__isabstractmethod__')
+    >>> assert hasattr(Account.logout, '__isabstractmethod__')
+    >>> assert Account.__init__.__isabstractmethod__ == True
+    >>> assert Account.login.__isabstractmethod__ == True
+    >>> assert Account.logout.__isabstractmethod__ == True
 
-    >>> IrisAbstract.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>,
-     'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>,
-     'petal_width': <class 'float'>}
+    >>> Account.__annotations__
+    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
 
-    >>> IrisAbstract.__init__.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>,
-     'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>,
-     'petal_width': <class 'float'>,
-     'return': None}
+    >>> Account.__init__.__annotations__
+    {'firstname': <class 'str'>, 'lastname': <class 'str'>, 'return': None}
 
-    >>> IrisAbstract.mean.__annotations__
-    {'return': <class 'float'>}
+    >>> Account.login.__annotations__
+    {'return': None}
 
-    >>> IrisAbstract.sum.__annotations__
-    {'return': <class 'float'>}
+    >>> Account.logout.__annotations__
+    {'return': None}
 
-    >>> IrisAbstract.len.__annotations__
-    {'return': <class 'int'>}
+    >>> assert isclass(User)
+    >>> result = User(firstname='Mark', lastname='Watney')
 
-    >>> assert isclass(Setosa)
-    >>> result = Setosa(5.1, 3.5, 1.4, 0.2)
-
-    >>> result.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>, 'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>, 'petal_width': <class 'float'>}
+    >>> result.__annotations__
+    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
 
     >>> assert hasattr(result, '__init__')
-    >>> assert hasattr(result, 'len')
-    >>> assert hasattr(result, 'sum')
-    >>> assert hasattr(result, 'mean')
+    >>> assert hasattr(result, 'logout')
+    >>> assert hasattr(result, 'login')
 
     >>> assert ismethod(result.__init__)
-    >>> assert ismethod(result.len)
-    >>> assert ismethod(result.sum)
-    >>> assert ismethod(result.mean)
+    >>> assert ismethod(result.logout)
+    >>> assert ismethod(result.login)
 
     >>> signature(result.__init__)  # doctest: +NORMALIZE_WHITESPACE
-    <Signature (sepal_length: float, sepal_width: float, petal_length:
-    float, petal_width: float) -> None>
-    >>> signature(result.len)
-    <Signature () -> int>
-    >>> signature(result.sum)
-    <Signature () -> float>
-    >>> signature(result.mean)
-    <Signature () -> float>
+    <Signature (firstname: str, lastname: str) -> None>
+    >>> signature(result.logout)
+    <Signature () -> None>
+    >>> signature(result.login)
+    <Signature () -> None>
 
     >>> assert vars(result) == {}, 'Do not implement __init__() method'
-    >>> assert result.len() is None, 'Do not implement len() method'
-    >>> assert result.mean() is None, 'Do not implement mean() method'
-    >>> assert result.sum() is None, 'Do not implement sum() method'
+    >>> assert result.login() is None, 'Do not implement login() method'
+    >>> assert result.logout() is None, 'Do not implement logout() method'
 """
 
 from abc import ABC, abstractmethod
 
 
-class IrisAbstract(ABC):
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+class Account(ABC):
+    firstname: str
+    lastname: str
 
     @abstractmethod
-    def __init__(self,
-                 sepal_length: float,
-                 sepal_width: float,
-                 petal_length: float,
-                 petal_width: float) -> None:
+    def __init__(self, firstname: str, lastname: str) -> None:
         ...
 
     @abstractmethod
-    def mean(self) -> float:
+    def login(self) -> None:
         ...
 
     @abstractmethod
-    def sum(self) -> float:
+    def logout(self) -> None:
         ...
 
-    @abstractmethod
-    def len(self) -> int:
-        ...
 
-# Define class `Setosa` implementing `IrisAbstract`
+# Define class `User` implementing `Account`
 # Don't implement methods, leave `...` or `pass` as content
 
 
 # Solution
-class Setosa(IrisAbstract):
-    def __init__(self, sepal_length: float, sepal_width: float,
-                 petal_length: float, petal_width: float) -> None:
+class User(Account):
+    def __init__(self, firstname: str, lastname: str) -> None:
         ...
 
-    def mean(self) -> float:
+    def login(self) -> None:
         ...
 
-    def sum(self) -> float:
-        ...
-
-    def len(self) -> int:
+    def logout(self) -> None:
         ...

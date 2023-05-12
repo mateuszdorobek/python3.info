@@ -5,38 +5,35 @@
 * Time: 3 min
 
 English:
-    1. Define class `Iris` with attributes: `sepal_length, sepal_width,
-       petal_length, petal_width, species`
+    1. Define class `User` with attributes:
+       'firstname', 'lastname', 'email', 'phone'
     2. All attributes must be in `__slots__`
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę `Iris` z atrybutami: `sepal_length, sepal_width,
-       petal_length, petal_width, species`
+    1. Zdefiniuj klasę `User` z atrybutami:
+       'firstname', 'lastname', 'email', 'phone'
     2. Wszystkie atrybuty muszą być w `__slots__`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> iris = Iris()
+    >>> assert hasattr(User, '__slots__')
+    >>> assert 'firstname' in User.__slots__
+    >>> assert 'lastname' in User.__slots__
+    >>> assert 'email' in User.__slots__
+    >>> assert 'phone' in User.__slots__
 
-    >>> assert not hasattr(iris, '__dict__')
-    >>> assert not hasattr(iris, '__weakref__')
-    >>> assert hasattr(iris, '__slots__')
-
-    >>> assert 'sepal_length' in iris.__slots__
-    >>> assert 'sepal_width' in iris.__slots__
-    >>> assert 'petal_length' in iris.__slots__
-    >>> assert 'petal_width' in iris.__slots__
-    >>> assert 'species' in iris.__slots__
+    >>> result = User()
+    >>> assert not hasattr(result, '__dict__')
+    >>> assert not hasattr(result, '__weakref__')
 """
 
-class Iris:
+class User:
     ...
 
 
 # Solution
-class Iris:
-    __slots__ = ('sepal_length', 'sepal_width',
-                 'petal_length', 'petal_width', 'species')
+class User:
+    __slots__ = ('firstname', 'lastname', 'email', 'phone')

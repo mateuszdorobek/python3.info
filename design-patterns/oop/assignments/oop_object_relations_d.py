@@ -1,20 +1,20 @@
 """
-* Assignment: OOP ObjectRelations Flatten
+* Assignment: OOP ObjectRelations FlattenClasses
 * Complexity: medium
 * Lines of code: 9 lines
 * Time: 13 min
 
 English:
     1. Convert `DATA` to format with one column per each attrbute for example:
-       a. `mission1_year`, `mission2_year`,
-       b. `mission1_name`, `mission2_name`
+       a. `group1_gid`, `group2_gid`,
+       b. `group1_name`, `group2_name`
     2. Note, that enumeration starts with one
     3. Run doctests - all must succeed
 
 Polish:
     1. Przekonweruj `DATA` do formatu z jedną kolumną dla każdego atrybutu, np:
-       a. `mission1_year`, `mission2_year`,
-       b. `mission1_name`, `mission2_name`
+       a. `group1_gid`, `group2_gid`,
+       b. `group1_name`, `group2_name`
     2. Zwróć uwagę, że enumeracja zaczyna się od jeden
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -30,42 +30,42 @@ Tests:
     >>> assert len(result) > 0
     >>> assert all(type(x) is dict for x in result)
 
-    >>> pprint(result, width=30)  # doctest: +NORMALIZE_WHITESPACE
+    >>> pprint(result, width=30, sort_dicts=False)
     [{'firstname': 'Mark',
       'lastname': 'Watney',
-      'mission1_name': 'Ares3',
-      'mission1_year': 2035},
+      'group1_gid': 1,
+      'group1_name': 'staff'},
      {'firstname': 'Melissa',
       'lastname': 'Lewis',
-      'mission1_name': 'Ares1',
-      'mission1_year': 2030,
-      'mission2_name': 'Ares3',
-      'mission2_year': 2035},
+      'group1_gid': 1,
+      'group1_name': 'staff',
+      'group2_gid': 2,
+      'group2_name': 'admins'},
      {'firstname': 'Rick',
       'lastname': 'Martinez'}]
 """
 
-class Astronaut:
-    def __init__(self, firstname, lastname, missions=()):
+class User:
+    def __init__(self, firstname, lastname, groups=None):
         self.firstname = firstname
         self.lastname = lastname
-        self.missions = list(missions)
+        self.groups = groups if groups else []
 
 
-class Mission:
-    def __init__(self, name, year):
+class Group:
+    def __init__(self, gid, name):
+        self.gid = gid
         self.name = name
-        self.year = year
 
 DATA = [
-    Astronaut('Mark', 'Watney', missions=[
-        Mission('Ares3', 2035)]),
+    User('Mark', 'Watney', groups=[
+        Group(gid=1, name='staff')]),
 
-    Astronaut('Melissa', 'Lewis', missions=[
-        Mission('Ares1', 2030),
-        Mission('Ares3', 2035)]),
+    User('Melissa', 'Lewis', groups=[
+        Group(gid=1, name='staff'),
+        Group(gid=2, name='admins')]),
 
-    Astronaut('Rick', 'Martinez')]
+    User('Rick', 'Martinez')]
 
 
 # Convert DATA
@@ -74,14 +74,14 @@ result = ...
 
 
 # Solution
-def convert(astronaut: Astronaut):
-    astronaut = vars(astronaut)
-    missions = map(vars, astronaut.pop('missions'))
-    for i, mission in enumerate(missions, start=1):
-        for field,value in mission.items():
-            column_name = f'mission{i}_{field}'
-            astronaut[column_name] = value
-    return astronaut
+def convert(user: User):
+    user = vars(user)
+    groups = map(vars, user.pop('groups'))
+    for i, group in enumerate(groups, start=1):
+        for field,value in group.items():
+            column_name = f'group{i}_{field}'
+            user[column_name] = value
+    return user
 
 
 result = map(convert, DATA)

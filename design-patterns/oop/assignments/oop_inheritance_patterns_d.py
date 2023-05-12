@@ -5,14 +5,14 @@
 * Time: 3 min
 
 English:
-    1. Create class `MarsMission` from classes `Habitat`, `Rocket`, `Astronaut`
+    1. Create class `MyAccount` from classes `Account`, `User`, `Admin`
     2. Use mixins classes
     3. You can modify given classes
     4. Assignment demonstrates syntax, so do not add any attributes and methods
     5. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz klasę `MarsMission` z klas `Habitat`, `Rocket`, `Astronaut`
+    1. Stwórz klasę `MyAccount` z klas `Account`, `User`, `Admin`
     2. Użyj klas domieszkowych (mixin)
     3. Możesz modyfikować dane klasy
     4. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod
@@ -22,33 +22,33 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(Habitat)
-    >>> assert isclass(Astronaut)
-    >>> assert isclass(Rocket)
-    >>> assert isclass(MarsMission)
-    >>> assert issubclass(MarsMission, Habitat)
-    >>> assert issubclass(MarsMission, Astronaut)
-    >>> assert issubclass(MarsMission, Rocket)
+    >>> assert isclass(Account)
+    >>> assert isclass(User)
+    >>> assert isclass(Admin)
+    >>> assert isclass(MyAccount)
+    >>> assert issubclass(MyAccount, Account)
+    >>> assert issubclass(MyAccount, User)
+    >>> assert issubclass(MyAccount, Admin)
 
-    >>> assert len(Habitat.__subclasses__()) == 1
-    >>> assert len(Astronaut.__subclasses__()) == 1
-    >>> assert len(Rocket.__subclasses__()) == 1
-    >>> assert len(MarsMission.__subclasses__()) == 0
+    >>> assert len(Account.__subclasses__()) == 1
+    >>> assert len(User.__subclasses__()) == 1
+    >>> assert len(Admin.__subclasses__()) == 1
+    >>> assert len(MyAccount.__subclasses__()) == 0
 """
 
 
 # Solution
-class Habitat:
+class Account:
     pass
 
 
-class Astronaut:
+class User:
     pass
 
 
-class Rocket:
+class Admin:
     pass
 
 
-class MarsMission(Habitat, Astronaut, Rocket):
+class MyAccount(Account, User, Admin):
     pass

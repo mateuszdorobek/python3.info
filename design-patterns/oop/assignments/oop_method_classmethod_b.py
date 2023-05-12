@@ -7,7 +7,7 @@
 English:
     1. To class `CSVMixin` add methods:
         a. `to_csv(self) -> str`
-        b. `from_csv(self, text: str) -> 'Astronaut' | 'Cosmonaut'`
+        b. `from_csv(self, text: str) -> 'User' | 'Admin'`
     2. `CSVMixin.to_csv()` should return attribute values separated with coma
     3. `CSVMixin.from_csv()` should return instance of a class on which it was called
     4. Use `@classmethod` decorator in proper place
@@ -16,7 +16,7 @@ English:
 Polish:
     1. Do klasy `CSVMixin` dodaj metody:
         a. `to_csv(self) -> str`
-        b. `from_csv(self, text: str) -> 'Astronaut' | 'Cosmonaut'`
+        b. `from_csv(self, text: str) -> 'User' | 'Admin'`
     2. `CSVMixin.to_csv()` powinna zwracać wartości atrybutów klasy rozdzielone po przecinku
     3. `CSVMixin.from_csv()` powinna zwracać instancje klasy na której została wywołana
     4. Użyj dekoratora `@classmethod` w odpowiednim miejscu
@@ -32,35 +32,36 @@ Tests:
     >>> from dataclasses import dataclass
 
     >>> @dataclass
-    ... class Astronaut(CSVMixin):
+    ... class User(CSVMixin):
     ...     firstname: str
     ...     lastname: str
     ...
     >>> @dataclass
-    ... class Cosmonaut(CSVMixin):
+    ... class Admin(CSVMixin):
     ...     firstname: str
     ...     lastname: str
 
-    >>> mark = Astronaut('Mark', 'Watney')
-    >>> pan = Cosmonaut('Pan', 'Twardowski')
+    >>> mark = User('Mark', 'Watney')
+    >>> melissa = Admin('Melissa', 'Lewis')
+
     >>> mark.to_csv()
     'Mark,Watney\\n'
-    >>> pan.to_csv()
-    'Pan,Twardowski\\n'
+    >>> melissa.to_csv()
+    'Melissa,Lewis\\n'
 
     >>> with open('_temporary.txt', mode='wt') as file:
-    ...     data = mark.to_csv() + pan.to_csv()
+    ...     data = mark.to_csv() + melissa.to_csv()
     ...     file.writelines(data)
 
     >>> result = []
     >>> with open('_temporary.txt', mode='rt') as file:
     ...     lines = file.readlines()
-    ...     result += [Astronaut.from_csv(lines[0])]
-    ...     result += [Cosmonaut.from_csv(lines[1])]
+    ...     result += [User.from_csv(lines[0])]
+    ...     result += [Admin.from_csv(lines[1])]
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(firstname='Mark', lastname='Watney'),
-     Cosmonaut(firstname='Pan', lastname='Twardowski')]
+    [User(firstname='Mark', lastname='Watney'),
+     Admin(firstname='Melissa', lastname='Lewis')]
 
     >>> remove('_temporary.txt')
 

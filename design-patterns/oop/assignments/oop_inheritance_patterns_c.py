@@ -1,49 +1,57 @@
 """
-* Assignment: OOP InheritancePatterns Composition
+* Assignment: OOP InheritancePatterns Multilevel
 * Complexity: easy
-* Lines of code: 10 lines
+* Lines of code: 8 lines
 * Time: 3 min
 
 English:
-    1. Create class `MarsMission` from classes `Habitat`, `Rocket`, `Astronaut`
-    2. Use composition
-    3. Assignment demonstrates syntax, so do not add any attributes and methods (only type annotations)
+    1. Create class `MyAccount` from classes `Account`, `User`, `Admin`
+    2. Use multilevel inheritance
+    3. Assignment demonstrates syntax, so do not add any attributes and methods
     4. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz klasę `MarsMission` z klas `Habitat`, `Rocket`, `Astronaut`
-    2. Użyj kompozycji
-    3. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod (tylko anotacje typów)
+    1. Stwórz klasę `MyAccount` z klas `Account`, `User`, `Admin`
+    2. Użyj wielopoziomowego dziedziczenia
+    3. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(Habitat)
-    >>> assert isclass(Astronaut)
-    >>> assert isclass(Rocket)
-    >>> assert isclass(MarsMission)
-    >>> assert MarsMission.__annotations__['habitat'] is Habitat
-    >>> assert MarsMission.__annotations__['astronaut'] is Astronaut
-    >>> assert MarsMission.__annotations__['rocket'] is Rocket
+    >>> assert isclass(Account)
+    >>> assert isclass(User)
+    >>> assert isclass(Admin)
+    >>> assert isclass(MyAccount)
+    >>> assert issubclass(MyAccount, Account)
+    >>> assert issubclass(MyAccount, User)
+    >>> assert issubclass(MyAccount, Admin)
+
+    >>> assert issubclass(Account, object)
+    >>> assert issubclass(User, Account)
+    >>> assert issubclass(Admin, User)
+    >>> assert issubclass(MyAccount, Admin)
+
+    >>> assert len(Account.__subclasses__()) == 1
+    >>> assert len(User.__subclasses__()) == 1
+    >>> assert len(Admin.__subclasses__()) == 1
+    >>> assert len(MyAccount.__subclasses__()) == 0
 """
 
 
 # Solution
-class Habitat:
+class Account:
     pass
 
 
-class Astronaut:
+class User(Account):
     pass
 
 
-class Rocket:
+class Admin(User):
     pass
 
 
-class MarsMission:
-    habitat: Habitat
-    astronaut: Astronaut
-    rocket: Rocket
+class MyAccount(Admin):
+    pass

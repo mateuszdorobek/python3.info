@@ -5,14 +5,14 @@
 * Time: 8 min
 
 English:
-    1. Extract from class `Iris` attribute names and their values:
+    1. Extract from class `User` attribute names and their values:
         a. Define `protected: dict` with protected attributes
         b. Define `private: dict` with private attributes
         c. Define `public: dict` with public attributes
     2. Run doctests - all must succeed
 
 Polish:
-    1. Wydobądź z klasy `Iris` nazwy atrybutów i ich wartości:
+    1. Wydobądź z klasy `User` nazwy atrybutów i ich wartości:
         a. Zdefiniuj `protected: dict` z atrybutami chronionymi (protected)
         b. Zdefiniuj `private: dict` z atrybutami prywatnymi (private)
         c. Zdefiniuj `public: dict` z atrybutami publicznymi (public)
@@ -27,11 +27,11 @@ Tests:
 
     >>> assert type(protected) is dict
     >>> assert all(type(k) is str for k,v in protected.items())
-    >>> assert all(type(v) is float for k,v in protected.items())
+    >>> assert all(type(v) is str for k,v in protected.items())
 
     >>> assert type(private) is dict
     >>> assert all(type(k) is str for k,v in private.items())
-    >>> assert all(type(v) is float for k,v in private.items())
+    >>> assert all(type(v) is str for k,v in private.items())
 
     >>> assert len(public) > 0, \
     'public: list[dict] must not be empty'
@@ -43,29 +43,37 @@ Tests:
     'private: list[dict] must not be empty'
 
     >>> public
-    {'species': 'virginica'}
+    {'firstname': 'Mark', 'lastname': 'Watney'}
 
     >>> protected
-    {'_sepal_width': 5.8, '_sepal_length': 2.7}
+    {'_email': 'mwatney@nasa.gov', '_phone': '+1 234 567 8910'}
 
     >>> private
-    {'_Iris__petal_width': 5.1, '_Iris__petal_length': 1.9}
+    {'_User__username': 'mwatney', '_User__password': 'Ares3'}
 
 """
 from dataclasses import dataclass
 
 
 @dataclass
-class Iris:
-    _sepal_width: float
-    _sepal_length: float
-    __petal_width: float
-    __petal_length: float
-    species: str
+class User:
+    def __init__(self, firstname, lastname, email, phone, username, password):
+        self.firstname = firstname
+        self.lastname = lastname
+        self._email = email
+        self._phone = phone
+        self.__username = username
+        self.__password = password
 
 
-DATA = Iris(5.8, 2.7, 5.1, 1.9, 'virginica')
-
+DATA = User(
+    firstname='Mark',
+    lastname='Watney',
+    email='mwatney@nasa.gov',
+    phone='+1 234 567 8910',
+    username='mwatney',
+    password='Ares3',
+)
 
 # All public attributes and their values
 # type: dict[str,float|str]
@@ -76,7 +84,7 @@ public = ...
 protected = ...
 
 # All private attributes and their values
-# type: dict[str,float|str]
+# type: dict[str,str]
 private = ...
 
 # Solution
@@ -87,8 +95,8 @@ public = {attrname: attrvalue
 protected = {attrname: attrvalue
              for attrname, attrvalue in vars(DATA).items()
              if attrname.startswith('_')
-             and not attrname.startswith(f'_Iris')}
+             and not attrname.startswith(f'_User__')}
 
 private = {attrname: attrvalue
            for attrname, attrvalue in vars(DATA).items()
-           if attrname.startswith(f'_Iris')}
+           if attrname.startswith(f'_User__')}

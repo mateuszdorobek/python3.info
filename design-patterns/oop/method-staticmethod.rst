@@ -279,7 +279,7 @@ Use Case - 0x04
 
 Use Case - 0x05
 ---------------
-Helper `HabitatOS <https://www.habitatos.space>`_ Z-Wave sensor model:
+Helper `habitatOS <https://www.astronaut.center/habitatOS>`_ Z-Wave sensor model:
 
 >>> from datetime import datetime, timezone
 >>> from decimal import Decimal, InvalidOperation

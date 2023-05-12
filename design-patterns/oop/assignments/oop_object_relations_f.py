@@ -1,12 +1,12 @@
 """
-* Assignment: OOP ObjectRelations Nested
+* Assignment: OOP ObjectRelations CSV
 * Complexity: medium
 * Lines of code: 4 lines
 * Time: 13 min
 
 English:
     1. Write data with relations to CSV format
-    2. Convert `DATA` to `resul: list[dict[str,str]]`
+    2. Convert `DATA` to `result: list[dict[str,str]]`
     3. Non-functional requirements:
         a. Use `,` to separate fields
         b. Use `;` to separate instances
@@ -87,9 +87,9 @@ result = ...
 
 
 # Solution
-def convert(astronaut: dict):
+def convert(user: dict):
     addresses = [','.join(map(str, x.values()))
-                 for x in astronaut.pop('addresses')]
-    return astronaut | {'addresses': ';'.join(addresses)}
+                 for x in user.pop('addresses')]
+    return user | {'addresses': ';'.join(addresses)}
 
 result = map(convert, DATA)
