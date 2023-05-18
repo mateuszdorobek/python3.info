@@ -460,7 +460,8 @@ Use Case - 0x05
 >>> data: list[Iris] = [
 ...     Iris([4.7, 3.2, 1.3, 0.2], 'setosa'),
 ...     Iris([7.0, 3.2, 4.7, 1.4], 'versicolor'),
-...     Iris([7.6, 3.0, 6.6, 2.1], 'virginica')]
+...     Iris([7.6, 3.0, 6.6, 2.1], 'virginica'),
+... ]
 
 
 Use Case - 0x06

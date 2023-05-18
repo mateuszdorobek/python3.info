@@ -27,16 +27,16 @@ Strict:
 ...    2: 'versicolor'}
 >>>
 >>> data: dict[float, str] = {
-...    5.8: 'Sepal length',
-...    2.7: 'Sepal width',
-...    5.1: 'Petal length',
-...    1.9: 'Petal width'}
+...    5.8: 'sepal_length',
+...    2.7: 'sepal_width',
+...    5.1: 'petal_length',
+...    1.9: 'petal_width'}
 >>>
 >>> data: dict[str, float] = {
-...    'Sepal length': 5.8,
-...    'Sepal width': 2.7,
-...    'Petal length': 5.1,
-...    'Petal width': 1.9}
+...    'sepal_length': 5.8,
+...    'sepal_width': 2.7,
+...    'petal_length': 5.1,
+...    'petal_width': 1.9}
 
 
 Use Case - 0x01

@@ -43,21 +43,26 @@ Tests:
     'Variable `result` has invalid type, should be str'
 
     >>> print(result)   # doctest: +NORMALIZE_WHITESPACE
-    "firstname","lastname"
-    "Pan","Twardowski"
-    "Rick","Martinez"
-    "Mark","Watney"
-    "Ivan","Ivanovic"
-    "Melissa","Lewis"
+    "firstname","lastname","age"
+    "Mark","Watney","42"
+    "Melissa","Lewis","41"
+    "Rick","Martinez","40"
+    "Alex","Vogel","42"
+    "Beth","Johanssen","29"
+    "Chris","Beck","36"
+    <BLANKLINE>
 """
 import csv
 
 
-DATA = [{'firstname': 'Pan', 'lastname': 'Twardowski'},
-        {'firstname': 'Rick', 'lastname': 'Martinez'},
-        {'firstname': 'Mark', 'lastname': 'Watney'},
-        {'firstname': 'Ivan', 'lastname': 'Ivanovic'},
-        {'firstname': 'Melissa', 'lastname': 'Lewis'}]
+DATA = [
+    {'firstname': 'Mark', 'lastname': 'Watney', 'age': 42},
+    {'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 41},
+    {'firstname': 'Rick', 'lastname': 'Martinez', 'age': 40},
+    {'firstname': 'Alex', 'lastname': 'Vogel', 'age': 42},
+    {'firstname': 'Beth', 'lastname': 'Johanssen', 'age': 29},
+    {'firstname': 'Chris', 'lastname': 'Beck', 'age': 36},
+]
 
 FILE = r'_temporary.csv'
 
@@ -69,7 +74,7 @@ with open(FILE, mode='w') as file:
 
 # Solution
 with open(FILE, mode='w') as file:
-    writer = csv.DictWriter(file, fieldnames=['firstname', 'lastname'],
+    writer = csv.DictWriter(file, fieldnames=['firstname', 'lastname', 'age'],
                           delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL,
                           lineterminator='\n')
 

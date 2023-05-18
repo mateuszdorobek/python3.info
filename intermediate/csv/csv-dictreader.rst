@@ -17,14 +17,14 @@ Data:
 
 .. code-block:: text
 
-    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+    sepal_length,sepal_width,petal_length,petal_width,species
     5.8,2.7,5.1,1.9,virginica
     5.1,3.5,1.4,0.2,setosa
     5.7,2.8,4.1,1.3,versicolor
 
 SetUp:
 
->>> DATA = """SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+>>> DATA = """sepal_length,sepal_width,petal_length,petal_width,species
 ... 5.8,2.7,5.1,1.9,virginica
 ... 5.1,3.5,1.4,0.2,setosa
 ... 5.7,2.8,4.1,1.3,versicolor
@@ -39,21 +39,21 @@ Usage:
 ...     result = list(reader)
 >>>
 >>> pprint(result, sort_dicts=False)
-[{'SepalLength': '5.8',
-  'SepalWidth': '2.7',
-  'PetalLength': '5.1',
-  'PetalWidth': '1.9',
-  'Species': 'virginica'},
- {'SepalLength': '5.1',
-  'SepalWidth': '3.5',
-  'PetalLength': '1.4',
-  'PetalWidth': '0.2',
-  'Species': 'setosa'},
- {'SepalLength': '5.7',
-  'SepalWidth': '2.8',
-  'PetalLength': '4.1',
-  'PetalWidth': '1.3',
-  'Species': 'versicolor'}]
+[{'sepal_length': '5.8',
+  'sepal_width': '2.7',
+  'petal_length': '5.1',
+  'petal_width': '1.9',
+  'species': 'virginica'},
+ {'sepal_length': '5.1',
+  'sepal_width': '3.5',
+  'petal_length': '1.4',
+  'petal_width': '0.2',
+  'species': 'setosa'},
+ {'sepal_length': '5.7',
+  'sepal_width': '2.8',
+  'petal_length': '4.1',
+  'petal_width': '1.3',
+  'species': 'versicolor'}]
 
 
 Parametrized
@@ -62,14 +62,14 @@ Data:
 
 .. code-block:: text
 
-    "SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+    "sepal_length";"sepal_width";"petal_length";"petal_width";"species"
     "5.8";"2.7";"5.1";"1.9";"virginica"
     "5.1";"3.5";"1.4";"0.2";"setosa"
     "5.7";"2.8";"4.1";"1.3";"versicolor"
 
 SetUp:
 
->>> DATA = '''"SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+>>> DATA = '''"sepal_length";"sepal_width";"petal_length";"petal_width";"species"
 ... "5.8";"2.7";"5.1";"1.9";"virginica"
 ... "5.1";"3.5";"1.4";"0.2";"setosa"
 ... "5.7";"2.8";"4.1";"1.3";"versicolor"
@@ -84,21 +84,22 @@ Usage:
 ...     result = list(reader)
 >>>
 >>> pprint(result, sort_dicts=False)
-[{'SepalLength': '5.8',
-  'SepalWidth': '2.7',
-  'PetalLength': '5.1',
-  'PetalWidth': '1.9',
-  'Species': 'virginica'},
- {'SepalLength': '5.1',
-  'SepalWidth': '3.5',
-  'PetalLength': '1.4',
-  'PetalWidth': '0.2',
-  'Species': 'setosa'},
- {'SepalLength': '5.7',
-  'SepalWidth': '2.8',
-  'PetalLength': '4.1',
-  'PetalWidth': '1.3',
-  'Species': 'versicolor'}]
+[{'sepal_length': '5.8',
+  'sepal_width': '2.7',
+  'petal_length': '5.1',
+  'petal_width': '1.9',
+  'species': 'virginica'},
+ {'sepal_length': '5.1',
+  'sepal_width': '3.5',
+  'petal_length': '1.4',
+  'petal_width': '0.2',
+  'species': 'setosa'},
+ {'sepal_length': '5.7',
+  'sepal_width': '2.8',
+  'petal_length': '4.1',
+  'petal_width': '1.3',
+  'species': 'versicolor'}]
+
 
 Custom Header
 -------------
@@ -128,11 +129,11 @@ SetUp:
 Usage:
 
 >>> FIELDNAMES = [
-...     'SepalLength',
-...     'SepalWidth',
-...     'PetalLength',
-...     'PetalWidth',
-...     'Species',
+...     'sepal_length',
+...     'sepal_width',
+...     'petal_length',
+...     'petal_width',
+...     'species',
 ... ]
 >>>
 >>> with open('/tmp/myfile.csv') as file:
@@ -141,28 +142,28 @@ Usage:
 ...     result = list(reader)
 >>>
 >>> pprint(result, sort_dicts=False)
-[{'SepalLength': '5.8',
-  'SepalWidth': '2.7',
-  'PetalLength': '5.1',
-  'PetalWidth': '1.9',
-  'Species': 'virginica'},
- {'SepalLength': '5.1',
-  'SepalWidth': '3.5',
-  'PetalLength': '1.4',
-  'PetalWidth': '0.2',
-  'Species': 'setosa'},
- {'SepalLength': '5.7',
-  'SepalWidth': '2.8',
-  'PetalLength': '4.1',
-  'PetalWidth': '1.3',
-  'Species': 'versicolor'}]
+[{'sepal_length': '5.8',
+  'sepal_width': '2.7',
+  'petal_length': '5.1',
+  'petal_width': '1.9',
+  'species': 'virginica'},
+ {'sepal_length': '5.1',
+  'sepal_width': '3.5',
+  'petal_length': '1.4',
+  'petal_width': '0.2',
+  'species': 'setosa'},
+ {'sepal_length': '5.7',
+  'sepal_width': '2.8',
+  'petal_length': '4.1',
+  'petal_width': '1.3',
+  'species': 'versicolor'}]
 
 
 Use Case - 0x01
 ---------------
 .. code-block:: text
 
-    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+    sepal_length,sepal_width,petal_length,petal_width,species
     5.8,2.7,5.1,1.9,virginica
     5.1,3.5,1.4,0.2,setosa
     5.7,2.8,4.1,1.3,versicolor
@@ -172,7 +173,7 @@ Use Case - 0x01
 >>> from pprint import pprint
 >>>
 >>>
->>> DATA = """SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+>>> DATA = """sepal_length,sepal_width,petal_length,petal_width,species
 ... 5.8,2.7,5.1,1.9,virginica
 ... 5.1,3.5,1.4,0.2,setosa
 ... 5.7,2.8,4.1,1.3,versicolor
@@ -183,11 +184,11 @@ Use Case - 0x01
 >>>
 >>> def clean(row: dict) -> dict:
 ...     return {
-...         'SepalLength': float(row['SepalLength']),
-...         'SepalWidth': float(row['SepalWidth']),
-...         'PetalLength': float(row['PetalLength']),
-...         'PetalWidth': float(row['PetalWidth']),
-...         'Species': row['Species']
+...         'sepal_length': float(row['sepal_length']),
+...         'sepal_width': float(row['sepal_width']),
+...         'petal_length': float(row['petal_length']),
+...         'petal_width': float(row['petal_width']),
+...         'species': row['species']
 ...     }
 >>>
 >>>
@@ -197,21 +198,21 @@ Use Case - 0x01
 ...     result = list(result)
 >>>
 >>> pprint(result, sort_dicts=False)
-[{'SepalLength': 5.8,
-  'SepalWidth': 2.7,
-  'PetalLength': 5.1,
-  'PetalWidth': 1.9,
-  'Species': 'virginica'},
- {'SepalLength': 5.1,
-  'SepalWidth': 3.5,
-  'PetalLength': 1.4,
-  'PetalWidth': 0.2,
-  'Species': 'setosa'},
- {'SepalLength': 5.7,
-  'SepalWidth': 2.8,
-  'PetalLength': 4.1,
-  'PetalWidth': 1.3,
-  'Species': 'versicolor'}]
+[{'sepal_length': 5.8,
+  'sepal_width': 2.7,
+  'petal_length': 5.1,
+  'petal_width': 1.9,
+  'species': 'virginica'},
+ {'sepal_length': 5.1,
+  'sepal_width': 3.5,
+  'petal_length': 1.4,
+  'petal_width': 0.2,
+  'species': 'setosa'},
+ {'sepal_length': 5.7,
+  'sepal_width': 2.8,
+  'petal_length': 4.1,
+  'petal_width': 1.3,
+  'species': 'versicolor'}]
 
 
 Assignments

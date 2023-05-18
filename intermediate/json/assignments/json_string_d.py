@@ -28,40 +28,41 @@ Tests:
     'Variable `result` should be a list[dict]'
 
     >>> result[0]  # doctest: +NORMALIZE_WHITESPACE
-    {'Sepal length': 5.8,
-     'Sepal width': 2.7,
-     'Petal length': 5.1,
-     'Petal width': 1.9,
-     'Species': 'virginica'}
+    {'sepal_length': 5.8,
+     'sepal_width': 2.7,
+     'petal_length': 5.1,
+     'petal_width': 1.9,
+     'species': 'virginica'}
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [{'Sepal length': 5.8, 'Sepal width': 2.7, 'Petal length': 5.1,
-      'Petal width': 1.9, 'Species': 'virginica'},
-     {'Sepal length': 5.1, 'Sepal width': 3.5, 'Petal length': 1.4,
-      'Petal width': 0.2, 'Species': 'setosa'},
-     {'Sepal length': 5.7, 'Sepal width': 2.8, 'Petal length': 4.1,
-      'Petal width': 1.3, 'Species': 'versicolor'},
-     {'Sepal length': 6.3, 'Sepal width': 2.9, 'Petal length': 5.6,
-      'Petal width': 1.8, 'Species': 'virginica'},
-     {'Sepal length': 6.4, 'Sepal width': 3.2, 'Petal length': 4.5,
-      'Petal width': 1.5, 'Species': 'versicolor'},
-     {'Sepal length': 4.7, 'Sepal width': 3.2, 'Petal length': 1.3,
-      'Petal width': 0.2, 'Species': 'setosa'}]
+    [{'sepal_length': 5.8, 'sepal_width': 2.7, 'petal_length': 5.1, 'petal_width': 1.9, 'species': 'virginica'},
+     {'sepal_length': 5.1, 'sepal_width': 3.5, 'petal_length': 1.4, 'petal_width': 0.2, 'species': 'setosa'},
+     {'sepal_length': 5.7, 'sepal_width': 2.8, 'petal_length': 4.1, 'petal_width': 1.3, 'species': 'versicolor'},
+     {'sepal_length': 6.3, 'sepal_width': 2.9, 'petal_length': 5.6, 'petal_width': 1.8, 'species': 'virginica'},
+     {'sepal_length': 6.4, 'sepal_width': 3.2, 'petal_length': 4.5, 'petal_width': 1.5, 'species': 'versicolor'},
+     {'sepal_length': 4.7, 'sepal_width': 3.2, 'petal_length': 1.3, 'petal_width': 0.2, 'species': 'setosa'},
+     {'sepal_length': 7.0, 'sepal_width': 3.2, 'petal_length': 4.7, 'petal_width': 1.4, 'species': 'versicolor'},
+     {'sepal_length': 7.6, 'sepal_width': 3.0, 'petal_length': 6.6, 'petal_width': 2.1, 'species': 'virginica'},
+     {'sepal_length': 4.9, 'sepal_width': 3.0, 'petal_length': 1.4, 'petal_width': 0.2, 'species': 'setosa'}]
 """
 
 import json
 
 
 DATA = (
-    '[{"Sepal length":5.8,"Sepal width":2.7,"Petal length":5.1,"Petal width":1'
-    '.9,"Species":"virginica"},{"Sepal length":5.1,"Sepal width":3.5,"Petal le'
-    'ngth":1.4,"Petal width":0.2,"Species":"setosa"},{"Sepal length":5.7,"Sepa'
-    'l width":2.8,"Petal length":4.1,"Petal width":1.3,"Species":"versicolor"}'
-    ',{"Sepal length":6.3,"Sepal width":2.9,"Petal length":5.6,"Petal width":1'
-    '.8,"Species":"virginica"},{"Sepal length":6.4,"Sepal width":3.2,"Petal le'
-    'ngth":4.5,"Petal width":1.5,"Species":"versicolor"},{"Sepal length":4.7,"'
-    'Sepal width":3.2,"Petal length":1.3,"Petal width":0.2,"Species":"setosa"}'
-    ']'
+    '[{"sepal_length":5.8,"sepal_width":2.7,"petal_length":5.1,"petal_widt'
+    'h":1.9,"species":"virginica"},{"sepal_length":5.1,"sepal_width":3.5,"'
+    'petal_length":1.4,"petal_width":0.2,"species":"setosa"},{"sepal_lengt'
+    'h":5.7,"sepal_width":2.8,"petal_length":4.1,"petal_width":1.3,"specie'
+    's":"versicolor"},{"sepal_length":6.3,"sepal_width":2.9,"petal_length"'
+    ':5.6,"petal_width":1.8,"species":"virginica"},{"sepal_length":6.4,"se'
+    'pal_width":3.2,"petal_length":4.5,"petal_width":1.5,"species":"versic'
+    'olor"},{"sepal_length":4.7,"sepal_width":3.2,"petal_length":1.3,"peta'
+    'l_width":0.2,"species":"setosa"},{"sepal_length":7.0,"sepal_width":3.'
+    '2,"petal_length":4.7,"petal_width":1.4,"species":"versicolor"},{"sepa'
+    'l_length":7.6,"sepal_width":3.0,"petal_length":6.6,"petal_width":2.1,'
+    '"species":"virginica"},{"sepal_length":4.9,"sepal_width":3.0,"petal_l'
+    'ength":1.4,"petal_width":0.2,"species":"setosa"}]'
 )
 
 

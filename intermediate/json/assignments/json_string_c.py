@@ -26,11 +26,11 @@ Tests:
     'Variable `result` should not be empty'
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    {'Sepal length': 5.1,
-     'Sepal width': 3.5,
-     'Petal length': 1.4,
-     'Petal width': 0.2,
-     'Species': 'setosa'}
+    {'sepal_length': 5.1,
+     'sepal_width': 3.5,
+     'petal_length': 1.4,
+     'petal_width': 0.2,
+     'species': 'setosa'}
 """
 
 import json
@@ -38,11 +38,11 @@ import json
 
 DATA = """
 {
-    "Sepal length": 5.1,
-    "Sepal width": 3.5,
-    "Petal length": 1.4,
-    "Petal width": 0.2,
-    "Species": "setosa"
+    "sepal_length": 5.1,
+    "sepal_width": 3.5,
+    "petal_length": 1.4,
+    "petal_width": 0.2,
+    "species": "setosa"
 }
 """
 

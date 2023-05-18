@@ -73,7 +73,11 @@ Multi Parameters
 ...     return sum(x)
 >>>
 >>>
->>> DATA = [(1,2), (3,4)]
+>>> DATA = [
+...     (1,2),
+...     (3,4),
+... ]
+>>>
 >>> result = map(myfunc, DATA)
 >>> print(list(result))
 [3, 7]
@@ -86,7 +90,8 @@ Starmap
 >>>
 >>> DATA = [
 ...     (3.1415, 3),
-...     (2.71828, 2)]
+...     (2.71828, 2),
+... ]
 >>>
 >>> result = starmap(round, DATA)  # round(number=3.1415, ndigits=2)
 >>> print(list(result))
@@ -98,10 +103,10 @@ Partial
 >>> from functools import partial
 >>>
 >>>
->>> myround = partial(round, ndigits=1)
+>>> round1 = partial(round, ndigits=1)
 >>> DATA = [1.111, 2.222, 3.333]
 >>>
->>> result = map(myround, DATA)  # round(number=1.111, ndigits=1)
+>>> result = map(round1, DATA)  # round(number=1.111, ndigits=1)
 >>> print(list(result))
 [1.1, 2.2, 3.3]
 

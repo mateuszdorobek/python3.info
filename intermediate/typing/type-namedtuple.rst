@@ -410,17 +410,20 @@ Use Case - 0x02
 >>> locations: list[tuple[float,float]] = [
 ...     (25.91375, -60.15503),
 ...     (-11.01983, -166.48477),
-...     (-11.01983, -166.48477)]
+...     (-11.01983, -166.48477),
+... ]
 >>>
 >>> locations: list[GeographicCoordinate] = [
 ...     GeographicCoordinate(25.91375, -60.15503),
 ...     GeographicCoordinate(-11.01983, -166.48477),
-...     GeographicCoordinate(-11.01983, -166.48477)]
+...     GeographicCoordinate(-11.01983, -166.48477),
+... ]
 >>>
 >>> locations: list[GeographicCoordinate] = [
 ...     GeographicCoordinate(latitude=25.91375, longitude=-60.15503),
 ...     GeographicCoordinate(latitude=-11.01983, longitude=-166.48477),
-...     GeographicCoordinate(latitude=-11.01983, longitude=-166.48477)]
+...     GeographicCoordinate(latitude=-11.01983, longitude=-166.48477),
+... ]
 
 
 Use Case - 0x03
@@ -429,7 +432,7 @@ Use Case - 0x03
 >>> from pprint import pprint
 >>>
 >>> DATA = [
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),

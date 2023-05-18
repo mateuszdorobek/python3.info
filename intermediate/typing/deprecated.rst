@@ -114,24 +114,28 @@ List[tuple]
 >>> data: List[tuple] = [
 ...    (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...    (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...    (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...    (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 >>> data: List[Tuple[float, float, float, float, str]] = [
 ...    (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...    (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...    (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...    (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 >>> GeographicCoordinate = Tuple[float, float]
 >>> locations: List[GeographicCoordinate] = [
 ...    (25.91375, -60.15503),
 ...    (-11.01983, -166.48477),
-...    (-11.01983, -166.48477)]
+...    (-11.01983, -166.48477),
+... ]
 
 >>> Iris = Tuple[float, float, float, float, str]
 >>> data: List[Iris] = [
 ...    (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...    (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...    (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...    (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 
 List[list]

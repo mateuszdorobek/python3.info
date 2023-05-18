@@ -14,7 +14,7 @@ SetUp
 Minimal
 -------
 >>> DATA = [
-...     ('SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -27,7 +27,7 @@ Minimal
 Result:
 
 >>> print(open('/tmp/myfile.csv').read())
-SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+sepal_length,sepal_width,petal_length,petal_width,species
 5.8,2.7,5.1,1.9,virginica
 5.1,3.5,1.4,0.2,setosa
 5.7,2.8,4.1,1.3,versicolor
@@ -37,7 +37,7 @@ SepalLength,SepalWidth,PetalLength,PetalWidth,Species
 Parametrized
 ------------
 >>> DATA = [
-...     ('SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -50,7 +50,7 @@ Parametrized
 Result:
 
 >>> print(open('/tmp/myfile.csv').read())
-"SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+"sepal_length";"sepal_width";"petal_length";"petal_width";"species"
 "5.8";"2.7";"5.1";"1.9";"virginica"
 "5.1";"3.5";"1.4";"0.2";"setosa"
 "5.7";"2.8";"4.1";"1.3";"versicolor"

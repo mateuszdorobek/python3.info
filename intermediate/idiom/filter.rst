@@ -119,7 +119,8 @@ Use Case - 0x01
 >>> people = [
 ...     {'age': 21, 'name': 'Pan Twardowski'},
 ...     {'age': 25, 'name': 'Mark Watney'},
-...     {'age': 18, 'name': 'Melissa Lewis'}]
+...     {'age': 18, 'name': 'Melissa Lewis'},
+... ]
 >>>
 >>>
 >>> def adult(person):
@@ -137,7 +138,8 @@ Use Case - 0x02
 >>> people = [
 ...     {'is_astronaut': False, 'name': 'Pan Twardowski'},
 ...     {'is_astronaut': True, 'name': 'Mark Watney'},
-...     {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+...     {'is_astronaut': True, 'name': 'Melissa Lewis'},
+... ]
 >>>
 >>>
 >>> def astronaut(person):

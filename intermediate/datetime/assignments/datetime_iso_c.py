@@ -35,8 +35,10 @@ Tests:
 
 from datetime import datetime
 
-DATA = ['1961-04-12 06:07',
-        '1961-04-12 06:07:00']
+DATA = [
+    '1961-04-12 06:07',
+    '1961-04-12 06:07:00',
+]
 
 # parsed DATA
 # type: list[datetime]

@@ -272,7 +272,7 @@ Use Case - 0x03
 ...     {'firstname': 'Rick', 'lastname': 'Martinez', 'age': 40},
 ...     {'firstname': 'Alex', 'lastname': 'Vogel', 'age': 42},
 ...     {'firstname': 'Beth', 'lastname': 'Johanssen', 'age': 29},
-...     {'firstname': 'Chris', 'lastname': 'Beck', 'age': 46},
+...     {'firstname': 'Chris', 'lastname': 'Beck', 'age': 36},
 ... ]
 >>>
 >>>
@@ -291,7 +291,7 @@ Use Case - 0x03
 {'id': 3, 'firstname': 'Rick', 'lastname': 'Martinez', 'age': 40}
 {'id': 4, 'firstname': 'Alex', 'lastname': 'Vogel', 'age': 42}
 {'id': 5, 'firstname': 'Beth', 'lastname': 'Johanssen', 'age': 29}
-{'id': 6, 'firstname': 'Chris', 'lastname': 'Beck', 'age': 46}
+{'id': 6, 'firstname': 'Chris', 'lastname': 'Beck', 'age': 36}
 
 
 Use Case - 0x04

@@ -185,7 +185,8 @@ Object from list of sequences:
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
 ...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
 ...     (6.4, 3.2, 4.5, 1.5, 'versicolor'),
-...     (4.7, 3.2, 1.3, 0.2, 'setosa')]
+...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
+... ]
 >>>
 >>> result = [Iris(*row) for row in DATA]
 >>>
@@ -253,7 +254,8 @@ Recap
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
 ...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
 ...     (6.4, 3.2, 4.5, 1.5, 'versicolor'),
-...     (4.7, 3.2, 1.3, 0.2, 'setosa')]
+...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
+... ]
 >>>
 >>>
 >>> def show(sl, sw, pl, pw, species):
@@ -376,7 +378,8 @@ Use Case - 0x04
 ...             (2, 1, 1),
 ...             (3, 2),
 ...             (3, 3, -1),
-...             (2, 3)]
+...             (2, 3),
+... ]
 
 >>> movement = [Point(x,y) for x,y in MOVEMENT]
 Traceback (most recent call last):
@@ -413,7 +416,8 @@ Use Case - 0x04
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
 ...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
 ...     (6.4, 3.2, 4.5, 1.5, 'versicolor'),
-...     (4.7, 3.2, 1.3, 0.2, 'setosa')]
+...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
+... ]
 >>>
 >>>
 >>> result = [Iris(*row) for row in DATA]
@@ -447,7 +451,8 @@ Use Case - 0x05
 ...     {"sepal_length":5.7,"sepal_width":2.8,"petal_length":4.1,"petal_width":1.3,"species":"versicolor"},
 ...     {"sepal_length":6.3,"sepal_width":2.9,"petal_length":5.6,"petal_width":1.8,"species":"virginica"},
 ...     {"sepal_length":6.4,"sepal_width":3.2,"petal_length":4.5,"petal_width":1.5,"species":"versicolor"},
-...     {"sepal_length":4.7,"sepal_width":3.2,"petal_length":1.3,"petal_width":0.2,"species":"setosa"}]
+...     {"sepal_length":4.7,"sepal_width":3.2,"petal_length":1.3,"petal_width":0.2,"species":"setosa"},
+... ]
 >>>
 >>>
 >>> result = [Iris(**row) for row in DATA]
@@ -559,7 +564,7 @@ passed to the original function:
 
 >>> mycsv('myfile.csv', encoding='utf-8')
 >>> mycsv('myfile.csv', encoding='utf-8', verbose=True)
->>> mycsv('myfile.csv', verbose=True, usecols=['Sepal Length', 'Species'])
+>>> mycsv('myfile.csv', verbose=True, usecols=['sepal_length', 'species'])
 
 
 Use Case - 0x08

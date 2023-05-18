@@ -20,14 +20,14 @@ Data:
 
 .. code-block:: text
 
-    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+    sepal_length,sepal_width,petal_length,petal_width,species
     5.8,2.7,5.1,1.9,virginica
     5.1,3.5,1.4,0.2,setosa
     5.7,2.8,4.1,1.3,versicolor
 
 SetUp:
 
->>> DATA = """SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+>>> DATA = """sepal_length,sepal_width,petal_length,petal_width,species
 ... 5.8,2.7,5.1,1.9,virginica
 ... 5.1,3.5,1.4,0.2,setosa
 ... 5.7,2.8,4.1,1.3,versicolor
@@ -43,7 +43,7 @@ Usage:
 >>>
 >>>
 >>> pprint(result)
-[['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species'],
+[['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'],
  ['5.8', '2.7', '5.1', '1.9', 'virginica'],
  ['5.1', '3.5', '1.4', '0.2', 'setosa'],
  ['5.7', '2.8', '4.1', '1.3', 'versicolor']]
@@ -55,14 +55,14 @@ Data:
 
 .. code-block:: text
 
-    "SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+    "sepal_length";"sepal_width";"petal_length";"petal_width";"species"
     "5.8";"2.7";"5.1";"1.9";"virginica"
     "5.1";"3.5";"1.4";"0.2";"setosa"
     "5.7";"2.8";"4.1";"1.3";"versicolor"
 
 SetUp:
 
->>> DATA = '''"SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+>>> DATA = '''"sepal_length";"sepal_width";"petal_length";"petal_width";"species"
 ... "5.8";"2.7";"5.1";"1.9";"virginica"
 ... "5.1";"3.5";"1.4";"0.2";"setosa"
 ... "5.7";"2.8";"4.1";"1.3";"versicolor"
@@ -78,7 +78,7 @@ Usage:
 >>>
 >>>
 >>> pprint(result)
-[['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species'],
+[['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'],
  ['5.8', '2.7', '5.1', '1.9', 'virginica'],
  ['5.1', '3.5', '1.4', '0.2', 'setosa'],
  ['5.7', '2.8', '4.1', '1.3', 'versicolor']]

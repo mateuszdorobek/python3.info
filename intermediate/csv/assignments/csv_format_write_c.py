@@ -44,7 +44,7 @@ Tests:
     'Variable `result` has invalid type, should be str'
 
     >>> print(result)
-    "Petal length","Petal width","Sepal length","Sepal width","Species"
+    "petal_length","petal_width","sepal_length","sepal_width","species"
     "","","5.1","3.5","setosa"
     "4.1","1.3","","","versicolor"
     "","1.8","6.3","","virginica"
@@ -55,12 +55,12 @@ Tests:
 """
 
 DATA = [
-    {'Sepal length': 5.1, 'Sepal width': 3.5, 'Species': 'setosa'},
-    {'Petal length': 4.1, 'Petal width': 1.3, 'Species': 'versicolor'},
-    {'Sepal length': 6.3, 'Petal width': 1.8, 'Species': 'virginica'},
-    {'Sepal length': 5.0, 'Petal width': 0.2, 'Species': 'setosa'},
-    {'Sepal width': 2.8, 'Petal length': 4.1, 'Species': 'versicolor'},
-    {'Sepal width': 2.9, 'Petal width': 1.8, 'Species': 'virginica'},
+    {'sepal_length': 5.1, 'sepal_width': 3.5, 'species': 'setosa'},
+    {'petal_length': 4.1, 'petal_width': 1.3, 'species': 'versicolor'},
+    {'sepal_length': 6.3, 'petal_width': 1.8, 'species': 'virginica'},
+    {'sepal_length': 5.0, 'petal_width': 0.2, 'species': 'setosa'},
+    {'sepal_width': 2.8, 'petal_length': 4.1, 'species': 'versicolor'},
+    {'sepal_width': 2.9, 'petal_width': 1.8, 'species': 'virginica'},
 ]
 
 # header has unique keys from DATA, row values match header columns
@@ -84,4 +84,3 @@ result += make_line(header)
 for row in DATA:
     line = [row.get(key, '') for key in header]
     result += make_line(line)
-

@@ -6,7 +6,8 @@ Typing Nested
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
-...     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 >>>
 >>> x = DATA[0][-1]
 >>> x  # doctest: +SKIP
@@ -16,7 +17,8 @@ Typing Nested
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
-...     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 >>>
 >>> x: str = DATA[0][-1]
 >>> x  # doctest: +SKIP
@@ -63,17 +65,20 @@ Example:
 >>> data: list = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 >>> data: list[tuple] = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 >>> data: list[tuple[float, float, float, float, str]] = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 
 List of Dicts
@@ -81,12 +86,14 @@ List of Dicts
 >>> data: list[dict] = [
 ...     {'features': [4.7, 3.2, 1.3, 0.2], 'label': 'setosa'},
 ...     {'features': [7.0, 3.2, 4.7, 1.4], 'label': 'versicolor'},
-...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'}]
+...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'},
+... ]
 
 >>> data: list[dict[str, list[float] | str]] = [
 ...     {'features': [4.7, 3.2, 1.3, 0.2], 'label': 'setosa'},
 ...     {'features': [7.0, 3.2, 4.7, 1.4], 'label': 'versicolor'},
-...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'}]
+...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'},
+... ]
 
 
 Aliases
@@ -103,7 +110,8 @@ Example:
 >>> data: list[Iris] = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 
 >>> features = list[float]
 >>> label = str
@@ -111,7 +119,8 @@ Example:
 >>> data: list[dict[str, features|label]] = [
 ...     {'features': [4.7, 3.2, 1.3, 0.2], 'label': 'setosa'},
 ...     {'features': [7.0, 3.2, 4.7, 1.4], 'label': 'versicolor'},
-...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'}]
+...     {'features': [7.6, 3.0, 6.6, 2.1], 'label': 'virginica'},
+... ]
 
 
 Unions
@@ -135,7 +144,7 @@ Example:
 >>> Row = tuple[float, float, float, float, str]
 >>>
 >>> DATA: tuple[Header,Row,...] = (
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -151,7 +160,8 @@ Use Case - 0x01
 >>> locations: list[GeographicCoordinate] = [
 ...     (25.91375, -60.15503),
 ...     (-11.01983, -166.48477),
-...     (-11.01983, -166.48477)]
+...     (-11.01983, -166.48477),
+... ]
 
 
 Use Case - 0x02

@@ -14,7 +14,7 @@ Example CSV file:
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8, 2.7, 5.1, 1.9, virginica
     5.1, 3.5, 1.4, 0.2, setosa
     5.7, 2.8, 4.1, 1.3, versicolor
@@ -48,7 +48,7 @@ First line is a header:
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8, 2.7, 5.1, 1.9, virginica
     5.1, 3.5, 1.4, 0.2, setosa
     5.7, 2.8, 4.1, 1.3, versicolor
@@ -102,7 +102,7 @@ Delimiter
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8, 2.7, 5.1, 1.9, virginica
     5.1, 3.5, 1.4, 0.2, setosa
     5.7, 2.8, 4.1, 1.3, versicolor
@@ -111,7 +111,7 @@ Delimiter
 
 .. code-block:: text
 
-    SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+    sepal_length,sepal_width,petal_length,petal_width,species
     5.8,2.7,5.1,1.9,virginica
     5.1,3.5,1.4,0.2,setosa
     5.7,2.8,4.1,1.3,versicolor
@@ -120,7 +120,7 @@ Delimiter
 
 .. code-block:: text
 
-    SepalLength;SepalWidth;PetalLength;PetalWidth;Species
+    sepal_length;sepal_width;petal_length;petal_width;species
     5.8;2.7;5.1;1.9;virginica
     5.1;3.5;1.4;0.2;setosa
     5.7;2.8;4.1;1.3;versicolor
@@ -155,7 +155,7 @@ Delimiter
 
 .. code-block:: text
 
-    SepalLength	SepalWidth	PetalLength	PetalWidth	Species
+    sepal_length	sepal_width	petal_length	petal_width	species
     5.8	2.7	5.1	1.9	virginica
     5.1	3.5	1.4	0.2	setosa
     5.7	2.8	4.1	1.3	versicolor
@@ -170,7 +170,7 @@ Quotechar
 
 .. code-block:: text
 
-    "SepalLength", "SepalWidth", "PetalLength", "PetalWidth", "Species"
+    "sepal_length", "sepal_width", "petal_length", "petal_width", "species"
     "5.8", "2.7", "5.1", "1.9", "virginica"
     "5.1", "3.5", "1.4", "0.2", "setosa"
     "5.7", "2.8", "4.1", "1.3", "versicolor"
@@ -179,7 +179,7 @@ Quotechar
 
 .. code-block:: text
 
-    'SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species'
+    'sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'
     '5.8', '2.7', '5.1', '1.9', 'virginica'
     '5.1', '3.5', '1.4', '0.2', 'setosa'
     '5.7', '2.8', '4.1', '1.3', 'versicolor'
@@ -188,7 +188,7 @@ Quotechar
 
 .. code-block:: text
 
-    |SepalLength|, |SepalWidth|, |PetalLength|, |PetalWidth|, |Species|
+    |sepal_length|, |sepal_width|, |petal_length|, |petal_width|, |species|
     |5.8|, |2.7|, |5.1|, |1.9|, |virginica|
     |5.1|, |3.5|, |1.4|, |0.2|, |setosa|
     |5.7|, |2.8|, |4.1|, |1.3|, |versicolor|
@@ -197,7 +197,7 @@ Quotechar
 
 .. code-block:: text
 
-    /SepalLength/, /SepalWidth/, /PetalLength/, /PetalWidth/, /Species/
+    /sepal_length/, /sepal_width/, /petal_length/, /petal_width/, /species/
     /5.8/, /2.7/, /5.1/, /1.9/, /virginica/
     /5.1/, /3.5/, /1.4/, /0.2/, /setosa/
     /5.7/, /2.8/, /4.1/, /1.3/, /versicolor/
@@ -214,7 +214,7 @@ Quoting
 
 .. code-block:: text
 
-    "SepalLength", "SepalWidth", "PetalLength", "PetalWidth", "Species"
+    "sepal_length", "sepal_width", "petal_length", "petal_width", "species"
     "5.8", "2.7", "5.1", "1.9", "virginica"
     "5.1", "3.5", "1.4", "0.2", "setosa"
     "5.7", "2.8", "4.1", "1.3", "versicolor"
@@ -223,7 +223,7 @@ Quoting
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8, 2.7, 5.1, 1.9, virginica
     5.1, 3.5, 1.4, 0.2, setosa
     5.7, 2.8, 4.1, 1.3, versicolor
@@ -232,7 +232,7 @@ Quoting
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8, 2.7, 5.1, 1.9, virginica
     5.1, 3.5, 1.4, 0.2, setosa
     5.7, 2.8, 4.1, 1.3, versicolor
@@ -241,7 +241,7 @@ Quoting
 
 .. code-block:: text
 
-    "SepalLength", "SepalWidth", "PetalLength", "PetalWidth", "Species"
+    "sepal_length", "sepal_width", "petal_length", "petal_width", "species"
     5.8, 2.7, 5.1, 1.9, "virginica"
     5.1, 3.5, 1.4, 0.2, "setosa"
     5.7, 2.8, 4.1, 1.3, "versicolor"
@@ -263,14 +263,14 @@ Decimal Separator
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5.8; 2.7; 5.1; 1.9; virginica
     5.1; 3.5; 1.4; 0.2; setosa
     5.7; 2.8; 4.1; 1.3; versicolor
 
 .. code-block:: text
 
-    SepalLength, SepalWidth, PetalLength, PetalWidth, Species
+    sepal_length, sepal_width, petal_length, petal_width, species
     5,8; 2,7; 5,1; 1,9; virginica
     5,1; 3,5; 1,4; 0,2; setosa
     5,7; 2,8; 4,1; 1,3; versicolor
@@ -402,4 +402,3 @@ Always specify:
     * ``quoting=csv.QUOTE_ALL`` to ``csv.DictReader()`` object
     * ``lineterminator='\n'`` to ``csv.DictReader()`` object
     * ``encoding='utf-8'`` to ``open()`` function (especially when working with Microsoft Excel)
-

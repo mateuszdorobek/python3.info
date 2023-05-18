@@ -15,9 +15,9 @@ SetUp
 Minimal
 ----------
 >>> DATA = [
-...     {'SepalLength': 5.4, 'SepalWidth': 3.9, 'PetalLength': 1.3, 'PetalWidth': 0.4, 'Species': 'setosa'},
-...     {'SepalLength': 5.9, 'SepalWidth': 3.0, 'PetalLength': 5.1, 'PetalWidth': 1.8, 'Species': 'virginica'},
-...     {'SepalLength': 6.0, 'SepalWidth': 3.4, 'PetalLength': 4.5, 'PetalWidth': 1.6, 'Species': 'versicolor'},
+...     {'sepal_length': 5.4, 'sepal_width': 3.9, 'petal_length': 1.3, 'petal_width': 0.4, 'species': 'setosa'},
+...     {'sepal_length': 5.9, 'sepal_width': 3.0, 'petal_length': 5.1, 'petal_width': 1.8, 'species': 'virginica'},
+...     {'sepal_length': 6.0, 'sepal_width': 3.4, 'petal_length': 4.5, 'petal_width': 1.6, 'species': 'versicolor'},
 ... ]
 >>>
 >>> header = DATA[0].keys()
@@ -26,12 +26,12 @@ Minimal
 ...     result = csv.DictWriter(file, fieldnames=header)
 ...     result.writeheader()
 ...     result.writerows(DATA)
-55
+59
 
 Result:
 
 >>> print(Path('/tmp/myfile.csv').read_text())
-SepalLength,SepalWidth,PetalLength,PetalWidth,Species
+sepal_length,sepal_width,petal_length,petal_width,species
 5.4,3.9,1.3,0.4,setosa
 5.9,3.0,5.1,1.8,virginica
 6.0,3.4,4.5,1.6,versicolor
@@ -41,9 +41,9 @@ SepalLength,SepalWidth,PetalLength,PetalWidth,Species
 Parametrized
 ------------
 >>> DATA = [
-...     {'SepalLength': 5.4, 'SepalWidth': 3.9, 'PetalLength': 1.3, 'PetalWidth': 0.4, 'Species': 'setosa'},
-...     {'SepalLength': 5.9, 'SepalWidth': 3.0, 'PetalLength': 5.1, 'PetalWidth': 1.8, 'Species': 'virginica'},
-...     {'SepalLength': 6.0, 'SepalWidth': 3.4, 'PetalLength': 4.5, 'PetalWidth': 1.6, 'Species': 'versicolor'},
+...     {'sepal_length': 5.4, 'sepal_width': 3.9, 'petal_length': 1.3, 'petal_width': 0.4, 'species': 'setosa'},
+...     {'sepal_length': 5.9, 'sepal_width': 3.0, 'petal_length': 5.1, 'petal_width': 1.8, 'species': 'virginica'},
+...     {'sepal_length': 6.0, 'sepal_width': 3.4, 'petal_length': 4.5, 'petal_width': 1.6, 'species': 'versicolor'},
 ... ]
 >>>
 >>>
@@ -53,12 +53,12 @@ Parametrized
 ...     result = csv.DictWriter(file, fieldnames=header, quotechar='"', delimiter=';', quoting=csv.QUOTE_ALL)
 ...     result.writeheader()
 ...     result.writerows(DATA)
-65
+69
 
 Result:
 
 >>> print(Path('/tmp/myfile.csv').read_text())
-"SepalLength";"SepalWidth";"PetalLength";"PetalWidth";"Species"
+"sepal_length";"sepal_width";"petal_length";"petal_width";"species"
 "5.4";"3.9";"1.3";"0.4";"setosa"
 "5.9";"3.0";"5.1";"1.8";"virginica"
 "6.0";"3.4";"4.5";"1.6";"versicolor"

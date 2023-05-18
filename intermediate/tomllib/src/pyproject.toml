@@ -60,7 +60,7 @@ test = [
     "pyflakes",
     "pylint",
     "rope",
-    "whatthepatch"
+    "whatthepatch",
     "yapf",
 ]
 
@@ -220,8 +220,7 @@ py_version=3                            # Tells isort to set the known standard 
 remove_redundant_aliases = true         # Tells isort to remove redundant aliases from imports, such as `import os as os`
 skip = [".gitignore", ".dockerignore"]  # Files that isort should skip over
 skip_gitignore = true                   # Treat project as a git repository and ignore files listed in .gitignore
-skip_glob = ["docs/*"]                  # Files that isort should skip over
-skip_glob = ["tests/*"]                 # Files that isort should skip over
+skip_glob = ["docs/*", "tests/*"]       # Files that isort should skip over
 src_paths = ["src", "tests"]            # Add an explicitly defined source path (modules within src paths have their imports automatically categorized as first_party). Glob expansion (* and **) is supported for this option
 
 

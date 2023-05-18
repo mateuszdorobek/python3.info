@@ -33,12 +33,12 @@ Tests:
     'All rows in `result` should be dict'
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [{'Sepal Length': '5.8', 'Sepal Width': '2.7', 'Petal Length': '5.1',
-      'Petal Width': '1.9', 'Species': 'virginica'},
-     {'Sepal Length': '5.1', 'Sepal Width': '3.5', 'Petal Length': '1.4',
-      'Petal Width': '0.2', 'Species': 'setosa'},
-     {'Sepal Length': '5.7', 'Sepal Width': '2.8', 'Petal Length': '4.1',
-      'Petal Width': '1.3', 'Species': 'versicolor'}]
+    [{'sepal_length': '5.8', 'sepal_width': '2.7', 'petal_length': '5.1',
+      'petal_width': '1.9', 'species': 'virginica'},
+     {'sepal_length': '5.1', 'sepal_width': '3.5', 'petal_length': '1.4',
+      'petal_width': '0.2', 'species': 'setosa'},
+     {'sepal_length': '5.7', 'sepal_width': '2.8', 'petal_length': '4.1',
+      'petal_width': '1.3', 'species': 'versicolor'}]
 """
 
 import csv
@@ -49,8 +49,13 @@ DATA = """sepal_length,sepal_width,petal_length,petal_width,species
 5.1,3.5,1.4,0.2,setosa
 5.7,2.8,4.1,1.3,versicolor"""
 
-FIELDNAMES = ['Sepal Length', 'Sepal Width',
-              'Petal Length', 'Petal Width', 'Species']
+FIELDNAMES = [
+    'sepal_length',
+    'sepal_width',
+    'petal_length',
+    'petal_width',
+    'species',
+]
 
 FILE = r'_temporary.csv'
 
