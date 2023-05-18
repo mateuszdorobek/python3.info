@@ -220,12 +220,12 @@ When comparing age, height, temperature etc, the following numbers has
 the same meaning. Therefore after converting to ``float()`` it will be
 exactly the same.
 
->>> age = 21
->>> age = 21.0
->>> age = 21.00
->>> age = '21'
->>> age = '21.0'
->>> age = '21.00'
+>>> age = 42
+>>> age = 42.0
+>>> age = 42.00
+>>> age = '42'
+>>> age = '42.0'
+>>> age = '42.00'
 
 However, when those values indicates for example a version of a program to
 find in text their meaning will be different. Version 21 and '21.00' will

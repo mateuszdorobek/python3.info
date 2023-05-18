@@ -144,10 +144,10 @@ String concatenation
 .. code-block:: python
 
     name = 'Mark Watney'
-    age = 40
+    age = 42
 
     'My name... ' + name + ' and I am ' + str(age) + ' years old!'
-    # 'My name... Mark Watney and I am 40 years old!'
+    # 'My name... Mark Watney and I am 42 years old!'
 
 ``str.join()``
 --------------
@@ -246,6 +246,7 @@ Operator: ``%s``, ``%d``, ``%f``
     '{a} is {b} years'.format(a=name, b=age)               # 'José Jiménez is 42 years'
     '{name} is {age} years'.format(name=name, age=age)     # 'José Jiménez is 42 years'
     '{age} is {name} years'.format(**locals())             # '42 is José Jiménez years'
+
 
 f-strings - Python >= 3.6
 -------------------------
