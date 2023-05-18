@@ -6,18 +6,18 @@
 
 English:
     1. Define `result: list[dict]`
-    2. Iterate over `DATA` separating `features` from `label`
+    2. Iterate over `DATA` separating `values` from `species`
     3. To `result` append dict with:
-       a. key: `label`, value: species name
-       b. key: `mean`, value: arithmetic mean of `features`
+       a. key: `species`, value: species name
+       b. key: `mean`, value: arithmetic mean of `values`
     4. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj `result: list[dict]`
-    2. Iteruj po `DATA` separując `features` od `label`
+    2. Iteruj po `DATA` separując `values` od `species`
     3. Do `result` dodawaj dict z:
-       a. klucz: `label`, wartość: nazwa gatunku
-       b. klucz: `mean`, wartość: wynik średniej arytmetycznej `features`
+       a. klucz: `species`, wartość: nazwa gatunku
+       b. klucz: `mean`, wartość: wynik średniej arytmetycznej `values`
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -30,12 +30,12 @@ Tests:
     'All elements in result must be a dict'
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [{'label': 'virginica', 'mean': 3.875},
-     {'label': 'setosa', 'mean': 2.65},
-     {'label': 'versicolor', 'mean': 3.475},
-     {'label': 'virginica', 'mean': 6.0},
-     {'label': 'versicolor', 'mean': 3.95},
-     {'label': 'setosa', 'mean': 4.7}]
+    [{'species': 'virginica', 'mean': 3.875},
+     {'species': 'setosa', 'mean': 2.65},
+     {'species': 'versicolor', 'mean': 3.475},
+     {'species': 'virginica', 'mean': 6.0},
+     {'species': 'versicolor', 'mean': 3.95},
+     {'species': 'setosa', 'mean': 4.7}]
 """
 
 DATA = [
@@ -45,30 +45,31 @@ DATA = [
     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
     (6.3, 5.7, 'virginica'),
     (6.4, 1.5, 'versicolor'),
-    (4.7, 'setosa')]
+    (4.7, 'setosa'),
+]
 
 
 def mean(*args):
     return sum(args) / len(args)
 
 
-# calculate mean and append dict with {'label': ..., 'mean': ...}
+# calculate mean and append dict with {'species': ..., 'mean': ...}
 # type: list[dict]
 result = ...
 
 # Solution
-result = [{'label': label, 'mean': mean(*features)}
-          for *features, label in DATA[1:]]
+result = [{'species': species, 'mean': mean(*values)}
+          for *values, species in DATA[1:]]
 
 # Alternative Solution
 result = []
-for *features, label in DATA[1:]:
-    result.append({'label': label, 'mean': mean(*features)})
+for *values, species in DATA[1:]:
+    result.append({'species': species, 'mean': mean(*values)})
 
 # Alternative Solution
-result = [{'label': label, 'mean': mean(*features)}
-          for *features, label in DATA[1:]]
+result = [{'species': species, 'mean': mean(*values)}
+          for *values, species in DATA[1:]]
 
 # Alternative Solution
-result = [{'label': y, 'mean': mean(*X)}
+result = [{'species': y, 'mean': mean(*X)}
           for *X, y in DATA[1:]]

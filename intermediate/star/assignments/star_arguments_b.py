@@ -5,17 +5,17 @@
 * Time: 13 min
 
 English:
-    1. Write own implementation of a built-in function `range()`
+    1. Write own implementation of a built-in function `range()`,
+       example usage: `myrange(0, 10)` or `myrange(0, 10, 2)`
     2. Note, that function does not take any keyword arguments
-    3. How to implement passing only stop argument
-       `myrange(start=0, stop=???, step=1)`?
+    3. How to implement passing only stop argument, i.e. `myrange(10)`?
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`
+    1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`,
+       przykład użycia: `myrange(0, 10)` lub `myrange(0, 10, 2)`
     2. Zauważ, że funkcja nie przyjmuje żanych argumentów nazwanych (keyword)
-    3. Jak zaimplementować możliwość podawania tylko końca
-       `myrange(start=0, stop=???, step=1)`?
+    3. Jak zaimplementować możliwość podawania tylko końca, tj. `myrange(10)`?
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
@@ -62,8 +62,9 @@ Tests:
 """
 
 
-# myrange(start=0, stop=???, step=1)
-# note, function does not take keyword arguments
+# Write own implementation of a built-in function `range()`
+# example: myrange(0, 10, 2), myrange(0, 10)
+# note: function does not take keyword arguments
 # type: Callable[[int,int,int], list[int]]
 def myrange():
     current = start

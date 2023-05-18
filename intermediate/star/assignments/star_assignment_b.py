@@ -7,12 +7,12 @@
 
 English:
     1. Separate ip address from host names
-    2. Use asterisk `*` notation
+    2. Use star expression
     3. Run doctests - all must succeed
 
 Polish:
     1. Odseparuj adres ip od nazwy hostów
-    2. Skorzystaj z notacji z gwiazdką `*`
+    2. Użyj wyrażenia z gwiazdką
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:

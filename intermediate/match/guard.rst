@@ -1,9 +1,76 @@
 Match Guard
 ===========
+* Additional if statements
+* This is not to replace if-else expression
+* This add additional validation to match-case
+* https://peps.python.org/pep-0622/#guards
 
+>>> data = [1, 2]
+>>>
+>>> match data:
+...     case [x, y] if x > 1024 and y > 1024:
+...         print('Got a pair of large numbers')
+...     case [x, y] if x > 1024:
+...         print('X is a large number')
+...     case [x, y] if y > 1024:
+...         print('Y is a large number')
+...     case [x, y] if x == y:
+...         print('Got equal items')
+...     case _:
+...         print('Not an outstanding input')
+Not an outstanding input
 
 
 Use Case - 0x01
+---------------
+>>> def status(health):
+...     match health:
+...         case hp if hp <= 0:   return 'dead'
+...         case hp if hp < 50:   return 'low'
+...         case hp if hp >= 50:  return 'high'
+
+>>> status(100)
+'high'
+>>>
+>>> status(25)
+'low'
+>>>
+>>> status(10)
+'low'
+>>>
+>>> status(0)
+'dead'
+>>>
+>>> status(-5)
+'dead'
+
+
+Use Case - 0x02
+---------------
+>>> ADMINS = ['mlewis', 'bjohanssen']
+>>> STAFF = ['mwatney', 'mlewis', 'rmartinez', 'bjohanssen', 'cbeck']
+>>>
+>>> def login(username, password):
+...     match username:
+...         case _ if username in ADMINS:
+...             print('Admin logged-in')
+...         case _ if username in STAFF:
+...             print('Staff logged-in')
+...         case _ if username not in STAFF:
+...             raise PermissionError('Access denied')
+
+>>> login('mlewis', 'NASA')
+Admin logged-in
+
+>>> login('mwatney', 'Ares3')
+Staff logged-in
+
+>>> login('avogel', 'ESA')
+Traceback (most recent call last):
+PermissionError: Access denied
+
+
+Use Case - 0x03
 ---------------
 * status "Full Health" - when health 100%
 * status "Injured" - when health 75% - 100% (exclusive)
@@ -34,7 +101,7 @@ Use Case - 0x01
 Near Death
 
 
-Use Case - 0x01
+Use Case - 0x04
 ---------------
 * Game Controller
 
@@ -63,7 +130,7 @@ Use Case:
 ...         raise ValueError('Damage cannot be negative')
 
 
-Use Case - 0x02
+Use Case - 0x05
 ---------------
 * Game Controller
 
@@ -89,7 +156,7 @@ Use Case:
 ...         hero.run(direction)
 
 
-Use Case - 0x03
+Use Case - 0x06
 ---------------
 * Game Controller
 
@@ -112,5 +179,3 @@ Use Case:
 ...
 ...     case ['move', direction, value] if direction in ['up','down','left','right']:
 ...         hero.move(direction, value)
-
-

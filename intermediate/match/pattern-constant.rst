@@ -1,5 +1,6 @@
 Match Constant
 ==============
+* https://peps.python.org/pep-0622/#constant-value-patterns
 
 A `constant value pattern` works like the literal but for certain named
 constants. Note that it must be a qualified (dotted) name, given the
@@ -18,6 +19,7 @@ Usage:
 ...     OK = 200
 ...     REDIRECT = 300
 ...     SERVER_ERROR = 500
+>>>
 >>>
 >>> resp = requests.get('https://python3.info')
 >>>

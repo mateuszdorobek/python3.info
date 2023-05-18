@@ -58,25 +58,6 @@ It quickly grows into multiple ``elif``:
 Hello
 
 
-Enum
-----
->>> from enum import Enum
->>>
->>>
->>> class Hello(Enum):
-...     English = 'Hello'
-...     Polish = 'Cześć'
-...     German = 'Guten Tag'
-...     Spanish = 'Buenos Días'
-...     Chinese = '你好'
-...     French = 'Bonjour'
->>>
->>>
->>> result = Hello.English.value
->>> print(result)
-Hello
-
-
 Pattern Matching
 ----------------
 New ``match`` syntax allows to be ``PEP-8`` compliant while having

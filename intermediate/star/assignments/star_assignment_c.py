@@ -7,12 +7,12 @@
 
 English:
     1. Separate values from species name
-    2. Use asterisk `*` notation
+    2. Use star expression
     3. Run doctests - all must succeed
 
 Polish:
     1. Odseparuj wartości od nazwy gatunku
-    2. Skorzystaj z konstrukcji z gwiazdką `*`
+    2. Użyj wyrażenia z gwiazdką
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:

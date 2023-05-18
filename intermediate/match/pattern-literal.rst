@@ -1,5 +1,6 @@
 Match Literal
 =============
+* https://peps.python.org/pep-0622/#literal-patterns
 
 A `literal pattern` is useful to filter constant values in a
 structure. It looks like a Python literal (including some values like

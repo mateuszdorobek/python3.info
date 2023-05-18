@@ -1,5 +1,6 @@
 Match Wildcard
 ==============
+* https://peps.python.org/pep-0622/#wildcard-pattern
 
 The `wildcard pattern` is a single underscore: ``_``.  It always
 matches, but does not capture any variable (which prevents

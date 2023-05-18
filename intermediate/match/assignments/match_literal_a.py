@@ -2,7 +2,7 @@
 * Assignment: Match Literal Range
 * Complexity: medium
 * Lines of code: 18 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Write own implementation of a built-in function `range()`

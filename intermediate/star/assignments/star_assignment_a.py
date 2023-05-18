@@ -40,11 +40,13 @@ Tests:
 
 DATA = ['10.13.37.1', 'nasa.gov', 'esa.int', 'polsa.gov.pl']
 
-# String with IP address: '10.13.37.1'
+# String with IP address
+# example: '10.13.37.1'
 # type: str
 ip = ...
 
-# List of hostnames: ['nasa.gov', 'esa.int', 'polsa.gov.pl']
+# List of hosts
+# example: ['nasa.gov', 'esa.int', 'polsa.gov.pl']
 # type: list[str]
 hosts = ...
 

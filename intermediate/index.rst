@@ -30,8 +30,8 @@ Match
     match/about.rst
     match/pattern-literal.rst
     match/pattern-or.rst
-    match/pattern-wildcard.rst
     match/pattern-capture.rst
+    match/pattern-wildcard.rst
     match/pattern-constant.rst
     match/pattern-sequence.rst
     match/pattern-mapping.rst

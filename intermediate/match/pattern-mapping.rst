@@ -1,5 +1,6 @@
 Match Mapping
 =============
+* https://peps.python.org/pep-0622/#mapping-patterns
 
 A mapping pattern looks like ``{"user": u, "emails": [*es]}``. It
 matches mappings with at least the set of provided keys, and if all the

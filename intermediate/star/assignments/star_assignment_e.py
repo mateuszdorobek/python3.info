@@ -5,16 +5,18 @@
 * Time: 5 min
 
 English:
-    1. Iterate over data splitting `*features` from `label`
+    1. Iterate over data splitting `values` from `species`
     2. Define `result: list[str]` with
        species names ending with "ca" or "osa"
-    3. Run doctests - all must succeed
+    3. Use star expression
+    4. Run doctests - all must succeed
 
 Polish:
-    1. Iteruj po danych rozdzielając `*features` od `label`
+    1. Iteruj po danych rozdzielając `values` od `species`
     2. Zdefiniuj `result: list[str]` z
        nazwami gatunków kończącymi się na "ca" lub "osa"
-    3. Uruchom doctesty - wszystkie muszą się powieść
+    3. Użyj wyrażenia z gwiazdką
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * `str.endswith()`
