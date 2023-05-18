@@ -385,12 +385,13 @@ Get from ``dict``
 .. code-block:: python
 
     data = {
-        'firstname': 'Pan',
-        'lastname': 'Twardowski'
+        'firstname': 'Mark',
+        'lastname': 'Watney'
     }
 
-    f'{data["firstname"]}'         # 'Pan'
-    f'{data["lastname"]}'          # 'Twardowski'
+    f'{data["firstname"]}'         # 'Mark'
+    f'{data["lastname"]}'          # 'Watney'
+
 
 Get from ``sequence``
 ---------------------

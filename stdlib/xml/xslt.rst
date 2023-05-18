@@ -47,16 +47,16 @@ Use Case - 0x02
 
 
     DATA = """
-        <astronauts>
-            <astro>
-                <firstname>Pan</firstname>
-                <lastname>Twardowski</lastname>
-            </astro>
-            <astro>
+        <users>
+            <user>
                 <firstname>Mark</firstname>
                 <lastname>Watney</lastname>
-            </astro>
-        </astronauts>
+            </user>
+            <user>
+                <firstname>Melissa</firstname>
+                <lastname>Lewis</lastname>
+            </user>
+        </users>
     """
 
     TEMPLATE = """
@@ -70,7 +70,7 @@ Use Case - 0x02
                 </thead>
                 <tbody>
 
-                    <xsl:for-each select="astronauts/astro">
+                    <xsl:for-each select="users/user">
                         <tr>
                             <td><xsl:value-of select="firstname"/></td>
                             <td><xsl:value-of select="lastname"/></td>
@@ -94,12 +94,12 @@ Use Case - 0x02
     # </tr></thead>
     # <tbody>
     # <tr>
-    # <td>Pan</td>
-    # <td>Twardowski</td>
-    # </tr>
-    # <tr>
     # <td>Mark</td>
     # <td>Watney</td>
+    # </tr>
+    # <tr>
+    # <td>Melissa</td>
+    # <td>Lewis</td>
     # </tr>
     # </tbody>
     # </table></html>
