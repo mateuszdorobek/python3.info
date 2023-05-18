@@ -4,12 +4,12 @@ OOP Attribute Set
 
 Syntax
 ------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 
@@ -18,88 +18,88 @@ Attributes and Instances
 ------------------------
 * Dynamic attributes
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 >>>
->>> melissa = Astronaut()
+>>> melissa = User()
 >>> melissa.firstname = 'Melissa'
 >>> melissa.lastname = 'Lewis'
 >>>
->>> rick = Astronaut()
+>>> rick = User()
 >>> rick.firstname = 'Rick'
 >>> rick.lastname = 'Martinez'
 
 
 List
 ----
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[str]
+...     groups: list[str]
 >>>
->>> mark = Astronaut()
->>> mark.missions = ['Ares1', 'Ares3']
+>>> mark = User()
+>>> mark.groups = ['user', 'staff', 'admin']
 
 
 Union
 -----
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int | float
 >>>
 >>>
->>> mark = Astronaut()
->>> mark.age = 40
+>>> mark = User()
+>>> mark.age = 42
 >>>
->>> melissa = Astronaut()
->>> melissa.age = 44.5
+>>> melissa = User()
+>>> melissa.age = 41.5
 
 
 Optional
 --------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int | None
 >>>
 >>>
->>> mark = Astronaut()
->>> mark.age = 40
+>>> mark = User()
+>>> mark.age = 42
 >>>
->>> melissa = Astronaut()
+>>> melissa = User()
 >>> melissa.age = None
 
 
 Example
 -------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     agency: str
-...     flown: bool
+...     email: str
+...     active: bool
 ...     age: int | float
 ...     height: float | None
 ...     weight: float | None
-...     missions: list[str] | None
-...     friends: list['Astronaut'] | None
+...     groups: list[str] | None
+...     friends: list['User'] | None
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.agency = 'NASA'
->>> mark.flown = True
->>> mark.age = 40
->>> mark.height = 185.5
+>>> mark.email = 'mwatney@nasa.gov'
+>>> mark.active = True
+>>> mark.age = 42
+>>> mark.height = 178.0
 >>> mark.weight = 75.5
->>> mark.missions = ['Ares1', 'Ares3']
+>>> mark.groups = ['user', 'staff', 'admin']
 >>> mark.friends = None
 
 

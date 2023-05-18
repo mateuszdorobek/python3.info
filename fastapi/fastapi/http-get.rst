@@ -88,13 +88,13 @@ Multiple Parameters
 Default Values
 --------------
 >>> @app.get('/hello')
-... def hello(firstname: str, lastname: str, age: int = 40):
+... def hello(firstname: str, lastname: str, age: int = 42):
 ...     return {'data': f'{firstname} {lastname} is {age} years old'}
 
 .. code-block:: console
 
     $ curl http://127.0.0.1:8000/hello/?firstname=Mark&lastname=Watney
-    {"data":"Mark Watney is 40 years old"}
+    {"data":"Mark Watney is 42 years old"}
 
 .. code-block:: console
 

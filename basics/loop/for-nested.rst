@@ -66,16 +66,16 @@ a=7 b=8 c=9
 
 List of Pairs
 -------------
->>> CREW = [
+>>> users = [
 ...     ('commander', 'Melissa Lewis'),
 ...     ('botanist', 'Mark Watney'),
 ...     ('pilot', 'Rick Martinez'),
 ... ]
 >>>
 >>>
->>> for astronaut in CREW:
-...     role = astronaut[0]
-...     name = astronaut[1]
+>>> for user in users:
+...     role = user[0]
+...     name = user[1]
 ...     print (f'{role=}, {name=}')
 role='commander', name='Melissa Lewis'
 role='botanist', name='Mark Watney'
@@ -84,17 +84,17 @@ role='pilot', name='Rick Martinez'
 
 List of Threes
 --------------
->>> CREW = [
+>>> users = [
 ...     ('commander', 'Melissa', 'Lewis'),
 ...     ('botanist', 'Mark', 'Watney'),
 ...     ('pilot', 'Rick', 'Martinez'),
 ... ]
 >>>
 >>>
->>> for astronaut in CREW:
-...     role = astronaut[0]
-...     firstname = astronaut[1]
-...     lastname = astronaut[2]
+>>> for user in users:
+...     role = user[0]
+...     firstname = user[1]
+...     lastname = user[2]
 ...     print (f'{role=}, {firstname=}, {lastname=}')
 role='commander', firstname='Melissa', lastname='Lewis'
 role='botanist', firstname='Mark', lastname='Watney'

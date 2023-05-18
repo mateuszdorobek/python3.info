@@ -220,8 +220,6 @@ References
 Traceback (most recent call last):
 AttributeError: 'User' object has no attribute 'firstname'
 
->>>
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>>
->>> mark.job = 'astronaut'
+>>> mark.email = 'mwatney@nasa.gov'

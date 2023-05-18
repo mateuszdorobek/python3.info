@@ -456,7 +456,7 @@ Use Case - 0x03
 ...     AGE_MIN = 30
 ...     AGE_MAX = 50
 
->>> mark = User(age=40)
+>>> mark = User(age=42)
 
 
 Use Case - 0x04

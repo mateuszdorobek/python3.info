@@ -6,17 +6,18 @@
 ORM Update
 ==========
 >>> mark = Person.objects.get(firstname='Mark', lastname='Watney')
->>> mark.age = 10
+>>> mark.age = 42
 >>> mark.save()
->>> mark = Person.objects.get(firstname='Mark', lastname='Watney').update(age=37)
+
+>>> mark = Person.objects.get(firstname='Mark', lastname='Watney').update(age=42)
 Traceback (most recent call last):
   File "<input>", line 1, in <module>
 AttributeError: 'Person' object has no attribute 'update'
 
->>> Person.objects.filter(firstname='Mark', lastname='Watney').update(age=37)
+>>> Person.objects.filter(firstname='Mark', lastname='Watney').update(age=42)
 1
 
->>> Person.objects.filter(firstname='Mark').update(age=37)
+>>> Person.objects.filter(firstname='Mark').update(age=42)
 2
 
 
@@ -36,7 +37,7 @@ Updated
 c
 <Person: Mark Watney>
 
->>> c, status = Person.objects.update_or_create(firstname='Mark', lastname='Watney', defaults={'age': 30})
+>>> c, status = Person.objects.update_or_create(firstname='Mark', lastname='Watney', defaults={'age': 42})
 >>> c
 <Person: Mark Watney>
 status

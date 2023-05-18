@@ -72,10 +72,14 @@ a
 b
 c
 
->>> CREW = ['Mark Watney', 'Melissa Lewis', 'Rick Martinez']
+>>> users = [
+...     'Mark Watney',
+...     'Melissa Lewis',
+...     'Rick Martinez',
+... ]
 >>>
->>> for astronaut in CREW:
-...     print(astronaut)
+>>> for user in users:
+...     print(user)
 Mark Watney
 Melissa Lewis
 Rick Martinez

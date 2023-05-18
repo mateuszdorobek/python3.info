@@ -67,7 +67,7 @@ Inner block, true statement, second line
 
 Value Check
 -----------
->>> age = 40
+>>> age = 42
 >>>
 >>> if age >= 18:
 ...     print('adult')
@@ -81,7 +81,7 @@ Note, that in Poland you are an adult when above 18 years old.
 
 Conditional Assignment
 ----------------------
->>> age = 40
+>>> age = 42
 >>>
 >>> if age >= 18:
 ...     adult = True

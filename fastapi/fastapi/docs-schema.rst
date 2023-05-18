@@ -70,8 +70,8 @@ Validation
 >>> Astronaut(firstname='Mark', lastname='Watney')
 Astronaut(firstname='Mark', lastname='Watney', age=None)
 >>>
->>> Astronaut(firstname='Mark', lastname='Watney', age=10)
-Astronaut(firstname='Mark', lastname='Watney', age=10.0)
+>>> Astronaut(firstname='Mark', lastname='Watney', age=42)
+Astronaut(firstname='Mark', lastname='Watney', age=42.0)
 >>>
 >>> Astronaut(firstname='Mark', lastname='Watney', age=-1)
 Traceback (most recent call last):

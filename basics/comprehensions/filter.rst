@@ -54,34 +54,36 @@ Filter list[tuple]
 
 Filter list[dict]
 -----------------
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = []
+>>> admins = []
 >>>
->>> for person in PEOPLE:
-...     if person['is_astronaut']:
-...         astronauts.append(person['name'])
+>>> for user in users:
+...     if user['is_admin']:
+...         admins.append(user['name'])
 >>>
->>> print(astronauts)
+>>> print(admins)
 ['Melissa Lewis', 'Mark Watney', 'Alex Vogel']
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = [person['name']
-...               for person in PEOPLE
-...               if person['is_astronaut']]
+>>> admins = [user['name']
+...           for user in users
+...           if user['is_admin']]
 >>>
->>> print(astronauts)
+>>> print(admins)
 ['Melissa Lewis', 'Mark Watney', 'Alex Vogel']
 
 

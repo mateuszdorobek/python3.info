@@ -5,13 +5,13 @@ OOP Attribute Define
 
 No Attribute Definition
 -----------------------
->>> class Astronaut:
+>>> class User:
 ...     pass
 
 
 Basic Types
 -----------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -19,7 +19,7 @@ Basic Types
 
 Union
 -----
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int | float
@@ -27,7 +27,7 @@ Union
 
 Optional
 --------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int | float
@@ -40,52 +40,51 @@ Sequences
 * Since Python 3.9 you can use ``list[str]``
 * Before Python 3.9 use ``list`` without specifying type of elements inside
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
-...     missions: list[str]
+...     groups: list[str]
 
 
 Relation One to One
 -------------------
->>> class Date:
-...     year: int
-...     month: int
-...     day: int
+>>> class Group:
+...     gid: int
+...     name: int
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     born: Date
+...     group: Group
 
 
 Relation One to Many
 --------------------
->>> class Mission:
-...     year: int
+>>> class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission]
+...     groups: list[Group]
 
 
 Example
 -------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     agency: str
-...     flown: bool
+...     email: str
+...     active: bool
 ...     age: int | float
 ...     height: float | None
 ...     weight: float | None
-...     missions: list[str] | None
-...     friends: list['Astronaut'] | None
+...     groups: list[str] | None
+...     friends: list['User'] | None
 
 
 Good Practices

@@ -11,7 +11,7 @@ SetUp
 Simulate user input (for test automation):
 
 >>> from unittest.mock import MagicMock
->>> input = MagicMock(side_effect=['Mark Watney', '42', '42.5', '42,5'])
+>>> input = MagicMock(side_effect=['Mark Watney', '42', '42.0', '42,0'])
 
 
 Input Str
@@ -54,33 +54,33 @@ Input Float
 -----------
 Conversion to ``float`` handles decimals, which ``int`` does not support:
 
->>> age = input('What is your age: ')  #input: 42.5
+>>> age = input('What is your age: ')  #input: 42.0
 >>>
 >>> age = int(age)
 Traceback (most recent call last):
-ValueError: invalid literal for int() with base 10: '42.5'
+ValueError: invalid literal for int() with base 10: '42.0'
 >>>
 >>> age = float(age)
 >>> print(age)
-42.5
+42.0
 >>>
 >>> type(age)
 <class 'float'>
 
 Conversion to ``float`` cannot handle comma (',') as a decimal separator:
 
->>> age = input('What is your age: ')  #input: 42,5
+>>> age = input('What is your age: ')  #input: 42,0
 >>>
 >>> age = int(age)
 Traceback (most recent call last):
-ValueError: invalid literal for int() with base 10: '42,5'
+ValueError: invalid literal for int() with base 10: '42,0'
 >>>
 >>> age = float(age)
 Traceback (most recent call last):
-ValueError: could not convert string to float: '42,5'
+ValueError: could not convert string to float: '42,0'
 >>>
 >>> float(age.replace(',', '.'))
-42.5
+42.0
 
 
 Automated Input

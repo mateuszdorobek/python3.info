@@ -30,14 +30,14 @@ One Child
 
 Many Children
 -------------
->>> class Person:
+>>> class Account:
 ...     pass
 >>>
 >>>
->>> class Astronaut(Person):
+>>> class User(Account):
 ...     pass
 >>>
->>> class Cosmonaut(Person):
+>>> class Admin(Account):
 ...     pass
 
 

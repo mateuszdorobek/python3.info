@@ -173,20 +173,20 @@ Use Case - 0x02
 ---------------
 * Map list[dict]
 
->>> PEOPLE = [
-...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...     {'is_astronaut': True,  'name': 'Mark Watney'},
-...     {'is_astronaut': False, 'name': 'Rick Martinez'},
-...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = [{'firstname': person['name'].split()[0],
-...                'lastname': person['name'].split()[1]}
-...                for person in PEOPLE
-...                if person['is_astronaut']]
+>>> admin = [{'firstname': user['name'].split()[0],
+...           'lastname': user['name'].split()[1]}
+...           for user in users
+...           if user['is_admin']]
 >>>
->>> print(astronauts)  # doctest: +NORMALIZE_WHITESPACE
+>>> print(admin)  # doctest: +NORMALIZE_WHITESPACE
 [{'firstname': 'Melissa', 'lastname': 'Lewis'},
  {'firstname': 'Mark', 'lastname': 'Watney'},
  {'firstname': 'Alex', 'lastname': 'Vogel'}]
@@ -194,20 +194,20 @@ Use Case - 0x02
 
 Use Case - 0x03
 ---------------
->>> PEOPLE = [
-...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...     {'is_astronaut': True,  'name': 'Mark Watney'},
-...     {'is_astronaut': False, 'name': 'Rick Martinez'},
-...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = [{'firstname': person['name'].split()[0].capitalize(),
-...                'lastname': person['name'].split()[1][0]+'.'}
-...                for person in PEOPLE
-...                if person['is_astronaut']]
+>>> admins = [{'firstname': user['name'].split()[0].capitalize(),
+...            'lastname': user['name'].split()[1][0]+'.'}
+...            for user in users
+...            if user['is_admin']]
 >>>
->>> print(astronauts)  # doctest: +NORMALIZE_WHITESPACE
+>>> print(admins)  # doctest: +NORMALIZE_WHITESPACE
 [{'firstname': 'Melissa', 'lastname': 'L.'},
  {'firstname': 'Mark', 'lastname': 'W.'},
  {'firstname': 'Alex', 'lastname': 'V.'}]
@@ -218,22 +218,22 @@ Use Case - 0x04
 * Assignment expression
 * More information in `Assignment Expression`
 
->>> PEOPLE = [
-...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...     {'is_astronaut': True,  'name': 'Mark Watney'},
-...     {'is_astronaut': False, 'name': 'Rick Martinez'},
-...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = [{'firstname': fname, 'lastname': lname}
-...                for person in PEOPLE
-...                if person['is_astronaut']
-...                and (name := person['name'].split())
-...                and (fname := name[0].capitalize())
-...                and (lname := f'{name[1][0]}.')]
+>>> admins = [{'firstname': fname, 'lastname': lname}
+...            for user in users
+...            if user['is_admin']
+...            and (name := user['name'].split())
+...            and (fname := name[0].capitalize())
+...            and (lname := f'{name[1][0]}.')]
 >>>
->>> print(astronauts)  # doctest: +NORMALIZE_WHITESPACE
+>>> print(admins)  # doctest: +NORMALIZE_WHITESPACE
 [{'firstname': 'Melissa', 'lastname': 'L.'},
  {'firstname': 'Mark', 'lastname': 'W.'},
  {'firstname': 'Alex', 'lastname': 'V.'}]
@@ -244,22 +244,22 @@ Use Case - 0x05
 * Assignment expression
 * More information in `Assignment Expression`
 
->>> PEOPLE = [
-...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
-...     {'is_astronaut': True,  'name': 'Mark Watney'},
-...     {'is_astronaut': False, 'name': 'Rick Martinez'},
-...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+>>> users = [
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': True,  'name': 'Mark Watney'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': True,  'name': 'Alex Vogel'},
 ... ]
 >>>
 >>>
->>> astronauts = [f'{fname} {lname[0]}.'
-...               for person in PEOPLE
-...               if person['is_astronaut']
-...               and (fullname := person['name'].split())
-...               and (fname := fullname[0].capitalize())
-...               and (lname := fullname[1].upper())]
+>>> admins = [f'{fname} {lname[0]}.'
+...           for user in users
+...           if user['is_admin']
+...           and (fullname := user['name'].split())
+...           and (fname := fullname[0].capitalize())
+...           and (lname := fullname[1].upper())]
 >>>
->>> print(astronauts)
+>>> print(admins)
 ['Melissa L.', 'Mark W.', 'Alex V.']
 
 

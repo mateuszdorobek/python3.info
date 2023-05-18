@@ -52,10 +52,10 @@ Control Flow
 >>> name = 'Watney'
 >>>
 >>> if name == 'Watney' or name == 'Lewis':
-...     print('Hello astronaut')
+...     print('Hello Mark')
 ... else:
-...     print('Sorry, astronauts only')
-Hello astronaut
+...     print('Access denied')
+Hello Mark
 
 
 .. todo:: Assignments

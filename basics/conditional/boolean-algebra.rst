@@ -119,10 +119,10 @@ Control Flow
 ...         or (firstname == 'Melissa' and lastname == 'Lewis') \
 ...         or (firstname == 'Rick' and lastname == 'Martinez'):
 ...
-...     print('Hello astronaut')
+...     print('Hello user')
 ... else:
-...     print('Sorry, astronauts only')
-Hello astronaut
+...     print('Access denied')
+Hello user
 
 
 Good Practices

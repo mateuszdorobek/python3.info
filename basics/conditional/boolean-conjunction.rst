@@ -73,10 +73,10 @@ Control Flow
 >>> lastname = 'Watney'
 >>>
 >>> if firstname == 'Mark' and lastname == 'Watney':
-...     print('Hello Space Pirate')
+...     print('Hello Mark')
 ... else:
-...     print('Sorry, astronauts only')
-Hello Space Pirate
+...     print('Access denied')
+Hello Mark
 
 
 .. todo:: Assignments

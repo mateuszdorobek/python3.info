@@ -31,7 +31,7 @@ Usage:
 >>> mark.age  # doctest: +SKIP
 53.4
 
->>> mark.age = 40
+>>> mark.age = 42
 Traceback (most recent call last):
 AttributeError: property 'age' of 'Astronaut' object has no setter
 

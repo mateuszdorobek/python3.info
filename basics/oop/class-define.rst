@@ -18,7 +18,7 @@ Classes
 
 Classes should have capitalized name:
 
->>> class Astronaut:
+>>> class User:
 ...     pass
 
 
@@ -28,7 +28,7 @@ Class Names
 
 Multi-word class names should use ``PascalCase``:
 
->>> class SeniorAstronaut:
+>>> class SuperUser:
 ...     pass
 
 
@@ -44,21 +44,21 @@ You can mix classes and functions in one file:
 ...     pass
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     pass
 
 
 Use Case - 0x01
 ---------------
->>> class AstronautEngineer:
+>>> class Guest:
 ...     pass
 >>>
 >>>
->>> class AstronautScientist:
+>>> class User:
 ...     pass
 >>>
 >>>
->>> class AstronautPilot:
+>>> class Admin:
 ...     pass
 
 

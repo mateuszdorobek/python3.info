@@ -99,15 +99,15 @@ Use Case - 0x02
 ...         self.height = height
 ...         self.weight = weight
 
->>> mark = Person( 'Mark', 'Watney', 'mwatney@nasa.gov', 40, 185, 75)
+>>> mark = Person( 'Mark', 'Watney', 'mwatney@nasa.gov', 42, 178.0, 75.5)
 
 >>> mark = Person(
 ...     firstname='Mark',
 ...     lastname='Watney',
 ...     email='mwatney@nasa.gov',
-...     age=40,
-...     height=185,
-...     weight=75,
+...     age=42,
+...     height=178.0,
+...     weight=75.5,
 ... )
 
 Use Case - 0x02

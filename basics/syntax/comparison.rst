@@ -117,7 +117,7 @@ True
 Use Case - 0x01
 ---------------
 >>> ADULT = 18
->>> user_age = 30
+>>> user_age = 42
 >>>
 >>> user_age > ADULT
 True

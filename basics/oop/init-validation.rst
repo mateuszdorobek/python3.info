@@ -16,7 +16,7 @@ Validation
 ...         self.lastname = lastname
 ...         self.age = age
 
->>> mark = User('Mark', 'Watney', age=30)
+>>> mark = User('Mark', 'Watney', age=42)
 
 >>> mark = User('Mark', 'Watney', age=10)
 Traceback (most recent call last):
@@ -81,9 +81,9 @@ Use Case - 0x01
 ...         self.age = age
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=40)
+>>> mark = Astronaut('Mark', 'Watney', age=42)
 >>> vars(mark)
-{'firstname': 'Mark', 'lastname': 'Watney', 'age': 40}
+{'firstname': 'Mark', 'lastname': 'Watney', 'age': 42}
 >>>
 >>> mark = Astronaut('Mark', 'Watney', age=60)
 Traceback (most recent call last):
@@ -112,9 +112,9 @@ Use Case - 0x02
 ...         self.age = age
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=40)
+>>> mark = Astronaut('Mark', 'Watney', age=42)
 >>> vars(mark)
-{'firstname': 'Mark', 'lastname': 'Watney', 'age': 40}
+{'firstname': 'Mark', 'lastname': 'Watney', 'age': 42}
 >>>
 >>> mark = Astronaut('Mark', 'Watney', age=60)
 Traceback (most recent call last):

@@ -78,7 +78,7 @@ j
 
 Value Check
 -----------
->>> age = 30
+>>> age = 42
 >>>
 >>> if age >= 18:
 ...     print('adult')

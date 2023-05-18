@@ -454,7 +454,7 @@ Use Case - 0x03
 ...     AGE_MIN = 30
 ...     AGE_MAX = 50
 
->>> mark = Astronaut(age=40)
+>>> mark = Astronaut(age=42)
 
 
 Further Reading

@@ -165,8 +165,8 @@ Sequences:
 Use Case - 0x01
 ---------------
 >>> name = 'Mark Watney'
->>> age = 40
->>> height = 185.5
+>>> age = 42
+>>> height = 178.0
 >>> is_astronaut = True
 >>> friends = None
 

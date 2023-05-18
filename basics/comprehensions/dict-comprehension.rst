@@ -77,36 +77,38 @@ Swap ``dict`` keys with values.
 Algorithm:
 
 >>> DATA = {
-...     'commander': 'Melissa Lewis',
-...     'botanist': 'Mark Watney',
-...     'pilot': 'Rick Martinez'}
+...     'mlewis': 'Melissa Lewis',
+...     'mwatney': 'Mark Watney',
+...     'rmartinez': 'Rick Martinez',
+... }
 >>>
 >>>
 >>> result = {}
 >>>
->>> for role, astronaut in DATA.items():
-...     result[astronaut] = role
+>>> for username, user in DATA.items():
+...     result[user] = username
 >>>
 >>> result  # doctest: +NORMALIZE_WHITESPACE
-{'Melissa Lewis': 'commander',
- 'Mark Watney': 'botanist',
- 'Rick Martinez': 'pilot'}
+{'Melissa Lewis': 'mlewis',
+ 'Mark Watney': 'mwatney',
+ 'Rick Martinez': 'rmartinez'}
 
 Dict comprehension:
 
 >>> DATA = {
-...     'commander': 'Melissa Lewis',
-...     'botanist': 'Mark Watney',
-...     'pilot': 'Rick Martinez'}
+...     'mlewis': 'Melissa Lewis',
+...     'mwatney': 'Mark Watney',
+...     'rmartinez': 'Rick Martinez',
+... }
 >>>
 >>>
->>> result = {astronaut:role for role,astronaut in DATA.items()}
+>>> result = {user:username for username,user in DATA.items()}
 >>> result = {v:k for k,v in DATA.items()}
 >>>
 >>> result  # doctest: +NORMALIZE_WHITESPACE
-{'Melissa Lewis': 'commander',
- 'Mark Watney': 'botanist',
- 'Rick Martinez': 'pilot'}
+{'Melissa Lewis': 'mlewis',
+ 'Mark Watney': 'mwatney',
+ 'Rick Martinez': 'rmartinez'}
 
 
 Dict Reversal Collision

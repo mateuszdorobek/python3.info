@@ -311,9 +311,9 @@ Use Case - 0x03
 >>>
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.age = 40
->>> mark.height = 175
->>> mark.weight = 75
+>>> mark.age = 42
+>>> mark.height = 178.0
+>>> mark.weight = 75.5
 
 >>> mark.age = 18
 Traceback (most recent call last):
@@ -396,9 +396,9 @@ Use Case - 0x04
 >>>
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.age = 40
->>> mark.height = 175
->>> mark.weight = 80
+>>> mark.age = 42
+>>> mark.height = 178.0
+>>> mark.weight = 75.5
 >>> mark.email = 'mwatney@nasa.gov'
 
 >>> mark.firstname = 'MarkMarkMarkMarkMarkMark'
@@ -502,9 +502,9 @@ Use Case - 0x05
 >>> mark = Astronaut(
 ...     firstname = 'Mark',
 ...     lastname = 'Watney',
-...     age = 40,
-...     height = 175,
-...     weight = 80,
+...     age = 42,
+...     height = 178.0,
+...     weight = 75.5,
 ...     email = 'mwatney@nasa.gov',
 ... )
 
@@ -593,7 +593,7 @@ Use Case - 0x06
 >>> mark = Astronaut()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.age = 40
+>>> mark.age = 42
 >>> mark.email = 'mwantey@nasa.gov'
 >>> mark.phone = '+48 123 456 789'
 
@@ -628,7 +628,7 @@ ValueError: _email value "mwantey@nasa.gov.pl" is not in domain @nasa.gov
 >>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'_firstname': 'Mark',
  '_lastname': 'Watney',
- '_age': 40,
+ '_age': 42,
  '_email': 'mwantey@nasa.gov',
  '_phone': '+48 123 456 789'}
 

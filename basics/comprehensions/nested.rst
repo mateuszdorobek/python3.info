@@ -155,16 +155,16 @@ sepal_length,sepal_width,petal_length,petal_width,species
 Code Readability
 ----------------
 >>> # doctest: +SKIP
-... result = [astronaut | dict(addresses)
-...           for astronaut in json.loads(DATA)
-...             for i, address in enumerate(astronaut.pop('addresses'), start=1)
+... result = [user | dict(addresses)
+...           for user in json.loads(DATA)
+...             for i, address in enumerate(user.pop('addresses'), start=1)
 ...                 if (columns := [f'{key}{i}' for key in address.keys()])
 ...                     and (addresses := zip(columns, address.values()))]
 
 >>> # doctest: +SKIP
-... result = [astronaut | dict(addresses)
-...           for astronaut in json.loads(DATA)
-...           for i, address in enumerate(astronaut.pop('addresses'), start=1)
+... result = [user | dict(addresses)
+...           for user in json.loads(DATA)
+...           for i, address in enumerate(user.pop('addresses'), start=1)
 ...           if (columns := [f'{key}{i}' for key in address.keys()])
 ...           and (addresses := zip(columns, address.values()))]
 

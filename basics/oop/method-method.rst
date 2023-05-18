@@ -28,7 +28,7 @@ Methods Accessing Fields
 ------------------------
 Methods Accessing Fields:
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, name):
 ...         self.name = name
 ...
@@ -36,28 +36,28 @@ Methods Accessing Fields:
 ...         return f'My name... {self.name}'
 >>>
 >>>
->>> jose = Astronaut('José Jiménez')
+>>> jose = User('José Jiménez')
 >>> jose.say_hello()
 'My name... José Jiménez'
 
 ``self.name`` must be defined before accessing:
 
->>> class Astronaut:
+>>> class User:
 ...     def say_hello(self):
 ...         return f'My name... {self.name}'
 >>>
 >>>
->>> jose = Astronaut()
+>>> jose = User()
 >>> jose.say_hello()
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'name'
+AttributeError: 'User' object has no attribute 'name'
 
 
 Methods Calling Other Methods
 -----------------------------
 Methods Calling Other Methods:
 
->>> class Astronaut:
+>>> class User:
 ...     def get_name(self):
 ...         return 'José Jiménez'
 ...
@@ -66,7 +66,7 @@ Methods Calling Other Methods:
 ...         return f'My name... {name}'
 >>>
 >>>
->>> jose = Astronaut()
+>>> jose = User()
 >>> jose.say_hello()
 'My name... José Jiménez'
 

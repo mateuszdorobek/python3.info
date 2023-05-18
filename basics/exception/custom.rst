@@ -22,16 +22,16 @@ MyError: More verbose description
 
 Example
 -------
->>> class AstronautsOnlyError(Exception):
+>>> class InsufficientPrivileges(Exception):
 ...     pass
 >>>
 >>>
->>> profession = 'pilot'
+>>> role = 'user'
 >>>
->>> if profession != 'astronaut':
-...     raise AstronautsOnlyError
+>>> if role != 'admin':
+...     raise InsufficientPrivileges
 Traceback (most recent call last):
-AstronautsOnlyError
+InsufficientPrivileges
 
 
 Use Case - 0x01

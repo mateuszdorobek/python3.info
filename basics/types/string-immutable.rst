@@ -113,17 +113,17 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'int' and 'str'
 
 >>> name = 'Mark Watney'
->>> age = 44
+>>> age = 42
 >>>
 >>> 'Astronaut ' + name + ' is ' + age + ' years old.'
 Traceback (most recent call last):
 TypeError: can only concatenate str (not "int") to str
 >>>
 >>> 'Astronaut ' + name + ' is ' + str(age) + ' years old.'
-'Astronaut Mark Watney is 44 years old.'
+'Astronaut Mark Watney is 42 years old.'
 >>>
 >>> f'Astronaut {name} is {age} years old.'
-'Astronaut Mark Watney is 44 years old.'
+'Astronaut Mark Watney is 42 years old.'
 
 
 Concat Multiply

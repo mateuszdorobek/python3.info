@@ -29,13 +29,13 @@ Polish:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> mark = Astronaut('Mark', 'Watney', age=36, height=185, weight=75)
+    >>> mark = Astronaut('Mark', 'Watney', age=42, height=178.0, weight=75.5)
 
-    >>> melissa = Astronaut('Melissa', 'Lewis', age=52, height=170, weight=55)
+    >>> melissa = Astronaut('Melissa', 'Lewis', age=60, height=178.0, weight=75.5)
     Traceback (most recent call last):
     ValueError: Age is not between 30 and 50
 
-    >>> alex = Astronaut('Alex', 'Vogel', age=44, height=201, weight=85)
+    >>> alex = Astronaut('Alex', 'Vogel', age=42, height=201, weight=75.5)
     Traceback (most recent call last):
     ValueError: Height is not between 150 and 200
 """

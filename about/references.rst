@@ -239,7 +239,9 @@ Dates and Timezones
 ...                  {'name': 'Alex Vogel', 'born': date(1994, 11, 15), "age": 40},
 ...                  {'name': 'Chris Beck', 'born': date(1999, 8, 2), "age": 36},
 ...                  {'name': 'Beth Johanssen', 'born': date(2006, 5, 9), "age": 29},
-...                  {'name': 'Mark Watney', 'born': date(1994, 10, 12), "age": 41}]}
+...                  {'name': 'Mark Watney', 'born': date(1994, 10, 12), "age": 41},
+...     ],
+... }
 
 .. code-block:: json
 

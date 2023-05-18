@@ -4,12 +4,12 @@ OOP Attribute Get
 
 Attribute Access
 ----------------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 >>>
@@ -19,18 +19,18 @@ Hello Mark Watney
 
 Accessing not Existing Attributes
 ---------------------------------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
 >>>
->>> print(mark.missions)
+>>> print(mark.groups)
 Traceback (most recent call last):
-AttributeError: 'Astronaut' object has no attribute 'missions'
+AttributeError: 'User' object has no attribute 'groups'
 
 
 Get All Attributes and Values
@@ -39,32 +39,30 @@ Get All Attributes and Values
 
 Define a class
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     mission: str
+...     email: str
 ...     agency: str
 
 Set all attributes:
 
->>> watney = Astronaut()
+>>> watney = User()
 >>> watney.firstname = 'Mark'
 >>> watney.lastname = 'Watney'
->>> watney.mission = 'Ares 3'
->>> watney.agency = 'NASA'
+>>> watney.email = 'mwatney@nasa.gov'
 
 Getting dynamic fields and values:
 
 >>> vars(watney)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- 'mission': 'Ares 3',
- 'agency': 'NASA'}
+ 'email': 'mwatney@nasa.gov'}
 
 
 Select Attributes
 -----------------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -72,27 +70,27 @@ Select Attributes
 ...     weight: float
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.age = 44
->>> mark.height = 185.5
+>>> mark.age = 42
+>>> mark.height = 178.0
 >>> mark.weight = 75.5
 >>>
 >>> vars(mark)
-{'firstname': 'Mark', 'lastname': 'Watney', 'age': 44, 'height': 185.5, 'weight': 75.5}
+{'firstname': 'Mark', 'lastname': 'Watney', 'age': 42, 'height': 178.0, 'weight': 75.5}
 >>>
 >>> list(vars(mark).values())
-['Mark', 'Watney', 44, 185.5, 75.5]
+['Mark', 'Watney', 42, 178.0, 75.5]
 >>>
 >>> [x for x in vars(mark).values() if type(x) is str]
 ['Mark', 'Watney']
 >>>
 >>> [x for x in vars(mark).values() if type(x) in (float, int)]
-[44, 185.5, 75.5]
+[42, 178.0, 75.5]
 >>>
 >>> {k:v for k,v in vars(mark).items()}
-{'firstname': 'Mark', 'lastname': 'Watney', 'age': 44, 'height': 185.5, 'weight': 75.5}
+{'firstname': 'Mark', 'lastname': 'Watney', 'age': 42, 'height': 178.0, 'weight': 75.5}
 >>>
 >>> {k:v for k,v in vars(mark).items() if k in ['firstname', 'lastname']}
 {'firstname': 'Mark', 'lastname': 'Watney'}
@@ -128,36 +126,28 @@ Use Case - 0x01
 
 Use Case - 0x02
 ---------------
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     mission: str
 ...     agency: str
 >>>
 >>>
->>> mark = Astronaut()
+>>> mark = User()
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.mission = 'Ares 3'
->>> mark.agency = 'NASA'
+>>> mark.email = 'mwatney@nasa.gov'
 >>>
->>> melissa = Astronaut()
+>>> melissa = User()
 >>> melissa.firstname = 'Melissa'
 >>> melissa.lastname = 'Lewis'
->>> melissa.mission = 'Ares 3'
->>> melissa.agency = 'NASA'
+>>> melissa.email = 'mlewis@nasa.gov'
 >>>
->>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
-{'firstname': 'Mark',
- 'lastname': 'Watney',
- 'mission': 'Ares 3',
- 'agency': 'NASA'}
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney', 'email': 'mwatney@nasa.gov'}
 >>>
->>> vars(melissa)  # doctest: +NORMALIZE_WHITESPACE
-{'firstname': 'Melissa',
- 'lastname': 'Lewis',
- 'mission': 'Ares 3',
- 'agency': 'NASA'}
+>>> vars(melissa)
+{'firstname': 'Melissa', 'lastname': 'Lewis', 'email': 'mlewis@nasa.gov'}
 
 
 Assignments
