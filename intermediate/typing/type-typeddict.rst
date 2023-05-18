@@ -141,7 +141,7 @@ Use Case - 0x01
 >>> mark: User = {'firstname': 'Mark'}
 >>> hello(mark)  # error: missing `lastname` and `age`  # doctest: +SKIP
 
->>> mark = User(firstname='Mark', lastname='Watney', age=40)
+>>> mark = User(firstname='Mark', lastname='Watney', age=42)
 >>> hello(mark)  # ok
 
 >>> mark = User(firstname='Mark', lastname='Watney')

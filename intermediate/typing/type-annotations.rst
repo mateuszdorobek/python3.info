@@ -153,11 +153,11 @@ Use Case - 0x01
 ---------------
 >>> firstname: str = 'Mark'
 >>> lastname: str = 'Watney'
->>> age: int | float = 40
+>>> age: int | float = 42
 >>> adult: bool = True
 >>> agency: Literal['NASA', 'ESA', 'POLSA'] = 'NASA'
 >>> job: str | None = None
->>> height: int | float | None = 185
+>>> height: int | float | None = 178.0
 >>> weight: int | float | None = None
 
 

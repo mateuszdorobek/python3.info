@@ -186,7 +186,7 @@ Contract
 Problem:
 
 >>> def get_user(uid):
-...     return (1, 'Mark', 'Watney', 40, 185.5, 75.0, True, False, None)
+...     return (1, 'Mark', 'Watney', 42, 178.0, 75.5, True, False, None)
 >>>
 >>>
 >>> mark = get_user(1000)
@@ -203,7 +203,7 @@ True
 Tuple annotation:
 
 >>> def get_user(uid: int) -> tuple[int,str,str,int,float,float,bool,bool,bool|None]:
-...     return (1, 'Mark', 'Watney', 40, 185.5, 75.0, True, False, None)
+...     return (1, 'Mark', 'Watney', 42, 178.0, 75.5, True, False, None)
 >>>
 >>>
 >>> mark = get_user(1000)
@@ -232,7 +232,7 @@ NamedTuple annotation:
 >>>
 >>>
 >>> def get_user(uid: int) -> User:
-...     return User(1, 'Mark', 'Watney', 40, 185.5, 75.0, True, False, None)
+...     return User(1, 'Mark', 'Watney', 42, 178.0, 75.5, True, False, None)
 >>>
 >>>
 >>> mark = get_user(1000)
@@ -262,9 +262,9 @@ Moreover returning values are much more readable:
 ...         id=1,
 ...         firstname='Mark',
 ...         lastname='Watney',
-...         age=40,
-...         height=185.5,
-...         weight=75.0,
+...         age=42,
+...         height=178.0,
+...         weight=75.5,
 ...         is_astronaut=True,
 ...         is_assigned=False,
 ...         mission=None)
