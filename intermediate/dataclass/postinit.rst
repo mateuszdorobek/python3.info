@@ -35,9 +35,9 @@ Initial Validation in Classes
 ...             self.age = age
 >>>
 >>>
->>> mark = User('Mark', 'Watney', age=44)
+>>> mark = User('Mark', 'Watney', age=42)
 >>> vars(mark)
-{'firstname': 'Mark', 'lastname': 'Watney', 'age': 44}
+{'firstname': 'Mark', 'lastname': 'Watney', 'age': 42}
 >>>
 >>> User('Mark', 'Watney', age=60)
 Traceback (most recent call last):
@@ -66,8 +66,8 @@ Initial Validation in Dataclasses
 ...             raise ValueError('Age is out of range')
 >>>
 >>>
->>> User('Mark', 'Watney', age=44)
-User(firstname='Mark', lastname='Watney', age=44)
+>>> User('Mark', 'Watney', age=42)
+User(firstname='Mark', lastname='Watney', age=42)
 >>>
 >>> User('Mark', 'Watney', age=60)
 Traceback (most recent call last):
@@ -163,7 +163,7 @@ Use Case - 0x01
 ...             raise ValueError
 >>>
 >>>
->>> mark = User('Mark', 'Watney', age=40)
+>>> mark = User('Mark', 'Watney', age=42)
 
 
 Use Case - 0x02

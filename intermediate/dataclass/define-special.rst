@@ -69,8 +69,8 @@ Define Class:
 
 Note, that those fields will not be displayed in repr or while printing.
 
->>> User('Mark', 'Watney', age=40)
-User(firstname='Mark', lastname='Watney', age=40)
+>>> User('Mark', 'Watney', age=42)
+User(firstname='Mark', lastname='Watney', age=42)
 
 
 Keyword Arguments Only
@@ -98,18 +98,18 @@ Define class:
 ...     height: float
 ...     weight: float
 
->>> User('Mark', 'Watney', age=40, height=185.0, weight=75.5)
-User(firstname='Mark', lastname='Watney', age=40, height=185.0, weight=75.5)
+>>> User('Mark', 'Watney', age=42, height=178.0, weight=75.5)
+User(firstname='Mark', lastname='Watney', age=42, height=178.0, weight=75.5)
 
->>> mark = User('Mark', 'Watney', 40, height=185.0, weight=75.5)
+>>> mark = User('Mark', 'Watney', 42, height=178.0, weight=75.5)
 Traceback (most recent call last):
 TypeError: User.__init__() takes 3 positional arguments but 4 positional arguments (and 2 keyword-only arguments) were given
 
->>> mark = User('Mark', 'Watney', 40, 185.0, weight=75.5)
+>>> mark = User('Mark', 'Watney', 42, 178.0, weight=75.5)
 Traceback (most recent call last):
 TypeError: User.__init__() takes 3 positional arguments but 5 positional arguments (and 1 keyword-only argument) were given
 
->>> mark = User('Mark', 'Watney', 40, 185.0, 75.5)
+>>> mark = User('Mark', 'Watney', 42, 178.0, 75.5)
 Traceback (most recent call last):
 TypeError: User.__init__() takes 3 positional arguments but 6 were given
 
