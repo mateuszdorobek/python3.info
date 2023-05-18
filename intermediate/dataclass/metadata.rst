@@ -26,11 +26,11 @@ SetUp
 Syntax
 ------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int = field(metadata={'min': 27, 'max': 50})
-...     agency: str = field(metadata={'choices': ['NASA', 'ESA']})
+...     role: str = field(metadata={'choices': ['user', 'staff', 'admin']})
 ...     height: float = field(metadata={'unit': 'cm'})
 ...     weight: float = field(metadata={'unit': 'kg'})
 
@@ -38,7 +38,7 @@ Syntax
 Validation
 ----------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int = field(default=None, metadata={'min': 27, 'max': 50})
@@ -51,7 +51,7 @@ Validation
 ...             raise ValueError('Invalid age')
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=99)
+>>> mark = User('Mark', 'Watney', age=99)
 Traceback (most recent call last):
 ValueError: Invalid age
 
@@ -65,26 +65,26 @@ Use Case - 0x01
 >>>
 >>>
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass(frozen=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     _: KW_ONLY
 ...     birthday: date
-...     job: str = 'astronaut'
-...     agency: str = field(default='NASA', metadata={'choices': ['NASA', 'ESA']})
+...     job: str = 'admin'
+...     role: str = field(default='user', metadata={'choices': ['user', 'staff']})
 ...     age: int | None = None
 ...     height: int | float | None = field(default=None, metadata={'unit': 'cm', 'min': 156, 'max': 210})
 ...     weight: int | float | None = field(default=None, metadata={'unit': 'kg', 'min': 50, 'max': 90})
-...     groups: list[str] = field(default_factory=lambda: ['astronauts', 'managers'])
+...     role: list[str] = field(default_factory=lambda: ['user', 'staff', 'admin'])
 ...     friends: dict[str,str] = field(default_factory=dict)
 ...     assignments: list[str] | None = field(default=None, metadata={'choices': ['Apollo18', 'Ares3', 'STS-136']})
-...     missions: list[Mission] = field(default_factory=list)
+...     missions: list[Group] = field(default_factory=list)
 ...     experience: timedelta = timedelta(hours=0)
 ...     account_last_login: datetime | None = None
 ...     account_created: datetime = datetime.now(tz=timezone.utc)
@@ -101,23 +101,26 @@ Use Case - 0x01
 ...         if not WEIGHT_MIN <= self.weight < WEIGHT_MAX:
 ...             raise ValueError(f'Height {self.weight} is not in between {WEIGHT_MIN} and {WEIGHT_MAX}')
 ...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
-...             raise ValueError('Age is not valid for an astronaut')
+...             raise ValueError('Age is not valid for an user')
 >>>
 >>>
->>> mark = Astronaut(firstname='Mark',
-...                   lastname='Watney',
-...                   birthday=date(1961, 4, 12),
-...                   age=44,
-...                   height=175.5,
-...                   weight=75.5,
-...                   assignments=['STS-136'],
-...                   missions=[Mission(2035, 'Ares 3'), Mission(1973, 'Apollo 18')])
+>>> mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     birthday=date(1961, 4, 12),
+...     age=44,
+...     height=175.5,
+...     weight=75.5,
+...     assignments=['STS-136'],
+...     missions=[Group(gid=1, name='admin'),
+...               Group(gid=2, name='staff')],
+... )
 >>>
 >>> print(mark)  # doctest: +NORMALIZE_WHITESPACE +SKIP
-Astronaut(firstname='Mark', lastname='Watney', birthday=datetime.date(1961, 4, 12),
-          job='astronaut', agency='NASA', age=44, height=175.5, weight=75.5,
-          groups=['astronauts', 'managers'], friends={}, assignments=['STS-136'],
-          missions=[Mission(year=2035, name='Ares 3'), Mission(year=1973, name='Apollo 18')],
+User(firstname='Mark', lastname='Watney', birthday=datetime.date(1961, 4, 12),
+          job='admin', role='user', age=44, height=175.5, weight=75.5,
+          role=['user', 'staff', 'admin'], friends={}, assignments=['STS-136'],
+          missions=[Group(gid=1, name='admin'), Group(gid=2, name='staff')],
           experience=datetime.timedelta(0), account_last_login=None,
           account_created=datetime.datetime(1969, 7, 21, 2, 56, 15, 123456, tzinfo=datetime.timezone.utc))
 
@@ -130,10 +133,10 @@ Use Case - 0x02
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: float = field(default=None, metadata={'unit': 'years', 'min': 30, 'max': 50})
+...     age: float = field(default=None, metadata={'unit': 'gids', 'min': 30, 'max': 50})
 ...     height: float = field(default=None, metadata={'unit': 'cm', 'min': 156, 'max': 210})
 ...     weight: float = field(default=None, metadata={'unit': 'kg', 'min': 50, 'max': 90})
 ...
@@ -141,8 +144,8 @@ Use Case - 0x02
 ...         if attrvalue is None:
 ...             return super().__setattr__(attrname, attrvalue)
 ...         try:
-...             min = Astronaut.__dataclass_fields__[attrname].metadata['min']
-...             max = Astronaut.__dataclass_fields__[attrname].metadata['max']
+...             min = User.__dataclass_fields__[attrname].metadata['min']
+...             max = User.__dataclass_fields__[attrname].metadata['max']
 ...         except KeyError:
 ...             # field does not have min and max metadata
 ...             pass
@@ -153,24 +156,24 @@ Use Case - 0x02
 >>>
 >>>
 >>>
->>> Astronaut('Mark', 'Watney')
-Astronaut(firstname='Mark', lastname='Watney', age=None, height=None, weight=None)
+>>> User('Mark', 'Watney')
+User(firstname='Mark', lastname='Watney', age=None, height=None, weight=None)
 >>>
->>> Astronaut('Mark', 'Watney', age=44)
-Astronaut(firstname='Mark', lastname='Watney', age=44, height=None, weight=None)
+>>> User('Mark', 'Watney', age=44)
+User(firstname='Mark', lastname='Watney', age=44, height=None, weight=None)
 >>>
->>> Astronaut('Mark', 'Watney', age=44, height=175, weight=75)
-Astronaut(firstname='Mark', lastname='Watney', age=44, height=175, weight=75)
+>>> User('Mark', 'Watney', age=44, height=175, weight=75)
+User(firstname='Mark', lastname='Watney', age=44, height=175, weight=75)
 >>>
->>> Astronaut('Mark', 'Watney', age=99)
+>>> User('Mark', 'Watney', age=99)
 Traceback (most recent call last):
 AssertionError: age value 99 is not between 30 and 50
 >>>
->>> Astronaut('Mark', 'Watney', age=44, weight=200)
+>>> User('Mark', 'Watney', age=44, weight=200)
 Traceback (most recent call last):
 AssertionError: weight value 200 is not between 50 and 90
 >>>
->>> Astronaut('Mark', 'Watney', age=44, height=120)
+>>> User('Mark', 'Watney', age=44, height=120)
 Traceback (most recent call last):
 AssertionError: height value 120 is not between 156 and 210
 
@@ -182,13 +185,13 @@ Use Case - 0x03
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(metadata={'unit': 'years', 'type': 'range', 'min': 30, 'max': 50})
+...     age: int = field(metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50})
 ...     height: float = field(metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 200})
 ...     weight: float = field(metadata={'unit': 'kg', 'type': 'range', 'min': 50, 'max': 90})
-...     agency: str = field(metadata={'type': 'choices', 'options': ['NASA', 'ESA']})
+...     role: str = field(metadata={'type': 'choices', 'options': ['user', 'staff']})
 ...
 ...     def __post_init__(self):
 ...         for fieldname, field in self.__dataclass_fields__.items():
@@ -212,30 +215,30 @@ Use Case - 0x03
 ...         if value not in options:
 ...             raise ValueError(f'{field.name} value ({value}) not in options: {options}')
 
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=185, agency='NASA')
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=185, agency='ESA')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='user')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='staff')
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=185, agency='POLSA')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='POLSA')
 Traceback (most recent call last):
-ValueError: agency value (POLSA) not in options: ['NASA', 'ESA']
+ValueError: role value (POLSA) not in options: ['user', 'staff']
 
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=185, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='user')
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=120, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=120, role='user')
 Traceback (most recent call last):
 ValueError: height value (120) is not between 150 and 200
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=35, weight=75, height=210, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=35, weight=75, height=210, role='user')
 Traceback (most recent call last):
 ValueError: height value (210) is not between 150 and 200
 
->>> mark = Astronaut('Mark', 'Watney', age=40, weight=75, height=180, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=40, weight=75, height=180, role='user')
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=20, weight=75, height=180, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=20, weight=75, height=180, role='user')
 Traceback (most recent call last):
 ValueError: age value (20) is not between 30 and 50
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=60, weight=75, height=180, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=60, weight=75, height=180, role='user')
 Traceback (most recent call last):
 ValueError: age value (60) is not between 30 and 50
 
@@ -247,12 +250,12 @@ Use Case - 0x03
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(default=None, metadata={'type': 'range', 'unit': 'years', 'min': 30, 'max': 50})
+...     age: int = field(default=None, metadata={'type': 'range', 'unit': 'gids', 'min': 30, 'max': 50})
 ...     height: float | None = field(default=None, metadata={'type': 'range', 'unit': 'cm',  'min': 156, 'max': 210})
-...     agency: str | None = field(default='NASA', metadata={'type': 'choices', 'options': ['NASA', 'ESA']})
+...     role: str | None = field(default='user', metadata={'type': 'choices', 'options': ['user', 'staff']})
 ...
 ...     def _validate_range(self, attrname, value):
 ...         min = self.__dataclass_fields__[attrname].metadata['min']
@@ -276,15 +279,15 @@ Use Case - 0x03
 ...             case _: raise NotImplementedError
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
 >>> mark
-Astronaut(firstname='Mark', lastname='Watney', age=None, height=None, agency='NASA')
+User(firstname='Mark', lastname='Watney', age=None, height=None, role='user')
 >>>
->>> mark.agency = 'ESA'
->>> mark.agency = 'Roscosmos'
+>>> mark.role = 'staff'
+>>> mark.role = 'Roscosmos'
 Traceback (most recent call last):
-ValueError: Attribute agency is not an option, choices are: ['NASA', 'ESA']
+ValueError: Attribute role is not an option, choices are: ['user', 'staff']
 >>>
 >>> mark.age = 40
 >>> mark.age = 10
@@ -355,25 +358,25 @@ Use Case - 0x05
 ...                     case _: raise TypeError
 
 >>> @dataclass
-... class Astronaut(BaseModel):
+... class User(BaseModel):
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(default=None, metadata={'unit': 'years', 'type': 'range', 'min': 30, 'max': 50, 'database': 'SmallPositiveInteger'})
+...     age: int = field(default=None, metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50, 'database': 'SmallPositiveInteger'})
 ...     height: float = field(default=None, metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 210, 'database':'Decimal(3,2)'})
 ...     weight: float = field(default=None, metadata={'unit': 'kg', 'type': 'range', 'min': 55, 'max': 85, 'database':'Decimal(3,2)'})
-...     agency: str = field(default=None, metadata={'type': 'choices', 'options': ['NASA', 'ESA', 'POLSA'], 'database':'VarChar(30)'})
+...     role: str = field(default=None, metadata={'type': 'choices', 'options': ['user', 'staff', 'POLSA'], 'database':'VarChar(30)'})
 
->>> mark = Astronaut('Mark', 'Watney', age=49, height=185, weight=75, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=49, height=185, weight=75, role='user')
 
->>> mark = Astronaut('Mark', 'Watney', age=49, height=185, weight=75, agency='Roscosmos')
+>>> mark = User('Mark', 'Watney', age=49, height=185, weight=75, role='Roscosmos')
 Traceback (most recent call last):
-ValueError: agency value (Roscosmos) not in ['NASA', 'ESA', 'POLSA']
+ValueError: role value (Roscosmos) not in ['user', 'staff', 'POLSA']
 
->>> mark = Astronaut('Mark', 'Watney', age=49, height=185, weight=90, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=49, height=185, weight=90, role='user')
 Traceback (most recent call last):
 ValueError: weight value (90) not between 55 and 85
 
->>> mark = Astronaut('Mark', 'Watney', age=60, height=185, weight=75, agency='NASA')
+>>> mark = User('Mark', 'Watney', age=60, height=185, weight=75, role='user')
 Traceback (most recent call last):
 ValueError: age value (60) not between 30 and 50
 
@@ -385,7 +388,7 @@ Use Case - 0x06
 >>>
 >>> @dataclass
 ... class Date:
-...     year: int = field(metadata={'type': 'range', 'min': 1902, 'max': 2038})
+...     gid: int = field(metadata={'type': 'range', 'min': 1902, 'max': 2038})
 ...     month: str = field(metadata={'type': 'choice', 'options': ['Jan', 'Feb', 'Mar', 'Apr']})
 ...     day: int = field(metadata={'type': 'range', 'min': 1, 'max': 31})
 ...

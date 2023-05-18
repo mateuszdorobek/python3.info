@@ -6,23 +6,29 @@
 
 English:
     1. You received input data in JSON format from the API
-        a. `str` fields: firstname, lastname, role, username, password, email,
-        b. `datetime` fields: birthday, last_login,
-        c. `bool` fields: is_active, is_staff, is_superuser,
-        d. `list[dict]` field: user_permissions
+       a. `str` fields: firstname, lastname, role, username, password, email,
+       b. `date` field: birthday,
+       c. `datetime` field: last_login (optional),
+       d. `bool` fields: is_active, is_staff, is_superuser,
+       e. `list[dict]` field: user_permissions
     2. Parse fields with dates and store as `date` or `datetime` objects
-    3. Run doctests - all must succeed
+    3. Use `__post_init__()`
+    4. Run doctests - all must succeed
 
 Polish:
     1. Otrzymałeś z API dane wejściowe w formacie JSON
-        a. pola `str`: firstname, lastname, role, username, password, email,
-        b. pola `datetime`: birthday, last_login,
-        c. pola `bool`: is_active, is_staff, is_superuser,
-        d. pola `list[dict]`: user_permissions
+       a. pola `str`: firstname, lastname, role, username, password, email,
+       b. pole `date`: birthday,
+       c. pole `datetime`: last_login (opcjonalne),
+       d. pola `bool`: is_active, is_staff, is_superuser,
+       e. pola `list[dict]`: user_permissions
     2. Sparsuj pola z datami i zapisz je jako obiekty `date` lub `datetime`
-    3. Uruchom doctesty - wszystkie muszą się powieść
+    3. Użyj `__post_init__()`
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
+    * birthday: date
+    * last_login: datetime | None
     * `date.fromisoformat(...)`
     * `datetime.fromisoformat(...)`
 

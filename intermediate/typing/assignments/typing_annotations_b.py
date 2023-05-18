@@ -2,7 +2,7 @@
 * Assignment: Typing Annotations Alias
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Declare proper types for variables:

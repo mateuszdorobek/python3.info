@@ -5,8 +5,6 @@ Dataclass Mechanism
 SetUp
 -----
 >>> from dataclasses import dataclass
->>> from datetime import date
->>> from typing import ClassVar, Literal
 
 
 Input
@@ -85,25 +83,30 @@ Use Case - 0x01
 ---------------
 ``class``:
 
->>> class Mission:
-...    year: int
+>>> from dataclasses import dataclass
+>>> from datetime import date
+>>> from typing import ClassVar, Literal, Self
+>>>
+>>>
+>>> class Group:
+...    gid: int
 ...    name: str
 ...
-...    def __init__(self, year: int, name: str):
+...    def __init__(self, gid: int, name: str):
 ...        self.name = name
-...        self.year = year
+...        self.gid = gid
 >>>
 >>>
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     birthday: date
 ...     age: int | None = None
 ...     height: float | None = None
 ...     weight: float | None = None
-...     agency: Literal['NASA', 'ESA'] = 'NASA'
-...     friends: list['Astronaut'] | None = None
-...     missions: list[Mission] | None = None
+...     roles: Literal['user', 'staff', 'admin'] = 'admin'
+...     friends: list[Self] | None = None
+...     groups: list[Group] | None = None
 ...     rank: str | None = None
 ...     previous_job: str | None = None
 ...     experience: list[str] | None = None
@@ -122,8 +125,8 @@ Use Case - 0x01
 ...                  height: float | None = None,
 ...                  weight: float | None = None,
 ...                  agency: Literal['NASA', 'ESA'] = 'NASA',
-...                  friends: list['Astronaut'] | None = None,
-...                  missions: list[Mission] | None = None,
+...                  friends: list['User'] | None = None,
+...                  groups: list[Group] | None = None,
 ...                  rank: str | None = None,
 ...                  previous_job: str | None = None,
 ...                  experience: list[str] | None = None):
@@ -135,7 +138,7 @@ Use Case - 0x01
 ...         self.weight = weight
 ...         self.agency = agency
 ...         self.friends = friends
-...         self.missions = missions
+...         self.groups = groups
 ...         self.rank = rank
 ...         self.previous_job = previous_job
 ...         self.experience = experience
@@ -154,7 +157,7 @@ Use Case - 0x01
 ...             f"weight={self.weight}"
 ...             f"agency='{self.agency}'"
 ...             f"friends={self.friends}"
-...             f"missions={self.missions}"
+...             f"groups={self.groups}"
 ...             f"rank='{self.rank}'"
 ...             f"previous_job='{self.previous_job}'"
 ...             f"experience={self.experience}"
@@ -170,7 +173,7 @@ Use Case - 0x01
 ...            and self.weight == other.weight
 ...            and self.agency == other.agency
 ...            and self.friends == other.friends
-...            and self.missions == other.missions
+...            and self.groups == other.groups
 ...            and self.rank == other.rank
 ...            and self.previous_job == other.previous
 ...            and self.experience == other.experience)
@@ -178,13 +181,13 @@ Use Case - 0x01
 ``dataclass``:
 
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     birthday: date
@@ -192,8 +195,8 @@ Use Case - 0x01
 ...     height: float | None = None
 ...     weight: float | None = None
 ...     agency: Literal['NASA', 'ESA'] = 'NASA'
-...     friends: list['Astronaut'] | None = None
-...     missions: list[Mission] | None = None
+...     friends: list['User'] | None = None
+...     groups: list[Group] | None = None
 ...     rank: str | None = None
 ...     previous_job: str | None = None
 ...     experience: list[str] | None = None

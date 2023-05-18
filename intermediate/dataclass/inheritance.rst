@@ -14,35 +14,30 @@ SetUp
 Inheritance
 -----------
 >>> @dataclass
-... class Person:
+... class Account:
 ...     firstname: str
 ...     lastname: str
-...     job: str = 'unemployed'
 >>>
 >>>
 >>> @dataclass
-... class Astronaut(Person):
-...     job: str = 'astronaut'
-...     agency: str = 'NASA'
+... class User(Account):
+...     role: str = 'user'
 
 Will generate:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
-...     job: str = 'astronaut'
-...     agency: str = 'NASA'
+...     role: str = 'user'
 ...
 ...     def __init__(self,
 ...                  firstname: str,
 ...                  lastname: str,
-...                  job: str = 'astronaut',
-...                  agency: str = 'NASA'):
+...                  role: str = 'user'):
 ...
 ...         self.firstname = firstname
 ...         self.lastname = lastname
-...         self.job = job
-...         self.agency = agency
+...         self.role = role
 
 
 Post Init
@@ -51,24 +46,24 @@ When a child class define ``__post_init__()`` method it will overwrite
 this method from a parent class:
 
 >>> @dataclass
-... class Person:
+... class Account:
 ...     firstname: str
 ...     lastname: str
 ...
 ...     def __post_init__(self):
-...         print('Person post init')
+...         print('Account post init')
 >>>
 >>>
 >>> @dataclass
-... class Astronaut(Person):
-...     job: str = 'astronaut'
+... class User(Account):
+...     role: str = 'user'
 ...
 ...     def __post_init__(self):
-...         print('Astronaut post init')
+...         print('User post init')
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
-Astronaut post init
+>>> mark = User('Mark', 'Watney')
+User post init
 
 
 Super
@@ -78,23 +73,23 @@ a superclass. Note that all the parameters are already assigned, no need
 to pass them like for ``__init__()`` function.
 
 >>> @dataclass
-... class Person:
+... class Account:
 ...     firstname: str
 ...     lastname: str
 ...
 ...     def __post_init__(self):
-...         print('Person post init')
+...         print('Account post init')
 >>>
 >>>
 >>> @dataclass
-... class Astronaut(Person):
-...     job: str = 'astronaut'
+... class User(Account):
+...     role: str = 'user'
 ...
 ...     def __post_init__(self):
 ...         super().__post_init__()
-...         print('Astronaut post init')
+...         print('User post init')
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
-Person post init
-Astronaut post init
+>>> mark = User('Mark', 'Watney')
+Account post init
+User post init

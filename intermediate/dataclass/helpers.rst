@@ -29,24 +29,24 @@ Import:
 Definition:
 
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission]
+...     groups: list[Group]
 
 Use:
 
->>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = User('Mark', 'Watney', groups=[Group(2035, 'Ares3')])
 >>>
->>> fields(Astronaut)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
+>>> fields(User)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
 (Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
  Field(name='lastname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
- Field(name='missions',type=list[__main__.Mission],default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD))
+ Field(name='groups',type=list[__main__.Group],default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD))
 
 
 As Dict
@@ -63,34 +63,34 @@ Import:
 Definition:
 
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission]
+...     groups: list[Group]
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = User('Mark', 'Watney', groups=[Group(gid=1, name='admin')])
 
 Use:
 
 >>> asdict(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- 'missions': [{'year': 2035, 'name': 'Ares3'}]}
+ 'groups': [{'gid': 1, 'name': 'admin'}]}
 
 >>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- 'missions': [Mission(year=2035, name='Ares3')]}
+ 'groups': [Group(gid=1, name='admin')]}
 
 >>> dict(mark)
 Traceback (most recent call last):
-TypeError: 'Astronaut' object is not iterable
+TypeError: 'User' object is not iterable
 
 
 As Tuple
@@ -108,22 +108,22 @@ Import:
 Definition:
 
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission]
+...     groups: list[Group]
 
 Use:
 
->>> mark = Astronaut('Mark', 'Watney', missions=[Mission(2035, 'Ares3')])
+>>> mark = User('Mark', 'Watney', groups=[Group(gid=1, name='admin')])
 >>>
 >>> astuple(mark)
-('Mark', 'Watney', [(2035, 'Ares3')])
+('Mark', 'Watney', [(1, 'admin')])
 
 
 Make Dataclass
@@ -158,14 +158,14 @@ Import:
 Use:
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> is_dataclass(Astronaut)
+>>> is_dataclass(User)
 True
 >>>
 >>> is_dataclass(mark)
@@ -173,7 +173,7 @@ True
 
 Normal class:
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...
@@ -182,9 +182,9 @@ Normal class:
 ...         self.lastname = lastname
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>>
->>> is_dataclass(Astronaut)
+>>> is_dataclass(User)
 False
 >>>
 >>> is_dataclass(mark)

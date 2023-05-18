@@ -18,102 +18,102 @@ Note, You should not set mutable objects as a default function argument.
 More information in `Argument Mutability`. This is how all dynamically typed
 languages work (including PHP, Ruby, Perl etc).
 
->>> class Astronaut:
-...     def __init__(self, name, missions=[]):
+>>> class User:
+...     def __init__(self, name, groups=[]):
 ...         self.name = name
-...         self.missions = missions
+...         self.groups = groups
 >>>
 >>>
->>> mark = Astronaut('Mark Watney')
->>> melissa = Astronaut('Melissa Lewis')
+>>> mark = User('Mark Watney')
+>>> melissa = User('Melissa Lewis')
 >>>
->>> mark.missions.append('Ares 1')
->>> mark.missions.append('Ares 2')
->>> mark.missions.append('Ares 3')
+>>> mark.groups.append('user')
+>>> mark.groups.append('staff')
+>>> mark.groups.append('admin')
 >>>
->>> print(f'Name: {mark.name}, Missions: {mark.missions}')
-Name: Mark Watney, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
+>>> print(f'Name: {mark.name}, Missions: {mark.groups}')
+Name: Mark Watney, Missions: ['user', 'staff', 'admin']
 >>>
->>> print(f'Name: {melissa.name}, Missions: {melissa.missions}')
-Name: Melissa Lewis, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
+>>> print(f'Name: {melissa.name}, Missions: {melissa.groups}')
+Name: Melissa Lewis, Missions: ['user', 'staff', 'admin']
 
->>> class Astronaut:
-...     def __init__(self, name, missions=None):
+>>> class User:
+...     def __init__(self, name, groups=None):
 ...         self.name = name
-...         self.missions = missions if missions else []
+...         self.groups = groups if groups else []
 >>>
 >>>
->>> mark = Astronaut('Mark Watney')
->>> melissa = Astronaut('Melissa Lewis')
+>>> mark = User('Mark Watney')
+>>> melissa = User('Melissa Lewis')
 >>>
->>> mark.missions.append('Ares 1')
->>> mark.missions.append('Ares 2')
->>> mark.missions.append('Ares 3')
+>>> mark.groups.append('user')
+>>> mark.groups.append('staff')
+>>> mark.groups.append('admin')
 >>>
->>> print(f'Name: {mark.name}, Missions: {mark.missions}')
-Name: Mark Watney, Missions: ['Ares 1', 'Ares 2', 'Ares 3']
+>>> print(f'Name: {mark.name}, Missions: {mark.groups}')
+Name: Mark Watney, Missions: ['user', 'staff', 'admin']
 >>>
->>> print(f'Name: {melissa.name}, Missions: {melissa.missions}')
+>>> print(f'Name: {melissa.name}, Missions: {melissa.groups}')
 Name: Melissa Lewis, Missions: []
 
 
 List of Strings
 ---------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[str] = field(default_factory=list)
+...     groups: list[str] = field(default_factory=list)
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>> print(mark)
-Astronaut(firstname='Mark', lastname='Watney', missions=[])
+User(firstname='Mark', lastname='Watney', groups=[])
 
 
 List of Objects
 ---------------
 >>> @dataclass
-... class Mission:
-...     year: int
+... class Group:
+...     gid: int
 ...     name: str
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: list[Mission] = field(default_factory=list)
+...     groups: list[Group] = field(default_factory=list)
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>> print(mark)
-Astronaut(firstname='Mark', lastname='Watney', missions=[])
+User(firstname='Mark', lastname='Watney', groups=[])
 
 
 Dict
 ----
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     missions: dict[int,str] = field(default_factory=dict)
+...     groups: dict[int,str] = field(default_factory=dict)
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>> print(mark)
-Astronaut(firstname='Mark', lastname='Watney', missions={})
+User(firstname='Mark', lastname='Watney', groups={})
 
 
 Default Values
 --------------
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
-...     groups: list[str] = field(default_factory=lambda: ['astronauts', 'managers'])
+...     groups: list[str] = field(default_factory=lambda: ['user', 'staff', 'admins'])
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney')
+>>> mark = User('Mark', 'Watney')
 >>> print(mark)
-Astronaut(firstname='Mark', lastname='Watney', groups=['astronauts', 'managers'])
+User(firstname='Mark', lastname='Watney', groups=['user', 'staff', 'admins'])

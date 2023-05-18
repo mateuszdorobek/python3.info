@@ -55,6 +55,7 @@ DATA = """
 
 # Using `dataclass` model data to create class `Pet`
 # type: type
+@dataclass
 class Pet:
     ...
 

@@ -34,13 +34,13 @@ Example
 -------
 >>> @dataclass(init=True, repr=True, eq=True, order=False, unsafe_hash=False,
 ...            frozen=False, match_args=True, kw_only=False, slots=False)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
->>> astro1 = Astronaut('Mark', 'Watney')
->>> astro2 = Astronaut('Mark', 'Watney')
->>> astro3 = Astronaut('Melissa', 'Lewis')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
+>>> c = User('Melissa', 'Lewis')
 
 
 Init
@@ -135,52 +135,39 @@ Eq
 * when ``eq=True`` compare objects by value not ``id()``
 
 >>> @dataclass(eq=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> astro1 = Astronaut('Mark', 'Watney')
->>> astro2 = Astronaut('Mark', 'Watney')
->>> astro3 = Astronaut('Melissa', 'Lewis')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
+>>> c = User('Melissa', 'Lewis')
 >>>
->>> astro1 == astro1
+>>> a == a
 True
->>> astro1 == astro2
+>>> a == b
 True
->>> astro1 == astro3
+>>> a == c
 False
->>>
->>> astro1 != astro1
-False
->>> astro1 != astro2
-False
->>> astro1 != astro3
-True
 
 >>> @dataclass(eq=False)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 >>>
 >>>
->>> astro1 = Astronaut('Mark', 'Watney')
->>> astro2 = Astronaut('Mark', 'Watney')
->>> astro3 = Astronaut('Melissa', 'Lewis')
+>>> a = User('Mark', 'Watney')
+>>> b = User('Mark', 'Watney')
+>>> c = User('Melissa', 'Lewis')
 >>>
->>> astro1 == astro1
+>>> a == a
 True
->>> astro1 == astro2
+>>> a == b
 False
->>> astro1 == astro3
+>>> a == c
 False
->>>
->>> astro1 != astro1
-False
->>> astro1 != astro2
-True
->>> astro1 != astro3
-True
+
 
 Hash
 ----
@@ -229,7 +216,7 @@ instead of the original one. If __slots__ is already defined in the class,
 then TypeError is raised.
 
 >>> @dataclass(slots=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     __slots__ = ('firstname', 'lastname')
@@ -238,37 +225,37 @@ then TypeError is raised.
 ...         return f'Hello {self.firstname} {self.lastname}'
 ...
 Traceback (most recent call last):
-TypeError: Astronaut already specifies __slots__
+TypeError: User already specifies __slots__
 
 >>> @dataclass(slots=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...
 ...     def say_hello(self):
 ...         return f'Hello {self.firstname} {self.lastname}'
 >>>
->>> vars(Astronaut)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+>>> vars(User)  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
 mappingproxy({'__module__': '__main__',
               '__annotations__': {'firstname': <class 'str'>, 'lastname': <class 'str'>},
-              'say_hello': <function Astronaut.say_hello at 0x...>,
-              '__doc__': 'Astronaut(firstname: str, lastname: str)',
+              'say_hello': <function User.say_hello at 0x...>,
+              '__doc__': 'User(firstname: str, lastname: str)',
               '__dataclass_params__': _DataclassParams(init=True,repr=True,eq=True,order=False,unsafe_hash=False,frozen=False),
               '__dataclass_fields__': {'firstname': Field(name='firstname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD),
                'lastname': Field(name='lastname',type=<class 'str'>,default=<dataclasses._MISSING_TYPE object at 0x...>,default_factory=<dataclasses._MISSING_TYPE object at 0x...>,init=True,repr=True,hash=None,compare=True,metadata=mappingproxy({}),kw_only=False,_field_type=_FIELD)},
-              '__init__': <function Astronaut.__init__ at 0x...>,
-              '__repr__': <function Astronaut.__repr__ at 0x...>,
-              '__eq__': <function Astronaut.__eq__ at 0x...>,
+              '__init__': <function User.__init__ at 0x...>,
+              '__repr__': <function User.__repr__ at 0x...>,
+              '__eq__': <function User.__eq__ at 0x...>,
               '__hash__': None,
               '__match_args__': ('firstname', 'lastname'),
               '__slots__': ('firstname', 'lastname'),
-              'firstname': <member 'firstname' of 'Astronaut' objects>,
-              'lastname': <member 'lastname' of 'Astronaut' objects>})
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>})
 >>>
->>> a = Astronaut('Mark', 'Watney')
+>>> a = User('Mark', 'Watney')
 >>>
 >>> a
-Astronaut(firstname='Mark', lastname='Watney')
+User(firstname='Mark', lastname='Watney')
 >>>
 >>> vars(a)
 Traceback (most recent call last):

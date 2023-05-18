@@ -25,20 +25,20 @@ Tests:
     >>> from dataclasses import is_dataclass
     >>> from typing import get_type_hints
 
-    >>> assert isclass(Astronaut)
+    >>> assert isclass(User)
     >>> assert isclass(Address)
-    >>> assert is_dataclass(Astronaut)
+    >>> assert is_dataclass(User)
     >>> assert is_dataclass(Address)
 
-    >>> astronaut = get_type_hints(Astronaut)
+    >>> user = get_type_hints(User)
     >>> address = get_type_hints(Address)
 
-    >>> assert 'firstname' in astronaut, \
-    'Class Astronaut is missing field: firstname'
-    >>> assert 'lastname' in astronaut, \
-    'Class Astronaut is missing field: lastname'
-    >>> assert 'addresses' in astronaut, \
-    'Class Astronaut is missing field: addresses'
+    >>> assert 'firstname' in user, \
+    'Class User is missing field: firstname'
+    >>> assert 'lastname' in user, \
+    'Class User is missing field: lastname'
+    >>> assert 'addresses' in user, \
+    'Class User is missing field: addresses'
     >>> assert 'street' in address, \
     'Class Address is missing field: street'
     >>> assert 'city' in address, \
@@ -49,12 +49,12 @@ Tests:
     'Class Address is missing field: region'
     >>> assert 'country' in address, \
     'Class Address is missing field: country'
-    >>> assert astronaut['firstname'] is str, \
-    'Astronaut.firstname has invalid type annotation, expected: str'
-    >>> assert astronaut['lastname'] is str, \
-    'Astronaut.lastname has invalid type annotation, expected: str'
-    >>> assert astronaut['addresses'] == list[Address] | None, \
-    'Astronaut.addresses has invalid type annotation, expected: list[Address] | None'
+    >>> assert user['firstname'] is str, \
+    'User.firstname has invalid type annotation, expected: str'
+    >>> assert user['lastname'] is str, \
+    'User.lastname has invalid type annotation, expected: str'
+    >>> assert user['addresses'] == list[Address] | None, \
+    'User.addresses has invalid type annotation, expected: list[Address] | None'
     >>> assert address['street'] == str | None, \
     'Address.street has invalid type annotation, expected: str | None'
     >>> assert address['city'] is str, \
@@ -100,7 +100,7 @@ class Address:
 # Model `DATA` using `dataclass`
 # type: type
 @dataclass
-class Astronaut:
+class User:
     ...
 
 
@@ -115,7 +115,7 @@ class Address:
 
 
 @dataclass
-class Astronaut:
+class User:
     firstname: str
     lastname: str
     addresses: list[Address] | None

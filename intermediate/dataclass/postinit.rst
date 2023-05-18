@@ -19,7 +19,7 @@ Initial Validation in Classes
 * Init serves not only for fields initialization
 * It could be also used for value validation
 
->>> class Astronaut:
+>>> class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -35,11 +35,11 @@ Initial Validation in Classes
 ...             self.age = age
 >>>
 >>>
->>> mark = Astronaut('Mark', 'Watney', age=44)
+>>> mark = User('Mark', 'Watney', age=44)
 >>> vars(mark)
 {'firstname': 'Mark', 'lastname': 'Watney', 'age': 44}
 >>>
->>> Astronaut('Mark', 'Watney', age=60)
+>>> User('Mark', 'Watney', age=60)
 Traceback (most recent call last):
 ValueError: Age is out of range
 
@@ -54,7 +54,7 @@ Initial Validation in Dataclasses
 * You can focus only on bailing-out (checking only negative path - errors)
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -66,10 +66,10 @@ Initial Validation in Dataclasses
 ...             raise ValueError('Age is out of range')
 >>>
 >>>
->>> Astronaut('Mark', 'Watney', age=44)
-Astronaut(firstname='Mark', lastname='Watney', age=44)
+>>> User('Mark', 'Watney', age=44)
+User(firstname='Mark', lastname='Watney', age=44)
 >>>
->>> Astronaut('Mark', 'Watney', age=60)
+>>> User('Mark', 'Watney', age=60)
 Traceback (most recent call last):
 ValueError: Age is out of range
 
@@ -80,7 +80,7 @@ Date and Time Conversion
 * Example str ``1969-07-21`` to date object ``date(1969, 7, 21)``
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     birthday: date
@@ -89,12 +89,12 @@ Date and Time Conversion
 ...         self.birthday = date.fromisoformat(self.birthday)
 >>>
 >>>
->>> Astronaut('Mark', 'Watney', '1961-04-12')  # doctest: +NORMALIZE_WHITESPACE
-Astronaut(firstname='Mark', lastname='Watney',
-          birthday=datetime.date(1961, 4, 12))
+>>> User('Mark', 'Watney', '1961-04-12')  # doctest: +NORMALIZE_WHITESPACE
+User(firstname='Mark', lastname='Watney',
+     birthday=datetime.date(1961, 4, 12))
 
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     launch: datetime | None = None
@@ -104,12 +104,12 @@ Astronaut(firstname='Mark', lastname='Watney',
 ...             self.launch = datetime.fromisoformat(self.launch)
 >>>
 >>>
->>> Astronaut('Mark', 'Watney')
-Astronaut(firstname='Mark', lastname='Watney', launch=None)
+>>> User('Mark', 'Watney')
+User(firstname='Mark', lastname='Watney', launch=None)
 >>>
->>> Astronaut('Mark', 'Watney', '1969-07-21T02:56:15+00:00')  # doctest: +NORMALIZE_WHITESPACE
-Astronaut(firstname='Mark', lastname='Watney',
-          launch=datetime.datetime(1969, 7, 21, 2, 56, 15, tzinfo=datetime.timezone.utc))
+>>> User('Mark', 'Watney', '1969-07-21T02:56:15+00:00')  # doctest: +NORMALIZE_WHITESPACE
+User(firstname='Mark', lastname='Watney',
+     launch=datetime.datetime(1969, 7, 21, 2, 56, 15, tzinfo=datetime.timezone.utc))
 
 
 InitVar
@@ -233,7 +233,7 @@ Use Case - 0x04
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     fullname: InitVar[str] = None
 ...     firstname: str | None = None
 ...     lastname: str | None = None
@@ -244,11 +244,11 @@ Use Case - 0x04
 
 Usage:
 
->>> Astronaut('Mark Watney')
-Astronaut(firstname='Mark', lastname='Watney')
+>>> User('Mark Watney')
+User(firstname='Mark', lastname='Watney')
 
->>> Astronaut(firstname='Mark', lastname='Watney')
-Astronaut(firstname='Mark', lastname='Watney')
+>>> User(firstname='Mark', lastname='Watney')
+User(firstname='Mark', lastname='Watney')
 
 
 Use Case - 0x05
@@ -296,7 +296,7 @@ Use Case - 0x06
 >>>
 >>>
 >>> @dataclass
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     age: int
@@ -311,13 +311,13 @@ Use Case - 0x06
 
 Usage:
 
->>> Astronaut('Mark', 'Watney', 60)
+>>> User('Mark', 'Watney', 60)
 Traceback (most recent call last):
 ValueError: Age 60 not in range 30 to 50
 
->>> Astronaut('Mark', 'Watney', 60, AGE_MAX=70)
+>>> User('Mark', 'Watney', 60, AGE_MAX=70)
 Traceback (most recent call last):
-TypeError: Astronaut.__init__() got an unexpected keyword argument 'AGE_MAX'
+TypeError: User.__init__() got an unexpected keyword argument 'AGE_MAX'
 
 
 Use Case - 0x07

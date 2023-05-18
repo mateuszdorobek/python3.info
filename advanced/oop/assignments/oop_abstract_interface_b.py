@@ -56,7 +56,8 @@ class IrisInterface:
                  sepal_length: float,
                  sepal_width: float,
                  petal_length: float,
-                 petal_width: float) -> None:
+                 petal_width: float,
+                 ) -> None:
         raise NotImplementedError
 
     def mean(self) -> float:

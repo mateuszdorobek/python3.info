@@ -8,7 +8,7 @@ English:
     1. You received input data in JSON format from the API
        a. `str` fields: firstname, lastname, role, username, password, email,
        b. `date` field: birthday,
-       c. `datetime` field: last_login (field is optional),
+       c. `datetime` field: last_login (optional),
        d. `bool` fields: is_active, is_staff, is_superuser,
        e. `list[dict]` field: user_permissions
     2. Using `dataclass` model data as class `User`
@@ -21,7 +21,7 @@ Polish:
     1. Otrzymałeś z API dane wejściowe w formacie JSON
        a. pola `str`: firstname, lastname, role, username, password, email,
        b. pole `date`: birthday,
-       c. pole `datetime`: last_login (pole jest opcjonalne),
+       c. pole `datetime`: last_login (opcjonalne),
        d. pola `bool`: is_active, is_staff, is_superuser,
        e. pola `list[dict]`: user_permissions
     2. Wykorzystując `dataclass` zamodeluj dane za pomocą klasy `User`

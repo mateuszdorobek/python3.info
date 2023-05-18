@@ -49,16 +49,16 @@ def __eq__(self, other):
 Complex
 -------
 >>> @dataclass(frozen=True, slots=True, kw_only=True)
-... class Astronaut:
+... class User:
 ...     firstname: str
 ...     lastname: str
 ...     birthday: date
-...     job: str = 'astronaut'
+...     job: str = 'admin'
 ...     agency: Literal['NASA', 'ESA'] = field(default='NASA', metadata={'choices': ['NASA', 'ESA']})
 ...     age: int | None = None
 ...     height: int | float | None = field(default=None, metadata={'unit': 'cm', 'min': 156, 'max': 210})
 ...     weight: int | float | None = field(default=None, metadata={'unit': 'kg', 'min': 50, 'max': 90})
-...     groups: list[str] = field(default_factory=lambda: ['astronauts', 'managers'])
+...     groups: list[str] = field(default_factory=lambda: ['users', 'staff', 'admins'])
 ...     friends: dict[str,str] = field(default_factory=dict)
 ...     assignments: list[str] | None = field(default=None, metadata={'choices': ['Apollo18', 'Ares3', 'STS-136']})
 ...     missions: list[Mission] = field(default_factory=list)
@@ -78,7 +78,7 @@ Complex
 ...         if not WEIGHT_MIN <= self.weight < WEIGHT_MAX:
 ...             raise ValueError(f'Height {self.weight} is not in between {WEIGHT_MIN} and {WEIGHT_MAX}')
 ...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
-...             raise ValueError('Age is not valid for an astronaut')
+...             raise ValueError('Age is not valid for a user')
 ...
 def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, birthday:_type_birthday, job:_type_job=_dflt_job, agency:_type_agency=_dflt_agency, age:_type_age=_dflt_age, height:_type_height=_dflt_height, weight:_type_weight=_dflt_weight, groups:_type_groups=_HAS_DEFAULT_FACTORY, friends:_type_friends=_HAS_DEFAULT_FACTORY, assignments:_type_assignments=_dflt_assignments, missions:_type_missions=_HAS_DEFAULT_FACTORY, experience:_type_experience=_dflt_experience, account_last_login:_type_account_last_login=_dflt_account_last_login, account_created:_type_account_created=_dflt_account_created):
     __dataclass_builtins_object__.__setattr__(self,'firstname',firstname)
