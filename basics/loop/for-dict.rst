@@ -9,52 +9,52 @@ Iterate
 * By default ``dict`` iterates over keys
 * Suggested variable name: ``key``
 
->>> DATA = {'Sepal length': 5.1,
-...         'Sepal width': 3.5,
-...         'Petal length': 1.4,
-...         'Petal width': 0.2,
-...         'Species': 'setosa'}
+>>> DATA = {'sepal_length': 5.1,
+...         'sepal_width': 3.5,
+...         'petal_length': 1.4,
+...         'petal_width': 0.2,
+...         'species': 'setosa'}
 >>>
 >>> for obj in DATA:
 ...     print(obj)
-Sepal length
-Sepal width
-Petal length
-Petal width
-Species
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
 
 
 Iterate Keys
 ------------
 * Suggested variable name: ``key``
 
->>> DATA = {'Sepal length': 5.1,
-...         'Sepal width': 3.5,
-...         'Petal length': 1.4,
-...         'Petal width': 0.2,
-...         'Species': 'setosa'}
+>>> DATA = {'sepal_length': 5.1,
+...         'sepal_width': 3.5,
+...         'petal_length': 1.4,
+...         'petal_width': 0.2,
+...         'species': 'setosa'}
 >>>
 >>> list(DATA.keys())
-['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 >>>
 >>> for obj in DATA.keys():
 ...     print(obj)
-Sepal length
-Sepal width
-Petal length
-Petal width
-Species
+sepal_length
+sepal_width
+petal_length
+petal_width
+species
 
 
 Iterate Values
 --------------
 * Suggested variable name: ``value``
 
->>> DATA = {'Sepal length': 5.1,
-...         'Sepal width': 3.5,
-...         'Petal length': 1.4,
-...         'Petal width': 0.2,
-...         'Species': 'setosa'}
+>>> DATA = {'sepal_length': 5.1,
+...         'sepal_width': 3.5,
+...         'petal_length': 1.4,
+...         'petal_width': 0.2,
+...         'species': 'setosa'}
 >>>
 >>> list(DATA.values())
 [5.1, 3.5, 1.4, 0.2, 'setosa']
@@ -74,40 +74,42 @@ Iterate Key-Value Pairs
 
 Getting pair: ``key``, ``value`` from ``dict`` items:
 
->>> DATA = {'Sepal length': 5.1,
-...         'Sepal width': 3.5,
-...         'Petal length': 1.4,
-...         'Petal width': 0.2,
-...         'Species': 'setosa'}
+>>> DATA = {'sepal_length': 5.1,
+...         'sepal_width': 3.5,
+...         'petal_length': 1.4,
+...         'petal_width': 0.2,
+...         'species': 'setosa'}
 >>>
 >>>
 >>> list(DATA.items())  # doctest: +NORMALIZE_WHITESPACE
-[('Sepal length', 5.1),
- ('Sepal width', 3.5),
- ('Petal length', 1.4),
- ('Petal width', 0.2),
- ('Species', 'setosa')]
+[('sepal_length', 5.1),
+ ('sepal_width', 3.5),
+ ('petal_length', 1.4),
+ ('petal_width', 0.2),
+ ('species', 'setosa')]
 >>>
 >>> for key, value in DATA.items():
 ...     print(key, '->', value)
-Sepal length -> 5.1
-Sepal width -> 3.5
-Petal length -> 1.4
-Petal width -> 0.2
-Species -> setosa
+sepal_length -> 5.1
+sepal_width -> 3.5
+petal_length -> 1.4
+petal_width -> 0.2
+species -> setosa
 
 
 List of Dicts
 -------------
 Unpacking ``list`` of ``dict``:
 
->>> DATA = [{'Sepal length': 5.1, 'Sepal width': 3.5, 'Petal length': 1.4, 'Petal width': 0.2, 'Species': 'setosa'},
-...         {'Sepal length': 5.7, 'Sepal width': 2.8, 'Petal length': 4.1, 'Petal width': 1.3, 'Species': 'versicolor'},
-...         {'Sepal length': 6.3, 'Sepal width': 2.9, 'Petal length': 5.6, 'Petal width': 1.8, 'Species': 'virginica'}]
+>>> DATA = [
+...     {'sepal_length': 5.1, 'sepal_width': 3.5, 'petal_length': 1.4, 'petal_width': 0.2, 'species': 'setosa'},
+...     {'sepal_length': 5.7, 'sepal_width': 2.8, 'petal_length': 4.1, 'petal_width': 1.3, 'species': 'versicolor'},
+...     {'sepal_length': 6.3, 'sepal_width': 2.9, 'petal_length': 5.6, 'petal_width': 1.8, 'species': 'virginica'},
+... ]
 >>>
 >>> for row in DATA:
-...     sepal_length = row['Sepal length']
-...     species = row['Species']
+...     sepal_length = row['sepal_length']
+...     species = row['species']
 ...     print(f'{species} -> {sepal_length}')
 setosa -> 5.1
 versicolor -> 5.7
@@ -122,7 +124,7 @@ Generate with Range
 
 Create ``dict`` from two ``list``:
 
->>> header = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+>>> header = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 >>> data = [5.1, 3.5, 1.4, 0.2, 'setosa']
 >>> result = {}
 >>>
@@ -132,11 +134,11 @@ Create ``dict`` from two ``list``:
 ...     result[key] = value
 >>>
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-{'Sepal length': 5.1,
- 'Sepal width': 3.5,
- 'Petal length': 1.4,
- 'Petal width': 0.2,
- 'Species': 'setosa'}
+{'sepal_length': 5.1,
+ 'sepal_width': 3.5,
+ 'petal_length': 1.4,
+ 'petal_width': 0.2,
+ 'species': 'setosa'}
 
 
 Generate with Enumerate
@@ -147,7 +149,7 @@ Generate with Enumerate
 
 Create ``dict`` from two ``list``:
 
->>> header = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+>>> header = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 >>> data = [5.1, 3.5, 1.4, 0.2, 'setosa']
 >>> result = {}
 >>>
@@ -155,11 +157,11 @@ Create ``dict`` from two ``list``:
 ...     result[key] = data[i]
 >>>
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-{'Sepal length': 5.1,
- 'Sepal width': 3.5,
- 'Petal length': 1.4,
- 'Petal width': 0.2,
- 'Species': 'setosa'}
+{'sepal_length': 5.1,
+ 'sepal_width': 3.5,
+ 'petal_length': 1.4,
+ 'petal_width': 0.2,
+ 'species': 'setosa'}
 
 
 Generate with Zip
@@ -167,7 +169,7 @@ Generate with Zip
 * ``zip()``
 * The most Pythonic way
 
->>> header = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+>>> header = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 >>> data = [5.1, 3.5, 1.4, 0.2, 'setosa']
 >>> result = {}
 >>>
@@ -175,22 +177,22 @@ Generate with Zip
 ...     result[key] = value
 >>>
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-{'Sepal length': 5.1,
- 'Sepal width': 3.5,
- 'Petal length': 1.4,
- 'Petal width': 0.2,
- 'Species': 'setosa'}
+{'sepal_length': 5.1,
+ 'sepal_width': 3.5,
+ 'petal_length': 1.4,
+ 'petal_width': 0.2,
+ 'species': 'setosa'}
 
->>> header = ['Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species']
+>>> header = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 >>> data = [5.1, 3.5, 1.4, 0.2, 'setosa']
 >>> result = dict(zip(header, data))
 >>>
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-{'Sepal length': 5.1,
- 'Sepal width': 3.5,
- 'Petal length': 1.4,
- 'Petal width': 0.2,
- 'Species': 'setosa'}
+{'sepal_length': 5.1,
+ 'sepal_width': 3.5,
+ 'petal_length': 1.4,
+ 'petal_width': 0.2,
+ 'species': 'setosa'}
 
 
 Assignments

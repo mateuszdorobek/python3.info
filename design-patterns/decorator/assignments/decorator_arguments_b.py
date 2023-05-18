@@ -45,12 +45,14 @@ Tests:
     >>> CREW_PRIMARY = [
     ...    {'is_astronaut': True, 'name': 'Pan Twardowski'},
     ...    {'is_astronaut': True, 'name': 'Mark Watney'},
-    ...    {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+    ...    {'is_astronaut': True, 'name': 'Melissa Lewis'},
+    ... ]
 
     >>> CREW_BACKUP = [
     ...    {'is_astronaut': True, 'name': 'Melissa Lewis'},
     ...    {'is_astronaut': True, 'name': 'Mark Watney'},
-    ...    {'is_astronaut': False, 'name': 'Alex Vogel'}]
+    ...    {'is_astronaut': False, 'name': 'Alex Vogel'},
+    ... ]
 
     >>> @check_astronauts(field='is_astronaut', value=True)
     ... def launch(crew):

@@ -26,7 +26,8 @@ Unique
 >>>
 >>> data = [
 ...     {'login': 'mwatney', 'firstname': 'Mark', 'lastname': 'Watney'},
-...     {'login': 'mwatney', 'firstname': 'Melissa', 'lastname': 'Lewis'}]
+...     {'login': 'mwatney', 'firstname': 'Melissa', 'lastname': 'Lewis'},
+... ]
 >>>
 >>>
 >>> with sqlite3.connect(DATABASE) as db:
@@ -63,12 +64,14 @@ Programming Error
 ...     VALUES (NULL, ?, ?);"""
 >>>
 >>>
->>> data = [{'firstname': 'Mark', 'lastname': 'Watney'},
-...         {'firstname': 'Melissa', 'lastname': 'Lewis'},
-...         {'firstname': 'Rick', 'lastname': 'Martinez'},
-...         {'firstname': 'Alex', 'lastname': 'Vogel'},
-...         {'firstname': 'Beth', 'lastname': 'Johanssen'},
-...         {'firstname': 'Chris', 'lastname': 'Beck'}]
+>>> data = [
+...     {'firstname': 'Mark', 'lastname': 'Watney'},
+...     {'firstname': 'Melissa', 'lastname': 'Lewis'},
+...     {'firstname': 'Rick', 'lastname': 'Martinez'},
+...     {'firstname': 'Alex', 'lastname': 'Vogel'},
+...     {'firstname': 'Beth', 'lastname': 'Johanssen'},
+...     {'firstname': 'Chris', 'lastname': 'Beck'},
+... ]
 >>>
 >>>
 >>> with sqlite3.connect(DATABASE) as db:

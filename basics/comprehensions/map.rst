@@ -23,7 +23,7 @@ Apply Function
 Convert Data
 ------------
 >>> DATA = [
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -85,7 +85,7 @@ TypeError: sequence item 0: expected str instance, int found
 Generate CSV Data
 -----------------
 >>> DATA = [
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -99,7 +99,7 @@ Generate CSV Data
 >>> result = '\n'.join(result)
 >>>
 >>> print(result)  # doctest: +NORMALIZE_WHITESPACE
-Sepal length,Sepal width,Petal length,Petal width,Species
+sepal_length,sepal_width,petal_length,petal_width,species
 5.8,2.7,5.1,1.9,virginica
 5.1,3.5,1.4,0.2,setosa
 5.7,2.8,4.1,1.3,versicolor
@@ -173,10 +173,12 @@ Use Case - 0x02
 ---------------
 * Map list[dict]
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> PEOPLE = [
+...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
+...     {'is_astronaut': True,  'name': 'Mark Watney'},
+...     {'is_astronaut': False, 'name': 'Rick Martinez'},
+...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+... ]
 >>>
 >>>
 >>> astronauts = [{'firstname': person['name'].split()[0],
@@ -192,10 +194,12 @@ Use Case - 0x02
 
 Use Case - 0x03
 ---------------
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> PEOPLE = [
+...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
+...     {'is_astronaut': True,  'name': 'Mark Watney'},
+...     {'is_astronaut': False, 'name': 'Rick Martinez'},
+...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+... ]
 >>>
 >>>
 >>> astronauts = [{'firstname': person['name'].split()[0].capitalize(),
@@ -214,10 +218,12 @@ Use Case - 0x04
 * Assignment expression
 * More information in `Assignment Expression`
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> PEOPLE = [
+...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
+...     {'is_astronaut': True,  'name': 'Mark Watney'},
+...     {'is_astronaut': False, 'name': 'Rick Martinez'},
+...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+... ]
 >>>
 >>>
 >>> astronauts = [{'firstname': fname, 'lastname': lname}
@@ -238,10 +244,12 @@ Use Case - 0x05
 * Assignment expression
 * More information in `Assignment Expression`
 
->>> PEOPLE = [{'is_astronaut': True,  'name': 'Melissa Lewis'},
-...           {'is_astronaut': True,  'name': 'Mark Watney'},
-...           {'is_astronaut': False, 'name': 'Rick Martinez'},
-...           {'is_astronaut': True,  'name': 'Alex Vogel'}]
+>>> PEOPLE = [
+...     {'is_astronaut': True,  'name': 'Melissa Lewis'},
+...     {'is_astronaut': True,  'name': 'Mark Watney'},
+...     {'is_astronaut': False, 'name': 'Rick Martinez'},
+...     {'is_astronaut': True,  'name': 'Alex Vogel'},
+... ]
 >>>
 >>>
 >>> astronauts = [f'{fname} {lname[0]}.'

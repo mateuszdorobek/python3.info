@@ -35,10 +35,10 @@ Tests:
     >>> assert all(type(row) in classes for row in result)
 
     >>> result[0]
-    Virginica(sepalLength=5.8, sepalWidth=2.7, petalLength=5.1, petalWidth=1.9)
+    Virginica(sepal_length=5.8, sepal_width=2.7, petal_length=5.1, petal_width=1.9)
 
     >>> result[1]
-    Setosa(sepalLength=5.1, sepalWidth=3.5, petalLength=1.4, petalWidth=0.2)
+    Setosa(sepal_length=5.1, sepal_width=3.5, petal_length=1.4, petal_width=0.2)
 """
 
 import json
@@ -47,26 +47,28 @@ from dataclasses import dataclass
 FILE = r'_temporary.json'
 
 DATA = (
-    '[{"sepalLength":5.8,"sepalWidth":2.7,"petalLength":5.1,"petalWidth":1.9,'
-    '"species":"virginica"},{"sepalLength":5.1,"sepalWidth":3.5,"petalLength"'
-    ':1.4,"petalWidth":0.2,"species":"setosa"},{"sepalLength":5.7,"sepalWidth'
-    '":2.8,"petalLength":4.1,"petalWidth":1.3,"species":"versicolor"},{"sepal'
-    'Length":6.3,"sepalWidth":2.9,"petalLength":5.6,"petalWidth":1.8,"species'
-    '":"virginica"},{"sepalLength":6.4,"sepalWidth":3.2,"petalLength":4.5,"pe'
-    'talWidth":1.5,"species":"versicolor"},{"sepalLength":4.7,"sepalWidth":3.'
-    '2,"petalLength":1.3,"petalWidth":0.2,"species":"setosa"},{"sepalLength":'
-    '7.0,"sepalWidth":3.2,"petalLength":4.7,"petalWidth":1.4,"species":"versi'
-    'color"},{"sepalLength":7.6,"sepalWidth":3.0,"petalLength":6.6,"petalWidt'
-    'h":2.1,"species":"virginica"},{"sepalLength":4.9,"sepalWidth":3.0,"petal'
-    'Length":1.4,"petalWidth":0.2,"species":"setosa"}]')
+    '[{"sepal_length":5.8,"sepal_width":2.7,"petal_length":5.1,"petal_widt'
+    'h":1.9,"species":"virginica"},{"sepal_length":5.1,"sepal_width":3.5,"'
+    'petal_length":1.4,"petal_width":0.2,"species":"setosa"},{"sepal_lengt'
+    'h":5.7,"sepal_width":2.8,"petal_length":4.1,"petal_width":1.3,"specie'
+    's":"versicolor"},{"sepal_length":6.3,"sepal_width":2.9,"petal_length"'
+    ':5.6,"petal_width":1.8,"species":"virginica"},{"sepal_length":6.4,"se'
+    'pal_width":3.2,"petal_length":4.5,"petal_width":1.5,"species":"versic'
+    'olor"},{"sepal_length":4.7,"sepal_width":3.2,"petal_length":1.3,"peta'
+    'l_width":0.2,"species":"setosa"},{"sepal_length":7.0,"sepal_width":3.'
+    '2,"petal_length":4.7,"petal_width":1.4,"species":"versicolor"},{"sepa'
+    'l_length":7.6,"sepal_width":3.0,"petal_length":6.6,"petal_width":2.1,'
+    '"species":"virginica"},{"sepal_length":4.9,"sepal_width":3.0,"petal_l'
+    'ength":1.4,"petal_width":0.2,"species":"setosa"}]'
+)
 
 
 @dataclass
 class Iris:
-    sepalLength: float
-    sepalWidth: float
-    petalLength: float
-    petalWidth: float
+    sepal_length: float
+    sepal_width: float
+    petal_length: float
+    petal_width: float
 
 
 class Setosa(Iris):

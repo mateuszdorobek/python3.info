@@ -46,7 +46,7 @@ Tests:
     {'firstname': 'Mark', 'lastname': 'Watney'}
 
     >>> protected
-    {'_email': 'mwatney@nasa.gov', '_phone': '+1 234 567 8910'}
+    {'_email': 'mwatney@nasa.gov', '_phone': '+1 (234) 555 1337'}
 
     >>> private
     {'_User__username': 'mwatney', '_User__password': 'Ares3'}
@@ -70,7 +70,7 @@ DATA = User(
     firstname='Mark',
     lastname='Watney',
     email='mwatney@nasa.gov',
-    phone='+1 234 567 8910',
+    phone='+1 (234) 555 1337',
     username='mwatney',
     password='Ares3',
 )

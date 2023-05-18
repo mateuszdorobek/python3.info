@@ -58,9 +58,11 @@ Write Multiple Lines
 *  Each line must add a separator at the end.
 
 >>> FILE = r'/tmp/myfile.txt'
->>> DATA = ['We choose to go to the Moon.',
-...         'We choose to go to the Moon in this decade and do the other things.',
-...         'Not because they are easy, but because they are hard.']
+>>> DATA = [
+...     'We choose to go to the Moon.',
+...     'We choose to go to the Moon in this decade and do the other things.',
+...     'Not because they are easy, but because they are hard.',
+... ]
 >>>
 >>> result = '\n'.join(DATA)
 >>>
@@ -69,9 +71,11 @@ Write Multiple Lines
 150
 
 >>> FILE = r'/tmp/myfile.txt'
->>> DATA = ['We choose to go to the Moon.',
-...         'We choose to go to the Moon in this decade and do the other things.',
-...         'Not because they are easy, but because they are hard.']
+>>> DATA = [
+...     'We choose to go to the Moon.',
+...     'We choose to go to the Moon in this decade and do the other things.',
+...     'Not because they are easy, but because they are hard.',
+... ]
 >>>
 >>> result = [line+'\n' for line in DATA]
 >>>

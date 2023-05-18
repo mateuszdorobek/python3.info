@@ -190,7 +190,8 @@ Use Case - 0x01
 >>> crew = [Astronaut('Mark Watney'),
 ...         Cosmonaut('José Jiménez'),
 ...         Astronaut('Melissa Lewis'),
-...         Cosmonaut('Pan Twardowski')]
+...         Cosmonaut('Pan Twardowski'),
+... ]
 >>>
 >>> hello(crew)
 Hello Mark Watney
@@ -222,7 +223,8 @@ Interface or abstract class is not needed to do polymorphism:
 >>> crew = [Astronaut('Mark Watney'),
 ...         Cosmonaut('José Jiménez'),
 ...         Astronaut('Melissa Lewis'),
-...         Cosmonaut('Pan Twardowski')]
+...         Cosmonaut('Pan Twardowski'),
+... ]
 >>>
 >>> for member in crew:
 ...     print(member.say_hello())

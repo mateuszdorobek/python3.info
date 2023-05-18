@@ -36,9 +36,11 @@ Tests:
     >>> assert line in result, f'Line "{line}" is not in the result'
 """
 
-DATA = ['We choose to go to the Moon',
-        'in this decade and do the other things.',
-        'Not because they are easy, but because they are hard.']
+DATA = [
+    'We choose to go to the Moon',
+    'in this decade and do the other things.',
+    'Not because they are easy, but because they are hard.',
+]
 
 # Join DATA with newline (`\n`) character
 # type: str

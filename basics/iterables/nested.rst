@@ -105,6 +105,10 @@ Many Types
 ----------
 Readability differs depending on whitespaces:
 
+>>> data = [[1, 2],
+...         (3, 4, 5, 6),
+...         {7, 8, 9, 10, 11}]
+
 >>> data = [
 ...     [1, 2],
 ...     (3, 4, 5, 6),
@@ -113,12 +117,8 @@ Readability differs depending on whitespaces:
 >>> data = [
 ...     [1, 2],
 ...     (3, 4, 5, 6),
-...     {7, 8, 9, 10, 11}
+...     {7, 8, 9, 10, 11},
 ... ]
-
->>> data = [[1, 2],
-...         (3, 4, 5, 6),
-...         {7, 8, 9, 10, 11}]
 
 Content could be both basic types and sequences:
 
@@ -212,7 +212,8 @@ Append elements using ``list.append()``:
 >>> data = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 >>>
 >>> row = (4.9, 2.5, 4.5, 1.7, 'virginica')
 >>>
@@ -228,7 +229,8 @@ Append elements using ``list.extend()``:
 >>> data = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 >>>
 >>> row = (4.9, 2.5, 4.5, 1.7, 'virginica')
 >>>
@@ -248,7 +250,8 @@ Length:
 >>> data = [
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
 ...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
-...     (7.6, 3.0, 6.6, 2.1, 'virginica')]
+...     (7.6, 3.0, 6.6, 2.1, 'virginica'),
+... ]
 >>>
 >>> len(data)
 3

@@ -164,8 +164,17 @@ Use Case - 0x03
 ---------------
 SetUp:
 
->>> roles = ['commander', 'botanist', 'pilot']
->>> crew = [('Melissa', 'Lewis'), ('Mark', 'Watney'), ('Rick', 'Martinez')]
+>>> roles = [
+...     'commander',
+...     'botanist',
+...     'pilot',
+... ]
+>>>
+>>> crew = [
+...     ('Melissa', 'Lewis'),
+...     ('Mark', 'Watney'),
+...     ('Rick', 'Martinez'),
+... ]
 
 >>> result = zip(roles, crew)
 >>>

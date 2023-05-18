@@ -266,9 +266,14 @@ Use Case - 0x03
 ...     SELECT * FROM astronauts
 ... """
 >>>
->>> DATA = [{'firstname': 'Pan', 'lastname': 'Twardowski', 'age': 44},
-...         {'firstname': 'Mark', 'lastname': 'Watney', 'age': 33},
-...         {'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 36}]
+>>> DATA = [
+...     {'firstname': 'Mark', 'lastname': 'Watney', 'age': 42},
+...     {'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 41},
+...     {'firstname': 'Rick', 'lastname': 'Martinez', 'age': 40},
+...     {'firstname': 'Alex', 'lastname': 'Vogel', 'age': 42},
+...     {'firstname': 'Beth', 'lastname': 'Johanssen', 'age': 29},
+...     {'firstname': 'Chris', 'lastname': 'Beck', 'age': 46},
+... ]
 >>>
 >>>
 >>> with sqlite3.connect(DATABASE) as db:  # doctest: +ELLIPSIS
@@ -281,9 +286,12 @@ Use Case - 0x03
 ...
 <sqlite3.Cursor object at 0x...>
 <sqlite3.Cursor object at 0x...>
-{'id': 1, 'firstname': 'Pan', 'lastname': 'Twardowski', 'age': 44}
-{'id': 2, 'firstname': 'Mark', 'lastname': 'Watney', 'age': 33}
-{'id': 3, 'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 36}
+{'id': 1, 'firstname': 'Mark', 'lastname': 'Watney', 'age': 42}
+{'id': 2, 'firstname': 'Melissa', 'lastname': 'Lewis', 'age': 41}
+{'id': 3, 'firstname': 'Rick', 'lastname': 'Martinez', 'age': 40}
+{'id': 4, 'firstname': 'Alex', 'lastname': 'Vogel', 'age': 42}
+{'id': 5, 'firstname': 'Beth', 'lastname': 'Johanssen', 'age': 29}
+{'id': 6, 'firstname': 'Chris', 'lastname': 'Beck', 'age': 46}
 
 
 Use Case - 0x04

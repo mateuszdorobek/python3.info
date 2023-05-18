@@ -8,11 +8,11 @@
 English:
     1. Define class `Iris`
     2. `Iris` has:
-        a. "Sepal length" type `float`
-        b. "Sepal width" type `float`
-        c. "Petal length" type `float`
-        d. "Petal width" type `float`
-        e. "Species" type `str`
+        a. "sepal_length" type `float`
+        b. "sepal_width" type `float`
+        c. "petal_length" type `float`
+        d. "petal_width" type `float`
+        e. "species" type `str`
     3. `Iris` can:
         a. Return number of `float` type attributes
         b. Return list of all `float` type attributes
@@ -30,11 +30,11 @@ English:
 Polish:
     1. Zdefiniuj klasę `Iris`
     2. `Iris` ma:
-        a. "Sepal length" typu `float`
-        b. "Sepal width" typu `float`
-        c. "Petal length" typu `float`
-        d. "Petal width" typu `float`
-        e. "Species" typu `str`
+        a. "sepal_length" typu `float`
+        b. "sepal_width" typu `float`
+        c. "petal_length" typu `float`
+        d. "petal_width" typu `float`
+        e. "species" typu `str`
     3. `Iris` może:
         a. Zwrócić liczbę pól typu `float`
         b. Zwrócić listę wartości wszystkich pól typu `float`

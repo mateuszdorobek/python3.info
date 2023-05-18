@@ -16,7 +16,8 @@ List of Pairs
 >>> DATA = [
 ...     ('commander', 'Melissa Lewis'),
 ...     ('botanist', 'Mark Watney'),
-...     ('chemist', 'Alex Vogel')]
+...     ('chemist', 'Alex Vogel'),
+... ]
 >>>
 >>> for role, name in DATA:
 ...     print(f'{role} -> {name}')
@@ -30,7 +31,8 @@ List of Tuples
 >>> DATA = [
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-...     (6.3, 2.9, 5.6, 1.8, 'virginica')]
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+... ]
 >>>
 >>> for sepal_length, sepal_width, petal_length, petal_width, species in DATA:
 ...     print(f'{species} -> {sepal_length}')
@@ -41,7 +43,8 @@ virginica -> 6.3
 >>> DATA = [
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-...     (6.3, 2.9, 5.6, 1.8, 'virginica')]
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+... ]
 >>>
 >>> for sl, sw, pl, pw, s in DATA:
 ...     print(f'{s} -> {sl}')
@@ -62,7 +65,8 @@ Unpacking Assignment
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
-...     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 >>>
 >>> for *features, label in DATA:
 ...     avg = sum(features) / len(features)
@@ -74,7 +78,8 @@ versicolor -> 3.475
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
-...     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 >>>
 >>> for *X,y in DATA:
 ...     avg = sum(X) / len(X)
@@ -89,7 +94,8 @@ Unused Values
 >>> DATA = [
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-...     (6.3, 2.9, 5.6, 1.8, 'virginica')]
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+... ]
 >>>
 >>> for sepal_length, _, _, _, species in DATA:
 ...     print(f'{species} -> {sepal_length}')
@@ -100,7 +106,8 @@ virginica -> 6.3
 >>> DATA = [
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
-...     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
+...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
+... ]
 >>>
 >>> for sepal_length, *_, species in DATA:
 ...     print(f'{species} -> {sepal_length}')
@@ -116,7 +123,8 @@ Mixed
 ...     ('name', 'Mark Watney'),
 ...     ('agency', ['NASA', 'ESA', 'POLSA']),
 ...     ((1, 2), ['botanist', 'commander', 'pilot']),
-...     (['Ares1', 'Are2', 'Ares3'], 1)]
+...     (['Ares1', 'Are2', 'Ares3'], 1),
+... ]
 >>>
 >>> for first, second in DATA:
 ...     print(f'{first} -> {second}')

@@ -69,7 +69,8 @@ List of Pairs
 >>> CREW = [
 ...     ('commander', 'Melissa Lewis'),
 ...     ('botanist', 'Mark Watney'),
-...     ('pilot', 'Rick Martinez')]
+...     ('pilot', 'Rick Martinez'),
+... ]
 >>>
 >>>
 >>> for astronaut in CREW:
@@ -86,7 +87,8 @@ List of Threes
 >>> CREW = [
 ...     ('commander', 'Melissa', 'Lewis'),
 ...     ('botanist', 'Mark', 'Watney'),
-...     ('pilot', 'Rick', 'Martinez')]
+...     ('pilot', 'Rick', 'Martinez'),
+... ]
 >>>
 >>>
 >>> for astronaut in CREW:
@@ -104,7 +106,8 @@ List of Sequence
 >>> DATA = [
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-...     (6.3, 2.9, 5.6, 1.8, 'virginica')]
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+... ]
 >>>
 >>>
 >>> for row in DATA:
@@ -122,7 +125,8 @@ virginica -> 16.599999999999998
 >>> DATA = [
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
-...     (6.3, 2.9, 5.6, 1.8, 'virginica')]
+...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
+... ]
 >>>
 >>>
 >>> for row in DATA:

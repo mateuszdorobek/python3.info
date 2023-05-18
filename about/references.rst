@@ -10,18 +10,10 @@ Assignment levels
 * Sub-project - task is part of bigger project completed over whole chapter
 
 
-Ehlo World!
------------
-W lekcjach programowania utarło się, że zawsze zaczynamy od już przysłowiowego "Hello World".
-Tym razem jednak zaczniemy od 'Ehlo World!' i nie jest to pomyłka.
-Jest to przywitanie serwera SMTP.
-W tej książce znajdziesz kilka żartów informatycznych i nawiązań do starych
-
-
-Datasets
---------
+Iris Dataset
+------------
 >>> DATA = [
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -42,7 +34,8 @@ Datasets
 ...     (6.5, 2.8, 4.6, 1.5, 'versicolor'),
 ...     (6.3, 3.3, 6.0, 2.5, 'virginica'),
 ...     (6.9, 3.1, 4.9, 1.5, 'versicolor'),
-...     (4.6, 3.1, 1.5, 0.2, 'setosa')]
+...     (4.6, 3.1, 1.5, 0.2, 'setosa'),
+... ]
 
 >>> X = [5.8, 2.7, 5.1, 1.9]
 >>> y = 'virginica'

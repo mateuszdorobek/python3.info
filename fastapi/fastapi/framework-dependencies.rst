@@ -44,7 +44,8 @@ Class
 >>> fake_items_db = [
 ...     {"item_name": "Foo"},
 ...     {"item_name": "Bar"},
-...     {"item_name": "Baz"}]
+...     {"item_name": "Baz"},
+... ]
 >>>
 >>>
 >>> class CommonQueryParams:
@@ -105,7 +106,10 @@ Dependencies in path operation decorators
 >>>
 >>> @app.get("/items/", dependencies=[Depends(verify_token), Depends(verify_key)])
 ... async def read_items():
-...     return [{"item": "Foo"}, {"item": "Bar"}]
+...     return [
+...         {"item": "Foo"},
+...         {"item": "Bar"},
+...     ]
 
 
 Global Dependencies
@@ -131,12 +135,18 @@ Global Dependencies
 >>>
 >>> @app.get("/items/")
 ... async def read_items():
-...     return [{"item": "Portal Gun"}, {"item": "Plumbus"}]
+...     return [
+...         {"item": "Portal Gun"},
+...         {"item": "Plumbus"},
+...     ]
 >>>
 >>>
 >>> @app.get("/users/")
 ... async def read_users():
-...     return [{"username": "Rick"}, {"username": "Morty"}]
+...     return [
+...         {"username": "Rick"},
+...         {"username": "Morty"},
+...     ]
 
 
 Router Based Dependencies

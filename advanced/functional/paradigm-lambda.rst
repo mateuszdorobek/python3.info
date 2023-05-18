@@ -156,7 +156,8 @@ Use Case - 0x03
 >>> people = [
 ...     {'age': 21, 'name': 'Mark Watney'},
 ...     {'age': 25, 'name': 'Melissa Lewis'},
-...     {'age': 18, 'name': 'Rick Martinez'}]
+...     {'age': 18, 'name': 'Rick Martinez'},
+... ]
 >>>
 >>>
 >>> result = filter(lambda x: x['age'] >= 21, people)
@@ -170,7 +171,8 @@ Use Case - 0x04
 >>> people = [
 ...     {'is_staff': True, 'name': 'Mark Watney'},
 ...     {'is_staff': False, 'name': 'Melissa Lewis'},
-...     {'is_staff': True, 'name': 'Rick Martinez'}]
+...     {'is_staff': True, 'name': 'Rick Martinez'},
+... ]
 >>>
 >>>
 >>> can_login = filter(lambda x: x['is_staff'], people)

@@ -65,7 +65,8 @@ DATA = [
         Group(gid=1, name='staff'),
         Group(gid=2, name='admins')]),
 
-    User('Rick', 'Martinez')]
+    User('Rick', 'Martinez'),
+]
 
 
 # Convert DATA

@@ -26,13 +26,13 @@ Tests:
     'All elements in `result` should be str'
 
     >>> result
-    ['Sepal length', 'Sepal width', 'Petal length', 'Petal width']
+    ['sepal_length', 'sepal_width', 'petal_length', 'petal_width']
 """
 
-DATA = {'Sepal length': 5.8,
-        'Sepal width': 2.7,
-        'Petal length': 5.1,
-        'Petal width': 1.9}
+DATA = {'sepal_length': 5.8,
+        'sepal_width': 2.7,
+        'petal_length': 5.1,
+        'petal_width': 1.9}
 
 # List with keys from DATA
 # type: list[str]

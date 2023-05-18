@@ -56,7 +56,8 @@ DATA = [
     Astronaut('Mark', 'Watney', missions=[
         Mission('2035', 'Ares 3')]),
 
-    Astronaut('Melissa', 'Lewis')]
+    Astronaut('Melissa', 'Lewis'),
+]
 
 
 # Convert DATA

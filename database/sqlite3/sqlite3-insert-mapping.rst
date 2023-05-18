@@ -47,12 +47,14 @@ Insert Many
 ...     VALUES (NULL, :firstname, :lastname);"""
 >>>
 >>>
->>> data = [{'firstname': 'Mark', 'lastname': 'Watney'},
-...         {'firstname': 'Melissa', 'lastname': 'Lewis'},
-...         {'firstname': 'Rick', 'lastname': 'Martinez'},
-...         {'firstname': 'Alex', 'lastname': 'Vogel'},
-...         {'firstname': 'Beth', 'lastname': 'Johanssen'},
-...         {'firstname': 'Chris', 'lastname': 'Beck'}]
+>>> data = [
+...     {'firstname': 'Mark', 'lastname': 'Watney'},
+...     {'firstname': 'Melissa', 'lastname': 'Lewis'},
+...     {'firstname': 'Rick', 'lastname': 'Martinez'},
+...     {'firstname': 'Alex', 'lastname': 'Vogel'},
+...     {'firstname': 'Beth', 'lastname': 'Johanssen'},
+...     {'firstname': 'Chris', 'lastname': 'Beck'},
+... ]
 >>>
 >>>
 >>> with sqlite3.connect(DATABASE) as db:

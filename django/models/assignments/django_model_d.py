@@ -145,7 +145,8 @@ CUSTOMERS = [
      'email': 'bjohanssen@nasa.gov', 'phone': '+1 (234) 555-0100'},
     {'firstname': 'Chris', 'lastname': 'Beck', 'born': '1999-08-02',
      'gender': 'male', 'tax_number': '99080212345',
-     'email': 'cbeck@nasa.gov', 'phone': '+1 (234) 555-0101'}]
+     'email': 'cbeck@nasa.gov', 'phone': '+1 (234) 555-0101'},
+]
 
 ADDRESSES = [
     {'customer': 'mwatney@nasa.gov', 'type': 'billing',
@@ -171,7 +172,8 @@ ADDRESSES = [
      'region': 'California', 'country': 'USA'},
     {'customer': 'cbeck@nasa.gov', 'type': 'shipping',
      'street': '4800 Oak Grove Dr', 'city': 'Pasadena', 'postcode': '91109',
-     'region': 'California', 'country': 'USA'}]
+     'region': 'California', 'country': 'USA'},
+]
 
 PRODUCTS = [
     {'ean13': '5039271113244', 'name': 'Alfa', 'price': '123.00'},
@@ -198,7 +200,8 @@ PRODUCTS = [
     {'ean13': '7251925199277', 'name': 'Victor', 'price': '990.50'},
     {'ean13': '7283004100423', 'name': 'Whisky', 'price': '881.89'},
     {'ean13': '7309682004683', 'name': 'X-Ray', 'price': '123.63'},
-    {'ean13': '7324670042560', 'name': 'Zulu', 'price': '311.00'}]
+    {'ean13': '7324670042560', 'name': 'Zulu', 'price': '311.00'},
+]
 
 ORDERS = [
     {'customer': 'mwatney@nasa.gov', 'product': 'Sierra'},
@@ -233,7 +236,8 @@ ORDERS = [
     {'customer': 'cbeck@nasa.gov', 'product': 'Zulu'},
     {'customer': 'mwatney@nasa.gov', 'product': 'Alfa'},
     {'customer': 'avogel@esa.int', 'product': 'Romeo'},
-    {'customer': 'bjohanssen@nasa.gov', 'product': 'Quebec'}]
+    {'customer': 'bjohanssen@nasa.gov', 'product': 'Quebec'},
+]
 
 
 import os

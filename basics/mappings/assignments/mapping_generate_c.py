@@ -30,11 +30,11 @@ Tests:
     >>> assert all(type(x) is str for x in result.keys()), \
     'All dict keys should be str'
 
-    >>> assert 'SepalLength' in result.keys()
-    >>> assert 'SepalWidth' in result.keys()
-    >>> assert 'PetalLength' in result.keys()
-    >>> assert 'PetalWidth' in result.keys()
-    >>> assert 'Species' in result.keys()
+    >>> assert 'sepal_length' in result.keys()
+    >>> assert 'sepal_width' in result.keys()
+    >>> assert 'petal_length' in result.keys()
+    >>> assert 'petal_width' in result.keys()
+    >>> assert 'species' in result.keys()
 
     >>> assert 5.8 in result.values()
     >>> assert 2.7 in result.values()
@@ -43,14 +43,14 @@ Tests:
     >>> assert 'virginica' in result.values()
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    {'SepalLength': 5.8,
-     'SepalWidth': 2.7,
-     'PetalLength': 5.1,
-     'PetalWidth': 1.9,
-     'Species': 'virginica'}
+    {'sepal_length': 5.8,
+     'sepal_width': 2.7,
+     'petal_length': 5.1,
+     'petal_width': 1.9,
+     'species': 'virginica'}
 """
 
-KEYS = ['SepalLength', 'SepalWidth', 'PetalLength', 'PetalWidth', 'Species']
+KEYS = ['sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species']
 VALUES = [5.8, 2.7, 5.1, 1.9, 'virginica']
 
 # Dict with Zipped KEYS and VALUES

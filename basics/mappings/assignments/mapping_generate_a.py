@@ -27,11 +27,11 @@ Tests:
     >>> assert all(type(x) is str for x in result.keys()), \
     'All dict keys should be str'
 
-    >>> assert 'Sepal length' in result.keys()
-    >>> assert 'Sepal width' in result.keys()
-    >>> assert 'Petal length' in result.keys()
-    >>> assert 'Petal width' in result.keys()
-    >>> assert 'Species' in result.keys()
+    >>> assert 'sepal_length' in result.keys()
+    >>> assert 'sepal_width' in result.keys()
+    >>> assert 'petal_length' in result.keys()
+    >>> assert 'petal_width' in result.keys()
+    >>> assert 'species' in result.keys()
 
     >>> assert 5.8 in result.values()
     >>> assert 2.7 in result.values()
@@ -40,19 +40,20 @@ Tests:
     >>> assert 'virginica' in result.values()
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    {'Sepal length': 5.8,
-     'Sepal width': 2.7,
-     'Petal length': 5.1,
-     'Petal width': 1.9,
-     'Species': 'virginica'}
+    {'sepal_length': 5.8,
+     'sepal_width': 2.7,
+     'petal_length': 5.1,
+     'petal_width': 1.9,
+     'species': 'virginica'}
 """
 
 DATA = [
-    ('Sepal length', 5.8),
-    ('Sepal width', 2.7),
-    ('Petal length', 5.1),
-    ('Petal width', 1.9),
-    ('Species', 'virginica')]
+    ('sepal_length', 5.8),
+    ('sepal_width', 2.7),
+    ('petal_length', 5.1),
+    ('petal_width', 1.9),
+    ('species', 'virginica'),
+]
 
 # Dict with converted DATA
 # type: dict[str,float|str]

@@ -172,6 +172,7 @@ Python PEP
 * from pprint import pprint, print(pretty=True) (albo podawanie formatter)
 * JSON datetime encoder, decoder to isoformat (UTC)
 * json.to_string(), json.to_file(), json.from_file(), json.from_string()
+* json.to_file(filename='...') (może przyjmować ścieżkę, a nie tylko uchwyt)
 * pickle.to_string(), pickle.to_file(), pickle.from_file(), pickle.from_string()
 * CTypes argtypes, restype from TypeAnnotation
 * Context manager ``with logging.DEBUG:``

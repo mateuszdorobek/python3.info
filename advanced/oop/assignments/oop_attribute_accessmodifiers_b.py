@@ -30,7 +30,7 @@ Tests:
     ...     firstname='Mark',
     ...     lastname='Watney',
     ...     email='mwatney@nasa.gov',
-    ...     phone='+1 234 567 8910',
+    ...     phone='+1 (234) 555 0000',
     ...     username='mwatney',
     ...     password='Ares3',
     ... )

@@ -73,7 +73,11 @@ Multi Parameters
 ...     return sum(x)
 >>>
 >>>
->>> DATA = [(1,2), (3,4)]
+>>> DATA = [
+...     (1,2),
+...     (3,4),
+... ]
+>>>
 >>> result = map(myfunc, DATA)
 >>> print(list(result))
 [3, 7]

@@ -13,26 +13,26 @@ class Migration(migrations.Migration):
         migrations.AlterField(
             model_name='iris',
             name='petal_length',
-            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='Petal Length'),
+            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='petal_length'),
         ),
         migrations.AlterField(
             model_name='iris',
             name='petal_width',
-            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='Petal Width'),
+            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='petal_width'),
         ),
         migrations.AlterField(
             model_name='iris',
             name='sepal_length',
-            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='Sepal Length'),
+            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='sepal_length'),
         ),
         migrations.AlterField(
             model_name='iris',
             name='sepal_width',
-            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='Sepal Width'),
+            field=models.DecimalField(decimal_places=1, help_text='cm', max_digits=3, verbose_name='sepal_width'),
         ),
         migrations.AlterField(
             model_name='iris',
             name='species',
-            field=models.CharField(choices=[('setosa', 'Iris Setosa'), ('virginica', 'Iris Virginica'), ('versicolor', 'Iris Versicolor')], help_text='choose one', max_length=30, verbose_name='Species'),
+            field=models.CharField(choices=[('setosa', 'Iris Setosa'), ('virginica', 'Iris Virginica'), ('versicolor', 'Iris Versicolor')], help_text='choose one', max_length=30, verbose_name='species'),
         ),
     ]

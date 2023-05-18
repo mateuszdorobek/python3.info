@@ -179,7 +179,7 @@ Use Case - 0x03
 ...     encoding='utf-8',
 ...     skiprows=3,
 ...     delimiter=';',
-...     usecols=['Sepal Length', 'Species'],
+...     usecols=['sepal_length', 'species'],
 ...     parse_dates=['born'])
 
 

@@ -113,11 +113,13 @@ Works with ``str``, ``list``, ``tuple``
 
 Converting ``set`` deduplicate items:
 
->>> data = ['Watney',
-...         'Lewis',
-...         'Martinez',
-...         'Watney']
-...
+>>> data = [
+...     'Watney',
+...     'Lewis',
+...     'Martinez',
+...     'Watney',
+... ]
+>>>
 >>> set(data) == {'Watney', 'Lewis', 'Martinez'}
 True
 

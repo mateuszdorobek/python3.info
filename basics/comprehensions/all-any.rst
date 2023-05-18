@@ -12,7 +12,8 @@ True
 ...          {'is_admin': False, 'name': 'Rick Martinez'},
 ...          {'is_admin': False, 'name': 'Alex Vogel'},
 ...          {'is_admin': True,  'name': 'Beth Johanssen'},
-...          {'is_admin': False, 'name': 'Chris Beck'}]
+...          {'is_admin': False, 'name': 'Chris Beck'},
+... ]
 >>>
 >>>
 >>> if any(user['is_admin'] for user in users):
@@ -32,7 +33,8 @@ False
 ...          {'is_admin': False, 'name': 'Rick Martinez'},
 ...          {'is_admin': False, 'name': 'Alex Vogel'},
 ...          {'is_admin': True,  'name': 'Beth Johanssen'},
-...          {'is_admin': False, 'name': 'Chris Beck'}]
+...          {'is_admin': False, 'name': 'Chris Beck'},
+... ]
 >>>
 >>>
 >>> if all(user['is_admin'] for user in users):
@@ -42,14 +44,15 @@ False
 Not everyone is admin
 
 >>> DATA = [
-...     ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+...     ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
 ...     (5.8, 2.7, 5.1, 1.9, 'virginica'),
 ...     (5.1, 3.5, 1.4, 0.2, 'setosa'),
 ...     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
 ...     (6.3, 2.9, 5.6, 1.8, 'virginica'),
 ...     (6.4, 3.2, 4.5, 1.5, 'versicolor'),
 ...     (4.7, 3.2, 1.3, 0.2, 'setosa'),
-...     (7.0, 3.2, 4.7, 1.4, 'versicolor')]
+...     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
+... ]
 >>>
 >>>
 >>> all(observation > 1.0

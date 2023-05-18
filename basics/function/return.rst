@@ -141,11 +141,13 @@ Return Mapping
 Return Nested Sequence
 ----------------------
 >>> def myfunction():
-...     return [('Mark', 'Watney'),
-...             {'Mark Watney', 'Melissa Lewis', 'Rick Martinez'},
-...             {'astro': 'Mark Watney', 'agency': {'name': 'NASA'}},
-...             {'astro': 'Mark Watney', 'missions': ['Ares1', 'Ares3']},
-...             {'astro': 'Mark Watney', 'medals': (list(), tuple(), set())}]
+...     return [
+...         ('Mark', 'Watney'),
+...         {'Mark Watney', 'Melissa Lewis', 'Rick Martinez'},
+...         {'astro': 'Mark Watney', 'agency': {'name': 'NASA'}},
+...         {'astro': 'Mark Watney', 'missions': ['Ares1', 'Ares3']},
+...         {'astro': 'Mark Watney', 'medals': (list(), tuple(), set())},
+...     ]
 
 
 Return None

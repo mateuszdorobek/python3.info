@@ -6,11 +6,11 @@
 * Time: 5 min
 
 English:
-    1. Calculate mean `Sepal length` value
+    1. Calculate mean `sepal_length` value
     2. Run doctests - all must succeed
 
 Polish:
-    1. Wylicz średnią wartość `Sepal length`
+    1. Wylicz średnią wartość `sepal_length`
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -26,7 +26,7 @@ Tests:
 """
 
 DATA = [
-    ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+    ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -38,7 +38,7 @@ DATA = [
     (4.6, 3.1, 1.5, 0.2, 'setosa'),
 ]
 
-# Arithmetic mean from `Sepal length` column
+# Arithmetic mean from `sepal_length` column
 # type: float
 result = ...
 
