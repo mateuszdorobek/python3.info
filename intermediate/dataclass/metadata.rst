@@ -108,8 +108,8 @@ Use Case - 0x01
 ...     firstname='Mark',
 ...     lastname='Watney',
 ...     birthday=date(1961, 4, 12),
-...     age=44,
-...     height=175.5,
+...     age=42,
+...     height=178.0,
 ...     weight=75.5,
 ...     assignments=['STS-136'],
 ...     missions=[Group(gid=1, name='admin'),
@@ -118,7 +118,7 @@ Use Case - 0x01
 >>>
 >>> print(mark)  # doctest: +NORMALIZE_WHITESPACE +SKIP
 User(firstname='Mark', lastname='Watney', birthday=datetime.date(1961, 4, 12),
-          job='admin', role='user', age=44, height=175.5, weight=75.5,
+          job='admin', role='user', age=42, height=178.0, weight=75.5,
           role=['user', 'staff', 'admin'], friends={}, assignments=['STS-136'],
           missions=[Group(gid=1, name='admin'), Group(gid=2, name='staff')],
           experience=datetime.timedelta(0), account_last_login=None,
@@ -159,21 +159,21 @@ Use Case - 0x02
 >>> User('Mark', 'Watney')
 User(firstname='Mark', lastname='Watney', age=None, height=None, weight=None)
 >>>
->>> User('Mark', 'Watney', age=44)
-User(firstname='Mark', lastname='Watney', age=44, height=None, weight=None)
+>>> User('Mark', 'Watney', age=42)
+User(firstname='Mark', lastname='Watney', age=42, height=None, weight=None)
 >>>
->>> User('Mark', 'Watney', age=44, height=175, weight=75)
-User(firstname='Mark', lastname='Watney', age=44, height=175, weight=75)
+>>> User('Mark', 'Watney', age=42, height=178.0, weight=75.5)
+User(firstname='Mark', lastname='Watney', age=42, height=178.0, weight=75.5)
 >>>
 >>> User('Mark', 'Watney', age=99)
 Traceback (most recent call last):
 AssertionError: age value 99 is not between 30 and 50
 >>>
->>> User('Mark', 'Watney', age=44, weight=200)
+>>> User('Mark', 'Watney', age=42, weight=200)
 Traceback (most recent call last):
 AssertionError: weight value 200 is not between 50 and 90
 >>>
->>> User('Mark', 'Watney', age=44, height=120)
+>>> User('Mark', 'Watney', age=42, height=120)
 Traceback (most recent call last):
 AssertionError: height value 120 is not between 156 and 210
 
@@ -191,7 +191,7 @@ Use Case - 0x03
 ...     age: int = field(metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50})
 ...     height: float = field(metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 200})
 ...     weight: float = field(metadata={'unit': 'kg', 'type': 'range', 'min': 50, 'max': 90})
-...     role: str = field(metadata={'type': 'choices', 'options': ['user', 'staff']})
+...     group: str = field(metadata={'type': 'choices', 'options': ['user', 'staff', 'admin']})
 ...
 ...     def __post_init__(self):
 ...         for fieldname, field in self.__dataclass_fields__.items():
@@ -215,32 +215,32 @@ Use Case - 0x03
 ...         if value not in options:
 ...             raise ValueError(f'{field.name} value ({value}) not in options: {options}')
 
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='user')
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='staff')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=178.0, group='user')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=178.0, group='staff')
 >>>
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='POLSA')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=178.0, group='root')
 Traceback (most recent call last):
-ValueError: role value (POLSA) not in options: ['user', 'staff']
+ValueError: group value (root) not in options: ['user', 'staff', 'admin']
 
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=185, role='user')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=178.0, group='user')
 >>>
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=120, role='user')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=100, group='user')
 Traceback (most recent call last):
-ValueError: height value (120) is not between 150 and 200
+ValueError: height value (100) is not between 150 and 200
 >>>
->>> mark = User('Mark', 'Watney', age=35, weight=75, height=210, role='user')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=210, group='user')
 Traceback (most recent call last):
 ValueError: height value (210) is not between 150 and 200
 
->>> mark = User('Mark', 'Watney', age=40, weight=75, height=180, role='user')
+>>> mark = User('Mark', 'Watney', age=42, weight=75.5, height=178.0, group='user')
 >>>
->>> mark = User('Mark', 'Watney', age=20, weight=75, height=180, role='user')
+>>> mark = User('Mark', 'Watney', age=20, weight=75.5, height=178.0, group='user')
 Traceback (most recent call last):
 ValueError: age value (20) is not between 30 and 50
 >>>
->>> mark = User('Mark', 'Watney', age=60, weight=75, height=180, role='user')
+>>> mark = User('Mark', 'Watney', age=99, weight=75, height=178.0, group='user')
 Traceback (most recent call last):
-ValueError: age value (60) is not between 30 and 50
+ValueError: age value (99) is not between 30 and 50
 
 
 
@@ -255,7 +255,7 @@ Use Case - 0x03
 ...     lastname: str
 ...     age: int = field(default=None, metadata={'type': 'range', 'unit': 'gids', 'min': 30, 'max': 50})
 ...     height: float | None = field(default=None, metadata={'type': 'range', 'unit': 'cm',  'min': 156, 'max': 210})
-...     role: str | None = field(default='user', metadata={'type': 'choices', 'options': ['user', 'staff']})
+...     group: str | None = field(default='user', metadata={'type': 'choices', 'options': ['user', 'staff', 'admin']})
 ...
 ...     def _validate_range(self, attrname, value):
 ...         min = self.__dataclass_fields__[attrname].metadata['min']
@@ -282,15 +282,15 @@ Use Case - 0x03
 >>> mark = User('Mark', 'Watney')
 >>>
 >>> mark
-User(firstname='Mark', lastname='Watney', age=None, height=None, role='user')
+User(firstname='Mark', lastname='Watney', age=None, height=None, group='user')
 >>>
->>> mark.role = 'staff'
->>> mark.role = 'Roscosmos'
+>>> mark.group = 'staff'
+>>> mark.group = 'root'
 Traceback (most recent call last):
-ValueError: Attribute role is not an option, choices are: ['user', 'staff']
+ValueError: Attribute group is not an option, choices are: ['user', 'staff', 'admin']
 >>>
->>> mark.age = 40
->>> mark.age = 10
+>>> mark.age = 42
+>>> mark.age = 69
 Traceback (most recent call last):
 ValueError: Attribute age is not between 30 and 50
 
@@ -364,21 +364,21 @@ Use Case - 0x05
 ...     age: int = field(default=None, metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50, 'database': 'SmallPositiveInteger'})
 ...     height: float = field(default=None, metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 210, 'database':'Decimal(3,2)'})
 ...     weight: float = field(default=None, metadata={'unit': 'kg', 'type': 'range', 'min': 55, 'max': 85, 'database':'Decimal(3,2)'})
-...     role: str = field(default=None, metadata={'type': 'choices', 'options': ['user', 'staff', 'POLSA'], 'database':'VarChar(30)'})
+...     group: str = field(default=None, metadata={'type': 'choices', 'options': ['user', 'staff', 'admin'], 'database':'VarChar(30)'})
 
->>> mark = User('Mark', 'Watney', age=49, height=185, weight=75, role='user')
+>>> mark = User('Mark', 'Watney', age=42, height=178.0, weight=75.5, group='user')
 
->>> mark = User('Mark', 'Watney', age=49, height=185, weight=75, role='Roscosmos')
+>>> mark = User('Mark', 'Watney', age=42, height=178.0, weight=75.5, group='root')
 Traceback (most recent call last):
-ValueError: role value (Roscosmos) not in ['user', 'staff', 'POLSA']
+ValueError: group value (root) not in ['user', 'staff', 'admin']
 
->>> mark = User('Mark', 'Watney', age=49, height=185, weight=90, role='user')
+>>> mark = User('Mark', 'Watney', age=42, height=178.0, weight=90, group='user')
 Traceback (most recent call last):
 ValueError: weight value (90) not between 55 and 85
 
->>> mark = User('Mark', 'Watney', age=60, height=185, weight=75, role='user')
+>>> mark = User('Mark', 'Watney', age=69, height=178.0, weight=75.5, group='user')
 Traceback (most recent call last):
-ValueError: age value (60) not between 30 and 50
+ValueError: age value (69) not between 30 and 50
 
 
 Use Case - 0x06
