@@ -12,16 +12,16 @@ Polish:
     1. Wczytaj dane z `DATA` jako `df: pd.DataFrame`
     2. Pomiń pierwszą linię z metadanymi
     3. Zmień nazwy kolumn na:
-        a. Sepal length
-        b. Sepal width
-        c. Petal length
-        d. Petal width
-        e. Species
+        a. sepal_length
+        b. sepal_width
+        c. petal_length
+        d. petal_width
+        e. species
     4. Podmień wartości w kolumnie species
         a. 0 -> 'setosa',
         b. 1 -> 'versicolor',
         c. 2 -> 'virginica'
-    5. Wybierz wartości w kolumnie 'Petal length' mniejsze od 4
+    5. Wybierz wartości w kolumnie 'petal_length' mniejsze od 4
     6. Wybrane wartości ustaw na `NaN`
     7. Interpoluj liniowo wszystkie wartości `NaN`
     8. Usuń wiersze z pozostałymi wartościami `NaN`
@@ -41,7 +41,7 @@ Tests:
     'Variable `result` must be a `pd.DataFrame` type'
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-       Sepal length  Sepal width  Petal length  Petal width     Species
+       sepal_length  sepal_width  petal_length  petal_width     species
     1           5.9          3.0           5.1          1.8   virginica
     2           6.0          3.4           4.5          1.6  versicolor
 """
@@ -52,11 +52,11 @@ import numpy as np
 
 DATA = 'https://python3.info/_static/iris-dirty.csv'
 COLUMNS = [
-    'Sepal length',
-    'Sepal width',
-    'Petal length',
-    'Petal width',
-    'Species']
+    'sepal_length',
+    'sepal_width',
+    'petal_length',
+    'petal_width',
+    'species']
 
 # type: pd.DataFrame
 result = ...
@@ -68,11 +68,11 @@ label_encoder = dict(enumerate(class_labels))
 
 result = (
     pd.read_csv(DATA, skiprows=1, names=COLUMNS)
-      .replace({'Species': label_encoder})
+      .replace({'species': label_encoder})
 )
 
-query = result['Petal length'] < 4
-result.loc[query, 'Petal length'] = np.nan
+query = result['petal_length'] < 4
+result.loc[query, 'petal_length'] = np.nan
 result = result.interpolate('linear')
 result = result.dropna(how='any', axis='rows')
 result = result.head(n=2)

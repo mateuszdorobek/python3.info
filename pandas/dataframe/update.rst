@@ -2,7 +2,7 @@ DataFrame Update
 ================
 * ``df['column'] = 0``
 * ``df[1:2] = 0``
-* ``.loc[df['Species'] == 0, 'Species'] = 'Setosa'``
+* ``.loc[df['species'] == 0, 'species'] = 'Setosa'``
 * ``.replace()``
 * ``.eval()``
 
@@ -65,15 +65,15 @@ Update Row
 Use Case - 0x01
 ---------------
 >>> # doctest: +SKIP
-... df.loc[df['Species'] == 0, 'Species'] = 'Setosa'
-... df.loc[df['Species'] == 1, 'Species'] = 'Versicolor'
-... df.loc[df['Species'] == 2, 'Species'] = 'Virginica'
+... df.loc[df['species'] == 0, 'species'] = 'Setosa'
+... df.loc[df['species'] == 1, 'species'] = 'Versicolor'
+... df.loc[df['species'] == 2, 'species'] = 'Virginica'
 
 
 Use Case - 0x02
 ---------------
 >>> # doctest: +SKIP
-... df['Species'].replace({
+... df['species'].replace({
 ...     0: 'setosa',
 ...     1: 'versicolor',
 ...     2: 'virginica'

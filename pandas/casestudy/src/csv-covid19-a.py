@@ -98,7 +98,8 @@ class PLHolidayCalendar(AbstractHolidayCalendar):
         Holiday('All Saints Day', month=11, day=1),
         Holiday('Independence Day', month=11, day=11),
         Holiday('Christmas Day', month=12, day=25),
-        Holiday('Second Day of Christmastide', month=12, day=26)]
+        Holiday('Second Day of Christmastide', month=12, day=26),
+    ]
 
 
 #%% Show trendline

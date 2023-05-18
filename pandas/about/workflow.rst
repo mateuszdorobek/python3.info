@@ -67,13 +67,13 @@ Read data from source:
 
 Rename columns:
 
->>> df.columns = ['Sepal length', 'Sepal width',
-...               'Petal length', 'Petal width', 'Species']
+>>> df.columns = ['sepal_length', 'sepal_width',
+...               'petal_length', 'petal_width', 'species']
 
 Get first ``n`` records:
 
 >>> df.head(n=5)
-   Sepal length  Sepal width  Petal length  Petal width     Species
+   sepal_length  sepal_width  petal_length  petal_width     species
 0           5.4          3.9           1.3          0.4      setosa
 1           5.9          3.0           5.1          1.8   virginica
 2           6.0          3.4           4.5          1.6  versicolor
@@ -83,7 +83,7 @@ Get first ``n`` records:
 Get last ``n`` records:
 
 >>> df.tail(n=3)
-     Sepal length  Sepal width  Petal length  Petal width    Species
+     sepal_length  sepal_width  petal_length  petal_width    species
 148           4.9          2.5           4.5          1.7  virginica
 149           6.3          2.8           5.1          1.5  virginica
 150           6.8          3.2           5.9          2.3  virginica
@@ -92,7 +92,7 @@ Shuffle columns and reset indexes (drop column with old index):
 
 >>> np.random.seed(0)
 >>> df.sample(n=10).reset_index(drop=True)
-   Sepal length  Sepal width  Petal length  Petal width     Species
+   sepal_length  sepal_width  petal_length  petal_width     species
 0           6.7          3.3           5.7          2.1   virginica
 1           6.5          2.8           4.6          1.5  versicolor
 2           6.3          2.3           4.4          1.3  versicolor
@@ -107,7 +107,7 @@ Shuffle columns and reset indexes (drop column with old index):
 Calculate descriptive statistics:
 
 >>> df.describe()
-       Sepal length  Sepal width  Petal length  Petal width
+       sepal_length  sepal_width  petal_length  petal_width
 count    151.000000   151.000000    151.000000   151.000000
 mean       5.840397     3.062914      3.741722     1.194040
 std        0.826089     0.439790      1.770738     0.762472

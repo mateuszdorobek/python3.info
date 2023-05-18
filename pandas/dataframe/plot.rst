@@ -410,7 +410,7 @@ Pie Plot
 ...                  startangle=-215,
 ...                  xlabel=None,
 ...                  ylabel=None,
-...                  title='Sepal Length\nsmall: 0.0 to 3.0\nmedium: 3.0 to 5.0\nlarge: 7.0 to inf',
+...                  title='sepal_length\nsmall: 0.0 to 3.0\nmedium: 3.0 to 5.0\nlarge: 7.0 to inf',
 ...                  figsize=(10,10))
 >>>
 >>> plt.show()  # doctest: +SKIP
@@ -427,14 +427,14 @@ Scatter Plot
 
 .. figure:: img/pandas-dataframe-plot-scatter-sepal.png
 
-    Scatter plot: Sepal Length vs Sepal Width
+    Scatter plot: sepal_length vs sepal_width
 
 >>> plot = df.plot(kind='scatter', x='petal_length', y='petal_width')
 >>> plt.show()  # doctest: +SKIP
 
 .. figure:: img/pandas-dataframe-plot-scatter-petal.png
 
-    Scatter plot: Petal Length vs Petal Width
+    Scatter plot: petal_length vs petal_width
 
 >>> data = df.replace({'setosa': 0,
 ...                    'virginica': 1,
