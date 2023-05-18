@@ -21,10 +21,10 @@ Tests:
     'Variable `result` must be a `pd.DataFrame` type'
 
     >>> result.loc[[0,10,20]]
-        sepalLength  sepalWidth  petalLength  petalWidth     species
-    0           5.1         3.5          1.4         0.2      setosa
-    10          7.0         3.2          4.7         1.4  versicolor
-    20          6.3         3.3          6.0         2.5   virginica
+        sepal_length  sepal_width  petal_length  petal_width     species
+    0            5.1          3.5           1.4          0.2      setosa
+    10           7.0          3.2           4.7          1.4  versicolor
+    20           6.3          3.3           6.0          2.5   virginica
 """
 
 import pandas as pd
