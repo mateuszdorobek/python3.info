@@ -584,7 +584,11 @@ Quick and easy debugging
 
     from pprint import pprint
 
-    data = [{'firstname': 'Mark', 'lastname': 'Watney'}, {'firstname': 'Melissa', 'lastname': 'Lewis'}, {'firstname': 'Rick', 'lastname': 'Martinez'}]
+    data = [
+        {'firstname': 'Mark', 'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick', 'lastname': 'Martinez'},
+    ]
 
     pprint(data)
     # [{'firstname': 'Mark', 'lastname': 'Watney'},
@@ -595,7 +599,11 @@ Quick and easy debugging
 
     from pprint import pformat
 
-    data = [{'firstname': 'Mark', 'lastname': 'Watney'}, {'firstname': 'Melissa', 'lastname': 'Lewis'}, {'firstname': 'Rick', 'lastname': 'Martinez'}]
+    data = [
+        {'firstname': 'Mark', 'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick', 'lastname': 'Martinez'},
+    ]
 
     # returns formatted data
     my_string = pformat(data)

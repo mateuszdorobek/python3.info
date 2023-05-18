@@ -11,7 +11,7 @@ English:
 Polish:
     1. Opracuj podobny wykres dla danych `DATA`
     2. Weź pod uwagę jedynie `sepal_length` oraz `species`
-    3. Species ma być w osi `y`
+    3. species ma być w osi `y`
     4. Na osi `x` ma być `sepal_length`
     5. Czerwony marker opisuje średnią długość `sepal_length` dla wszystkich gatunków
     6. Uruchom doctesty - wszystkie muszą się powieść

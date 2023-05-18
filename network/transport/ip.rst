@@ -370,6 +370,7 @@ List operations on IPNetwork object
     ip_range_list[2:5]      # slicing
     # [IPAddress('192.0.2.18'), IPAddress('192.0.2.19'), IPAddress('192.0.2.20')]
 
+
 IPRange
 -------
 .. code-block:: python

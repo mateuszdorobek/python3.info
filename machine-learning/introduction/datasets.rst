@@ -32,7 +32,7 @@ Based on Fisher's linear discriminant model, this data set became a typical test
     iris = load_iris()
 
     iris.feature_names
-    # ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+    # ['sepal_length (cm)', 'sepal_width (cm)', 'petal_length (cm)', 'petal_width (cm)']
 
     iris.target_names
     # ['setosa' 'versicolor' 'virginica']
@@ -241,4 +241,3 @@ Kaggle
 Public datasets in svmlight / libsvm format
 -------------------------------------------
 * http://www.csie.ntu.edu.tw/~cjlin/libsvmtools/datasets/
-

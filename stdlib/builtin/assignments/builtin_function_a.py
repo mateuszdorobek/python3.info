@@ -28,15 +28,15 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    {'Sepal length': 5.666666666666667,
-     'Sepal width': 3.0500000000000003,
-     'Petal length': 3.6666666666666665,
-     'Petal width': 1.1500000000000001,
-     'Species': None}
+    {'sepal_length': 5.666666666666667,
+     'sepal_width': 3.0500000000000003,
+     'petal_length': 3.6666666666666665,
+     'petal_width': 1.1500000000000001,
+     'species': None}
 """
 
 DATA = [
-    ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+    ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
     (5.7, 2.8, 4.1, 1.3, 'versicolor'),

@@ -129,7 +129,7 @@ Visualizing a Decision Tree
 
 
     print(iris.feature_names)
-    # ['sepal length (cm)', 'sepal width (cm)', 'petal length (cm)', 'petal width (cm)']
+    # ['sepal_length (cm)', 'sepal_width (cm)', 'petal_length (cm)', 'petal_width (cm)']
 
     print(iris.target_names)
     # ['setosa' 'versicolor' 'virginica']

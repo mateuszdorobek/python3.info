@@ -1031,7 +1031,10 @@ Naive Bayes
     sms = pd.read_csv(plik_danych, sep='\t', names=['is_spam', 'text'])
     train_sms, test_sms = train_test_split(sms, test_size=0.2)
 
-    steps = [('tfidf', TfidfVectorizer()), ('cls', MultinomialNB())]
+    steps = [
+        ('tfidf', TfidfVectorizer()),
+        ('cls', MultinomialNB()),
+    ]
     nb_pipe = Pipeline(steps=steps)
     nb_pipe.fit(train_sms['text'], train_sms['is_spam'])
 

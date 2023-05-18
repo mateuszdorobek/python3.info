@@ -6,10 +6,10 @@
 
 English:
     1. For columns:
-        a. Sepal length,
-        b. Sepal width,
-        c. Petal length,
-        d. Petal width.
+        a. sepal_length,
+        b. sepal_width,
+        c. petal_length,
+        d. petal_width.
     2. Print calculated values:
         a. mean,
         b. median,
@@ -20,10 +20,10 @@ English:
 
 Polish:
     1. Dla kolumn:
-        a. Sepal length,
-        b. Sepal width,
-        c. Petal length,
-        d. Petal width.
+        a. sepal_length,
+        b. sepal_width,
+        c. petal_length,
+        d. petal_width.
     2. Wypisz wyliczone wartości:
         a. średnią,
         b. medianę,
@@ -64,7 +64,7 @@ from statistics import mean, stdev, variance, median
 
 
 DATA = [
-    ('Sepal length', 'Sepal width', 'Petal length', 'Petal width', 'Species'),
+    ('sepal_length', 'sepal_width', 'petal_length', 'petal_width', 'species'),
     (5.8, 2.7, 5.1, 1.9, 'virginica'),
     (5.1, 3.5, 1.4, 0.2, 'setosa'),
     (5.7, 2.8, 4.1, 1.3, 'versicolor'),
@@ -74,7 +74,8 @@ DATA = [
     (7.0, 3.2, 4.7, 1.4, 'versicolor'),
     (7.6, 3.0, 6.6, 2.1, 'virginica'),
     (4.9, 3.0, 1.4, 0.2, 'setosa'),
-    (4.9, 2.5, 4.5, 1.7, 'virginica')]
+    (4.9, 2.5, 4.5, 1.7, 'virginica'),
+]
 
 
 # Solution

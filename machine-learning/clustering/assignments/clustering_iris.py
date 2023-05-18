@@ -14,10 +14,11 @@ iris = datasets.load_iris()
 X = iris.data
 y = iris.target
 
-estimators = [('k_means_iris_8', KMeans(n_clusters=8)),
-              ('k_means_iris_3', KMeans(n_clusters=3)),
-              ('k_means_iris_bad_init', KMeans(n_clusters=3, n_init=1,
-                                               init='random'))]
+estimators = [
+    ('k_means_iris_8', KMeans(n_clusters=8)),
+    ('k_means_iris_3', KMeans(n_clusters=3)),
+    ('k_means_iris_bad_init', KMeans(n_clusters=3, n_init=1, init='random')),
+]
 
 fignum = 1
 titles = ['8 clusters', '3 clusters', '3 clusters, bad initialization']
@@ -33,9 +34,9 @@ for name, est in estimators:
     ax.w_xaxis.set_ticklabels([])
     ax.w_yaxis.set_ticklabels([])
     ax.w_zaxis.set_ticklabels([])
-    ax.set_xlabel('Petal width')
-    ax.set_ylabel('Sepal length')
-    ax.set_zlabel('Petal length')
+    ax.set_xlabel('petal_width')
+    ax.set_ylabel('sepal_length')
+    ax.set_zlabel('petal_length')
     ax.set_title(titles[fignum - 1])
     ax.dist = 12
     fignum = fignum + 1
@@ -59,9 +60,9 @@ ax.scatter(X[:, 3], X[:, 0], X[:, 2], c=y, edgecolor='k')
 ax.w_xaxis.set_ticklabels([])
 ax.w_yaxis.set_ticklabels([])
 ax.w_zaxis.set_ticklabels([])
-ax.set_xlabel('Petal width')
-ax.set_ylabel('Sepal length')
-ax.set_zlabel('Petal length')
+ax.set_xlabel('petal_width')
+ax.set_ylabel('sepal_length')
+ax.set_zlabel('petal_length')
 ax.set_title('Ground Truth')
 ax.dist = 12
 

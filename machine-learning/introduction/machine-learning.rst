@@ -339,115 +339,113 @@ Cleaning Data
 
 Numbers:
 
-    >>> number = 1
-    >>> number = 1.0
-    >>> number = 1.00
-    >>>
-    >>> number = '1'
-    >>> number = '1.0'
-    >>> number = '1.00'
+>>> number = 1
+>>> number = 1.0
+>>> number = 1.00
+>>>
+>>> number = '1'
+>>> number = '1.0'
+>>> number = '1.00'
 
 Addresses:
 
-    >>> street = 'ul. Jana III Sobieskiego'
-    >>> street = 'ul Jana III Sobieskiego'
-    >>> street = 'ul.Jana III Sobieskiego'
-    >>> street = 'ulicaJana III Sobieskiego'
-    >>> street = 'Ul. Jana III Sobieskiego'
-    >>> street = 'UL. Jana III Sobieskiego'
-    >>> street = 'ulica Jana III Sobieskiego'
-    >>> street = 'Ulica. Jana III Sobieskiego'
-    >>>
-    >>> street = 'os. Jana III Sobieskiego'
-    >>>
-    >>> street = 'Jana 3 Sobieskiego'
-    >>> street = 'Jana 3ego Sobieskiego'
-    >>> street = 'Jana III Sobieskiego'
-    >>> street = 'Jana Iii Sobieskiego'
-    >>> street = 'Jana IIi Sobieskiego'
-    >>> street = 'Jana lll Sobieskiego'  # three small letters 'L'
+>>> street = 'ul. Jana III Sobieskiego'
+>>> street = 'ul Jana III Sobieskiego'
+>>> street = 'ul.Jana III Sobieskiego'
+>>> street = 'ulicaJana III Sobieskiego'
+>>> street = 'Ul. Jana III Sobieskiego'
+>>> street = 'UL. Jana III Sobieskiego'
+>>> street = 'ulica Jana III Sobieskiego'
+>>> street = 'Ulica. Jana III Sobieskiego'
+>>>
+>>> street = 'os. Jana III Sobieskiego'
+>>>
+>>> street = 'Jana 3 Sobieskiego'
+>>> street = 'Jana 3ego Sobieskiego'
+>>> street = 'Jana III Sobieskiego'
+>>> street = 'Jana Iii Sobieskiego'
+>>> street = 'Jana IIi Sobieskiego'
+>>> street = 'Jana lll Sobieskiego'  # three small letters 'L'
 
 Address prefix (street, road, court, place, etc.):
 
-    >>> prefix = 'ul'
-    >>> prefix = 'ul.'
-    >>> prefix = 'Ul.'
-    >>> prefix = 'UL.'
-    >>> prefix = 'ulica'
-    >>> prefix = 'Ulica'
-    >>>
-    >>> prefix = 'os'
-    >>> prefix = 'os.'
-    >>> prefix = 'Os.'
-    >>> prefix = 'osiedle'
-    >>> prefix = 'oś'
-    >>> prefix = 'oś.'
-    >>> prefix = 'Oś.'
-    >>> prefix = 'ośedle'
-    >>>
-    >>> prefix = 'pl'
-    >>> prefix = 'pl.'
-    >>> prefix = 'Pl.'
-    >>> prefix = 'plac'
-    >>>
-    >>> prefix = 'al'
-    >>> prefix = 'al.'
-    >>> prefix = 'Al.'
-    >>> prefix = 'aleja'
-    >>> prefix = 'aleia'
-    >>> prefix = 'alei'
-    >>> prefix = 'aleii'
-    >>> prefix = 'aleji'
+>>> prefix = 'ul'
+>>> prefix = 'ul.'
+>>> prefix = 'Ul.'
+>>> prefix = 'UL.'
+>>> prefix = 'ulica'
+>>> prefix = 'Ulica'
+>>>
+>>> prefix = 'os'
+>>> prefix = 'os.'
+>>> prefix = 'Os.'
+>>> prefix = 'osiedle'
+>>> prefix = 'oś'
+>>> prefix = 'oś.'
+>>> prefix = 'Oś.'
+>>> prefix = 'ośedle'
+>>>
+>>> prefix = 'pl'
+>>> prefix = 'pl.'
+>>> prefix = 'Pl.'
+>>> prefix = 'plac'
+>>>
+>>> prefix = 'al'
+>>> prefix = 'al.'
+>>> prefix = 'Al.'
+>>> prefix = 'aleja'
+>>> prefix = 'aleia'
+>>> prefix = 'alei'
+>>> prefix = 'aleii'
+>>> prefix = 'aleji'
 
 House and apartment number:
 
-    >>> address = 'Ćwiartki 3/4'
-    >>> address = 'Ćwiartki 3 / 4'
-    >>> address = 'Ćwiartki 3 m. 4'
-    >>> address = 'Ćwiartki 3 m 4'
-    >>> address = 'Brighton Beach 1st apt 2'
-    >>> address = 'Brighton Beach 1st apt. 2'
-    >>> address = 'Myśliwiecka 3/5/7'
-    >>>
-    >>> address = 'Pana Twardowskiego 180f/8f'
-    >>> address = 'Pana Twardowskiego 180f/8'
-    >>> address = 'Pana Twardowskiego 180/8f'
-    >>>
-    >>> address = 'Pana Twardowskiego III 3 m. 3'
-    >>> address = 'Pana Twardowskiego 13d bud. A piętro II sala 3'
+>>> address = 'Ćwiartki 3/4'
+>>> address = 'Ćwiartki 3 / 4'
+>>> address = 'Ćwiartki 3 m. 4'
+>>> address = 'Ćwiartki 3 m 4'
+>>> address = 'Brighton Beach 1st apt 2'
+>>> address = 'Brighton Beach 1st apt. 2'
+>>> address = 'Myśliwiecka 3/5/7'
+>>>
+>>> address = 'Pana Twardowskiego 180f/8f'
+>>> address = 'Pana Twardowskiego 180f/8'
+>>> address = 'Pana Twardowskiego 180/8f'
+>>>
+>>> address = 'Pana Twardowskiego III 3 m. 3'
+>>> address = 'Pana Twardowskiego 13d bud. A piętro II sala 3'
 
 Phone Numbers:
 
-    >>> phone = '+48 (12) 355 5678'
-    >>> phone = '+48 123 555 678'
-    >>>
-    >>> phone = '123 555 678'
-    >>> phone = '123555678'
-    >>> phone = '+48123555678'
-    >>> phone = '+48 12 355 5678'
-    >>> phone = '+48 123-555-678'
-    >>> phone = '+48 123 555 6789'
-    >>> phone = '+1 (123) 555-6789'
-    >>> phone = '+1 (123).555.6789'
-    >>>
-    >>> phone = '+1 800-python'
-    >>> phone = '+1 800-798466'
-    >>>
-    >>> phone = '+48 123 555 678 wew. 1337'
-    >>> phone = '+48 123555678,1'
-    >>> phone = '+48 123555678,1,,2'
+>>> phone = '123 555 1337'
+>>> phone = '1235551337'
+>>> phone = '+11235551337'
+>>> phone = '+1 12 3555 1337'
+>>> phone = '+1 123 555 1337'
+>>> phone = '+1 (123) 555 1337'
+>>> phone = '+1 (123) 555-1337'
+>>> phone = '+1 (123)-555-1337'
+>>> phone = '+1 (123).555.1337'
+>>>
+>>> phone = '+1 800-python'
+>>> phone = '+1 800-798466'
+>>>
+>>> phone = '+48 123555133,1'
+>>> phone = '+48 123555133,1,,2'
+>>> phone = '+48 123 555 133 wew. 7'
 
 Dates:
 
-    >>> date = '1961-04-12'
-    >>> date = '12.4.1961'
-    >>> date = '12.04.1961'
-    >>> date = '12-04-1961'
-    >>> date = '12/04/1961'
-    >>> date = '4/12/61'
-    >>> date = '4.12.1961'
-    >>> date = 'Apr 12, 1961'
-    >>> date = 'Apr 12th, 1961'
+>>> date = '1961-04-12'
+>>> date = '12.4.1961'
+>>> date = '12.04.1961'
+>>> date = '12-04-1961'
+>>> date = '12/04/1961'
+>>> date = '4/12/61'
+>>> date = '4.12.1961'
+>>> date = 'Apr 12, 1961'
+>>> date = 'Apr 12th, 1961'
 
 
 Working with scikit-learn

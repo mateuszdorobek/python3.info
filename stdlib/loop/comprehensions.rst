@@ -6,11 +6,13 @@ Nested Comprehensions
 ---------------------
 .. code-block:: python
 
-   DATA = [{'lastname': 'Watney'},
-           {'firstname': 'Melissa', 'lastname': 'Lewis'},
-           {'firstname': 'Rick'},
-           {'firstname': 'Beth', 'lastname': 'Johanssen'},
-           {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961}]
+    DATA = [
+        {'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick'},
+        {'firstname': 'Beth', 'lastname': 'Johanssen'},
+        {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961},
+    ]
 
     fieldnames = set(key
         for row in DATA
@@ -22,11 +24,13 @@ Nested Comprehensions
 
 .. code-block:: python
 
-   DATA = [{'lastname': 'Watney'},
-           {'firstname': 'Melissa', 'lastname': 'Lewis'},
-           {'firstname': 'Rick'},
-           {'firstname': 'Beth', 'lastname': 'Johanssen'},
-           {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961}]
+    DATA = [
+        {'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick'},
+        {'firstname': 'Beth', 'lastname': 'Johanssen'},
+        {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961},
+    ]
 
     fieldnames = set()
     fieldnames.update(key
@@ -39,11 +43,13 @@ Nested Comprehensions
 
 .. code-block:: python
 
-   DATA = [{'lastname': 'Watney'},
-           {'firstname': 'Melissa', 'lastname': 'Lewis'},
-           {'firstname': 'Rick'},
-           {'firstname': 'Beth', 'lastname': 'Johanssen'},
-           {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961}]
+    DATA = [
+        {'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick'},
+        {'firstname': 'Beth', 'lastname': 'Johanssen'},
+        {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961},
+    ]
 
     fieldnames = set()
     fieldnames.update(key for row in DATA for key in row.keys())
@@ -56,11 +62,13 @@ Generator comprehensions
 ------------------------
 .. code-block:: python
 
-   DATA = [{'lastname': 'Watney'},
-           {'firstname': 'Melissa', 'lastname': 'Lewis'},
-           {'firstname': 'Rick'},
-           {'firstname': 'Beth', 'lastname': 'Johanssen'},
-           {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961}]
+    DATA = [
+        {'lastname': 'Watney'},
+        {'firstname': 'Melissa', 'lastname': 'Lewis'},
+        {'firstname': 'Rick'},
+        {'firstname': 'Beth', 'lastname': 'Johanssen'},
+        {'firstname': 'Chris', 'lastname': 'Beck', 'born': 1961},
+    ]
 
     fieldnames = set()
 
