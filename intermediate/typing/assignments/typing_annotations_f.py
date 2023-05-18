@@ -6,41 +6,44 @@
 
 English:
     1. Declare proper types for variables:
-       a. Variable `a` with value ''
-       b. Variable `b` with value 'abc'
-       c. Variable `c` with value '123'
+       a. Variable `a` with value 1
+       b. Variable `b` with value 1.0
+       c. Variable `c` with value 'one'
+    2. Use `Final` type with proper subtype
     2. Run doctests - all must succeed
 
 Polish:
     1. Zadeklaruj zmienne z odpowiednim typem:
-       a. Zmienna `a` z wartością ''
-       b. Zmienna `b` z wartością 'abc'
-       c. Zmienna `c` z wartością '123'
+       a. Zmienna `a` z wartością 1
+       b. Zmienna `b` z wartością 1.0
+       c. Zmienna `c` z wartością 'one'
+    2. Użyj typu `Final` z odpowiednim subtypem
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> assert a == '', \
+    >>> assert a == 1, \
     'Do not modify variable `a` value, just add type annotation'
-    >>> assert b == 'abc', \
+    >>> assert b == 1.0, \
     'Do not modify variable `b` value, just add type annotation'
-    >>> assert c == '123', \
+    >>> assert c == 'one', \
     'Do not modify variable `c` value, just add type annotation'
 """
 
 
 # add proper type annotation for following values
-a = ''
+a = 1
 
 # add proper type annotation for following values
-b = 'abc'
+b = 1.0
 
 # add proper type annotation for following values
-c = '123'
+c = 'one'
 
 
 # Solution
-a: str = ''
-b: str = 'abc'
-c: str = '123'
+from typing import Final
+a: Final[int] = 1
+b: Final[float] = 1.0
+c: Final[str] = 'one'

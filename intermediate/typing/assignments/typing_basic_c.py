@@ -1,5 +1,5 @@
 """
-* Assignment: Typing Basic Bool
+* Assignment: Typing Basic Logic
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 2 min
