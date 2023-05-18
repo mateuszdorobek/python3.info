@@ -19,9 +19,9 @@ Tests:
     >>> from os import remove
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(name='Pan Twardowski', missions=[Mission(year=1969, name='Apollo 18'), Mission(year=2024, name='Artemis 3')]),
-     Astronaut(name='Mark Watney', missions=[Mission(year=2035, name='Ares 3')]),
-     Astronaut(name='Melissa Lewis', missions=[])]
+    [User(firstname='Mark', lastname='Watney', groups=[Group(gid=1, name='users')]),
+     User(firstname='Melissa', lastname='Lewis', groups=[Group(gid=1, name='users'), Group(gid=2, name='admins')]),
+     User(firstname='Rick', lastname='Martinez', groups=[])]
 
     >>> remove(FILE)
 """
@@ -30,30 +30,33 @@ import pickle
 from dataclasses import dataclass, field
 
 FILE = r'_temporary.pkl'
-DATA = (b'\x80\x04\x95\xf6\x00\x00\x00\x00\x00\x00\x00]\x94(\x8c\r'
-        b'pickle_file_a\x94\x8c\tAstronaut\x94\x93\x94)\x81\x94}\x94'
-        b'(\x8c\x04name\x94\x8c\x0ePan Twardowski\x94\x8c\x08missions'
-        b'\x94]\x94(h\x01\x8c\x07Mission\x94\x93\x94)\x81\x94}\x94(\x8c'
-        b'\x04year\x94M\xb1\x07h\x06\x8c\tApollo 18\x94ubh\x0b)\x81\x94}'
-        b'\x94(h\x0eM\xe8\x07h\x06\x8c\tArtemis 3\x94ubeubh\x03)\x81\x94}'
-        b'\x94(h\x06\x8c\x0bMark Watney\x94h\x08]\x94h\x0b)\x81\x94}\x94'
-        b'(h\x0eM\xf3\x07h\x06\x8c\x06Ares 3\x94ubaubh\x03)\x81\x94}\x94'
-        b'(h\x06\x8c\rMelissa Lewis\x94h\x08]\x94ube.')
+DATA = (
+    b'\x80\x04\x95\xf9\x00\x00\x00\x00\x00\x00\x00]\x94(\x8c\rpickle_file_a'
+    b'\x94\x8c\x04User\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04'
+    b'Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94\x8c\x06groups\x94]\x94h'
+    b'\x01\x8c\x05Group\x94\x93\x94)\x81\x94}\x94(\x8c\x03gid\x94K\x01\x8c'
+    b'\x04name\x94\x8c\x05users\x94ubaubh\x03)\x81\x94}\x94(h\x06\x8c\x07'
+    b'Melissa\x94h\x08\x8c\x05Lewis\x94h\n]\x94(h\r)\x81\x94}\x94(h\x10K'
+    b'\x01h\x11h\x12ubh\r)\x81\x94}\x94(h\x10K\x02h\x11\x8c\x06admins\x94'
+    b'ubeubh\x03)\x81\x94}\x94(h\x06\x8c\x04Rick\x94h\x08\x8c\x08Martinez'
+    b'\x94h\n]\x94ube.'
+)
 
 with open(FILE, mode='wb') as file:
     file.write(DATA)
 
 
 @dataclass
-class Astronaut:
+class Group:
+    gid: int
     name: str
-    missions: list = field(default_factory=list)
 
 
 @dataclass
-class Mission:
-    year: int
-    name: str
+class User:
+    firstname: str
+    lastname: str
+    groups: list[Group] | None
 
 
 # Solution

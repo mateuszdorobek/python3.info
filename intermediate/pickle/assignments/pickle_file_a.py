@@ -22,9 +22,9 @@ Tests:
     ...     result = pickle.load(file)
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [Astronaut(name='Pan Twardowski', missions=[Mission(year=1969, name='Apollo 18'), Mission(year=2024, name='Artemis 3')]),
-     Astronaut(name='Mark Watney', missions=[Mission(year=2035, name='Ares 3')]),
-     Astronaut(name='Melissa Lewis', missions=[])]
+    [User(firstname='Mark', lastname='Watney', groups=[Group(gid=1, name='users')]),
+     User(firstname='Melissa', lastname='Lewis', groups=[Group(gid=1, name='users'), Group(gid=2, name='admins')]),
+     User(firstname='Rick', lastname='Martinez', groups=[])]
 
     >>> remove(FILE)
 """
@@ -34,28 +34,26 @@ from dataclasses import dataclass, field
 
 FILE = r'_temporary.pkl'
 
+@dataclass
+class Group:
+    gid: int
+    name: str
+
 
 @dataclass
-class Astronaut:
-    name: str
-    missions: list = field(default_factory=list)
-
-
-@dataclass
-class Mission:
-    year: int
-    name: str
+class User:
+    firstname: str
+    lastname: str
+    groups: list[Group] | None
 
 
 DATA = [
-    Astronaut('Pan Twardowski', missions=[
-        Mission(1969, 'Apollo 18'),
-        Mission(2024, 'Artemis 3')]),
-
-    Astronaut('Mark Watney', missions=[
-        Mission(2035, 'Ares 3')]),
-
-    Astronaut('Melissa Lewis'),
+    User('Mark', 'Watney', groups=[
+        Group(gid=1, name='users')]),
+    User('Melissa', 'Lewis', groups=[
+        Group(gid=1, name='users'),
+        Group(gid=2, name='admins')]),
+    User('Rick', 'Martinez', groups=[]),
 ]
 
 
