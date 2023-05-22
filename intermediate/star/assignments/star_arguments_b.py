@@ -23,7 +23,6 @@ Hint:
     * `raise TypeError('error message')`
     * use `*args` and `**kwargs`
     * `if len(args) == ...`
-    * `match len(args)`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -66,7 +65,7 @@ Tests:
 # example: myrange(0, 10, 2), myrange(0, 10)
 # note: function does not take keyword arguments
 # type: Callable[[int,int,int], list[int]]
-def myrange():
+def myrange(*args, **kwargs):
     current = start
     result = []
 
@@ -81,26 +80,22 @@ def myrange():
 def myrange(*args, **kwargs):
     if kwargs:
         raise TypeError('myrange() takes no keyword arguments')
-
-    match len(args):
-        case 3:
-            start = args[0]
-            stop = args[1]
-            step = args[2]
-        case 2:
-            start = args[0]
-            stop = args[1]
-            step = 1
-        case 1:
-            start = 0
-            stop = args[0]
-            step = 1
-        case 0:
-            raise TypeError('myrange expected at least 1 argument, got 0')
-        case _:
-            n = len(args)
-            raise TypeError(f'myrange expected at most 3 arguments, got {n}')
-
+    if len(args) == 3:
+        start = args[0]
+        stop = args[1]
+        step = args[2]
+    elif len(args) == 2:
+        start = args[0]
+        stop = args[1]
+        step = 1
+    elif len(args) == 1:
+        start = 0
+        stop = args[0]
+        step = 1
+    elif len(args) == 0:
+        raise TypeError('myrange expected at least 1 argument, got 0')
+    else:
+        raise TypeError(f'myrange expected at most 3 arguments, got {len(args)}')
 
     current = start
     result = []
@@ -110,12 +105,3 @@ def myrange(*args, **kwargs):
         current += step
 
     return result
-
-
-## Alternative solution
-# match len(args):
-#     case 3: start, stop, step = args
-#     case 2: (start, stop), step = args, 1
-#     case 1: start, stop, step = 0, args, 1
-#     case 0: raise TypeError('myrange expected at least 1 argument, got 0')
-#     case _: raise TypeError(f'myrange expected at most 3 arguments, got {len(args)}')
