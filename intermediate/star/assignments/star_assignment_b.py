@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Star Func
+* Assignment: Star Assignment Func
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines

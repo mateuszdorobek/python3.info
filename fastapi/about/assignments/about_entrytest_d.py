@@ -47,10 +47,10 @@ DATA = {
     'crew': [{'name': 'Melissa Lewis', 'email': 'mlewis@nasa.gov'},
              {'name': 'Rick Martinez', 'email': 'rmartinez@nasa.gov'},
              {'name': 'Alex Vogel', 'email': 'avogel@esa.int'},
+             {'name': 'Pan Twardowski', 'email': 'ptwardowski@polsa.gov.pl'},
              {'name': 'Chris Beck', 'email': 'cbeck@nasa.gov'},
              {'name': 'Beth Johanssen', 'email': 'bjohanssen@nasa.gov'},
              {'name': 'Mark Watney', 'email': 'mwatney@nasa.gov'},
-             {'name': 'Pan Twardowski', 'email': 'ptwardowski@polsa.gov.pl'},
              {'name': 'Ivan Ivanovich', 'email': 'iivanovich@roscosmos.ru'}]}
 
 DOMAINS = ('esa.int', 'nasa.gov')

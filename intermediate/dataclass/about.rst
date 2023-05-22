@@ -124,6 +124,54 @@ Use Case - 0x01
 
 Use Case - 0x02
 ---------------
+>>> from dataclasses import dataclass, field, asdict
+>>> from datetime import date, time, datetime, timezone, timedelta
+>>> from pprint import pprint
+>>> from typing import ClassVar
+>>> import pickle
+>>>
+>>>
+>>> @dataclass
+... class Group:
+...     gid: int
+...     name: str
+>>>
+>>>
+>>> @dataclass(frozen=True)
+... class User:
+...     firstname: str
+...     lastname: str
+...     email: str | None = None
+...     born: date | None = None
+...     height: int | float | None = field(default=None, metadata={'unit': 'cm', 'min': 156, 'max': 210})
+...     weight: int | float | None = field(default=None, metadata={'unit': 'kg', 'min': 50, 'max': 90})
+...     groups: list[Group] = field(default_factory=list)
+...     account_type: str = field(default='user', metadata={'choices': ['guest', 'user', 'admin']})
+...     account_created: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+...     account_modified: datetime = field(default_factory=lambda: datetime.now(timezone.utc))
+...     account_lastlogin: datetime | None = None
+...     account_expiration: timedelta | None = None
+...     AGE_MIN: ClassVar[int] = 30
+...     AGE_MAX: ClassVar[int] = 50
+
+>>> mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     email='mwatney@nasa.gov',
+...     born=date(1969, 4, 12),
+...     height=178.0,
+...     weight=75.5,
+...     groups=[Group(gid=1, name='users'), Group(gid=2, name='staff')],
+...     account_type='user',
+...     account_created=datetime(1969, 7, 21, 2, 56, 15, 0, tzinfo=timezone.utc),
+...     account_modified=datetime(1969, 7, 21, 2, 56, 15, 0, tzinfo=timezone.utc),
+...     account_lastlogin=None,
+...     account_expiration=None,
+... )
+
+
+Use Case - 0x03
+---------------
 >>> from dataclasses import dataclass
 >>> from itertools import starmap
 >>>

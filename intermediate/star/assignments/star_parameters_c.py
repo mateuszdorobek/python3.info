@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Parameters Kwargs
+* Assignment: Star Parameters Kwargs
 * Complexity: medium
 * Lines of code: 7 lines
 * Time: 8 min

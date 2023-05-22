@@ -1,60 +1,52 @@
 """
-* Assignment: Unpack ParameterSyntax Kwargs
+* Assignment: Star Signature Args
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min
+* Warning: This assignment will work only in Python 3.8+
 
 English:
-    1. Create function `set_position`
-    2. Function takes two arguments `x`, `y` and always returns `None`
-    3. Arguments must be passed only as keywords
+    1. Refactor function `take_damage`
+    2. Function takes one argument `dmg` and always returns `None`
+    3. Argument must be passed only as positional
     4. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz funkcję `set_position`
-    2. Funkcja przyjmuje dwa argumenty `x`, `y` i zawsze zwraca `None`
-    3. Argumenty można podawać tylko nazwanie (keyword)
+    1. Zrefaktoruj funkcję `take_damage`
+    2. Funkcja przyjmuje jeden argument `dmg` i zawsze zwraca `None`
+    3. Argument można podawać tylko pozycyjnie
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
-    >>> assert callable(set_position)
-    >>> assert isfunction(set_position)
+    >>> assert callable(take_damage)
+    >>> assert isfunction(take_damage)
 
-    >>> set_position(x=1, y=2)
+    >>> take_damage(1)
 
-    >>> set_position()  # doctest: +NORMALIZE_WHITESPACE
+    >>> take_damage(1, 2)
     Traceback (most recent call last):
-    TypeError: set_position() missing 2 required keyword-only arguments: 'x'
-    and 'y'
+    TypeError: take_damage() takes 1 positional argument but 2 were given
 
-    >>> set_position(1)
+    >>> take_damage()
     Traceback (most recent call last):
-    TypeError: set_position() takes 0 positional arguments but 1 was given
+    TypeError: take_damage() missing 1 required positional argument: 'dmg'
 
-    >>> set_position(1, 2)
+    >>> take_damage(dmg=1)  # doctest: +NORMALIZE_WHITESPACE
     Traceback (most recent call last):
-    TypeError: set_position() takes 0 positional arguments but 2 were given
-
-    >>> set_position(1, y=1)  # doctest: +NORMALIZE_WHITESPACE
-    Traceback (most recent call last):
-    TypeError: set_position() takes 0 positional arguments but 1 positional
-    argument (and 1 keyword-only argument) were given
-
-    >>> set_position(x=1, 2)
-    Traceback (most recent call last):
-    SyntaxError: positional argument follows keyword argument
+    TypeError: take_damage() got some positional-only arguments passed as
+    keyword arguments: 'dmg'
 """
 
 
-# Arguments must be passed only as keywords
-# type: Callable[[int,int],None]
-def set_position(x, y):
+# Argument must be passed only as positional
+# type: Callable[[int],None]
+def take_damage(dmg):
     pass
 
 
 # Solution
-def set_position(*, x, y):
+def take_damage(dmg, /):
     pass

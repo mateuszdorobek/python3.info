@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Arguments Range
+* Assignment: Star Arguments Range
 * Complexity: medium
 * Lines of code: 25 lines
 * Time: 13 min

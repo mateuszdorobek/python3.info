@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Star List
+* Assignment: Star Assignment List
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines

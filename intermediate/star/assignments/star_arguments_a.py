@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Arguments Define
+* Assignment: Star Arguments Define
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 8 min

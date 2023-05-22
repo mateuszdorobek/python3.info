@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Star Nested
+* Assignment: Star Assignment Nested
 * Required: yes
 * Complexity: easy
 * Lines of code: 1 lines

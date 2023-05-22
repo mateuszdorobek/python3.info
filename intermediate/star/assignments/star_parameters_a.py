@@ -1,5 +1,5 @@
 """
-* Assignment: Unpack Parameters Define
+* Assignment: Star Parameters Define
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 5 min
