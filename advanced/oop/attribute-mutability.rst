@@ -1,5 +1,5 @@
-OOP Attribute Mutable/Immutable
-===============================
+OOP Attribute Mutability
+========================
 * Function and method arguments should not be mutable
 
 Immutable Types:
