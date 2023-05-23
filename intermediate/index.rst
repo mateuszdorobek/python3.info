@@ -41,49 +41,42 @@ Match
     match/subpattern.rst
 
 
-Typing
-******
+Idiom
+*****
 .. toctree::
     :maxdepth: 1
-    :caption: Typing
+    :caption: Idiom
 
-    typing/type-basic.rst
-    typing/type-annotations.rst
-    typing/type-iterable.rst
-    typing/type-mapping.rst
-    typing/type-nested.rst
-    typing/type-typeddict.rst
-    typing/type-namedtuple.rst
-    typing/type-callable.rst
-    typing/type-type.rst
-    typing/annotated.rst
-    typing/extra.rst
-    typing/deprecated.rst
-    typing/package-check.rst
-    typing/package-annotate.rst
-    typing/package-cython.rst
-    typing/package-mypyc.rst
+    idiom/about.rst
+    idiom/range.rst
+    idiom/reversed.rst
+    idiom/all.rst
+    idiom/any.rst
+    idiom/enumerate.rst
+    idiom/zip.rst
+    idiom/map.rst
+    idiom/filter.rst
+    idiom/reduce.rst
+    idiom/next.rst
+    idiom/iter.rst
+    idiom/chain.rst
+    idiom/patterns.rst
+    idiom/itertools.rst
 
 
-Dataclass
-*********
+Generators
+**********
 .. toctree::
     :maxdepth: 1
-    :caption: Dataclass
+    :caption: Generators
 
-    dataclass/about.rst
-    dataclass/define-basic.rst
-    dataclass/define-special.rst
-    dataclass/define-relations.rst
-    dataclass/mechanism.rst
-    dataclass/postinit.rst
-    dataclass/mutable-args.rst
-    dataclass/field.rst
-    dataclass/metadata.rst
-    dataclass/parameters.rst
-    dataclass/helpers.rst
-    dataclass/inheritance.rst
-    dataclass/introspect.rst
+    generator/about.rst
+    generator/expression.rst
+    generator/function.rst
+    generator/inspect.rst
+    generator/yield-from.rst
+    generator/send.rst
+    generator/stdlib-itertools.rst
 
 
 JSON
@@ -185,29 +178,6 @@ Datetime
     datetime/timestamp.rst
     datetime/utils.rst
     datetime/timezones.rst
-
-
-Idiom
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Idiom
-
-    idiom/about.rst
-    idiom/range.rst
-    idiom/reversed.rst
-    idiom/all.rst
-    idiom/any.rst
-    idiom/enumerate.rst
-    idiom/zip.rst
-    idiom/map.rst
-    idiom/filter.rst
-    idiom/reduce.rst
-    idiom/next.rst
-    idiom/iter.rst
-    idiom/chain.rst
-    idiom/patterns.rst
-    idiom/itertools.rst
 
 
 Enum

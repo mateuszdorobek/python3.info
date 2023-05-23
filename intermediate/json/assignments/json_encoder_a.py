@@ -59,7 +59,7 @@ DATA = {
 
 
 # JSON encoder
-def encoder(value: Any) -> str:
+def encoder(obj: Any) -> str:
     ...
 
 
@@ -69,9 +69,9 @@ result = ...
 
 
 # Solution
-def encoder(value: Any) -> str:
-    if isinstance(value, date | datetime):
-        return value.isoformat()
+def encoder(obj: Any) -> str:
+    if isinstance(obj, date | datetime):
+        return obj.isoformat()
 
 
 result = json.dumps(DATA, default=encoder)

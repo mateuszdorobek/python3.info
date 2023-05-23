@@ -1,5 +1,5 @@
-OOP Abstract Protocol
-=====================
+Protocol Structural
+===================
 * :pep:`544` -- Protocols: Structural subtyping (static duck typing)
 * Since Python 3.8
 * Protocol describe an interface, not an implementation
@@ -310,17 +310,17 @@ delegate, and contravariant type parameters can be used as parameter types.
         >>> check(1)        # ok
         >>> check(object)   # error
 
-.. figure:: img/oop-protocol-covariance.png
+.. figure:: img/protocol-covariance.png
 
     Covariance. Replacement with more specialized type.
     Dog is more specialized than Animal. [#Langa2022]_
 
-.. figure:: img/oop-protocol-contravariance.png
+.. figure:: img/protocol-contravariance.png
 
     Contravariance. Replacement with more generic type.
     Animal is more generic than Cat. [#Langa2022]_
 
-.. figure:: img/oop-protocol-contravariance.png
+.. figure:: img/protocol-contravariance.png
 
     Invariance. Type must be the same and you cannot replace it.
     Animal cannot be substituted for Cat and vice versa. [#Langa2022]_

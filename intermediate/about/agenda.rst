@@ -8,19 +8,21 @@ Agenda
 Day 1
 -----
 * 10 min - Intro: welcome message, course introduction, agenda, spreadsheet
-* 80 min - Setup: IDE, Git, repository, Python, doctest
+* 60 min - Setup: IDE, Git, repository, Python, doctest
 * 30 min - Placement test: evaluating participant skills
 * 60 min - Placement test: live coding solution, IDE demonstration, ie. debugging, working with VCS, refactoring, quick documentation, type annotations, function signatures
-* 180 min - Star: assignment, parameters, arguments, signature
+* 200 min - Star: assignment, parameters, arguments, signature
 * 60 min - Match: pattern matching (match, case)
 
 
 Day 2
 -----
-* 120 min - Typing: basic types, iterables, mappings, callables, types
-* 100 min - Dataclasses: definition, relations, post_init, metadata, helpers
+* 90 min - Generators: expressions, functions, introspection, yield, yield from, itertools
+* 90 min - Idiom: zip, enumerate, range, map, filter, any, all
 * 100 min - Json: working with JSON files (relational and non-relational data, encoders, decoders)
 * 100 min - Csv: working with CSV files (parsing text files, format conversion)
+* 20 min - Pickle: serializing objects to Pickle
+* 20 min - Toml: format, pyproject.toml, reading configuration files
 
 
 Day 3
@@ -31,15 +33,15 @@ Day 3
 
 Day 4
 -----
-* 120 min - Idiom: zip, enumerate, range, map, filter, any, all,
-* 30 min - Enum: enum type, auto, strenum, intenum, constraints
+* 120 min - CI/CD: strategies, static code analysis, good practices
 * 45 min - Venv: working with virtual environment
-* 15 min - Pip: package install, requirements, ci/cd strategies, pyproject.toml
+* 15 min - Pip: package install, requirements, pyproject.toml
+* 30 min - Enum: enum type, auto, strenum, intenum, constraints
 * 30 min - Logging: debugging messages
 * 30 min - Decimal: float precision problem (IEEE 754)
 * 30 min - Random: pseudorandom numbers, random seed
 * 60 min - Doctest: using doctests and testing problems
-* 60 min - unittest: introduction to TDD
+* 60 min - Unittest: introduction to TDD
 
 
 Day 5

@@ -1,5 +1,5 @@
-OOP Abstract Class
-==================
+Protocol Abstract Class
+=======================
 * Since Python 3.0: :pep:`3119` -- Introducing Abstract Base Classes
 * Cannot instantiate
 * Possible to indicate which method must be implemented by child
@@ -526,18 +526,18 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/oop_abstract_class_a.py
-    :caption: :download:`Solution <assignments/oop_abstract_class_a.py>`
+.. literalinclude:: assignments/protocol_abstract_class_a.py
+    :caption: :download:`Solution <assignments/protocol_abstract_class_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/oop_abstract_class_b.py
-    :caption: :download:`Solution <assignments/oop_abstract_class_b.py>`
+.. literalinclude:: assignments/protocol_abstract_class_b.py
+    :caption: :download:`Solution <assignments/protocol_abstract_class_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/oop_abstract_class_c.py
-    :caption: :download:`Solution <assignments/oop_abstract_class_c.py>`
+.. literalinclude:: assignments/protocol_abstract_class_c.py
+    :caption: :download:`Solution <assignments/protocol_abstract_class_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/oop_abstract_class_d.py
-    :caption: :download:`Solution <assignments/oop_abstract_class_d.py>`
+.. literalinclude:: assignments/protocol_abstract_class_d.py
+    :caption: :download:`Solution <assignments/protocol_abstract_class_d.py>`
     :end-before: # Solution

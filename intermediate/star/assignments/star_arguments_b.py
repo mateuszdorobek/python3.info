@@ -9,19 +9,20 @@ English:
        example usage: `myrange(0, 10)` or `myrange(0, 10, 2)`
     2. Note, that function does not take any keyword arguments
     3. How to implement passing only stop argument, i.e. `myrange(10)`?
-    4. Run doctests - all must succeed
+    4. Use lenght check of `*args` and `**kwargs`
+    5. Run doctests - all must succeed
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`,
        przykład użycia: `myrange(0, 10)` lub `myrange(0, 10, 2)`
     2. Zauważ, że funkcja nie przyjmuje żanych argumentów nazwanych (keyword)
     3. Jak zaimplementować możliwość podawania tylko końca, tj. `myrange(10)`?
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    4. Użyj sprawdzania długości `*args` i `**kwargs`
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * https://github.com/python/cpython/blob/main/Objects/rangeobject.c#LC75
     * `raise TypeError('error message')`
-    * use `*args` and `**kwargs`
     * `if len(args) == ...`
 
 Tests:

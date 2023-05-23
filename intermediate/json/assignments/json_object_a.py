@@ -21,7 +21,6 @@ Polish:
 Hint:
     * `dict.pop()`
     * `globals()`
-    * Assignment Expression
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

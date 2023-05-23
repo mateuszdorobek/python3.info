@@ -76,11 +76,10 @@ result = ...
 class Decoder(json.JSONDecoder):
     def default(self, obj: dict) -> dict:
         for key, value in obj.items():
-            match key:
-                case 'destination_landing' | 'launch_date':
-                    obj[key] = datetime.fromisoformat(value)
-                case 'born':
-                    obj[key] = date.fromisoformat(value)
+            if key in ('destination_landing', 'launch_date'):
+                obj[key] = datetime.fromisoformat(value)
+            elif key == 'born':
+                obj[key] = date.fromisoformat(value)
         return obj
 
     def __init__(self):

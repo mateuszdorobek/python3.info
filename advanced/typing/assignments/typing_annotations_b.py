@@ -5,16 +5,12 @@
 * Time: 2 min
 
 English:
-    1. Declare proper types for variables:
-       a. Variable `data` with value 0
-       b. Variable `data` with value 0.0
+    1. Declare proper types for variables
     2. Use union with | notation (pipe)
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zadeklaruj zmienne z odpowiednim typem:
-       a. Zmienna `data` z wartością 0
-       b. Zmienna `data` z wartością 0.0
+    1. Zadeklaruj odpowiedni typ zmiennych
     2. Użyj unii z notacją | (pionowej kreski)
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -25,14 +21,13 @@ Tests:
     'Do not modify variable `data` value, just add type annotation'
 """
 
+# Declare proper types for variables
+# Use alias with | notation (pipe)
+T = ...
 
-# add proper type annotation for following values
-data: ...
-
-data = 0
-data = 0.0
-
-
+# Do not modify lines below
+data: T = 0
+data: T = 0.0
 
 # Solution
-data: int | float
+T = int | float

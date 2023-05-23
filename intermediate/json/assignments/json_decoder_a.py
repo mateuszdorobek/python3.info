@@ -62,7 +62,7 @@ DATA = """
 
 
 # JSON decoder
-def decoder(data: dict) -> dict:
+def decoder(obj: dict) -> dict:
     ...
 
 
@@ -72,13 +72,13 @@ result = ...
 
 
 # Solution
-def decoder(data: dict) -> dict:
-    for key, value in data.items():
+def decoder(obj: dict) -> dict:
+    for key, value in obj.items():
         if key in ('destination_landing', 'launch_date'):
-            data[key] = datetime.fromisoformat(value)
+            obj[key] = datetime.fromisoformat(value)
         elif key == 'born':
-            data[key] = datetime.fromisoformat(value).date()
-    return data
+            obj[key] = datetime.fromisoformat(value).date()
+    return obj
 
 
 result = json.loads(DATA, object_hook=decoder)

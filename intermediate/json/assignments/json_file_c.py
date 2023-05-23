@@ -57,7 +57,7 @@ with open(FILE, mode='w') as file:
     file.write(DATA)
 
 # Read JSON data from `FILE`
-# type: list[tuple]
+# type: list[dict]
 result = ...
 
 # Solution

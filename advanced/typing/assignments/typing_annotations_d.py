@@ -5,20 +5,14 @@
 * Time: 2 min
 
 English:
-    1. Declare proper types for variables:
-       a. Variable `data` with value 1
-       b. Variable `data` with value 1.0
-       c. Variable `data` with value 'one'
+    1. Declare proper types for variables
     2. Use `Any` type
-    2. Run doctests - all must succeed
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Zadeklaruj zmienne z odpowiednim typem:
-       a. Zmienna `data` z wartością 1
-       b. Zmienna `data` z wartością 1.0
-       c. Zmienna `data` z wartością 'one'
+    1. Zadeklaruj odpowiedni typ zmiennych
     2. Użyj typu `Any`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -31,15 +25,16 @@ Tests:
     'Do not modify variable `data` value, just add type annotation'
 """
 
+# Declare proper types for variables
+# Use alias with | notation (pipe)
+T = ...
 
-# add proper type annotation for following values
-data: ...
-
-data = 1
-data = 1.0
-data = 'one'
-
+# Do not modify lines below
+data: T = 1
+data: T = 1.0
+data: T = 'one'
 
 # Solution
 from typing import Any
-data: Any
+
+T = Any

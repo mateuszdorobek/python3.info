@@ -1,21 +1,15 @@
 """
-* Assignment: Typing Annotations List of Dict
+* Assignment: Typing Annotations Mapping
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 2 min
 
 English:
-    1. Declare proper types for variables:
-       a. Variable `a` with value {}
-       b. Variable `b` with value {'firstname': 'Mark', 'lastname': 'Watney'}
-       c. Variable `c` with value {'firstname': 'Mark', 'lastname': 'Watney', 'age': 40}
+    1. Declare proper types for variables
     2. Run doctests - all must succeed
 
 Polish:
-    1. Zadeklaruj zmienne z odpowiednim typem:
-       a. Zmienna `a` z wartością {}
-       b. Zmienna `b` z wartością {'firstname': 'Mark', 'lastname': 'Watney'}
-       c. Zmienna `c` z wartością {'firstname': 'Mark', 'lastname': 'Watney', 'age': 40}
+    1. Zadeklaruj odpowiedni typ zmiennych
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -29,16 +23,15 @@ Tests:
     'Do not modify variable `c` value, just add type annotation'
 """
 
+# Declare proper types for variables
+a: ...
+b: ...
+c: ...
 
-# add proper type annotation for following values
+# Do not modify lines below
 a = {}
-
-# add proper type annotation for following values
 b = {'firstname': 'Mark', 'lastname': 'Watney'}
-
-# add proper type annotation for following values
 c = {'firstname': 'Mark', 'lastname': 'Watney', 'age': 40}
-
 
 # Solution
 a: dict = {}

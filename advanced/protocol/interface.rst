@@ -1,5 +1,5 @@
-OOP Abstract Interface
-======================
+Protocol Interface
+==================
 * Python don't have interfaces, although you can achieve similar effect
 * Since Python 3.8 there are Protocols, which effectively are interfaces
 * Interfaces cannot be instantiated
@@ -401,14 +401,14 @@ References
 
 Assignments
 -----------
-.. literalinclude:: assignments/oop_abstract_interface_a.py
-    :caption: :download:`Solution <assignments/oop_abstract_interface_a.py>`
+.. literalinclude:: assignments/protocol_abstract_interface_a.py
+    :caption: :download:`Solution <assignments/protocol_abstract_interface_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/oop_abstract_interface_b.py
-    :caption: :download:`Solution <assignments/oop_abstract_interface_b.py>`
+.. literalinclude:: assignments/protocol_abstract_interface_b.py
+    :caption: :download:`Solution <assignments/protocol_abstract_interface_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/oop_abstract_interface_c.py
-    :caption: :download:`Solution <assignments/oop_abstract_interface_c.py>`
+.. literalinclude:: assignments/protocol_abstract_interface_c.py
+    :caption: :download:`Solution <assignments/protocol_abstract_interface_c.py>`
     :end-before: # Solution

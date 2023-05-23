@@ -5,17 +5,11 @@
 * Time: 2 min
 
 English:
-    1. Declare proper types for variables:
-       a. Variable `a` with value set()
-       b. Variable `b` with value {1, 2, 3}
-       c. Variable `c` with value {1, 2.0, 'three'}
+    1. Declare proper types for variables
     2. Run doctests - all must succeed
 
 Polish:
-    1. Zadeklaruj zmienne z odpowiednim typem:
-       a. Zmienna `a` z wartością set()
-       b. Zmienna `b` z wartością {1, 2, 3}
-       c. Zmienna `c` z wartością {1, 2.0, 'three'}
+    1. Zadeklaruj odpowiedni typ zmiennych
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -29,16 +23,10 @@ Tests:
     'Do not modify variable `c` value, just add type annotation'
 """
 
-
-# add proper type annotation for following values
-a = set()
-
-# add proper type annotation for following values
-b = {1, 2, 3}
-
-# add proper type annotation for following values
-c = {1, 2.0, 'three'}
-
+# Declare proper types for variables
+a: ... = set()
+b: ... = {1, 2, 3}
+c: ... = {1, 2.0, 'three'}
 
 # Solution
 a: set = set()

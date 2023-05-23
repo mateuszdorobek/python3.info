@@ -72,9 +72,8 @@ result = ...
 # Solution
 class Encoder(json.JSONEncoder):
     def default(self, obj) -> str:
-        match obj:
-            case date() | datetime():
-                return obj.isoformat()
+        if isinstance(obj, date | datetime):
+            return obj.isoformat()
 
 
 result = json.dumps(DATA, cls=Encoder)
