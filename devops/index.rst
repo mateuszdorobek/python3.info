@@ -45,17 +45,6 @@ Debugging
     debugging/introspection.rst
 
 
-Typing
-******
-.. toctree::
-    :maxdepth: 1
-    :caption: Typing
-
-    typing/checking.rst
-    typing/annotating.rst
-    typing/introspection.rst
-
-
 CI/CD
 *****
 .. toctree::
