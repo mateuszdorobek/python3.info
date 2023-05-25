@@ -7,11 +7,10 @@ class as its first argument and returns a new instance of the class.
 It is called before the ``__init__`` method. ``__init__`` is an instance
 method that is responsible for initializing the instance of a class that
 was created by the ``__new__`` method. It takes the instance as its first
-argument and initializes its attributes.
-
-In other words, ``__new__`` creates the object and ``__init__``
-initializes it. You can think of ``__new__`` as the constructor
-of the class and ``__init__`` as the initializer of the instance.
+argument and initializes its attributes. In other words, ``__new__`` creates
+the object and ``__init__`` initializes it. You can think of ``__new__`` as
+the constructor of the class and ``__init__`` as the initializer of the
+instance.
 
 In Python by definition both methods ``__new__()`` and ``__init__()``
 combined and called consecutively are constructors. This is something
