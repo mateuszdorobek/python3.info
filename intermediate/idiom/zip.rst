@@ -229,6 +229,12 @@ Usage:
 [('Mark', 'Watney'), ('Melissa', 'Lewis'), ('n/a', 'Vogel')]
 
 
+Use Case - 0x01
+---------------
+>>> for user, address, order in zip(users, addresses, orders):  # doctest: +SKIP
+...    print(f'Get {user} orders... {order}')
+
+
 References
 ----------
 .. [#pep618] https://www.python.org/dev/peps/pep-0618/

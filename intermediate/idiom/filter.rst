@@ -12,10 +12,9 @@ Idiom Filter
 >>> result = (x for x in range(0,5) if even(x))
 >>> result = filter(even, range(0,5))
 
->>> result = (x for x in range(0,5) if x%2==0)
->>> result = filter(lambda x: x%2==0, range(0,5))
 
-
+Not-a-Generator
+---------------
 >>> from inspect import isgeneratorfunction, isgenerator
 >>>
 >>>
@@ -116,55 +115,127 @@ Performance
 
 Use Case - 0x01
 ---------------
->>> people = [
-...     {'age': 21, 'name': 'Pan Twardowski'},
-...     {'age': 25, 'name': 'Mark Watney'},
-...     {'age': 18, 'name': 'Melissa Lewis'},
+>>> users = [
+...     {'age': 41, 'username': 'mwatney'},
+...     {'age': 40, 'username': 'mlewis'},
+...     {'age': 39, 'username': 'rmartinez'},
+...     {'age': 40, 'username': 'avogel'},
+...     {'age': 29, 'username': 'bjohanssen'},
+...     {'age': 36, 'username': 'cbeck'},
 ... ]
+
+>>> def above40(user):
+...     return user['age'] >= 40
 >>>
->>>
->>> def adult(person):
-...     return person['age'] >= 21
->>>
->>>
->>> result = filter(adult, people)
+>>> def under40(user):
+...     return user['age'] < 40
+
+>>> result = filter(above40, users)
 >>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'age': 21, 'name': 'Pan Twardowski'},
- {'age': 25, 'name': 'Mark Watney'}]
+[{'age': 41, 'username': 'mwatney'},
+ {'age': 40, 'username': 'mlewis'},
+ {'age': 40, 'username': 'avogel'}]
+
+>>> result = filter(under40, users)
+>>> list(result)  # doctest: +NORMALIZE_WHITESPACE
+[{'age': 39, 'username': 'rmartinez'},
+ {'age': 29, 'username': 'bjohanssen'},
+ {'age': 36, 'username': 'cbeck'}]
 
 
 Use Case - 0x02
 ---------------
->>> people = [
-...     {'is_astronaut': False, 'name': 'Pan Twardowski'},
-...     {'is_astronaut': True, 'name': 'Mark Watney'},
-...     {'is_astronaut': True, 'name': 'Melissa Lewis'},
+>>> users = [
+...     {'is_admin': False, 'name': 'Mark Watney'},
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': False, 'name': 'Alex Vogel'},
+...     {'is_admin': True,  'name': 'Beth Johanssen'},
+...     {'is_admin': False, 'name': 'Chris Beck'},
 ... ]
 >>>
 >>>
->>> def astronaut(person):
-...     return person['is_astronaut']
+>>> def admin(user):
+...     return user['is_admin'] is True
 >>>
 >>>
->>> result = filter(astronaut, people)
+>>> result = filter(admin, users)
 >>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-[{'is_astronaut': True, 'name': 'Mark Watney'},
- {'is_astronaut': True, 'name': 'Melissa Lewis'}]
+[{'is_admin': True, 'name': 'Melissa Lewis'},
+ {'is_admin': True, 'name': 'Beth Johanssen'}]
 
 
 Use Case - 0x03
 ---------------
->>> astronauts = ['Mark Watney', 'Melissa Lewis']
->>> people = ['Mark Watney', 'Melissa Lewis', 'Jimenez']
+>>> users = [
+...     'mwatney',
+...     'mlewis',
+...     'rmartinez',
+...     'avogel',
+...     'bjohanssen',
+...     'cbeck',
+... ]
+>>>
+>>> admins = [
+...     'mlewis',
+...     'bjohanssen',
+... ]
 >>>
 >>>
->>> def is_astronaut(person):
-...     return person in astronauts
+>>> def is_admin(user):
+...     return user in admins
 >>>
 >>>
->>> result = filter(is_astronaut, people)
+>>> result = filter(is_admin, users)
 >>> list(result)
-['Mark Watney', 'Melissa Lewis']
+['mlewis', 'bjohanssen']
+
+
+Use Case - 0x04
+---------------
+>>> class User:
+...     firstname: str
+...     lastname: str
+...     groups: list[str]
+...
+...     def __init__(self, firstname, lastname, groups):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self.groups = groups
+...
+...     def __repr__(self):
+...         return f'{self.firstname}'
+...
+>>> DATABASE = [
+...     User('Mark', 'Watney', groups=['user', 'staff']),
+...     User('Melissa', 'Lewis', groups=['user', 'staff', 'admin']),
+...     User('Rick', 'Martinez', groups=['user', 'staff']),
+...     User('Alex', 'Vogel', groups=['user']),
+...     User('Beth', 'Johanssen', groups=['user', 'staff', 'admin']),
+...     User('Chris', 'Beck', groups=['user', 'staff']),
+... ]
+
+>>> def is_user(user: User) -> bool:
+...     return 'user' in user.groups
+>>>
+>>> def is_staff(user: User) -> bool:
+...     return 'staff' in user.groups
+>>>
+>>> def is_admin(user: User) -> bool:
+...     return 'admin' in user.groups
+
+>>> users = filter(is_user, DATABASE)
+>>> staff = filter(is_staff, DATABASE)
+>>> admins = filter(is_admin, DATABASE)
+
+>>> list(users)
+[Mark, Melissa, Rick, Alex, Beth, Chris]
+>>>
+>>> list(staff)
+[Mark, Melissa, Rick, Beth, Chris]
+>>>
+>>> list(admins)
+[Melissa, Beth]
 
 
 Assignments
