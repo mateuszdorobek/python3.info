@@ -7,12 +7,13 @@ Any
 >>> any(x for x in range(0,5))
 True
 
->>> users = [{'is_admin': False, 'name': 'Mark Watney'},
-...          {'is_admin': True,  'name': 'Melissa Lewis'},
-...          {'is_admin': False, 'name': 'Rick Martinez'},
-...          {'is_admin': False, 'name': 'Alex Vogel'},
-...          {'is_admin': True,  'name': 'Beth Johanssen'},
-...          {'is_admin': False, 'name': 'Chris Beck'},
+>>> users = [
+...     {'is_admin': False, 'name': 'Mark Watney'},
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': False, 'name': 'Alex Vogel'},
+...     {'is_admin': True,  'name': 'Beth Johanssen'},
+...     {'is_admin': False, 'name': 'Chris Beck'},
 ... ]
 >>>
 >>>
@@ -28,12 +29,13 @@ All
 >>> all(x for x in range(0,5))
 False
 
->>> users = [{'is_admin': False, 'name': 'Mark Watney'},
-...          {'is_admin': True,  'name': 'Melissa Lewis'},
-...          {'is_admin': False, 'name': 'Rick Martinez'},
-...          {'is_admin': False, 'name': 'Alex Vogel'},
-...          {'is_admin': True,  'name': 'Beth Johanssen'},
-...          {'is_admin': False, 'name': 'Chris Beck'},
+>>> users = [
+...     {'is_admin': False, 'name': 'Mark Watney'},
+...     {'is_admin': True,  'name': 'Melissa Lewis'},
+...     {'is_admin': False, 'name': 'Rick Martinez'},
+...     {'is_admin': False, 'name': 'Alex Vogel'},
+...     {'is_admin': True,  'name': 'Beth Johanssen'},
+...     {'is_admin': False, 'name': 'Chris Beck'},
 ... ]
 >>>
 >>>

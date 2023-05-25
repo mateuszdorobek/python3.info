@@ -4,6 +4,16 @@ Syntax Assignment Expression
 * Also known as "Walrus operator"
 * Also known as "Named expression"
 
+Python's assignment expression is a feature introduced in Python 3.8. It
+allows you to assign a value to a variable as part of a larger expression.
+The syntax for the assignment expression is as follows:
+
+>>> variable := expression  # doctest: +SKIP
+
+The expression is evaluated and the result is assigned to the variable on
+the left-hand side of the ``:=`` operator. The variable can then be used in
+the rest of the expression.
+
 During discussion of this PEP, the operator became informally
 known as "the walrus operator". The construct's formal name is
 "Assignment Expressions" (as per the PEP title), but they may
@@ -416,7 +426,7 @@ StopIteration
 
 Use Case - 0x05
 ---------------
->>> DATA = [
+>>> users = [
 ...     {'is_admin': False, 'name': 'Mark Watney'},
 ...     {'is_admin': True,  'name': 'Melissa Lewis'},
 ...     {'is_admin': False, 'name': 'Rick Martinez'},
@@ -427,26 +437,26 @@ Use Case - 0x05
 
 Comprehension:
 
->>> result = [{'firstname': person['name'].title().split()[0],
-...            'lastname': person['name'].title().split()[1]}
-...           for person in DATA
-...           if person['is_admin']]
+>>> result = [{'firstname': user['name'].title().split()[0],
+...            'lastname': user['name'].title().split()[1]}
+...           for user in users
+...           if user['is_admin']]
 
 One assignment expression:
 
 >>> result = [{'firstname': name[0],
 ...            'lastname': name[1]}
-...           for person in DATA
-...           if person['is_admin']
-...           and (name := person['name'].title().split())]
+...           for user in users
+...           if user['is_admin']
+...           and (name := user['name'].title().split())]
 
 Many assignment expressions:
 
 >>> result = [{'firstname': firstname,
 ...            'lastname': lastname}
-...           for person in DATA
-...           if person['is_admin']
-...           and (name := person['name'].title().split())
+...           for user in users
+...           if user['is_admin']
+...           and (name := user['name'].title().split())
 ...           and (firstname := name[0])
 ...           and (lastname := name[1])]
 

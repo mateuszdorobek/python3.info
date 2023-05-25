@@ -42,38 +42,44 @@ Tests:
     'Variable `result` has invalid type, should be str'
 
     >>> print(result)
-    "firstname","lastname","missions"
-    "Mark","Watney","2035,Ares 3"
-    "Melissa","Lewis","2030,Ares 1;2035,Ares 3"
-    "Rick","Martinez",""
+    "firstname","groups","lastname"
+    "Mark","1,users","Watney"
+    "Melissa","1,users;2,admins","Lewis"
+    "Rick","","Martinez"
     <BLANKLINE>
 """
 
 import csv
 
 
-class Astronaut:
-    def __init__(self, firstname, lastname, missions=None):
-        self.firstname = firstname
-        self.lastname = lastname
-        self.missions = list(missions) if missions else []
+class Group:
+    gid: int
+    name: str
 
-
-class Mission:
-    def __init__(self, year, name):
-        self.year = year
+    def __init__(self, gid, name):
+        self.gid = gid
         self.name = name
 
 
-CREW = [
-    Astronaut('Mark', 'Watney', missions=[
-        Mission(2035, 'Ares 3')]),
+class User:
+    firstname: str
+    lastname: str
+    groups: list[Group]
 
-    Astronaut('Melissa', 'Lewis', missions=[
-        Mission(2030, 'Ares 1'),
-        Mission(2035, 'Ares 3')]),
+    def __init__(self, firstname, lastname, groups=None):
+        self.firstname = firstname
+        self.lastname = lastname
+        self.groups = list(groups) if groups else []
 
-    Astronaut('Rick', 'Martinez', missions=[]),
+
+
+DATA = [
+    User('Mark', 'Watney', groups=[
+        Group(gid=1, name='users')]),
+    User('Melissa', 'Lewis', groups=[
+        Group(gid=1, name='users'),
+        Group(gid=2, name='admins')]),
+    User('Rick', 'Martinez', groups=[]),
 ]
 
 FILE = r'_temporary.csv'
@@ -86,18 +92,12 @@ result = ...
 # Solution
 result = []
 
-for astronaut in CREW:
-    astronaut = vars(astronaut)
-    missions = [','.join(str(x) for x in vars(mission).values())
-                for mission in astronaut.pop('missions')]
-    astronaut['missions'] = ';'.join(missions)
-    result.append(astronaut)
-
-# result = [astronaut | {'missions': ';'.join(values)}
-#           for member in CREW
-#           if (astronaut := vars(member))
-#           and (values := [','.join(str(x) for x in vars(mission).values())
-#                           for mission in astronaut.pop('missions')]) or True]
+for user in DATA:
+    user = vars(user)
+    groups = [','.join(str(x) for x in vars(group).values())
+              for group in user.pop('groups')]
+    user['groups'] = ';'.join(groups)
+    result.append(user)
 
 
 fieldnames = sorted(result[0].keys())

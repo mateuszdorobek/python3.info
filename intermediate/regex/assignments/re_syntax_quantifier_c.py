@@ -6,10 +6,16 @@
 
 English:
     1. Use regular expressions find in text
+        a. all capitalized words
+        b. all names (two capitalized words)
+        c. all names with numbers (capitalized word followed by number)
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście
+    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+        a. słowa zaczynające się wielką literą
+        b. wszystkie nazwy (dwa słowa zaczynające się wielką literą)
+        c. wszystkie nazwy z numerami
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 References:

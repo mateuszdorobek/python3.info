@@ -33,9 +33,11 @@ import logging
 
 TIMEOUT = 1.0
 DELAY = 1.0
-TODO = ['ls /tmp/',
-        'echo "test"',
-        'sleep 2']
+TODO = [
+    'ls /tmp/',
+    'echo "test"',
+    'sleep 2',
+]
 
 
 # Solution

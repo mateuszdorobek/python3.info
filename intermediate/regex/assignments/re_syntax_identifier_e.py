@@ -54,7 +54,7 @@ flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find all conjunctives in text (both two- and three-letter words)
+# Find all conjunctives in text (standalone both two- and three-letter words)
 # Example: 'was', 'the', 'on', 'the', 'and', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str

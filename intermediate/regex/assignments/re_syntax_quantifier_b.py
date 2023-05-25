@@ -5,11 +5,15 @@
 * Time: 2 min
 
 English:
-    1. Use regular expressions find in text
+    1. Use regular expressions find in text:
+        a. all integers (as long as possible)
+        b. all floats
     2. Run doctests - all must succeed
 
 Polish:
-    1. Użyj wyrażeń regularnych wyszukiwania w tekście
+    1. Użyj wyrażeń regularnych wyszukiwania w tekście:
+        a. wszystkie liczby całkowite (jak najdłuższe)
+        b. wszystkie liczby z ułamkami dziesiętnymi
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 References:

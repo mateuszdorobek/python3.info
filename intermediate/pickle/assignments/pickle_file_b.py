@@ -5,12 +5,12 @@
 * Time: 3 min
 
 English:
-    1. Define `result: list[Astronaut]` with data from `FILE`
+    1. Define `result: list[User]` with data from `FILE`
     2. Use `pickle` module
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: list[Astronaut]` z danymi z `FILE`
+    1. Zdefiniuj `result: list[User]` z danymi z `FILE`
     2. Użyj modułu `pickle`
     3. Uruchom doctesty - wszystkie muszą się powieść
 

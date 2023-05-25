@@ -58,13 +58,13 @@ Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
 
-# Find all two-letter conjunctives in text (two-letter words)
+# Find all two-letter conjunctives in text (standalone two-letter words)
 # Example: 'on', 'on', 'at', 'to', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_a = ...
 
-# Find all three-letter conjunctives in text (three-letter words)
+# Find all three-letter conjunctives in text (standalone three-letter words)
 # Example: 'was', 'the', 'the', 'and', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str

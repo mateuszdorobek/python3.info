@@ -117,12 +117,12 @@ Performance
 Use Case - 0x01
 ---------------
 >>> users = [
-...     {'age': 41,  'username': 'mwatney'},
-...     {'age': 40,  'username': 'mlewis'},
-...     {'age': 39,  'username': 'rmartinez'},
+...     {'age': 41, 'username': 'mwatney'},
+...     {'age': 40, 'username': 'mlewis'},
+...     {'age': 39, 'username': 'rmartinez'},
 ...     {'age': 40, 'username': 'avogel'},
-...     {'age': 29,  'username': 'bjohanssen'},
-...     {'age': 36,  'username': 'cbeck'},
+...     {'age': 29, 'username': 'bjohanssen'},
+...     {'age': 36, 'username': 'cbeck'},
 ... ]
 
 >>> def above40(person):

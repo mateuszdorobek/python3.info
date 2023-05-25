@@ -1,5 +1,5 @@
-Datetime Time Deltas
-====================
+Datetime Timedelta
+==================
 
 
 Timedelta object

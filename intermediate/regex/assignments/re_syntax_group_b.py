@@ -2,17 +2,18 @@
 * Assignment: RE Syntax Group
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 5 min
 
 English:
-    1. Define `result: str` with regular expression
-       to find duration values
+    1. Define `result: str` with regular expression to find:
+        a. all duration values, SKIP durations without hours
+        b. all duration values, DO NOT SKIP durations without hours
     2. Use positional group
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: str` z wyrażeniem regularnym
-       aby wyszukać wartości okresów
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
+       a.
     2. Użyj grup pozycyjnych
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -28,9 +29,16 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> result = re.findall(result, TEXT)
-    >>> pprint(result, compact=True, width=20)
+    >>> result_a = re.findall(result_a, TEXT)
+    >>> pprint(result_a, compact=True, width=20)
     [('6', '39'),
+     ('2', '31'),
+     ('21', '36')]
+
+    >>> result_b = re.findall(result_b, TEXT)
+    >>> pprint(result_b, compact=True, width=20)
+    [('6', '39'),
+     ('', '19'),
      ('2', '31'),
      ('21', '36')]
 """
@@ -51,10 +59,19 @@ Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
 # Find all duration values, use positional groups
+# SKIP durations without hours: 19 minutes later
 # Example: [('6', '39'), ('2', '31'), ('21', '36')]
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result = ...
+result_a = ...
+
+# Find all duration values, use positional groups
+# DO NOT SKIP durations without hours: 19 minutes later
+# Example: [('6', '39'), ('', '19'), ('2', '31'), ('21', '36')]
+# Note: define only regex pattern (str), not re.findall(...)
+# type: str
+result_b = ...
 
 # Solution
-result = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'
+result_a = r'([0-9]+) hours ([0-9]+) minutes'
+result_b = r'(?:([0-9]+) hours)? ([0-9]+) minutes'

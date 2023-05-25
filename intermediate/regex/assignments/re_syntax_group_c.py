@@ -2,17 +2,19 @@
 * Assignment: RE Syntax Group
 * Complexity: easy
 * Lines of code: 2 lines
-* Time: 3 min
+* Time: 5 min
 
 English:
-    1. Define `result: str` with regular expression
-       to find duration values
+    1. Define `result: str` with regular expression to find:
+        a. all duration values, SKIP durations without hours
+        b. all duration values, DO NOT SKIP durations without hours
     2. Use named group
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: str` z wyrażeniem regularnym
-       aby wyszukać wartości okresów
+    1. Zdefiniuj `result: str` z wyrażeniem regularnym aby wyszukać:
+       a. wszystkie okresy czasowe, POMIŃ okresy bez godzin
+       b. wszystkie okresy czasowe, NIE POMIJAJ okresów bez godzin
     2. Użyj grup nazwanych
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -28,10 +30,18 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
-    >>> result = re.finditer(result, TEXT)
-    >>> result = [x.groupdict() for x in result]
-    >>> pprint(result, compact=True, width=50)
+    >>> result_a = re.finditer(result_a, TEXT)
+    >>> result_a = [x.groupdict() for x in result_a]
+    >>> pprint(result_a, compact=True, width=50)
     [{'hours': '6', 'minutes': '39'},
+     {'hours': '2', 'minutes': '31'},
+     {'hours': '21', 'minutes': '36'}]
+
+    >>> result_b = re.finditer(result_b, TEXT)
+    >>> result_b = [x.groupdict() for x in result_b]
+    >>> pprint(result_b, compact=True, width=50)
+    [{'hours': '6', 'minutes': '39'},
+     {'hours': None, 'minutes': '19'},
      {'hours': '2', 'minutes': '31'},
      {'hours': '21', 'minutes': '36'}]
 """
@@ -52,11 +62,19 @@ Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
 # Find all duration values, use named groups
-# Example: [{'hours': '6', 'minutes': '39'}, ...]
+# SKIP durations without hours: 19 minutes later
+# Example: [{'hours': '6', 'minutes': '39'}, {'hours': '2', 'minutes': '31'}]
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result = ...
+result_a = ...
+
+# Find all duration values, use named groups
+# DO NOT SKIP durations without hours: 19 minutes later
+# Example: [{'hours': '6', 'minutes': '39'}, {'hours': None, 'minutes': '19'}]
+# Note: define only regex pattern (str), not re.findall(...)
+# type: str
+result_b = ...
 
 # Solution
-result = r'(?P<hours>[0-9]+) hours (?P<minutes>[0-9]+) minutes'
-
+result_a = '(?P<hours>\d+) hours (?P<minutes>\d+) minutes'
+result_b = '(?:(?P<hours>\d+) hours)? (?P<minutes>\d+) minutes'
