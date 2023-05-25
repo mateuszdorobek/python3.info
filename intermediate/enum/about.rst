@@ -102,12 +102,14 @@ Use Case - 0x02
 * §6 pkt. 5 - Rozporządzenie Ministra Finansów z dnia 29 kwietnia 2019 r. w sprawie kas rejestrujących. Dziennik Ustaw - rok 2019 poz. 816
 * PTU - Podatek od Towarów i Usług (Services and Goods Tax)
 
+.. figure:: img/enum-usecase-biedronka.png
+
 >>> class PTU(Enum):
 ...     A = 1.23   # VAT 23%
 ...     B = 1.08   # VAT 8%
 ...     C = 1.05   # VAT 5%
 ...     D = 1.00   # VAT 0%
-...     E = 1.00   # VAT Exempt
+...     E = None   # VAT Exempt
 >>>
 >>> PLN = 1
 

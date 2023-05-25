@@ -54,7 +54,7 @@ Use Case - 0x03
 
 Use Case - 0x04
 ---------------
-.. figure:: img/oop-enum-keycodes.png
+.. figure:: img/enum-usecase-keycodes.png
 
 Note, keycodes can vary depending on operating system and programming
 language used [mskeycodes]_, [jskeycodes]_.
