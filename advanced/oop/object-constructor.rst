@@ -9,6 +9,16 @@ In most cases people will take their "experience" and "habits" from other
 languages, mixed with vogue knowledge about ``__new__()`` and call
 ``__init__()`` a constructor.
 
+.. citations::
+
+    In Python, `__new__` and `__init__` are two special methods that are used in the creation of objects.
+
+    `__new__` is a static method that is responsible for creating an instance of a class. It takes the class as its first argument and returns a new instance of the class. It is called before the `__init__` method.
+
+    `__init__` is an instance method that is responsible for initializing the instance of a class that was created by the `__new__` method. It takes the instance as its first argument and initializes its attributes.
+
+    In other words, `__new__` creates the object and `__init__` initializes it. You can think of `__new__` as the constructor of the class and `__init__` as the initializer of the instance.
+
 In Object Oriented Programming constructor is:
 
     a. Special method
