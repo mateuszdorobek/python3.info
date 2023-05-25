@@ -9,7 +9,7 @@ In most cases people will take their "experience" and "habits" from other
 languages, mixed with vogue knowledge about ``__new__()`` and call
 ``__init__()`` a constructor.
 
-.. citations::
+.. container::
 
     In Python, `__new__` and `__init__` are two special methods that are used in the creation of objects.
 
