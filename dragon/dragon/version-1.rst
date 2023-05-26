@@ -29,32 +29,32 @@ Functional requirements:
 
     1. Create Dragon with:
 
-        a. name
-        b. position on the screen
-        c. health points, default random ``int`` in range from 50 to 100
-        d. path to the texture file, default ``img/dragon/alive.png``
+        a. Name
+        b. Position on the screen
+        c. Health points, default random ``int`` in range from 50 to 100
+        d. Path to the texture file, default ``img/dragon/alive.png``
 
     2. Dragon can:
 
-        a. have position set to any place on the screen
-        b. move in any direction by specified value
-        c. make damage in range from 5 to 20
-        d. take damage
+        a. Have position set to any place on the screen
+        b. Move in any direction by specified value
+        c. Make damage in range from 5 to 20
+        d. Take damage
 
     3. Assume left-top screen corner as an initial coordinates position:
 
-        a. going right add to ``x``
-        b. going left subtract from ``x``
-        c. going up subtract from ``y``
-        d. going down add to ``y``
+        a. Going right add to ``x``
+        b. Going left subtract from ``x``
+        c. Going up subtract from ``y``
+        d. Going down add to ``y``
 
     4. When health points drop to, or below zero:
 
-        a. dragon has status ``dead``
-        b. dragon has texture ``img/dragon/dead.png``
-        c. display ``Dragon NAME is dead``, where ``NAME`` is the dragon's name
-        d. display how much gold dragon dropped (random integer from 1 to 100)
-        e. display position where dragon died (should be: x=20, y=40)
+        a. Dragon has status ``dead``
+        b. Dragon has texture ``img/dragon/dead.png``
+        c. Display ``Dragon NAME is dead``, where ``NAME`` is the dragon's name
+        d. Display how much gold dragon dropped (random integer from 1 to 100)
+        e. Display position where dragon died (should be: x=20, y=40)
 
     5. Run the game:
 
@@ -94,32 +94,32 @@ Wymagania funkcjonalne:
 
     1. Stwórz Smoka z:
 
-        a. nazwą
-        b. pozycją na ekranie
-        c. punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
-        d. ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
+        a. Nazwą
+        b. Pozycją na ekranie
+        c. Punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
+        d. Ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
 
     2. Smok może:
 
-        a. być ustawiony w dowolne miejsce ekranu
-        b. być przesuwany w którymś z kierunków o zadaną wartość
-        c. zadawać komuś losowe obrażenia z przedziału od 5 do 20
-        d. otrzymywać obrażenia
+        a. Być ustawiony w dowolne miejsce ekranu
+        b. Być przesuwany w którymś z kierunków o zadaną wartość
+        c. Zadawać komuś losowe obrażenia z przedziału od 5 do 20
+        d. Otrzymywać obrażenia
 
     3. Przyjmij górny lewy róg ekranu za punkt początkowy:
 
-        a. idąc w prawo dodajesz ``x``
-        b. idąc w lewo odejmujesz ``x``
-        c. idąc w górę odejmujesz ``y``
-        d. idąc w dół dodajesz ``y``
+        a. Idąc w prawo dodajesz ``x``
+        b. Idąc w lewo odejmujesz ``x``
+        c. Idąc w górę odejmujesz ``y``
+        d. Idąc w dół dodajesz ``y``
 
     4. Kiedy punkty życia Smoka spadną do lub poniżej zera:
 
-        a. smok ma status ``dead``
-        b. smok ma teksturę ``img/dragon/dead.png``
-        c. wyświetl ``Dragon NAME is dead``, gdzie ``NAME`` to nazwa smoka
-        d. wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
-        e. wyświetl pozycję gdzie smok zginął (powinna być: x=20, y=40)
+        a. Smok ma status ``dead``
+        b. Smok ma teksturę ``img/dragon/dead.png``
+        c. Wyświetl ``Dragon NAME is dead``, gdzie ``NAME`` to nazwa smoka
+        d. Wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
+        e. Wyświetl pozycję gdzie smok zginął (powinna być: x=20, y=40)
 
     5. Przeprowadź grę:
 
@@ -144,6 +144,8 @@ Wymagania funkcjonalne:
 Hints
 -----
 * Shortest solution has 24 lines of code
+* It is not a mistake: 'left by 10 and right by 15'
+* There are no errors in the assignment (testes on more than 300 trainings)
 * ``from random import randint``
 * ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
 
