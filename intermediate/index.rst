@@ -116,7 +116,7 @@ TOML
     :caption: TOML
 
     tomllib/about.rst
-    tomllib/pyproject-toml.rst
+    tomllib/usecase.rst
 
 
 Pickle
@@ -203,6 +203,7 @@ Modules
     :caption: Modules
 
     modules/layout.rst
+    modules/pyproject-toml.rst
     modules/venv.rst
     modules/pip.rst
 

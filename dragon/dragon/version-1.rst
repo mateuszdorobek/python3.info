@@ -16,12 +16,14 @@ English
 Non-functional requirements:
 
     1. Commit and push your current state of repository
-    2. In your directory create an empty file ``dragon_v1.py``
-    3. Add file to the version control system (should be automatic)
-    4. Commit with message: "Dragon: NAME", where ``NAME`` is your first name
-    5. Push changes to the repository
-    6. In this file write a solution to the assignment
-    7. Upon completing assignment commit and push changes to the repository
+    2. In your directory create an empty directory ``dragon``
+    3. In ``dragon`` directory create an empty file ``README.md``
+    4. Add file to the version control system (should be automatic)
+    5. Commit with message: "Dragon: NAME", where ``NAME`` is your first name
+    6. Push changes to the repository
+    7. Write a solution to the assignment in ``dragon`` directory
+    8. Upon completing add all files in ``dragon`` to repository
+    9. Commit and push changes to the central repository (Github)
 
 Functional requirements:
 
@@ -79,12 +81,14 @@ Polish
 Wymagania niefunkcjonalne:
 
     1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-    2. W swoim katalogu stwórz pusty plik ``dragon_v1.py``
-    3. Dodaj plik do systemu kontroli wersji
-    4. Zapisz (commit) zmiany jako "Dragon: NAME", gdzie ``NAME`` to Twoje imię
-    5. Wypchnij (push) zmiany do repozytorium
-    6. W pliku zapisz kod do rozwiązania zadania
-    7. Po skończeniu zadania zapisz i wypchnij zmiany do repozytorium
+    2. W swoim katalogu stwórz pusty katalog ``dragon``
+    3. W katalogu ``dragon`` stwórz pusty plik ``README.md``
+    4. Dodaj plik ``README.md`` do systemu kontroli wersji
+    5. Zapisz (commit) zmiany jako "Dragon: NAME", gdzie ``NAME`` to Twoje imię
+    6. Wypchnij (push) zmiany do repozytorium
+    7. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
+    8. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
+    9. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
 
 Wymagania funkcjonalne:
 
