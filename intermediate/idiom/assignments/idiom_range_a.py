@@ -5,22 +5,31 @@
 * Time: 13 min
 
 English:
-    1. Define function `myrange` with parameters: `start`, `stop`, `step`
-    2. Write own implementation of a built-in `range()` function
+    1. Write own implementation of a built-in `range()` function
+    2. Define function `myrange` with parameters:
+        a. parameter `start: int`
+        b. parameter `stop: int`
+        c. parameter `step: int`
     3. Don't validate arguments and assume, that user will:
-        a. never give only one argument; always it will be either two or three arguments
-        b. never give keyword arguments; always it will be positional arguments
-        c. never give more than three arguments
+        a. always pass valid type of arguments
+        b. never give only one argument
+        c. arguments will be unsigned
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj funkcję `myrange` z parametrami: `start`, `stop`, `step`
-    2. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`
+    1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`
+    2. Zdefiniuj funkcję `myrange` z parametrami:
+        a. parameter `start: int`
+        b. parameter `stop: int`
+        c. parameter `step: int`
     3. Nie waliduj argumentów i przyjmij, że użytkownik:
-        a. nigdy nie poda tylko jednego argumentu; zawsze będą to dwa lub trzy argumenty
-        b. nigdy nie poda argumentów keywordowych; zawsze będą to argumenty pozycyjne
-        c. nigdy nie poda więcej niż trzy argumenty
+        a. zawsze poda argumenty poprawnych typów
+        b. nigdy nie poda tylko jednego argumentu
+        c. argumenty będą nieujemne
     4. Uruchom doctesty - wszystkie muszą się powieść
+
+Hint:
+    * https://github.com/python/cpython/blob/main/Objects/rangeobject.c
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
