@@ -3,7 +3,7 @@ Dragon v1.0
 * Assignment: Dragon v1.0
 * Complexity: medium
 * Lines of code: on average 100 lines, shortest solution is 24 lines
-* Time: 89 min, then 144 min live coding with instructor
+* Time: 89 min, then 233 min live coding with instructor
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
