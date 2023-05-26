@@ -18,7 +18,7 @@ English:
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `zip()`
-    2. Zdefiniuj funkcję `myzip` z parametrami: `iterable`, `strict`
+    2. Zdefiniuj funkcję `myzip` z parametrami:
         a. parametr `a: list | tuple`
         b. parametr `b: list | tuple`
         c. parametr `strict: bool`
@@ -27,9 +27,6 @@ Polish:
         b. długość iterable będzie większa od 0
         c. użytkownik może podać tylko dwie iterable: `a`, `b`
     4. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * https://github.com/python/cpython/blob/main/Objects/enumobject.c
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -53,9 +50,9 @@ Tests:
     ValueError: zip() argument 2 is longer than argument 1
 """
 
-# Define function `myrange` with parameters: `start`, `stop`, `step`
-# Write own implementation of a built-in `range()` function
-# type: Callable[[Iterable, int], list[tuple]]
+# Write own implementation of a built-in `zip()` function
+# Define function `myrange` with parameters: `a`, `b`, `strict`
+# type: Callable[[Iterable, Iterable, bool], list[tuple]]
 def myzip(a, b, strict=False):
     ...
 

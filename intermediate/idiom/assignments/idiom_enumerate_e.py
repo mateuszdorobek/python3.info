@@ -30,24 +30,20 @@ Hint:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
-
     >>> assert isfunction(myenumerate)
 
-    >>> months = ['January', 'February', 'March']
-    >>> myenumerate(months)
+    >>> myenumerate(['January', 'February', 'March'])
     [(0, 'January'), (1, 'February'), (2, 'March')]
 
-    >>> months = ['January', 'February', 'March']
-    >>> myenumerate(months, start=1)
+    >>> myenumerate(['January', 'February', 'March'], start=1)
     [(1, 'January'), (2, 'February'), (3, 'March')]
 
-    >>> months = ['January', 'February', 'March']
-    >>> dict(myenumerate(months, start=1))
+    >>> dict(myenumerate(['January', 'February', 'March'], start=1))
     {1: 'January', 2: 'February', 3: 'March'}
 """
 
-# Define function `myrange` with parameters: `start`, `stop`, `step`
-# Write own implementation of a built-in `range()` function
+# Write own implementation of a built-in `enumerate()` function
+# Define function `myenumerate` with parameters: `iterable`, `start`
 # type: Callable[[Iterable, int], list[tuple]]
 def myenumerate(iterable, start=0):
     ...

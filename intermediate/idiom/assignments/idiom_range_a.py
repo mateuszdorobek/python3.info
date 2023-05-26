@@ -34,7 +34,6 @@ Hint:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
-
     >>> assert isfunction(myrange)
 
     >>> myrange(0, 10, 2)
@@ -44,8 +43,8 @@ Tests:
     [0, 1, 2, 3, 4]
 """
 
-# Define function `myrange` with parameters: `start`, `stop`, `step`
 # Write own implementation of a built-in `range()` function
+# Define function `myrange` with parameters: `start`, `stop`, `step`
 # type: Callable[[int,int,int], list[int]]
 def myrange():
     ...
