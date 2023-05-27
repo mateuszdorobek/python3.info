@@ -43,11 +43,11 @@ Tests:
 DATA = (5.1, 3.5, 1.4, 0.2, 'setosa')
 
 # All numeric values from DATA
-# type: tuple[str]
+# type: list[float]
 values = ...
 
 # species name from DATA (last element)
-# type: list[tuple]
+# type: str
 species = ...
 
 # Solution

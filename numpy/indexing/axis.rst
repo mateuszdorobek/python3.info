@@ -4,6 +4,11 @@ Array Axis
 * Columns are always last
 * https://youtu.be/ZB7BZMhfPgk?t=4738
 
+.. figure:: img/numpy-attributes-1d.png
+.. figure:: img/numpy-attributes-2d.png
+.. figure:: img/numpy-attributes-3d.png
+.. figure:: img/numpy-attributes-4d.png
+
 .. figure:: img/array-axis.png
 
     Visualizing Multi-Dimensional Arrays [#NumpyMultidimArrays]_

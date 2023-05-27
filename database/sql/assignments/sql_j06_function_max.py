@@ -31,7 +31,7 @@ import sqlite3
 # - table: apollo11
 # - column: category
 # - what: latest date
-# - use: MIN()
+# - use: MAX()
 result = """
 
 SELECT date

@@ -574,6 +574,16 @@ Pros and Cons:
 * Bad: the method names are a bit too complex for
 * Decision: candidate, method names are a bit too complex for now
 
+Use Case:
+
+>>> locmem.set(key='...', value='..')
+>>> database.set(key='...', value='..')
+>>> filesystem.set(key='...', value='..')
+
+>>> locmem.get(key='...')
+>>> database.get(key='...')
+>>> filesystem.get(key='...')
+
 
 Option 14
 ---------

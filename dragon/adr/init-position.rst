@@ -31,8 +31,8 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(3)             # ok
->>> knn = KNearestNeighbors(3, [1, 2, 3])  # bad
+>>> knn = KNearestNeighbors(3)  # ok
+>>> knn = KNearestNeighbors(3, [1,2,3])  # bad
 
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
@@ -71,8 +71,8 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3)                    # ok
->>> knn = KNearestNeighbors(k=3, w=[1,2,3])         # bad
+>>> knn = KNearestNeighbors(k=3)  # ok
+>>> knn = KNearestNeighbors(k=3, w=[1,2,3])  # bad
 
 
 Option 3
@@ -108,7 +108,7 @@ Pros and Cons:
 * Good: you can assign ``None`` by default to set default point
 * Good: extensible, easy to add ``positionz`` with default value ``0``
 * Good: Extensible to 3D
-* Bad: CamelCase `positionx` and `positiony` does not conform to PEP-8
+* Bad: CamelCase `positionX` and `positionY` does not conform to PEP-8
 * Decision: candidate, but names could be better
 
 Example:

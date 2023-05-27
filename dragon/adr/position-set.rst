@@ -57,6 +57,15 @@ Example:
 >>> dragon.set_position(10, 20, 30)  # 3D, maybe
 
 
+>>> locmem.set()
+>>> database.set()
+>>> filesystem.set()
+
+>>> locmem.get()
+>>> database.get()
+>>> filesystem.get()
+
+
 Option 3
 --------
 >>> dragon.set_position_xy(10, 20)

@@ -2,6 +2,10 @@ Array Shape
 ===========
 * Any shape operation changes only ``np.ndarray.shape`` and ``np.ndarray.strides`` and does not touch data
 
+.. figure:: img/numpy-attributes-1d.png
+.. figure:: img/numpy-attributes-2d.png
+.. figure:: img/numpy-attributes-3d.png
+.. figure:: img/numpy-attributes-4d.png
 
 
 SetUp
