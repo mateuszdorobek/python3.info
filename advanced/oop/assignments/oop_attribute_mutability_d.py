@@ -26,18 +26,21 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(User)
-    >>> assert hasattr(User, '__annotations__')
+    >>> assert isclass(Hero)
+    >>> assert hasattr(Hero, '__annotations__')
 
-    >>> assert 'name' in User.__dataclass_fields__
-    >>> assert 'health' in User.__dataclass_fields__
-    >>> assert 'gold' in User.__dataclass_fields__
+    >>> assert 'name' in Hero.__dataclass_fields__
+    >>> assert 'health' in Hero.__dataclass_fields__
+    >>> assert 'gold' in Hero.__dataclass_fields__
 """
 from dataclasses import dataclass, field
 from random import randint
 
 
-# Modify class `User` to avoid mutable parameter problem
+# Create dataclass `User`, with attributes:
+# - `name: str` (required)
+# - `health: int` (optional), default: randint(50, 100)
+# - `gold: int` (optional), default: randint(1, 100)
 # type: type[User]
 @dataclass
 class Hero:
@@ -46,7 +49,7 @@ class Hero:
 
 # Solution
 @dataclass
-class User:
+class Hero:
     name: str
     health: int = field(default_factory=lambda: randint(50, 100))
     gold: int = field(default_factory=lambda: randint(1, 100))

@@ -97,4 +97,5 @@ class Iris:
     def __repr__(self):
         clsname = self.__class__.__name__
         values = tuple(getattr(self, x) for x in self.__slots__)
+        # values = tuple(map(self.__getattribute__, self.__slots__))
         return f'{clsname}{values}'

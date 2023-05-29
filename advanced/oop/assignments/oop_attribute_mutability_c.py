@@ -36,7 +36,10 @@ Tests:
 from dataclasses import dataclass, field
 
 
-# Modify class `User` to avoid mutable parameter problem
+# Create dataclass `User`, with attributes:
+# - `firstname: str` (required)
+# - `lastname: str` (required)
+# - `groups: list[str]` (optional), default: ['user']
 # type: type[User]
 @dataclass
 class User:
