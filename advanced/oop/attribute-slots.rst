@@ -209,15 +209,15 @@ attribute:
 >>> class User:
 ...     __slots__ = ('firstname', 'lastname')
 ...
-...     def __init__(self, firstname, lastname, role):
+...     def __init__(self, firstname, lastname, email):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
-...         self.role = role
+...         self.email = email
 >>>
 >>>
->>> mark = User('Mark', 'Watney', 'Botanist')
+>>> mark = User('Mark', 'Watney', 'mwatney@nasa.gov')
 Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'email'
 
 
 Vars
@@ -354,22 +354,22 @@ Slots and Dunder Dict
 >>>
 >>>
 >>> mark = User()
->>> mark.firstname = 'Mark'   # will use __slots__
->>> mark.lastname = 'Watney'  # will use __slots__
->>> mark.role = 'Botanist'    # will use __dict__
->>> mark.mission = 'Ares3'    # will use __dict__
+>>> mark.firstname = 'Mark'             # will use __slots__
+>>> mark.lastname = 'Watney'            # will use __slots__
+>>> mark.email = 'mwatney@nasa.gov'     # will use __dict__
+>>> mark.phone = '+1 (234) 567-8910'    # will use __dict__
 
 >>> print(mark.__slots__)
 ('__dict__', 'firstname', 'lastname')
 
 >>> vars(mark)
-{'role': 'Botanist', 'mission': 'Ares3'}
+{'email': 'mwatney@nasa.gov', 'phone': '+1 (234) 567-8910'}
 
 >>> {x:getattr(mark, x) for x in mark.__slots__ if x != '__dict__'} | vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- 'role': 'Botanist',
- 'mission': 'Ares3'}
+ 'email': 'mwatney@nasa.gov',
+ 'phone': '+1 (234) 567-8910'}
 
 
 Inheritance
@@ -378,31 +378,31 @@ Inheritance
 * Slots are added on inheritance
 * If class does not specify slots, the ``__dict__`` will be added
 
->>> class Person:
-...     __slots__ = ('firstname', 'lastname')
+>>> class Account:
+...     __slots__ = ('username', 'password')
 >>>
->>> class User(Person):
+>>> class User(Account):
 ...     pass
 >>>
 >>>
 >>> mark = User()
->>> mark.firstname = 'Mark'
->>> mark.lastname = 'Watney'
->>> mark.role = 'Botanist'
+>>> mark.username = 'mwatney'
+>>> mark.password = 'Ares3'
+>>> mark.groups = ['user', 'staff', 'admin']
 >>>
 >>>
->>> print(mark.firstname)
-Mark
+>>> print(mark.username)
+mwatney
 >>>
->>> print(mark.lastname)
-Watney
+>>> print(mark.password)
+Ares3
 >>>
->>> print(mark.role)
-Botanist
+>>> print(mark.groups)
+['user', 'staff', 'admin']
 >>>
 >>>
 >>> vars(mark)
-{'role': 'Botanist'}
+{'groups': ['user', 'staff', 'admin']}
 >>>
 >>>
 >>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
@@ -412,19 +412,19 @@ mappingproxy({'__module__': '__main__',
               '__doc__': None})
 
 
->>> class Person:
-...     __slots__ = ('firstname', 'lastname')
+>>> class Account:
+...     __slots__ = ('username', 'password')
 >>>
->>> class User(Person):
+>>> class User(Account):
 ...     __slots__ = ()
 >>>
 >>>
 >>> mark = User()
->>> mark.firstname = 'Mark'
->>> mark.lastname = 'Watney'
->>> mark.role = 'Botanist'
+>>> mark.username = 'mwatney'
+>>> mark.password = 'Ares3'
+>>> mark.groups = ['user', 'staff', 'admin']
 Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'role'
+AttributeError: 'User' object has no attribute 'groups'
 >>>
 >>>
 >>> vars(mark)
@@ -435,37 +435,39 @@ TypeError: vars() argument must have __dict__ attribute
 mappingproxy({'__module__': '__main__', '__slots__': (), '__doc__': None})
 
 
->>> class Person:
-...     __slots__ = ('firstname', 'lastname')
+>>> class Account:
+...     __slots__ = ('username', 'password')
 >>>
->>> class User(Person):
-...     __slots__ = ('role',)
+>>> class User(Account):
+...     __slots__ = ('firstname', 'lastname')
 >>>
 >>>
 >>> mark = User()
+>>> mark.username = 'mwatney'
+>>> mark.password = 'Ares3'
 >>> mark.firstname = 'Mark'
 >>> mark.lastname = 'Watney'
->>> mark.role = 'Botanist'
->>> mark.agency = 'NASA'
+>>> mark.groups = ['user', 'staff', 'admin']
 Traceback (most recent call last):
-AttributeError: 'User' object has no attribute 'agency'
+AttributeError: 'User' object has no attribute 'groups'
 >>>
 >>>
 >>> vars(mark)
 Traceback (most recent call last):
 TypeError: vars() argument must have __dict__ attribute
 >>>
->>> vars(Person)  # doctest: +NORMALIZE_WHITESPACE
+>>> vars(Account)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
-              '__slots__': ('firstname', 'lastname'),
-              'firstname': <member 'firstname' of 'Person' objects>,
-              'lastname': <member 'lastname' of 'Person' objects>,
+              '__slots__': ('username', 'password'),
+              'password': <member 'password' of 'Account' objects>,
+              'username': <member 'username' of 'Account' objects>,
               '__doc__': None})
 >>>
 >>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
-              '__slots__': ('role',),
-              'role': <member 'role' of 'User' objects>,
+              '__slots__': ('firstname', 'lastname'),
+              'firstname': <member 'firstname' of 'User' objects>,
+              'lastname': <member 'lastname' of 'User' objects>,
               '__doc__': None})
 
 
