@@ -68,6 +68,9 @@ Tests:
 TODO: dodać test sprawdzający czy linia kończy się newline
 """
 
+# `CSVMixin.to_csv()` returns attribute values separated with coma
+# `CSVMixin.from_csv()` returns instance of a class on which it was called
+# Use `@classmethod` decorator in proper place
 class CSVMixin:
     def to_csv(self) -> str:
         ...

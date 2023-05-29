@@ -46,7 +46,10 @@ Tests:
 from datetime import datetime
 
 
-
+# Define class `Timezone` with:
+# - Field `when: datetime`
+# - Field `tzname: str`
+# - Method `convert()` taking class and `datetime` object as arguments
 # Method `convert()` returns instance of a class, which was given
 # as an argument with field set `when: datetime`
 class Timezone:

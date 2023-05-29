@@ -32,6 +32,18 @@ Tests:
     >>> assert 'firstname' in User.__dataclass_fields__
     >>> assert 'lastname' in User.__dataclass_fields__
     >>> assert 'groups' in User.__dataclass_fields__
+
+    >>> mark = User('Mark', 'Watney')
+    >>> assert mark.firstname == 'Mark'
+    >>> assert mark.lastname == 'Watney'
+    >>> assert mark.groups == []
+
+    >>> melissa = User('Melissa', 'Lewis', groups=['user', 'staff', 'admin'])
+    >>> assert melissa.firstname == 'Melissa'
+    >>> assert melissa.lastname == 'Lewis'
+    >>> assert melissa.groups == ['user', 'staff', 'admin']
+
+    >>> assert id(mark.groups) != id(melissa.groups)
 """
 from dataclasses import dataclass, field
 
