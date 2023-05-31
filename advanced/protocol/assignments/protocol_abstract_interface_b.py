@@ -1,97 +1,83 @@
 """
 * Assignment: OOP AbstractInterface Implement
 * Complexity: easy
-* Lines of code: 12 lines
+* Lines of code: 10 lines
 * Time: 5 min
 
 English:
-    1. Define class `Setosa` implementing `IrisInterface`
-    2. Implement methods
+    1. Define class `User` implementing `Account`
+    2. Implement methods:
+        a. `login()` returns 'User logged-in'
+        b. `logout()` returns 'User logged-out'
     3. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz klasę `Setosa` implementującą `IrisInterface`
-    2. Zaimplementuj metody
+    1. Stwórz klasę `User` implementującą `Account`
+    2. Zaimplementuj metody:
+        a. `login()` zwraca 'User logged-in'
+        b. `logout()` zwraca 'User logged-out'
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * `vars(self).values()`
-    * `mean = sum() / len()`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
-    >>> assert issubclass(Setosa, IrisInterface)
-    >>> assert hasattr(Setosa, 'mean')
-    >>> assert hasattr(Setosa, 'sum')
-    >>> assert hasattr(Setosa, 'len')
+    >>> assert issubclass(User, Account)
+    >>> assert hasattr(User, '__init__')
+    >>> assert hasattr(User, 'login')
+    >>> assert hasattr(User, 'logout')
 
-    >>> assert isfunction(Setosa.mean)
-    >>> assert isfunction(Setosa.sum)
-    >>> assert isfunction(Setosa.len)
+    >>> assert isfunction(User.__init__)
+    >>> assert isfunction(User.login)
+    >>> assert isfunction(User.logout)
 
-    >>> Setosa.__annotations__  # doctest: +NORMALIZE_WHITESPACE
-    {'sepal_length': <class 'float'>,
-     'sepal_width': <class 'float'>,
-     'petal_length': <class 'float'>,
-     'petal_width': <class 'float'>}
+    >>> User.__annotations__  # doctest: +NORMALIZE_WHITESPACE
+    {'username': <class 'str'>,
+     'password': <class 'str'>}
 
-    >>> setosa = Setosa(5.1, 3.5, 1.4, 0.2)
-    >>> setosa.len()
-    4
-    >>> setosa.sum()
-    10.2
-    >>> setosa.mean()
-    2.55
+    >>> mark = User(username='mwatney', password='Ares3')
+    >>> mark.login()
+    'User logged-in'
+    >>> mark.logout()
+    'User logged-out'
 """
 
-class IrisInterface:
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+class Account:
+    username: str
+    password: str
 
-    def __init__(self,
-                 sepal_length: float,
-                 sepal_width: float,
-                 petal_length: float,
-                 petal_width: float,
-                 ) -> None:
+    def __init__(self, username: str, password: str):
         raise NotImplementedError
 
-    def mean(self) -> float:
+    def login(self):
         raise NotImplementedError
 
-    def sum(self) -> float:
+    def logout(self):
         raise NotImplementedError
 
-    def len(self) -> int:
-        raise NotImplementedError
+
+# Define class `User` implementing `Account`
+# Implement methods:
+# - `login()` returns 'User logged-in'
+# - `logout()` returns 'User logged-out'
+class User:
+    ...
 
 
 # Solution
-class Setosa(IrisInterface):
-    sepal_length: float
-    sepal_width: float
-    petal_length: float
-    petal_width: float
+class User(Account):
+    username: str
+    password: str
 
-    def __init__(self,
-                 sepal_length: float,
-                 sepal_width: float,
-                 petal_length: float,
-                 petal_width: float) -> None:
-        self.sepal_length = sepal_length
-        self.sepal_width = sepal_width
-        self.petal_length = petal_length
-        self.petal_width = petal_width
+    def __init__(self, username: str, password: str):
+        self.username = username
+        self.password = password
 
-    def mean(self) -> float:
-        return self.sum() / self.len()
+    def login(self):
+        return 'User logged-in'
 
-    def sum(self) -> float:
-        return sum(vars(self).values())
-
-    def len(self) -> int:
-        return len(vars(self))
+    def logout(self):
+        return 'User logged-out'

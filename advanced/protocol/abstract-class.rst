@@ -38,7 +38,7 @@ Syntax
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 
 You cannot create instance of a class ``Account`` as of
@@ -59,21 +59,22 @@ Implement Abstract Methods
 Abstract base class:
 
 >>> class Account(ABC):
+...     def __init__(self, username: str, password: str) -> None:
+...         self.username = username
+...         self.password = password
+...
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
 ...     def logout(self) -> None:
 ...         raise NotImplementedError
-...
-...     def say_hello(self):
-...         return 'hello'
 
 Implementation:
 
 >>> class User(Account):
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         print('Logging-in')
 ...
 ...     def logout(self) -> None:
@@ -81,16 +82,13 @@ Implementation:
 
 Use:
 
->>> mark = User()
+>>> mark = User(username='mwatney', password='Ares3')
 >>>
->>> mark.login(username='mwatney', password='Ares3')
+>>> mark.login()
 Logging-in
 >>>
 >>> mark.logout()
 Logging-out
->>>
->>> mark.say_hello()
-'hello'
 
 Mind, that all abstract methods must be covered, otherwise it will raise
 an error. Regular methods (non-abstract) will be inherited as normal and
@@ -109,8 +107,12 @@ This method is not recommended since Python 3.4 when ``ABC`` class was
 introduce to simplify the process.
 
 >>> class Account(metaclass=ABCMeta):
+...     def __init__(self, username: str, password: str) -> None:
+...         self.username = username
+...         self.password = password
+...
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 
 
@@ -183,7 +185,7 @@ base class. Otherwise it won't prevent from instantiating:
 
 >>> class Account:
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 >>>
 >>>
@@ -205,7 +207,7 @@ Must implement all abstract methods:
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
@@ -232,7 +234,7 @@ All abstract methods must be implemented in child class:
 
 >>> class Account(ABC):
 ...     @abstractmethod
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         raise NotImplementedError
 ...
 ...     @abstractmethod
@@ -241,7 +243,7 @@ All abstract methods must be implemented in child class:
 >>>
 >>>
 >>> class User(Account):
-...     def login(self, username: str, password: str) -> None:
+...     def login(self) -> None:
 ...         print('Logging-in')
 >>>
 >>>
@@ -399,7 +401,7 @@ Use Case - 0x02
 ---------------
 >>> from abc import ABC, abstractmethod
 
->>> class UIElement(ABC):
+>>> class Element(ABC):
 ...     def __init__(self, name):
 ...         self.name = name
 ...
@@ -408,16 +410,16 @@ Use Case - 0x02
 ...         pass
 >>>
 >>>
->>> def render(component: list[UIElement]):
+>>> def render(component: list[Element]):
 ...     for element in component:
 ...         element.render()
 
->>> class TextInput(UIElement):
+>>> class TextInput(Element):
 ...     def render(self):
 ...         print(f'Rendering {self.name} TextInput')
 >>>
 >>>
->>> class Button(UIElement):
+>>> class Button(Element):
 ...     def render(self):
 ...         print(f'Rendering {self.name} Button')
 
@@ -510,7 +512,6 @@ Use Case - 0x04
 >>> cache.get('lastname')
 >>> cache.delete('firstname')
 >>> cache.delete('lastname')
-
 
 
 Further Reading

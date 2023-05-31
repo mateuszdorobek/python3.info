@@ -1,5 +1,5 @@
 """
-* Assignment: OOP AbstractClass Annotate
+* Assignment: OOP AbstractClass Typing
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 3 min
@@ -31,10 +31,10 @@ Tests:
     >>> assert Account.logout.__isabstractmethod__ == True
 
     >>> Account.__annotations__
-    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
+    {'username': <class 'str'>, 'password': <class 'str'>}
 
     >>> Account.__init__.__annotations__
-    {'firstname': <class 'str'>, 'lastname': <class 'str'>, 'return': None}
+    {'username': <class 'str'>, 'password': <class 'str'>, 'return': None}
 
     >>> Account.login.__annotations__
     {'return': None}
@@ -50,7 +50,7 @@ from abc import ABC, abstractmethod
 # Modify class to add type annotation to all methods and attributes
 class Account(ABC):
     @abstractmethod
-    def __init__(self, firstname, lastname):
+    def __init__(self, username, password):
         ...
 
     @abstractmethod
@@ -64,11 +64,11 @@ class Account(ABC):
 
 # Solution
 class Account(ABC):
-    firstname: str
-    lastname: str
+    username: str
+    password: str
 
     @abstractmethod
-    def __init__(self, firstname: str, lastname: str) -> None:
+    def __init__(self, username: str, password: str) -> None:
         ...
 
     @abstractmethod

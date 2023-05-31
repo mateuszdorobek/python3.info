@@ -169,6 +169,27 @@ Interface Names
 * ``CacheIface``
 * ``ICache``
 
+Here are some tips for naming interfaces in Python:
+
+1. Use descriptive names: The name of your interface should describe what it
+does. This makes it easier for other developers to understand your code and
+use your interface correctly.
+
+2. Use nouns: Interfaces should be named using nouns, as they represent a
+thing or an object. Avoid using verbs or adjectives in your interface names.
+
+3. Avoid abbreviations: Abbreviations can be confusing and make your code
+harder to understand. Instead of using abbreviations, use descriptive names
+that are easy to understand.
+
+5. Use camel case: In Python, it's common to use camel case for naming
+interfaces. This means that the first letter of each word in the name is
+capitalized. For example, ``FileReader`` uses camel case.
+
+Overall, the key is to choose a descriptive name that accurately reflects
+the purpose of your interface. This will make it easier for other developers
+to understand and use your code.
+
 >>> class Cache:
 ...     ...
 
@@ -253,13 +274,16 @@ Use Case - 0x01
 >>>
 >>>
 >>> class Guest(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 >>>
 >>> class User(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 >>>
 >>> class Admin(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 
 
 Use Case - 0x02

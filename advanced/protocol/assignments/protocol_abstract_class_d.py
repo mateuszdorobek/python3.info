@@ -2,19 +2,17 @@
 * Assignment: OOP AbstractClass Implement
 * Complexity: easy
 * Lines of code: 5 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Define class `User` implementing `Account`
-    2. All method signatures must be identical to `Account`
-    3. Don't implement methods, leave `...` or `pass` as content
-    4. Run doctests - all must succeed
+    2. Overwrite all abstract methods, leave `pass` as content
+    3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj klasę `User` implementującą `Account`
-    2. Sygnatury wszystkich metod muszą być identyczne do `Account`
-    3. Nie implementuj metod, pozostaw `...` or `pass` jako zawartość
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    2. Nadpisz wszystkie metody abstrakcyjne, pozostaw `pass` jako treść
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -33,10 +31,10 @@ Tests:
     >>> assert Account.logout.__isabstractmethod__ == True
 
     >>> Account.__annotations__
-    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
+    {'username': <class 'str'>, 'password': <class 'str'>}
 
     >>> Account.__init__.__annotations__
-    {'firstname': <class 'str'>, 'lastname': <class 'str'>, 'return': None}
+    {'username': <class 'str'>, 'password': <class 'str'>, 'return': None}
 
     >>> Account.login.__annotations__
     {'return': None}
@@ -45,10 +43,10 @@ Tests:
     {'return': None}
 
     >>> assert isclass(User)
-    >>> result = User(firstname='Mark', lastname='Watney')
+    >>> result = User(username='mwatney', password='Ares3')
 
     >>> result.__annotations__
-    {'firstname': <class 'str'>, 'lastname': <class 'str'>}
+    {'username': <class 'str'>, 'password': <class 'str'>}
 
     >>> assert hasattr(result, '__init__')
     >>> assert hasattr(result, 'logout')
@@ -59,7 +57,7 @@ Tests:
     >>> assert ismethod(result.login)
 
     >>> signature(result.__init__)  # doctest: +NORMALIZE_WHITESPACE
-    <Signature (firstname: str, lastname: str) -> None>
+    <Signature (username: str, password: str) -> None>
     >>> signature(result.logout)
     <Signature () -> None>
     >>> signature(result.login)
@@ -74,11 +72,11 @@ from abc import ABC, abstractmethod
 
 
 class Account(ABC):
-    firstname: str
-    lastname: str
+    username: str
+    password: str
 
     @abstractmethod
-    def __init__(self, firstname: str, lastname: str) -> None:
+    def __init__(self, username: str, password: str) -> None:
         ...
 
     @abstractmethod
@@ -91,16 +89,18 @@ class Account(ABC):
 
 
 # Define class `User` implementing `Account`
-# Don't implement methods, leave `...` or `pass` as content
+# Overwrite all abstract methods, leave `pass` as content
+class User:
+    ...
 
 
 # Solution
 class User(Account):
-    def __init__(self, firstname: str, lastname: str) -> None:
-        ...
+    def __init__(self, username: str, password: str) -> None:
+        pass
 
     def login(self) -> None:
-        ...
+        pass
 
     def logout(self) -> None:
-        ...
+        pass

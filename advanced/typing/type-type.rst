@@ -329,6 +329,18 @@ attribute:
 ...     AGE_MAX = 65  # error: can't override
 
 
+Future
+------
+* Since Python 3.12
+* PEP-695 Type Parameter Syntax
+* https://docs.python.org/3.12/whatsnew/3.12.html#whatsnew312-pep695
+
+>>> type number = int | float  # doctest: +SKIP
+>>>
+>>> def add(a: number, b: number):  # doctest: +SKIP
+...     return  a + b
+
+
 Use Case - 0x01
 ---------------
 >>> class Astronaut:

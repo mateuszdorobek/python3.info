@@ -1,10 +1,86 @@
-Protocol Property
-=================
+OOP Attribute Property
+======================
 * Disable attribute modification
 * Logging value access
 * Check boundary
 * Raise exceptions such as ``ValueError`` or ``TypeError``
 * Check argument type
+
+In Python, ``@property`` is a built-in decorator that allows you to define a
+method as a read-only property of a class. This means that the method can be
+accessed like an attribute, without needing to call it as a method. The
+``@property`` decorator is used to define a getter method for a property.
+The getter method should have the same name as the property, and it should
+return the value of the property.
+
+Here's an example of using the ``@property`` decorator to define a read-only
+property of a class:
+
+>>> class MyClass:
+...     def __init__(self, x):
+...         self._x = x
+...
+...     @property
+...     def x(self):
+...         return self._x
+>>>
+>>> # Create an instance of MyClass
+>>> obj = MyClass(10)
+>>>
+>>> # Access the property like an attribute
+>>> print(obj.x)
+10
+
+In this example, the ``MyClass`` class defines a private attribute ``_x``
+and a getter method ``x()`` decorated with the ``@property`` decorator.
+The ``x()`` method returns the value of the ``_x`` attribute.
+
+The ``obj.x`` expression accesses the ``x`` property of the ``obj`` instance
+of ``MyClass``, which calls the ``x()`` method to retrieve the value of the
+``_x`` attribute. Note that the ``_x`` attribute is private and cannot be
+accessed directly from outside the class.
+
+You can also define a setter method for a property using the
+``@propertyname.setter`` decorator. The setter method should have the same
+name as the property, followed by ``.setter``, and it should take a single
+parameter that represents the new value of the property.
+
+Here's an example of using the ``@propertyname.setter`` decorator to define a
+read-write property of a class:
+
+>>> class MyClass:
+...     def __init__(self, x):
+...         self._x = x
+...
+...     @property
+...     def x(self):
+...         return self._x
+...
+...     @x.setter
+...     def x(self, value):
+...         self._x = value
+>>>
+>>> # Create an instance of MyClass
+>>> obj = MyClass(10)
+>>>
+>>> # Change the value of the property
+>>> obj.x = 20
+>>>
+>>> # Access the property like an attribute
+>>> print(obj.x)
+20
+
+In this example, the ``MyClass`` class defines a private attribute ``_x``
+and a getter method ``x()`` decorated with the ``@property`` decorator.
+The ``x()`` method returns the value of the ``_x`` attribute.
+
+The ``@x.setter`` decorator defines a setter method for the ``x`` property.
+The ``x()`` method takes a single parameter ``value`` that represents the new
+value of the `_x` attribute.
+
+The ``obj.x = 20`` expression calls the ``x()`` setter method to set the value
+of the ``_x`` attribute to 20. The ``obj.x`` expression calls the ``x()``
+getter method to retrieve the new value of the ``_x`` attribute.
 
 SetUp:
 
@@ -751,14 +827,14 @@ Resetting temperature
 
 Assignments
 -----------
-.. literalinclude:: assignments/protocol_property_a.py
-    :caption: :download:`Solution <assignments/protocol_property_a.py>`
+.. literalinclude:: assignments/oop_attribute_property_a.py
+    :caption: :download:`Solution <assignments/oop_attribute_property_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/protocol_property_b.py
-    :caption: :download:`Solution <assignments/protocol_property_b.py>`
+.. literalinclude:: assignments/oop_attribute_property_b.py
+    :caption: :download:`Solution <assignments/oop_attribute_property_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/protocol_property_c.py
-    :caption: :download:`Solution <assignments/protocol_property_c.py>`
+.. literalinclude:: assignments/oop_attribute_property_c.py
+    :caption: :download:`Solution <assignments/oop_attribute_property_c.py>`
     :end-before: # Solution

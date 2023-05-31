@@ -1,5 +1,10 @@
 Protocol Context Manager
 ========================
+* ``__enter__(self) -> self``
+* ``__exit__(self, *args) -> None``
+* ``__leave__()`` https://github.com/faster-cpython/ideas/issues/550#issuecomment-1410120100
+* Since Python 3.10: Parenthesized context managers [#pydocpython310]_
+* https://peps.python.org/pep-0707/
 * Files
 * Buffering data
 * Database connection
@@ -9,15 +14,6 @@ Protocol Context Manager
 * Network sockets
 * Network streams
 * HTTP sessions
-* Since Python 3.10: Parenthesized context managers [#pydocpython310]_
-* https://peps.python.org/pep-0707/
-* `__leave__()` https://github.com/faster-cpython/ideas/issues/550#issuecomment-1410120100
-
-
-Protocol
---------
-* ``__enter__(self) -> self``
-* ``__exit__(self, *args) -> None``
 
 >>> class ContextManager:
 ...     def __enter__(self):

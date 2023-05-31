@@ -511,7 +511,7 @@ Use Case - 0x02
 ---------------
 * Make Equal
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -521,12 +521,12 @@ Use Case - 0x02
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> a1 = Astronaut('Mark', 'Watney')
->>> a2 = Astronaut('Mark', 'Watney')
+>>> user1 = User('Mark', 'Watney')
+>>> user2 = User('Mark', 'Watney')
 >>>
->>> a1 == a2
+>>> user1 == user2
 True
->>> a1 is a2
+>>> user1 is user2
 False
 
 
@@ -534,7 +534,7 @@ Use Case - 0x03
 ---------------
 * Equal Problem
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -544,18 +544,18 @@ Use Case - 0x03
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> a = Astronaut('Mark', 'Watney')
->>> c = Cosmonaut('Mark', 'Watney')
+>>> user = User('Mark', 'Watney')
+>>> admin = Admin('Mark', 'Watney')
 >>>
->>> a == c
+>>> user == admin
 True
->>> a is c
+>>> user is admin
 False
 
 
@@ -563,7 +563,7 @@ Use Case - 0x04
 ---------------
 * Make Unequal
 
->>> class Astronaut:
+>>> class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -574,18 +574,18 @@ Use Case - 0x04
 ...            and self.lastname == other.lastname
 >>>
 >>>
->>> class Cosmonaut:
+>>> class Admin:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 >>>
 >>>
->>> a = Astronaut('Mark', 'Watney')
->>> c = Cosmonaut('Mark', 'Watney')
+>>> user = User('Mark', 'Watney')
+>>> admin = Admin('Mark', 'Watney')
 >>>
->>> a == c
+>>> user == admin
 False
->>> a is c
+>>> user is admin
 False
 
 
@@ -599,7 +599,7 @@ Use Case - 0x05
 ... from functools import singledispatchmethod
 ...
 ...
-... class Astronaut:
+... class User:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
@@ -609,27 +609,27 @@ Use Case - 0x05
 ...         return False
 ...
 ...     @__eq__.register
-...     def _(self, other: 'Astronaut'):
+...     def _(self, other: 'User'):
 ...         return self.firstname == other.firstname \
 ...            and self.lastname == other.lastname
 ...
 ...     @__eq__.register
-...     def _(self, other: 'Cosmonaut'):
+...     def _(self, other: 'Admin'):
 ...         return False
 ...
 ...
-... class Cosmonaut:
+... class Admin:
 ...     def __init__(self, firstname, lastname):
 ...         self.firstname = firstname
 ...         self.lastname = lastname
 ...
 ...
-... a = Astronaut('Mark', 'Watney')
-... c = Cosmonaut('Mark', 'Watney')
+... user = User('Mark', 'Watney')
+... admin = Admin('Mark', 'Watney')
 ...
-... a == c
+... user == admin
 False
->>> a is c  # doctest: +SKIP
+>>> user is admin  # doctest: +SKIP
 False
 
 

@@ -9,19 +9,96 @@ OOP Attribute Access Modifiers
 * ``__name__`` - system attribute (dunder)
 * ``name_`` - avoid name collision with built-ins
 
+In Python, attribute access modifiers are used to control the visibility and
+accessibility of attributes and methods of a class. There are two main types
+of attribute access modifiers in Python: public and private.
+
+1. Public attributes and methods: Public attributes and methods are
+accessible from outside the class. In Python, all attributes and methods are
+public by default. You can define a public attribute or method by simply
+declaring it in the class definition.
+
+>>> class MyClass:
+...     def __init__(self, x):
+...         self.x = x
+...
+...     def my_method(self):
+...         print(self.x)
+>>>
+>>> obj = MyClass(10)
+>>> print(obj.x)
+10
+>>> obj.my_method()
+10
+
+In this example, ``x`` and ``my_method()`` are public attributes and methods
+of the ``MyClass`` class. They can be accessed from outside the class using
+the dot notation.
+
+2. Private attributes and methods: Private attributes and methods are not
+accessible from outside the class. In Python, you can define a private
+attribute or method by prefixing its name with two underscores (``__``).
+
+>>> class MyClass:
+...     def __init__(self, x):
+...         self.__x = x
+...
+...     def __my_method(self):
+...         print(self.__x)
+>>>
+>>>
+>>> obj = MyClass(10)
+>>>
+>>> print(obj.__x)
+Traceback (most recent call last):
+AttributeError: 'MyClass' object has no attribute '__x'
+>>>
+>>> obj.__my_method()
+Traceback (most recent call last):
+AttributeError: 'MyClass' object has no attribute '__my_method'
+
+In this example, ``__x`` and ``__my_method()`` are private attributes and
+methods of the ``MyClass`` class. They cannot be accessed from outside the
+class using the dot notation.
+
+However, it is still possible to access private attributes and methods from
+outside the class using a special name mangling convention. If you prefix
+the name of a private attribute or method with a single underscore (``_``),
+Python will automatically modify the name to include the class name as a
+prefix. This makes it possible to access private attributes and methods from
+outside the class, although it is generally not recommended.
+
+>>> class MyClass:
+...     def __init__(self, x):
+...         self.__x = x
+...
+...     def __my_method(self):
+...         print(self.__x)
+>>>
+>>> obj = MyClass(10)
+>>> print(obj._MyClass__x)
+10
+>>> obj._MyClass__my_method()
+10
+
+In this example, we access the private attributes and methods of the
+``MyClass`` class using the modified names ``_MyClass__x`` and
+``_MyClass__my_method()``.
+
 >>> class User:
-...     firstname = 'Mark'            # public
-...     lastname = 'Watney'           # public
-...     _phone = '+1 (234) 567-8910'  # public, but... protected by convention
-...     _email = 'mwatney@nasa.gov'   # public, but... protected by convention
-...     __username = 'mwatney'        # public, but... private by convention (name mangling)
-...     __password = 'Ares3'          # public, but... private by convention (name mangling)
-...     type_ = 'admin'               # public, but... public, avoid name collision
-...     id_ = 1                       # public, but... public, avoid name collision
-...     __doc__ = 'whatever'          # public, but... special meaning built-in (dunder)
-...     __module__ = '__main__'       # public, but... special meaning built-in (dunder)
-...     __author__ = 'Mark Watney'    # public, but... special meaning custom made (dunder)
-...     __version__ = '1.0.0'         # public, but... special meaning custom made (dunder)
+...     def __init__(self):
+...         self.firstname = 'Mark'             # public
+...         self.lastname = 'Watney'            # public
+...         self._email = 'mwatney@nasa.gov'    # convention: protected
+...         self._phone = '+1 (234) 567-8910'   # convention: protected
+...         self.__username = 'mwatney'         # convention: private (name mangling)
+...         self.__password = 'Ares3'           # convention: private (name mangling)
+...         self.type_ = 'admin'                # convention: name collision avoidance (input, type, id, vars, print, sum, max, min)
+...         self.id_ = 1                        # convention: name collision avoidance
+...         self.__doc__ = 'whatever'           # internals: system field
+...         self.__module__ = '__main__'        # internals: system field
+...         self.__author__ = 'Mark Watney'     # convention: special fields
+...         self.__version__ = '1.0.0'          # convention: special fields
 
 
 SetUp
@@ -35,8 +112,8 @@ Example
 ...     def __init__(self):
 ...         self.firstname = 'Mark'             # public
 ...         self.lastname = 'Watney'            # public
-...         self._phone = '+1 (234) 567-8910'   # convention: protected
 ...         self._email = 'mwatney@nasa.gov'    # convention: protected
+...         self._phone = '+1 (234) 567-8910'   # convention: protected
 ...         self.__username = 'mwatney'         # convention: private (name mangling)
 ...         self.__password = 'Ares3'           # convention: private (name mangling)
 ...         self.type_ = 'admin'                # convention: name collision avoidance (input, type, id, vars, print, sum, max, min)
@@ -51,8 +128,8 @@ Example
 >>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- '_phone': '+1 (234) 567-8910',
  '_email': 'mwatney@nasa.gov',
+ '_phone': '+1 (234) 567-8910',
  '_User__username': 'mwatney',
  '_User__password': 'Ares3',
  'type_': 'admin',
@@ -91,7 +168,7 @@ To list all the attributes once again we can use ``vars()``:
 
 Protected Attribute
 -------------------
-* ``_name`` - protected attribute (non-public by convention)
+* ``_attrname`` - protected attribute (non-public by convention)
 
 >>> @dataclass
 ... class User:
@@ -118,7 +195,7 @@ To list all the attributes once again we can use ``vars()``:
 
 Private Attribute
 -----------------
-* ``__name`` - private attribute (name mangling)
+* ``__attrname`` - private attribute (name mangling)
 
 >>> @dataclass
 ... class User:
@@ -223,7 +300,7 @@ Example:
 
 System Attributes
 -----------------
-* ``__name__`` - Current module
+* ``__attrname__`` - Current module
 * ``obj.__class__`` - Class from which object was instantiated
 * ``obj.__dict__`` - Stores instance variables
 * ``obj.__doc__`` - Object docstring
@@ -262,16 +339,16 @@ Show Attributes
 ...     def __init__(self):
 ...         self.firstname = 'Mark'
 ...         self.lastname = 'Watney'
-...         self._salary = 10_000
-...         self._address = '2101 E NASA Pkwy, Houston 77058, Texas, USA'
+...         self._email = 'mwatney@nasa.gov'
+...         self._phone = '+1 (234) 567-8910'
 ...         self.__username = 'mwatney'
-...         self.__password = 'ares3'
-...         self.id_ = 1337
-...         self.type_ = 'User'
-...         self.__doc__ = 'Class representing an User'
+...         self.__password = 'Ares3'
+...         self.type_ = 'admin'
+...         self.id_ = 1
+...         self.__doc__ = 'whatever'
 ...         self.__module__ = '__main__'
+...         self.__author__ = 'Mark Watney'
 ...         self.__version__ = '1.0.0'
-...         self.__author__ = 'Mark Watney <mwatney@nasa.gov>'
 >>>
 >>>
 >>> mark = User()
@@ -281,16 +358,16 @@ All attributes:
 >>> vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
- '_salary': 10000,
- '_address': '2101 E NASA Pkwy, Houston 77058, Texas, USA',
+ '_email': 'mwatney@nasa.gov',
+ '_phone': '+1 (234) 567-8910',
  '_User__username': 'mwatney',
- '_User__password': 'ares3',
- 'id_': 1337,
- 'type_': 'User',
- '__doc__': 'Class representing an User',
+ '_User__password': 'Ares3',
+ 'type_': 'admin',
+ 'id_': 1,
+ '__doc__': 'whatever',
  '__module__': '__main__',
- '__version__': '1.0.0',
- '__author__': 'Mark Watney <mwatney@nasa.gov>'}
+ '__author__': 'Mark Watney',
+ '__version__': '1.0.0'}
 
 Public attributes:
 
@@ -303,7 +380,7 @@ Public attributes:
 >>>
 >>>
 >>> get_public_attributes(mark)
-{'firstname': 'Mark', 'id_': 1337, 'lastname': 'Watney', 'type_': 'User'}
+{'firstname': 'Mark', 'id_': 1, 'lastname': 'Watney', 'type_': 'admin'}
 
 Protected attributes:
 
@@ -318,7 +395,7 @@ Protected attributes:
 >>>
 >>>
 >>> get_protected_attributes(mark)
-{'_address': '2101 E NASA Pkwy, Houston 77058, Texas, USA', '_salary': 10000}
+{'_email': 'mwatney@nasa.gov', '_phone': '+1 (234) 567-8910'}
 
 Private attributes:
 
@@ -331,7 +408,7 @@ Private attributes:
 >>>
 >>>
 >>> get_private_attributes(mark)
-{'_User__password': 'ares3', '_User__username': 'mwatney'}
+{'_User__password': 'Ares3', '_User__username': 'mwatney'}
 
 System attributes:
 
@@ -345,9 +422,9 @@ System attributes:
 >>>
 >>>
 >>> get_system_attributes(mark)  # doctest: +ELLIPSIS +NORMALIZE_WHITESPACE
-{'__author__': 'Mark Watney <mwatney@nasa.gov>',
+{'__author__': 'Mark Watney',
  '__dict__': {...},
- '__doc__': 'Class representing an User',
+ '__doc__': 'whatever',
  '__module__': '__main__',
  '__version__': '1.0.0'}
 

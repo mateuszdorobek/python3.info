@@ -29,6 +29,7 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from os import remove
     >>> from inspect import isclass, ismethod
+    >>> from time import sleep
 
     >>> assert isclass(File)
     >>> assert hasattr(File, 'append')
@@ -41,12 +42,14 @@ Tests:
     >>> assert File.AUTOSAVE_SECONDS == 1.0
 
     >>> with File('_temporary.txt') as file:
-    ...    file.append('One')
-    ...    file.append('Two')
-    ...    file.append('Three')
-    ...    file.append('Four')
-    ...    file.append('Five')
-    ...    file.append('Six')
+    ...     file.append('One')
+    ...     file.append('Two')
+    ...     sleep(1.0)
+    ...     file.append('Three')
+    ...     file.append('Four')
+    ...     sleep(2.0)
+    ...     file.append('Five')
+    ...     file.append('Six')
 
     >>> open('_temporary.txt').read()
     'One\\nTwo\\nThree\\nFour\\nFive\\nSix\\n'

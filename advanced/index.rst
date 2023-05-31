@@ -73,6 +73,7 @@ OOP
     oop/attribute-classvar.rst
     oop/attribute-accessmodifiers.rst
     oop/attribute-slots.rst
+    oop/attribute-property.rst
     oop/method-about.rst
     oop/method-accessmodifiers.rst
     oop/method-staticmethod.rst
@@ -112,6 +113,7 @@ Operator
     operator/bitwise.rst
     operator/builtin.rst
     operator/accessors.rst
+    operator/reflection.rst
     operator/other.rst
 
 
@@ -129,7 +131,6 @@ Protocol
     protocol/iterator.rst
     protocol/context-manager.rst
     protocol/property.rst
-    protocol/reflection.rst
     protocol/descriptor.rst
 
 

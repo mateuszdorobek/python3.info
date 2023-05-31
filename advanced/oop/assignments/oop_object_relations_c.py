@@ -55,15 +55,15 @@ DATA = [
     {"firstname": "Rick", "lastname": "Martinez", "groups": []},
 ]
 
-# Flatten data, each mission field prefixed with mission and number
+# Flatten data, each group field prefixed with group and number
 # type: list[dict]
 result = ...
 
 
 # Solution
 def convert(user: dict):
-    for i, mission in enumerate(user.pop('groups'), start=1):
-        for field,value in mission.items():
+    for i, group in enumerate(user.pop('groups'), start=1):
+        for field,value in group.items():
             column_name = f'group{i}_{field}'
             user[column_name] = value
     return user

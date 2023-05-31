@@ -253,89 +253,111 @@ Use Case - 0x01
 >>>
 >>>
 >>> class Guest(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 >>>
 >>> class User(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 >>>
 >>> class Admin(Account):
-...      ...
+...     def login(self, username: str, password: str) -> None: ...
+...     def logout(self) -> None: ...
 
 
 Use Case - 0x02
 ---------------
-* Cache
-
-File ``cache_iface.py``:
-
 >>> class ICache:
-...     def get(self, key: str) -> str:
-...         raise NotImplementedError
-...
-...     def set(self, key: str, value: str) -> None:
-...         raise NotImplementedError
-...
-...     def clear(self) -> None:
-...         raise NotImplementedError
-
-File ``cache_impl.py``:
-
+...     def set(self, key: str, value: str) -> None: raise NotImplementedError
+...     def get(self, key: str) -> str: raise NotImplementedError
+...     def delete(self, key: str) -> None: raise NotImplementedError
+>>>
+>>>
 >>> class DatabaseCache(ICache):
-...     def get(self, key: str) -> str:
-...         ...
-...
-...     def set(self, key: str, value: str) -> None:
-...         ...
-...
-...     def clear(self) -> None:
-...         ...
->>>
->>>
->>> class LocmemCache(ICache):
-...     def get(self, key: str) -> str:
-...         ...
-...
-...     def set(self, key: str, value: str) -> None:
-...         ...
-...
-...     def clear(self) -> None:
-...         ...
->>>
+...     table = 'cache'
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
 >>>
 >>> class FilesystemCache(ICache):
-...     def get(self, key: str) -> str:
-...         ...
-...
-...     def set(self, key: str, value: str) -> None:
-...         ...
-...
-...     def clear(self) -> None:
-...         ...
-
-File ``settings.py``
-
->>> from myapp.cache_iface import ICache  # doctest: +SKIP
->>> from myapp.cache_impl import DatabaseCache  # doctest: +SKIP
->>> from myapp.cache_impl import LocmemCache  # doctest: +SKIP
->>> from myapp.cache_impl import FilesystemCache  # doctest: +SKIP
+...     basedir = '/tmp'
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
+>>>
+>>> class LocmemCache(ICache):
+...     timeout = 5
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> None: ...
 >>>
 >>>
->>> DefaultCache = LocmemCache
-
-File ``myapp.py``:
-
->>> from myapp.settings import DefaultCache, ICache  # doctest: +SKIP
->>>
->>>
->>> cache: ICache = DefaultCache()
+>>> cache: ICache = LocmemCache()
 >>> cache.set('firstname', 'Mark')
 >>> cache.set('lastname', 'Watney')
 >>> cache.get('firstname')
 >>> cache.get('lastname')
->>> cache.clear()
+>>> cache.delete('firstname')
+>>> cache.delete('lastname')
+
+
+Use Case - 0x03
+---------------
+File ``cache.py``:
+
+>>> class ICache:
+...     def get(self, key: str) -> str: raise NotImplementedError
+...     def set(self, key: str, value: str) -> None: raise NotImplementedError
+...     def clear(self) -> None: raise NotImplementedError
+>>>
+>>>
+>>> class DatabaseCache(ICache):
+...     def get(self, key: str) -> str: ...
+...     def set(self, key: str, value: str) -> None: ...
+...     def clear(self) -> None: ...
+>>>
+>>> class LocmemCache(ICache):
+...     def get(self, key: str) -> str: ...
+...     def set(self, key: str, value: str) -> None: ...
+...     def clear(self) -> None: ...
+>>>
+>>> class FilesystemCache(ICache):
+...     def get(self, key: str) -> str: ...
+...     def set(self, key: str, value: str) -> None: ...
+...     def clear(self) -> None: ...
+
+Operating system:
+
+.. code-block:: console
+
+    $ export CACHE=DatabaseCache
+
+File ``settings.py``
+
+>>> # doctest: +SKIP
+... from os import getenv
+... from myapp.cache import ICache
+... import myapp.cache
+...
+...
+... CACHE = getenv('CACHE', default='LocmemCache')
+... Cache: ICache = getattr(myapp.cache, CACHE)
+
+File ``myapp.py``:
+
+>>> # doctest: +SKIP
+... from myapp.settings import Cache, ICache
+...
+...
+... cache: ICache = Cache()
+... cache.set('firstname', 'Mark')
+... cache.set('lastname', 'Watney')
+... cache.get('firstname')
+... cache.get('lastname')
+... cache.clear()
 
 Note, that myapp doesn't know which cache is being used. It only depends
-on configuration in settings file.
+on environmental variable and not even a settings file.
 
 
 Use Case - 0x03
@@ -394,9 +416,18 @@ Implementation:
 
 References
 ----------
-.. [#GIMP] Download GIMP. Year: 2022. Retrieved: 2022-08-11. URL: https://anderbot.com/wp-content/uploads/2020/10/GIMP5.jpg
+.. [#GIMP]
+    Download GIMP.
+    Year: 2022.
+    Retrieved: 2022-08-11.
+    URL: https://anderbot.com/wp-content/uploads/2020/10/GIMP5.jpg
 
-.. [#PyDocIFace] van Rossum, G. et al. How do you specify and enforce an interface spec in Python? Year: 2022. Retrieved: 2022-09-25. URL: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
+.. [#PyDocIFace]
+    van Rossum, G. et al.
+    How do you specify and enforce an interface spec in Python?
+    Year: 2022.
+    Retrieved: 2022-09-25.
+    URL: https://docs.python.org/3/faq/design.html#how-do-you-specify-and-enforce-an-interface-spec-in-python
 
 
 Assignments

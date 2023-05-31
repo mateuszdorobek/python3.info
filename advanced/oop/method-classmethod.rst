@@ -4,6 +4,52 @@ OOP Method Classmethod
 * Will pass class as a first argument
 * ``self`` is not required
 
+In Python, ``classmethod`` is a built-in decorator that defines a method
+that belongs to the class rather than to an instance of the class.
+This means that the method can be called on the class itself, rather
+than on an instance of the class.
+
+A ``classmethod`` takes a ``cls`` parameter as its first argument,
+which refers to the class itself, rather than to an instance of the class.
+This allows the method to access and modify class-level attributes and methods.
+
+Here's an example of using the ``classmethod`` decorator to define a method
+that returns the number of instances of a class:
+
+>>> class MyClass:
+...     count = 0
+...
+...     def __init__(self):
+...         MyClass.count += 1
+...
+...     @classmethod
+...     def get_count(cls):
+...         return cls.count
+>>>
+>>> # Create some instances of MyClass
+>>> obj1 = MyClass()
+>>> obj2 = MyClass()
+>>> obj3 = MyClass()
+>>>
+>>> # Call the classmethod on the class itself
+>>> print(MyClass.get_count())
+3
+
+In this example, the ``MyClass`` class defines a class-level attribute
+``count`` and a ``classmethod`` called ``get_count()``. The ``__init__()``
+method of the class increments the ``count`` attribute each time a new
+instance of the class is created.
+
+The ``get_count()`` method is decorated with the ``classmethod`` decorator,
+which means that it can be called on the class itself, rather than on an
+instance of the class. The method returns the value of the ``count``
+attribute, which represents the number of instances of the class that have
+been created.
+
+The ``get_count()`` method takes a ``cls`` parameter as its first argument,
+which refers to the class itself. This allows the method to access the
+``count`` attribute of the class and return its value.
+
 Dynamic methods:
 
 >>> class User:
@@ -194,10 +240,10 @@ Use Case - 0x03
 
 Use Case - 0x04
 ---------------
-* Interplanetary time
 
->>> # myapp/time.py
->>> class AbstractTime:
+File ``myapp/timezone.py``:
+
+>>> class AbstractTimezone:
 ...     tzname: str
 ...     tzcode: str
 ...
@@ -205,38 +251,41 @@ Use Case - 0x04
 ...         ...
 ...
 ...     @classmethod
-...     def from_utc(cls, utc):
-...         values = {'date': ..., 'time': ...}
+...     def from_utc(cls, string):
+...         values = datetime.fromisoformat(string)
 ...         return cls(**values)
 >>>
 >>>
->>> class MartianTime(AbstractTime):
-...     tzname = 'Coordinated Mars Time'
-...     tzcode = 'MTC'
+>>> class CentralEuropeanTime(AbstractTimezone):
+...     tzname = 'Central European Time'
+...     tzcode = 'CET'
 >>>
->>> class LunarTime(AbstractTime):
-...     tzname = 'Lunar Standard Time'
-...     tzcode = 'LST'
->>>
->>> class EarthTime(AbstractTime):
-...     tzname = 'Universal Time Coordinated'
-...     tzcode = 'UTC'
+>>> class CentralEuropeanSummerTime(AbstractTimezone):
+...     tzname = 'Central European Summer Time'
+...     tzcode = 'CEST'
 
->>> # myapp/settings.py
+Operating system:
+
+.. code-block:: console
+
+    export TIMEZONE=CET
+
+File: ``myapp/settings.py``:
+
 >>> # doctest: +SKIP
-... import myapp.time
-... from myapp.time import *
+... import myapp.timezone
 ... from os import getenv
 ...
-... time = getattr(myapp.time, getenv('MISSION_TIME'))  # doctest: +SKIP
+... time = getattr(myapp.timezone, getenv('TIMEZONE'))
 
->>> # myapp/usage.py
+File `myapp/usage.py`:
+
 >>> # doctest: +SKIP
 ... from myapp.settings import time
 ...
 ... dt = time.from_utc('1969-07-21T02:53:07Z')
 ... print(dt.tzname)
-Coordinated Mars Time
+Central European Time
 
 
 Assignments
