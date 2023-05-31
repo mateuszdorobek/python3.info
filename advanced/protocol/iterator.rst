@@ -6,7 +6,6 @@ Protocol Iterator
 * ``iter(obj)`` -> ``obj.__iter__()``
 * ``next(obj)`` -> ``obj.__next__()``
 
-/gpt describe iterator protocol in Python
 The iterator protocol is a Python protocol that defines the rules for
 implementing an iterator object. An iterator is an object that produces a
 sequence of values, one at a time, and can be used in a ``for`` loop or other
