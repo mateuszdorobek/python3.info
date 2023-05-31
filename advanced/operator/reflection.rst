@@ -1,4 +1,4 @@
-Protocol Reflection
+Operator Reflection
 ===================
 * When accessing an attribute
 * ``setattr(obj, attrname, value) -> None``
@@ -9,6 +9,99 @@ Protocol Reflection
 * ``__delattr__(self, attrname) -> None``
 * ``__getattribute__(self, attrname) -> Any``
 * ``__getattr__(self, attrname) -> Any``
+
+Reflection is the ability of a program to examine and modify its own
+structure and behavior at runtime. In Python, reflection is supported
+through a number of built-in functions and modules.
+
+The ``inspect`` module provides a set of functions for introspecting Python
+objects, such as classes, functions, and modules. These functions can be
+used to examine the attributes, methods, and source code of an object, as
+well as its inheritance hierarchy and type information.
+
+Here's an example of using the ``inspect`` module to examine the attributes
+and methods of a class:
+
+>>> import inspect
+>>>
+>>> class MyClass:
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+...
+...     def my_method(self, z):
+...         return self.x + self.y + z
+>>>
+>>> # Use inspect to examine the attributes and methods of MyClass
+>>> print(inspect.getmembers(MyClass))  # doctest: +NORMALIZE_WHITESPACE +ELLIPSIS
+[('__class__', <class 'type'>),
+ ('__delattr__', <slot wrapper '__delattr__' of 'object' objects>),
+ ('__dict__', mappingproxy({'__module__': '__main__',
+                            '__init__': <function MyClass.__init__ at 0x...>,
+                            'my_method': <function MyClass.my_method at 0x...>,
+                            '__dict__': <attribute '__dict__' of 'MyClass' objects>,
+                            '__weakref__': <attribute '__weakref__' of 'MyClass' objects>,
+                            '__doc__': None})),
+ ('__dir__', <method '__dir__' of 'object' objects>),
+ ('__doc__', None),
+ ('__eq__', <slot wrapper '__eq__' of 'object' objects>),
+ ('__format__', <method '__format__' of 'object' objects>),
+ ('__ge__', <slot wrapper '__ge__' of 'object' objects>),
+ ('__getattribute__', <slot wrapper '__getattribute__' of 'object' objects>),
+ ('__getstate__', <method '__getstate__' of 'object' objects>),
+ ('__gt__', <slot wrapper '__gt__' of 'object' objects>),
+ ('__hash__', <slot wrapper '__hash__' of 'object' objects>),
+ ('__init__', <function MyClass.__init__ at 0x...>),
+ ('__init_subclass__', <built-in method __init_subclass__ of type object at 0x...>),
+ ('__le__', <slot wrapper '__le__' of 'object' objects>),
+ ('__lt__', <slot wrapper '__lt__' of 'object' objects>),
+ ('__module__', '__main__'),
+ ('__ne__', <slot wrapper '__ne__' of 'object' objects>),
+ ('__new__', <built-in method __new__ of type object at 0x...>),
+ ('__reduce__', <method '__reduce__' of 'object' objects>),
+ ('__reduce_ex__', <method '__reduce_ex__' of 'object' objects>),
+ ('__repr__', <slot wrapper '__repr__' of 'object' objects>),
+ ('__setattr__', <slot wrapper '__setattr__' of 'object' objects>),
+ ('__sizeof__', <method '__sizeof__' of 'object' objects>),
+ ('__str__', <slot wrapper '__str__' of 'object' objects>),
+ ('__subclasshook__', <built-in method __subclasshook__ of type object at 0x...>),
+ ('__weakref__', <attribute '__weakref__' of 'MyClass' objects>),
+ ('my_method', <function MyClass.my_method at 0x...>)]
+
+In this example, the ``getmembers()`` function from the ``inspect`` module
+is used to examine the attributes and methods of the ``MyClass`` class.
+The output shows a list of tuples, where each tuple contains the name
+and value of an attribute or method of the class.
+
+Another way to use reflection in Python is through the ``getattr()`` and
+``setattr()`` built-in functions. These functions allow you to get and set
+attributes of an object dynamically at runtime, based on their name.
+
+Here's an example of using ``getattr()`` and ``setattr()`` to get and set
+attributes of an object:
+
+>>> class MyClass:
+...     def __init__(self, x, y):
+...         self.x = x
+...         self.y = y
+>>>
+>>> # Create an instance of MyClass
+>>> obj = MyClass(1, 2)
+>>>
+>>> # Use getattr to get the value of an attribute dynamically
+>>> x_value = getattr(obj, 'x')
+>>> print(x_value)
+1
+>>>
+>>> # Use setattr to set the value of an attribute dynamically
+>>> setattr(obj, 'y', 3)
+>>> print(obj.y)
+3
+
+
+In this example, ``getattr()`` is used to get the value of the ``x`` attribute
+of the ``obj`` instance of ``MyClass``, and ``setattr()`` is used to set the
+value of the ``y`` attribute of ``obj`` to 3.
 
 Protocol:
 
@@ -878,14 +971,14 @@ Use Case - 0x13
 
 Assignments
 -----------
-.. literalinclude:: assignments/protocol_reflection_a.py
-    :caption: :download:`Solution <assignments/protocol_reflection_a.py>`
+.. literalinclude:: assignments/operator_reflection_a.py
+    :caption: :download:`Solution <assignments/operator_reflection_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/protocol_reflection_b.py
-    :caption: :download:`Solution <assignments/protocol_reflection_b.py>`
+.. literalinclude:: assignments/operator_reflection_b.py
+    :caption: :download:`Solution <assignments/operator_reflection_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/protocol_reflection_c.py
-    :caption: :download:`Solution <assignments/protocol_reflection_c.py>`
+.. literalinclude:: assignments/operator_reflection_c.py
+    :caption: :download:`Solution <assignments/operator_reflection_c.py>`
     :end-before: # Solution
