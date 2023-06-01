@@ -3,7 +3,7 @@
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Define function `cube()`:
@@ -47,19 +47,16 @@ Tests:
     [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 """
 
-
 DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-
 # Returns its argument cubed (raised to the power of 3)
-# type: Callable[[int], int]
+# type: Callable[[int], [int]]
 def cube(x):
     ...
 
 # Cube numbers in DATA
 # type: map
 result = ...
-
 
 # Solution
 def cube(x):

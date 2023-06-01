@@ -59,15 +59,15 @@ def cube(x):
 
 
 # Range from 0 to 10 (exclusive)
-# type: Iterator[int]
+# type: range
 result = ...
 
 # Filter odd numbers
-# type: Iterator[int]
+# type: filter
 result = ...
 
 # Cube result
-# type: Iterator[int]
+# type: map
 result = ...
 
 # Get list of results
