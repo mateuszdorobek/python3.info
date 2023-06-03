@@ -35,6 +35,7 @@ Locale
     locale/i18n.rst
     locale/l10n.rst
     locale/encoding.rst
+    locale/enums.rst
 
 
 Pickle

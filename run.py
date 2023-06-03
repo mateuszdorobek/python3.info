@@ -56,6 +56,7 @@ class Gather(Action):
         run('clear && printf "\e[3J"')  # noqa
         run(f'cat */requirements.txt |sort |uniq > requirements.txt')
         log.info('Requirements Gathered in requirements.txt')
+        exit(0)
 
 
 class Install(Action):
@@ -65,6 +66,7 @@ class Install(Action):
         run('clear && printf "\e[3J"')  # noqa
         run(f'pip install -r {chapter}/requirements.txt')
         log.info('Requirements installed')
+        exit(0)
 
 
 class Build(Action):
@@ -78,16 +80,21 @@ class Build(Action):
         rmtree(dst, ignore_errors=True)
         run('clear && printf "\e[3J"')  # noqa
         run(f'sphinx-build -a -E -j auto --color -b html {src} {dst}')
+        exit(0)
+
 
 class GPT(Action):
     def __call__(self, parser, namespace, paths, *args, **kwargs):
         run('clear && printf "\e[3J"')  # noqa
         files = sorted(self.get_files(paths))
         for file in files:
+            if file.name == 'run.py':
+                continue
             if '/gpt' in file.read_text():
                 log.critical(f'/gpt found in \t{file}')
                 exit(1)
         log.info('No /gpt found in files')
+        exit(0)
 
     @staticmethod
     def get_files(paths: str):
@@ -118,6 +125,7 @@ class Doctest(Action):
             else:
                 log.error(f'NOTESTS\t{file}')
         logging.warning(f'\nAll tests {all_tests}')
+        exit(0)
 
     @staticmethod
     def is_ignored(file: Path):
@@ -202,6 +210,7 @@ class Sitemap(Action):
             sitemap.write(row)
         sitemap.write('</urlset>\n')
         sitemap.close()
+        exit(0)
 
 
 if __name__ == '__main__':

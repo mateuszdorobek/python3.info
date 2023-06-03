@@ -4,6 +4,27 @@ TODO
 * Move webinars (description, scaffolding generation) to the book
 
 
+Bin
+---
+* New structure for templates
+
+training
+    _solution
+    Matt
+        oop
+            _notes.md
+            assignment1.py
+            assignment2.py
+            assignment3.py
+            assignment4.py
+        functional
+            _notes.md
+            assignment1.py
+            assignment2.py
+            assignment3.py
+            assignment4.py
+
+
 Basics
 ------
 * Remove unpack star from (and other examples)
