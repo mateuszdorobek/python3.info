@@ -4,6 +4,39 @@ OOP Object Identity
 * ``==`` checks for object equality
 * ``is`` checks for object identity
 
+In Python, identity and value comparison are two different ways of comparing
+objects. Identity comparison (``is`` operator) checks whether two objects are
+the same object in memory, i.e. whether they have the same memory address.
+Value comparison (``==`` operator) checks whether two objects have the same
+value, i.e. whether they are equal according to their values.
+
+Here's an example to illustrate the difference between identity and value
+comparison:
+
+>>> a = [1, 2, 3]
+>>> b = [1, 2, 3]
+>>>
+>>> # Identity comparison
+>>> print(a is b)
+False
+>>>
+>>> # Value comparison
+>>> print(a == b)
+True
+
+In this example, ``a`` and ``b`` are two different objects in memory, even
+though they have the same value. The identity comparison using the ``is``
+operator returns ``False``, because ``a`` and ``b`` are not the same object
+in memory. The value comparison using the ``==`` operator returns ``True``,
+because ``a`` and ``b`` have the same value.
+
+It's important to note that identity comparison (``is`` operator) is more
+strict than value comparison (``==`` operator). If two objects are identical,
+they are also equal in value. However, two objects that are equal in value
+are not necessarily identical. In general, it's more common to use value
+comparison (``==`` operator) when comparing objects in Python, unless you
+specifically need to check whether two objects are the same object in memory.
+
 >>> valid = True
 >>>
 >>> valid == True
@@ -89,6 +122,26 @@ Integer Caching
 * After using any integer two times it is being cached
 * Python caches also the next integer
 * Cached numbers are invalidated after a while
+
+>>> x = 256
+>>> id(x)  # doctest: +SKIP
+4474506792
+>>>
+>>> del x
+>>>
+>>> x = 256
+>>> id(x)  # doctest: +SKIP
+4474506792
+
+>>> x = 257
+>>> id(x)  # doctest: +SKIP
+4509456400
+>>>
+>>> del x
+>>>
+>>> x = 257
+>>> id(x)  # doctest: +SKIP
+4509455696
 
 >>> id(256)  # doctest: +SKIP
 4514832592
@@ -451,6 +504,115 @@ True
 >>> a is 'Mark'  # doctest: +SKIP
 <...>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
 True
+
+
+Performance
+-----------
+Cached int:
+
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = 1
+15.5 ns ± 5.22 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = int(1)
+69.4 ns ± 22.2 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Uncached int:
+
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = 257
+16 ns ± 8.24 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = int(257)
+64.7 ns ± 19.6 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+str:
+
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = 'Mark'
+17.8 ns ± 6.41 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x = str('Mark')
+33.3 ns ± 6.99 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+bool:
+
+>>> x = True
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x == True
+29.2 ns ± 8.83 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+... %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x is True
+22.9 ns ± 7.37 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> x = True
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x == 1
+31.7 ns ± 9.2 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x is 1
+<magic-timeit-stmt>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+<magic-timeit>:1: SyntaxWarning: "is" with a literal. Did you mean "=="?
+22.4 ns ± 7.01 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+None:
+
+>>> x = None
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x is None
+22.2 ns ± 6.89 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... x == None
+27.9 ns ± 7.41 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Builtin type:
+
+>>> x = 1
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... type(x) == int
+38.9 ns ± 9.52 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... type(x) is int
+34.2 ns ± 7.59 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Custom type:
+
+>>> class User:
+...     pass
+>>>
+>>> x = User()
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... type(x) is User
+33.9 ns ± 11.2 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+>>>
+>>>
+>>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+... type(x) == User
+40.3 ns ± 10.3 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
 
 Use Case - 0x01
