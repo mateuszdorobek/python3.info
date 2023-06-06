@@ -104,15 +104,6 @@ DATA = [
 
 @dataclass
 class Address:
-    ...
-
-@dataclass
-class User:
-    ...
-
-
-@dataclass
-class Address:
     street: str
     city: str
     postcode: int
@@ -138,3 +129,12 @@ def convert(contact: dict) -> User:
     return User(**contact, addresses=list(addresses))
 
 result = map(convert, DATA)
+
+
+# Alaternative Solution
+from itertools import starmap
+
+def parse(user) -> User:
+    values = map(dict.values, user.pop('addresses'))
+    addresses = starmap(Address, values)
+    return User(**user, addresses=list(addresses))

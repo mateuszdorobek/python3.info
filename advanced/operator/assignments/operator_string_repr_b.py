@@ -22,15 +22,22 @@ Hints:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> result = User('Mark', 'Watney')
+    >>> result = User('Rick', 'Martinez')
     >>> print(result)
-    Mark Watney
+    Rick Martinez
 
     >>> result = User('Mark', 'Watney', groups=[
     ...     Group(gid=2, name='staff'),
     ... ])
     >>> print(result)
     Mark Watney member of [gid=2(staff)]
+
+    >>> result = User('Melissa', 'Lewis', groups=[
+    ...     Group(gid=1, name='admins'),
+    ...     Group(gid=2, name='staff'),
+    ... ])
+    >>> print(result)
+    Melissa Lewis member of [gid=1(admins), gid=2(staff)]
 
     >>> result = Accounts([
     ...     User('Mark', 'Watney', groups=[

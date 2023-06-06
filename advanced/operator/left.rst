@@ -81,11 +81,6 @@ Use Case - 0x01
 >>> hero @ Position(x=50, y=120)  # doctest: +SKIP
 
 
-Use Case - 0x02
----------------
->>> hero['gold'] += dragon['gold']  # doctest: +SKIP
-
-
 Assignments
 -----------
 .. literalinclude:: assignments/operator_left_a.py

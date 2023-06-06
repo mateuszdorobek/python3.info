@@ -2,7 +2,7 @@
 * Assignment: Functional Closure Define
 * Complexity: easy
 * Lines of code: 4 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Define function `check` with `func: Callable` as a parameter
@@ -43,5 +43,4 @@ def check():
 def check(func):
     def wrapper(*args, **kwargs):
         return None
-
     return wrapper

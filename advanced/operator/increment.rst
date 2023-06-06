@@ -30,17 +30,6 @@ Memory
 * ``list += list`` will update old ``list``
 * ``__iadd__()`` operator on ``tuple`` is different than on ``list``
 
->>> a = (1, 2, 3)
->>> id(a)  # doctest: +SKIP
-4354672064
->>>
->>> a += (4, 5, 6)
->>> id(a)  # doctest: +SKIP
-4360031872
->>>
->>> a
-(1, 2, 3, 4, 5, 6)
-
 >>> a = [1, 2, 3]
 >>> id(a)  # doctest: +SKIP
 4345884480
@@ -51,6 +40,17 @@ Memory
 >>>
 >>> a
 [1, 2, 3, 4, 5, 6]
+
+>>> a = (1, 2, 3)
+>>> id(a)  # doctest: +SKIP
+4354672064
+>>>
+>>> a += (4, 5, 6)
+>>> id(a)  # doctest: +SKIP
+4360031872
+>>>
+>>> a
+(1, 2, 3, 4, 5, 6)
 
 
 SetUp
@@ -146,6 +146,11 @@ Vector(x=11, y=22)
 
 
 Use Case - 0x01
+---------------
+>>> hero['gold'] += dragon['gold']  # doctest: +SKIP
+
+
+Use Case - 0x02
 ---------------
 >>> class Group:
 ...     def __init__(self):

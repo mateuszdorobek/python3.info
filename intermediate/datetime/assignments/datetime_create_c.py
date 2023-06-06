@@ -33,6 +33,9 @@ Tests:
     'Variable `dt` has invalid type, must be a date'
     >>> assert type(t) is time, \
     'Variable `t` has invalid type, must be a time'
+    >>> assert dt != datetime(1, 1, 1)
+    >>> assert d != date(1, 1, 1)
+    >>> assert t != time()
 """
 
 from datetime import date, datetime, time

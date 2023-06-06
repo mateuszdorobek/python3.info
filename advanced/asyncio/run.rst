@@ -7,8 +7,6 @@ AsyncIO Run
 SetUp
 -----
 >>> import asyncio
->>>
->>>
 
 
 Run Coroutine
@@ -175,3 +173,18 @@ Due to the GIL, ``asyncio.to_thread()`` can typically only be used to make
 IO-bound functions non-blocking. However, for extension modules that
 release the GIL or alternative Python implementations that don't have one,
 ``asyncio.to_thread()`` can also be used for CPU-bound functions.
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/async_gather_a.py
+    :caption: :download:`Solution <assignments/async_gather_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/async_gather_b.py
+    :caption: :download:`Solution <assignments/async_gather_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/async_gather_c.py
+    :caption: :download:`Solution <assignments/async_gather_c.py>`
+    :end-before: # Solution
