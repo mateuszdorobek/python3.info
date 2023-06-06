@@ -250,3 +250,11 @@ Assignments
 .. literalinclude:: assignments/idiom_zip_b.py
     :caption: :download:`Solution <assignments/idiom_zip_b.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_zip_c.py
+    :caption: :download:`Solution <assignments/idiom_zip_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_zip_d.py
+    :caption: :download:`Solution <assignments/idiom_zip_d.py>`
+    :end-before: # Solution

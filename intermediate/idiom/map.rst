@@ -411,3 +411,39 @@ Assignments
 .. literalinclude:: assignments/idiom_map_a.py
     :caption: :download:`Solution <assignments/idiom_map_a.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_b.py
+    :caption: :download:`Solution <assignments/idiom_map_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_c.py
+    :caption: :download:`Solution <assignments/idiom_map_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_d.py
+    :caption: :download:`Solution <assignments/idiom_map_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_e.py
+    :caption: :download:`Solution <assignments/idiom_map_e.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_f.py
+    :caption: :download:`Solution <assignments/idiom_map_f.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_g.py
+    :caption: :download:`Solution <assignments/idiom_map_g.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_h.py
+    :caption: :download:`Solution <assignments/idiom_map_h.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_i.py
+    :caption: :download:`Solution <assignments/idiom_map_i.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_map_j.py
+    :caption: :download:`Solution <assignments/idiom_map_j.py>`
+    :end-before: # Solution

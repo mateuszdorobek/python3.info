@@ -26,3 +26,18 @@ Idiom Chain
 >>>
 >>> list(result)
 [36, 64]
+
+
+Assignments
+-----------
+.. literalinclude:: assignments/idiom_mapfilter_a.py
+    :caption: :download:`Solution <assignments/idiom_mapfilter_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_mapfilter_b.py
+    :caption: :download:`Solution <assignments/idiom_mapfilter_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/idiom_mapfilter_c.py
+    :caption: :download:`Solution <assignments/idiom_mapfilter_c.py>`
+    :end-before: # Solution
