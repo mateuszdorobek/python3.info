@@ -93,7 +93,3 @@ Assignments
 .. literalinclude:: assignments/idiom_reduce_c.py
     :caption: :download:`Solution <assignments/idiom_reduce_c.py>`
     :end-before: # Solution
-
-.. literalinclude:: assignments/idiom_reduce_d.py
-    :caption: :download:`Solution <assignments/idiom_reduce_d.py>`
-    :end-before: # Solution
