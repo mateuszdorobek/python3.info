@@ -6,12 +6,12 @@
 * Time: 3 min
 
 English:
-    1. Define `result: float` with arithmetic mean of `DATA`
+    1. Define `result: float` with sum of `DATA`
     2. Note, that all the time you are working on a data stream
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: float` ze średnią arytmetyczną z `DATA`
+    1. Zdefiniuj `result: float` ze sumą z `DATA`
     2. Zwróć uwagę, że cały czas pracujesz na strumieniu danych
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -31,11 +31,11 @@ Tests:
     'Object `cube` must be a function'
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
-    >>> assert type(result) is float, \
-    'Variable `result` has invalid type, should be float'
+    >>> assert type(result) is int, \
+    'Variable `result` has invalid type, should be int'
 
     >>> result
-    245.0
+    1225
 """
 
 def odd(x):
@@ -50,11 +50,9 @@ DATA = range(0, 10)
 DATA = filter(odd, DATA)
 DATA = map(cube, DATA)
 
-# Calculate mean of DATA
+# Calculate sum of DATA
 # type: float
 result = ...
 
-
 # Solution
-data = list(DATA)
-result = sum(data) / len(data)
+result = sum(DATA)
