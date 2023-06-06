@@ -23,6 +23,24 @@ Typical protocol implementation looks like that:
 ...     def receive() -> Self: ...
 
 
+>>> class Cache(Protocol):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> bool: ...
+>>>
+>>>
+>>> class Database:
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> bool: ...
+>>>
+>>>
+>>> cache: Cache = Database()
+>>> cache.set('name', 'Mark Watney')
+>>> cache.get('name')
+>>> cache.delete('name')
+
+
 Example
 -------
 In Python there is a ``Context Manager`` protocol. In order to conform
@@ -310,6 +328,14 @@ delegate, and contravariant type parameters can be used as parameter types.
         >>> check(1)        # ok
         >>> check(object)   # error
 
+>>> from typing import TypeVar
+>>>
+>>>
+>>> T = TypeVar('T', int, float, covariant=False, contravariant=True)
+>>>
+>>> def run(x: T) -> T:
+...     ...
+
 .. figure:: img/protocol-covariance.png
 
     Covariance. Replacement with more specialized type.
@@ -324,7 +350,6 @@ delegate, and contravariant type parameters can be used as parameter types.
 
     Invariance. Type must be the same and you cannot replace it.
     Animal cannot be substituted for Cat and vice versa. [#Langa2022]_
-
 
 Example:
 
@@ -575,6 +600,24 @@ TypeError: Instance and class checks can only be used with @runtime_checkable pr
 >>> isinstance(User, Account)
 True
 
+>>> @runtime_checkable
+... class Cache(Protocol):
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> bool: ...
+>>>
+>>>
+>>> class Database:
+...     def set(self, key: str, value: str) -> None: ...
+...     def get(self, key: str) -> str: ...
+...     def delete(self, key: str) -> bool: ...
+>>>
+>>>
+>>> cache: Cache = Database()
+>>> cache.set('name', 'Mark Watney')
+>>> cache.get('name')
+>>> cache.delete('name')
+
 
 Use Case - 0x01
 ---------------
@@ -584,6 +627,27 @@ Use Case - 0x01
 >>> class SupportsClose(Protocol):
 ...     def close(self) -> None:
 ...         ...
+
+
+Use Case - 0x02
+---------------
+>>> from dataclasses import dataclass
+
+>>> class SupportsWrite(Protocol):
+...     def write(self): ...
+>>>
+>>>
+>>> def print(*values, sep=' ', end='\n', file: SupportsWrite = None):
+...     ...
+
+>>> @dataclass
+... class File:
+...     filename: str
+...
+...     def write(self):
+...         ...
+>>>
+>>> print('hello', 'world', file=File('/tmp/myfile.txt'))
 
 
 Use Case - 0x02

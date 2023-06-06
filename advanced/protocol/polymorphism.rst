@@ -4,48 +4,8 @@ Protocol Polymorphism
 
 SetUp
 -----
->>> from abc import ABCMeta, abstractmethod
-
-
-Procedural Polymorphism
------------------------
-* UNIX ``getchar()`` function used function lookup table with pointers
-
->>> keyboard = {
-...     'open': lambda: ...,
-...     'close':  lambda: ...,
-...     'read':  lambda bytes: ...,
-...     'write':  lambda content: ...,
-...     'seek':  lambda position: ...,
-... }
->>>
->>> file = {
-...     'open': lambda: ...,
-...     'close':  lambda: ...,
-...     'read':  lambda bytes: ...,
-...     'write':  lambda content: ...,
-...     'seek':  lambda position: ...,
-... }
->>>
->>> socket = {
-...     'open': lambda: ...,
-...     'close':  lambda: ...,
-...     'read':  lambda bytes: ...,
-...     'write':  lambda content: ...,
-...     'seek':  lambda position: ...,
-... }
->>>
->>>
->>> def getchar(obj):
-...     obj['open']()
-...     obj['seek'](0)
-...     obj['read'](1)
-...     obj['close']()
->>>
->>>
->>> getchar(file)
->>> getchar(keyboard)
->>> getchar(socket)
+>>> from abc import ABC, abstractmethod
+>>> from dataclasses import dataclass
 
 
 Elif
@@ -120,29 +80,68 @@ default value. It's a bit cleaner, but essentially the same...
 'Hola'
 
 
-Polymorphism
-------------
+Procedural Polymorphism
+-----------------------
+* UNIX ``getchar()`` function used function lookup table with pointers
+
+>>> keyboard = {
+...     'open': lambda: ...,
+...     'close':  lambda: ...,
+...     'read':  lambda bytes: ...,
+...     'write':  lambda content: ...,
+...     'seek':  lambda position: ...,
+... }
+>>>
+>>> file = {
+...     'open': lambda: ...,
+...     'close':  lambda: ...,
+...     'read':  lambda bytes: ...,
+...     'write':  lambda content: ...,
+...     'seek':  lambda position: ...,
+... }
+>>>
+>>> socket = {
+...     'open': lambda: ...,
+...     'close':  lambda: ...,
+...     'read':  lambda bytes: ...,
+...     'write':  lambda content: ...,
+...     'seek':  lambda position: ...,
+... }
+>>>
+>>>
+>>> def getchar(obj):
+...     obj['open']()
+...     obj['seek'](0)
+...     obj['read'](1)
+...     obj['close']()
+>>>
+>>>
+>>> getchar(file)
+>>> getchar(keyboard)
+>>> getchar(socket)
+
+
+Explicit Polymorphism
+---------------------
 .. todo:: Example compatible with code above (elif, switch, pattern matching)
 
->>> class UIElement(metaclass=ABCMeta):
-...     def __init__(self, name):
-...         self.name = name
+>>> @dataclass
+... class Element(ABC):
+...     name: str
 ...
 ...     @abstractmethod
 ...     def render(self):
 ...         pass
 >>>
 >>>
->>> def render(component: list[UIElement]):
-...     for element in component:
-...         element.render()
-
->>> class TextInput(UIElement):
+>>> @dataclass
+... class TextInput(Element):
 ...     def render(self):
 ...         print(f'Rendering {self.name} TextInput')
 >>>
 >>>
->>> class Button(UIElement):
+>>> @dataclass
+... class Button(Element):
 ...     def render(self):
 ...         print(f'Rendering {self.name} Button')
 
@@ -151,6 +150,45 @@ Polymorphism
 ...     TextInput(name='Password'),
 ...     Button(name='Submit'),
 ... ]
+
+>>> def render(component: list[Element]):
+...     for element in component:
+...         element.render()
+>>>
+>>> render(login_window)
+Rendering Username TextInput
+Rendering Password TextInput
+Rendering Submit Button
+
+
+Structural Polymorphism
+-----------------------
+* Duck typing
+
+>>> @dataclass
+... class TextInput:
+...     name: str
+...
+...     def render(self):
+...         print(f'Rendering {self.name} TextInput')
+>>>
+>>>
+>>> @dataclass
+... class Button:
+...     name: str
+...
+...     def render(self):
+...         print(f'Rendering {self.name} Button')
+
+>>> login_window = [
+...     TextInput(name='Username'),
+...     TextInput(name='Password'),
+...     Button(name='Submit'),
+... ]
+
+>>> def render(component):
+...     for element in component:
+...         element.render()
 >>>
 >>> render(login_window)
 Rendering Username TextInput
@@ -243,7 +281,7 @@ Use Case - 0x02
 >>> import re
 >>>
 >>>
->>> class UIElement:
+>>> class Element:
 ...     def __init__(self, name):
 ...         self.name = name
 ...
@@ -263,7 +301,7 @@ Use Case - 0x02
 ...         raise NotImplementedError
 >>>
 >>>
->>> class Button(UIElement):
+>>> class Button(Element):
 ...     action: str
 ...
 ...     def __init__(self, *args, action: str | None = None, **kwargs):
@@ -287,7 +325,7 @@ Use Case - 0x02
 ...         print(f'Rendering Button with {action}')
 >>>
 >>>
->>> class Input(UIElement):
+>>> class Input(Element):
 ...     regex: re.Pattern
 ...
 ...     def __init__(self, *args, regex: str | None = None, **kwargs):
@@ -311,7 +349,7 @@ Use Case - 0x02
 ...         print(f'Rendering Input with {regex}')
 >>>
 >>>
->>> def render(components: list[UIElement]):
+>>> def render(components: list[Element]):
 ...     for obj in components:
 ...         obj.render()
 >>>

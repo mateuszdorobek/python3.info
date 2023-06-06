@@ -130,7 +130,6 @@ Protocol
     protocol/about.rst
     protocol/iterator.rst
     protocol/context-manager.rst
-    protocol/property.rst
     protocol/descriptor.rst
 
 
