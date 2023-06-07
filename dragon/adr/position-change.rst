@@ -50,6 +50,8 @@ Consequences:
 >>> new_y = dragon.position_y + 20
 >>> dragon.set_position(x=new_x, y=new_y)
 
+>>> sms.send('Hello \U0001F610')
+
 
 Option 2
 --------
@@ -79,6 +81,9 @@ Consequences:
 >>> dragon.move(10, -20, 30)  # 3D
 
 Use Case:
+
+>>> color = Color(10, 20, 30)
+>>> color = Color(10, 20, 30, 0.5)
 
 >>> run('ls', True, False)  # bad
 >>> read_csv('iris.csv', ';', 'utf-8', True)  # bad

@@ -8,6 +8,10 @@ Dragon ADR Init Position
 
 Option 1
 --------
+>>> dragon = Dragon('Wawelski', int, int)
+
+Example:
+
 >>> dragon = Dragon('Wawelski', 50, 120)
 
 Pros and Cons:
@@ -29,10 +33,15 @@ Example:
 >>> dragon = Dragon('Wawelski', None, None)  # default point
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', None, None)
 
+Problem:
+
+>>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0) # 3D
+>>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', None) # 3D
+
 Use Case:
 
 >>> knn = KNearestNeighbors(3)  # ok
->>> knn = KNearestNeighbors(3, [1,2,3])  # bad
+>>> knn = KNearestNeighbors(3, [1, 2, 3])  # bad
 
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
@@ -47,6 +56,10 @@ Use Case:
 
 Option 2
 --------
+>>> dragon = Dragon('Wawelski', x=int, y=int)
+
+Example:
+
 >>> dragon = Dragon('Wawelski', x=50, y=120)
 
 Pros and Cons:
@@ -72,7 +85,7 @@ Example:
 Use Case:
 
 >>> knn = KNearestNeighbors(k=3)  # ok
->>> knn = KNearestNeighbors(k=3, w=[1,2,3])  # bad
+>>> knn = KNearestNeighbors(k=3, w=[1, 2, 3])  # bad
 
 
 Option 3
@@ -95,7 +108,7 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, wgt=[1,2,3])  # maybe, bad
+>>> knn = KNearestNeighbors(k=3, wgt=[1, 2, 3])  # maybe, bad
 
 
 Option 4
@@ -118,7 +131,7 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, weights=[1,2,3])  # ok
+>>> knn = KNearestNeighbors(k=3, weights=[1, 2, 3])  # ok
 
 >>> df.plot(kind='line', subplots=True, color='grey', sharey=True)  # bad
 

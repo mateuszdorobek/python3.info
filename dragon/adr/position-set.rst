@@ -56,6 +56,11 @@ Example:
 >>> dragon.set_position(10, 20)  # 2D, maybe
 >>> dragon.set_position(10, 20, 30)  # 3D, maybe
 
+>>> dragon.set_position(10, 20)     # ok
+>>> hero.set_position(10, 20)       # ok
+>>> snake.set_position(10, 20)      # ok
+
+Use Case:
 
 >>> locmem.set()
 >>> database.set()
@@ -121,6 +126,9 @@ Pros and Cons:
 Example:
 
 >>> dragon.set(position_x=10, position_y=20)
+
+Problem:
+
 >>> dragon.set(health=50)
 >>> dragon.set(gold=100)
 >>> dragon.set(damage=10)

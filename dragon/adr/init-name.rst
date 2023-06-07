@@ -23,7 +23,7 @@ Pros and Cons:
 
 Option 2
 --------
->>> dragon = Dragon(name=str)  # keyword
+>>> dragon = Dragon(name: str)  # keyword
 
 Example:
 

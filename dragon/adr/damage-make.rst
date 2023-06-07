@@ -81,6 +81,7 @@ Pros and Cons:
 Example:
 
 >>> dragon.attack_enemy()  # maybe
+>>> magic_arrow.attack_enemy()  # bad
 >>> explosion.attack_enemy()  # bad
 
 
@@ -97,6 +98,7 @@ Pros and Cons:
 Example:
 
 >>> dragon.make_damage()
+>>> magic_arrow.make_damage()
 >>> explosion.make_damage()
 
 
