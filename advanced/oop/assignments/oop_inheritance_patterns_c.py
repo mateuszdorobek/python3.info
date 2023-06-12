@@ -39,6 +39,23 @@ Tests:
     >>> assert len(MyAccount.__subclasses__()) == 0
 """
 
+# Create classes `MyAccount`, `Account`, `User`,  `Admin`
+# Use multilevel inheritance, do not define attributes
+class Account:
+    pass
+
+
+class User:
+    pass
+
+
+class Admin:
+    pass
+
+
+class MyAccount:
+    pass
+
 
 # Solution
 class Account:

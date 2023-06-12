@@ -7,16 +7,14 @@
 English:
     1. Create class `MyAccount` from classes `Account`, `User`, `Admin`
     2. Use mixins classes
-    3. You can modify given classes
-    4. Assignment demonstrates syntax, so do not add any attributes and methods
-    5. Run doctests - all must succeed
+    3. Assignment demonstrates syntax, so do not add any attributes and methods
+    4. Run doctests - all must succeed
 
 Polish:
     1. Stwórz klasę `MyAccount` z klas `Account`, `User`, `Admin`
     2. Użyj klas domieszkowych (mixin)
-    3. Możesz modyfikować dane klasy
-    4. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod
-    5. Uruchom doctesty - wszystkie muszą się powieść
+    3. Zadanie demonstruje składnię, nie dodawaj żadnych atrybutów i metod
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -35,6 +33,23 @@ Tests:
     >>> assert len(Admin.__subclasses__()) == 1
     >>> assert len(MyAccount.__subclasses__()) == 0
 """
+
+# Create classes `MyAccount`, `Account`, `User`,  `Admin`
+# Use mixins classes, do not define attributes
+class Account:
+    pass
+
+
+class User:
+    pass
+
+
+class Admin:
+    pass
+
+
+class MyAccount:
+    pass
 
 
 # Solution

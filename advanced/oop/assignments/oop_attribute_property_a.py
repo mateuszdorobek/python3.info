@@ -29,6 +29,10 @@ Tests:
 from dataclasses import dataclass
 
 
+# Define class `Point` with `x`, `y`, `z` attributes
+# Define property `position` in class `Point`
+# Accessing `position` returns `(x, y, z)`
+# type: type[Point]
 @dataclass
 class Point:
     x: int

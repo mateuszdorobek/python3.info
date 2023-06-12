@@ -27,6 +27,10 @@ Tests:
 """
 
 
+# Create classes `MyAccount`, `Account`, `User`,  `Admin`
+# Do not use inheritance, do not define attributes
+
+
 # Solution
 class Account:
     pass

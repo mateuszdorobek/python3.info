@@ -2,8 +2,8 @@
 * Assignment: OOP InheritancePatterns Simple
 * Required: yes
 * Complexity: easy
-* Lines of code: 4 lines
-* Time: 3 min
+* Lines of code: 1 lines
+* Time: 2 min
 
 English:
     1. Create class `Account`
@@ -23,6 +23,16 @@ Tests:
     >>> assert isclass(User)
     >>> assert issubclass(User, Account)
 """
+
+# Create class `Account`
+# type: type[Account]
+class Account:
+    ...
+
+# Create class `User` which inherits from `Account`
+# type: type[Account]
+class User:
+    ...
 
 
 # Solution

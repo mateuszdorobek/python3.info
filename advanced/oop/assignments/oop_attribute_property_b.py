@@ -45,11 +45,19 @@ Tests:
 from dataclasses import dataclass
 
 
+# Define class `Point` with `x`, `y`, `z` attributes
+# Define property `position` in class `Point`
+# Setting `position`:
+# - If argument is not list, tuple, set raise Type Error
+# - If argument has length other than 3, raise Value
+# - Else sets `x`, `y`, `z` attributes from sequence
+# type: type[Point]
 @dataclass
 class Point:
     x: int
     y: int
     z: int
+
 
 # Solution
 @dataclass

@@ -30,11 +30,16 @@ Tests:
 from dataclasses import dataclass
 
 
+# Define class `Point` with `x`, `y`, `z` attributes
+# Define property `position` in class `Point`
+# Deleting `position` sets all attributes to 0 (`x=0`, `y=0`, `z=0`)
+# type: type[Point]
 @dataclass
 class Point:
     x: int
     y: int
     z: int
+
 
 # Solution
 @dataclass
