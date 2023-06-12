@@ -136,7 +136,7 @@ Use Case - 0x02
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: float = field(default=None, metadata={'unit': 'gids', 'min': 30, 'max': 50})
+...     age: float = field(default=None, metadata={'unit': 'year', 'min': 30, 'max': 50})
 ...     height: float = field(default=None, metadata={'unit': 'cm', 'min': 156, 'max': 210})
 ...     weight: float = field(default=None, metadata={'unit': 'kg', 'min': 50, 'max': 90})
 ...
@@ -188,10 +188,10 @@ Use Case - 0x03
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50})
+...     age: int = field(metadata={'unit': 'year', 'type': 'range', 'min': 30, 'max': 50})
 ...     height: float = field(metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 200})
 ...     weight: float = field(metadata={'unit': 'kg', 'type': 'range', 'min': 50, 'max': 90})
-...     group: str = field(metadata={'type': 'choices', 'options': ['user', 'staff', 'admin']})
+...     group: str = field(metadata={'type': 'choice', 'options': ['user', 'staff', 'admin']})
 ...
 ...     def __post_init__(self):
 ...         for fieldname, field in self.__dataclass_fields__.items():
@@ -202,7 +202,7 @@ Use Case - 0x03
 ...             value = getattr(self, field.name)
 ...             match field.metadata['type']:
 ...                 case 'range': self._validate_range(field, value)
-...                 case 'choices': self._validate_choices(field, value)
+...                 case 'choice': self._validate_choice(field, value)
 ...
 ...     def _validate_range(self, field, value):
 ...         min = field.metadata['min']
@@ -210,7 +210,7 @@ Use Case - 0x03
 ...         if not min <= value < max:
 ...             raise ValueError(f'{field.name} value ({value}) is not between {min} and {max}')
 ...
-...     def _validate_choices(self, field, value):
+...     def _validate_choice(self, field, value):
 ...         options = field.metadata['options']
 ...         if value not in options:
 ...             raise ValueError(f'{field.name} value ({value}) not in options: {options}')
@@ -253,9 +253,9 @@ Use Case - 0x03
 ... class User:
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(default=None, metadata={'type': 'range', 'unit': 'gids', 'min': 30, 'max': 50})
+...     age: int = field(default=None, metadata={'type': 'range', 'unit': 'year', 'min': 30, 'max': 50})
 ...     height: float | None = field(default=None, metadata={'type': 'range', 'unit': 'cm',  'min': 156, 'max': 210})
-...     group: str | None = field(default='user', metadata={'type': 'choices', 'options': ['user', 'staff', 'admin']})
+...     group: str | None = field(default='user', metadata={'type': 'choice', 'options': ['user', 'staff', 'admin']})
 ...
 ...     def _validate_range(self, attrname, value):
 ...         min = self.__dataclass_fields__[attrname].metadata['min']
@@ -263,10 +263,10 @@ Use Case - 0x03
 ...         if value and not min <= value <= max:
 ...             raise ValueError(f'Attribute {attrname} is not between {min} and {max}')
 ...
-...     def _validate_choices(self, attrname, value):
+...     def _validate_choice(self, attrname, value):
 ...         options = self.__dataclass_fields__[attrname].metadata['options']
 ...         if options and value not in options:
-...             raise ValueError(f'Attribute {attrname} is not an option, choices are: {options}')
+...             raise ValueError(f'Attribute {attrname} is not a good choice, options are: {options}')
 ...
 ...     def __setattr__(self, attrname, value):
 ...         try:
@@ -275,7 +275,7 @@ Use Case - 0x03
 ...             return super().__setattr__(attrname, value)
 ...         match attrtype:
 ...             case 'range':   self._validate_range(attrname, value)
-...             case 'choices': self._validate_choices(attrname, value)
+...             case 'choice': self._validate_choice(attrname, value)
 ...             case _: raise NotImplementedError
 >>>
 >>>
@@ -287,7 +287,7 @@ User(firstname='Mark', lastname='Watney', age=None, height=None, group='user')
 >>> mark.group = 'staff'
 >>> mark.group = 'root'
 Traceback (most recent call last):
-ValueError: Attribute group is not an option, choices are: ['user', 'staff', 'admin']
+ValueError: Attribute group is not a good choice, options are: ['user', 'staff', 'admin']
 >>>
 >>> mark.age = 42
 >>> mark.age = 69
@@ -343,7 +343,7 @@ Use Case - 0x05
 ...         if not MIN <= value < MAX:
 ...             raise ValueError(f'{fieldname} value ({value}) not between {MIN} and {MAX}')
 ...
-...     def _validate_choices(self, fieldname, field):
+...     def _validate_choice(self, fieldname, field):
 ...         value = getattr(self, fieldname)
 ...         OPTIONS = field.metadata['options']
 ...         if value not in OPTIONS:
@@ -354,17 +354,17 @@ Use Case - 0x05
 ...             if 'type' in field.metadata:
 ...                 match field.metadata['type']:
 ...                     case 'range': self._validate_range(fieldname, field)
-...                     case 'choices': self._validate_choices(fieldname, field)
+...                     case 'choice': self._validate_choice(fieldname, field)
 ...                     case _: raise TypeError
 
 >>> @dataclass
 ... class User(BaseModel):
 ...     firstname: str
 ...     lastname: str
-...     age: int = field(default=None, metadata={'unit': 'gids', 'type': 'range', 'min': 30, 'max': 50, 'database': 'SmallPositiveInteger'})
+...     age: int = field(default=None, metadata={'unit': 'year', 'type': 'range', 'min': 30, 'max': 50, 'database': 'SmallPositiveInteger'})
 ...     height: float = field(default=None, metadata={'unit': 'cm', 'type': 'range', 'min': 150, 'max': 210, 'database':'Decimal(3,2)'})
 ...     weight: float = field(default=None, metadata={'unit': 'kg', 'type': 'range', 'min': 55, 'max': 85, 'database':'Decimal(3,2)'})
-...     group: str = field(default=None, metadata={'type': 'choices', 'options': ['user', 'staff', 'admin'], 'database':'VarChar(30)'})
+...     group: str = field(default=None, metadata={'type': 'choice', 'options': ['user', 'staff', 'admin'], 'database':'VarChar(30)'})
 
 >>> mark = User('Mark', 'Watney', age=42, height=178.0, weight=75.5, group='user')
 

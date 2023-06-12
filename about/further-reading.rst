@@ -7,7 +7,7 @@ Video
 * `Matt Harasymczuk's Webinars <https://www.youtube.com/playlist?list=PLv4THqSPE6meFeo_jNLgUVKkP40UstIQv>`_
 * `PyVideo <https://pyvideo.org/>`_
 * `InfoQ <https://www.infoq.com/python/>`_
-
+* `Making Python 5x FASTER with Guido van Rossum and Mark Shannon <https://www.youtube.com/watch?v=_r6bFhl6wR8&t=1930s>`_
 
 Trends
 ------

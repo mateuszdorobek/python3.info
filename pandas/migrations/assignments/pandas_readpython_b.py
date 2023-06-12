@@ -99,3 +99,22 @@ result = pd.DataFrame(data)
 #     astronaut['missions'] = ';'.join(missions)
 #     data.append(astronaut)
 # result = pd.DataFrame(data)
+
+
+# Alternative Solution
+# def as_dicts(astronaut):
+#     astronaut = vars(astronaut)
+#     missions = [vars(mission) for mission in astronaut.pop('missions')]
+#     return astronaut | {'missions': missions}
+#
+#
+# def flatten(astronaut):
+#     missions = [','.join(map(str, mission.values()))
+#                 for mission in astronaut.pop('missions')]
+#     astronaut['missions'] = ';'.join(missions)
+#     return astronaut
+#
+#
+# data = map(as_dicts, DATA)
+# data = map(flatten, data)
+# result = pd.DataFrame(data)

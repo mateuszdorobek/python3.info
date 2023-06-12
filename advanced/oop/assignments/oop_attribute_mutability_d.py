@@ -5,20 +5,20 @@
 * Time: 3 min
 
 English:
-    1. Create dataclass `User`, with attributes:
+    1. Create dataclass `Hero`, with attributes:
         a. `name: str` (required)
         b. `health: int` (optional), default: randint(50, 100)
-    2. Attributes must be set st the initialization from constructor arguments
+    2. Attributes must be set at the initialization from constructor arguments
     3. Avoid mutable parameter problem
     4. Użyj funkcji `randint()` z biblioteki `random`
     5. Run doctests - all must succeed
 
 Polish:
-    1. Stwórz dataklasę `User`, z atrybutami:
+    1. Stwórz dataklasę `Hero`, z atrybutami:
         a. `name: str` (wymagane)
         b. `health: int` (opcjonalne), domyślnie: randint(50, 100)
     2. Atrybuty mają być ustawiane przy inicjalizacji z parametrów konstruktora
-    3. Uniknij problemu motowalnych parametrów
+    3. Uniknij problemu mutowalnych parametrów
     4. Użyj funkcji `randint()` z biblioteki `random`
     5. Uruchom doctesty - wszystkie muszą się powieść
 

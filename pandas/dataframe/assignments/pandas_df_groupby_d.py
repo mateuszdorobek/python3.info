@@ -15,6 +15,7 @@ Polish:
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
+    * Note, that file delimiter is semicolon ";" (not comma)
     * Parse CSV and replace newlines inside fields with `","`
     * Split names into separate columns for each spacewalker (first, second, third)
     * Split names into separate rows for each spacewalker (use ffill)

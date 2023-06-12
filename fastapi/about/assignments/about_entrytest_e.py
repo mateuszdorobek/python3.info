@@ -20,7 +20,7 @@ Polish:
     1. Zdefiniuj `result: list[dict]`, gdzie każdy dict ma klucze:
        * ip: str
        * hosts: list[str]
-    2. Iteruje po liniach w `DATA` pomijając komentarze (`#`) i puste linie
+    2. Iteruj po liniach w `DATA` pomijając komentarze (`#`) i puste linie
     3. Wyciągnij z każdej linii: `ip` i `hosts`
     4. Dodaj `ip` i `hosts` do `result` jako słownik, przykład:
        {'ip': '127.0.0.1', 'hosts': ['localhost', 'astromatt']}

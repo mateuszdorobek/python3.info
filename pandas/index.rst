@@ -110,6 +110,7 @@ Case Study
     casestudy/api-gmail-stats.rst
     casestudy/csv-covid19.rst
     casestudy/csv-phones.rst
+    casestudy/csv-martian.rst
     casestudy/excel-sensors.rst
     casestudy/html-apollo11.rst
     casestudy/html-esa-astronauts.rst

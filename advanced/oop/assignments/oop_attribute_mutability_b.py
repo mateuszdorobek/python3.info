@@ -6,20 +6,20 @@
 
 English:
     1. Create dataclass `User`, with attributes:
-        a. `firstname: str` (required)
-        b. `lastname: str` (required)
+        a. `username: str` (required)
+        b. `password: str` (required)
         c. `groups: list[str]` (optional)
-    2. Attributes must be set st the initialization from constructor arguments
+    2. Attributes must be set at the initialization from constructor arguments
     3. Avoid mutable parameter problem
     4. Run doctests - all must succeed
 
 Polish:
     1. Stwórz dataklasę `User`, z atrybutami:
-        a. `firstname: str` (wymagane)
-        b. `lastname: str` (wymagane)
+        a. `username: str` (wymagane)
+        b. `password: str` (wymagane)
         c. `groups: list[str]` (opcjonalne)
     2. Atrybuty mają być ustawiane przy inicjalizacji z parametrów konstruktora
-    3. Uniknij problemu motowalnych parametrów
+    3. Uniknij problemu mutowalnych parametrów
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -29,18 +29,18 @@ Tests:
     >>> assert isclass(User)
     >>> assert hasattr(User, '__annotations__')
 
-    >>> assert 'firstname' in User.__dataclass_fields__
-    >>> assert 'lastname' in User.__dataclass_fields__
+    >>> assert 'username' in User.__dataclass_fields__
+    >>> assert 'password' in User.__dataclass_fields__
     >>> assert 'groups' in User.__dataclass_fields__
 
-    >>> mark = User('Mark', 'Watney')
-    >>> assert mark.firstname == 'Mark'
-    >>> assert mark.lastname == 'Watney'
+    >>> mark = User('mwatney', 'Ares3')
+    >>> assert mark.username == 'mwatney'
+    >>> assert mark.password == 'Ares3'
     >>> assert mark.groups == []
 
-    >>> melissa = User('Melissa', 'Lewis', groups=['user', 'staff', 'admin'])
-    >>> assert melissa.firstname == 'Melissa'
-    >>> assert melissa.lastname == 'Lewis'
+    >>> melissa = User('mlewis', 'Nasa1', groups=['user', 'staff', 'admin'])
+    >>> assert melissa.username == 'mlewis'
+    >>> assert melissa.password == 'Nasa1'
     >>> assert melissa.groups == ['user', 'staff', 'admin']
 
     >>> assert id(mark.groups) != id(melissa.groups)
@@ -49,8 +49,8 @@ from dataclasses import dataclass, field
 
 
 # Create class `User`, with attributes:
-# - `firstname: str` (required)
-# - `lastname: str` (required)
+# - `username: str` (required)
+# - `password: str` (required)
 # - `groups: list[str]` (optional)
 # type: type[User]
 @dataclass
@@ -61,6 +61,6 @@ class User:
 # Solution
 @dataclass
 class User:
-    firstname: str
-    lastname: str
+    username: str
+    password: str
     groups: list[str] = field(default_factory=list)
