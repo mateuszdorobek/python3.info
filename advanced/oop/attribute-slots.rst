@@ -741,3 +741,15 @@ Assignments
 .. literalinclude:: assignments/oop_attribute_slots_b.py
     :caption: :download:`Solution <assignments/oop_attribute_slots_b.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_slots_c.py
+    :caption: :download:`Solution <assignments/oop_attribute_slots_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_slots_d.py
+    :caption: :download:`Solution <assignments/oop_attribute_slots_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_slots_e.py
+    :caption: :download:`Solution <assignments/oop_attribute_slots_e.py>`
+    :end-before: # Solution

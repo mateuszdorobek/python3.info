@@ -1,86 +1,93 @@
 """
-* Assignment: OOP MethodClassmethod Time
+* Assignment: OOP MethodClassmethod FromTuple
 * Complexity: easy
-* Lines of code: 5 lines
-* Time: 8 min
+* Lines of code: 3 lines
+* Time: 3 min
 
 English:
-    1. Define class `Timezone` with:
-       a. Field `when: datetime`
-       b. Field `tzname: str`
-       c. Method `convert()` taking class and `datetime` object as arguments
-    2. Method `convert()` returns instance of a class, which was given
-       as an argument with field set `when: datetime`
+    1. Define class `Book` with:
+        a. Field `title: str`
+        b. Field `author: str`
+        c. Method `from_tuple()` with parameter: `data: tuple[str,str]`
+    2. Method `from_tuple()` returns instance of a class on which was called
     3. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę `Timezone` z:
-       a. polem `when: datetime`
-       b. polem `tzname: str`
-       c. Metodą `convert()` przyjmującą klasę oraz obiekt typu `datetime`
-          jako argumenty
-    2. Metoda `convert()` zwraca instancję klasy, którą dostała jako argument
-       z ustawionym polem `when: datetime`
+    1. Zdefiniuj klasę `Book` z:
+        a. Polem `title: str`
+        b. Polem `author: str`
+        c. Metodą `from_tuple()` z parametrem `data: tuple[str,str]`
+    2. Metoda `from_tuple()` zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
-
-Hints:
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
 
-    >>> assert isclass(Timezone)
-    >>> assert isclass(CET)
-    >>> assert isclass(CEST)
+    >>> assert isclass(Book)
+    >>> assert isclass(ScienceFiction)
+    >>> assert isclass(History)
+    >>> assert isclass(Adventure)
 
-    >>> dt = datetime(1969, 7, 21, 2, 56, 15)
+    >>> MARTIAN = ('Martian', 'Andy Weir')
+    >>> martian = ScienceFiction.from_tuple(MARTIAN)
+    >>> assert martian.title == 'Martian'
+    >>> assert martian.author == 'Andy Weir'
 
-    >>> cet = CET.convert(dt)
-    >>> assert cet.tzname == 'Central European Time'
-    >>> assert cet.when == datetime(1969, 7, 21, 2, 56, 15)
+    >>> DUNE = ('Dune', 'Frank Herbert')
+    >>> dune = Adventure.from_tuple(DUNE)
+    >>> assert dune.title == 'Dune'
+    >>> assert dune.author == 'Frank Herbert'
 
-    >>> cest = CEST.convert(dt)
-    >>> assert cest.tzname == 'Central European Summer Time'
-    >>> assert cest.when == datetime(1969, 7, 21, 2, 56, 15)
+    >>> RIGHT_STUFF = ('The Right Stuff', 'Tom Wolfe')
+    >>> right_stuff = History.from_tuple(RIGHT_STUFF)
+    >>> assert right_stuff.title == 'The Right Stuff'
+    >>> assert right_stuff.author == 'Tom Wolfe'
 """
-from datetime import datetime
 
 
-# Define class `Timezone` with:
-# - Field `when: datetime`
-# - Field `tzname: str`
-# - Method `convert()` taking class and `datetime` object as arguments
-# Method `convert()` returns instance of a class, which was given
-# as an argument with field set `when: datetime`
-class Timezone:
-    tzname: str
-    when: datetime
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+
+# Method `from_tuple()` with parameter: `data: tuple[str,str]`
+# Method `from_tuple()` returns instance of a class on which was called
+# type: Callable[[type[Self], tuple[str, str]], Self]
+    def from_tuple():
+        ...
 
 
-class CET(Timezone):
-    tzname = 'Central European Time'
+class ScienceFiction(Book):
+    pass
 
 
-class CEST(Timezone):
-    tzname = 'Central European Summer Time'
+class History(Book):
+    pass
+
+
+class Adventure(Book):
+    pass
 
 
 # Solution
-class Timezone:
-    when: datetime
-    tzname: str
-
-    def __init__(self, when):
-        self.when = when
+class Book:
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
 
     @classmethod
-    def convert(cls, dt: datetime):
-        return cls(dt)
+    def from_tuple(cls, data: tuple[str,str]):
+        title = data[0]
+        author = data[1]
+        return cls(title, author)
 
 
-class CET(Timezone):
-    tzname = 'Central European Time'
+class ScienceFiction(Book):
+    pass
 
+class History(Book):
+    pass
 
-class CEST(Timezone):
-    tzname = 'Central European Summer Time'
+class Adventure(Book):
+    pass

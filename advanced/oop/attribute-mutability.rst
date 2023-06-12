@@ -183,4 +183,18 @@ which as the name says, cannot be changed, so we are safe now:
 
 Assignments
 -----------
-.. todo:: Assignments
+.. literalinclude:: assignments/oop_attribute_mutability_a.py
+    :caption: :download:`Solution <assignments/oop_attribute_mutability_a.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_mutability_b.py
+    :caption: :download:`Solution <assignments/oop_attribute_mutability_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_mutability_c.py
+    :caption: :download:`Solution <assignments/oop_attribute_mutability_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_mutability_d.py
+    :caption: :download:`Solution <assignments/oop_attribute_mutability_d.py>`
+    :end-before: # Solution

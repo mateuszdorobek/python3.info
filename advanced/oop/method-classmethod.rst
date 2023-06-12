@@ -297,3 +297,31 @@ Assignments
 .. literalinclude:: assignments/oop_method_classmethod_b.py
     :caption: :download:`Solution <assignments/oop_method_classmethod_b.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_c.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_d.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_e.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_e.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_f.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_f.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_g.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_g.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_h.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_h.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/oop_method_classmethod_i.py
+    :caption: :download:`Solution <assignments/oop_method_classmethod_i.py>`
+    :end-before: # Solution

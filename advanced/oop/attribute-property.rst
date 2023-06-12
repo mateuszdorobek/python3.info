@@ -838,3 +838,7 @@ Assignments
 .. literalinclude:: assignments/oop_attribute_property_c.py
     :caption: :download:`Solution <assignments/oop_attribute_property_c.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/oop_attribute_property_d.py
+    :caption: :download:`Solution <assignments/oop_attribute_property_d.py>`
+    :end-before: # Solution

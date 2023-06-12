@@ -1,91 +1,96 @@
 """
-* Assignment: OOP MethodClassmethod CSV
+* Assignment: OOP MethodClassmethod FromCsv
 * Complexity: easy
 * Lines of code: 4 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
-    1. To class `CSVMixin` add methods:
-        a. `to_csv(self) -> str`
-        b. `from_csv(self, text: str) -> 'User' | 'Admin'`
-    2. `CSVMixin.to_csv()` should return attribute values separated with coma
-    3. `CSVMixin.from_csv()` should return instance of a class on which it was called
-    4. Use `@classmethod` decorator in proper place
-    5. Run doctests - all must succeed
+    1. Define class `Iris` with:
+        a. Field `sepal_length: float`
+        b. Field `sepal_width: float`
+        c. Field `petal_length: float`
+        d. Field `petal_width: float`
+        e. Field `species: str`
+        f. Method `from_csv()` with parameter: `line: datetime`
+    2. Method `from_csv()` returns instance of a class on which was called
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Do klasy `CSVMixin` dodaj metody:
-        a. `to_csv(self) -> str`
-        b. `from_csv(self, text: str) -> 'User' | 'Admin'`
-    2. `CSVMixin.to_csv()` powinna zwracać wartości atrybutów klasy rozdzielone po przecinku
-    3. `CSVMixin.from_csv()` powinna zwracać instancje klasy na której została wywołana
-    4. Użyj dekoratora `@classmethod` w odpowiednim miejscu
-    5. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj klasę `Iris` z:
+        a. Polem `sepal_length: float`
+        b. Polem `sepal_width: float`
+        c. Polem `petal_length: float`
+        d. Polem `petal_width: float`
+        e. Polem `species: str`
+        f. Metodą `from_csv()` z parametrem `line: str`
+    2. Metoda `from_csv()` zwraca instancję klasy na której została wykonana
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
-Hints:
-    * `CSVMixin.to_csv()` should add newline `\n` at the end of line
-    * `CSVMixin.from_csv()` should remove newline `\n` at the end of line
+Hint:
+    * str.split()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from os import remove
-    >>> from dataclasses import dataclass
+    >>> from inspect import isclass
 
-    >>> @dataclass
-    ... class User(CSVMixin):
-    ...     firstname: str
-    ...     lastname: str
-    ...
-    >>> @dataclass
-    ... class Admin(CSVMixin):
-    ...     firstname: str
-    ...     lastname: str
-
-    >>> mark = User('Mark', 'Watney')
-    >>> melissa = Admin('Melissa', 'Lewis')
-
-    >>> mark.to_csv()
-    'Mark,Watney\\n'
-    >>> melissa.to_csv()
-    'Melissa,Lewis\\n'
-
-    >>> with open('_temporary.txt', mode='wt') as file:
-    ...     data = mark.to_csv() + melissa.to_csv()
-    ...     file.writelines(data)
-
-    >>> result = []
-    >>> with open('_temporary.txt', mode='rt') as file:
-    ...     lines = file.readlines()
-    ...     result += [User.from_csv(lines[0])]
-    ...     result += [Admin.from_csv(lines[1])]
-
-    >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [User(firstname='Mark', lastname='Watney'),
-     Admin(firstname='Melissa', lastname='Lewis')]
-
-    >>> remove('_temporary.txt')
-
-TODO: dodać test sprawdzający czy linia kończy się newline
+    >>> assert isclass(Iris)
+    >>> assert isclass(Setosa)
+    >>> assert isclass(Versicolor)
+    >>> assert isclass(Virginica)
 """
 
-# `CSVMixin.to_csv()` returns attribute values separated with coma
-# `CSVMixin.from_csv()` returns instance of a class on which it was called
-# Use `@classmethod` decorator in proper place
-class CSVMixin:
-    def to_csv(self) -> str:
+class Iris:
+    def __init__(self, sepal_length, sepal_width,
+                 petal_length, petal_width, species):
+        self.sepal_length = sepal_length
+        self.sepal_width = sepal_width
+        self.petal_length = petal_length
+        self.petal_width = petal_width
+        self.species = species
+
+
+# Method `from_csv()` with parameter: `line: datetime`
+# Method `from_csv()` returns instance of a class on which was called
+# type: Callable[[type[Self], str], Self]
+    def from_csv():
         ...
 
-    def from_csv(cls, line: str):
-        ...
+
+class Setosa(Iris):
+    pass
+
+
+class Virginica(Iris):
+    pass
+
+
+class Versicolor(Iris):
+    pass
 
 
 # Solution
-class CSVMixin:
-    def to_csv(self) -> str:
-        data = vars(self).values()
-        return ','.join(data) + '\n'
+class Iris:
+    def __init__(self, sepal_length, sepal_width,
+                 petal_length, petal_width, species):
+        self.sepal_length = sepal_length
+        self.sepal_width = sepal_width
+        self.petal_length = petal_length
+        self.petal_width = petal_width
+        self.species = species
 
     @classmethod
-    def from_csv(cls, line: str):
-        data = line.strip().split(',')
-        return cls(*data)
+    def from_csv(cls, line):
+        values = line.split(',')
+        return cls(*values)
+
+
+class Setosa(Iris):
+    pass
+
+
+class Virginica(Iris):
+    pass
+
+
+class Versicolor(Iris):
+    pass
