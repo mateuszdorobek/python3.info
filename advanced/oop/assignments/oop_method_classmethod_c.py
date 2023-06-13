@@ -13,8 +13,10 @@ English:
         e. Field `gecos: str`
         f. Field `home: str`
         g. Field `shell: str`
-        h. Method `from_passwd()` with parameter: `line: str`
-    2. Method `from_passwd()` returns instance of a class on which was called
+        h. Method `from_passwd()`
+    2. Method `from_passwd()`:
+        a. Parameter `data: str`, example: 'root:x:0:0:root:/root:/bin/bash'
+        b. Returns instance of a class on which was called
     3. Run doctests - all must succeed
 
 Polish:
@@ -26,8 +28,10 @@ Polish:
         e. Polem `gecos: str`
         f. Polem `home: str`
         g. Polem `shell: str`
-        h. Metodą `from_passwd()` z parametrem `line: str`
-    2. Metoda `from_passwd()` zwraca instancję klasy na której została wykonana
+        h. Metodą `from_passwd()`
+    2. Metoda `from_passwd()`:
+        a. Parametr `data: str`, przykład: 'root:x:0:0:root:/root:/bin/bash'
+        b. Zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
@@ -42,25 +46,39 @@ Tests:
     >>> assert isclass(SystemAccount)
     >>> assert isclass(UserAccount)
 
-    >>> line = 'root:x:0:0:root:/root:/bin/bash'
-    >>> root = SystemAccount.from_passwd(line)
-    >>> assert root.username == 'root'
-    >>> assert root.password == 'x'
-    >>> assert root.uid == 0
-    >>> assert root.gid == 0
-    >>> assert root.gecos == 'root'
-    >>> assert root.home == '/root'
-    >>> assert root.shell == '/bin/bash'
+    >>> data = 'root:x:0:0:root:/root:/bin/bash'
+    >>> admin = SystemAccount.from_passwd(data)
+    >>> assert type(admin.username) is str
+    >>> assert type(admin.password) is str
+    >>> assert type(admin.uid) is int
+    >>> assert type(admin.gid) is int
+    >>> assert type(admin.gecos) is str
+    >>> assert type(admin.home) is str
+    >>> assert type(admin.shell) is str
+    >>> assert admin.username == 'root'
+    >>> assert admin.password == 'x'
+    >>> assert admin.uid == 0
+    >>> assert admin.gid == 0
+    >>> assert admin.gecos == 'root'
+    >>> assert admin.home == '/root'
+    >>> assert admin.shell == '/bin/bash'
 
-    >>> line = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
-    >>> root = UserAccount.from_passwd(line)
-    >>> assert root.username == 'watney'
-    >>> assert root.password == 'x'
-    >>> assert root.uid == 1000
-    >>> assert root.gid == 1000
-    >>> assert root.gecos == 'Mark Watney'
-    >>> assert root.home == '/home/watney'
-    >>> assert root.shell == '/bin/bash'
+    >>> data = 'watney:x:1000:1000:Mark Watney:/home/watney:/bin/bash'
+    >>> user = UserAccount.from_passwd(data)
+    >>> assert type(user.username) is str
+    >>> assert type(user.password) is str
+    >>> assert type(user.uid) is int
+    >>> assert type(user.gid) is int
+    >>> assert type(user.gecos) is str
+    >>> assert type(user.home) is str
+    >>> assert type(user.shell) is str
+    >>> assert user.username == 'watney'
+    >>> assert user.password == 'x'
+    >>> assert user.uid == 1000
+    >>> assert user.gid == 1000
+    >>> assert user.gecos == 'Mark Watney'
+    >>> assert user.home == '/home/watney'
+    >>> assert user.shell == '/bin/bash'
 """
 
 class Account:
@@ -73,7 +91,7 @@ class Account:
         self.home = home
         self.shell = shell
 
-# Method `from_passwd()` with parameter: `line: str`
+# Method `from_passwd()` with parameter: `data: str`
 # Method `from_passwd()` returns instance of a class on which was called
 # type: Callable[[type[Self], str], Self]
     def from_passwd():
@@ -100,8 +118,8 @@ class Account:
         self.shell = shell
 
     @classmethod
-    def from_passwd(cls, line: str):
-        username, password, uid, gid, gecos, home, shell = line.split(':')
+    def from_passwd(cls, data: str):
+        username, password, uid, gid, gecos, home, shell = data.split(':')
         return cls(username, password, int(uid), int(gid), gecos, home, shell)
 
 

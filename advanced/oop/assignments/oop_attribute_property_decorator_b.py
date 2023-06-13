@@ -6,21 +6,21 @@
 
 English:
     1. Define class `User` with attributes:
-        a. `username: str`
-        b. `password: str`
-        c. `birthday: date`
-    2. Define property `age`
-    3. Accessing `age` should return user's age in full years
-    4. Run doctests - all must succeed
+        a. Attribute `username: str`
+        b. Attribute `password: str`
+        c. Attribute `birthday: date`
+        d. Property `age`
+    2. Accessing `age` should return user's age in full years
+    3. Run doctests - all must succeed
 
 Polish:
     1. Define class `User` with attributes:
-        a. `username: str`
-        b. `password: str`
-        c. `birthday: date`
-    2. Zdefiniuj property `age`
-    3. Dostęp do `age` powinien zwrócić wiek użytkownika w pełnych latach
-    4. Uruchom doctesty - wszystkie muszą się powieść
+        a. Atrybut `username: str`
+        b. Atrybut `password: str`
+        c. Atrybut `birthday: date`
+        d. Property `age`
+    2. Dostęp do `age` powinien zwrócić wiek użytkownika w pełnych latach
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * date.today()
@@ -48,18 +48,16 @@ from datetime import date
 YEAR = 365.25
 
 
-# Define class `User` with attributes:
-# - `username: str`
-# - `password: str`
-# - `birthday: date`
-# Define property `age`
-# Accessing `age` should return user's age in full years
-# type: type[User]
 @dataclass
 class User:
     username: str
     password: str
     birthday: date
+
+# Accessing `age` should return user's age in full years
+# type: Callable[[Self], int]
+    def age():
+        ...
 
 
 # Solution

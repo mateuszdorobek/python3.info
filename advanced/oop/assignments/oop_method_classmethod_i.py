@@ -29,17 +29,6 @@ Hints:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from os import remove
-    >>> from dataclasses import dataclass
-
-    >>> @dataclass
-    ... class User(CSVMixin):
-    ...     firstname: str
-    ...     lastname: str
-    ...
-    >>> @dataclass
-    ... class Admin(CSVMixin):
-    ...     firstname: str
-    ...     lastname: str
 
     >>> mark = User('Mark', 'Watney')
     >>> melissa = Admin('Melissa', 'Lewis')
@@ -67,16 +56,33 @@ Tests:
 
 TODO: dodać test sprawdzający czy linia kończy się newline
 """
+from dataclasses import dataclass
+
+
+
+class CSVMixin:
 
 # `CSVMixin.to_csv()` returns attribute values separated with coma
-# `CSVMixin.from_csv()` returns instance of a class on which it was called
-# Use `@classmethod` decorator in proper place
-class CSVMixin:
+# type: Callable[[Self], str]
     def to_csv(self) -> str:
         ...
 
+# `CSVMixin.from_csv()` returns instance of a class on which it was called
+# type: Callable[[type[Self], str], Self]
+    @classmethod
     def from_csv(cls, line: str):
         ...
+
+
+@dataclass
+class User(CSVMixin):
+    firstname: str
+    lastname: str
+
+@dataclass
+class Admin(CSVMixin):
+    firstname: str
+    lastname: str
 
 
 # Solution
@@ -89,3 +95,14 @@ class CSVMixin:
     def from_csv(cls, line: str):
         data = line.strip().split(',')
         return cls(*data)
+
+
+@dataclass
+class User(CSVMixin):
+    firstname: str
+    lastname: str
+
+@dataclass
+class Admin(CSVMixin):
+    firstname: str
+    lastname: str

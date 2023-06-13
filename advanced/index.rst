@@ -73,7 +73,8 @@ OOP
     oop/attribute-classvar.rst
     oop/attribute-accessmodifiers.rst
     oop/attribute-slots.rst
-    oop/attribute-property.rst
+    oop/attribute-property-decorator.rst
+    oop/attribute-property-descriptor.rst
     oop/method-about.rst
     oop/method-accessmodifiers.rst
     oop/method-staticmethod.rst

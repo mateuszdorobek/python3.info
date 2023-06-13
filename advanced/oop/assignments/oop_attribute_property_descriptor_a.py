@@ -19,30 +19,30 @@ Polish:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> pt = Point(x=1, y=2, z=3)
-    >>> pt.x, pt.y, pt.z
-    (1, 2, 3)
+    >>> pt = Point()
+    >>> pt.x = 1
+    >>> pt.y = 2
+    >>> pt.z = 3
+
     >>> del pt.position
-    >>> pt.x, pt.y, pt.z
-    (0, 0, 0)
+    >>> assert pt.x == 0
+    >>> assert pt.y == 0
+    >>> assert pt.z == 0
 """
 
-from dataclasses import dataclass
-
-
-# Define class `Point` with `x`, `y`, `z` attributes
-# Define property `position` in class `Point`
-# Deleting `position` sets all attributes to 0 (`x=0`, `y=0`, `z=0`)
-# type: type[Point]
-@dataclass
 class Point:
     x: int
     y: int
     z: int
 
+# Define property `position` in class `Point`
+# Deleting `position` sets all attributes to 0 (`x=0`, `y=0`, `z=0`)
+# type: Callable[[Self], None]
+    def position():
+        ...
+
 
 # Solution
-@dataclass
 class Point:
     x: int
     y: int

@@ -15,8 +15,11 @@ English:
         g. Field `intelligence: int`
         h. Field `wisdom: int`
         i. Field `charisma: int`
-        j. Method `from_toml()` with parameter: `data: str`, `name: str`
-    2. Method `from_toml()` returns instance of a class on which was called
+        j. Method `from_toml()`
+    2. Method `from_toml()`:
+        a. Parameter `filename: str`, example: 'myfile.toml'
+        b. Parameter `name: str`, example: 'Sarevok'
+        c. Returns instance of a class on which was called
     3. Run doctests - all must succeed
 
 Polish:
@@ -30,8 +33,11 @@ Polish:
         g. Polem `intelligence: int`
         h. Polem `wisdom: int`
         i. Polem `charisma: int`
-        j. Metodą `from_toml()` z parametrem `data: str`, `name: str`
-    2. Metoda `from_toml()` zwraca instancję klasy na której została wykonana
+        j. Metodą `from_toml()`
+    2. Metoda `from_toml()`:
+        a. Parametr `filename: str`, przykład: 'myfile.toml'
+        b. Parametr `name: str`, przykład: 'Sarevok'
+        b. Zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
@@ -49,6 +55,10 @@ Tests:
     >>> assert isclass(Thief)
 
     >>> imoen = Thief.from_toml(FILE, 'Imoen')
+    >>> assert type(imoen.character_class) is str
+    >>> assert type(imoen.race) is str
+    >>> assert type(imoen.alignment) is str
+    >>> assert type(imoen.stats) is Stats
     >>> assert imoen.character_class == 'Thief'
     >>> assert imoen.race == 'Human'
     >>> assert imoen.alignment == 'Neutral Good'
@@ -57,6 +67,10 @@ Tests:
     ...                             wisdom=11, charisma=16)
 
     >>> minsc = Ranger.from_toml(FILE, 'Minsc')
+    >>> assert type(minsc.character_class) is str
+    >>> assert type(minsc.race) is str
+    >>> assert type(minsc.alignment) is str
+    >>> assert type(minsc.stats) is Stats
     >>> assert minsc.character_class == 'Ranger'
     >>> assert minsc.race == 'Human'
     >>> assert minsc.alignment == 'Neutral Good'
@@ -65,6 +79,10 @@ Tests:
     ...                             wisdom=6, charisma=9)
 
     >>> neera = WildMage.from_toml(FILE, 'Neera')
+    >>> assert type(neera.character_class) is str
+    >>> assert type(neera.race) is str
+    >>> assert type(neera.alignment) is str
+    >>> assert type(neera.stats) is Stats
     >>> assert neera.character_class == 'Wild Mage'
     >>> assert neera.race == 'Half-elf'
     >>> assert neera.alignment == 'Chaotic Neutral'
@@ -73,6 +91,10 @@ Tests:
     ...                             wisdom=10, charisma=11)
 
     >>> sarevok = Fighter.from_toml(FILE, 'Sarevok')
+    >>> assert type(sarevok.character_class) is str
+    >>> assert type(sarevok.race) is str
+    >>> assert type(sarevok.alignment) is str
+    >>> assert type(sarevok.stats) is Stats
     >>> assert sarevok.character_class == 'Fighter'
     >>> assert sarevok.race == 'Human'
     >>> assert sarevok.alignment == 'Chaotic Evil'

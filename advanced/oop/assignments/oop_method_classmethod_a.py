@@ -8,16 +8,20 @@ English:
     1. Define class `Book` with:
         a. Field `title: str`
         b. Field `author: str`
-        c. Method `from_tuple()` with parameter: `data: tuple[str,str]`
-    2. Method `from_tuple()` returns instance of a class on which was called
+        c. Method `from_tuple()`
+    2. Method `from_tuple()`:
+        a. Parameter `data: tuple[str,str]`, example: ('Martian', 'Andy Weir')
+        b. Returns instance of a class on which was called
     3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj klasę `Book` z:
         a. Polem `title: str`
         b. Polem `author: str`
-        c. Metodą `from_tuple()` z parametrem `data: tuple[str,str]`
-    2. Metoda `from_tuple()` zwraca instancję klasy na której została wykonana
+        c. Metodą `from_tuple()`
+    2. Metoda `from_tuple()`:
+        a. Parametr `data: tuple[str,str]`, przykład: ('Martian', 'Andy Weir')
+        b. Zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -31,16 +35,22 @@ Tests:
 
     >>> MARTIAN = ('Martian', 'Andy Weir')
     >>> martian = ScienceFiction.from_tuple(MARTIAN)
+    >>> assert type(martian.title) is str
+    >>> assert type(martian.author) is str
     >>> assert martian.title == 'Martian'
     >>> assert martian.author == 'Andy Weir'
 
     >>> DUNE = ('Dune', 'Frank Herbert')
     >>> dune = Adventure.from_tuple(DUNE)
+    >>> assert type(dune.title) is str
+    >>> assert type(dune.author) is str
     >>> assert dune.title == 'Dune'
     >>> assert dune.author == 'Frank Herbert'
 
     >>> RIGHT_STUFF = ('The Right Stuff', 'Tom Wolfe')
     >>> right_stuff = History.from_tuple(RIGHT_STUFF)
+    >>> assert type(right_stuff.title) is str
+    >>> assert type(right_stuff.author) is str
     >>> assert right_stuff.title == 'The Right Stuff'
     >>> assert right_stuff.author == 'Tom Wolfe'
 """

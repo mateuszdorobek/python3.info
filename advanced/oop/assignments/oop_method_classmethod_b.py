@@ -11,8 +11,10 @@ English:
         c. Field `petal_length: float`
         d. Field `petal_width: float`
         e. Field `species: str`
-        f. Method `from_csv()` with parameter: `line: datetime`
-    2. Method `from_csv()` returns instance of a class on which was called
+        f. Method `from_csv()`
+    2. Method `from_csv()`:
+        a. Parameter `data: str`, example: '5.8,2.7,5.1,1.9,virginica'
+        b. Returns instance of a class on which was called
     3. Run doctests - all must succeed
 
 Polish:
@@ -22,8 +24,10 @@ Polish:
         c. Polem `petal_length: float`
         d. Polem `petal_width: float`
         e. Polem `species: str`
-        f. Metodą `from_csv()` z parametrem `line: str`
-    2. Metoda `from_csv()` zwraca instancję klasy na której została wykonana
+        f. Metodą `from_csv()`
+    2. Metoda `from_csv()`:
+        a. Parametr `data: str`, przykład: '5.8,2.7,5.1,1.9,virginica'
+        b. Zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
@@ -37,6 +41,45 @@ Tests:
     >>> assert isclass(Setosa)
     >>> assert isclass(Versicolor)
     >>> assert isclass(Virginica)
+
+    >>> data = '5.8,2.7,5.1,1.9,virginica'
+    >>> virginica = Iris.from_csv(data)
+    >>> assert type(virginica.sepal_length) is float
+    >>> assert type(virginica.sepal_width) is float
+    >>> assert type(virginica.petal_length) is float
+    >>> assert type(virginica.petal_width) is float
+    >>> assert type(virginica.species) is str
+    >>> assert virginica.sepal_length == 5.8
+    >>> assert virginica.sepal_width == 2.7
+    >>> assert virginica.petal_length == 5.1
+    >>> assert virginica.petal_width == 1.9
+    >>> assert virginica.species == 'virginica'
+
+    >>> data = '5.1,3.5,1.4,0.2,setosa'
+    >>> setosa = Iris.from_csv(data)
+    >>> assert type(setosa.sepal_length) is float
+    >>> assert type(setosa.sepal_width) is float
+    >>> assert type(setosa.petal_length) is float
+    >>> assert type(setosa.petal_width) is float
+    >>> assert type(setosa.species) is str
+    >>> assert setosa.sepal_length == 5.1
+    >>> assert setosa.sepal_width == 3.5
+    >>> assert setosa.petal_length == 1.4
+    >>> assert setosa.petal_width == 0.2
+    >>> assert setosa.species == 'setosa'
+
+    >>> data = '5.7,2.8,4.1,1.3,versicolor'
+    >>> versicolor = Iris.from_csv(data)
+    >>> assert type(versicolor.sepal_length) is float
+    >>> assert type(versicolor.sepal_width) is float
+    >>> assert type(versicolor.petal_length) is float
+    >>> assert type(versicolor.petal_width) is float
+    >>> assert type(versicolor.species) is str
+    >>> assert versicolor.sepal_length == 5.7
+    >>> assert versicolor.sepal_width == 2.8
+    >>> assert versicolor.petal_length == 4.1
+    >>> assert versicolor.petal_width == 1.3
+    >>> assert versicolor.species == 'versicolor'
 """
 
 class Iris:
@@ -49,7 +92,7 @@ class Iris:
         self.species = species
 
 
-# Method `from_csv()` with parameter: `line: datetime`
+# Method `from_csv()` with parameter: `data: str`
 # Method `from_csv()` returns instance of a class on which was called
 # type: Callable[[type[Self], str], Self]
     def from_csv():
@@ -79,9 +122,11 @@ class Iris:
         self.species = species
 
     @classmethod
-    def from_csv(cls, line):
-        values = line.split(',')
-        return cls(*values)
+    def from_csv(cls, data):
+        *values, species = data.split(',')
+        values = map(float, values)
+        data = tuple(values) + (species,)
+        return cls(*data)
 
 
 class Setosa(Iris):
