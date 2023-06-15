@@ -15,6 +15,34 @@ Protocol Context Manager
 * Network streams
 * HTTP sessions
 
+Context managers are a Python construct that allow you to manage resources,
+such as files or network connections, in a safe and efficient way. They
+ensure that resources are properly acquired and released, even in the face
+of errors or exceptions.
+
+In Python, context managers are implemented using the ``with`` statement.
+The ``with`` statement provides a way to wrap a block of code with methods
+defined by a context manager. When the block of code is entered, the
+``__enter__()`` method of the context manager is called, and when the block
+of code is exited, the ``__exit__()`` method is called.
+
+For example, the following code uses the ``with`` statement to open a file
+and read its contents:
+
+>>> # doctest: +SKIP
+... with open('/tmp/myfile.txt', mode='r') as f:
+...    contents = f.read()
+
+In this example, the ``open()`` function returns a context manager that
+manages the file resource. When the ``with`` block is entered, the
+``__enter__()`` method of the context manager is called, which opens
+the file. When the ``with`` block is exited, the ``__exit__()`` method
+is called, which closes the file.
+
+Context managers are a powerful tool in Python, and are used extensively in
+libraries and frameworks to manage resources and ensure safe and efficient
+code execution.
+
 >>> class ContextManager:
 ...     def __enter__(self):
 ...         return self
@@ -169,6 +197,56 @@ Now we can use our function as a context manager:
 Duration 4.0250 seconds
 
 
+Many Context Managers
+---------------------
+* https://docs.python.org/3/whatsnew/3.10.html#parenthesized-context-managers
+
+>>> def convert(json_string) -> str:
+...     ...
+
+>>> # doctest: +SKIP
+... with open('/tmp/myfile.json', mode='r') as infile, \
+...      open('/tmp/myfile.csv', mode='w') as outfile:
+...     json_string = infile.read()
+...     csv_string = convert(json_string)
+...     outfile.write(csv_string)
+
+>>> # doctest: +SKIP
+... with (CtxManager() as example):
+...     ...
+
+>>> # doctest: +SKIP
+... with (
+...     CtxManager1(),
+...     CtxManager2()
+... ):
+...     ...
+
+>>> # doctest: +SKIP
+... with (CtxManager1() as example,
+...       CtxManager2()):
+...     ...
+
+>>> # doctest: +SKIP
+... with (CtxManager1(),
+...       CtxManager2() as example):
+...     ...
+
+>>> # doctest: +SKIP
+... with (
+...     CtxManager1() as example1,
+...     CtxManager2() as example2
+... ):
+...     ...
+
+>>> # doctest: +SKIP
+... with (
+...     CtxManager1() as example1,
+...     CtxManager2() as example2,
+...     CtxManager3() as example3,
+... ):
+...     ...
+
 Use Case - 0x01
 ---------------
 >>> from contextlib import contextmanager
@@ -239,6 +317,27 @@ Story about file allocation table:
 
 Use Case - 0x03
 ---------------
+>>> class File:
+...     def __init__(self, filename):
+...         self.filename = filename
+...
+...     def read(self):
+...         pass
+...
+...     def __enter__(self):
+...         return self
+...
+...     def __exit__(self, exc_type, exc_val, exc_tb):
+...         pass
+>>>
+>>>
+>>> with File('/tmp/myfile.txt') as file:
+...     content = file.read()
+
+
+
+Use Case - 0x04
+---------------
 * Database
 
 >>> import sqlite3
@@ -285,7 +384,7 @@ Use Case - 0x03
 {'id': 3, 'firstname': 'Rick', 'lastname': 'Martinez', 'age': 39}
 
 
-Use Case - 0x04
+Use Case - 0x05
 ---------------
 * Lock
 
@@ -322,7 +421,7 @@ Critical section 1
 Critical section 2
 
 
-Use Case - 0x05
+Use Case - 0x06
 ---------------
 SetUp:
 
@@ -351,7 +450,7 @@ Usage:
 Writing "hello" to /tmp/myfile.txt
 
 
-Use Case - 0x06
+Use Case - 0x07
 ---------------
 * Microbenchmark
 
@@ -424,7 +523,7 @@ Microbenchmark for concatenation using ``str.format()`` method:
 Duration: 5.3505 seconds
 
 
-Use Case - 0x07
+Use Case - 0x08
 ---------------
 >>> from unittest import IsolatedAsyncioTestCase
 >>> from httpx import AsyncClient, Response, HTTPStatusError
@@ -485,7 +584,7 @@ Use Case - 0x07
 
 
 
-Use Case - 0x08
+Use Case - 0x09
 ---------------
 * Source [#sqlalchemySessions]_
 
