@@ -55,6 +55,46 @@ code execution.
 ...     print('Do something with: cm')
 Do something with: cm
 
+SetUp:
+
+>>> from typing import Protocol
+
+Use case:
+
+>>> with open('/tmp/myfile.txt') as file:
+...     content = file.read()
+
+Equivalent code (naive):
+
+>>> file = open('/tmp/myfile.txt')
+>>> content = file.read()
+>>> file.close()
+
+Equivalent code (less naive):
+
+>>> file = open('/tmp/myfile.txt').__enter__()
+>>> content = file.read()
+>>> file.__exit__()
+
+Equivalent code:
+
+>>> try:
+...     file = open('/tmp/myfile.txt').__enter__()
+...     content = file.read()
+... finally:
+...     file.__exit__()
+
+This is because:
+
+>>> # doctest: +SKIP
+... class ContextManger(Protocol):
+...     def __enter__(self): ...
+...     def __exit__(self, exc_type, exc_val, exc_tb): ...
+...
+...
+... with ContextManger as obj:
+...     ...
+
 
 Typing
 ------
