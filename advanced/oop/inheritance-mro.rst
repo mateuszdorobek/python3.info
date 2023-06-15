@@ -233,34 +233,34 @@ Problematic super()
 >>> class Account:
 ...     def __init__(self):
 ...         print('Account')
->>>
->>>
+...
+...
 >>> class User(Account):
 ...     def __init__(self):
 ...         print('User')
 ...         super().__init__()
->>>
+...
 >>> class SuperUser(User):
 ...     def __init__(self):
 ...         print('SuperUser')
 ...         super().__init__()
->>>
->>>
+...
+...
 >>> class Admin(Account):
 ...     def __init__(self):
 ...         print('Admin')
 ...         super().__init__()
->>>
+...
 >>> class SuperAdmin(Admin):
 ...     def __init__(self):
 ...         print('SuperAdmin')
 ...         super().__init__()
->>>
->>>
+...
+...
 >>> class MyAccount(SuperUser, SuperAdmin):
 ...     pass
->>>
->>>
+...
+...
 >>> me = MyAccount()
 SuperUser
 User
@@ -376,19 +376,20 @@ If Python cannot find a coherent method resolution order, it'll raise
 an exception, instead of falling back to behavior which might surprise
 the user.
 
->>> class First:
+>>> class Account:
 ...     pass
->>>
->>> class Second(First):
+...
+>>> class User(Account):
 ...     pass
->>>
->>> class Third(First, Second):
+...
+>>> class Admin(Account, User):
 ...     pass
+...
 Traceback (most recent call last):
 TypeError: Cannot create a consistent method resolution
-order (MRO) for bases First, Second
+order (MRO) for bases Account, User
 
-Should ``Third``'s MRO be ``[First, Second]`` or ``[Second, First]``?
+Should ``Admin``'s MRO be ``[Account, User]`` or ``[User, Account]``?
 There's no obvious expectation, and Python will raise an error.
 
 

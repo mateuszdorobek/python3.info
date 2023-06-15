@@ -10,6 +10,14 @@ Modules
     modules/distributing.rst
 
 
+Collections
+***********
+.. toctree::
+    :maxdepth: 1
+    :caption: Collections
+
+    collections/defaultdict.rst
+
 
 Math
 ****

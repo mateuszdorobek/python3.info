@@ -365,7 +365,8 @@ Slots and Dunder Dict
 >>> vars(mark)
 {'email': 'mwatney@nasa.gov', 'phone': '+1 (234) 567-8910'}
 
->>> {x:getattr(mark, x) for x in mark.__slots__ if x != '__dict__'} | vars(mark)  # doctest: +NORMALIZE_WHITESPACE
+>>> slots = {x:getattr(mark, x) for x in mark.__slots__ if x != '__dict__'}
+>>> slots | vars(mark)  # doctest: +NORMALIZE_WHITESPACE
 {'firstname': 'Mark',
  'lastname': 'Watney',
  'email': 'mwatney@nasa.gov',

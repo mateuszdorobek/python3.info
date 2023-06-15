@@ -251,16 +251,16 @@ File ``myapp/timezone.py``:
 ...         ...
 ...
 ...     @classmethod
-...     def from_utc(cls, string):
+...     def from_string(cls, string):
 ...         values = datetime.fromisoformat(string)
 ...         return cls(**values)
 >>>
 >>>
->>> class CentralEuropeanTime(AbstractTimezone):
+>>> class CET(AbstractTimezone):
 ...     tzname = 'Central European Time'
 ...     tzcode = 'CET'
 >>>
->>> class CentralEuropeanSummerTime(AbstractTimezone):
+>>> class CEST(AbstractTimezone):
 ...     tzname = 'Central European Summer Time'
 ...     tzcode = 'CEST'
 
@@ -283,7 +283,7 @@ File `myapp/usage.py`:
 >>> # doctest: +SKIP
 ... from myapp.settings import time
 ...
-... dt = time.from_utc('1969-07-21T02:53:07Z')
+... dt = time.from_string('1969-07-21T02:53:15Z')
 ... print(dt.tzname)
 Central European Time
 

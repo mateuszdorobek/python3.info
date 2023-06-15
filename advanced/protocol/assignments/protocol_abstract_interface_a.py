@@ -2,7 +2,7 @@
 * Assignment: OOP AbstractInterface Define
 * Complexity: easy
 * Lines of code: 9 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Define interface `Account` with:

@@ -8,7 +8,7 @@ English:
     1. Define class `Setosa` implementing `IrisInterface`
     2. Implement methods
     3. Note, that attribute `species` is a `str`, and in Python you cannot add `str` and `float`
-    4. Create protected method `_get_values()` which returns values of `int` and `float` type attibutes
+    4. Create protected method `_values()` which returns values of `float` type attibutes
     5. Why this method is not in interface?
     6. Run doctests - all must succeed
 
@@ -16,7 +16,7 @@ Polish:
     1. Stwórz klasę `Setosa` implementującą `IrisInterface`
     2. Zaimplementuj metody
     3. Zwróć uwagę, że atrybut `species` jest `str`, a Python nie można dodawać `str` i `float`
-    4. Stwórz metodę chronioną `_get_values()`, która zwraca wartości atrybutów typu `int` i `float`
+    4. Stwórz metodę chronioną `_values()`, która zwraca wartości atrybutów typu `float`
     5. Dlaczego ta metoda nie jest w interfejsie?
     6. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -24,6 +24,7 @@ Hints:
     * `var(self).values()`
     * `instanceof()` or `type()`
     * `mean = sum() / len()`
+    * `@property`
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -100,15 +101,15 @@ class Setosa(IrisInterface):
         self.petal_width = petal_width
         self.species = species
 
-    def _get_values(self):
-        return [x for x in vars(self).values()
-                  if isinstance(x, (float,int))]
+    @property
+    def _values(self):
+        return [x for x in vars(self).values() if type(x) is float]
 
     def mean(self) -> float:
         return self.sum() / self.len()
 
     def sum(self) -> float:
-        return sum(self._get_values())
+        return sum(self._values)
 
     def len(self) -> int:
-        return len(self._get_values())
+        return len(self._values)

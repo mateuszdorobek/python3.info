@@ -22,7 +22,7 @@ attributes:
     instanceType: regular
     editor:
       type: PyCharm
-      version: '2022.2'
+      version: '2023.2'
       updateChannel: Release
 
 projects:

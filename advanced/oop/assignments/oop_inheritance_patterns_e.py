@@ -5,14 +5,14 @@
 * Time: 3 min
 
 English:
-    1. Compose class `MyAccount` from classes `Account`, `User`, `Admin`
+    1. Define class `MyAccount` from classes `Account`, `User`, `Admin`
     2. Use composition
     3. Initialize attributes in `__init__()` method
     4. Assignment demonstrates syntax
     5. Run doctests - all must succeed
 
 Polish:
-    1. Zkomponuj klasę `MyAccount` z klas `Account`, `User`, `Admin`
+    1. Zdefiniuj klasę `MyAccount` z klas `Account`, `User`, `Admin`
     2. Użyj kompozycji
     3. Zainicjalizuj atrybuty w metodzie `__init__()`
     4. Zadanie demonstruje składnię

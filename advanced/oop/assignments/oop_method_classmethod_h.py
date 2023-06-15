@@ -41,7 +41,7 @@ Polish:
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
-    * tomllib.loads()
+    * tomllib.load()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

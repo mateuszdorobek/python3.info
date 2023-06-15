@@ -188,6 +188,78 @@ instance (``self``) argument to method:
 1
 
 
+To @staticmethod or Not
+-----------------------
+SetUp:
+
+>>> from random import randint, seed
+>>> seed(0)
+
+Instance Method:
+
+>>> class Hero:
+...     def make_damage(self):
+...         return randint(5,20)
+>>>
+>>>
+>>> hero = Hero()
+>>> hero.make_damage()  # Will work (as expected)
+17
+>>>
+>>> Hero.make_damage()  # Will fail (as expected)
+Traceback (most recent call last):
+TypeError: Hero.make_damage() missing 1 required positional argument: 'self'
+
+Function:
+
+>>> def make_damage():
+...     return randint(5,20)
+>>>
+>>> class Hero:
+...     pass
+>>>
+>>>
+>>> mark = Hero()
+>>> mark.make_damage()  # AttributeError (unexpected)
+Traceback (most recent call last):
+AttributeError: 'Hero' object has no attribute 'make_damage'
+>>>
+>>> Hero.make_damage()  # AttributeError (unexpected)
+Traceback (most recent call last):
+AttributeError: type object 'Hero' has no attribute 'make_damage'
+
+Staticmethod:
+
+>>> class Hero:
+...     @staticmethod
+...     def make_damage():
+...         return randint(5,20)
+>>>
+>>>
+>>> hero = Hero()
+>>> hero.make_damage()  # Will work (as expected)
+18
+>>>
+>>> Hero.make_damage()  # Will work (unexpected)
+6
+
+No Warning:
+
+>>> class Hero:
+...     def make_damage(self):
+...         str(self)  # We use self, doesn't matter what we do with it
+...         return randint(5,20)
+>>>
+>>>
+>>> hero = Hero()
+>>> hero.make_damage()  # Will work (as expected)
+13
+>>>
+>>> Hero.make_damage()  # Will fail (as expected)
+Traceback (most recent call last):
+TypeError: Hero.make_damage() missing 1 required positional argument: 'self'
+
+
 Use Case - 0x01
 ---------------
 * Singleton
@@ -231,11 +303,8 @@ Use Case - 0x02
 
 Use Case - 0x03
 ---------------
->>> def user_login():
-...     print('Logged-in')
->>>
->>> def user_logout():
-...     print('Logged-out')
+>>> def user_create():
+...     print('Create User')
 >>>
 >>>
 >>> class User:
@@ -243,12 +312,8 @@ Use Case - 0x03
 
 >>> class User:
 ...     @staticmethod
-...     def login(self):
+...     def create(self):
 ...         print('Logged-in')
-...
-...     @staticmethod
-...     def logout(self):
-...         print('Logged-out')
 
 
 Use Case - 0x04
@@ -330,57 +395,6 @@ Helper `habitatOS <https://astronaut.center/habitatOS>`_ Z-Wave sensor model:
 >>>
 >>>
 >>> class ZWaveSensor(HabitatModel, MissionDateTime):  # doctest: +SKIP
-...     TYPE_BATTERY_LEVEL = 'battery-level'
-...     TYPE_POWER_LEVEL = 'powerlevel'
-...     TYPE_TEMPERATURE = 'temperature'
-...     TYPE_LUMINANCE = 'luminance'
-...     TYPE_RELATIVE_HUMIDITY = 'relative-humidity'
-...     TYPE_ULTRAVIOLET = 'ultraviolet'
-...     TYPE_BURGLAR = 'burglar'
-...     TYPE_CHOICES = [
-...         (TYPE_BATTERY_LEVEL, _('Battery Level')),
-...         (TYPE_POWER_LEVEL, _('Power Level')),
-...         (TYPE_TEMPERATURE, _('Temperature')),
-...         (TYPE_LUMINANCE, _('Luminance')),
-...         (TYPE_RELATIVE_HUMIDITY, _('Relative Humidity')),
-...         (TYPE_ULTRAVIOLET, _('Ultraviolet')),
-...         (TYPE_BURGLAR, _('Burglar'))]
-...
-...     UNIT_CELSIUS = 'celsius'
-...     UNIT_KELVIN = 'kelvin'
-...     UNIT_FAHRENHEIT = 'fahrenheit'
-...     UNIT_DECIBEL = 'decibel'
-...     UNIT_LUMINANCE = 'lux'
-...     UNIT_PERCENT = 'percent'
-...     UNIT_DIMENSIONLESS = None
-...     UNIT_CHOICES = [
-...         (UNIT_DIMENSIONLESS, _('n/a')),
-...         (UNIT_PERCENT, _('%')),
-...         (UNIT_LUMINANCE, _('Lux')),
-...         (UNIT_DECIBEL, _('dB')),
-...         (UNIT_CELSIUS, _('°C')),
-...         (UNIT_KELVIN, _('K')),
-...         (UNIT_FAHRENHEIT, _('°F'))]
-...
-...     DEVICE_ATRIUM = 'c1344062-2'
-...     DEVICE_ANALYTIC_LAB = 'c1344062-3'
-...     DEVICE_OPERATIONS = 'c1344062-4'
-...     DEVICE_TOILET = 'c1344062-5'
-...     DEVICE_DORMITORY = 'c1344062-6'
-...     DEVICE_STORAGE = 'c1344062-7'
-...     DEVICE_KITCHEN = 'c1344062-8'
-...     DEVICE_BIOLAB = 'c1344062-9'
-...     DEVICE_AIRLOCK = None
-...     DEVICE_CHOICES = [
-...         (DEVICE_ATRIUM, _('Atrium')),
-...         (DEVICE_ANALYTIC_LAB, _('Analytic Lab')),
-...         (DEVICE_OPERATIONS, _('Operations')),
-...         (DEVICE_TOILET, _('Toilet')),
-...         (DEVICE_DORMITORY, _('Dormitory')),
-...         (DEVICE_STORAGE, _('Storage')),
-...         (DEVICE_KITCHEN, _('Kitchen')),
-...         (DEVICE_BIOLAB, _('Biolab'))]
-...
 ...     datetime = models.DateTimeField(verbose_name=_('Datetime [UTC]'), db_index=True)
 ...     device = models.CharField(verbose_name=_('Sensor Location'), max_length=30, choices=DEVICE_CHOICES, db_index=True)
 ...     type = models.CharField(verbose_name=_('Type'), max_length=30, choices=TYPE_CHOICES)

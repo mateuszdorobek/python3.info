@@ -76,6 +76,7 @@ OOP
     oop/attribute-property-decorator.rst
     oop/attribute-property-descriptor.rst
     oop/method-about.rst
+    oop/method-self.rst
     oop/method-accessmodifiers.rst
     oop/method-staticmethod.rst
     oop/method-classmethod.rst

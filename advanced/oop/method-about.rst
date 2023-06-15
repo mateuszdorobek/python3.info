@@ -23,6 +23,50 @@ Recap
 3
 
 
+Function or Method
+------------------
+>>> class User:
+...     def say_hello(self):
+...         return 'hello'
+
+>>> type(User.say_hello)
+<class 'function'>
+
+>>> mark = User()
+>>> type(mark.say_hello)
+<class 'method'>
+
+
+Types
+-----
+Dynamic method:
+
+>>> class MyClass:
+...     def mymethod(self):
+...         pass
+
+Static method:
+
+>>> class MyClass:
+...     def mymethod():
+...         pass
+
+Static method:
+
+>>> class MyClass:
+...     @staticmethod
+...     def mymethod():
+...         pass
+
+Class method:
+
+>>> class MyClass:
+...     @classmethod
+...     def mymethod(cls):
+...         pass
+
+
+
 Class Function
 --------------
 >>> class User:
@@ -65,32 +109,43 @@ Note, that ``say_hello()`` is a method!!
 
 Compare
 -------
+>>> class User:
+...     def say_hello():
+...         return 'hello'
+>>>
+>>>
+>>> User.say_hello  # doctest: +ELLIPSIS
+<function User.say_hello at 0x...>
+>>>
+>>> type(User.say_hello)
+<class 'function'>
+>>>
+>>>
+>>> mark = User()
+>>>
+>>> mark.say_hello  # doctest: +ELLIPSIS
+<bound method User.say_hello of <__main__.User object at 0x...>>
+>>>
+>>> type(mark.say_hello)
+<class 'method'>
 
 
-Types
------
-Dynamic method:
-
->>> class MyClass:
-...     def mymethod(self):
-...         pass
-
-Static method:
-
->>> class MyClass:
-...     def mymethod():
-...         pass
-
-Static method:
-
->>> class MyClass:
-...     @staticmethod
-...     def mymethod():
-...         pass
-
-Class method:
-
->>> class MyClass:
-...     @classmethod
-...     def mymethod(cls):
-...         pass
+>>> class User:
+...     def say_hello(self):
+...         return 'hello'
+>>>
+>>>
+>>> User.say_hello  # doctest: +ELLIPSIS
+<function User.say_hello at 0x...>
+>>>
+>>> type(User.say_hello)
+<class 'function'>
+>>>
+>>>
+>>> mark = User()
+>>>
+>>> type(mark.say_hello)
+<class 'method'>
+>>>
+>>> mark.say_hello  # doctest: +ELLIPSIS
+<bound method User.say_hello of <__main__.User object at 0x...>>

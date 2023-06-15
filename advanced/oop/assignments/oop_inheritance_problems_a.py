@@ -32,8 +32,6 @@ Tests:
     >>> assert isclass(HasPosition)
     >>> assert issubclass(Hero, HasHealth)
     >>> assert issubclass(Hero, HasPosition)
-    >>> assert hasattr(HasHealth, 'HEALTH_MIN')
-    >>> assert hasattr(HasHealth, 'HEALTH_MAX')
     >>> assert hasattr(HasHealth, 'health')
     >>> assert hasattr(HasHealth, 'is_alive')
     >>> assert hasattr(HasHealth, 'is_dead')
@@ -66,12 +64,13 @@ Tests:
 
 from dataclasses import dataclass
 from random import randint
+from typing import ClassVar
 
 
 @dataclass
 class Hero:
-    HEALTH_MIN: int = 10
-    HEALTH_MAX: int = 20
+    HEALTH_MIN: ClassVar[int] = 10
+    HEALTH_MAX: ClassVar[int] = 20
     health: int = 0
     position_x: int = 0
     position_y: int = 0
@@ -101,8 +100,8 @@ class Hero:
 # Solution
 @dataclass
 class HasHealth:
-    HEALTH_MIN: int = 10
-    HEALTH_MAX: int = 20
+    HEALTH_MIN: ClassVar[int]
+    HEALTH_MAX: ClassVar[int]
     health: int = 0
 
     def __post_init__(self) -> None:
@@ -134,4 +133,5 @@ class HasPosition:
 
 
 class Hero(HasHealth, HasPosition):
-    pass
+    HEALTH_MIN: int = 10
+    HEALTH_MAX: int = 20

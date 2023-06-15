@@ -12,6 +12,7 @@ English:
     2. Method `from_timestamp()`:
         a. Parameter `data: int`, example: 1234567890
         b. Returns instance of a class on which was called
+    3. Use `timezone.utc` as a parameter to `datetime.fromtimestamp()`
     3. Run doctests - all must succeed
 
 Polish:
@@ -22,10 +23,11 @@ Polish:
     2. Metoda `from_timestamp()`:
         a. Parametr `data: int`, przykład: 1234567890
         b. Zwraca instancję klasy na której została wykonana
+    3. Użyj `timezone.utc` jako parametr do `datetime.fromtimestamp()`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * datetime.fromtimestamp()
+    * datetime.fromtimestamp(tz=timezone.utc)
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -39,15 +41,15 @@ Tests:
     >>> assert type(cet.tzname) is str
     >>> assert type(cet.dt) is datetime
     >>> assert cet.tzname == 'Central European Time'
-    >>> assert cet.dt == datetime(2009, 2, 14, 0, 31, 30)
+    >>> assert cet.dt == datetime(2009, 2, 13, 23, 31, 30, tzinfo=timezone.utc)
 
     >>> cest = CEST.from_timestamp(1234567890)
     >>> assert type(cest.tzname) is str
     >>> assert type(cest.dt) is datetime
     >>> assert cest.tzname == 'Central European Summer Time'
-    >>> assert cest.dt == datetime(2009, 2, 14, 0, 31, 30)
+    >>> assert cest.dt == datetime(2009, 2, 13, 23, 31, 30, tzinfo=timezone.utc)
 """
-from datetime import datetime
+from datetime import datetime, timezone
 
 
 class Timezone:
@@ -82,7 +84,7 @@ class Timezone:
 
     @classmethod
     def from_timestamp(cls, data: int):
-        dt = datetime.fromtimestamp(data)
+        dt = datetime.fromtimestamp(data, tz=timezone.utc)
         return cls(dt)
 
 
