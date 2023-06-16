@@ -6,6 +6,34 @@ Functional Filter
 * required ``callable`` - Function
 * required ``iterables`` - 1 or many sequence or iterator objects
 
+The filter function in Python is a built-in function that allows you to
+filter out elements from a given iterable based on a specified condition. It
+takes two arguments: a function that returns a Boolean value and an iterable
+(such as a list, tuple, or set) that you want to filter.
+
+The function is applied to each element in the iterable, and only those
+elements for which the function returns True are included in the result. The
+filtered elements are returned as an iterator, which can be converted to a
+list or other iterable if desired.
+
+Here's an example of using the filter function to filter out even numbers
+from a list:
+
+>>> data = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+>>>
+>>> def is_odd(n):
+...     return n % 2 != 0
+>>>
+>>> result = filter(is_odd, data)
+>>> list(result)
+[1, 3, 5, 7, 9]
+
+In this example, the ``is_odd`` function returns ``True`` for odd numbers
+and ``False`` for even numbers. The ``filter`` function is used to apply
+this function to each element in the ``numbers`` list and return only those
+elements for which ``is_odd`` returns ``True``. The resulting list contains
+only the odd numbers from the original list.
+
 >>> def even(x):
 ...     return x % 2 == 0
 >>>
