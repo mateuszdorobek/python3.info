@@ -9,6 +9,47 @@ AsyncIO Coroutine
 * Coroutines declared with the ``async``/``await`` syntax is the preferred way of writing asyncio applications. [#pydocAsyncioTask]_
 * https://peps.python.org/pep-0492/
 
+In Python, a coroutine is a special type of function that allows for
+asynchronous programming. Coroutines are defined using the ``async def``
+syntax and can be paused and resumed at specific points using the ``await``
+keyword.
+
+When a coroutine is called, it returns a coroutine object, which is a type
+of generator object. The coroutine object can be used to control the
+execution of the coroutine, allowing it to be paused and resumed at specific
+points.
+
+Here is an example of a simple coroutine in Python:
+
+>>> async def my_coroutine():
+...     print("Coroutine started.")
+...     await asyncio.sleep(0.5)
+...     print("Coroutine resumed.")
+...     await asyncio.sleep(1.0)
+...     print("Coroutine complete.")
+
+In this example, the ``my_coroutine`` function is defined using the
+``async def`` syntax. It prints a message, sleeps for 0.5 second using
+the ``await`` keyword and the ``asyncio.sleep()`` function, prints another
+message, sleeps for an additional 1.0 seconds using the ``await`` keyword
+and the ``asyncio.sleep()`` function, and then prints a final message.
+
+To call the coroutine, you can use the ``await`` keyword:
+
+>>> await my_coroutine()  # doctest: +SKIP
+
+When the coroutine is called using ``await``, it will execute until it reaches
+the first ``await`` statement, which will pause the coroutine and return
+control to the event loop. The event loop will then continue to run other
+coroutines until the first ``await`` statement has completed its task. The
+coroutine will then resume from where it left off until it reaches the
+second ``await`` statement, and so on.
+
+Coroutines are a powerful tool for writing asynchronous code in Python,
+allowing for efficient and scalable programs that can handle multiple tasks
+simultaneously.
+
+
 Syntax
 ------
 >>> async def hello():

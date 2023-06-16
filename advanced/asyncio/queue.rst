@@ -4,6 +4,57 @@ AsyncIO Queue
 * Although ``asyncio`` queues are not thread-safe, they are designed to be used specifically in async/await code.
 * Note that methods of asyncio queues don't have a timeout parameter; use`` asyncio.wait_for()`` function to do queue operations with a timeout.
 
+In Python, ``asyncio`` is a module that provides tools for writing
+asynchronous code using coroutines. The ``asyncio.Queue()`` class is a
+utility class that is used to implement a queue for asynchronous programming.
+
+The ``asyncio.Queue()`` class is similar to the ``queue.Queue()`` class in
+Python's standard library, but it is designed for use with asynchronous code.
+It allows coroutines to put items into the queue and get items from the queue
+without blocking the event loop.
+
+Here is an example of how to use ``asyncio.Queue()``:
+
+>>> import asyncio
+>>>
+>>> async def producer(queue):
+...     for i in range(5):
+...         await asyncio.sleep(0.5)
+...         item = f'item {i}'
+...         await queue.put(item)
+...         print(f'Produced {item}')
+>>>
+>>> async def consumer(queue):
+...     while True:
+...         item = await queue.get()
+...         print(f'Consumed {item}')
+...         queue.task_done()
+>>>
+>>> async def main():
+...     queue = asyncio.Queue()
+...     producer_task = asyncio.create_task(producer(queue))
+...     consumer_task = asyncio.create_task(consumer(queue))
+...     await asyncio.gather(producer_task, consumer_task)
+...     await queue.join()
+>>>
+>>> asyncio.run(main())  # doctest: +SKIP
+
+In this example, the ``producer`` coroutine puts items into the queue using
+the ``put`` method of the ``asyncio.Queue()`` class. The ``consumer``
+coroutine gets items from the queue using the ``get`` method of the
+``asyncio.Queue()`` class. The ``main`` coroutine creates a queue, creates
+tasks for the producer and consumer coroutines using
+``asyncio.create_task()``, and then waits for them to complete using
+``asyncio.gather()``. Finally, it waits for the queue to be empty using the
+``join`` method of the ``asyncio.Queue()`` class.
+
+When the program is run, the ``producer`` coroutine puts 5 items into the
+queue, and the ``consumer`` coroutine gets each item from the queue and prints
+it. The program will run until all items have been consumed from the queue.
+
+The ``asyncio.Queue()`` class is a useful tool for implementing asynchronous
+communication between coroutines in Python.
+
 
 FIFO Queue
 ----------

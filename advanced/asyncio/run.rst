@@ -3,6 +3,42 @@ AsyncIO Run
 * ``asyncio.run()`` is a main entrypoint
 * ``asyncio.gather()`` can run concurrently and gather result (in order of its arguments)
 
+In Python, asyncio is a module that provides tools for writing asynchronous
+code using coroutines. ``The asyncio.run()`` function is a utility function
+that is used to run the main entry point of an asyncio program.
+
+The ``asyncio.run()`` function was introduced in Python 3.7 as a simple way
+to run an asyncio program. It creates an event loop, runs the coroutine passed
+to it, and then closes the event loop.
+
+Here is an example of how to use ``asyncio.run()``:
+
+>>> import asyncio
+>>>
+>>> async def my_coroutine():
+...     await asyncio.sleep(5)
+...     print("Task complete!")
+>>>
+>>> async def main():
+...     await my_coroutine()
+>>>
+>>> asyncio.run(main())
+Task complete!
+
+In this example, the ``my_coroutine`` function is a coroutine that sleeps for
+5 seconds and then prints "Task complete!". The ``main`` function calls
+``my_coroutine`` using the ``await`` keyword. Finally, the ``asyncio.run()``
+function is used to run the ``main`` coroutine.
+
+When ``asyncio.run()`` is called, it creates an event loop, runs the ``main``
+coroutine, and then closes the event loop. In this case, the ``my_coroutine``
+function will be executed, causing the program to sleep for 5 seconds before
+printing "Task complete!".
+
+The ``asyncio.run()`` function is a convenient way to run an asyncio program
+without having to manually create and manage an event loop. It simplifies
+the process of writing asynchronous code in Python.
+
 
 SetUp
 -----
