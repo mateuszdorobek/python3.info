@@ -5,6 +5,34 @@ Functional Lambda
 * When function is short
 * You don't need to name it (therefore anonymous)
 
+In Python, a lambda expression is a small anonymous function that can have
+any number of arguments, but can only have one expression. It is also known
+as a lambda function or lambda form.
+
+Lambda expressions are defined using the ``lambda`` keyword, followed by the
+function's arguments and a colon, and then the expression to be evaluated.
+The result of the expression is returned automatically.
+
+Here's an example of a lambda expression that adds two numbers:
+
+>>> add = lambda x, y: x + y
+>>>
+>>> result = add(2, 3)
+>>>
+>>> print(result)
+5
+
+In this example, the ``lambda`` keyword is used to define a function that
+takes two arguments (``x`` and ``y``) and returns their sum. The function
+is assigned to the variable ``add``. The ``add()`` function is then called
+with the arguments ``2`` and ``3``, and the result is stored in the variable
+``result``.
+
+Lambda expressions are often used as a shortcut for defining small,
+one-off functions that are only needed in a specific context. They can be
+used anywhere that a function is expected, such as in the ``map()`` and
+``filter()`` functions.
+
 .. glossary::
 
     lambda

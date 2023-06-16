@@ -2,6 +2,45 @@ Functional Pattern MapReduce
 ============================
 * split-apply-combine strategy
 
+The map-reduce algorithm is a programming model used for processing large
+amounts of data in a distributed and parallel manner. It consists of two
+phases: the map phase and the reduce phase.
+
+In Python, the map-reduce algorithm can be implemented using the built-in
+``map()`` and ``reduce()`` functions.
+
+Here's an example of using the map-reduce algorithm to calculate the sum of
+squares of a list of numbers:
+
+>>> from functools import reduce
+>>>
+>>> numbers = [1, 2, 3, 4, 5]
+>>>
+>>> squared_numbers = list(map(lambda x: x ** 2, numbers))
+>>> sum_of_squares = reduce(lambda x, y: x + y, squared_numbers)
+>>>
+>>> print(sum_of_squares)
+55
+
+In this example, the ``map()`` function is used to square each number in the
+``numbers`` list. The resulting list of squared numbers is stored in the
+``squared_numbers`` variable.
+
+The ``reduce()`` function is then used to calculate the sum of the squared
+numbers. The ``lambda`` function passed to ``reduce()`` takes two arguments
+(``x`` and ``y``) and returns their sum. The ``reduce()`` function applies
+this function to the elements of the ``squared_numbers`` list, starting with
+the first two elements, and then applying the function to the result and the
+next element, and so on, until all elements have been processed.
+
+The final result (``55``) is the sum of the squares of the original list of
+numbers.
+
+The map-reduce algorithm can be used for a wide range of data processing
+tasks, such as filtering, sorting, and aggregating data. By dividing the
+work into smaller tasks that can be performed in parallel, the algorithm can
+process large amounts of data efficiently.
+
 Apply function of two arguments cumulatively to the items of iterable, from
 left to right, so as to reduce the iterable to a single value. For example,
 ``reduce(lambda x, y: x+y, [1, 2, 3, 4, 5])`` calculates
@@ -77,7 +116,7 @@ Use Case - 0x01
 ...     return x + 1
 >>>
 >>> def decrement(x):
-...     return x + 1
+...     return x - 1
 
 >>> from functools import reduce
 >>> from operator import add
@@ -92,7 +131,7 @@ Use Case - 0x01
 >>> result = reduce(add, data)
 >>>
 >>> result
-178434046
+178433024
 
 
 Use Case - 0x02
@@ -113,7 +152,7 @@ Use Case - 0x02
 ...     return x + 1
 >>>
 >>> def decrement(x):
-...     return x + 1
+...     return x - 1
 
 >>> filters = [
 ...     even,
@@ -139,7 +178,7 @@ Use Case - 0x02
 >>> result = reduce(add, data)
 >>>
 >>> result
-3072
+1024
 
 
 Use Case - 0x03
@@ -205,11 +244,39 @@ but before that we need to evaluate maps to lists.
 >>> def merge(x, y):
 ...     return list(x) + list(y)
 
->>> merged = reduce(merge, [workerA, workerB, workerC])
+>>> merged = reduce(merge, [workerA, workerB, workerC])  # [27, 512, 3375, 13824, 42875, 110592, 250047, 512000, 970299]
 >>> result = reduce(add, merged)
-
+>>>
 >>> print(result)
 1903551
 
->>> print(merged)
-[27, 512, 3375, 13824, 42875, 110592, 250047, 512000, 970299]
+
+Use Case - 0x04
+---------------
+>>> from itertools import chain
+>>> from functools import reduce, partial
+>>> from operator import add, sub, mul, pow
+>>> from math import sqrt, cbrt
+
+>>> transformations = [
+...     partial(add, 1),
+...     partial(sub, 1),
+...     partial(pow, 2),
+...     partial(pow, 3),
+... ]
+
+>>> data = [
+...     [1, 2, 3],
+...     [4, 5, 6],
+...     [7, 8, 9],
+... ]
+
+>>> def apply(data, fn):
+...     return map(fn, data)
+
+>>> workerA = reduce(apply, transformations, data[0])  # [27, 512, 3375]
+>>> workerB = reduce(apply, transformations, data[1])  # [13824, 42875, 110592]
+>>> workerC = reduce(apply, transformations, data[2])  # [250047, 512000, 970299]
+
+>>> reduce(add, chain(workerA, workerB, workerC))
+10.333713311264441

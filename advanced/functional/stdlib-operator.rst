@@ -12,6 +12,24 @@ Operator Module
 * ``operator.pos()``
 * ``operator.invert()``
 
+The operator module in Python provides a set of functions that correspond to
+the built-in operators in Python. These functions can be used to perform
+operations on data types such as numbers, strings, and lists.
+
+The module contains functions for arithmetic operations such as addition,
+subtraction, multiplication, and division, as well as functions for logical
+operations such as AND, OR, NOT, and XOR. It also includes functions for
+comparison operations such as less than, greater than, equal to, and not
+equal to.
+
+One of the main benefits of using the operator module is that it allows you
+to perform operations on objects that may not support the corresponding
+operator. For example, you can use the ``operator.add()`` function to add two
+lists together, even though the ``+`` operator is not supported for lists.
+
+Overall, the operator module provides a convenient way to perform operations
+in Python and can be particularly useful in functional programming.
+
 
 Operator Module - AND
 ---------------------

@@ -3,9 +3,14 @@ Functional Higher-Order
 * Function can take other function as arguments
 * Function can return function
 
-Functions in the functional programming style are treated as variables. This makes them first-class functions. These can be passed to other functions as parameters or returned from functions or stored in data structures. [#Inouye2022]_
+Functions in the functional programming style are treated as variables.
+This makes them first-class functions. These can be passed to other
+functions as parameters or returned from functions or stored in data
+structures. [#Inouye2022]_
 
-A higher-order function is a function that takes other functions as arguments and/or returns functions. First-class functions can be higher-order functions in functional programming languages. [#Inouye2022]_
+A higher-order function is a function that takes other functions as
+arguments and/or returns functions. First-class functions can be
+higher-order functions in functional programming languages. [#Inouye2022]_
 
 >>> def lower():
 ...     ...

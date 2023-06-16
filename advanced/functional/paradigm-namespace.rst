@@ -3,6 +3,41 @@ Functional Namespace
 * Functions provide namespaces
 * Only code inside that namespace can access it's locals
 
+In Python, a function is a namespace, which means that it is a container for
+variables and other objects. The variables and objects defined within a
+function are only accessible within that function's namespace, and cannot be
+accessed from outside the function.
+
+When a function is called, a new namespace is created for it. This namespace
+contains all the local variables and objects defined within the function, as
+well as any arguments passed to the function. The namespace is destroyed
+when the function returns.
+
+Here's an example of using a function as a namespace in Python:
+
+>>> def my_function():
+...     x = 10
+...     y = 20
+...     print(x + y)
+>>>
+>>> my_function()
+30
+>>> print(x)
+Traceback (most recent call last):
+NameError: name 'x' is not defined
+
+In this example, the ``my_function()`` function defines two variables
+(``x`` and ``y``) within its namespace. These variables are only accessible
+within the function. When the function is called, it prints the sum of ``x``
+and ``y``. When the function returns, the namespace is destroyed, and the
+variables are no longer accessible.
+
+If we try to access the ``x`` variable outside the function, we get a
+``NameError`` because the variable is not defined in the global namespace.
+
+Using functions as namespaces helps to keep code modular and organized.
+It also helps to prevent naming conflicts between different parts of a program.
+
 
 Variables Inside Function
 -------------------------

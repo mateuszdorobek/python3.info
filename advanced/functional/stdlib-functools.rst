@@ -7,6 +7,30 @@ Functional Stdlib Functools
 * ``functools.singledispatch()``
 * ``functools.singledispatchmethod()``
 
+The functools module in Python provides a set of higher-order functions that
+can be used to manipulate functions and other callable objects. These
+functions can be used to modify the behavior of functions, create new
+functions from existing ones, and perform other operations on functions.
+
+One of the most commonly used functions in the functools module is
+``partial()``, which allows you to create a new function with some of the
+arguments of an existing function already set. This can be useful in
+situations where you need to repeatedly call a function with the same
+arguments, but don't want to keep typing them out.
+
+Another useful function in the functools module is ``reduce()``, which applies
+a function to a sequence of values and returns a single value. This can be
+used to perform operations such as calculating the sum of a list of numbers
+or finding the maximum value in a list.
+
+The functools module also includes functions for caching function results
+(``lru_cache()``), creating decorators (``wraps()``), and performing other
+operations on functions and callable objects.
+
+Overall, the functools module provides a powerful set of tools for working
+with functions in Python and can be particularly useful in functional
+programming.
+
 >>> import functools
 >>>
 >>> [method for method in dir(functools)

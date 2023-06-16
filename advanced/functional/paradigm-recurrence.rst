@@ -82,34 +82,30 @@ Recursion Depth Limit
 >>> sys.setrecursionlimit(3000)
 
 
-Use Case - 0x01
----------------
-.. figure:: img/functional-recurrence-hanoi.jpg
-
-    Hanoi Tower as a standard example of a recurrence. Source: [#hanoi]_
-
-
-Use Case - 0x02
----------------
+Notation
+--------
 >>> def factorial(n):
 ...     if n == 0:
 ...         return 1
 ...     return n * factorial(n-1)
 
 >>> def factorial(n):
+...     return n * factorial(n-1) if n else 1
+
+>>> def factorial(n):
 ...     return 1 if n == 0 else n * factorial(n-1)
 
 >>> def factorial(n):
-...     return n * factorial(n-1) if n else 1
+...     return 1 if n==0 else n*factorial(n-1)
 
 
-Use Case - 0x03
----------------
+Memoization
+-----------
 >>> CACHE = {}
 >>>
 >>> def factorial(n):
 ...     if n not in CACHE:
-...         CACHE[n] = n * factorial(n-1) if n else 1
+...         CACHE[n] = 1 if n==0 else n*factorial(n-1)
 ...     return CACHE[n]
 
 >>> factorial(5)
@@ -129,6 +125,72 @@ Use Case - 0x03
 >>>
 >>> 5 * CACHE[4]
 120
+
+
+Performance
+-----------
+>>> def factorial(n):
+...     return 1 if n==0 else n*factorial(n-1)
+...
+>>>
+>>> %%timeit -n 1000 -r 1000  # doctest: +SKIP
+... factorial(19)
+... factorial(20)
+...
+11.2 µs ± 703 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> CACHE = {}
+>>>
+>>> def factorial(n):
+...     if n not in CACHE:
+...         CACHE[n] = 1 if n==0 else n*factorial(n-1)
+...     return CACHE[n]
+...
+>>>
+>>> %%timeit -n 1000 -r 1000  # doctest: +SKIP
+... factorial(19)
+... factorial(20)
+...
+253 ns ± 74.4 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> CACHE  # doctest: +SKIP
+{0: 1,
+ 1: 1,
+ 2: 2,
+ 3: 6,
+ 4: 24,
+ 5: 120,
+ 6: 720,
+ 7: 5040,
+ 8: 40320,
+ 9: 362880,
+ 10: 3628800,
+ 11: 39916800,
+ 12: 479001600,
+ 13: 6227020800,
+ 14: 87178291200,
+ 15: 1307674368000,
+ 16: 20922789888000,
+ 17: 355687428096000,
+ 18: 6402373705728000,
+ 19: 121645100408832000,
+ 20: 2432902008176640000}
+
+>>> factorial(20)
+2432902008176640000
+
+>>> factorial(21)
+51090942171709440000
+
+>>> 21 * factorial(20)
+51090942171709440000
+
+
+Use Case - 0x01
+---------------
+.. figure:: img/functional-recurrence-hanoi.jpg
+
+    Hanoi Tower as a standard example of a recurrence. Source: [#hanoi]_
 
 
 References

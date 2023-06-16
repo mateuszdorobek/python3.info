@@ -142,20 +142,25 @@ Functional
     :caption: Functional
 
     functional/about.rst
-    functional/apply-map.rst
-    functional/apply-filter.rst
-    functional/apply-reduce.rst
+
     functional/paradigm-lambda.rst
-    functional/paradigm-scope.rst
     functional/paradigm-pure-function.rst
     functional/paradigm-recurrence.rst
     functional/paradigm-immutable.rst
+    functional/paradigm-referential-transparency.rst
+
     functional/paradigm-first-class.rst
     functional/paradigm-higher-order.rst
-    functional/paradigm-referential-transparency.rst
-    functional/paradigm-namespace.rst
+
+    functional/apply-map.rst
+    functional/apply-filter.rst
+    functional/apply-reduce.rst
+
     functional/paradigm-function-attributes.rst
     functional/paradigm-callable.rst
+    functional/paradigm-scope.rst
+    functional/paradigm-namespace.rst
+
     functional/pattern-closure.rst
     functional/pattern-callback.rst
     functional/pattern-mapreduce.rst

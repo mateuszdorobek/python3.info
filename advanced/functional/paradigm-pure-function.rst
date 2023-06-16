@@ -7,12 +7,18 @@ Functional Pure Functions
 
 Pure functions have two important properties [#Inouye2022]_:
 
-* They always produce the same output with the same arguments irrespective of other factors. This property is also known as immutability.
-* They are deterministic. Pure functions either give some output or modify any argument or global variables i.e. they have no side effects.
+* They always produce the same output with the same arguments irrespective
+  of other factors. This property is also known as immutability.
 
-Because pure functions have no side effects or hidden I/O, programs built using functional paradigms are easy to debug. Moreover, pure functions make writing concurrent applications easier.
+* They are deterministic. Pure functions either give some output or modify
+  any argument or global variables i.e. they have no side effects.
 
-When the code is written using the functional programming style, a capable compiler is able to:
+Because pure functions have no side effects or hidden I/O, programs built
+using functional paradigms are easy to debug. Moreover, pure functions make
+writing concurrent applications easier.
+
+When the code is written using the functional programming style, a capable
+compiler is able to:
 
 * Memorize the results
 * Parallelize the instructions

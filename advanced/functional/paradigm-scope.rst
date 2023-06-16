@@ -10,6 +10,59 @@ Functional Scope
 * ``global`` keyword allows modification of global variable
 * Using ``global`` keyword is considered as a bad practice
 
+In Python, a function scope refers to the area of a program where a variable
+is accessible. A variable's scope is determined by where it is defined in
+the program.
+
+When a variable is defined inside a function, it has local scope, which
+means that it can only be accessed within that function. Local variables are
+destroyed when the function returns.
+
+Here's an example of using local variables in Python:
+
+>>> def my_function():
+...     x = 10
+...     print(x)
+>>>
+>>> my_function()
+10
+>>> print(x)
+Traceback (most recent call last):
+NameError: name 'x' is not defined
+
+In this example, the ``x`` variable is defined inside the ``my_function()``
+function. It has local scope and can only be accessed within the function.
+When the function is called, it prints the value of ``x``. When the function
+returns, the ``x`` variable is destroyed.
+
+If we try to access the `x` variable outside the function, we get a
+``NameError`` because the variable is not defined in the global scope.
+
+Variables defined outside of any function have global scope, which means
+that they can be accessed from anywhere in the program. Global variables are
+not destroyed when a function returns.
+
+Here's an example of using global variables in Python:
+
+>>> x = 10
+>>>
+>>> def my_function():
+...     print(x)
+>>>
+>>> my_function()
+10
+>>> print(x)
+10
+
+In this example, the ``x`` variable is defined outside of any function and has
+global scope. It can be accessed from within the ``my_function()`` function
+and from outside the function. When the function is called, it prints the
+value of ``x``. When the program ends, the ``x`` variable is not destroyed
+because it has global scope.
+
+Using function scope helps to keep variables organized and prevent naming
+conflicts between different parts of a program.
+
 
 Values Leaking
 --------------
@@ -126,34 +179,54 @@ must be used to reference variables in another scope except the global and
 local one. The nonlocal keyword is used in nested functions to reference a
 variable in the parent function. [#nonlocal]_
 
->>> def setup():
-...     data = ['a', 'b', 'c']
-...     index = -1
+>>> data = [1, 2, 3]
+>>>
+>>> def run():
+...     data = [10, 20, 30]
+...     def main():
+...         data += [40, 50, 60]
+...         print(data)
+...     main()
 ...
-...     def get():
-...         index += 1
-...         return data[index]
-...     return get
->>>
->>>
->>> next = setup()
->>> next()
+...
+>>> run()
 Traceback (most recent call last):
-UnboundLocalError: cannot access local variable 'index' where it is not associated with a value
+UnboundLocalError: cannot access local variable 'data' where it is not associated with a value
 
->>> def setup():
-...     data = ['a', 'b', 'c']
-...     index = -1
-...
-...     def get():
-...         nonlocal index
-...         index += 1
-...         return data[index]
-...     return get
+>>> data = [1, 2, 3]
 >>>
->>> next = setup()
->>> next()
-'a'
+>>> def run():
+...     data = [10, 20, 30]
+...     def main():
+...         nonlocal data
+...         data += [40, 50, 60]
+...         print(data)
+...     main()
+...
+...
+>>> run()
+[10, 20, 30, 40, 50, 60]
+
+
+This does not work with non-nested functions:
+
+>>> data = 1
+>>>
+>>> def run():
+...     data += 1
+...     print(data)
+...
+>>>
+>>> run()
+Traceback (most recent call last):
+UnboundLocalError: cannot access local variable 'data' where it is not associated with a value
+
+>>> def run():
+...     nonlocal data
+...     data += 1
+...     print(data)
+Traceback (most recent call last):
+SyntaxError: no binding for nonlocal 'data' found
 
 
 Global Scope

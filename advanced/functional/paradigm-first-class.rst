@@ -5,6 +5,47 @@ Functional First-Class
 * Function can be returned
 * Function can be user as a parameter
 
+In Python, functions are considered first-class citizens, which means that
+they can be treated like any other object in the language. This concept is
+also known as first-class functions.
+
+Here are some of the properties of first-class functions in Python:
+
+1. A function can be assigned to a variable: You can assign a function to a
+variable, just like you would with any other object.
+
+2. A function can be passed as an argument to another function: You can pass
+a function as an argument to another function.
+
+3. A function can be returned as a value from another function: A function
+can return another function as its value.
+
+4. A function can be stored in a data structure: You can store functions in
+lists, dictionaries, or other data structures.
+
+Here's an example of using a function as a first-class citizen in Python:
+
+>>> def add(a, b):
+...     return a + b
+>>>
+>>> def multiply(a, b):
+...     return a * b
+>>>
+>>> def apply(func, a, b):
+...     return func(a, b)
+>>>
+>>> apply(add, 2, 3)
+5
+>>>
+>>> apply(multiply, 2, 3)
+6
+
+In this example, the ``apply()`` function takes a function as its first
+argument, and two numbers as the second and third arguments. It then calls
+the function with the two numbers and returns the result. The ``add()`` and
+``multiply()`` functions are passed as arguments to the ``apply()`` function,
+and the results are stored in ``result1`` and ``result2``.
+
 
 Assigning Functions
 -------------------
