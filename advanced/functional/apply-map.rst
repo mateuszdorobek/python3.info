@@ -6,6 +6,32 @@ Functional Map
 * required ``callable`` - Function
 * required ``iterables`` - 1 or many sequence or iterator objects
 
+The ``map()`` function in Python is a built-in function that applies a given
+function to each element of an iterable (such as a list, tuple, or set) and
+returns a new iterable with the results. It takes two arguments: a function
+and an iterable.
+
+The function is applied to each element in the iterable, and the results
+are collected into a new iterable. The resulting iterable can be converted
+to a list, tuple, or set if desired.
+
+Here's an example of using the ``map()`` function to square each number
+in a list:
+
+>>> data = [1, 2, 3, 4, 5]
+>>>
+>>> def square(n):
+...     return n ** 2
+>>>
+>>> result = map(square, data)
+>>> list(result)
+[1, 4, 9, 16, 25]
+
+In this example, the ``square`` function is applied to each element in the
+``numbers`` list using the ``map()`` function. The resulting iterable contains
+the squared values of each element in the original list. The ``list()``
+function is used to convert the iterable to a list.
+
 >>> from inspect import isgeneratorfunction, isgenerator
 >>>
 >>>
