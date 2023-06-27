@@ -1,5 +1,5 @@
-Import Read Clipboard
-=====================
+Read Clipboard
+==============
 * ``pd.read_clipboard()``
 
 

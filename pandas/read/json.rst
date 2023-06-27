@@ -1,5 +1,5 @@
-Import Read JSON
-================
+Read JSON
+=========
 * File paths works also with URLs
 * File can be compressed with ``.gz``, ``.bz2``, ``.zip``, ``.xz``
 

@@ -1,5 +1,5 @@
-Import Read Word
-================
+Read Word
+=========
 * https://python-docx.readthedocs.io/en/latest/
 * Support both ``.docx`` and ``.doc``
 

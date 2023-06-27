@@ -8,37 +8,37 @@ About
     about/types.rst
 
 
-Import
-******
+Read
+****
 .. toctree::
     :maxdepth: 1
-    :caption: Import
+    :caption: Read
 
-    import/about.rst
-    import/read-csv.rst
-    import/read-excel.rst
-    import/read-json.rst
-    import/read-clipboard.rst
-    import/read-str.rst
-    import/read-html.rst
-    import/read-python.rst
-    import/read-sql.rst
-    import/read-word.rst
-    import/read-pdf.rst
-    import/read-xml.rst
+    read/about.rst
+    read/csv.rst
+    read/excel.rst
+    read/json.rst
+    read/clipboard.rst
+    read/str.rst
+    read/html.rst
+    read/python.rst
+    read/sql.rst
+    read/word.rst
+    read/pdf.rst
+    read/xml.rst
 
 
-Export
-*******
+To
+**
 .. toctree::
     :maxdepth: 1
-    :caption: Export
+    :caption: To
 
-    export/about.rst
-    export/to-csv.rst
-    export/to-json.rst
-    export/to-pickle.rst
-    export/to-sql.rst
+    to/about.rst
+    to/csv.rst
+    to/json.rst
+    to/pickle.rst
+    to/sql.rst
 
 
 Series
