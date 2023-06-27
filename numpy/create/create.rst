@@ -102,3 +102,27 @@ Assignments
 .. literalinclude:: assignments/numpy_create_a.py
     :caption: :download:`Solution <assignments/numpy_create_a.py>`
     :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_b.py
+    :caption: :download:`Solution <assignments/numpy_create_b.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_c.py
+    :caption: :download:`Solution <assignments/numpy_create_c.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_d.py
+    :caption: :download:`Solution <assignments/numpy_create_d.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_e.py
+    :caption: :download:`Solution <assignments/numpy_create_e.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_f.py
+    :caption: :download:`Solution <assignments/numpy_create_f.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/numpy_create_g.py
+    :caption: :download:`Solution <assignments/numpy_create_g.py>`
+    :end-before: # Solution

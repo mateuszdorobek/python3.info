@@ -17,7 +17,7 @@ Create
     :maxdepth: 1
     :caption: Create
 
-    create/declare.rst
+    create/create.rst
     create/range.rst
     create/generate.rst
     create/recap.rst
@@ -38,6 +38,18 @@ Attributes
     attributes/data.rst
 
 
+Random
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Random
+
+    random/generator.rst
+    random/values.rst
+    random/distributions.rst
+    random/methods.rst
+
+
 Indexing
 ********
 .. toctree::
@@ -53,6 +65,17 @@ Indexing
     indexing/advancedindexing.rst
 
 
+Operations
+**********
+.. toctree::
+    :maxdepth: 1
+    :caption: Operations
+
+    operations/iteration.rst
+    operations/arithmetic.rst
+    operations/broadcasting.rst
+
+
 Methods
 *******
 .. toctree::
@@ -63,29 +86,6 @@ Methods
     methods/sort.rst
     methods/methods.rst
     methods/concat.rst
-
-
-Random
-******
-.. toctree::
-    :maxdepth: 1
-    :caption: Random
-
-    random/generator.rst
-    random/values.rst
-    random/distributions.rst
-    random/methods.rst
-
-
-Operations
-**********
-.. toctree::
-    :maxdepth: 1
-    :caption: Operations
-
-    operations/iteration.rst
-    operations/arithmetic.rst
-    operations/broadcasting.rst
 
 
 Statistics

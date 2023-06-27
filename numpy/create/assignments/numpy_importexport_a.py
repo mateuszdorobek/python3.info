@@ -5,44 +5,54 @@
 * Time: 5 min
 
 English:
-    1. Load text from `URL`
-    2. From the first line select Iris species names and save as str to `species: np.ndarray`
-    3. For other lines:
-        a. Read columns with data and save as float to `features: np.ndarray`
-        b. Read last column with species numbers and save as `int` to `labels: np.ndarray`
-    4. Run doctests - all must succeed
+    1. Load text from `DATA`
+    2. Define variables:
+        a. `species: np.ndarray[str]` - first row, columns 2, 3, 4
+        b. `features: np.ndarray[float]` - all rows except the first one, columns 0, 1, 2, 3
+        c. `labels: np.ndarray[int]` - all rows except the first one, column 4
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Wczytaj tekst z `URL`
-    2. Z pierwszej linii wybierz nazwy gatunków Irysów i zapisz rezultat jako str do `species: np.ndarray`
-    3. W pozostałych linii:
-        a Wczytaj kolumny z danymi i zapisz jako float do `features: np.ndarray`
-        b Wczytaj ostatnią kolumnę z numerami gatunków i zapisz jako `int` do `labels: np.ndarray`
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    1. Wczytaj tekst z `DATA`
+    2. Zdefiniuj zmienne:
+        a. `species: np.ndarray[str]` - pierwszy wiersz, kolumny 2, 3, 4
+        b. `features: np.ndarray[float]` - wszystkie wiersze poza pierwszym, kolumny 0, 1, 2, 3
+        c. `labels: np.ndarray[int]` - wszystkie wiersze poza pierwszym, kolumna 4
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
     >>> assert species is not Ellipsis, \
     'Assign result to variable: `species`'
-    >>> assert type(species) is np.ndarray, \
-    'Variable `species` has invalid type, expected: np.ndarray'
-
-    >>> assert features is not Ellipsis, \
-    'Assign result to variable: `features`'
-    >>> assert type(features) is np.ndarray, \
-    'Variable `features` has invalid type, expected: np.ndarray'
-
     >>> assert labels is not Ellipsis, \
     'Assign result to variable: `labels`'
+    >>> assert features is not Ellipsis, \
+    'Assign result to variable: `features`'
+
+    >>> assert type(species) is np.ndarray, \
+    'Variable `species` has invalid type, expected: np.ndarray'
+    >>> assert type(features) is np.ndarray, \
+    'Variable `features` has invalid type, expected: np.ndarray'
     >>> assert type(labels) is np.ndarray, \
     'Variable `labels` has invalid type, expected: np.ndarray'
 
+    >>> assert species.dtype == np.dtype('<U10'), \
+    'Variable `species` has invalid type, expected: str'
+    >>> assert features.dtype is np.dtype('float64'), \
+    'Variable `features` has invalid type, expected: float'
+    >>> assert labels.dtype is np.dtype('int64'), \
+    'Variable `labels` has invalid type, expected: int'
+
+    >>> assert len(species) == 3, \
+    'Variable `species` length should be 3'
+    >>> assert len(features) == 151, \
+    'Variable `features` length should be 151'
+    >>> assert len(labels) == 151, \
+    'Variable `labels` length should be 151'
+
     >>> species
     array(['setosa', 'versicolor', 'virginica'], dtype='<U10')
-
-    >>> len(features)
-    151
 
     >>> features[:3]
     array([[5.4, 3.9, 1.3, 0.4],
@@ -75,6 +85,6 @@ labels = ...
 
 
 # Solution
-species = np.loadtxt(DATA, max_rows=1, delimiter=',', dtype=str, usecols=(2,3,4))
-features = np.loadtxt(DATA, skiprows=1, delimiter=',', usecols=(0,1,2,3))
-labels = np.loadtxt(DATA, skiprows=1, delimiter=',', usecols=4, dtype=int)
+species = np.loadtxt(DATA, delimiter=',', dtype='str', max_rows=1, usecols=(2, 3, 4))
+features = np.loadtxt(DATA, delimiter=',', dtype='float', skiprows=1, usecols=(0, 1, 2, 3))
+labels = np.loadtxt(DATA, delimiter=',', dtype='int', skiprows=1, usecols=4)

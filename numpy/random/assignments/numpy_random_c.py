@@ -1,17 +1,19 @@
 """
-* Assignment: Numpy Random Sample
+* Assignment: Numpy Random Choice
 * Complexity: medium
 * Lines of code: 1 lines
 * Time: 3 min
 
 English:
     1. Set random seed to zero
-    2. Print 6 random integers without repetition in range from 1 to 49
+    2. Define `result: np.ndarray` with 6 random numbers
+       without repetition from `DATA`
     3. Run doctests - all must succeed
 
 Polish:
     1. Ustaw ziarno losowości na zero
-    2. Wyświetl 6 losowych i nie powtarzających się liczb całkowitych z zakresu od 1 do 49.
+    2. Zdefiniuj `result: np.ndarray` z 6 losowymi
+       liczbami bez powtórzeń z `DATA`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -29,15 +31,9 @@ Tests:
 import numpy as np
 np.random.seed(0)
 
+DATA = np.arange(1, 50)
 result = ...
 
 
 # Solution
-result = np.random.choice(np.arange(1, 50), size=6, replace=False)
-
-# # Alternative Solution
-# result = np.random.choice(np.random.randint(50), size=6, replace=False)
-#
-# # Alternative Solution
-# a = np.random.randint(1, 50, size=100)
-# result = np.random.choice(np.unique(a), size=6, replace=False)
+result = np.random.choice(DATA, size=6, replace=False)
