@@ -6,6 +6,9 @@ About
 
     about/pandas.rst
     about/types.rst
+    about/setoption.rst
+    about/workflow.rst
+    about/methodchaining.rst
 
 
 Read
@@ -102,17 +105,6 @@ Date
     date/timedelta.rst
     date/frequency.rst
     date/calendar.rst
-
-
-Recap
-*****
-.. toctree::
-    :maxdepth: 1
-    :caption: Recap
-
-    about/methodchaining.rst
-    about/setoption.rst
-    about/workflow.rst
 
 
 Case Study
