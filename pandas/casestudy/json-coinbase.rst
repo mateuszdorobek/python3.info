@@ -1,7 +1,6 @@
 JSON Coinbase
 =============
 
-
 >>> import requests
 >>>
 >>>

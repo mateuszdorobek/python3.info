@@ -1,6 +1,5 @@
-Pandas
-======
-
+About Pandas
+============
 
 Pandas is a Python package providing fast, flexible, and expressive data
 structures designed to make working with "relational" or "labeled" data both

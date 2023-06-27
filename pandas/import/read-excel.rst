@@ -1,5 +1,5 @@
-Read Excel
-==========
+Import Read Excel
+=================
 * File paths works also with URLs
 
 

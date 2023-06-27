@@ -1,5 +1,5 @@
-Pandas Read String
-==================
+Import Read Word
+================
 * https://python-docx.readthedocs.io/en/latest/
 * Support both ``.docx`` and ``.doc``
 

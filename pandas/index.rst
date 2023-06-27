@@ -121,18 +121,18 @@ Case Study
     :maxdepth: 1
     :caption: Case Study
 
-    casestudy/api-gmail-stats.rst
+    casestudy/api-gmail.rst
     casestudy/csv-covid19.rst
     casestudy/csv-phones.rst
     casestudy/csv-martian.rst
     casestudy/excel-sensors.rst
     casestudy/html-apollo11.rst
-    casestudy/html-esa-astronauts.rst
+    casestudy/html-astronauts.rst
     casestudy/html-espn.rst
     casestudy/html-livescores.rst
     casestudy/html-nba.rst
     casestudy/html-percapita.rst
-    casestudy/html-planzajec.rst
+    casestudy/html-schedule.rst
     casestudy/html-talary.rst
     casestudy/json-coinbase.rst
     casestudy/pdf-etoll.rst

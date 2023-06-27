@@ -1,5 +1,5 @@
-HTML ESPN Standings
-===================
+HTML ESPN
+=========
 
 .. figure:: img/html-espn-standing.png
 

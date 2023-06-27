@@ -1,5 +1,5 @@
-DataFrame Group By
-==================
+DataFrame GroupBy
+=================
 * ``.size()``
 * ``.mean()``
 * ``.nunique()``

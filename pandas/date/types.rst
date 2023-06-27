@@ -1,5 +1,5 @@
-Date and Time Types
-===================
+Date Types
+==========
 
 
 SetUp

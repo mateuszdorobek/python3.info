@@ -1,5 +1,5 @@
-HTML NBA Standings
-==================
+HTML NBA
+========
 
 
 Code

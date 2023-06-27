@@ -1,4 +1,4 @@
-Pandas Read HTML
+Import Read HTML
 ================
 * File paths works also with URLs
 

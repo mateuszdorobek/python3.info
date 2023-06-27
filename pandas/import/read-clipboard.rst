@@ -1,4 +1,4 @@
-Pandas Read Clipboard
+Import Read Clipboard
 =====================
 * ``pd.read_clipboard()``
 

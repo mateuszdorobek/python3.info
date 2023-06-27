@@ -1,5 +1,5 @@
-Pandas Set Option
-=================
+About Options
+=============
 * https://pandas.pydata.org/pandas-docs/stable/reference/api/pandas.set_option.html
 
 

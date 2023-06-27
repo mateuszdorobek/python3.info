@@ -1,5 +1,5 @@
-HTML Livescores Standings
-=========================
+HTML Livescores
+===============
 * https://www.livescores.com
 * No HTML Tables
 

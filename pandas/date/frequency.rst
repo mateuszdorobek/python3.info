@@ -1,6 +1,5 @@
-Date and Time Frequency
-=======================
-
+Date Frequency
+==============
 
 Offset Aliases
 --------------

@@ -1,5 +1,5 @@
-Date and Time Calendar
-======================
+Date Calendar
+=============
 
 
 Business Days

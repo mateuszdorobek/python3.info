@@ -1,4 +1,4 @@
-Pandas Read String
+Import Read String
 ==================
 * File paths works also with URLs
 * `io.StringIO` Converts ``str`` to File-like object

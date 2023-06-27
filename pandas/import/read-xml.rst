@@ -1,4 +1,4 @@
-Pandas Read XML
+Import Read XML
 ===============
 * File paths works also with URLs
 * `io.StringIO` Converts ``str`` to File-like object

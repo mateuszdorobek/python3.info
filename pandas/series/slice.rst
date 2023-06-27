@@ -1,5 +1,5 @@
-Series Slicing
-==============
+Series Slice
+============
 
 
 SetUp

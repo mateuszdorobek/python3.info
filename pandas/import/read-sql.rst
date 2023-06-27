@@ -1,4 +1,4 @@
-Pandas Read SQL
+Import Read SQL
 ===============
 * File paths works also with URLs
 * SQL functions uses SQLAlchemy, which supports many RDBMS

@@ -1,5 +1,5 @@
-Types Basics
-============
+About Types
+===========
 
 
 SetUp

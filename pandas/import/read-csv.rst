@@ -1,4 +1,4 @@
-Pandas Read CSV
+Import Read CSV
 ===============
 * File paths works also with URLs
 

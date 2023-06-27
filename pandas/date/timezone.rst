@@ -1,5 +1,5 @@
-Date and Time Timezones
-=======================
+Date Timezone
+=============
 
 
 SetUp

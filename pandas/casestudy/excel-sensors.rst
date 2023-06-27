@@ -1,5 +1,5 @@
-Excel AATC Sensors
-==================
+Excel Sensors
+=============
 * Working with Excel (file, spreadsheet)
 * Selecting data
 * Binary classification

@@ -1,5 +1,5 @@
-Pandas Workflow
-===============
+About Workflow
+==============
 
 .. figure:: img/pandas-about-workflow.png
 
