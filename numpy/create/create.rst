@@ -7,6 +7,38 @@ SetUp
 >>> import numpy as np
 
 
+Example
+-------
+* ``ndarray`` - n-dimensional array
+
+>>> a = np.array([1, 2, 3])
+>>>
+>>> type(a)
+<class 'numpy.ndarray'>
+
+
+From List
+---------
+>>> data = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+>>>
+>>> np.array(data)
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+
+From Range
+----------
+
+
+data = range(0, 10)
+np.array(data)
+array([0, 1, 2, 3, 4, 5, 6, 7, 8, 9])
+
+data
+range(0, 10)
+list(data)
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+
 Declare
 -------
 1-dimensional Array:
@@ -84,6 +116,44 @@ array([[1, 2, 3],
 array([[1, 2, 3],
        [4, 5, 6],
        [7, 8, 9]])
+
+
+Performance
+-----------
+* Python 3.11.4
+
+Pure Python:
+
+>>> # doctest: +SKIP
+... %%timeit -n 1000 -r 1000
+... data = range(0, 10)
+... result = list(data)
+279 ns ± 102 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -n 1000 -r 1000
+... result = [x for x in range(0, 10)]
+520 ns ± 201 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Python + Numpy:
+
+>>> # doctest: +SKIP
+... %%timeit -n 1000 -r 1000
+... data = range(0, 10)
+... result = np.array(data)
+2.34 µs ± 249 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -n 1000 -r 1000
+... result = np.array(range(0, 10))
+2.46 µs ± 359 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+Pure Numpy:
+
+>>> # doctest: +SKIP
+... %%timeit -n 1000 -r 1000
+... result = np.arange(0, 10)
+559 ns ± 189 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
 
 Recap

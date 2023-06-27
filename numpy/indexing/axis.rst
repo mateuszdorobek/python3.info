@@ -339,6 +339,101 @@ array([[ 3,  6,  7],
        [33, 66, 99]])
 
 
+Use Case - 0x01
+---------------
+>>> shape = (5,)
+
+Positive:
+
+>>> shape[0]
+5
+
+Negative:
+
+>>> shape[-1]
+5
+
+Use Case - 0x02
+---------------
+>>> shape = (4, 5)
+
+Positive:
+
+>>> shape[0]
+4
+>>>
+>>> shape[1]
+5
+
+Negative:
+
+>>> shape[-1]
+5
+>>>
+>>> shape[-2]
+4
+
+
+Use Case - 0x03
+---------------
+>>> shape = (3, 4, 5)
+
+Positive:
+
+>>> shape[0]
+3
+>>>
+>>> shape[1]
+4
+>>>
+>>> shape[2]
+5
+
+Negative:
+
+>>> shape[-1]
+5
+>>>
+>>> shape[-2]
+4
+>>>
+>>> shape[-3]
+3
+
+
+Use Case - 0x04
+---------------
+>>> shape = (2, 3, 4, 5)
+
+Positive:
+
+>>> shape[0]
+2
+>>>
+>>> shape[1]
+3
+>>>
+>>> shape[2]
+4
+>>>
+>>> shape[3]
+5
+
+Negative:
+
+>>> shape[-1]
+5
+>>>
+>>> shape[-2]
+4
+>>>
+>>> shape[-3]
+3
+>>>
+>>> shape[-4]
+2
+
+
 .. todo:: Assignments
 
 

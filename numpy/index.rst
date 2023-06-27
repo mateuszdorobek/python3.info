@@ -4,11 +4,12 @@ About
     :maxdepth: 1
     :caption: About
 
-    about/about.rst
     about/agenda.rst
+    about/numpy.rst
     about/configuration.rst
     about/precision.rst
     about/constants.rst
+    about/structures.rst
     about/performance.rst
 
 

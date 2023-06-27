@@ -9,14 +9,17 @@ SetUp
 
 Zeros
 -----
->>> np.zeros((2, 3))
-array([[0., 0., 0.],
-       [0., 0., 0.]])
->>>
 >>> np.zeros(shape=(2, 3))
 array([[0., 0., 0.],
        [0., 0., 0.]])
 
+>>> np.zeros(shape=(2, 3), dtype='int')
+array([[0, 0, 0],
+       [0, 0, 0]])
+
+
+Zeros Like
+----------
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
 >>>
@@ -25,7 +28,7 @@ array([[0, 0, 0],
        [0, 0, 0]])
 
 >>> a = np.array([[1, 2, 3],
-...               [4, 5, 6]], float)
+...               [4, 5, 6]], dtype='float')
 >>>
 >>> np.zeros_like(a)
 array([[0., 0., 0.],
@@ -34,16 +37,19 @@ array([[0., 0., 0.],
 
 Ones
 ----
->>> np.ones((3, 2))
-array([[1., 1.],
-       [1., 1.],
-       [1., 1.]])
->>>
 >>> np.ones(shape=(3, 2))
 array([[1., 1.],
        [1., 1.],
        [1., 1.]])
 
+>>> np.ones(shape=(3, 2), dtype='int')
+array([[1, 1],
+       [1, 1],
+       [1, 1]])
+
+
+Ones Like
+---------
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
 >>>
@@ -52,7 +58,7 @@ array([[1, 1, 1],
        [1, 1, 1]])
 
 >>> a = np.array([[1, 2, 3],
-...               [4, 5, 6]], float)
+...               [4, 5, 6]], dtype='float')
 >>>
 >>> np.ones_like(a)
 array([[1., 1., 1.],
@@ -64,18 +70,23 @@ Empty
 * Garbage from memory
 * Will reuse previous if given shape was already created
 
->>> np.empty((3,4))  # doctest: +SKIP
+>>> np.empty(shape=(3,4))  # doctest: +SKIP
 array([[ 2.31584178e+077,  1.29073692e-231,  2.96439388e-323, 0.00000000e+000],
       [-2.32034891e+077,  2.68678047e+154,  2.18018101e-314, 2.18022275e-314],
       [ 0.00000000e+000,  2.18023445e-314,  1.38338381e-322, 9.03690495e-309]])
 
+Will reuse previous if given shape was already created:
+
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
 >>>
->>> np.empty((2,3))
+>>> np.empty(shape=(2,3))
 array([[1., 2., 3.],
        [4., 5., 6.]])
 
+
+Empty Like
+----------
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
 >>>
@@ -86,13 +97,19 @@ array([[1, 2, 3],
 
 Full
 ----
->>> np.full((2, 2), np.inf)
-array([[inf, inf],
-       [inf, inf]])
+>>> np.full(shape=(2, 3), fill_value=2)
+array([[2, 2, 2],
+       [2, 2, 2]])
+
+
+Full Like
+---------
+>>> a = np.array([[1, 2, 3],
+...               [4, 5, 6]])
 >>>
->>> np.full((2, 2), 10)
-array([[10, 10],
-       [10, 10]])
+>>> np.full_like(a, fill_value=2.0)
+array([[2, 2, 2],
+       [2, 2, 2]])
 
 
 Identity
@@ -106,11 +123,22 @@ array([[1., 0., 0.],
        [0., 1., 0.],
        [0., 0., 1.]])
 >>>
->>> np.identity(4, int)
+>>> np.identity(4, dtype='int')
 array([[1, 0, 0, 0],
        [0, 1, 0, 0],
        [0, 0, 1, 0],
        [0, 0, 0, 1]])
+
+
+Identity Like
+-------------
+>>> a = np.array([[1, 2, 3],
+...               [4, 5, 6]])
+...
+>>> np.identity(3, like=a)
+array([[1., 0., 0.],
+       [0., 1., 0.],
+       [0., 0., 1.]])
 
 
 Recap

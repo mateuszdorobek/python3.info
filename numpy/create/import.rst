@@ -70,6 +70,36 @@ Other
 ... np.save('/tmp/large', data[large])
 
 
+Use Case - 0x01
+---------------
+>>> header = np.loadtxt(DATA, max_rows=1, dtype='str', delimiter=',', usecols=(0,1,2,3))
+>>> values = np.loadtxt(DATA, skiprows=1, dtype='float', delimiter=',', usecols=(0,1,2,3))
+>>> species = np.loadtxt(DATA, skiprows=1, dtype='str', delimiter=',', usecols=4)
+>>>
+>>> sepal_length = (header == 'sepal_length')
+>>> sepal_width = (header == 'sepal_width')
+>>> petal_length = (header == 'petal_length')
+>>> petal_width = (header == 'petal_width')
+>>>
+>>> setosa = (species == 'setosa')
+>>> versicolor = (species == 'versicolor')
+>>> virginica = (species == 'virginica')
+
+Then you can query your data using previously defined identifiers (queries):
+
+>>> values[setosa, sepal_length]
+array([5.4, 5.4, 4.9, 5.1, 4.6, 5.2, 5.2, 5.1, 4.8, 4.9, 4.3, 5. , 5.4,
+       5.1, 4.8, 4.8, 4.4, 5.1, 4.6, 5.5, 5. , 5.7, 5.4, 4.8, 5. , 5.1,
+       4.9, 5. , 4.6, 4.9, 5.1, 4.7, 5.7, 4.4, 5.4, 4.5, 5. , 5.3, 5.1,
+       5. , 5.8, 5.2, 4.6, 4.8, 4.4, 5.4, 5. , 4.7, 5.1, 5.5, 5. ])
+
+>>> values[setosa, sepal_length].mean()
+5.013725490196078
+
+>>> values[setosa, sepal_length].mean().round(2)
+5.01
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/numpy_importexport_a.py
