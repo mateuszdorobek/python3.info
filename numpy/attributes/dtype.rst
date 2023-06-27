@@ -326,6 +326,62 @@ Comparison
 72
 
 
+NBytes
+------
+>>> a = np.array([[1, 2, 3],
+...               [4, 5, 6],
+...               [7, 8, 9]])
+...
+>>> a.astype('int8').nbytes
+9
+>>>
+>>> a.astype('int16').nbytes
+18
+>>>
+>>> a.astype('int32').nbytes
+36
+>>>
+>>> a.astype('int64').nbytes
+72
+
+
+Iinfo
+-----
+* For ``int``s only
+
+>>> np.iinfo('int')
+iinfo(min=-9223372036854775808, max=9223372036854775807, dtype=int64)
+>>>
+>>> np.iinfo('int8')
+iinfo(min=-128, max=127, dtype=int8)
+>>>
+>>> np.iinfo('int16')
+iinfo(min=-32768, max=32767, dtype=int16)
+>>>
+>>> np.iinfo('int32')
+iinfo(min=-2147483648, max=2147483647, dtype=int32)
+>>>
+>>> np.iinfo('int64')
+iinfo(min=-9223372036854775808, max=9223372036854775807, dtype=int64)
+>>>
+>>> np.iinfo('int0')
+iinfo(min=-9223372036854775808, max=9223372036854775807, dtype=int64)
+
+
+Finfo
+-----
+* For ``float``s only
+
+>>> np.finfo('float16')
+finfo(resolution=0.001, min=-6.55040e+04, max=6.55040e+04, dtype=float16)
+>>>
+>>> np.finfo('float32')
+finfo(resolution=1e-06, min=-3.4028235e+38, max=3.4028235e+38, dtype=float32)
+>>>
+>>> np.finfo('float64')
+finfo(resolution=1e-15, min=-1.7976931348623157e+308, max=1.7976931348623157e+308, dtype=float64)
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/numpy_dtype_a.py
