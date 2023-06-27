@@ -2,7 +2,7 @@
 * Assignment: Series Arithmetic
 * Complexity: easy
 * Lines of code: 5 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Set random seed to zero
@@ -31,11 +31,11 @@ Tests:
     'Variable `result` has invalid type, should be `pd.Series`'
 
     >>> result
-    a    2500
-    b       0
-    c     900
-    d     900
-    e    4900
+    a    55
+    b     0
+    c    33
+    d    33
+    e    77
     dtype: int64
 """
 
@@ -50,10 +50,7 @@ result = ...
 
 # Solution
 s = pd.Series(
-    data=np.random.randint(0, 9, size=5),
-    index=list('abcde'))
+    data=np.random.randint(0, 10, size=5),
+    index=['a', 'b', 'c', 'd', 'e'])
 
-s *= 10
-s *= s
-
-result = s
+result = (s*10) + s

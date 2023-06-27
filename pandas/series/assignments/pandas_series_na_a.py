@@ -1,19 +1,19 @@
 """
 * Assignment: Series NA
 * Complexity: easy
-* Lines of code: 10 lines
-* Time: 5 min
+* Lines of code: 4 lines
+* Time: 3 min
 
 English:
     1. From input data create `pd.Series`
-    2. Fill first missing value with zero
+    2. Fill only first missing value with zero
     3. Drop missing values
     4. Reindex series (without old copy)
     5. Run doctests - all must succeed
 
 Polish:
     1. Z danych wejściowych stwórz `pd.Series`
-    2. Wypełnij pierwszą brakującą wartość zerem
+    2. Wypełnij tylko pierwszą brakującą wartość zerem
     3. Usuń brakujące wartości
     4. Zresetuj indeks (bez kopii starego)
     5. Uruchom doctesty - wszystkie muszą się powieść
@@ -40,7 +40,7 @@ import pandas as pd
 
 DATA = [1, None, 5, None, 1, 2, 1]
 
-# type: pd.DataFrame
+# type: pd.Series
 result = ...
 
 # Solution
@@ -50,16 +50,3 @@ result = (
       .dropna()
       .reset_index(drop=True)
 )
-
-
-# Alternative Solution
-# s = pd.Series(DATA)
-# s = s.fillna(0, limit=1)
-# s = s.dropna()
-# s = s.reset_index(drop=True)
-
-# Alternative Solution
-# s = pd.Series(DATA)
-# s.fillna(0, limit=1, inplace=True)
-# s.dropna(inplace=True)
-# s.reset_index(drop=True, inplace=True)

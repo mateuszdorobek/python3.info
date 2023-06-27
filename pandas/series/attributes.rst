@@ -51,6 +51,6 @@ array(['a', 'b', 'c'], dtype=object)
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_attributes.py
-    :caption: :download:`Solution <assignments/pandas_series_attributes.py>`
+.. literalinclude:: assignments/pandas_series_attributes_a.py
+    :caption: :download:`Solution <assignments/pandas_series_attributes_a.py>`
     :end-before: # Solution

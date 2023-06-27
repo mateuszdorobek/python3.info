@@ -66,6 +66,6 @@ dtype: float64
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_alter.py
-    :caption: :download:`Solution <assignments/pandas_series_alter.py>`
+.. literalinclude:: assignments/pandas_series_alter_a.py
+    :caption: :download:`Solution <assignments/pandas_series_alter_a.py>`
     :end-before: # Solution

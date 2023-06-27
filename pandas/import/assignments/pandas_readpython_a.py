@@ -2,7 +2,7 @@
 * Assignment: Pandas Read PythonDict
 * Complexity: medium
 * Lines of code: 8 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Convert `DATA` to format with one column per each attrbute for example:

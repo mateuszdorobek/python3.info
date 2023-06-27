@@ -1,8 +1,8 @@
 """
 * Assignment: Pandas Series Attributes
 * Complexity: easy
-* Lines of code: 7 lines
-* Time: 5 min
+* Lines of code: 4 lines
+* Time: 3 min
 
 English:
     1. Define `result: dict` with:

@@ -1,8 +1,8 @@
 """
-* Assignment: Pandas Read XSLT Plants
+* Assignment: Pandas Read XML
 * Complexity: medium
-* Lines of code: 4 lines
-* Time: 5 min
+* Lines of code: 1 lines
+* Time: 3 min
 
 English:
     1. Read data from `DATA` as `pd.DataFrame`

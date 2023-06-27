@@ -422,6 +422,6 @@ dtype: object
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_na.py
-    :caption: :download:`Solution <assignments/pandas_series_na.py>`
+.. literalinclude:: assignments/pandas_series_na_a.py
+    :caption: :download:`Solution <assignments/pandas_series_na_a.py>`
     :end-before: # Solution

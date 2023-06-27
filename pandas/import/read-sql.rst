@@ -2,6 +2,7 @@ Pandas Read SQL
 ===============
 * File paths works also with URLs
 * SQL functions uses SQLAlchemy, which supports many RDBMS
+* Read SQL query or database table into a DataFrame
 
 >>> import pandas as pd
 

@@ -251,10 +251,10 @@ Freq: -1D, dtype: float64
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_slice_datetime.py
-    :caption: :download:`Solution <assignments/pandas_series_slice_datetime.py>`
+.. literalinclude:: assignments/pandas_series_slice_a.py
+    :caption: :download:`Solution <assignments/pandas_series_slice_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/pandas_series_slice_str.py
-    :caption: :download:`Solution <assignments/pandas_series_slice_str.py>`
+.. literalinclude:: assignments/pandas_series_slice_b.py
+    :caption: :download:`Solution <assignments/pandas_series_slice_b.py>`
     :end-before: # Solution

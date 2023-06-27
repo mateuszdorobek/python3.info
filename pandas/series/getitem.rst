@@ -203,6 +203,6 @@ IndexError: index 1999 is out of bounds for axis 0 with size 5
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_getitem.py
-    :caption: :download:`Solution <assignments/pandas_series_getitem.py>`
+.. literalinclude:: assignments/pandas_series_getitem_a.py
+    :caption: :download:`Solution <assignments/pandas_series_getitem_a.py>`
     :end-before: # Solution

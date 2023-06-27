@@ -22,8 +22,7 @@ Label Encoder:
 
 >>> DATA = 'https://python3.info/_static/iris-clean.csv'
 >>>
->>> header = pd.read_csv(DATA, nrows=0)
->>> nrows, ncols, *class_labels = header.columns
+>>> class_labels = pd.read_csv(DATA, nrows=0).columns[2:]
 >>> label_encoder = dict(enumerate(class_labels))
 
 

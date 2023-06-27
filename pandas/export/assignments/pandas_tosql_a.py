@@ -2,7 +2,7 @@
 * Assignment: DataFrame Export SQL
 * Complexity: easy
 * Lines of code: 4 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Read data from `DATA` as `result: pd.DataFrame`

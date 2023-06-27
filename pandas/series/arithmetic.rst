@@ -132,6 +132,6 @@ dtype: float64
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_arithmetic.py
-    :caption: :download:`Solution <assignments/pandas_series_arithmetic.py>`
+.. literalinclude:: assignments/pandas_series_arithmetic_a.py
+    :caption: :download:`Solution <assignments/pandas_series_arithmetic_a.py>`
     :end-before: # Solution

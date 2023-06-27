@@ -104,18 +104,18 @@ Length
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_create_float.py
-    :caption: :download:`Solution <assignments/pandas_series_create_float.py>`
+.. literalinclude:: assignments/pandas_series_create_a.py
+    :caption: :download:`Solution <assignments/pandas_series_create_a.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/pandas_series_create_randint.py
-    :caption: :download:`Solution <assignments/pandas_series_create_randint.py>`
+.. literalinclude:: assignments/pandas_series_create_b.py
+    :caption: :download:`Solution <assignments/pandas_series_create_b.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/pandas_series_create_even.py
-    :caption: :download:`Solution <assignments/pandas_series_create_even.py>`
+.. literalinclude:: assignments/pandas_series_create_c.py
+    :caption: :download:`Solution <assignments/pandas_series_create_c.py>`
     :end-before: # Solution
 
-.. literalinclude:: assignments/pandas_series_create_dates.py
-    :caption: :download:`Solution <assignments/pandas_series_create_dates.py>`
+.. literalinclude:: assignments/pandas_series_create_d.py
+    :caption: :download:`Solution <assignments/pandas_series_create_d.py>`
     :end-before: # Solution

@@ -178,6 +178,6 @@ Reset Index
 
 Assignments
 -----------
-.. literalinclude:: assignments/pandas_series_sample.py
-    :caption: :download:`Solution <assignments/pandas_series_sample.py>`
+.. literalinclude:: assignments/pandas_series_sample_a.py
+    :caption: :download:`Solution <assignments/pandas_series_sample_a.py>`
     :end-before: # Solution

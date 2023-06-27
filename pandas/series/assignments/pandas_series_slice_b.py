@@ -2,7 +2,7 @@
 * Assignment: Slicing Slice Str
 * Complexity: easy
 * Lines of code: 10 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Create `pd.Series` with 26 random integers in range `[10, 100)`

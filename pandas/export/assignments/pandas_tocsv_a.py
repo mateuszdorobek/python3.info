@@ -2,7 +2,7 @@
 * Assignment: DataFrame Export CSV
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     2. Read data from `DATA` as `result: pd.DataFrame`
@@ -56,6 +56,10 @@ FILE = r'_temporary.csv'
 
 
 # Solution
-result = pd.read_html(DATA, header=0)[0]
-result = result.head(146).tail(11)
-result['Event'].to_csv(FILE)
+df = (pd
+  .read_html(DATA, header=0)[0]
+  .head(n=146)
+  .tail(n=11)
+)
+
+df['Event'].to_csv(FILE)

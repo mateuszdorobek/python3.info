@@ -56,16 +56,18 @@ import pandas as pd
 
 DATA = 'https://python3.info/_static/breast-cancer.csv'
 
-COLUMNS = ['mean radius', 'mean texture', 'mean perimeter', 'mean area',
-           'mean smoothness', 'mean compactness', 'mean concavity',
-           'mean concave points', 'mean symmetry', 'mean fractal dimension',
-           'radius error', 'texture error', 'perimeter error', 'area error',
-           'smoothness error', 'compactness error', 'concavity error',
-           'concave points error', 'symmetry error',
-           'fractal dimension error', 'worst radius', 'worst texture',
-           'worst perimeter', 'worst area', 'worst smoothness',
-           'worst compactness', 'worst concavity', 'worst concave points',
-           'worst symmetry', 'worst fractal dimension', 'label']
+COLUMNS = [
+    'mean radius', 'mean texture', 'mean perimeter', 'mean area',
+    'mean smoothness', 'mean compactness', 'mean concavity',
+    'mean concave points', 'mean symmetry', 'mean fractal dimension',
+    'radius error', 'texture error', 'perimeter error', 'area error',
+    'smoothness error', 'compactness error', 'concavity error',
+    'concave points error', 'symmetry error',
+    'fractal dimension error', 'worst radius', 'worst texture',
+    'worst perimeter', 'worst area', 'worst smoothness',
+    'worst compactness', 'worst concavity', 'worst concave points',
+    'worst symmetry', 'worst fractal dimension', 'label',
+]
 
 
 # Read DATA, substitute column names, and labels, select 25 rows
@@ -73,11 +75,10 @@ COLUMNS = ['mean radius', 'mean texture', 'mean perimeter', 'mean area',
 result = ...
 
 # Solution
-header = pd.read_csv(DATA, nrows=0)
-nrows, ncols, *class_labels = header.columns
+class_labels = pd.read_csv(DATA, nrows=0).columns[2:]
 label_encoder = dict(enumerate(class_labels))
 
 result = (pd
     .read_csv(DATA, names=COLUMNS, skiprows=1, nrows=25)
-    .replace(label_encoder)
+    .replace({'label': label_encoder})
 )
