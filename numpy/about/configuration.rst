@@ -1,4 +1,4 @@
-Numpy Configuration
+About Configuration
 ===================
 
 .. code-block:: python

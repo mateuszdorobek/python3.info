@@ -1,5 +1,5 @@
-Performance
-===========
+About Performance
+=================
 
 
 .. glossary::
@@ -35,6 +35,32 @@ Performance
         application-specific integrated circuit (ASIC) developed by Google
         specifically for neural network machine learning, particularly using
         Google's own TensorFlow software. [#WikipediaTPU]_
+
+
+CPU
+---
+.. figure:: img/numpy-performance-cpu-memory.png
+.. figure:: img/numpy-performance-cpu-memsize.png
+
+
+Motherboard
+-----------
+.. figure:: img/numpy-performance-motherboard.png
+
+
+CPU vs GPU Architecture
+-----------------------
+.. figure:: img/numpy-performance-architecture-apple.png
+.. figure:: img/numpy-performance-architecture-cpu.png
+.. figure:: img/numpy-performance-architecture-cpu-vs-gpu-1.png
+.. figure:: img/numpy-performance-architecture-cpu-vs-gpu-2.png
+.. figure:: img/numpy-performance-architecture-gpu.png
+
+
+Latency
+-------
+.. figure:: img/numpy-performance-latency-1.png
+.. figure:: img/numpy-performance-latency-2.png
 
 
 References

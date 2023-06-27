@@ -1,5 +1,5 @@
-Precision
-=========
+About Precision
+===============
 
 
 >>> 0.1

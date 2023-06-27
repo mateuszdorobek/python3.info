@@ -5,6 +5,7 @@ About
     :caption: About
 
     about/about.rst
+    about/agenda.rst
     about/configuration.rst
     about/precision.rst
     about/constants.rst

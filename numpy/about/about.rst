@@ -1,5 +1,5 @@
-Numpy
-=====
+About Numpy
+===========
 * NumPy is the fundamental package for scientific computing with Python
 * a powerful N-dimensional array object
 * sophisticated (broadcasting) functions

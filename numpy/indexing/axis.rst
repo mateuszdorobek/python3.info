@@ -4,6 +4,13 @@ Array Axis
 * Columns are always last
 * https://youtu.be/ZB7BZMhfPgk?t=4738
 
+.. figure:: img/numpy-index-1.png
+.. figure:: img/numpy-index-2.png
+.. figure:: img/numpy-index-3.png
+.. figure:: img/numpy-index-4.png
+.. figure:: img/numpy-index-5.png
+.. figure:: img/numpy-index-6.png
+
 .. figure:: img/numpy-attributes-1d.png
 .. figure:: img/numpy-attributes-2d.png
 .. figure:: img/numpy-attributes-3d.png
