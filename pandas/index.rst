@@ -123,7 +123,7 @@ Case Study
     casestudy/html-espn.rst
     casestudy/html-livescores.rst
     casestudy/html-nba.rst
-    casestudy/html-percapita.rst
+    casestudy/html-gdp.rst
     casestudy/html-schedule.rst
     casestudy/html-talary.rst
     casestudy/json-coinbase.rst

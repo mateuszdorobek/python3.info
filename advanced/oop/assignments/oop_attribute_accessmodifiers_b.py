@@ -43,12 +43,14 @@ Tests:
     >>> assert hasattr(result, '_User__password')
 """
 
+
 # Public attributes: `firstname`, `lastname`
 # Protected attributes: `email`, `phone`
 # Private attributes: `username`, `password`
 # type: type[User]
 class User:
-    pass
+    def __init__(self):
+        ...
 
 
 # Solution

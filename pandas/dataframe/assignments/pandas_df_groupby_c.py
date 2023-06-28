@@ -9,16 +9,22 @@ English:
     2. Create ranking of the most experienced astronauts (number of flights)
     3. Drop duplicates
     4. Reset index
-    5. Define `result: pd.Dataframe` with top 10
-    6. Run doctests - all must succeed
+    5. Sort values:
+        a. `total_number_of_missions` descending
+        b. `name` ascending
+    6. Define `result: pd.Dataframe` with top 10
+    7. Run doctests - all must succeed
 
 Polish:
     1. Wczytaj dane z `DATA`
     2. Stwórz ranking najbardziej doświadczonych astronautów (liczba lotów)
     3. Usuń duplikaty
     4. Zresetuj indeks
-    5. Zdefiniuj `result: pd.Dataframe` z top 10
-    6. Uruchom doctesty - wszystkie muszą się powieść
+    5. Posortuj wartości:
+        a. `total_number_of_missions` malejąco
+        b. `name` rosnąco
+    6. Zdefiniuj `result: pd.Dataframe` z top 10
+    7. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -36,14 +42,14 @@ Tests:
                            name  total_number_of_missions
     0   Chang-Diaz, Franklin R.                         7
     1            Ross, Jerry L.                         7
-    2       Wetherbee, James D.                         6
-    3  Musgrave, Franklin Story                         6
+    2     Brown, Curtis L., Jr.                         6
+    3         Foale, C. Michael                         6
     4          Krikalev, Sergei                         6
     5         Malenchenko, Yuri                         6
-    6     Brown, Curtis L., Jr.                         6
-    7         Foale, C. Michael                         6
+    6  Musgrave, Franklin Story                         6
+    7       Wetherbee, James D.                         6
     8            Young, John W.                         6
-    9         Gibson, Robert L.                         5
+    9            Blaha, John E.                         5
 """
 
 import pandas as pd
@@ -57,8 +63,8 @@ result = ...
 # Solution
 result = (pd
     .read_csv(DATA)
-    .loc[:,['name','total_number_of_missions']]
-    .sort_values('total_number_of_missions', ascending=False)
+    .loc[:, ['name','total_number_of_missions']]
+    .sort_values(['total_number_of_missions', 'name'], ascending=[False, True])
     .drop_duplicates()
     .reset_index(drop=True)
     .head(10)

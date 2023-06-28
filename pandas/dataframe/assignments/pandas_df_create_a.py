@@ -1,15 +1,17 @@
 """
 * Assignment: DataFrame Create
 * Complexity: easy
-* Lines of code: 10 lines
-* Time: 5 min
+* Lines of code: 5 lines
+* Time: 3 min
 
 English:
     1. Create `result: pd.DataFrame` for input data
+    2. Name columns: `Crew`, `Role`, `Astronaut`
     2. Run doctests - all must succeed
 
 Polish:
     1. Stwórz `result: pd.DataFrame` dla danych wejściowych
+    2. Name columns: `Crew`, `Role`, `Astronaut`
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -40,12 +42,12 @@ Tests:
 import pandas as pd
 
 """
-"Prime", "CDR", "Neil Armstrong"
-"Prime", "LMP", "Buzz Aldrin"
-"Prime", "CMP", "Michael Collins"
-"Backup", "CDR", "James Lovell"
-"Backup", "LMP", "William Anders"
-"Backup", "CMP", "Fred Haise"
+"commander", "Melissa", "Lewis"
+"botanist", "Mark", "Watney"
+"pilot", "Rick", "Martinez"
+"chemist", "Alex", "Vogel"
+"engineer", "Beth", "Johanssen"
+"CMP", "Chris", "Back"
 """
 
 

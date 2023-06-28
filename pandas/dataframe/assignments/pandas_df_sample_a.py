@@ -2,7 +2,7 @@
 * Assignment: DataFrame Sample
 * Complexity: easy
 * Lines of code: 4 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     TODO: English Translation

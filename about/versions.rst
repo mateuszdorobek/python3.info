@@ -2,6 +2,9 @@ Python Versions
 ===============
 * Since Python 3.9: :pep:`602` -- Annual Release Cycle for Python
 * New Python release every 12 months (1 year)
+* 12 months (1 year) release cycle
+* 18 months (1.5 year) of bugfix updates
+* 42 months (3.5 year) of security updates
 
 
 Python Release Cycle
@@ -26,6 +29,7 @@ Which Version?
     :header: "Version", "PEP", "Status", "Release", "End-of-life", "Release Manager"
     :widths: 5, 15, 10, 20, 20, 30
 
+    "3.13", ":pep:`719`", "future",      "2024-10-01", "2029-10",    "Thomas Wouters"
     "3.12", ":pep:`693`", "features",    "2023-10-03", "2028-10",    "Thomas Wouters"
     "3.11", ":pep:`664`", "bugfix",      "2022-10-24", "2027-10",    "Pablo Galindo Salgado"
     "3.10", ":pep:`619`", "bugfix",      "2021-10-04", "2026-10",    "Pablo Galindo Salgado"

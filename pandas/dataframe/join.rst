@@ -3,6 +3,7 @@ DataFrame Join
 * ``pd.concat()``
 * ``.merge()``
 * ``.join()``
+* ``.melt()`` - stack columns
 
 .. warning:: DataFrame.append() and Series.append() have been deprecated and
              will be removed in Pandas 2.0. Use pandas.concat() instead

@@ -1,42 +1,61 @@
 import pandas as pd
+from matplotlib import pyplot as plt
 
 pd.set_option('display.max_rows', None)
 pd.set_option('display.max_columns', None)
 
 
-DATA = 'https://python3.info/_static/phones.xlsx'
+MONTHS = [
+    'January', 'February', 'March', 'April',
+    'May', 'June', 'July', 'August', 'September',
+    'October', 'November', 'December',
+]
 
-MONTHS_PL = ['styczeń', 'luty', 'marzec', 'kwiecień',
-             'maj', 'czerwiec', 'lipiec', 'sierpień',
-             'wrzesień', 'październik', 'listopad', 'grudzień']
-MONTHS = dict(enumerate(MONTHS_PL, start=1))
-
-
-df = pd.read_excel(
-        io='/Users/matt/Desktop/phones.xlsx',
-        sheet_name='Polish',
-        skiprows=1,
-        index_col=0,
+df = (pd
+    .read_csv(
+        filepath_or_buffer='https://python3.info/_static/phones-pl.csv',
         parse_dates=['datetime'])
-
-df.info(memory_usage='deep')
-
-df['date'] = df['datetime'].dt.date
-df['time'] = df['datetime'].dt.time
-df[['period_year', 'period_month']] = df['period'].str.split('-', expand=True)
-df['period_monthname'] = df['period_month'].astype(int).map(MONTHS)
-
-result = df.groupby(['period', 'item', 'network']).agg(
-    duration_count=('duration', 'count'),
-    duration_sum=('duration', 'sum'),
-    duration_min=('duration', 'min'),
-    duration_max=('duration', 'max'),
-    duration_mean=('duration', 'mean'),
-    duration_mean_round=('duration', lambda group: group.mean().astype(int)),
-    duration_median=('duration', 'median'),
-    duration_std=('duration', 'std'),
-    first=('datetime', 'first'),
-    last=('datetime', 'last'),
+    .assign(
+        date=lambda df: df['datetime'].dt.date,
+        time=lambda df: df['datetime'].dt.time,
+        year=lambda df: df['period'].str.split('-', expand=True)[0],
+        month=lambda df: df['period'].str.split('-', expand=True)[1],
+        weekday=lambda df: df['datetime'].dt.strftime('%A'))
+    .set_index(keys='datetime', drop=True)
+    .drop(columns=['id'])
+    .convert_dtypes()
+    .astype({'month': int})
+    .replace({'month': dict(enumerate(MONTHS, start=1))})
+    .groupby(['period','item', 'network'])
+    .aggregate(
+        duration_count=('duration', 'count'),
+        duration_sum=('duration', 'sum'),
+        duration_mean=('duration', 'mean'),
+        duration_std=('duration', 'std'),
+        duration_var=('duration', 'var'),
+        duration_min=('duration', 'min'),
+        duration_q25=('duration', lambda column: column.quantile(.25)),
+        duration_q50=('duration', lambda column: column.quantile(.50)),
+        duration_q75=('duration', lambda column: column.quantile(.75)),
+        duration_max=('duration', 'max'),
+        duration_skew=('duration', 'skew'))
+    .convert_dtypes()
+    .round(decimals=2)
 )
 
-result['duration_sum'].plot(kind='line', figsize=(16,10))
+# %%
+data = (
+    df
+    .xs('sms', level=1)
+    .loc[:, 'duration_count']
+    .droplevel(1)
+).plot(
+    legend=True,
+    grid=True,
+    figsize=(16,10),
+    title='Number of SMS in given period',
+    ylabel='Number of SMS',
+    xlabel='Timeframe',
+)
+
+# plt.show()

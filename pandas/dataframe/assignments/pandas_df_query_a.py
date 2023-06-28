@@ -12,7 +12,7 @@ Polish:
     1. Wczytaj dane z `DATA` jako `df: pd.DataFrame`
     2. Wybierz wiersze, gdzie wartość 'petal_length' jest powyżej 2.0
     3. Wyświetl 5 pierwszych wierszy
-    4. Nie używaj `.query()`
+    4. Użyj `.query()`
     5. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -45,6 +45,9 @@ result = ...
 
 
 # Solution
-df = pd.read_csv(DATA)
-query = df['petal_length'] > 2.0
-result = df[query].head(5)
+result = (
+    pd
+    .read_csv(DATA)
+    .query('petal_length > 2.0')
+    .head(n=5)
+)
