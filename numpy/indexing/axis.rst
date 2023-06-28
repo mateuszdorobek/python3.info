@@ -156,7 +156,7 @@ IndexError: too many indices for array: array is 1-dimensional, but 2 were index
 >>>
 >>> a.take(0, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 
 Two Dimensional - Rows:
 
