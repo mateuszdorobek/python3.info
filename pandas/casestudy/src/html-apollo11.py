@@ -1,33 +1,43 @@
 import sqlite3
 import pandas as pd
 
+pd.set_option('display.width', 200)
+pd.set_option('display.max_columns', 15)
+pd.set_option('display.max_rows', 100)
+pd.set_option('display.min_rows', 100)
+pd.set_option('display.max_seq_items', 100)
 
-pd.set_option('display.width', 1000)
-pd.set_option('display.max_rows', 500)
-pd.set_option('display.max_columns', 50)
-
-
+# DATA = 'https://history.nasa.gov/SP-4029/Apollo_11i_Timeline.htm'
 DATA = 'https://python3.info/_static/apollo11.html'
 DATABASE = 'apollo11.sqlite3'
 
 
-df = pd.read_html(DATA, skiprows=1)[0]
-df.columns = ['event', 'met', 'time', 'date']
+def to_timedelta(text: str) -> pd.Timedelta:
+    if type(text) is not str:
+        return pd.NaT
+    parts = text.split(':')
+    hours = parts[0]
+    minutes = parts[1]
+    seconds = parts[2] if len(parts) == 3 else 0
+    return pd.Timedelta(f'{hours}h {minutes}m {seconds}s').round(freq='s')
 
-df['time'] = df['time'].fillna('00:00:00')
-df['datetime'] = pd.to_datetime(df['date'] + ' ' + df['time'])
-df['date'] = df['date'].map(pd.to_datetime).dt.date
-df['time'] = df['time'].map(pd.to_datetime).dt.time
-df['met'] = df['met'].str.replace(r'\.\d+', '', regex=True)
-df['met'] = df['met'].fillna('')
 
-invalid = df['met'].str.count(':') == 1
-df.loc[invalid, 'met'] = df.loc[invalid, 'met'].str.replace(r'(\d+):(\d+)', r'\1:\2:00', regex=True)
-df['met'] = pd.to_timedelta(df['met'])
-
-df = df.convert_dtypes()
-df = df.sort_values('datetime')
-df = df.set_index('datetime', drop=True)
+df = (pd
+    .read_html(io=DATA, header=0)[0]
+    .rename(columns={
+        'Event': 'event',
+        'GMT  Date': 'date',
+        'GMT  Time': 'time',
+        'GET  (hhh:mm:ss)': 'mission_time'})
+    .fillna({'time':'00:00:00'})
+    .assign(
+        time = lambda df: pd.to_datetime(df.time, errors='coerce').dt.time,
+        date = lambda df: pd.to_datetime(df.date, errors='coerce').dt.date,
+        datetime = lambda df: pd.to_datetime(df.date.astype('str') + 'T' + df.time.astype('str')),
+        mission_time = lambda df: df.mission_time.map(to_timedelta))
+    .convert_dtypes()
+    .set_index('datetime', drop=True)
+)
 
 df['category'] = 'INFO'
 df.loc[:'1969-07-16 13:32:00', 'category'] = 'DEBUG'
@@ -75,7 +85,7 @@ df.loc['1969-07-24 17:29:00', 'category'] = 'CRITICAL'
 tv = df['event'].str.contains('TV')
 df.loc[tv, 'category'] = 'DEBUG'
 
-df = df[['date', 'time', 'met', 'category', 'event']]
+df = df[['date', 'time', 'mission_time', 'category', 'event']]
 
 with sqlite3.connect(DATABASE) as db:
     df.to_sql('apollo11', db)

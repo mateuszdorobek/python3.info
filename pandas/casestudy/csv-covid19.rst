@@ -8,16 +8,12 @@ CSV COVID19
 * https://youtu.be/xtZYKcOdJp0?t=168
 
 
-Code
-----
+Case Study - 0x01
+-----------------
 .. literalinclude:: src/csv-covid19-a.py
     :language: python
 
-.. literalinclude:: src/csv-covid19-b.py
-    :language: python
 
-Plots
------
 .. figure:: img/covid19-poland-confirmed-daily.png
 
     Confirmed daily plot for COVID19 pandemy in Poland.
@@ -45,3 +41,19 @@ Plots
 .. figure:: img/covid19-poland-trendline.png
 
     Trendline plot for COVID19 pandemy in Poland.
+
+
+Case Study - 0x02
+-----------------
+.. literalinclude:: src/csv-covid19-b.py
+    :language: python
+
+
+Case Study - 0x03
+-----------------
+.. literalinclude:: src/csv-covid19-c.py
+    :language: python
+
+.. figure:: img/covid19-c-poland-confirmed-total.png
+.. figure:: img/covid19-c-poland-confirmed-daily.png
+.. figure:: img/covid19-c-poland-mortality.png

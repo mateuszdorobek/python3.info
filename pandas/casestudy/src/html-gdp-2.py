@@ -1,90 +1,107 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-pd.set_option('display.width', 200)
-pd.set_option('display.max_columns', 15)
-pd.set_option('display.max_rows', 100)
-pd.set_option('display.min_rows', 100)
-pd.set_option('display.max_seq_items', 100)
 
 PKB = 'https://pl.wikipedia.org/wiki/Lista_pa%C5%84stw_%C5%9Bwiata_wed%C5%82ug_PKB_(parytet_si%C5%82y_nabywczej)'
 LUDNOSC = 'https://pl.wikipedia.org/wiki/Lista_pa%C5%84stw_%C5%9Bwiata_wed%C5%82ug_liczby_ludno%C5%9Bci'
 USD = 1
 
-# %%
+
+COUNTRIES = {
+    'Chińska Republika Ludowa': 'Chiny',
+    'Republika Chińska': 'Tajwan',
+    # 'Strefa Gazy':'Zachodni Brzeg i Strefa Gazy',
+    # 'Zachodni Brzeg': 'Zachodni Brzeg i Strefa Gazy',
+    # 'Korea Północna': ''
+    # 'Syria': ''
+    # 'Kuba': ''
+    # 'Zachodni Brzeg': ''
+    # 'Strefa Gazy': ''
+    # 'Polinezja Francuska': ''
+    # 'Nowa Kaledonia': ''
+    # 'Guam': ''
+    # 'Curaçao': ''
+    # 'Wyspy Dziewicze': ''
+    # 'Jersey': ''
+    # 'Wyspa Man': ''
+    # 'Andora': ''
+    # 'Bermudy': ''
+    # 'Guernsey': ''
+    # 'Kajmany': ''
+    # 'Turks i Caicos': ''
+    # 'Grenlandia': ''
+    # 'Wyspy Owcze': ''
+    # 'Mariany Północne': ''
+    # 'Samoa Amerykańskie': ''
+    # 'Sint Maarten': ''
+    # 'Liechtenstein': ''
+    # 'Brytyjskie Wyspy Dziewicze': ''
+    # 'Saint-Martin[a]': ''
+    # 'Monako': ''
+    # 'Gibraltar': ''
+    # 'Anguilla': ''
+    # 'Wallis i Futuna': ''
+    # 'Wyspy Cooka': ''
+    # 'Wyspa Świętej Heleny, Wyspa Wniebowstąpienia i ...': ''
+    # 'Saint-Barthélemy[a]': ''
+    # 'Montserrat': ''
+    # 'Saint-Pierre i Miquelon': ''
+    # 'Falklandy': ''
+    # 'Svalbard': ''
+    # 'Niue': ''
+    # 'Tokelau': ''
+    # 'Watykan': ''
+    # 'Pitcairn': ''
+
+}
+
 pkb = (pd
     .read_html(PKB)[0]
-    .rename(columns={'Kraj': 'państwo', '2019':'pkb'})
-    .loc[:, ['państwo', 'pkb']]
+    .rename(columns={'Kraj':'kraj', '2019':'pkb'})
+    .loc[:, ['kraj', 'pkb']]
     .replace(regex=True, to_replace={
-        '\xa0': '',
-        '\[2\]': '',
-        '\[3\]': '',
-        'b\.d': pd.NA})
+        'pkb': {'b.d': pd.NA, '\s':''},
+        'kraj': {'\[2\]': ''}})
     .dropna()
-    .set_index('państwo', drop=True)
-    .replace(' ', '', regex=True)
-    .astype('int64')
+    .set_index('kraj', drop=True)
+    .astype('int')
     .convert_dtypes()
-    .sort_values(by='pkb', ascending=False)
-    .mul(1_000_000*USD)
-)
-
-pkb
-
-# %%
+    .mul(1_000_000*USD))
 
 ludnosc = (pd
     .read_html(LUDNOSC)[0]
-    .droplevel(axis='columns', level=0)
-    .rename(columns={
-        'Państwo, obszar lub terytorium zależne': 'państwo',
-        '2022': 'ludność'})
-    .loc[:, ['państwo', 'ludność']]
+    .droplevel(level=0, axis='columns')
+    .rename(columns={'Państwo, obszar lub terytorium zależne':'kraj', '2022':'ludnosc'})
+    .loc[:, ['kraj','ludnosc']]
     .replace(regex=True, to_replace={
-        'państwo': {
-            'Chińska Republika Ludowa': 'Chiny',
-            'Republika Chińska': 'Tajwan',
-            'Korea Północna': pd.NA,
-            'Kuba': pd.NA,
-            'Zachodni Brzeg': pd.NA,
-            'Strefa Gazy': pd.NA},
-        'ludność': {
-            '\xa0': '',
-            '\[2\]': '',
-            '\[3\]': '',
-            ' ': '',
-            '–': pd.NA}})
+        'kraj':COUNTRIES,
+        'ludnosc':{'–': pd.NA, '\[3\]': '', '\s':''}})
+    .set_index('kraj', drop=True)
     .dropna()
-    .set_index('państwo', drop=True)
-    .astype('int64')
-    .convert_dtypes()
-)
+    .astype('int')
+    .convert_dtypes())
 
-ludnosc
-
-# %%
-
-result = (pd
+per_capita = (pd
     .merge(left=pkb, right=ludnosc, left_index=True, right_index=True)
-    .assign(per_capita=lambda df: df['pkb'] / df['ludność'])
-    .astype('int64')
+    .assign(per_capita=lambda df: df.pkb / df.ludnosc)
+    .round(1)
     .convert_dtypes()
-    .sort_values(by='per_capita', ascending=False)
-)
+    .sort_values(by='per_capita', ascending=False))
 
-#%%
-plot = (result
-    .loc[:, ['per_capita']]
+
+plot_percapita = (
+    per_capita
+    .loc[:, 'per_capita']
+    .sort_values(ascending=False)
     .head(n=10)
     .plot(
         kind='bar',
-        title='Top 10 countries\nWith highest Global Domestic Product Per Capita',
-        ylabel='Population',
-        xlabel='Country',
-        legend=True,
-        grid=True,
-        figsize=(16,10))
-)
+        title='PKB Per Capita',
+        xlabel='Państwo',
+        ylabel='PKB Per Capita',
+        grid=False,
+        legend=False,
+        figsize=(16,10)))
 
+plt.tight_layout()
 plt.show()
