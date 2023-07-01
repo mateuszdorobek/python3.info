@@ -83,11 +83,28 @@ world = covid19()
 
 #%%
 
-pl['confirmed'].plot(kind='line')
+data = pl['confirmed']
+plot_confirmed_total = data.plot(
+    kind='line',
+    label='Confirmed',
+    title='Total confirmed cases in Poland',
+    xlabel='Date',
+    ylabel='Total confirmed cases',)
 
+plt.tight_layout()
+# plt.show()
 #%%
 
-pl['confirmed'].diff().plot(kind='line')
+data = pl['confirmed'].diff()
+plot_confirmed_daily = data.plot(
+    kind='line',
+    label='Confirmed',
+    title='Daily confirmed cases in Poland',
+    xlabel='Date',
+    ylabel='Daily confirmed cases',)
+
+plt.tight_layout()
+# plt.show()
 
 # %%
 
@@ -100,9 +117,8 @@ plot_mortality = data.plot(
     title='Mortality in Poland',
     ylabel='mortality [%]',
     label='Mortality',
-    color='blue',
     xlabel='date')
 plt.hlines(data.mean(), xmin=data.index.min(), xmax=data.index.max(), color='red', label='Mean')
 plt.legend()
 plt.tight_layout()
-plt.show()
+# plt.show()
