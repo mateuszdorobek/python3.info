@@ -6,11 +6,11 @@
 
 English:
     1. Write unittest for `Rectangle`
-    2. Run doctests - all must succeed
+    2. Run unittest - all must succeed
 
 Polish:
     1. Napisz testy jednostkowe dla `Rectangle`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    2. Uruchom unittest - wszystkie muszą się powieść
 """
 
 import unittest
@@ -32,7 +32,7 @@ class Rectangle:
         return (self.side_a + self.side_b) * 2
 
     def __str__(self):
-        return f'Rectangle({self.a}, {self.b})'
+        return f'Rectangle({self.side_a}, {self.side_b})'
 
 
 # Solution

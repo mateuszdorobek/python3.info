@@ -332,6 +332,34 @@ Files
 
 Tests
 -----
+.. code-block:: text
+
+    pip
+    tzdata
+    IPython
+
+    autopep8
+    bandit
+    behave
+    black
+    coverage
+    eradicate
+    flake8
+    isort
+    mccabe
+    mutmut
+    mypy
+    pycodestyle
+    pydocstyle
+    pyflakes
+    pylama[all]
+    pylint
+    radon
+    rope
+    ruff
+    vulture
+    yapf
+
 .. code-block:: sh
 
     cat > run/env-prepare << EOF

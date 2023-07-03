@@ -4,19 +4,20 @@ name = "myproject"
 version = "1.0.0"
 requires-python = ">=3.11"
 readme = "README.md"
+keywords = ["ares", "mars", "nasa", "human-spaceflight"]
 authors = [{name = "Mark Watney", email = "mwatney@nasa.gov"}]
+
+urls.homepage = "https://github.com/myusername/myproject"
+urls.repository = "https://github.com/myusername/myproject.git"
+urls.documentation = "https://github.com/myusername/myproject"
+urls.changelog = "https://github.com/myusername/myproject/releases"
+urls.bugtracker = "https://github.com/myusername/myproject/issues"
 
 # License
 # https://peps.python.org/pep-0639/#add-license-files-key
 # https://peps.python.org/pep-0639/#mapping-license-classifiers-to-spdx-identifiers
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#license
 license = {file = "LICENSE"}
-
-keywords = [
-    "ares",
-    "mars",
-    "nasa",
-    "human-spaceflight"]
 
 # Each project's maintainers provide PyPI with a list of
 # "Trove classifiers" to categorize each release, describing who it's for,
@@ -43,33 +44,35 @@ classifiers = [
 
 ## Dependencies
 # https://peps.python.org/pep-0440/#version-specifiers
-
 dependencies = [
     "django == 4.2.*",
-    "django-ninja == 0.19.*"]
+    "django-ninja == 0.22.*"]
 
 [project.optional-dependencies]
 test = [
     "autopep8",
+    "bandit",
+    "behave",
+    "black",
     "coverage",
+    "eradicate",
     "flake8",
+    "isort",
     "mccabe",
+    "mutmut",
     "mypy",
     "pycodestyle",
     "pydocstyle",
     "pyflakes",
+    "pylama[all]",
     "pylint",
+    "radon",
     "rope",
-    "whatthepatch",
+    "ruff",
+    "vulture",
     "yapf",
 ]
 
-
-urls.homepage = "https://github.com/myusername/myproject"
-urls.repository = "https://github.com/myusername/myproject.git"
-urls.documentation = "https://github.com/myusername/myproject"
-urls.changelog = "https://github.com/myusername/myproject/releases"
-urls.bugtracker = "https://github.com/myusername/myproject/issues"
 
 ## Console scripts
 # https://packaging.python.org/en/latest/specifications/declaring-project-metadata/#entry-points
@@ -264,3 +267,9 @@ disable = [
     "too-few-public-methods",           # "R0903"
     "too-many-arguments",               # "R0913"
 ]
+
+[tool.pylama]
+format = "pylint"
+skip = "*/.tox/*,*/.env/*"
+linters = "pycodestyle,pydocstyle,pyflakes,mccabe,pylint,pylint,radon,eradicate,mypy,vulture"
+ignore = "F0401,C0111,E731"

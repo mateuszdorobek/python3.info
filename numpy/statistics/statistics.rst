@@ -20,7 +20,7 @@ Mean
 >>>
 >>> np.mean(a, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
@@ -64,7 +64,7 @@ Average
 >>>
 >>> np.average(a, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 >>>
 >>> np.average(a, weights=[1, 1, 2])
 2.25
@@ -120,7 +120,7 @@ Median
 >>>
 >>> np.median(a, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
@@ -172,7 +172,7 @@ Variance
 >>>
 >>> np.var(a, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])
@@ -219,7 +219,7 @@ Standard Deviation
 >>>
 >>> np.std(a, axis=1)
 Traceback (most recent call last):
-numpy.AxisError: axis 1 is out of bounds for array of dimension 1
+numpy.exceptions.AxisError: axis 1 is out of bounds for array of dimension 1
 
 >>> a = np.array([[1, 2, 3],
 ...               [4, 5, 6]])

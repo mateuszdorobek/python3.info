@@ -47,7 +47,7 @@ Tests:
     62
 """
 
-from random import randint, seed;
+from random import randint, seed
 
 
 seed(0)
@@ -65,7 +65,7 @@ result = ...
 # Solution
 result = 0
 
-matrix = [[randint(0, 9) for y in ROWS]
+matrix = [[randint(0,9) for y in ROWS]
           for x in COLS]
 
 for row in matrix[6:-6]:
