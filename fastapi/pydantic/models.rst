@@ -101,7 +101,7 @@ models that map to ORM objects.
 
 To do this:
 
-1. The ``Config`` property ``orm_mode`` must be set to ``True``.
+1. The ``Config`` property ``from_attributes`` must be set to ``True``.
 2. The special constructor ``from_orm`` must be used to create the model
    instance.
 
@@ -116,7 +116,7 @@ any ORM.
 ...     name: str = 'Mark Watney'
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 
 
 Reserved names
@@ -143,7 +143,7 @@ which attempts to provide a dictionary-like interface to any class. You
 can customise how this works by setting your own sub-class of ``GetterDict``
 as the value of ``Config.getter_dict``.
 
-You can also customise class validation using ``root_validators`` with
+You can also customise class validation using ``model_validator`` with
 ``pre=True``. In this case your validator function will be passed a
 ``GetterDict`` instance which you may copy and modify.
 
@@ -185,8 +185,8 @@ Custom Errors
 -------------
 In your custom data types or validators you should use ``ValueError``,
 ``TypeError`` or ``AssertionError`` to raise errors. See `Pydantic Validators`
-for more details on use of the ``@validator`` decorator. You can also define
-your own error classes, which can specify a custom error code, message
+for more details on use of the ``@field_validator`` decorator. You can also
+define your own error classes, which can specify a custom error code, message
 template, and context.
 
 
