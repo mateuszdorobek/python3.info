@@ -35,6 +35,10 @@ Hints:
     * `str.splitlines()`
     * `str.split()`
     * `str.strip()`
+    * line: "3,4,setosa,virginica,versicolor" is not an error
+    * 3 - rows
+    * 4 - number of features (values)
+    * setosa,virginica,versicolor - if 0 then setosa, if 1 then virginica, etc.
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

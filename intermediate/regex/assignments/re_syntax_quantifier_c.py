@@ -8,14 +8,14 @@ English:
     1. Use regular expressions find in text
         a. all capitalized words
         b. all names (two capitalized words)
-        c. all names with numbers (capitalized word followed by number)
+        c. all names with numbers (capitalized word, space and number)
     2. Run doctests - all must succeed
 
 Polish:
     1. Użyj wyrażeń regularnych wyszukiwania w tekście:
         a. słowa zaczynające się wielką literą
         b. wszystkie nazwy (dwa słowa zaczynające się wielką literą)
-        c. wszystkie nazwy z numerami
+        c. wszystkie nazwy z numerami (słowo z dużej litery, spacja i liczba)
     2. Uruchom doctesty - wszystkie muszą się powieść
 
 References:
@@ -40,8 +40,8 @@ Tests:
 
     >>> result = re.findall(result_b, TEXT)
     >>> pprint(result, compact=True, width=72)
-    ['Neil Armstrong', 'Buzz Aldrin', 'Apollo Lunar', 'Michael Collins',
-     'Command Module']
+    ['Neil Armstrong', 'Buzz Aldrin', 'Apollo Lunar', 'Tranquility Base',
+     'Michael Collins', 'Command Module']
 
     >>> result = re.findall(result_c, TEXT)
     >>> pprint(result, compact=True, width=72)
@@ -57,13 +57,12 @@ pilot (LMP) Buzz Aldrin landed the Apollo Lunar Module (LM) Eagle on
 July 20th, 1969 at 20:17 UTC, and Armstrong became the first person
 to step (EVA) onto the Moon's surface (EVA) 6 hours 39 minutes later,
 on July 21st, 1969 at 02:56:15 UTC. Aldrin joined him 19 minutes later.
-They spent 2 hours 31 minutes exploring the site they had named Tranquility
-Base upon landing. Armstrong and Aldrin collected 47.5 pounds (21.5 kg)
-of lunar material to bring back to Earth as pilot Michael Collins (CMP)
-flew the Command Module (CM) Columbia in lunar orbit, and were on the
+They spent 2 hours 31 minutes exploring the site they had named
+Tranquility Base upon landing. Armstrong and Aldrin collected 47.5 pounds
+(21.5 kg) of lunar material to bring back to Earth as pilot Michael Collins
+(CMP) flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
-
 
 # Find all capitalized words
 # Example: 'Apollo', 'Moon', 'Commander', 'Neil', 'Armstrong', ...
@@ -82,7 +81,6 @@ result_b = ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
 result_c = ...
-
 
 # Solution
 result_a = r'[A-Z][a-z]+'

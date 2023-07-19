@@ -14,7 +14,8 @@ English:
         a. always pass valid type of arguments
         b. iterable length will always be greater than 0
         c. user can only pass two iterables: `a`, `b`
-    4. Run doctests - all must succeed
+    4. Do not use built-in function `zip()`
+    5. Run doctests - all must succeed
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `zip()`
@@ -26,7 +27,8 @@ Polish:
         a. zawsze poda argumenty poprawnych typów
         b. długość iterable będzie większa od 0
         c. użytkownik może podać tylko dwie iterable: `a`, `b`
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    4. Nie używaj wbudowanej funkcji `zip()`
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

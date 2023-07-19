@@ -60,6 +60,10 @@ DATA = """127.0.0.1       localhost
 255.255.255.255 broadcasthost
 ::1             localhost"""
 
+def parse(line):
+    ...
+
+result = ...
 
 # Solution
 def parse(line):

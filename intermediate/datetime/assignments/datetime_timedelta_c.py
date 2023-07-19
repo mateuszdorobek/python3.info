@@ -5,8 +5,7 @@
 * Time: 5 min
 
 English:
-    1. Given period is the time between Gagarin launch and Armstrong
-       first step on the Moon:
+    1. Between the first flight to space and the first step on the moon passed:
         * 8 years
         * 3 months
         * 8 days
@@ -20,8 +19,7 @@ English:
     4. Run doctests - all must succeed
 
 Polish:
-    1. Podany jest czas, który upłynął między startem Gagarina
-       a pierwszym krokiem Armstronga na Księżycu:
+    1. Między pierwszym lotem w kosmos a pierwszym krokiem na Księżycu minęło:
         * 8 lat
         * 3 miesięcy
         * 8 dni

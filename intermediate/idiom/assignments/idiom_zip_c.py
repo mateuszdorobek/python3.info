@@ -14,7 +14,7 @@ English:
 Polish:
     1. Zdefiniuj `result: zip` z enumerowanym `DATA`
     2. Odtwórz zachowanie `enumerate()`
-    3. Use only: `len()`, `range()`, `zip()`
+    3. Użyj tylko: `len()`, `range()`, `zip()`
     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
@@ -36,6 +36,8 @@ Tests:
     StopIteration
 """
 DATA = ['January', 'February', 'March', 'April']
+
+result = ...
 
 # Solution
 result = zip(range(len(DATA)), DATA)

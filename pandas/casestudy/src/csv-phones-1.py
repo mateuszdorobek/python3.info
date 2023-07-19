@@ -1,8 +1,11 @@
 import pandas as pd
 from matplotlib import pyplot as plt
 
-pd.set_option('display.max_rows', None)
-pd.set_option('display.max_columns', None)
+pd.set_option('display.width', 300)
+pd.set_option('display.max_columns', 25)
+pd.set_option('display.max_rows', 100)
+pd.set_option('display.min_rows', 100)
+pd.set_option('display.max_seq_items', 100)
 
 
 MONTHS = [
@@ -38,7 +41,7 @@ df = (pd
         duration_q50=('duration', lambda column: column.quantile(.50)),
         duration_q75=('duration', lambda column: column.quantile(.75)),
         duration_max=('duration', 'max'),
-        duration_skew=('duration', 'skew'))
+        duration_skew=('duration', 'skew'),)
     .convert_dtypes()
     .round(decimals=2)
 )

@@ -59,6 +59,10 @@ DATA = """3,4,setosa,virginica,versicolor
 5.1,3.5,1.4,0.2,0
 5.7,2.8,4.1,1.3,2"""
 
+def parse(line):
+    ...
+
+result = ...
 
 # Solution
 header, *lines = DATA.splitlines()

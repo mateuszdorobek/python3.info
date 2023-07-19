@@ -2,7 +2,7 @@
 * Assignment: Idioms Range Impl
 * Complexity: medium
 * Lines of code: 7 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Write own implementation of a built-in `range()` function
@@ -14,7 +14,8 @@ English:
         a. always pass valid type of arguments
         b. never give only one argument
         c. arguments will be unsigned
-    4. Run doctests - all must succeed
+    4. Do not use built-in function `range()`
+    5. Run doctests - all must succeed
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `range()`
@@ -26,7 +27,8 @@ Polish:
         a. zawsze poda argumenty poprawnych typów
         b. nigdy nie poda tylko jednego argumentu
         c. argumenty będą nieujemne
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    4. Nie używaj wbudowanej funkcji `range()`
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * https://github.com/python/cpython/blob/main/Objects/rangeobject.c

@@ -1,0 +1,4307 @@
+<?xml version="1.0"?>
+<?mso-application progid="Excel.Sheet"?>
+<?fr-application created="LSI Software S.A."?>
+<?fr-application homesite="http://www.fast-report.com"?>
+<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:o="urn:schemas-microsoft-com:office:office"
+          xmlns:x="urn:schemas-microsoft-com:office:excel"
+          xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
+          xmlns:html="http://www.w3.org/TR/REC-html40">
+    <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+        <Title></Title>
+        <Author></Author>
+        <Created>2023-07-07T14:08:16Z</Created>
+        <Version>...</Version>
+    </DocumentProperties>
+    <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
+        <ProtectStructure>False</ProtectStructure>
+        <ProtectWindows>False</ProtectWindows>
+    </ExcelWorkbook>
+    <Styles>
+        <Style ss:ID="s0">
+            <Font ss:FontName="Arial" ss:Size="10" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s1">
+            <Font ss:FontName="Arial" ss:Size="14" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s2">
+            <Font ss:FontName="Arial" ss:Size="10" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s3">
+            <Font ss:FontName="Arial" ss:Size="10" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s4">
+            <Font ss:FontName="MS Sans Serif" ss:Size="9" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s5">
+            <Font ss:FontName="Arial" ss:Size="10" ss:Color="#000000"/>
+            <Interior ss:Color="#D7D7D7" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s6">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s7">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s8">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" ss:Color="#000000"/>
+            </Borders>
+        </Style>
+        <Style ss:ID="s9">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" ss:Color="#000000"/>
+            </Borders>
+            <NumberFormat ss:Format="0.##"/>
+        </Style>
+        <Style ss:ID="s10">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" ss:Color="#000000"/>
+            </Borders>
+        </Style>
+        <Style ss:ID="s11">
+            <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s12">
+            <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s13">
+            <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s14">
+            <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s15">
+            <Font ss:FontName="Arial" ss:Size="8" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s16">
+            <Font ss:FontName="Arial" ss:Size="1" ss:Color="#000000"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="0"/>
+            <Borders>
+                <Border ss:Position="Top" ss:LineStyle="Continuous" ss:Weight="1" ss:Color="#000000"/>
+            </Borders>
+        </Style>
+        <Style ss:ID="s17">
+            <Font ss:FontName="Arial" ss:Size="10" ss:Color="#000000"/>
+            <Interior ss:Color="#E3E3E3" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Center" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+                <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3" ss:Color="#000000"/>
+            </Borders>
+        </Style>
+        <Style ss:ID="s18">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+            <NumberFormat ss:Format="#,##0.00"/>
+        </Style>
+        <Style ss:ID="s19">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#FFFFFF" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+            <NumberFormat ss:Format="#,##0.00"/>
+        </Style>
+        <Style ss:ID="s20">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#D7D7D7" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s21">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#D7D7D7" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Top" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+        </Style>
+        <Style ss:ID="s22">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#E3E3E3" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+            <NumberFormat ss:Format="#,##0.00"/>
+        </Style>
+        <Style ss:ID="s23">
+            <Font ss:FontName="MS Sans Serif" ss:Size="8" ss:Color="#000000" ss:Bold="1"/>
+            <Interior ss:Color="#E3E3E3" ss:Pattern="Solid"/>
+            <Alignment ss:Horizontal="Right" ss:Vertical="Center" ss:WrapText="1"/>
+            <Borders>
+            </Borders>
+            <NumberFormat ss:Format="#,##0.00"/>
+        </Style>
+    </Styles>
+    <Worksheet ss:Name="Page1">
+        <Table ss:ExpandedColumnCount="23" ss:ExpandedRowCount="182" x:FullColumns="1" x:FullRows="1">
+            <Column ss:AutoFitWidth="0" ss:Width="2.36"/>
+            <Column ss:AutoFitWidth="0" ss:Width="5.14"/>
+            <Column ss:AutoFitWidth="0" ss:Width="1.95"/>
+            <Column ss:AutoFitWidth="0" ss:Width="29.41"/>
+            <Column ss:AutoFitWidth="0" ss:Width="27.56"/>
+            <Column ss:AutoFitWidth="0" ss:Width="2.54"/>
+            <Column ss:AutoFitWidth="0" ss:Width="19.51"/>
+            <Column ss:AutoFitWidth="0" ss:Width="61.85"/>
+            <Column ss:AutoFitWidth="0" ss:Width="4.86"/>
+            <Column ss:AutoFitWidth="0" ss:Width="23.17"/>
+            <Column ss:AutoFitWidth="0" ss:Width="0.40"/>
+            <Column ss:AutoFitWidth="0" ss:Width="8.32"/>
+            <Column ss:AutoFitWidth="0" ss:Width="24.18"/>
+            <Column ss:AutoFitWidth="0" ss:Width="37.50"/>
+            <Column ss:AutoFitWidth="0" ss:Width="21.72"/>
+            <Column ss:AutoFitWidth="0" ss:Width="8.27"/>
+            <Column ss:AutoFitWidth="0" ss:Width="14.38"/>
+            <Column ss:AutoFitWidth="0" ss:Width="72.50"/>
+            <Column ss:AutoFitWidth="0" ss:Width="41.88"/>
+            <Column ss:AutoFitWidth="0" ss:Width="41.43"/>
+            <Column ss:AutoFitWidth="0" ss:Width="9.82"/>
+            <Column ss:AutoFitWidth="0" ss:Width="205.02"/>
+            <Row ss:Height="4.04">
+                <Cell ss:Index="1" ss:MergeAcross="2" ss:MergeDown="4" ss:StyleID="s3">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="4" ss:MergeAcross="18" ss:StyleID="s0">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="4" ss:MergeAcross="18" ss:StyleID="s0">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="4" ss:MergeAcross="18" ss:StyleID="s0">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="12.44">
+                <Cell ss:Index="4" ss:MergeAcross="18" ss:MergeDown="1" ss:StyleID="s2">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="1.29">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="8.24">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="19.23">
+                <Cell ss:Index="1" ss:MergeAcross="19" ss:StyleID="s1">
+                    <Data ss:Type="String">Sprzedaż zafakturowana wg produktów</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="5.45">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Data od</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">2023-04-01</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Data do</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">2023-04-30</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Dotyczy</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">sprzedaży</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Dokumenty</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">rachunki, korekty rachunków, faktury, korekty faktur, korekty rachunków
+                        niepłatnych
+                    </Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Sprzedaż</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">w wartości brutto</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Rodzaje</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Grupa adm.</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Maska prod.</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Produkt</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Nabywca</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszyscy</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Płatnik</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszyscy</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Obiekt</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Magazyny</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Pos</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Operator</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszyscy</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Vat</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Forma płat.</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Rabat</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Personel</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszyscy</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Waluta</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Wszystkie</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Państwo nabywcy</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="11.63">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="5" ss:StyleID="s4">
+                    <Data ss:Type="String">Pokaż pozycje zerowe</Data>
+                </Cell>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10" ss:MergeAcross="10" ss:StyleID="s4">
+                    <Data ss:Type="String">Tak</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="2.75">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3" ss:MergeAcross="2" ss:StyleID="s0">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s20">
+                    <Data ss:Type="String">Produkt</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s20">
+                    <Data ss:Type="String">JM</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s21">
+                    <Data ss:Type="String">Ilość</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s21">
+                    <Data ss:Type="String">Vat (%)</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s20">
+                    <Data ss:Type="String">Rodzaj produktu</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s21">
+                    <Data ss:Type="String">Rabat</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s21">
+                    <Data ss:Type="String">Sprzedaż</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MARGHERITA PIZZA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">195</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">4357.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DIAVOLA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">111</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">2819.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PROSCIUTTO E FUNGHIP</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">82</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">2304.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA LEMONIADA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">81</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">972.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TARTUFATA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">64</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">2304.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA PROSCIUTTO COTTO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">55</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1390.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CAPRICCIOSA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">52</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1666.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DOSTAWA I SERWIS</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">50</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">191.02</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PEPSI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">50</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">400.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">YOGA MELA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">47</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">5.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">376.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VEGETARIANA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">42</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1056.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">RUSTICA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">33</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1099.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BUFALA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">32</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1173.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PAULANER</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">32</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">480.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ACQUA GAS</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">31</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">186.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FUOCO DELL`ETNA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">30</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">1140.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA COLA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">28</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">336.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">4 FORMAGGI P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">28</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">980.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ACQUA NAT</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">27</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">162.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA SALAME E FUNGHI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">26</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">728.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA ARANCIA ROSSA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">26</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">312.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MARGHERITA PIZZA DELI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">26</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">669.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">NORCINA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">26</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">892.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="10.66">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.73">
+                <Cell ss:Index="1" ss:MergeAcross="19" ss:StyleID="s16">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.01">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s12">
+                    <Data ss:Type="String">2023-07-07</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:MergeAcross="2" ss:StyleID="s13">
+                    <Data ss:Type="String">14:08:16</Data>
+                </Cell>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11" ss:MergeAcross="4" ss:StyleID="s11">
+                    <Data ss:Type="String">1 / 4</Data>
+                </Cell>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Sprzedaż zafakturowana wg produktów</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s14">
+                    <Data ss:Type="String">(C) LSI Software S.A.</Data>
+                </Cell>
+                <Cell ss:Index="7" ss:MergeAcross="5" ss:StyleID="s14">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Wydrukował: CLAUDIO CLAUDIO</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.36">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s20">
+                    <Data ss:Type="String">Produkt</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s20">
+                    <Data ss:Type="String">JM</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s21">
+                    <Data ss:Type="String">Ilość</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s21">
+                    <Data ss:Type="String">Vat (%)</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s20">
+                    <Data ss:Type="String">Rodzaj produktu</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s21">
+                    <Data ss:Type="String">Rabat</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s21">
+                    <Data ss:Type="String">Sprzedaż</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TONNO E CIPOLLA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">25</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">754.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TYKIE 0,3</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">23</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">161.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PEPSI MAX</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">23</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">184.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA MANDARINO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">23</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">276.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA CRUDO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">23</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">690.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA SALSICCIA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">20</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">540.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FOCACCIA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">20</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">318.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MIMOSA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">17</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">462.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ZOLA E SPINACI ROSSA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">17</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">515.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DIAVOLA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">16</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">455.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TARTUFATA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">16</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">624.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">NDUJA PIZZA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">15</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">452.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MARGHERITA BIANCA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">15</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">375.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DA MARIO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">15</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">570.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA CHINOTTO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">15</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">180.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CARPACCIO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">14</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">476.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CAPRICCIOSA P _całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">14</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">502.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE TARTUFATO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">14</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">504.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE PRO E FUNGHI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">14</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">424.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA NORMA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">13</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">338.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BIANCO 150 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">13</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">117.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ZOLA E SPINACI BIANC</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">12</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">384.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CLASSICO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">11</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">311.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CZERWONY LAGER</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">11</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">121.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">SANT`ANTONIO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">11</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">374.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PROSCIUTTO E FUNGHIP_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">10</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">325.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CAFFE LUNGO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">10</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">90.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE RUSTICO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">10</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">360.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">RUSTICA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">324.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA SALAME E FUNGHI_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">288.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE BOMBA.</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">324.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BIANCO 500 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">261.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ROSSO 150 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">81.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DA MARIO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">9</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">408.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">YOGA ARANCIA ROSSA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">72.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VERDE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">256.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA PROSCIUTTO COTTO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">224.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA THE PESCA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">96.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">Te CALDO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">64.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VULCANO P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">8</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">272.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE PRO E FUNGHI_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">7</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">232.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VULCANO P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">7</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">262.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CAPRESE.</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">7</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">189.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FOCACCIA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">7</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">126.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TONNO E NDUJA P</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">6</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">228.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ESPRESSO DOPPIO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">6</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">72.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">LECH FREE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">6</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">48.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">NORCINA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">6</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">227.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA THE LIMONE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">5</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">60.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="3.88">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.73">
+                <Cell ss:Index="1" ss:MergeAcross="19" ss:StyleID="s16">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.01">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s12">
+                    <Data ss:Type="String">2023-07-07</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:MergeAcross="2" ss:StyleID="s13">
+                    <Data ss:Type="String">14:08:16</Data>
+                </Cell>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11" ss:MergeAcross="4" ss:StyleID="s11">
+                    <Data ss:Type="String">2 / 4</Data>
+                </Cell>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Sprzedaż zafakturowana wg produktów</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s14">
+                    <Data ss:Type="String">(C) LSI Software S.A.</Data>
+                </Cell>
+                <Cell ss:Index="7" ss:MergeAcross="5" ss:StyleID="s14">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Wydrukował: CLAUDIO CLAUDIO</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.36">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s20">
+                    <Data ss:Type="String">Produkt</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s20">
+                    <Data ss:Type="String">JM</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s21">
+                    <Data ss:Type="String">Ilość</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s21">
+                    <Data ss:Type="String">Vat (%)</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s20">
+                    <Data ss:Type="String">Rodzaj produktu</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s21">
+                    <Data ss:Type="String">Rabat</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s21">
+                    <Data ss:Type="String">Sprzedaż</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA CRUDO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">5</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">160.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ESPRESSO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">5</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">35.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CIEMNE ŁAGODNE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">5</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">55.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">OLIO EXTRA SICILIA 0,5L 2022</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">240.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VODKA BOCIAN 40ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">32.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA NORMA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">120.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MIMOSA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">112.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TONNO E CIPOLLA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">136.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FOCACCIA CON RICOTTA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">88.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ZOLA E SPINACI ROSSA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">132.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">4 FORMAGGI PD</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">163.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA SALSICCIA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">124.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE BOMBA._całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">161.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TAGLIERE MISTO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">4</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">180.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ZOLA E SPINACI BIANC_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">105.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PIZZA CON GAMBERI E POMODORINI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">126.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PROSECCO 100 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">36.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BUFALA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">36.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BUFALA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">117.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE RUSTICO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">117.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">NDUJA PIZZA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">99.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">LA FAVORITA LAMBRUSCO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">120.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FUOCO DELL`ETNA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">123.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CAPPUCCINO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">3</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">36.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA THE LIMONE_1</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">28.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">SANT`ANTONIO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">74.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">APEROL SOUR</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">48.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ROSSO 500 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">58.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PROSECCO INTINERA BRUT DOC</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">104.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">VEGETARIANA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">2</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">60.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">MARGHERITA BIANCA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">28.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FOCACCIA OLIVE NERE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">5.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">25.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">I CAPOLAVORI DA VINCI PINOT GRIGIO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">45.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CALZONE TARTUFATO_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">44.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ITINERA CHARDONNAY PRIMA CLASSE</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">52.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">FOCACCIA CON RICOTTA_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA CHINOTTO_1</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">14.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">PELATI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">4.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BUFALA 125G</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">5.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">10.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CLASSICO _całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">28.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">DA VINCI CHIANTI</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">70.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">POLARA COLA_1</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">14.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">BIANCO 250 ML</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">15.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">A-MANO ROSATO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">60.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">A-MANO PRIMITIVO PUGLIA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">60.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">A-MANO FIANO- GRECO PULIA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">60.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">ROSSO 1 L</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">58.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">SPIANATA</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">12.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TERRE FORTI TREBBIANO- CHARDONNAY RUBICO</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">23.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">34.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="3.88">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.73">
+                <Cell ss:Index="1" ss:MergeAcross="19" ss:StyleID="s16">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.01">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s12">
+                    <Data ss:Type="String">2023-07-07</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:MergeAcross="2" ss:StyleID="s13">
+                    <Data ss:Type="String">14:08:16</Data>
+                </Cell>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11" ss:MergeAcross="4" ss:StyleID="s11">
+                    <Data ss:Type="String">3 / 4</Data>
+                </Cell>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Sprzedaż zafakturowana wg produktów</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s14">
+                    <Data ss:Type="String">(C) LSI Software S.A.</Data>
+                </Cell>
+                <Cell ss:Index="7" ss:MergeAcross="5" ss:StyleID="s14">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Wydrukował: CLAUDIO CLAUDIO</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.36">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s20">
+                    <Data ss:Type="String">Produkt</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s20">
+                    <Data ss:Type="String">JM</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s21">
+                    <Data ss:Type="String">Ilość</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s21">
+                    <Data ss:Type="String">Vat (%)</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s20">
+                    <Data ss:Type="String">Rodzaj produktu</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s21">
+                    <Data ss:Type="String">Rabat</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s21">
+                    <Data ss:Type="String">Sprzedaż</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">TONNO E NDUJA P_całość</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">8.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">41.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="10" ss:StyleID="s8">
+                    <Data ss:Type="String">CONFETTURA DI GELSI 100G</Data>
+                </Cell>
+                <Cell ss:Index="12" ss:MergeAcross="1" ss:StyleID="s8">
+                    <Data ss:Type="String">szt.</Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s9">
+                    <Data ss:Type="Number">1</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="2" ss:StyleID="s10">
+                    <Data ss:Type="Number">5.00</Data>
+                </Cell>
+                <Cell ss:Index="18" ss:StyleID="s8">
+                    <Data ss:Type="String">Potrawa</Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s10">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s10">
+                    <Data ss:Type="Number">29.00</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="14.53">
+                <Cell ss:Index="1" ss:MergeAcross="12" ss:StyleID="s17">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="14" ss:StyleID="s22">
+                    <Data ss:Type="Number">1895</Data>
+                </Cell>
+                <Cell ss:Index="15" ss:MergeAcross="3" ss:StyleID="s17">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="19" ss:StyleID="s23">
+                    <Data ss:Type="Number">0.00</Data>
+                </Cell>
+                <Cell ss:Index="20" ss:MergeAcross="1" ss:StyleID="s23">
+                    <Data ss:Type="Number">44739.02</Data>
+                </Cell>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="409.00">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="263.49">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2"/>
+                <Cell ss:Index="3"/>
+                <Cell ss:Index="4"/>
+                <Cell ss:Index="5"/>
+                <Cell ss:Index="6"/>
+                <Cell ss:Index="7"/>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11"/>
+                <Cell ss:Index="12"/>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17"/>
+                <Cell ss:Index="18"/>
+                <Cell ss:Index="19"/>
+                <Cell ss:Index="20"/>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="0.73">
+                <Cell ss:Index="1" ss:MergeAcross="19" ss:StyleID="s16">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.01">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="2" ss:StyleID="s12">
+                    <Data ss:Type="String">2023-07-07</Data>
+                </Cell>
+                <Cell ss:Index="5" ss:MergeAcross="2" ss:StyleID="s13">
+                    <Data ss:Type="String">14:08:16</Data>
+                </Cell>
+                <Cell ss:Index="8"/>
+                <Cell ss:Index="9"/>
+                <Cell ss:Index="10"/>
+                <Cell ss:Index="11" ss:MergeAcross="4" ss:StyleID="s11">
+                    <Data ss:Type="String">4 / 4</Data>
+                </Cell>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Sprzedaż zafakturowana wg produktów</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+            <Row ss:Height="13.73">
+                <Cell ss:Index="1"/>
+                <Cell ss:Index="2" ss:MergeAcross="4" ss:StyleID="s14">
+                    <Data ss:Type="String">(C) LSI Software S.A.</Data>
+                </Cell>
+                <Cell ss:Index="7" ss:MergeAcross="5" ss:StyleID="s14">
+                    <Data ss:Type="String"></Data>
+                </Cell>
+                <Cell ss:Index="13"/>
+                <Cell ss:Index="14"/>
+                <Cell ss:Index="15"/>
+                <Cell ss:Index="16"/>
+                <Cell ss:Index="17" ss:MergeAcross="3" ss:StyleID="s15">
+                    <Data ss:Type="String">Wydrukował: CLAUDIO CLAUDIO</Data>
+                </Cell>
+                <Cell ss:Index="21"/>
+                <Cell ss:Index="22"/>
+                <Cell ss:Index="23"/>
+            </Row>
+        </Table>
+        <WorksheetOptions xmlns="urn:schemas-microsoft-com:office:excel">
+            <PageSetup>
+                <PageMargins x:Bottom="0.38" x:Left="0.38" x:Right="0.38" x:Top="0.38"/>
+            </PageSetup>
+        </WorksheetOptions>
+        <PageBreaks xmlns="urn:schemas-microsoft-com:office:excel">
+            <RowBreaks>
+                <RowBreak>
+                    <Row>62</Row>
+                </RowBreak>
+                <RowBreak>
+                    <Row>117</Row>
+                </RowBreak>
+                <RowBreak>
+                    <Row>172</Row>
+                </RowBreak>
+            </RowBreaks>
+        </PageBreaks>
+    </Worksheet>
+</Workbook>

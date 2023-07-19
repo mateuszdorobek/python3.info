@@ -12,7 +12,8 @@ English:
     3. Don't validate arguments and assume, that user will:
         a. always pass valid type of arguments
         b. iterable length will always be greater than 0
-    4. Run doctests - all must succeed
+    4. Do not use built-in function `enumerate()`
+    5. Run doctests - all must succeed
 
 Polish:
     1. Zaimplementuj własne rozwiązanie wbudowanej funkcji `enumerate()`
@@ -22,7 +23,8 @@ Polish:
     3. Nie waliduj argumentów i przyjmij, że użytkownik:
         a. zawsze poda argumenty poprawnych typów
         b. długość iterable będzie większa od 0
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    4. Nie używaj wbudowanej funkcji `enumerate()`
+    5. Uruchom doctesty - wszystkie muszą się powieść
 
 Hint:
     * https://github.com/python/cpython/blob/main/Objects/enumobject.c

@@ -18,7 +18,6 @@ Hints:
     * FORMATS = []
     * for fmt in FORMATS
     * helper function
-    * 24-hour clock
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -32,29 +31,32 @@ Tests:
     'All elements in `result` must be a datetime'
 
     >>> result  # doctest: +NORMALIZE_WHITESPACE
-    [datetime.datetime(1957, 10, 4, 19, 28, 34),
-     datetime.datetime(1961, 4, 12, 6, 7),
-     datetime.datetime(1969, 7, 21, 2, 56, 15)]
+    [datetime.datetime(1969, 7, 21, 0, 0),
+     datetime.datetime(1969, 7, 22, 0, 0),
+     datetime.datetime(1969, 7, 23, 0, 0),
+     datetime.datetime(1969, 7, 24, 0, 0)]
 """
 
-from datetime import datetime
+from datetime import datetime, date
 
 
 DATA = [
-    'Oct 4, 1957 19:28:34',  # Sputnik launch (first satellite in space)
-    'April 12, 1961 6:07',  # Gagarin launch (first human in space)
-    'July 21, 1969 2:56:15',  # Armstrong first step on the Moon
+    'July 21st, 1969',
+    'July 22nd, 1969',
+    'July 23rd, 1969',
+    'July 24th, 1969',
 ]
 
 FORMATS = [
-    '%b %d, %Y %H:%M:%S',
-    '%B %d, %Y %H:%M',
-    '%B %d, %Y %H:%M:%S',
+    '%B %dst, %Y',
+    '%B %dnd, %Y',
+    '%B %drd, %Y',
+    '%B %dth, %Y',
 ]
 
 
 # DATA elements in datetime format
-# type: list[datetime]
+# type: list[date]
 result = ...
 
 
@@ -67,3 +69,7 @@ def parse(dt):
             continue
 
 result = map(parse, DATA)
+
+
+# Alternative solution
+result = map(datetime.strptime, DATA, FORMATS)

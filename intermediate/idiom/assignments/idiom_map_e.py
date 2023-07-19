@@ -51,6 +51,7 @@ USERS = [
     User('mlewis', 'Nasa69'),
 ]
 
+result = ...
 
 # Solution
 result = map(User.login, USERS)

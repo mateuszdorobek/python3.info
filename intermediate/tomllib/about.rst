@@ -51,3 +51,20 @@ Conversion Table
 +------------------+--------------------------------------------------------------------------------------+
 | array            | list                                                                                 |
 +------------------+--------------------------------------------------------------------------------------+
+
+
+Example
+-------
+.. code-block:: toml
+
+    [project]
+    name = "myproject"
+    version = "1.0.0"
+    requires-python = ">=3.11"
+    authors = [{name = "Mark Watney", email = "mwatney@nasa.gov"}]
+    readme = "README.md"
+    license = {file = "LICENSE"}
+    keywords = ["ares", "mars", "nasa", "human-spaceflight"]
+    dependencies = [
+        "django == 4.2.*",
+        "django-ninja == 0.19.*"]

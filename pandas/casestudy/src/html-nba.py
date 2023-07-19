@@ -22,5 +22,7 @@ resp = requests.get(DATA, headers={
 
 data = resp.json()['resultSets'][0]
 
-df = pd.DataFrame(columns=data['headers'],
-                  data=data['rowSet'])
+df = pd.DataFrame(
+    columns=data['headers'],
+    data=data['rowSet'],
+)

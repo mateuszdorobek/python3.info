@@ -21,7 +21,6 @@ def to_timedelta(text: str) -> pd.Timedelta:
     seconds = parts[2] if len(parts) == 3 else 0
     return pd.Timedelta(f'{hours}h {minutes}m {seconds}s').round(freq='s')
 
-
 df = (pd
     .read_html(io=DATA, header=0)[0]
     .rename(columns={

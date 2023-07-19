@@ -42,10 +42,10 @@ pilot (LMP) Buzz Aldrin landed the Apollo Lunar Module (LM) Eagle on
 July 20th, 1969 at 20:17 UTC, and Armstrong became the first person
 to step (EVA) onto the Moon's surface (EVA) 6 hours 39 minutes later,
 on July 21st, 1969 at 02:56:15 UTC. Aldrin joined him 19 minutes later.
-They spent 2 hours 31 minutes exploring the site they had named Tranquility
-Base upon landing. Armstrong and Aldrin collected 47.5 pounds (21.5 kg)
-of lunar material to bring back to Earth as pilot Michael Collins (CMP)
-flew the Command Module (CM) Columbia in lunar orbit, and were on the
+They spent 2 hours 31 minutes exploring the site they had named
+Tranquility Base upon landing. Armstrong and Aldrin collected 47.5 pounds
+(21.5 kg) of lunar material to bring back to Earth as pilot Michael Collins
+(CMP) flew the Command Module (CM) Columbia in lunar orbit, and were on the
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 

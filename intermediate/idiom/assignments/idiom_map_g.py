@@ -52,8 +52,8 @@ DATA = """5.8,2.7,5.1,1.9,virginica
 5.7,2.8,4.1,1.3,versicolor"""
 
 
-# values from file (note the list[tuple] format!)
-def parse() -> list[tuple]:
+# values from file (note the tuple format!)
+def parse() ->tuple:
     ...
 
 # Define `result: map` with function `parse()` applied to `DATA`
@@ -62,7 +62,7 @@ result = ...
 
 
 # Solution
-def parse(line: str) -> list[tuple]:
+def parse(line: str) -> tuple:
     *values, species = line.strip().split(',')
     values = map(float, values)
     return tuple(values) + (species,)

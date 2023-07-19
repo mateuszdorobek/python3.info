@@ -121,9 +121,11 @@ Case Study
     casestudy/excel-sensors.rst
     casestudy/html-apollo11.rst
     casestudy/html-astronauts.rst
+    casestudy/html-dahab.rst
     casestudy/html-espn.rst
     casestudy/html-livescores.rst
     casestudy/html-nba.rst
+    casestudy/html-tablice.rst
     casestudy/html-gdp.rst
     casestudy/html-schedule.rst
     casestudy/html-talary.rst
