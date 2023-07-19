@@ -39,7 +39,7 @@ Example
 ...     email: EmailStr
 ...
 ...     class Config:
-...         schema_extra = {
+...         json_schema_extra = {
 ...             "example": {
 ...                 "username": "mwatney",
 ...                 "password": "myVoiceIsMyPassword",
@@ -51,7 +51,7 @@ Example
 ...     date_created: datetime
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> def utc_now():

@@ -22,8 +22,7 @@ True
 Connection
 ----------
 >>> from sqlalchemy import create_engine
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker
+>>> from sqlalchemy.orm import sessionmaker, declarative_base
 >>>
 >>>
 >>> SQLALCHEMY_DATABASE_URL = 'sqlite:///:memory:'
@@ -58,8 +57,8 @@ Models
 Schema
 ------
 * Represents JSON request/response data
-* ``Config.orm_mode = True`` is required to have model as a ``response_model`` (a decorator parameter).
-* Note, that if you set ``orm_mode = True``, then not all fields need to be specified.
+* ``Config.from_attributes = True`` is required to have model as a ``response_model`` (a decorator parameter).
+* Note, that if you set ``from_attributes = True``, then not all fields need to be specified.
 * Listed fields will be in response, and not listed will be hidden in response.
 
 >>> from pydantic import BaseModel
@@ -70,8 +69,8 @@ Schema
 ...     lastname: str
 ...     active: bool | None = True
 
-``Config.orm_mode = True`` is required to have model as a ``response_model``
-(a decorator parameter). Note, that if you set ``orm_mode = True``, then
+``Config.from_attributes = True`` is required to have model as a ``response_model``
+(a decorator parameter). Note, that if you set ``from_attributes = True``, then
 not all fields need to be specified. Listed fields will be in response,
 and not listed will be hidden in response.
 
@@ -83,7 +82,7 @@ and not listed will be hidden in response.
 ...     lastname: str
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 
 
 Example
@@ -91,8 +90,7 @@ Example
 >>> import uvicorn
 >>> from pydantic import BaseModel
 >>> from sqlalchemy import create_engine, Column, Integer, String, Boolean
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker, Session
+>>> from sqlalchemy.orm import sessionmaker, Session, declarative_base
 >>> from fastapi import FastAPI, HTTPException, status, Depends
 >>> app = FastAPI()
 >>>
@@ -126,7 +124,7 @@ Example
 ...     active: bool | None = True
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> Base.metadata.create_all(engine)

@@ -12,8 +12,7 @@ Example
 >>> from passlib.context import CryptContext
 >>> from pydantic import BaseModel as Schema
 >>> from sqlalchemy import ForeignKey, create_engine, Column, Integer, String, Boolean
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker, Session, relationship
+>>> from sqlalchemy.orm import sessionmaker, Session, relationship, declarative_base
 >>> from fastapi import FastAPI, HTTPException, status, Depends
 >>> app = FastAPI()
 >>>
@@ -66,7 +65,7 @@ Example
 ...     active: bool | None = True
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> class UserOut(Schema):
@@ -75,7 +74,7 @@ Example
 ...     created: list[AstronautIn] = []
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> class AstronautOut(Schema):
@@ -85,7 +84,7 @@ Example
 ...     creator: UserOut
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> @app.post('/astronaut', status_code=status.HTTP_201_CREATED, response_model=AstronautOut, tags=['Astronaut'])

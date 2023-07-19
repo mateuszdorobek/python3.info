@@ -14,8 +14,7 @@ Example
 >>> import uvicorn
 >>> from pydantic import BaseModel
 >>> from sqlalchemy import create_engine, Column, Integer, String
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker, Session
+>>> from sqlalchemy.orm import sessionmaker, Session, declarative_base
 >>> from passlib.context import CryptContext
 >>> from fastapi import FastAPI, Depends, HTTPException, status
 >>> app = FastAPI()
@@ -58,7 +57,7 @@ Example
 ...     email: str
 ...
 ...     class Config:
-...         orm_mode = True
+...         from_attributes = True
 >>>
 >>>
 >>> class Password:
