@@ -88,6 +88,9 @@ Pros and Cons:
 Example:
 
 >>> dragon.set_position_xy(10, 20)  # 2D, bad
+>>> dragon.set_position_xy(10, 20, 30)  # 3D, bad
+
+>>> dragon.set_position_xy(10, 20)  # 2D, bad
 >>> dragon.set_position_xyz(10, 20, 30)  # 3D, bad
 
 
@@ -153,7 +156,7 @@ Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn.k = 3
->>> knn.weights = [1, 2, 3]
+>>> knn.weights = [0.75, 0.50, 0.25]
 
 
 Option 7
@@ -180,7 +183,7 @@ Use Case:
 
 >>> knn = KNearestNeighbors()
 >>> knn.hyperparameters.k = 3
->>> knn.hyperparameters.weights = [1, 2, 3]
+>>> knn.hyperparameters.weights = [0.75, 0.50, 0.25]
 
 
 Option 8
@@ -203,7 +206,7 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.hyperparameters = (3, [1, 2, 3])
+>>> knn.hyperparameters = (3, [0.75, 0.50, 0.25])
 
 
 Option 9
@@ -226,7 +229,7 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.hyperparameters = {'k':3, 'weights':[1, 2, 3]}
+>>> knn.hyperparameters = {'k':3, 'weights':[0.75, 0.50, 0.25]}
 
 
 Option 10
@@ -249,7 +252,7 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn.hyperparameters = HyperParameters(k=3, weights=[1, 2, 3])
+>>> knn.hyperparameters = HyperParameters(k=3, weights=[0.75, 0.50, 0.25])
 
 
 Option 11
@@ -271,7 +274,7 @@ Pros and Cons:
 Use Case:
 
 >>> knn = KNearestNeighbors()
->>> knn << HyperParameters(k=3, weights=[1, 2, 3])
+>>> knn << HyperParameters(k=3, weights=[0.75, 0.50, 0.25])
 
 
 Decision

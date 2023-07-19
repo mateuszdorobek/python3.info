@@ -36,9 +36,11 @@ Pros and Cons:
 
 Example:
 
->>> dragon.attack()  # dragon  -> enemy
->>> dragon.hit()     # dragon <-> enemy
->>> dragon.hurt()    # dragon <-  enemy
+>>> dragon.make_damage()    # dragon --> enemy
+>>> dragon.attack()         # dragon  -> enemy
+>>> dragon.hit()            # dragon <-> enemy
+>>> dragon.hurt()           # dragon <-  enemy
+>>> dragon.take_damage()    # dragon <-- enemy
 
 Rationale:
 

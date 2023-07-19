@@ -41,7 +41,7 @@ Problem:
 Use Case:
 
 >>> knn = KNearestNeighbors(3)  # ok
->>> knn = KNearestNeighbors(3, [1, 2, 3])  # bad
+>>> knn = KNearestNeighbors(3, [0.75, 0.50, 0.25])  # bad
 
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
@@ -77,15 +77,19 @@ Pros and Cons:
 Example:
 
 >>> dragon = Dragon('Wawelski', x=0, y=0)
+>>> dragon = Dragon('Wawelski', x=0, y=0, z=0)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0)
+>>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0, z=0)
+>>> dragon = Dragon('Wawelski', x=0, y=0, t='img/dragon/alive.png', z=0)
 
 >>> dragon = Dragon('Wawelski', x=None, y=None)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None)
+>>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None, z=None)
 
 Use Case:
 
 >>> knn = KNearestNeighbors(k=3)  # ok
->>> knn = KNearestNeighbors(k=3, w=[1, 2, 3])  # bad
+>>> knn = KNearestNeighbors(k=3, w=[0.75, 0.50, 0.25])  # bad
 
 
 Option 3
@@ -108,7 +112,7 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, wgt=[1, 2, 3])  # maybe, bad
+>>> knn = KNearestNeighbors(k=3, wgt=[0.75, 0.50, 0.25])  # maybe, bad
 
 
 Option 4
@@ -131,7 +135,7 @@ Example:
 
 Use Case:
 
->>> knn = KNearestNeighbors(k=3, weights=[1, 2, 3])  # ok
+>>> knn = KNearestNeighbors(k=3, weights=[0.75, 0.50, 0.25])  # ok
 
 >>> df.plot(kind='line', subplots=True, color='grey', sharey=True)  # bad
 
@@ -155,7 +159,7 @@ Pros and Cons:
 Use Case:
 
 >>> df.plot(kind='line', subplots=True, color='grey', share_y=True)       # ok
->>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # ok
+>>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # overkill
 
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_y_axis=True) # ok
 >>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # ok

@@ -858,8 +858,10 @@ Consequences:
 
 Use Case:
 
->>> plt.plot(x, y, color='cyan')
->>> plt.plot(x, y, color='c')
+>>> plt.plot(x, y, color='red')
+>>> plt.plot(x, y, color='r')
+
+>>> plt.plot(x, y, color='k')  # what color is that?
 
 >>> df.plot(kind='line')
 >>> df.interpolate('polynomial')
