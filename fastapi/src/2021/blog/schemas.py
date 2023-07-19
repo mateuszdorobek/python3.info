@@ -8,7 +8,7 @@ class BlogIn(Schema):
     published: bool | None = True
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class BlogOut(Schema):
@@ -18,4 +18,4 @@ class BlogOut(Schema):
     creator: UserOut
 
     class Config:
-        orm_mode = True
+        from_attributes = True

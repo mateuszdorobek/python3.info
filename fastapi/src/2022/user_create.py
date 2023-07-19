@@ -26,7 +26,7 @@ class UserCreateRequest(Schema):
     email: EmailStr
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 "username": "mwatney",
                 "password": "myVoiceIsMyPassword",
@@ -38,7 +38,7 @@ class UserCreateResponse(Schema):
     date_created: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class UserDetailResponse(Schema):
@@ -50,7 +50,7 @@ class UserDetailResponse(Schema):
     email: EmailStr
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class Password:
