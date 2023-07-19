@@ -44,8 +44,7 @@ Use Case - 0x02
 
     from sqlalchemy import create_engine, select, func
     from sqlalchemy import Column, String, Integer, Date
-    from sqlalchemy.ext.declarative import declarative_base
-    from sqlalchemy.orm import sessionmaker
+    from sqlalchemy.orm import sessionmaker, declarative_base
 
 
 

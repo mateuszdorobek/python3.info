@@ -1,5 +1,5 @@
 import string
-from pydantic import BaseModel as Schema, validator
+from pydantic import BaseModel as Schema, field_validator
 
 
 class UserLoginIn(Schema):
@@ -7,7 +7,7 @@ class UserLoginIn(Schema):
     password: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 'username': 'mwatney',
                 'password': 'mypassword'}}
@@ -18,7 +18,7 @@ class UserLoginOut(Schema):
     username: str
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 'uid': 1,
                 'username': 'mwatney'}}
@@ -30,7 +30,7 @@ class UserCreate(Schema):
     username: str
     password: str
 
-    @validator('firstname', 'lastname', pre=True)
+    @field_validator('firstname', 'lastname', pre=True)
     def capitalized(cls, value):
         uppercase_letters = tuple(string.ascii_uppercase)
         if not value.startswith(uppercase_letters):
@@ -39,7 +39,7 @@ class UserCreate(Schema):
             return value
 
     class Config:
-        schema_extra = {
+        json_schema_extra = {
             "example": {
                 'firstname': 'Mark',
                 'lastname': 'Watney',

@@ -3,7 +3,7 @@ html_baseurl = 'https://python3.info'
 author = 'Matt Harasymczuk'
 email = 'matt@astronaut.center'
 
-needs_sphinx = '6.1'
+needs_sphinx = '7.0'
 project_language = 'en'
 html_theme = 'sphinx_rtd_theme'
 pygments_style = 'stata-dark'

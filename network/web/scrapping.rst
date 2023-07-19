@@ -173,7 +173,7 @@ English:
     X. Run doctests - all must succeed
 
 Polish:
-    1. Za pomocą BeautifulSoup4 ze strony https://github.com/AstroMatt/book-python/blob/master/numerical-analysis/data/iris-dirty.csv pobierz dane zbioru Irysów.
+    1. Za pomocą BeautifulSoup4 ze strony https://python3.info/_static/iris-dirty.csv pobierz dane zbioru Irysów.
     2. Parsując kod HTML oczyść dane.
     3. Skasuj pierwszy wiersz nagłówkowy.
     4. Kolumny nazwij: ``sepal_length``, ``sepal_width``, ``petal_length``, ``petal_width``, ``species``

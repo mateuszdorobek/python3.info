@@ -100,7 +100,7 @@ Use Case - 0x02
 ---------------
 >>> from sqlalchemy.orm import deferred
 >>> from sqlalchemy import Integer, String, Text, BLOB, Column
->>> from sqlalchemy.ext.declarative import declarative_base
+>>> from sqlalchemy.orm import declarative_base
 >>>
 >>> Base = declarative_base()
 >>>
@@ -119,7 +119,7 @@ Use Case - 0x03
 ---------------
 >>> from sqlalchemy.orm import deferred
 >>> from sqlalchemy import Integer, String, Text, BLOB, Column
->>> from sqlalchemy.ext.declarative import declarative_base
+>>> from sqlalchemy.orm import declarative_base
 >>>
 >>> Base = declarative_base()
 >>>

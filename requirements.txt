@@ -50,7 +50,6 @@ openpyxl
 pandas
 passlib[bcrypt]
 psycopg2-binary
-pydantic
 pydantic[email]  # pip install 'pydantic[email]'
 python-jose[cryptography]
 python-multipart
@@ -58,7 +57,7 @@ pytz
 redis
 requests
 scipy
-sphinx==6.1.*
+sphinx==7.0.*
 sphinx-rtd-theme
 sqlalchemy
 uvicorn[standard]

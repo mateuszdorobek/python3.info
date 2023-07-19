@@ -13,8 +13,7 @@ Model Define
 SetUp
 -----
 >>> from sqlalchemy import create_engine
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker
+>>> from sqlalchemy.orm import sessionmaker, declarative_base
 >>>
 >>>
 >>> DATABASE = 'sqlite:///:memory:'
@@ -124,8 +123,7 @@ Use Case - 0x01
 ---------------
 >>> from sqlalchemy import create_engine
 >>> from sqlalchemy import Column, String, Integer
->>> from sqlalchemy.ext.declarative import declarative_base
->>> from sqlalchemy.orm import sessionmaker
+>>> from sqlalchemy.orm import sessionmaker, declarative_base
 >>>
 >>>
 >>> DATABASE = 'sqlite:///:memory:'

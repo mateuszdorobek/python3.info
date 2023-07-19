@@ -10,9 +10,13 @@ pd.set_option('display.max_seq_items', 100)
 
 #%%
 
-CONFIRMED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
-DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
-RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
+# CONFIRMED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_confirmed_global.csv'
+# RECOVERED = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_recovered_global.csv'
+# DEATHS = 'https://raw.githubusercontent.com/CSSEGISandData/COVID-19/master/csse_covid_19_data/csse_covid_19_time_series/time_series_covid19_deaths_global.csv'
+
+CONFIRMED = 'https://python3.info/_static/covid19-confirmed.csv'
+RECOVERED = 'https://python3.info/_static/covid19-recovered.csv'
+DEATHS = 'https://python3.info/_static/covid19-deaths.csv'
 
 COLUMNS = {
     'Province/State': 'region',
@@ -53,8 +57,8 @@ def covid19(country: str = None) -> pd.DataFrame:
     Name: 2021-01-01 00:00:00, dtype: Int64
 
     >>> covid19('US').loc['2021-01-01']
-    confirmed    20397398
-    deaths         352844
+    confirmed    20397400
+    deaths         352804
     recovered           0
     Name: 2021-01-01 00:00:00, dtype: Int64
 
