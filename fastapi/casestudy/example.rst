@@ -86,7 +86,7 @@ Example
         username: str
         password: str
 
-        @validator('password', pre=True)
+        @field_validator('password', pre=True)
         def valid_password(cls, password):
             if '$' in password:
                 raise ValueError('Invalid character in password')
