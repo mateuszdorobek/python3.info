@@ -21,11 +21,11 @@ FastAPI Config
 ...     validate_assignment: bool = False
 ...     error_msg_templates: dict[str, str] = {}
 ...     arbitrary_types_allowed: bool = False
-...     orm_mode: bool = False
+...     from_attributes: bool = False
 ...     getter_dict: type['GetterDict'] = 'GetterDict'
 ...     alias_generator: Callable[[str], str] | None = None
 ...     keep_untouched: tuple[type, ...] = ()
-...     schema_extra: dict[str, Any] = {}
+...     json_schema_extra: dict[str, Any] = {}
 ...     json_loads: Callable[[str], Any] = json.loads
 ...     json_dumps: Callable[..., str] = json.dumps
 ...     # key type should include ForwardRef, but that breaks with python3.6
