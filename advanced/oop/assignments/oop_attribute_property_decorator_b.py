@@ -54,8 +54,8 @@ class User:
     password: str
     birthday: date
 
-# Accessing `age` should return user's age in full years
-# type: Callable[[Self], int]
+    # Accessing `age` should return user's age in full years
+    # type: Callable[[Self], int]
     def age():
         ...
 

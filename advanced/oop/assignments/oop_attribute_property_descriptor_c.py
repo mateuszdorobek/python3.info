@@ -48,12 +48,13 @@ Tests:
 """
 
 
-# Define class `Point` with `x`, `y`, `z` attributes
-# Define property `position` in class `Point`
-# Setting `position`:
-# - If argument is not list, tuple, set raise Type Error
-# - If argument has length other than 3, raise Value
-# - Else sets `x`, `y`, `z` attributes from sequence
+# Define class `Point` with:
+# - Attribute `x: int`
+# - Attribute `y: int`
+# - Attribute `z: int`
+# - Property `position`
+# Setting `position` raises ValueError
+# if any value is less than 0
 # type: type[Point]
 class Point:
     x: int

@@ -180,10 +180,6 @@ Pros and Cons:
 
 Decision
 --------
->>> class Dragon:
-...     def make_damage(self) -> int: ...
->>>
->>>
 >>> dmg = dragon.make_damage()
 
 Pros and Cons:
@@ -192,3 +188,8 @@ Pros and Cons:
 * Good: ``dragon --> enemy``
 * Good: readability
 * Good: encapsulation
+
+Implementation:
+
+>>> class Dragon:
+...     def make_damage(self) -> int: ...

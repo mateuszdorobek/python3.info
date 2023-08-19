@@ -2,7 +2,7 @@
 * Assignment: OOP Async Sleep
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
     1. Define:
@@ -20,6 +20,10 @@ Polish:
         b. zwracać 'a'
     3. Uruchom doctesty - wszystkie muszą się powieść
 
+Hint:
+    * asyncio.sleep()
+
+Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import iscoroutine, iscoroutinefunction
     >>> import asyncio

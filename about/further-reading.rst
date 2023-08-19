@@ -9,6 +9,7 @@ Video
 * `InfoQ <https://www.infoq.com/python/>`_
 * `Making Python 5x FASTER with Guido van Rossum and Mark Shannon <https://www.youtube.com/watch?v=_r6bFhl6wR8&t=1930s>`_
 
+
 Trends
 ------
 Programming Language:
@@ -209,6 +210,9 @@ FastAPI
 Async
 -----
 * https://www.youtube.com/watch?v=Xbl7XjFYsN4&list=PLhNSoGM2ik6SIkVGXWBwerucXjgP1rHmB
+* https://www.youtube.com/results?search_query=langa+asyncio
+* https://docs.djangoproject.com/en/dev/topics/db/queries/#async-queries
+* https://www.youtube.com/results?search_query=andrew+goodwin+async+django
 * https://www.youtube.com/watch?v=F19R_M4Nay4
 * https://www.youtube.com/watch?v=Pe3b9bdRtiE
 * https://www.youtube.com/watch?v=19Uh_PA_8Rc

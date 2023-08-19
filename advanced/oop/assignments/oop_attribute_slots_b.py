@@ -14,7 +14,7 @@ English:
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj klasę `User` z slotami:
+    1. Zdefiniuj klasę `User` ze slotami:
        a. `username: str`
        b. `password: str`
        c. `email: str`

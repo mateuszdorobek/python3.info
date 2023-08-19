@@ -25,6 +25,7 @@ Polish:
         c. Trzecie: name=c, sleep=1.5
     3. Uruchom doctesty - wszystkie muszą się powieść
 
+Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import iscoroutine, iscoroutinefunction
     >>> import asyncio

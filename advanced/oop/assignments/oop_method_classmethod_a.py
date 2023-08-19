@@ -61,9 +61,10 @@ class Book:
         self.title = title
         self.author = author
 
-# Method `from_tuple()` with parameter: `data: tuple[str,str]`
-# Method `from_tuple()` returns instance of a class on which was called
-# type: Callable[[type[Self], tuple[str, str]], Self]
+    # parameter: `data: tuple[str,str]`
+    # example: ('Martian', 'Andy Weir')
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], tuple[str, str]], Self]
     def from_tuple():
         ...
 

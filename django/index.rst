@@ -38,6 +38,7 @@ Models
     models/enum.rst
     models/introspect.rst
     models/custom.rst
+    models/abstract.rst
     models/use-case.rst
 
 
@@ -48,6 +49,7 @@ Admin
     :caption: Admin
 
     admin/about.rst
+    admin/abstract.rst
 
 
 ORM

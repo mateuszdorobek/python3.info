@@ -284,6 +284,7 @@ Dependency
 
 Cardinality
 -----------
+* ``0`` - Exactly 0
 * ``0..1`` - Zero or one
 * ``0..n`` - Zero to `n` (where `n` > 1)
 * ``0..*`` - Zero or more

@@ -279,11 +279,6 @@ Use Case:
 
 Decision
 --------
->>> class Dragon:
-...     def set_position(self, *, x: int, y: int) -> None:
-...         ...
->>>
->>>
 >>> dragon.set_position(x=10, y=20)
 
 Pros and Cons:
@@ -293,3 +288,9 @@ Pros and Cons:
 * Good: provides encapsulation
 * Good: easy to add validation if needed
 * Good: extensible, easy to refactor to 3D
+
+Implementation:
+
+>>> class Dragon:
+...     def set_position(self, *, x: int, y: int) -> None:
+...         ...

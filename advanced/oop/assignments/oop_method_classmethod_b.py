@@ -91,10 +91,10 @@ class Iris:
         self.petal_width = petal_width
         self.species = species
 
-
-# Method `from_csv()` with parameter: `data: str`
-# Method `from_csv()` returns instance of a class on which was called
-# type: Callable[[type[Self], str], Self]
+    # parameter: `data: str`
+    # example: '5.8,2.7,5.1,1.9,virginica'
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], str], Self]
     def from_csv():
         ...
 

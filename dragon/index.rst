@@ -8,6 +8,9 @@ Dragon
     dragon/version-1.rst
     dragon/version-2.rst
     dragon/version-3.rst
+    dragon/version-4.rst
+    dragon/version-5.rst
+    dragon/version-6.rst
 
 
 ADR

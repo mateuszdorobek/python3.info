@@ -144,6 +144,56 @@ Use Case - 0x02
 '<p>Second</p>'
 
 
+Use Case - 0x03
+---------------
+>>> def login_required(obj):
+...     def wrapper(instance, *args, **kwargs):
+...         if not instance.is_authenticated:
+...             raise PermissionError
+...         return obj(instance, *args, **kwargs)
+...     return wrapper
+>>>
+>>>
+>>> class User:
+...     def __init__(self, username, password):
+...         self.username = username
+...         self.password = password
+...         self.is_authenticated = False
+...
+...     def login(self):
+...         self.is_authenticated = True
+...         print('User logged-in')
+...
+...     def logout(self):
+...         self.is_authenticated = False
+...         print('User logged-out')
+...
+...     @login_required
+...     def change_password(self, new_password):
+...         self.password = new_password
+
+>>> mark = User('mwatney', 'Ares3')
+>>> mark.password
+'Ares3'
+
+>>> mark.change_password('Nasa69')
+Traceback (most recent call last):
+PermissionError
+
+>>> mark.login()
+User logged-in
+>>>
+>>> mark.change_password('Nasa69')
+>>> mark.password
+'Nasa69'
+
+>>> mark.logout()
+User logged-out
+>>> mark.change_password('Ares3')
+Traceback (most recent call last):
+PermissionError
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/decorator_method_a.py

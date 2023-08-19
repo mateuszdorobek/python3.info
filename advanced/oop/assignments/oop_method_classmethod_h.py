@@ -192,9 +192,11 @@ class Character:
             wisdom=self.wisdom,
             charisma=self.charisma)
 
-# Method `from_toml()` with parameter: `data: str`, `name: str`
-# Method `from_toml()` returns instance of a class on which was called
-# type: Callable[[type[Self], str, str], Self]
+    # parameter: `filename: str`, example: 'myfile.toml'
+    # parameter: `name: str`, example: 'Sarevok'
+    # hint: open file and read TOML content, parse it for given `name`
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], str, str], Self]
     def from_toml():
         ...
 

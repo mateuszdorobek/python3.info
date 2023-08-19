@@ -2,7 +2,7 @@
 # black
 # coverage
 # cython
-# dajngo-extensions
+# django-extensions
 # django-debug-toolbar
 # dnspython
 # jupyter

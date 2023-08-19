@@ -15,7 +15,7 @@ English:
         g. Field `tzinfo: str`
         h. Method `from_datetime()`
     2. Method `from_datetime()`:
-        a. Parameter `data: datetime`, example: datetime(1969, 7, 21, 2, 56, 15)
+        a. Parameter `dt: datetime`, example: datetime(1969, 7, 21, 2, 56, 15)
         b. Returns instance of a class on which was called
     3. Run doctests - all must succeed
 
@@ -30,7 +30,7 @@ Polish:
         g. Polem `tzinfo: str`
         h. Metodą `from_datetime()`
     2. Metoda `from_datetime()`:
-        a. Parametr `data: datetime`, przykład: datetime(1969, 7, 21, 2, 56, 15)
+        a. Parametr `dt: datetime`, przykład: datetime(1969, 7, 21, 2, 56, 15)
         b. Zwraca instancję klasy na której została wykonana
     3. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -115,9 +115,11 @@ class DateTime:
         self.second = second
         self.tzinfo = tzinfo
 
-# Method `from_datetime()` with parameter: `data: datetime`
-# Method `from_datetime()` returns instance of a class on which was called
-# type: Callable[[type[Self], datetime], Self]
+    # parameter: `dt: datetime`
+    # example: datetime(1969, 7, 21, 2, 56, 15)
+    # hint: tzinfo = ZoneInfo(cls.tzname)
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], datetime], Self]
     def from_datetime():
         ...
 
@@ -147,13 +149,13 @@ class DateTime:
         self.tzinfo = tzinfo
 
     @classmethod
-    def from_datetime(cls, data: datetime):
-        year = data.year
-        month = data.month
-        day = data.day
-        hour = data.hour
-        minute = data.minute
-        second = data.second
+    def from_datetime(cls, dt: datetime):
+        year = dt.year
+        month = dt.month
+        day = dt.day
+        hour = dt.hour
+        minute = dt.minute
+        second = dt.second
         tzinfo = ZoneInfo(cls.tzname)
         return cls(year, month, day, hour, minute, second, tzinfo)
 

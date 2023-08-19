@@ -64,9 +64,11 @@ class Animal:
         self.english_name = english_name
         self.latin_name = latin_name
 
-# Method `from_dict()` with parameter: `data: dict[str,str]`
-# Method `from_dict()` returns instance of a class on which was called
-# type: Callable[[type[Self], dict[str,str]], Self]
+    # parameter: `data: dict[str,str]`
+    # example: {'english_name': 'Cat', 'latin_name': 'Felis catus'}
+    # hint: Platypus has `latin_name` field empty (None)
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], dict[str,str]], Self]
     def from_dict():
         ...
 

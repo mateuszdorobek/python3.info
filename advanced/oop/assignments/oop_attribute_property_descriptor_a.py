@@ -35,9 +35,9 @@ class Point:
     y: int
     z: int
 
-# Define property `position` in class `Point`
-# Deleting `position` sets all attributes to 0 (`x=0`, `y=0`, `z=0`)
-# type: Callable[[Self], None]
+    # Define property `position` in class `Point`
+    # Deleting `position` sets all attributes to 0 (`x=0`, `y=0`, `z=0`)
+    # type: Callable[[Self], None]
     def position():
         ...
 

@@ -16,11 +16,15 @@ UML
     :caption: UML
 
     uml/about.rst
-    uml/mermaid.rst
-    uml/plantuml.rst
-    uml/relationship.rst
-    uml/class-diagram.rst
-    uml/sequence-diagram.rst
+    uml/tool-mermaid.rst
+    uml/tool-plantuml.rst
+    uml/uml-attributes.rst
+    uml/uml-modifiers.rst
+    uml/uml-relations.rst
+    uml/uml-relationship.rst
+    uml/uml-notes.rst
+    uml/diagram-class.rst
+    uml/diagram-sequence.rst
 
 
 OOP

@@ -13,7 +13,7 @@ English:
         a. Parameter `data: int`, example: 1234567890
         b. Returns instance of a class on which was called
     3. Use `timezone.utc` as a parameter to `datetime.fromtimestamp()`
-    3. Run doctests - all must succeed
+    4. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj klasę `Timezone` z:
@@ -24,7 +24,7 @@ Polish:
         a. Parametr `data: int`, przykład: 1234567890
         b. Zwraca instancję klasy na której została wykonana
     3. Użyj `timezone.utc` jako parametr do `datetime.fromtimestamp()`
-    3. Uruchom doctesty - wszystkie muszą się powieść
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
     * datetime.fromtimestamp(tz=timezone.utc)
@@ -59,9 +59,10 @@ class Timezone:
     def __init__(self, dt):
         self.dt = dt
 
-# Method `from_timestamp()` with parameter: `data: int`
-# Method `from_timestamp()` returns instance of a class on which was called
-# type: Callable[[type[Timezone], int], Timezone]
+    # hint: use datetime.fromtimestamp with tz=timezone.utc
+    # parameter: `data: int`
+    # return: instance of a class on which was called
+    # type: Callable[[type[Timezone], int], Timezone]
     def from_timestamp():
         ...
 

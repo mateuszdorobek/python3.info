@@ -65,10 +65,11 @@ class Movie:
         self.title = title
         self.director = director
 
-# Method `from_json()` with parameter: `data: str`
-# Method `from_json()` returns instance of a class on which was called
-# type: Callable[[type[Self]], Self]
-    def from_json(self):
+    # parameter: `data: str`
+    # example: '{"title":"Martian","director":"Ridley Scott"}'
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], str], Self]
+    def from_json():
         ...
 
 

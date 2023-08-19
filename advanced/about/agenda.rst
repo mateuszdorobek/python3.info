@@ -43,9 +43,10 @@ Day 4
 
 Day 5
 -----
-* 60 min - Performance: big-O notation, complexity, optimization, micro-benchmarking, profiling
-* 60 min - Performance: Alternative compilers, interpreters, transpilers
-* 60 min - Concurrency: Concurrency models and their specificity
-* 60 min - Concurrency: introduction to multiprocessing, sockets, IPC
+* 30 min - Performance: big-O notation, complexity, optimization, micro-benchmarking, profiling
+* 30 min - Performance: Alternative compilers, interpreters, transpilers
+* 90 min - Generators: expressions, functions, introspection, yield, yield from, itertools
+* 30 min - Concurrency: Concurrency models and their specificity
+* 30 min - Concurrency: introduction to multiprocessing, sockets, IPC
 * 60 min - Concurrency: introduction to threading, locks, queues
-* 120 min - Concurrency: introduction to asynchronous programming, async/await, coroutines
+* 150 min - Concurrency: introduction to asynchronous programming, async/await, coroutines

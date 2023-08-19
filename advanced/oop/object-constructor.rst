@@ -556,6 +556,38 @@ Displaying Plaintext file myfile.txt
 
 Use Case - 0x06
 ---------------
+>>> import logging
+>>> from datetime import datetime, timezone
+>>> from uuid import uuid4
+>>>
+>>>
+>>> class BaseClass:
+...     def __new__(cls, *args, **kwargs):
+...         instance = super().__new__(cls)
+...         instance._since = datetime.now(tz=timezone.utc)
+...         instance._log = logging.getLogger(cls.__name__)
+...         instance._uuid = str(uuid4())
+...         return instance
+>>>
+>>>
+>>> class User(BaseClass):
+...     def __init__(self, username, password):
+...         self.password = password
+...         self.username = username
+>>>
+>>>
+>>> mark = User(username='mwatney', password='Ares3')
+>>>
+>>> vars(mark)  # doctest: +SKIP
+{'_since': datetime.datetime(1969, 7, 21, 2, 56, 15, tzinfo=datetime.timezone.utc),
+ '_log': <Logger User (INFO)>,
+ '_uuid': '47fe947f-7219-446d-b59e-fa9afa1e8c81',
+ 'password': 'Ares3',
+ 'username': 'mwatney'}
+
+
+Use Case - 0x07
+---------------
 >>> from datetime import datetime, timezone
 >>> import logging
 >>> from uuid import uuid4
@@ -603,10 +635,7 @@ Use Case - 0x06
 References
 ----------
 .. [#Noufal2011] Noufal Ibrahim. Python (and Python C API): __new__ versus __init__. Year: 2011. Retrieved: 2022-03-09. URL: https://stackoverflow.com/a/5143108
-
-
 .. [#pydocDatamodelNew] Basic customization. object.__new__(cls[, ...]). Year: 2022. Retrieved: 2022-04-01. URL: https://docs.python.org/3/reference/datamodel.html#object.__new__
-
 .. [#pydocDatamodelInit] object.__init__(self[, ...]). Year: 2022. Retrieved: 2022-04-01. URL: https://docs.python.org/3/reference/datamodel.html#object.__init__
 
 

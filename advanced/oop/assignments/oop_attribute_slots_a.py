@@ -12,7 +12,7 @@ English:
     2. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj dataklasę `User` z slotami:
+    1. Zdefiniuj dataklasę `User` ze slotami:
        a. `firstname: str`
        b. `lastname: str`
        c. `email: str`

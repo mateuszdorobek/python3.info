@@ -91,9 +91,11 @@ class Account:
         self.home = home
         self.shell = shell
 
-# Method `from_passwd()` with parameter: `data: str`
-# Method `from_passwd()` returns instance of a class on which was called
-# type: Callable[[type[Self], str], Self]
+    # parameter: `data: str`
+    # example: 'root:x:0:0:root:/root:/bin/bash'
+    # hint: uid and gid must be int
+    # return: instance of a class on which was called
+    # type: Callable[[type[Self], str], Self]
     def from_passwd():
         ...
 

@@ -1,9 +1,9 @@
 Dragon v1.0
 ===========
 * Assignment: Dragon v1.0
-* Complexity: medium
+* Complexity: easy
 * Lines of code: on average 100 lines, shortest solution is 24 lines
-* Time: 89 min, then 233 min live coding with instructor
+* Time: 55 min, then 55 min live coding with instructor
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -32,7 +32,6 @@ Functional requirements:
         a. Name
         b. Position on the screen
         c. Health points, default random ``int`` in range from 50 to 100
-        d. Path to the texture file, default ``img/dragon/alive.png``
 
     2. Dragon can:
 
@@ -47,14 +46,6 @@ Functional requirements:
         b. Going left subtract from ``x``
         c. Going up subtract from ``y``
         d. Going down add to ``y``
-
-    4. When health points drop to, or below zero:
-
-        a. Dragon has status ``dead``
-        b. Dragon has texture ``img/dragon/dead.png``
-        c. Display ``Dragon NAME is dead``, where ``NAME`` is the dragon's name
-        d. Display how much gold dragon dropped (random integer from 1 to 100)
-        e. Display position where dragon died (should be: x=20, y=40)
 
     5. Run the game:
 
@@ -73,7 +64,9 @@ Functional requirements:
         m. Make 15 points damage to the dragon
         n. Make 25 points damage to the dragon
         o. Make 75 points damage to the dragon
-        p. Dragon should die at the position x=20, y=40 and drop gold (1-100)
+        p. When dead: display ``Dragon is dead``
+        q. When dead: display how much gold dropped (random int from 1 to 100)
+        r. When dead: display last position (should be: x=20, y=40)
 
 
 Polish
@@ -97,7 +90,6 @@ Wymagania funkcjonalne:
         a. Nazwą
         b. Pozycją na ekranie
         c. Punktami życia, domyślnie losowy ``int`` z zakresu od 50 do 100
-        d. Ścieżką do pliku tekstury, domyślnie ``img/dragon/alive.png``
 
     2. Smok może:
 
@@ -113,15 +105,7 @@ Wymagania funkcjonalne:
         c. Idąc w górę odejmujesz ``y``
         d. Idąc w dół dodajesz ``y``
 
-    4. Kiedy punkty życia Smoka spadną do lub poniżej zera:
-
-        a. Smok ma status ``dead``
-        b. Smok ma teksturę ``img/dragon/dead.png``
-        c. Wyświetl ``Dragon NAME is dead``, gdzie ``NAME`` to nazwa smoka
-        d. Wyświetl ile złota smok wyrzucił (losowa liczba od 1 do 100)
-        e. Wyświetl pozycję gdzie smok zginął (powinna być: x=20, y=40)
-
-    5. Przeprowadź grę:
+    4. Przeprowadź grę:
 
         a. Stwórz smoka o nazwie "Wawelski"
         b. Ustaw inicjalną pozycję smoka na x=50, y=120
@@ -138,7 +122,9 @@ Wymagania funkcjonalne:
         m. Zadaj 15 obrażeń smokowi
         n. Zadaj 25 obrażeń smokowi
         o. Zadaj 75 obrażeń smokowi
-        p. Smok powinien zginąć na pozycji: x=20, y=40 i zostawić złoto (1-100)
+        p. Gdy zginie: wyświetl ``Dragon is dead``
+        q. Gdy zginie: wyświetl ile złota wypadło (losowa liczba od 1 do 100)
+        r. Gdy zginie: wyświetl ostatnią pozycję (powinna być: x=20, y=40)
 
 
 Hints

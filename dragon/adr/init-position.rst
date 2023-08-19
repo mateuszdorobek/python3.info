@@ -8,10 +8,6 @@ Dragon ADR Init Position
 
 Option 1
 --------
->>> dragon = Dragon('Wawelski', int, int)
-
-Example:
-
 >>> dragon = Dragon('Wawelski', 50, 120)
 
 Pros and Cons:
@@ -29,14 +25,13 @@ Example:
 >>> dragon = Dragon('Wawelski', 0, 0)  # 2D
 >>> dragon = Dragon('Wawelski', 0, 0, 0)  # 3D
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
-
 >>> dragon = Dragon('Wawelski', None, None)  # default point
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', None, None)
 
 Problem:
 
->>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0) # 3D
->>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', None) # 3D
+>>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0)  # 3D
+>>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', None)  # 3D
 
 Use Case:
 
@@ -56,10 +51,6 @@ Use Case:
 
 Option 2
 --------
->>> dragon = Dragon('Wawelski', x=int, y=int)
-
-Example:
-
 >>> dragon = Dragon('Wawelski', x=50, y=120)
 
 Pros and Cons:
@@ -81,7 +72,6 @@ Example:
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0, z=0)
 >>> dragon = Dragon('Wawelski', x=0, y=0, t='img/dragon/alive.png', z=0)
-
 >>> dragon = Dragon('Wawelski', x=None, y=None)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None, z=None)
@@ -132,6 +122,7 @@ Example:
 
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0)  # maybe
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0, positionz=0)  # maybe
+>>> dragon = Dragon('Wawelski', positionx=0, positiony=0, texture='img/dragon/alive.png', positionz=0)  # maybe
 
 Use Case:
 
@@ -155,20 +146,32 @@ Pros and Cons:
 
 >>> dragon = Dragon('Wawelski', position_x=0, position_y=0)  # ok
 >>> dragon = Dragon('Wawelski', position_x=0, position_y=0, position_z=0)  # ok
+>>> dragon = Dragon('Wawelski', position_x=0, position_y=0, texture='img/dragon/alive.png', position_z=0)  # ok
 
 Use Case:
 
 >>> df.plot(kind='line', subplots=True, color='grey', share_y=True)       # ok
->>> df.plot(kind='line', sub_plots=True, color='grey', share_y=True)      # overkill
+>>> df.plot(kind='line', subplots=True, color='grey', share_y_axis=True)  # ok
+>>> df.plot(kind='line', subplots=True, color='grey', share_axis_y=True)  # ok
+>>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # overkill
 
->>> df.plot(kind='line', sub_plots=True, color='grey', share_y_axis=True) # ok
->>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # ok
+Implementation:
+
+>>> class Dragon:
+...     def __init__(self, name, position_x, position_y):
+...         ...
+
+>>> class Dragon:
+...     def __init__(self, name, position_x, position_y, position_z=0):
+...         ...
 
 
 Option 6
 --------
 >>> dragon = Dragon('Wawelski', (50, 120))
+>>> dragon = Dragon('Wawelski', [50, 120])
 >>> dragon = Dragon('Wawelski', position=(50, 120))
+>>> dragon = Dragon('Wawelski', position=[50, 120])
 
 Pros and Cons:
 
@@ -536,7 +539,7 @@ Option 15
 >>> from dataclasses import dataclass
 >>>
 >>>
->>> @dataclass(frozen=True, slots=True)
+>>> @dataclass(slots=True)
 ... class Position:
 ...     x: int = 0
 ...     y: int = 0
@@ -555,8 +558,7 @@ Pros and Cons:
 * Good: very easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
 * Good: is faster and leaner than simple dataclass
-* Good: does not allow for attribute mutation
-* Good: does not allow for attribute creation
+* Good: does not allow for new attribute creation
 * Good: slots make class lighter and faster
 * Bad: more complicated than mutable dataclasses
 * Decision: candidate
@@ -568,18 +570,13 @@ Use Case:
 >>> pt.x, pt.y
 (1, 2)
 >>>
->>> pt.x = 10             # error
->>> pt.y = 20             # error
+>>> pt.x = 10             # ok
+>>> pt.y = 20             # ok
 >>> pt.notexisting = 30   # error
 
 
 Decision
 --------
->>> class Dragon:
-...     def __init__(name: str, /, *, position_x: int, position_y: int) -> None:
-...         ...
->>>
->>>
 >>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
 
 Pros and Cons:
@@ -589,18 +586,25 @@ Pros and Cons:
 * Good: verbose
 * Good: extensible
 
+Implementation:
+
+>>> class Dragon:
+...     def __init__(name: str, /, *, position_x: int, position_y: int) -> None:
+...         ...
+
 
 Future
 ------
->>> class Dragon:
-...     def __init__(name: str, /, *, position: Position) -> None:
-...         ...
->>>
->>>
 >>> dragon = Dragon('Wawelski', Position(x=50, y=120))
 
-* Choices: ``NameTuple``, ``dataclass(frozen=True, slots=True)``
+* Choices: ``NameTuple``, ``dataclass(slots=True)``
 * Good: explicit
 * Good: verbose
 * Good: extensible
 * Bad: to complicated for now
+
+Implementation:
+
+>>> class Dragon:
+...     def __init__(name: str, /, *, position: Position) -> None:
+...         ...

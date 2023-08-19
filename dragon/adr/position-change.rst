@@ -11,11 +11,6 @@ Dragon ADR Position Change
 
 Option 1
 --------
->>> dragon.position_x += int
->>> dragon.position_y += int
-
-Example:
-
 >>> # left by 10 and down by 20
 >>> dragon.position_x -= 10
 >>> dragon.position_y += 20
@@ -55,10 +50,6 @@ Consequences:
 
 Option 2
 --------
->>> dragon.move(int, int)
-
-Example:
-
 >>> dragon.move(-10, 20)  # left by 10 and down by 20
 >>> dragon.move(5, 0)     # left by 10 and right by 15
 >>> dragon.move(15, -5)   # right by 15 and up by 5
@@ -105,10 +96,6 @@ Use Case:
 
 Option 3
 --------
->>> dragon.move(tuple[int,int])
-
-Example:
-
 >>> dragon.move((-10, 20))  # left by 10 and down by 20
 >>> dragon.move((5, 0))     # left by 10 and right by 15
 >>> dragon.move((15, -5))   # right by 15 and up by 5
@@ -145,10 +132,6 @@ Use Case:
 
 Option 4
 --------
->>> dragon.move(list[tuple[int,int]])
-
-Example:
-
 >>> dragon.move([
 ...     (-10, 20),  # left by 10 and down by 20
 ...     (5, 0),     # left by 10 and right by 15
@@ -181,12 +164,6 @@ Consequences:
 
 Option 5
 --------
->>> dragon.move(int, int, int int)
->>> dragon.move(tuple[int, int, int int])
->>> dragon.move(list[tuple[int, int, int int])
-
-Example:
-
 >>> dragon.move(0, 0, 20, 10)    # left by 10 and down by 20
 >>> dragon.move(0, 15, 0, 10)    # left by 10 and right by 15
 >>> dragon.move(5, 15, 0, 0)     # right by 15 and up by 5
@@ -241,10 +218,6 @@ Use Case:
 
 Option 6
 --------
->>> dragon.move_xy(int, int)
-
-Example:
-
 >>> dragon.move_xy(-10, 20)  # left by 10 and down by 20
 >>> dragon.move_xy(5, 0)     # left by 10 and right by 15
 >>> dragon.move_xy(15, -5)   # right by 15 and up by 5
@@ -269,11 +242,6 @@ Consequences:
 
 Option 7
 --------
->>> dragon.move_x(int)
->>> dragon.move_y(int)
-
-Example:
-
 >>> # left by 10 and down by 20
 >>> dragon.move_x(10)
 >>> dragon.move_y(-20)
@@ -309,11 +277,6 @@ Consequences:
 
 Option 8
 --------
->>> dragon.move_horizontal(int)
->>> dragon.move_vertical(int)
-
-Example:
-
 >>> # left by 10 and down by 20
 >>> dragon.move_horizontal(10)
 >>> dragon.move_vertical(-20)
@@ -350,13 +313,6 @@ Consequences:
 
 Option 9
 --------
->>> dragon.move_left(int)
->>> dragon.move_right(int)
->>> dragon.move_up(int)
->>> dragon.move_down(int)
-
-Example:
-
 >>> # left by 10 and down by 20
 >>> dragon.move_left(10)
 >>> dragon.move_down(20)
@@ -421,12 +377,6 @@ Use Case:
 
 Option 10
 ---------
->>> dragon.move(x=int, y=int)
->>> dragon.move(dx=int, dy=int)
->>> dragon.move(horizontal=int, vertical=int)
-
-Example:
-
 >>> dragon.move(x=-10, y=20)    # left by 10 and down by 20
 >>> dragon.move(x=5, y=0)       # left by 10 and right by 15
 >>> dragon.move(x=15, y=-5)     # right by 15 and up by 5
@@ -472,10 +422,6 @@ Consequences:
 
 Option 11
 ---------
->>> dragon.move(left=int, right=int, up=int, down=int)
-
-Example:
-
 >>> dragon.move(left=10, down=20)    # left by 10 and down by 20
 >>> dragon.move(left=10, right=15)   # left by 10 and right by 15
 >>> dragon.move(right=15, up=5)      # right by 15 and up by 5
@@ -514,11 +460,6 @@ Use Case:
 
 Option 12
 ---------
->>> dragon.shift(left=int, down=int)
->>> dragon.fly(left=int, down=int)
-
-Example:
-
 >>> dragon.shift(left=10, down=20)    # left by 10 and down by 20
 >>> dragon.shift(left=10, right=15)   # left by 10 and right by 15
 >>> dragon.shift(right=15, up=5)      # right by 15 and up by 5
@@ -556,11 +497,6 @@ Use Case:
 
 Option 13
 ---------
->>> dragon.change_position(left=int, down=int)
->>> dragon.position_change(left=int, down=int)
-
-Example:
-
 >>> dragon.change_position(left=10, down=20)    # left by 10 and down by 20
 >>> dragon.change_position(left=10, right=15)   # left by 10 and right by 15
 >>> dragon.change_position(right=15, up=5)      # right by 15 and up by 5
@@ -593,12 +529,6 @@ Use Case:
 Option 14
 ---------
 * Move by setting absolute position along path
-
->>> dragon.move_to(int, int)
->>> dragon.move_to(tuple[int,int])
->>> dragon.move_to(list[tuple[int,int]])
-
-Example:
 
 >>> dragon.move_to(10, -20)
 >>> dragon.move_to(50, -120)
@@ -651,11 +581,6 @@ Option 15
 ---------
 * Move by setting absolute position along path
 
->>> dragon.move_to(dict[str,int])
->>> dragon.move_to(list[dict[str,int]])
-
-Example:
-
 >>> dragon.move_to({'x':-10, 'y':20})
 >>> dragon.move_to({'x':10, 'y':-120})
 >>> dragon.move_to({'x':50, 'y':-120})
@@ -678,8 +603,6 @@ Pros and Cons:
 
 Option 16
 ---------
-Example:
-
 >>> dragon.move(Point(x=10, y=20))
 >>> dragon.move(Point(x=10, y=20))
 >>> dragon.move(Point(x=10, y=20))
@@ -711,18 +634,13 @@ Example:
 
 Use Case:
 
->>> path: list[Point] = get_path(from_point, to_point)
+>>> path = calculate_path(from_point, to_point)
 >>> dragon.move(path)
 
 
 Option 17
 ---------
 * Move by relative shifting in axis
-
->>> dragon.move_to(dict[str,int])
->>> dragon.move_to(list[dict[str,int]])
-
-Example:
 
 >>> dragon.move({'dx': 10, 'dy': 20})
 >>> dragon.move({'dx': 10, 'dy': 20})
@@ -747,11 +665,6 @@ Option 18
 ---------
 * Move by relative shifting to the sides
 
->>> dragon.move_to(dict[str,int])
->>> dragon.move_to(list[dict[str,int]])
-
-Example:
-
 >>> dragon.move({'left':50, 'down':120})
 >>> dragon.move({'left':50, 'down':120})
 >>> dragon.move({'left':50, 'down':120})
@@ -775,11 +688,6 @@ Option 19
 ---------
 * Move by relative shifting to the sides
 
->>> dragon.move_to(dict[str,int])
->>> dragon.move_to(list[dict[str,int]])
-
-Example:
-
 >>> dragon.move({'direction': 'left', 'distance': 20})
 >>> dragon.move({'direction': 'left', 'distance': 10})
 >>> dragon.move({'direction': 'right', 'distance': 20})
@@ -799,11 +707,6 @@ Pros and Cons:
 Option 20
 ---------
 * Move by relative shifting to the sides
-
->>> dragon.move(Direction)
->>> dragon.move(list[Direction])
-
-Example:
 
 >>> dragon.move(Direction('left', distance=20))
 >>> dragon.move(Direction('left', distance=10))
@@ -826,12 +729,6 @@ Pros and Cons:
 Option 21
 ---------
 * Move by relative shifting to the sides
-
->>> dragon.move(str, int)
->>> dragon.move(str, distance=int)
->>> dragon.move(direction=str, distance=int)
-
-Example:
 
 >>> dragon.move('left', 20)
 >>> dragon.move('right', 5)
@@ -872,11 +769,6 @@ Option 22
 ---------
 * Move by relative shifting to the sides
 
->>> dragon.move(Left | Right | Up | Down)
->>> dragon.move(list[Left | Right | Up | Down])
-
-Example:
-
 >>> dragon.move(Left(20))
 >>> dragon.move(Left(10))
 >>> dragon.move(Right(20))
@@ -899,12 +791,6 @@ Option 23
 ---------
 * Move by relative shifting to the sides
 * Bind to keyboard key codes
-
->>> dragon.move(int, int)
->>> dragon.move(int, distance=int)
->>> dragon.move(direction=int, distance=int)
-
-Example:
 
 >>> # keyboard key codes
 >>> LEFT = 0x61
@@ -959,12 +845,6 @@ Option 24
 ---------
 * Move by relative shifting to the sides
 * Bind to keyboard key codes
-
->>> dragon.move(int, int)
->>> dragon.move(int, distance=int)
->>> dragon.move(direction=int, distance=int)
-
-Example:
 
 >>> # keyboard key codes
 >>> ARROW_LEFT = 0x61
@@ -1040,12 +920,6 @@ Pros and Cons:
 
 Decision
 --------
->>> class Dragon:
-...     def move(self, *,
-...              left: int = 0, right: int = 0,
-...              down: int = 0, up: int = 0,
-...              ) -> None: ...
->>>
 >>> dragon.move(left=10, down=20)
 
 Pros and Cons:
@@ -1055,15 +929,17 @@ Pros and Cons:
 * Good: extensible (easy to convert to 3D)
 * Good: encapsulation
 
+Implementation:
+
+>>> class Dragon:
+...     def move(self, *,
+...              left: int = 0, right: int = 0,
+...              down: int = 0, up: int = 0,
+...              ) -> None: ...
+
 
 Future
 ------
->>> class Dragon:
-...     def change_position(self, *,
-...                         left: int = 0, right: int = 0,
-...                         down: int = 0, up: int = 0,
-...                         ) -> None: ...
->>>
 >>> dragon.change_position(left=10, down=20)
 
 Pros and Cons:
@@ -1072,3 +948,11 @@ Pros and Cons:
 * Good: verbose
 * Good: extensible
 * Bad: a bit too complex for now
+
+Implementation:
+
+>>> class Dragon:
+...     def change_position(self, *,
+...                         left: int = 0, right: int = 0,
+...                         down: int = 0, up: int = 0,
+...                         ) -> None: ...

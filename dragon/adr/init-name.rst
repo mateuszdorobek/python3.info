@@ -8,10 +8,6 @@ Dragon ADR Init Name
 
 Option 1
 --------
->>> dragon = Dragon(str)  # positional
-
-Example:
-
 >>> dragon = Dragon('Wawelski')
 
 Pros and Cons:
@@ -23,10 +19,6 @@ Pros and Cons:
 
 Option 2
 --------
->>> dragon = Dragon(name: str)  # keyword
-
-Example:
-
 >>> dragon = Dragon(name='Wawelski')
 
 Pros and Cons:
@@ -39,13 +31,14 @@ Pros and Cons:
 
 Decision
 --------
->>> class Dragon:
-...     def __init__(self, name: str, /) -> None: ...
->>>
->>>
 >>> dragon = Dragon('Wawelski')
 
 Pros and Cons:
 
 * Easy to use
 * Verbose enough
+
+Implementation:
+
+>>> class Dragon:
+...     def __init__(self, name: str, /) -> None: ...

@@ -22,6 +22,7 @@ Polish:
         c. zwrócić wyniki
     3. Uruchom doctesty - wszystkie muszą się powieść
 
+Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import iscoroutine, iscoroutinefunction
     >>> import asyncio

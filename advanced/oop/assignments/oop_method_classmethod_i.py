@@ -62,13 +62,13 @@ from dataclasses import dataclass
 
 class CSVMixin:
 
-# `CSVMixin.to_csv()` returns attribute values separated with coma
-# type: Callable[[Self], str]
+    # return: attribute values separated with coma
+    # type: Callable[[Self], str]
     def to_csv(self) -> str:
         ...
 
-# `CSVMixin.from_csv()` returns instance of a class on which it was called
-# type: Callable[[type[Self], str], Self]
+    # return: instance of a class on which it was called
+    # type: Callable[[type[Self], str], Self]
     @classmethod
     def from_csv(cls, line: str):
         ...
