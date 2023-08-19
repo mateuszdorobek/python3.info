@@ -1,7 +1,7 @@
 """
 * Assignment: CSV Format ReadString
 * Complexity: easy
-* Lines of code: 4 lines
+* Lines of code: 1 lines
 * Time: 5 min
 
 English:
@@ -47,8 +47,4 @@ DATA = """sepal_length,sepal_width,petal_length,petal_width,species
 result = ...
 
 # Solution
-result = []
-
-for line in DATA.splitlines():
-    line = line.strip().split(',')
-    result.append(tuple(line))
+result = [tuple(line.split(',')) for line in DATA.splitlines()]

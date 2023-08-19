@@ -1,5 +1,5 @@
-Modules Layout
-==============
+Module Layout
+=============
 
 
 .. code-block:: text

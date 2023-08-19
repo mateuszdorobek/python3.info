@@ -5,6 +5,35 @@ An `OR pattern` looks like ``[*x] | {"elems": [*x]}``. It matches if
 any of its sub-patterns match. It uses the binding for the leftmost
 pattern that matched.
 
+
+>>> user = 'Watney'
+>>>
+>>> match user:
+...     case 'Mark'    | 'Watney':     print('Hello Mark Watney')
+...     case 'Melissa' | 'Lewis':      print('Hello Melissa Lewis')
+...     case 'Rick'    | 'Martinez':   print('Hello Rick Martinez')
+...     case 'Alex'    | 'Vogel':      print('Hello Alex Vogel')
+...     case 'Beth'    | 'Johanssen':  print('Hello Beth Johanssen')
+...     case 'Chris'   | 'Beck':       print('Hello Chris Beck')
+...
+Hello Mark Watney
+
+
+
+Use Case - 0x01
+---------------
+>>> color = 'r'
+>>>
+>>> match color:
+...     case 'r' | 'red':   print('#ff0000')
+...     case 'g' | 'green': print('#00ff00')
+...     case 'b' | 'blue':  print('#0000ff')
+...
+#ff0000
+
+
+Use Code - 0x01
+---------------
 >>> from http import HTTPStatus
 >>> import requests
 >>>

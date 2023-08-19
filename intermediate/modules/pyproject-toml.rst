@@ -1,5 +1,5 @@
-TOML pyproject.toml
-===================
+Module pyproject.toml
+=====================
 * https://packaging.python.org/en/latest/tutorials/packaging-projects/
 * https://peps.python.org/pep-0517/
 * https://peps.python.org/pep-0518/

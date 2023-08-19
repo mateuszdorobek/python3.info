@@ -1,7 +1,7 @@
 """
 * Assignment: CSV Format ReadTypeCast
 * Complexity: easy
-* Lines of code: 9 lines
+* Lines of code: 6 lines
 * Time: 8 min
 
 English:
@@ -59,16 +59,16 @@ DATA = """3,4,setosa,virginica,versicolor
 5.1,3.5,1.4,0.2,0
 5.7,2.8,4.1,1.3,2"""
 
+header, *lines = DATA.splitlines()
+nrows, nfeatures, *class_labels = header.strip().split(',')
+label_encoder = dict(enumerate(class_labels))
+
 def parse(line):
     ...
 
 result = ...
 
 # Solution
-header, *lines = DATA.splitlines()
-nrows, nfeatures, *class_labels = header.strip().split(',')
-label_encoder = dict(enumerate(class_labels))
-
 def parse(line: str) -> tuple[float,float,float,float,str]:
     *values, species = line.split(',')
     values = map(float, values)

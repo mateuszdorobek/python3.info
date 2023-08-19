@@ -17,12 +17,11 @@ Day 1
 
 Day 2
 -----
-* 90 min - Generators: expressions, functions, introspection, yield, yield from, itertools
-* 90 min - Idiom: zip, enumerate, range, map, filter, any, all
-* 100 min - Json: working with JSON files (relational and non-relational data, encoders, decoders)
-* 100 min - Csv: working with CSV files (parsing text files, format conversion)
-* 20 min - Pickle: serializing objects to Pickle
-* 20 min - Toml: format, pyproject.toml, reading configuration files
+* 120 min - Idiom: zip, enumerate, range, map, filter, any, all
+* 120 min - Json: format, read, write, relational and non-relational data, encoders, decoders
+* 150 min - Csv: format, read, write, parsing text files, format conversion
+* 15 min - Pickle: serializing objects to Pickle
+* 15 min - Toml: format, pyproject.toml, reading configuration files
 
 
 Day 3
@@ -33,21 +32,31 @@ Day 3
 
 Day 4
 -----
-* 120 min - CI/CD: strategies, static code analysis, good practices
-* 45 min - Venv: working with virtual environment
-* 15 min - Pip: package install, requirements, pyproject.toml
-* 30 min - Enum: enum type, auto, strenum, intenum, constraints
-* 30 min - Logging: debugging messages
-* 30 min - Decimal: float precision problem (IEEE 754)
-* 30 min - Random: pseudorandom numbers, random seed
+* 15 min - Decimal: float precision problem (IEEE 754)
+* 15 min - Random: pseudorandom numbers, random seed
 * 60 min - Doctest: using doctests and testing problems
-* 60 min - Unittest: introduction to TDD
+* 90 min - Unittest: introduction to TDD
+* 60 min - Modules: project layout, venv, pip, requirements.txt, pyproject.toml
+* 30 min - Logging: debugging messages
+* 150 min - Database: (SQL, create, index, alter, update, delete, drop, select)
 
 
 Day 5
 -----
-* 10 min - Dragon: introduction
-* 90 min - Dragon: programming
-* 20 min - Dragon: code review
-* 180 min - Dragon: live coding solution, IDE demonstration, ie. debugging, working with VCS, refactoring, quick documentation, type annotations, function signatures
-* 120 min - Sqlite3: database: (SQL, create, index, alter, update, delete, drop, select)
+* 20 min - Dragon: introduction to Dragon project and sprints
+* 30 min - Dragon v1: programming
+* 15 min - Dragon v1: code review
+* 30 min - Dragon v1: solution, live coding, TDD, debugging
+* 30 min - Dragon v2: programming
+* 15 min - Dragon v2: code review
+* 30 min - Dragon v2: solution, live coding, TDD, refactoring
+* 30 min - Dragon v3: programming
+* 15 min - Dragon v3: code review
+* 30 min - Dragon v3: solution, live coding, TDD, refactoring
+* 30 min - Dragon v4: programming
+* 15 min - Dragon v4: code review
+* 30 min - Dragon v4: solution, live coding, TDD, refactoring
+* 30 min - Dragon v5: programming
+* 15 min - Dragon v5: code review
+* 30 min - Dragon v5: solution, live coding, TDD, refactoring
+* 25 min - Dragon: closing remarks

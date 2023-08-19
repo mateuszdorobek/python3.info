@@ -69,10 +69,6 @@ result = ...
 # Solution
 result = []
 
-with open(FILE) as file:
-    header = file.readline()
-    reader = csv.DictReader(file,
-                            fieldnames=FIELDNAMES,
-                            delimiter=',',
-                            quoting=csv.QUOTE_NONE)
+with open(FILE, mode='rt') as file:
+    reader = csv.DictReader(file)
     result = list(reader)

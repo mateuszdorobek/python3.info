@@ -13,8 +13,8 @@ A capture pattern always succeeds.
 >>> name = 'Mark'
 >>>
 >>> match name:
-...     case '':
-...         print('Hello stranger')
-...     case firstname:
-...         print(f'Hello {firstname}')
+...     case 'Mark':    print('Hello Mark')     # Literal pattern
+...     case 'Melissa': print('Hello Melissa')  # Literal pattern
+...     case name:      print(f'Hello {name}')  # Capture pattern
+...
 Hello Mark

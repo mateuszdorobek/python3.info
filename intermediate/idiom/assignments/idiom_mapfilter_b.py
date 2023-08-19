@@ -2,8 +2,8 @@
 * Assignment: Idiom Filter Apply
 * Required: yes
 * Complexity: easy
-* Lines of code: 11 lines
-* Time: 8 min
+* Lines of code: 3 lines
+* Time: 5 min
 
 English:
     1. Define `result: list[dict]`, where each dict has keys:
@@ -74,10 +74,6 @@ DATA = """##
 255.255.255.255 broadcasthost
 ::1             localhost"""
 
-# type: list[dict]
-result = ...
-
-# Solution
 def valid(line: str) -> bool:
     if len(line) == 0:
         return False
@@ -91,5 +87,10 @@ def parse(line: str) -> dict:
     return {'ip': ip, 'hosts': hosts}
 
 
-result = filter(valid, DATA.splitlines())
+# type: list[dict]
+result = ...
+
+# Solution
+result = DATA.splitlines()
+result = filter(valid, result)
 result = map(parse, result)

@@ -1,7 +1,7 @@
 """
 * Assignment: CSV Format WriteListDict
 * Complexity: easy
-* Lines of code: 4 lines
+* Lines of code: 2 lines
 * Time: 5 min
 
 English:
@@ -60,6 +60,10 @@ DATA = [
 result = ...
 
 # Solution
+result = [','.join(row.values()) for row in DATA]
+result = '\n'.join(result)
+
+# Alternative Solution
 result = ''
 
 for row in DATA:

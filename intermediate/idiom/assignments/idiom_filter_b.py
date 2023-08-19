@@ -75,7 +75,7 @@ def valid():
     ...
 
 # Use `filter()` to apply function `valid()` to DATA
-# type: map
+# type: filter
 result = ...
 
 # Solution

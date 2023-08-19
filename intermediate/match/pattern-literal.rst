@@ -7,6 +7,52 @@ structure. It looks like a Python literal (including some values like
 ``True``, ``False`` and ``None``). It only matches objects equal to
 the literal, and never binds.
 
+
+With Strings
+------------
+>>> user = 'Mark'
+>>>
+>>> match user:
+...     case 'Mark':    print('Hello Mark')
+...     case 'Melissa': print('Hello Melissa')
+...     case 'Rick':    print('Hello Rick')
+...     case 'Alex':    print('Hello Alex')
+...     case 'Beth':    print('Hello Beth')
+...     case 'Chris':   print('Hello Chris')
+...
+Hello Mark
+
+
+With Numbers
+------------
+>>> weekday = 3
+>>>
+>>> match weekday:
+...     case 1: print('Monday')
+...     case 2: print('Tuesday')
+...     case 3: print('Wednesday')
+...     case 4: print('Thursday')
+...     case 5: print('Friday')
+...     case 6: print('Saturday')
+...     case 7: print('Sunday')
+...
+Wednesday
+
+
+With Booleans
+-------------
+>>> status = True
+>>>
+>>> match status:
+...     case True:  print('success')
+...     case False: print('error')
+...     case None:  print('in-progress')
+...
+success
+
+
+Use Case - 0x01
+---------------
 >>> def weekday(number):
 ...     match number:
 ...         case 1: print('Monday')
@@ -27,7 +73,7 @@ Tuesday
 Sunday
 
 
-Use Case - 0x01
+Use Case - 0x02
 ---------------
 >>> def html_color(name):
 ...     match name:
@@ -46,7 +92,7 @@ Use Case - 0x01
 '#0000ff'
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 >>> def status(result):
 ...     match result:
@@ -65,7 +111,7 @@ Use Case - 0x02
 'in-progress'
 
 
-Use Case - 0x03
+Use Case - 0x04
 ---------------
 >>> def http_status(status_code):
 ...     match status_code:
@@ -84,34 +130,6 @@ Use Case - 0x03
 >>>
 >>> http_status(404)
 'Not found'
-
-
-Use Case - 0x04
----------------
->>> def count(*args):
-...     match len(args):
-...         case 3: return 'Three'
-...         case 2: return 'Two'
-...         case 1: return 'One'
-...         case 0: return 'Too few'
-...         case _: return 'Too many'
->>>
->>>
->>> count(1, 2, 3, 4)
-'Too many'
->>>
->>> count(1, 2, 3)
-'Three'
->>>
->>> count(1, 2)
-'Two'
->>>
->>> count(1)
-'One'
->>>
->>> count()
-'Too few'
-
 
 Use Case - 0x05
 ---------------
@@ -134,6 +152,29 @@ Use Case - 0x05
 
 
 Use Case - 0x06
+---------------
+>>> def count(*args):
+...     match len(args):
+...         case 3: return 'Three'
+...         case 2: return 'Two'
+...         case 1: return 'One'
+...         case 0: return 'Zero'
+>>>
+>>>
+>>> count(1, 2, 3)
+'Three'
+>>>
+>>> count(1, 2)
+'Two'
+>>>
+>>> count(1)
+'One'
+>>>
+>>> count()
+'Zero'
+
+
+Use Case - 0x07
 ---------------
 >>> def myrange(*args, **kwargs):
 ...     if kwargs:
@@ -165,7 +206,7 @@ Use Case - 0x06
 ...     return result
 
 
-Use Case - 0x07
+Use Case - 0x08
 ---------------
 >>> def myrange(*args, **kwargs):
 ...     match len(args):
@@ -185,7 +226,7 @@ Use Case - 0x07
 ...     ...
 
 
-Use Case - 0x08
+Use Case - 0x09
 ---------------
 >>> def myrange(*args, **kwargs):
 ...     match len(args):
@@ -197,7 +238,7 @@ Use Case - 0x08
 ...     ...
 
 
-Use Case - 0x09
+Use Case - 0x10
 ---------------
 >>> import argparse
 >>>

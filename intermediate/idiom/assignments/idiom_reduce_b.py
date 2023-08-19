@@ -1,8 +1,8 @@
 """
 * Assignment: Idiom Reduce Chain
 * Complexity: easy
-* Lines of code: 5 lines
-* Time: 5 min
+* Lines of code: 2 lines
+* Time: 3 min
 
 English:
     1. Define `result` with numbers from `range()`:
@@ -55,18 +55,15 @@ def odd(x):
 def cube(x):
     return x ** 3
 
+data = range(0, 10)
+data = filter(odd, data)
+data = map(cube, data)
 
-# Range numbers from 0 to 10 (exclusive)
-# Filter odd numbers
-# Cube result
 # Calculate mean
 # type: float
 result = ...
 
 
 # Solution
-result = range(0, 10)
-result = filter(odd, result)
-result = map(cube, result)
-result = list(result)
+result = list(data)
 result = sum(result) / len(result)

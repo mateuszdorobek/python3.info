@@ -2,7 +2,7 @@
 * Assignment: Math Random Sample
 * Complexity: easy
 * Lines of code: 1 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Define `result: list[int]` with 6 random

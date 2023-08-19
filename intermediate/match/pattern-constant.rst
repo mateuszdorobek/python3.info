@@ -10,11 +10,29 @@ binds.
 
 SetUp:
 
->>> from enum import IntEnum
+>>> from enum import IntEnum, StrEnum
 >>> import requests
 
 Usage:
 
+>>> class Color(StrEnum):
+...     RED = '#FF0000'
+...     GREEN = '#00FF00'
+...     BLUE = '#0000FF'
+>>>
+>>>
+>>> mycolor = '#FF0000'
+>>>
+>>> match mycolor:
+...     case Color.RED:     print('red')
+...     case Color.BLUE:    print('blue')
+...     case Color.GREEN:   print('green')
+...
+red
+
+
+Use Case - 0x01
+---------------
 >>> class HTTPStatus(IntEnum):
 ...     OK = 200
 ...     REDIRECT = 300
@@ -31,7 +49,7 @@ Usage:
 ok
 
 
-Use Case - 0x01
+Use Case - 0x02
 ---------------
 >>> from http import HTTPStatus
 >>> import requests
@@ -47,7 +65,7 @@ Use Case - 0x01
 ok
 
 
-Use Case - 0x02
+Use Case - 0x03
 ---------------
 Test Setup:
 

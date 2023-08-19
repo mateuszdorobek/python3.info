@@ -74,3 +74,6 @@ CREATE TABLE IF NOT EXISTS contacts (
 )
 
 """
+
+
+# TODO sprawdzać czy tableka istnieje, a nie sprawdzać innych
