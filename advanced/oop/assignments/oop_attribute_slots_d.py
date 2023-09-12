@@ -7,13 +7,13 @@
 English:
     1. Define function `dump(obj) -> dict` accepting instance with slots
     2. Function should return similar output to `vars()`, i.e.:
-       {'username': 'Mark', 'password': 'Ares3', 'email': 'mwatney@nasa.gov'}
+       {'username':'mwatney', 'password':'Ares3', 'email':'mwatney@nasa.gov'}
     3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj funkcję `dump(obj) -> dict` przyjmującą instancję ze slotami
     2. Funkcja powinna zwracać podobny wynik do `vars()`, np:
-       {'username': 'Mark', 'password': 'Ares3', 'email': 'mwatney@nasa.gov'}
+       {'username':'mwatney', 'password':'Ares3', 'email':'mwatney@nasa.gov'}
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
@@ -30,7 +30,7 @@ Tests:
     >>>
     >>>
     >>> mark = User(
-    ...     username='Mark',
+    ...     username='mwatney',
     ...     password='Ares3',
     ...     email='mwatney@nasa.gov')
 
@@ -48,7 +48,7 @@ Tests:
     'All values in result must be a str'
 
     >>> result
-    {'username': 'Mark', 'password': 'Ares3', 'email': 'mwatney@nasa.gov'}
+    {'username': 'mwatney', 'password': 'Ares3', 'email': 'mwatney@nasa.gov'}
 """
 
 # Define function `dump(obj) -> dict` accepting instance with slots

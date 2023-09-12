@@ -1,5 +1,5 @@
 """
-* Assignment: Protocol Property Deleter
+* Assignment: OOP Property Deleter
 * Complexity: easy
 * Lines of code: 6 lines
 * Time: 3 min

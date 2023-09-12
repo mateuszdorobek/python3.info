@@ -1,10 +1,7 @@
-OOP Attribute Property Decorator
-================================
+OOP Property Decorator
+======================
 * Disable attribute modification
 * Logging value access
-* Check boundary
-* Raise exceptions such as ``ValueError`` or ``TypeError``
-* Check argument type
 
 In Python, ``@property`` is a built-in decorator that allows you to define a
 method as a read-only property of a class. This means that the method can be
@@ -97,8 +94,7 @@ Use Case - 0x01
 ...
 ...     @property
 ...     def age(self):
-...         today = date.today()
-...         days = (today - self.birthday).days
+...         days = (date.today() - self.birthday).days
 ...         return int(days/YEAR)
 >>>
 >>>
@@ -157,29 +153,37 @@ Use Case - 0x04
 
 Use Case - 0x08
 ---------------
->>> class Temperature:
-...     def __init__(self, initial_temperature):
-...         self._protected = initial_temperature
+>>> import logging
+>>>
+>>>
+>>> class User:
+...     def __init__(self, username, password):
+...         self._username = username
+...         self._password = password
 ...
 ...     @property
-...     def value(self):
-...         print('You are trying to access a value')
-...         return self._protected
+...     def username(self):
+...         logging.warning("User's username was accessed")
+...         return self._username
+...
+...     @property
+...     def password(self):
+...         logging.warning("User's password was accessed")
+...         return self._password
 >>>
 >>>
->>> t = Temperature(100)
+>>> mark = User(username='mwatney', password='Ares3')
 >>>
->>> print(t.value)
-You are trying to access a value
-100
+>>> print(mark.password)
+Ares3
 
 
 Assignments
 -----------
 .. literalinclude:: assignments/oop_attribute_property_decorator_a.py
-    :caption: :download:`Solution <assignments/oop_attribute_property_decorator_a.py>`
+    :caption: :download:`Solution <assignments/oop_property_decorator_a.py>`
     :end-before: # Solution
 
 .. literalinclude:: assignments/oop_attribute_property_decorator_b.py
-    :caption: :download:`Solution <assignments/oop_attribute_property_decorator_b.py>`
+    :caption: :download:`Solution <assignments/oop_property_decorator_b.py>`
     :end-before: # Solution

@@ -1,5 +1,5 @@
 """
-* Assignment: Protocol Property NonNegative
+* Assignment: OOP Property NonNegative
 * Complexity: easy
 * Lines of code: 6 lines
 * Time: 5 min

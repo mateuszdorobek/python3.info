@@ -22,6 +22,9 @@ Polish:
     3. Uniknij problemu mutowalnych parametrów
     4. Uruchom doctesty - wszystkie muszą się powieść
 
+Hints:
+    * field(default_factory=list)
+
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass

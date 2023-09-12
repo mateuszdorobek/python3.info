@@ -6,15 +6,15 @@
 
 English:
     1. Define dataclass `User` with slots:
-       a. `firstname: str`
-       b. `lastname: str`
+       a. `username: str`
+       b. `password: str`
        c. `email: str`
     2. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj dataklasę `User` ze slotami:
-       a. `firstname: str`
-       b. `lastname: str`
+       a. `username: str`
+       b. `password: str`
        c. `email: str`
     2. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -35,7 +35,7 @@ Tests:
     'Class User has to be dataclass'
 
     >>> result = User(
-    ...     username='Mark',
+    ...     username='mwatney',
     ...     password='Ares3',
     ...     email='mwatney@nasa.gov')
 
@@ -46,8 +46,8 @@ from dataclasses import dataclass
 
 
 # Define dataclass `User` with slots:
-# - `firstname: str`
-# - `lastname: str`
+# - `username: str`
+# - `password: str`
 # - `email: str`
 # type: type[User]
 @dataclass

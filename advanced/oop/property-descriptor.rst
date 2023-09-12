@@ -1,5 +1,5 @@
-OOP Attribute Property Descriptor
-=================================
+OOP Property Descriptor
+=======================
 * Disable attribute modification
 * Logging value access
 * Check boundary
@@ -15,10 +15,9 @@ Here's an example of using the ``@propertyname.setter`` decorator to define a
 read-write property of a class:
 
 >>> class MyClass:
-...     def __init__(self, x):
-...         self._x = x
+...     x = property()
 ...
-...     @property
+...     @x.getter
 ...     def x(self):
 ...         return self._x
 ...
@@ -27,25 +26,27 @@ read-write property of a class:
 ...         self._x = value
 >>>
 >>> # Create an instance of MyClass
->>> obj = MyClass(10)
+>>> obj = MyClass()
 >>>
 >>> # Change the value of the property
->>> obj.x = 20
+>>> obj.x = 1
 >>>
 >>> # Access the property like an attribute
 >>> print(obj.x)
-20
+1
 
-In this example, the ``MyClass`` class defines a private attribute ``_x``
-and a getter method ``x()`` decorated with the ``@property`` decorator.
+In this example, the ``MyClass`` class defines a ``x = property()``,
+private attribute ``_x``.
+
+The ``@x.getter`` decorator defines a getter method for the ``x`` property.
 The ``x()`` method returns the value of the ``_x`` attribute.
 
 The ``@x.setter`` decorator defines a setter method for the ``x`` property.
 The ``x()`` method takes a single parameter ``value`` that represents the new
-value of the `_x` attribute.
+value of the ``_x`` attribute.
 
-The ``obj.x = 20`` expression calls the ``x()`` setter method to set the value
-of the ``_x`` attribute to 20. The ``obj.x`` expression calls the ``x()``
+The ``obj.x = 1`` expression calls the ``x()`` setter method to set the value
+of the ``_x`` attribute to 1. The ``obj.x`` expression calls the ``x()``
 getter method to retrieve the new value of the ``_x`` attribute.
 
 
@@ -408,77 +409,6 @@ Property Decorator
 
 Use Case - 0x01
 ---------------
->>> YEAR = 365.25
-
->>> class User:
-...     def __init__(self, firstname, lastname, birthday):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...         self.birthday = birthday
-...
-...     def get_age(self):
-...         today = date.today()
-...         days = (today - self.birthday).days
-...         return int(days/YEAR)
->>>
->>>
->>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
->>> mark.get_age()  # doctest: +SKIP
-53
-
->>> class User:
-...     def __init__(self, firstname, lastname, birthday):
-...         self.firstname = firstname
-...         self.lastname = lastname
-...         self.birthday = birthday
-...
-...     @property
-...     def age(self):
-...         today = date.today()
-...         days = (today - self.birthday).days
-...         return int(days/YEAR)
->>>
->>>
->>> mark = User('Mark', 'Watney', birthday=date(1969, 7, 21))
->>> mark.age  # doctest: +SKIP
-53
-
-
-Use Case - 0x02
----------------
->>> class User:
-...     def __init__(self, firstname, lastname):
-...         self._firstname = firstname
-...         self._lastname = lastname
-...
-...     @property
-...     def name(self):
-...         return f'{self._firstname} {self._lastname[0]}.'
->>>
->>>
->>> mark = User('Mark', 'Watney')
->>> print(mark.name)
-Mark W.
-
->>> class User:
-...     name = property()
-...
-...     def __init__(self, firstname, lastname):
-...         self._firstname = firstname
-...         self._lastname = lastname
-...
-...     @name.getter
-...     def name(self):
-...         return f'{self._firstname} {self._lastname[0]}.'
->>>
->>>
->>> mark = User('Mark', 'Watney')
->>> print(mark.name)
-Mark W.
-
-
-Use Case - 0x03
----------------
 >>> class User:
 ...     def __init__(self):
 ...         self._name = None
@@ -537,38 +467,7 @@ Mark W.
 None
 
 
-Use Case - 0x04
----------------
-* Cached Property
-
->>> from dataclasses import dataclass, field
->>> from datetime import date
->>>
->>> YEAR = 365.25
->>> TODAY = date(2000, 1, 1)
->>>
->>>
->>> @dataclass
-... class User:
-...     firstname: str
-...     lastname: str
-...     date_of_birth: date
-...     __cache: dict = field(default_factory=dict)
-...
-...     @property
-...     def age(self):
-...         if 'age' not in self.__cache:
-...             age = (TODAY - self.date_of_birth).days / YEAR
-...             self.__cache['age'] = round(age, 1)
-...         return self.__cache['age']
->>>
->>>
->>> mark = User('Mark', 'Watney', date(1969, 7, 21))
->>> print(mark.age)
-30.4
-
-
-Use Case - 0x05
+Use Case - 0x02
 ---------------
 >>> class User:
 ...     name = property()
@@ -611,7 +510,6 @@ Name is: Mark Watney
 Name is: None
 
 
-
 Use Case - 0x06
 ---------------
 * Kelvin is an absolute scale (no values below zero)
@@ -620,150 +518,41 @@ Use Case - 0x06
 ...     value: float
 >>>
 >>> t = KelvinTemperature()
->>> t.value = -2               # Should raise ValueError('Kelvin cannot be negative')
-
->>> class KelvinTemperature:
-...     value: float
-...
-...     def __init__(self, initialvalue):
-...         self.value = initialvalue
->>>
->>> t = KelvinTemperature(-1)   # Should raise ValueError('Kelvin cannot be negative')
->>> t.value = -2                # Should raise ValueError('Kelvin cannot be negative')
-
->>> class KelvinTemperature:
-...     value: float
-...
-...     def __init__(self, initialvalue):
-...         if initialvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         self.value = initialvalue
->>>
->>>
->>> t = KelvinTemperature(1)
 >>> t.value = -1  # Should raise ValueError('Kelvin cannot be negative')
 
 >>> class KelvinTemperature:
-...     _value: float
-...
-...     def __init__(self, initialvalue):
-...         self.set_value(initialvalue)
-...
-...     def set_value(self, newvalue):
-...         if newvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         self._value = newvalue
-
->>> class KelvinTemperature:
-...     _value: float
 ...     value = property()
-...
-...     def __init__(self, initialvalue):
-...         self.value = initialvalue
 ...
 ...     @value.setter
 ...     def value(self, newvalue):
 ...         if newvalue < 0:
 ...             raise ValueError('Negative Kelvin Temperature')
 ...         self._value = newvalue
-
-
-Use Case - 0x07
----------------
->>> class Temperature:
-...     kelvin = property()
-...     __value: float
-...
-...     def __init__(self, kelvin=None):
-...         self.__value = kelvin
-...
-...     @kelvin.setter
-...     def kelvin(self, newvalue):
-...         if newvalue < 0:
-...             raise ValueError('Negative Kelvin Temperature')
-...         else:
-...             self.__value = newvalue
 >>>
 >>>
->>> t = Temperature()
->>> t.kelvin = 10
->>> t.kelvin = -1
+>>> t = KelvinTemperature()
+
+This will pass:
+
+>>> t.value = 1
+
+This will raise an exception:
+
+>>> t.value = -1
 Traceback (most recent call last):
 ValueError: Negative Kelvin Temperature
-
-
-Use Case - 0x08
----------------
->>> class Temperature:
-...     def __init__(self, initial_temperature):
-...         self._protected = initial_temperature
-...
-...     @property
-...     def value(self):
-...         print('You are trying to access a value')
-...         return self._protected
->>>
->>>
->>> t = Temperature(100)
->>>
->>> print(t.value)
-You are trying to access a value
-100
-
->>> class Temperature:
-...     def __init__(self, initial_temperature):
-...         self._protected = initial_temperature
-...
-...     @property
-...     def value(self):
-...         return self._protected
-...
-...     @value.setter
-...     def value(self, new_value):
-...         if new_value < 0.0:
-...             raise ValueError('Kelvin Temperature cannot be negative')
-...         else:
-...             self._protected = new_value
->>>
->>>
->>> t = Temperature(100)
->>> t.value = -10
-Traceback (most recent call last):
-ValueError: Kelvin Temperature cannot be negative
-
->>> class Temperature:
-...     def __init__(self, initial_temperature):
-...         self._protected = initial_temperature
-...
-...     @property
-...     def value(self):
-...         return self._protected
-...
-...     @value.deleter
-...     def value(self):
-...         print('Resetting temperature')
-...         self._protected = 0.0
->>>
->>>
->>> t = Temperature(100)
->>>
->>> del t.value
-Resetting temperature
->>>
->>> print(t.value)
-0.0
 
 
 Assignments
 -----------
 .. literalinclude:: assignments/oop_attribute_property_descriptor_a.py
-    :caption: :download:`Solution <assignments/oop_attribute_property_descriptor_a.py>`
+    :caption: :download:`Solution <assignments/oop_property_descriptor_a.py>`
     :end-before: # Solution
 
 .. literalinclude:: assignments/oop_attribute_property_descriptor_b.py
-    :caption: :download:`Solution <assignments/oop_attribute_property_descriptor_b.py>`
+    :caption: :download:`Solution <assignments/oop_property_descriptor_b.py>`
     :end-before: # Solution
 
 .. literalinclude:: assignments/oop_attribute_property_descriptor_c.py
-    :caption: :download:`Solution <assignments/oop_attribute_property_descriptor_c.py>`
+    :caption: :download:`Solution <assignments/oop_property_descriptor_c.py>`
     :end-before: # Solution

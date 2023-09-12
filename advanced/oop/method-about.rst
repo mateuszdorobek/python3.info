@@ -39,32 +39,77 @@ Function or Method
 
 Types
 -----
+Static method:
+
+>>> class User:
+...     def one():
+...         print('one')
+
 Dynamic method:
 
->>> class MyClass:
-...     def mymethod(self):
-...         pass
+>>> class User:
+...     def two(self):
+...         print('two')
 
 Static method:
 
->>> class MyClass:
-...     def mymethod():
-...         pass
-
-Static method:
-
->>> class MyClass:
+>>> class User:
 ...     @staticmethod
-...     def mymethod():
-...         pass
+...     def three():
+...         print('three')
 
 Class method:
 
->>> class MyClass:
+>>> class User:
 ...     @classmethod
-...     def mymethod(cls):
-...         pass
+...     def four(cls):
+...         print('four')
 
+
+Example
+-------
+>>> class User:
+...     def one():
+...         print('one')
+...
+...     def two(self):
+...         print('two')
+...
+...     @staticmethod
+...     def three():
+...         print('three')
+...
+...     @classmethod
+...     def four(cls):
+...         print('four')
+
+>>> User.one()
+one
+>>>
+>>> User.two()
+Traceback (most recent call last):
+TypeError: User.two() missing 1 required positional argument: 'self'
+>>>
+>>> User.three()
+three
+>>>
+>>> User.four()
+four
+
+>>> mark = User()
+>>>
+>>> mark.one()
+Traceback (most recent call last):
+TypeError: User.one() takes 0 positional arguments but 1 was given
+>>>
+>>> mark.two()
+two
+>>>
+>>> mark.three()
+three
+>>>
+>>> mark.four()
+four
 
 
 Class Function

@@ -1,5 +1,5 @@
 """
-* Assignment: Protocol Property Age
+* Assignment: OOP Property Age
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 5 min

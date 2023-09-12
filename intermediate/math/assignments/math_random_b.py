@@ -22,6 +22,10 @@ Polish:
     5. Środkowa macierz jest dokładnie w środku większej
     6. Uruchom doctesty - wszystkie muszą się powieść
 
+Hints:
+    * random.randint()
+    * randint(a,b) includes both end points a and b
+
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 

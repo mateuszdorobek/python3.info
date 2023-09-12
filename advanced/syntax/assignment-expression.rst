@@ -57,11 +57,19 @@ Comprehension:
               or (<VARIABLE4> := <EXPR>)]
 
 
-Example
--------
+Value of the Expression
+-----------------------
 * First defines identifier with value
 * Then returns the value from the identifier
 * Both operations in the same line
+
+>>> x = 1
+>>> x
+1
+
+>>> result = (x = 1)
+Traceback (most recent call last):
+SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
 
 >>> x = 1
 >>> print(x)
@@ -75,72 +83,72 @@ TypeError: 'x' is an invalid keyword argument for print()
 1
 
 
-What is not
------------
+Assign in the Expression
+------------------------
+>>> if x = 1:
+...     print('yes')
+... else:
+...     print('no')
+Traceback (most recent call last):
+SyntaxError: invalid syntax. Maybe you meant '==' or ':=' instead of '='?
+
+>>> if x := 1:
+...     print('yes')
+... else:
+...     print('no')
+yes
+
+
+Assignment and Evaluation
+-------------------------
+Assignment Expression assigns and immediately evaluates expression:
+
+>>> if x := 1:
+...     print('yes')
+... else:
+...     print('no')
+yes
+>>>
+>>> x
+1
+
+>>> if x := 0:
+...     print('ok')
+... else:
+...     print('no')
+no
+>>>
+>>> x
+0
+
+
+What Assignment Expression is?
+------------------------------
+>>> if x := 1:
+...     print('yes')
+... else:
+...     print('no')
+yes
+
+Is equivalent to:
+
+>>> x = 1
+>>> if x:
+...     print('yes')
+... else:
+...     print('no')
+yes
+
+
+What Assignment Expression is not?
+----------------------------------
 * It's not substitution for equals
 
 >>> x = 1
->>> print(x)
-1
 
 >>> x := 1
 Traceback (most recent call last):
 SyntaxError: invalid syntax
-
-
-Processing Streams
-------------------
-* Processing steams in chunks
-
-Imagine we have a temperature sensor, and this sensor stream values.
-We have a process which receives values from string and appends them
-to the file. Let's simulate the process by adding temperature
-measurements to the file:
-
->>> with open('/tmp/myfile.txt', mode='w') as file:
-...     _ = file.write('21.1,21.1,21.2,21.2,21.3,22.4,')
-
-Note, that all values have fixed length of 4 bytes plus comma (5th byte).
-We cannot open and read whole file to the memory, like we normally do.
-This file may be huge, much larger than RAM in our computer.
-
-We will process file reading 5 bytes of data (one measurement) at a time:
-
->>> file = open('/tmp/myfile.txt')
->>>
->>> value = file.read(5).removesuffix(",")
->>> while value:
-...     print(f'Processing... {value}')
-...     value = file.read(5).removesuffix(",")
-Processing... 21.1
-Processing... 21.1
-Processing... 21.2
-Processing... 21.2
-Processing... 21.3
-Processing... 22.4
-
-As you can see we have two places where we define number of bytes,
-read and cleanup data. First ``file.read()`` is needed to enter the loop.
-Second ``file.read()`` is needed to process the file further until the end.
-Using assignment expression we can write code which is far better:
-
->>> file = open('/tmp/myfile.txt')
->>>
->>> while value := file.read(5).removesuffix(","):
-...     print(f'Processing... {value}')
-Processing... 21.1
-Processing... 21.1
-Processing... 21.2
-Processing... 21.2
-Processing... 21.3
-Processing... 22.4
-
-Imagine if this is not a 5 bytes of data, but a chunk of data for processing
-(for example a ten megabytes at once). This construct make more sense then.
-
-Always remember to close the file at the end:
-
->>> file.close()
 
 
 Checking Match
@@ -181,7 +189,6 @@ requires to check if the value ``is not None`` before using it further:
 >>> email = 'mwatney69@nasa.gov'
 >>>
 >>> result = re.search(pattern, email)
->>>
 >>> if result:
 ...     username = result.group(1)
 ...     print(username)
@@ -194,6 +201,106 @@ coherent statement to unpack and process an optional:
 >>> if result := re.search(pattern, email):
 ...     username = result.group(1)
 ...     print(username)
+
+
+Processing Streams
+------------------
+* Processing steams in chunks
+
+Imagine we have a temperature sensor, and this sensor stream values.
+We have a process which receives values from string and appends them
+to the file. Let's simulate the process by adding temperature
+measurements to the file:
+
+>>> with open('/tmp/myfile.txt', mode='w') as file:
+...     _ = file.write('21.1,21.1,21.2,21.2,21.3,22.4,')
+
+Note, that all values have fixed length of 4 bytes plus comma (5th byte).
+We cannot open and read whole file to the memory, like we normally do.
+This file may be huge, much larger than RAM in our computer.
+
+We will process file reading 5 bytes of data (one measurement) at a time:
+
+>>> file = open('/tmp/myfile.txt')
+>>>
+>>> value = file.read(5).removesuffix(',')
+>>> while value:
+...     print(f'Processing... {value}')
+...     value = file.read(5).removesuffix(',')
+Processing... 21.1
+Processing... 21.1
+Processing... 21.2
+Processing... 21.2
+Processing... 21.3
+Processing... 22.4
+
+As you can see we have two places where we define number of bytes,
+read and cleanup data. First ``file.read()`` is needed to enter the loop.
+Second ``file.read()`` is needed to process the file further until the end.
+Using assignment expression we can write code which is far better:
+
+>>> file = open('/tmp/myfile.txt')
+>>>
+>>> while value := file.read(5).removesuffix(","):
+...     print(f'Processing... {value}')
+Processing... 21.1
+Processing... 21.1
+Processing... 21.2
+Processing... 21.2
+Processing... 21.3
+Processing... 22.4
+
+Imagine if this is not a 5 bytes of data, but a chunk of data for processing
+(for example a ten megabytes at once). This construct make more sense then.
+
+Always remember to close the file at the end:
+
+>>> file.close()
+
+
+Variables in comprehensions
+---------------------------
+>>> DATA = {
+...     'mission': 'Ares 3',
+...     'launch': '2035-06-29',
+...     'landing': '2035-11-07',
+...     'destination': 'Mars',
+...     'location': 'Acidalia Planitia',
+...     'crew': [{'name': 'Melissa Lewis', 'email': 'mlewis@nasa.gov'},
+...              {'name': 'Rick Martinez', 'email': 'rmartinez@nasa.gov'},
+...              {'name': 'Alex Vogel', 'email': 'avogel@esa.int'},
+...              {'name': 'Pan Twardowski', 'email': 'ptwardowski@polsa.gov.pl'},
+...              {'name': 'Chris Beck', 'email': 'cbeck@nasa.gov'},
+...              {'name': 'Beth Johanssen', 'email': 'bjohanssen@nasa.gov'},
+...              {'name': 'Mark Watney', 'email': 'mwatney@nasa.gov'},
+...              {'name': 'Ivan Ivanovich', 'email': 'iivanovich@roscosmos.ru'}]}
+>>>
+>>>
+>>> DOMAINS = ('esa.int', 'nasa.gov')
+
+>>> result = [astronaut['email']
+...           for astronaut in DATA['crew']
+...           if astronaut['email'].endswith(DOMAINS)]
+>>> result  # doctest: +NORMALIZE_WHITESPACE
+['mlewis@nasa.gov',
+ 'rmartinez@nasa.gov',
+ 'avogel@esa.int',
+ 'cbeck@nasa.gov',
+ 'bjohanssen@nasa.gov',
+ 'mwatney@nasa.gov']
+
+>>> result = [email
+...           for astronaut in DATA['crew']
+...           if (email := astronaut['email'])
+...           and email.endswith(DOMAINS)]
+>>>
+>>> result  # doctest: +NORMALIZE_WHITESPACE
+['mlewis@nasa.gov',
+ 'rmartinez@nasa.gov',
+ 'avogel@esa.int',
+ 'cbeck@nasa.gov',
+ 'bjohanssen@nasa.gov',
+ 'mwatney@nasa.gov']
 
 
 Comprehensions

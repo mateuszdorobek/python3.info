@@ -1,5 +1,5 @@
 """
-* Assignment: Protocol Property Setter
+* Assignment: OOP Property Setter
 * Complexity: easy
 * Lines of code: 9 lines
 * Time: 5 min

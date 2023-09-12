@@ -115,6 +115,7 @@ Embedded Scope
 >>> factorial(40)  # doctest: +SKIP
 >>> factorial(45)  # doctest: +SKIP
 
+
 Contains
 --------
 >>> #%%timeit -r 1000 -n 10_000
@@ -134,6 +135,7 @@ Contains
 >>> factorial(40)  # doctest: +SKIP
 >>> factorial(45)  # doctest: +SKIP
 153 µs ± 2.49 µs per loop (mean ± std. dev. of 1000 runs, 10000 loops each)
+
 
 Get
 ---
@@ -176,6 +178,7 @@ Exceptions
 >>> factorial(40)  # doctest: +SKIP
 >>> factorial(45)  # doctest: +SKIP
 618 µs ± 6.6 µs per loop (mean ± std. dev. of 1000 runs, 10000 loops each)
+
 
 Layer
 -----

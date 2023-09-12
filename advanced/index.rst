@@ -73,8 +73,8 @@ OOP
     oop/attribute-classvar.rst
     oop/attribute-accessmodifiers.rst
     oop/attribute-slots.rst
-    oop/attribute-property-decorator.rst
-    oop/attribute-property-descriptor.rst
+    oop/property-decorator.rst
+    oop/property-descriptor.rst
     oop/method-about.rst
     oop/method-self.rst
     oop/method-accessmodifiers.rst
@@ -204,6 +204,7 @@ Performance
     performance/casestudy-memoize.rst
     performance/casestudy-strconcat.rst
     performance/casestudy-uniquekeys.rst
+    performance/casestudy-hosts.rst
     performance/casestudy-comprehension.rst
     performance/profiling.rst
     performance/compilers.rst

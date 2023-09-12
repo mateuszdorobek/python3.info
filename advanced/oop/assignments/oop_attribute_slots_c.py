@@ -41,7 +41,7 @@ Tests:
     'Class User cannot be dataclass'
 
     >>> result = User(
-    ...     username='Mark',
+    ...     username='mwatney',
     ...     password='Ares3',
     ...     email='mwatney@nasa.gov')
 

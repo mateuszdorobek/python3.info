@@ -22,6 +22,9 @@ Polish:
     4. Użyj funkcji `randint()` z biblioteki `random`
     5. Uruchom doctesty - wszystkie muszą się powieść
 
+Hints:
+    * field(default_factory=lambda:...)
+
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isclass
