@@ -8,7 +8,8 @@ Case Study - 0x01
     :language: python
 
 .. figure:: img/csv-phones-sms-number.png
-    :caption: Number of SMS in given period
+
+    Number of SMS in given period
 
 
 Case Study - 0x02

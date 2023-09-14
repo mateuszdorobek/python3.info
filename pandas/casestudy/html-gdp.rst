@@ -16,4 +16,5 @@ Code
 Plots
 -----
 .. figure:: img/html-gdp-top10.png
-    :caption: Top 10 countries with highest Global Domestic Product Per Capita
+
+    Top 10 countries with highest Global Domestic Product Per Capita
