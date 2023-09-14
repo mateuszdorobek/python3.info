@@ -11,7 +11,7 @@ English:
     4. In `HasPosition` define method `get_position(self) -> Point`
     5. In `HasPosition` define method `set_position(self, x: int, y: int) -> None`
     6. In `HasPosition` define method `change_position(self, left: int = 0, right: int = 0, up: int = 0, down: int = 0) -> None`
-    7. Assume left-top screen corner as a initial coordinates position:
+    7. Assume left-top screen corner as an initial coordinates position:
         a. going right add to `x`
         b. going left subtract from `x`
         c. going up subtract from `y`
@@ -77,25 +77,23 @@ Tests:
     Point(x=1, y=0)
 """
 
-from dataclasses import dataclass
+from typing import NamedTuple
 
 
-# Solution
-@dataclass(frozen=True)
-class Point:
+class Point(NamedTuple):
     x: int = 0
     y: int = 0
 
 
-@dataclass
+# Solution
 class HasPosition:
-    _position: Point = Point()
+    current: Point = Point()
 
     def set_position(self, x, y):
-        self._position = Point(x, y)
+        self.current = Point(x, y)
 
     def get_position(self):
-        return self._position
+        return self.current
 
     def change_position(self, right=0, left=0, up=0, down=0):
         current = self.get_position()

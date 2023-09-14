@@ -1,8 +1,8 @@
 """
 * Assignment: OOP InheritancePatterns Multilevel
 * Complexity: easy
-* Lines of code: 8 lines
-* Time: 3 min
+* Lines of code: 3 lines
+* Time: 2 min
 
 English:
     1. Create class `MyAccount` from classes `Account`, `User`, `Admin`

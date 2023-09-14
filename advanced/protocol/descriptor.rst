@@ -452,7 +452,7 @@ Use Case - 0x05
 >>>
 >>> @dataclass
 ... class Validator(ABC):
-...     attrname: str = field(init=False)
+...     fieldname: str = field(init=False, repr=False)
 ...
 ...     @property
 ...     @abstractmethod
@@ -464,21 +464,24 @@ Use Case - 0x05
 ...         raise NotImplementedError
 ...
 ...     def __get__(self, instance, owner):
-...         return getattr(instance, self.attrname)
+...         return getattr(instance, self.fieldname)
+...
+...     def __delete__(self, instance):
+...         setattr(instance, self.fieldname, None)
 ...
 ...     def __set_name__(self, owner, name):
-...         self.attrname = f'_{name}'
+...         self.fieldname = f'_{name}'
 ...
 ...     def __set__(self, instance, value):
 ...         if not self.is_valid(value):
-...             raise ValueError(self.error.format(**vars(self)))
-...         setattr(instance, self.attrname, value)
+...             raise ValueError(self.error.format(**vars(self), value=value))
+...         setattr(instance, self.fieldname, value)
 ...
 ...
 >>> @dataclass
 ... class String(Validator):
 ...     max_length: int
-...     error: str = 'Value {attrname} is longer than {max_length}'
+...     error: str = 'Field `{fieldname}` value `{value}` is longer than {max_length}'
 ...
 ...     def is_valid(self, value) -> bool:
 ...         return len(value) <= self.max_length
@@ -488,7 +491,7 @@ Use Case - 0x05
 ... class Integer(Validator):
 ...     min: int
 ...     max: int
-...     error: str = 'Value {attrname} is not in range({min}, {max})'
+...     error: str = 'Field `{fieldname}` value `{value}` is not in between {min} and {max}'
 ...
 ...     def is_valid(self, value) -> bool:
 ...         return value in range(self.min, self.max)
@@ -497,7 +500,7 @@ Use Case - 0x05
 >>> @dataclass
 ... class Select(Validator):
 ...     options: list[str]
-...     error: str = 'Value {attrname} not in {options}'
+...     error: str = 'Field `{fieldname}` value `value` not in {options}'
 ...
 ...     def is_valid(self, value: Any) -> bool:
 ...         return value in self.options
@@ -505,7 +508,7 @@ Use Case - 0x05
 >>> @dataclass
 ... class Email(Validator):
 ...     domain: str
-...     error: str = 'Value {attrname} domain is not {domain}'
+...     error: str = 'Field `{fieldname}` value `{value}` does not ends with `{domain}`'
 ...
 ...     def is_valid(self, value) -> bool:
 ...         return value.endswith(self.domain)
@@ -513,15 +516,15 @@ Use Case - 0x05
 ...
 >>> @dataclass
 ... class Regex(Validator):
-...     regex: InitVar[str]
-...     pattern: re.Match = field(default=None, init=False)
-...     error: str = 'Value {attrname} does not match {pattern.pattern}'
+...     pattern: InitVar[str]
+...     regex: re.Pattern | None = field(default=None, init=False)
+...     error: str = 'Field `{fieldname}` value `{value}` does not match regex `{regex.pattern}`'
 ...
-...     def __post_init__(self, regex: str):
-...         self.pattern = re.compile(regex)
+...     def __post_init__(self, pattern: str):
+...         self.regex = re.compile(pattern)
 ...
 ...     def is_valid(self, value: Any) -> bool:
-...         return self.pattern.match(value)
+...         return self.regex.match(value)
 
 >>> class User:
 ...     firstname = String(max_length=10)
@@ -529,7 +532,7 @@ Use Case - 0x05
 ...     age = Integer(min=0, max=130)
 ...     group = Select(options=['user', 'staff', 'admin'])
 ...     email = Email(domain='@nasa.gov')
-...     phone = Regex('^\+1 \(\d{3}\) \d{3}-\d{4}$')
+...     phone = Regex(pattern='^\+1 \(\d{3}\) \d{3}-\d{4}$')
 
 
 >>> mark = User()
@@ -563,44 +566,36 @@ Use Case - 0x05
 
 >>> mark.firstname = 'MarkMarkMarkMark'
 Traceback (most recent call last):
-ValueError: Value _firstname is longer than 10
+ValueError: Field `_firstname` value `MarkMarkMarkMark` is longer than 10
 
 >>> mark.lastname = 'WatneyWatneyWatneyWatneyWatney'
 Traceback (most recent call last):
-ValueError: Value _lastname is longer than 15
+ValueError: Field `_lastname` value `WatneyWatneyWatneyWatneyWatney` is longer than 15
 
 >>> mark.age = 135
 Traceback (most recent call last):
-ValueError: Value _age is not in range(0, 130)
+ValueError: Field `_age` value `135` is not in between 0 and 130
 
 >>> mark.group = 'editors'
 Traceback (most recent call last):
-ValueError: Value _group not in ['user', 'staff', 'admin']
+ValueError: Field `_group` value `value` not in ['user', 'staff', 'admin']
 
 >>> mark.email = 'mwatney@gmail.com'
 Traceback (most recent call last):
-ValueError: Value _email domain is not @nasa.gov
+ValueError: Field `_email` value `mwatney@gmail.com` does not ends with `@nasa.gov`
 
->>> mark.phone = '+48 123-456-789'
+>>> mark.phone = '+48 123 456 789'
 Traceback (most recent call last):
-ValueError: Value _phone does not match ^\+1 \(\d{3}\) \d{3}-\d{4}$
-
->>> mark.phone = '+48 123.456.789'
-Traceback (most recent call last):
-ValueError: Value _phone does not match ^\+1 \(\d{3}\) \d{3}-\d{4}$
-
->>> mark.phone = '+48 asdas'
-Traceback (most recent call last):
-ValueError: Value _phone does not match ^\+1 \(\d{3}\) \d{3}-\d{4}$
+ValueError: Field `_phone` value `+48 123 456 789` does not match regex `^\+1 \(\d{3}\) \d{3}-\d{4}$`
 
 >>> vars(User)  # doctest: +NORMALIZE_WHITESPACE
 mappingproxy({'__module__': '__main__',
-              'firstname': String(attrname='_firstname', max_length=10, error='Value {attrname} is longer than {max_length}'),
-              'lastname': String(attrname='_lastname', max_length=15, error='Value {attrname} is longer than {max_length}'),
-              'age': Integer(attrname='_age', min=0, max=130, error='Value {attrname} is not in range({min}, {max})'),
-              'group': Select(attrname='_group', options=['user', 'staff', 'admin'], error='Value {attrname} not in {options}'),
-              'email': Email(attrname='_email', domain='@nasa.gov', error='Value {attrname} domain is not {domain}'),
-              'phone': Regex(attrname='_phone', pattern=re.compile('^\\+1 \\(\\d{3}\\) \\d{3}-\\d{4}$'), error='Value {attrname} does not match {pattern.pattern}'),
+              'firstname': String(max_length=10, error='Field `{fieldname}` value `{value}` is longer than {max_length}'),
+              'lastname': String(max_length=15, error='Field `{fieldname}` value `{value}` is longer than {max_length}'),
+              'age': Integer(min=0, max=130, error='Field `{fieldname}` value `{value}` is not in between {min} and {max}'),
+              'group': Select(options=['user', 'staff', 'admin'], error='Field `{fieldname}` value `value` not in {options}'),
+              'email': Email(domain='@nasa.gov', error='Field `{fieldname}` value `{value}` does not ends with `{domain}`'),
+              'phone': Regex(regex=re.compile('^\\+1 \\(\\d{3}\\) \\d{3}-\\d{4}$'), error='Field `{fieldname}` value `{value}` does not match regex `{regex.pattern}`'),
               '__dict__': <attribute '__dict__' of 'User' objects>,
               '__weakref__': <attribute '__weakref__' of 'User' objects>,
               '__doc__': None})

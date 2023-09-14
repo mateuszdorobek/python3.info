@@ -2,7 +2,7 @@
 * Assignment: Operator Comparison Equals
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Override operator for code to work correctly

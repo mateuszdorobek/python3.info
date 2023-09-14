@@ -2,7 +2,7 @@
 * Assignment: Protocol Iterator Implementation
 * Complexity: easy
 * Lines of code: 9 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Modify classes to implement iterator protocol
