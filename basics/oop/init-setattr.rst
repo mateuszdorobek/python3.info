@@ -184,6 +184,49 @@ generates ``__init__()`` arguments and fields. More information in
  'species': 'virginica'}
 
 
+Use Case - 0x05
+---------------
+>>> from random import randint, seed
+>>> seed(0)
+>>>
+>>>
+>>> class Hero:
+...     name: str
+...     position: tuple[int,int]
+...     health: int
+...
+...     def __init__(self, name, position_x, position_y):
+...         self.name = name
+...         self.position = (position_x, position_y)
+...         self.health = randint(50,100)
+>>>
+>>>
+>>> mark = Hero('Mark', position_x=10, position_y=20)
+>>> vars(mark)
+{'name': 'Mark', 'position': (10, 20), 'health': 74}
+
+Use Case - 0x06
+---------------
+>>> from random import randint, seed
+>>> seed(0)
+>>>
+>>>
+>>> class Hero:
+...     name: str
+...     position: tuple[int,int]
+...     health: int
+...
+...     def __init__(self, name, health_min=10, health_max=100):
+...         self.name = name
+...         self.position = (0, 0)
+...         self.health = randint(health_min,health_max)
+>>>
+>>>
+>>> mark = Hero('Mark', health_min=50)
+>>> vars(mark)
+{'name': 'Mark', 'position': (0, 0), 'health': 74}
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/oop_init_setattr_a.py
