@@ -1,0 +1,4 @@
+changed_files=$(git diff --staged --name-only)
+
+./run.py --gpt $changed_files || exit 1
+./run.py --doctest $changed_files || exit 1

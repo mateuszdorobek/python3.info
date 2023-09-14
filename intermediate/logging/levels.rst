@@ -6,8 +6,11 @@ Logging Levels
 * Info - I will do something
 * Debug - This is how I am doing this
 
-Default level is ``WARNING``, so all the information with level below
-will not be displayed.
+
+Default Level
+-------------
+Default level is ``WARNING``, so all the information with level below will
+not be displayed.
 
 >>> import logging
 >>>
@@ -18,6 +21,9 @@ will not be displayed.
 >>> logging.info('Information, inform about something')
 >>> logging.debug('Debug, show detailed debugging information')
 
+
+Change Level
+------------
 In logging you can set minimum level required. Setting it to ``DEBUG``
 will show all the information above ``DEBUG`` level, which means everything.
 
@@ -59,6 +65,12 @@ exists for other levels too.
 >>> logging.info('Information, inform about something')
 >>> logging.debug('Debug, show detailed debugging information')
 
+
+Error vs Critical
+-----------------
+* Critical - not working, and cannot continue (fatal)
+* Error - not working, but can continue (it is not fatal)
+
 For example, if we have files:
 
 >>> TEMPERATURE_DATA_FILES = [
@@ -95,8 +107,8 @@ Use Case - 0x01
 ...     case _: logging.basicConfig(level='ERROR')
 >>>
 >>>
->>> logging.critical('Example mesage')
->>> logging.error('Example mesage')
->>> logging.warning('Example mesage')
->>> logging.info('Example mesage')
->>> logging.debug('Example mesage')
+>>> logging.critical('Example message')
+>>> logging.error('Example message')
+>>> logging.warning('Example message')
+>>> logging.info('Example message')
+>>> logging.debug('Example message')

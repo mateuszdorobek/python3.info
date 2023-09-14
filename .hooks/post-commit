@@ -1,0 +1,13 @@
+## Config
+
+OUTDIR="/Users/matt/Pictures"
+PROJECT="pybook"
+
+## Do not modify below
+imagesnap=/usr/local/Cellar/imagesnap/*/bin/imagesnap
+time=$(TZ=URC date +'%Y%m%dT%H%M%SZ')
+rev="$PROJECT#$(git log -1 --format='%h')"
+output="$OUTDIR/git-photo-$time-$rev.jpg"
+
+## Make photo using webcam
+$imagesnap -q $output&
