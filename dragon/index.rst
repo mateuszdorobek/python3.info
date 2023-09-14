@@ -1,16 +1,18 @@
-Dragon
-******
+Game
+****
 .. toctree::
     :maxdepth: 1
-    :caption: Dragon
+    :caption: Game
 
-    dragon/about.rst
-    dragon/version-1.rst
-    dragon/version-2.rst
-    dragon/version-3.rst
-    dragon/version-4.rst
-    dragon/version-5.rst
-    dragon/version-6.rst
+    game/about.rst
+    game/sprint-1.rst
+    game/sprint-2.rst
+    game/sprint-3.rst
+    game/sprint-4.rst
+    game/sprint-5.rst
+    game/sprint-6.rst
+    game/sprint-7.rst
+    game/sprint-8.rst
 
 
 ADR
@@ -20,7 +22,7 @@ ADR
     :caption: ADR
 
     adr/about.rst
-    adr/usecase.rst
+    adr/about-example.rst
     adr/init-name.rst
     adr/init-position.rst
     adr/position-set.rst

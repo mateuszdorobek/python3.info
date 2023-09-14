@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Position Set
+ADR Dragon Position Set
 =======================
 * Set new position to x=10, y=20
 
@@ -257,7 +257,7 @@ Use Case:
 
 Option 11
 ---------
->>> dragon.position @ Point(x=10, y=20)
+>>> dragon @ Point(x=10, y=20)
 
 Pros and Cons:
 

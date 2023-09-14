@@ -1,5 +1,5 @@
-Dragon ADR Use Case
-===================
+ADR Example
+===========
 * Decision: Python backend web framework
 * Status: accepted
 * Decision Date: 2000-01-01

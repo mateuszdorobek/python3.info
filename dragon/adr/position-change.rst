@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Position Change
+ADR Dragon Position Change
 ==========================
 * Move dragon left by 10 and down by 20
 * Move dragon left by 10 and right by 15
@@ -80,17 +80,21 @@ Use Case:
 >>> read_csv('iris.csv', ';', 'utf-8', True)  # bad
 
 .. code-block:: css
-    :caption: CSS: top-bottom, right-left;
+
+    p {
+        margin: 25px;
+    }
 
     p {
         margin: 25px 50px;
     }
 
-.. code-block:: css
-    :caption: CSS: top, right-left, bottom
-
     p {
         margin: 25px 50px 75px;
+    }
+
+    p {
+        margin: 25px 50px 75px 100px;
     }
 
 
@@ -121,13 +125,6 @@ Consequences:
 Use Case:
 
 >>> run(('ls', True, False, None))
-
-.. code-block:: css
-    :caption: CSS: top-right-bottom-left
-
-    p {
-        margin: 25px;
-    }
 
 
 Option 4
@@ -437,6 +434,12 @@ Pros and Cons:
 * Good: you can prevent negative shifting (i.e.: ``left=-10``)
 * Good: encapsulation, object knows current position and moves
 * Decision: candidate
+
+Consequences:
+
+>>> dragon.move(right=15, up=5)
+>>> dragon.move(right=15, up=5, depth=10)
+>>> dragon.move(right=15, up=5, altitude=10)
 
 Use Case:
 

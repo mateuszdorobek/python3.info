@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Damage Take
+ADR Dragon Damage Take
 ======================
 * Make 10 points damage to the dragon
 * Make 5 points damage to the dragon
@@ -28,7 +28,7 @@ Pros and Cons:
 
 Option 2
 --------
->>> dragon.wound(DMG)       # dragon  -> enemy
+>>> dragon.``wound``(DMG)       # dragon  -> enemy
 >>> dragon.hurt(DMG)        # dragon <-  enemy
 >>> dragon.hit(DMG)         # dragon <-> enemy
 >>> dragon.damage(DMG)      # dragon  -> enemy
@@ -57,6 +57,7 @@ Option 3
 --------
 >>> dragon.hurt_self(DMG)
 >>> dragon.receive_damage(DMG)
+>>> dragon.suffer_damage(DMG)
 
 Pros and Cons:
 

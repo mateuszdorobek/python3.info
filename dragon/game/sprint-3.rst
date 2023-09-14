@@ -1,9 +1,9 @@
-Dragon v6.0
-===========
-* Assignment: Dragon v6.0
-* Complexity: hard
-* Lines of code: 50 lines
-* Time: 21 min, then 21 min live coding with instructor
+Dragon Sprint 3
+===============
+* Assignment: Dragon Sprint 3
+* Complexity: medium
+* Lines of code: 20 lines
+* Time: 21 min
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -28,17 +28,19 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    2. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów
-       od przeciwnika
+    1. Dodaj możliwość poruszania w 3 wymiarach
+    2. Nie można wyjść poza obszar ekranu:
 
-    3. Obrażenia smoka (zianie ogniem) maleją z sześcianem odległości
+        a. oś ``x`` od 0 do 1920
+        b. oś ``y`` od 0 do 1080
+        c. oś ``z`` od -100 do +100
 
-    4. Wszystkie istoty mogą levelować a bazowe punty życia i obrażeń się
-        zmieniają z poziomem
+    3. Jeżeli postać dojdzie do granicy ekranu, to przesuwając dalej,
+       pozycja będzie ustawiona na brzegową wartość w danej osi
 
 
 Solution
 --------
 * EN: Note, that this will spoil your fun and learning
 * PL: Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_v4.py>`
+* :download:`Solution <assignments/dragon_sprint_3.py>`

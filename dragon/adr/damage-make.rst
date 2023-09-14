@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Damage Make
+ADR Dragon Damage Make
 ======================
 * Dragon makes damage
 

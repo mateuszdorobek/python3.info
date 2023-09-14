@@ -1,9 +1,9 @@
-Dragon v4.0
-===========
-* Assignment: Dragon v4.0
+Dragon Sprint 5
+===============
+* Assignment: Dragon Sprint 5
 * Complexity: medium
 * Lines of code: 50 lines
-* Time: 21 min, then 21 min live coding with instructor
+* Time: 34 min
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -47,4 +47,4 @@ Solution
 --------
 * EN: Note, that this will spoil your fun and learning
 * PL: Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_v3.py>`
+* :download:`Solution <assignments/dragon_sprint_5.py>`

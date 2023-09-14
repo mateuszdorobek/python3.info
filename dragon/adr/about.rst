@@ -1,5 +1,5 @@
-Dragon ADR About
-================
+ADR About
+=========
 * ADR - Architectural Decision Records
 
 An Architectural Decision (AD) is a justified software design choice

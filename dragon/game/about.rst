@@ -4,19 +4,48 @@ Dragon About
 
     Firkraag dragon from game Baldur's Gate II: Shadows of Amn
 
+10 - wprowadzenie
+25 - kod
+20 - review
+25 - moje
+10 - przerwa
 
-Agenda
-------
-* 09:00 - 09:20 - Assignment introduction (functional and non-functional requirements)
-* 09:20 - 10:50 - Students write code
-* 10:50 - 11:00 - Git commit and push, break
-* 11:00 - 11:40 - Code review (2-3 volunteers)
-* 11:40 - 11:45 - Break
-* 11:45 - 13:15 - Trainer writes code (TDD)
-* 13:15 - 14:00 - Lunch
-* 14:00 - 15:30 - Trainer performs refactoring
-* 15:30 - 15:45 - Survey, break
-* 15:45 - 17:00 - ...
+
+Agenda v1.0
+-----------
+* 09:00 - 09:15 - Assignment requirements
+* 09:15 - 10:10 - Students write code then git commit and push
+* 10:10 - 10:50 - Code review of 2-3 volunteers
+* 10:50 - 11:00 - Coffee Break
+* 11:00 - 11:55 - Trainer demonstrates TDD
+* 11:55 - 12:00 - Coffee Break
+
+
+Agenda v2.0
+-----------
+* 12:00 - 12:05 - Assignment requirements
+* 12:05 - 12:30 - Students write code then git commit and push
+* 12:30 - 12:45 - Code review of 2-3 volunteers
+* 12:45 - 13:15 - Trainer demonstrates refactoring
+* 13:15 - 14:00 - Lunch break
+
+
+Agenda v3.0
+-----------
+* 14:00 - 14:05 - Assignment requirements
+* 14:05 - 14:30 - Students write code then git commit and push
+* 14:30 - 14:45 - Code review of 2-3 volunteers
+* 14:45 - 15:20 - Trainer demonstrates refactoring
+* 15:20 - 15:30 - Coffee Break
+
+
+Agenda v4
+---------
+* 15:30 - 15:35 - Assignment requirements
+* 15:35 - 16:00 - Students write code then git commit and push
+* 16:00 - 16:15 - Code review of 2-3 volunteers
+* 16:15 - 16:45 - Trainer demonstrates refactoring
+* 16:45 - 17:00 - Closing remarks and survey
 
 
 English
@@ -74,6 +103,18 @@ has incredible educational potential. Don't destroy it.
 
 Good luck, have fun!
 
+Non-functional requirements:
+
+    1. Commit and push your current state of repository
+    2. In your directory create an empty directory ``dragon``
+    3. In ``dragon`` directory create an empty file ``README.md``
+    4. Add file to the version control system (should be automatic)
+    5. Commit with message: "Dragon: NAME", where ``NAME`` is your first name
+    6. Push changes to the repository
+    7. Write a solution to the assignment in ``dragon`` directory
+    8. Upon completing add all files in ``dragon`` to repository
+    9. Commit and push changes to the central repository (Github)
+
 
 Polish
 ------
@@ -129,3 +170,15 @@ Jeżeli zaglądniesz w przód, to zepsujesz sobie zabawę i naukę.
 To zadanie ma niesamowity potencjał edukacyjny. Nie niszcz go.
 
 Powodzenia i miłej zabawy!
+
+Wymagania niefunkcjonalne:
+
+    1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
+    2. W swoim katalogu stwórz pusty katalog ``dragon``
+    3. W katalogu ``dragon`` stwórz pusty plik ``README.md``
+    4. Dodaj plik ``README.md`` do systemu kontroli wersji
+    5. Zapisz (commit) zmiany jako "Dragon: NAME", gdzie ``NAME`` to Twoje imię
+    6. Wypchnij (push) zmiany do repozytorium
+    7. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
+    8. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
+    9. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)

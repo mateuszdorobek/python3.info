@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Init Name
+ADR Dragon Init Name
 ====================
 * Create dragon named "Wawelski"
 
@@ -35,8 +35,8 @@ Decision
 
 Pros and Cons:
 
-* Easy to use
-* Verbose enough
+* Good: Easy to use
+* Good: Verbose enough
 
 Implementation:
 

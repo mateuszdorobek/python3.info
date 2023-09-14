@@ -1,7 +1,7 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-Dragon ADR Init Position
+ADR Dragon Init Position
 ========================
 * Set Dragon's initial position to x=50, y=120
 
@@ -32,6 +32,7 @@ Problem:
 
 >>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0)  # 3D
 >>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', None)  # 3D
+>>> dragon = Dragon('Wawelski', None, None, 'img/dragon/alive.png', None)  # 3D
 
 Use Case:
 
