@@ -447,165 +447,6 @@ Traceback (most recent call last):
 TypeError: cannot set '__new__' attribute of immutable type 'type'
 
 
-Use Case - 0x01
----------------
-Injecting logger instance:
-
->>> import logging
->>>
->>>
->>> class Logger(type):
-...     def __init__(cls, *args, **kwargs):
-...         cls._logger = logging.getLogger(cls.__name__)
->>>
->>> class User(metaclass=Logger):
-...     pass
->>>
->>> class Admin(metaclass=Logger):
-...     pass
->>>
->>>
->>> print(User._logger)
-<Logger User (WARNING)>
->>>
->>> print(Admin._logger)
-<Logger Admin (WARNING)>
-
-
-Use Case - 0x02
----------------
-Abstract Base Class:
-
->>> from abc import ABCMeta, abstractmethod
->>>
->>>
->>> class User(metaclass=ABCMeta):
-...     @abstractmethod
-...     def say_hello(self):
-...         pass
->>>
->>>
->>> mark = User()
-Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract method say_hello
-
-
-Use Case - 0x03
----------------
-* Event Listener
-
->>> class EventListener(type):
-...     listeners: dict[str, list[callable]] = {}
-...
-...     @classmethod
-...     def register(cls, *clsnames):
-...         def wrapper(func):
-...             for clsname in clsnames:
-...                 if clsname not in cls.listeners:
-...                     cls.listeners[clsname] = []
-...                 cls.listeners[clsname] += [func]
-...         return wrapper
-...
-...     def __new__(metacls, classname, bases, attrs):
-...         for listener in metacls.listeners.get(classname, []):
-...             listener.__call__(classname, bases, attrs)
-...         return type(classname, bases, attrs)
->>>
->>>
->>> @EventListener.register('User')
-... def info(clsname, bases, attrs):
-...     print(f'Info: New class {clsname}')
->>>
->>>
->>> @EventListener.register('User', 'Admin')
-... def debug(clsname, bases, attrs):
-...     print(f'Debug: Classname: {clsname}')
-...     print(f'Debug: Bases: {bases}')
-...     print(f'Debug: Attrs: {attrs}')
->>>
->>>
->>> class User(metaclass=EventListener):
-...     pass
-Info: New class User
-Debug: Classname: User
-Debug: Bases: ()
-Debug: Attrs: {'__module__': '__main__', '__qualname__': 'User'}
->>>
->>>
->>> class Admin(User, metaclass=EventListener):
-...     pass
-Debug: Classname: Admin
-Debug: Bases: (<class '__main__.User'>,)
-Debug: Attrs: {'__module__': '__main__', '__qualname__': 'Admin'}
-
-
-Use Case - 0x04
----------------
-* Singleton
-
->>> class Singleton(type):
-...     _instances = {}
-...     def __call__(cls, *args, **kwargs):
-...         if cls not in cls._instances:
-...             cls._instances[cls] = super().__call__(*args, **kwargs)
-...         return cls._instances[cls]
->>>
->>>
->>> class MyClass(metaclass=Singleton):
-...     pass
-
->>> a = MyClass()
->>> b = MyClass()
->>>
->>> a is b
-True
-
->>> id(a)  # doctest: +SKIP
-4375248416
->>>
->>> id(b)  # doctest: +SKIP
-4375248416
-
-
-Use Case - 0x05
----------------
-* Final
-
->>> class Final(type):
-...     def __new__(metacls, classname, base, attrs):
-...         for cls in base:
-...             if isinstance(cls, Final):
-...                 raise TypeError(f'{cls.__name__} is final and cannot inherit from it')
-...         return type.__new__(metacls, classname, base, attrs)
->>>
->>>
->>> class MyClass(metaclass=Final):
-...     pass
->>>
->>> class SomeOtherClass(MyClass):
-...    pass
-Traceback (most recent call last):
-TypeError: MyClass is final and cannot inherit from it
-
-
-Use Case - 0x06
----------------
-* Django
-
-Access static fields of a class, before creating instance:
-
->>> # doctest: +SKIP
-... from django.db import models
-...
-... # class Model(metaclass=...)
-... #     ...
-...
-...
-... class User(models.Model):
-...     firstname = models.CharField(max_length=255)
-...     lastname = models.CharField(max_length=255)
-
-
 Metaclass replacements
 ----------------------
 * Effectively accomplish the same thing
@@ -679,6 +520,254 @@ Class Decorator:
 >>>
 >>> print(User._logger)
 <Logger User (WARNING)>
+
+
+Use Case - 0x01
+---------------
+Injecting logger instance:
+
+>>> import logging
+>>>
+>>>
+>>> class Logger(type):
+...     def __init__(cls, *args, **kwargs):
+...         cls._logger = logging.getLogger(cls.__name__)
+>>>
+>>> class User(metaclass=Logger):
+...     pass
+>>>
+>>> class Admin(metaclass=Logger):
+...     pass
+>>>
+>>>
+>>> print(User._logger)
+<Logger User (WARNING)>
+>>>
+>>> print(Admin._logger)
+<Logger Admin (WARNING)>
+
+
+Use Case - 0x02
+---------------
+* Force inherit from class
+
+>>> class Account:
+...     pass
+>>>
+>>> class MyType(type):
+...     def __new__(metacls, clsname, bases, attrs):
+...         if Account not in bases:
+...             bases += (Account,)
+...         cls = type(clsname, bases, attrs)
+...         return cls
+
+Define a class:
+
+>>> class User(metaclass=MyType):
+...     pass
+>>>
+>>>
+>>> User.mro()
+[<class '__main__.User'>, <class '__main__.Account'>, <class 'object'>]
+
+
+Use Case - 0x03
+---------------
+Abstract Base Class:
+
+>>> from abc import ABCMeta, abstractmethod
+>>>
+>>>
+>>> class User(metaclass=ABCMeta):
+...     @abstractmethod
+...     def say_hello(self):
+...         pass
+>>>
+>>>
+>>> mark = User()
+Traceback (most recent call last):
+TypeError: Can't instantiate abstract class User with abstract method say_hello
+
+
+Use Case - 0x04
+---------------
+* Event Listener
+
+>>> class EventListener(type):
+...     listeners: dict[str, list[callable]] = {}
+...
+...     @classmethod
+...     def register(cls, *clsnames):
+...         def wrapper(func):
+...             for clsname in clsnames:
+...                 if clsname not in cls.listeners:
+...                     cls.listeners[clsname] = []
+...                 cls.listeners[clsname] += [func]
+...         return wrapper
+...
+...     def __new__(metacls, classname, bases, attrs):
+...         for listener in metacls.listeners.get(classname, []):
+...             listener.__call__(classname, bases, attrs)
+...         return type(classname, bases, attrs)
+>>>
+>>>
+>>> @EventListener.register('User')
+... def info(clsname, bases, attrs):
+...     print(f'Info: New class {clsname}')
+>>>
+>>>
+>>> @EventListener.register('User', 'Admin')
+... def debug(clsname, bases, attrs):
+...     print(f'Debug: Classname: {clsname}')
+...     print(f'Debug: Bases: {bases}')
+...     print(f'Debug: Attrs: {attrs}')
+>>>
+>>>
+>>> class User(metaclass=EventListener):
+...     pass
+Info: New class User
+Debug: Classname: User
+Debug: Bases: ()
+Debug: Attrs: {'__module__': '__main__', '__qualname__': 'User'}
+>>>
+>>>
+>>> class Admin(User, metaclass=EventListener):
+...     pass
+Debug: Classname: Admin
+Debug: Bases: (<class '__main__.User'>,)
+Debug: Attrs: {'__module__': '__main__', '__qualname__': 'Admin'}
+
+
+Use Case - 0x05
+---------------
+>>> from datetime import datetime, timezone
+>>> import logging
+>>> from uuid import uuid4
+>>>
+>>>
+>>> class EventListener(type):
+...     listeners = {}
+...
+...     @classmethod
+...     def register(metacls, *clsnames):
+...         def decorator(func):
+...             for clsname in clsnames:
+...                 if clsname not in metacls.listeners:
+...                     metacls.listeners[clsname] = []
+...                 metacls.listeners[clsname] += [func]
+...         return decorator
+...
+...     def __new__(metacls, clsname, bases, attrs):
+...         listeners = metacls.listeners.get(clsname, [])
+...         cls = type(clsname, bases, attrs)
+...         for listener in listeners:
+...             cls = listener.__call__(cls)
+...         return cls
+
+Create listener functions and register them for class creation:
+
+>>> @EventListener.register('User', 'Admin')
+... def add_logger(cls):
+...     cls._log = logging.getLogger(cls.__name__)
+...     return cls
+>>>
+>>>
+>>> @EventListener.register('User')
+... def add_debug(cls):
+...     cls._uuid = str(uuid4())
+...     cls._since = datetime.now(tz=timezone.utc)
+...     return cls
+
+Now, define classes with ``EventListener`` metaclass.
+
+>>> class User(metaclass=EventListener):
+...     pass
+>>>
+>>> class Admin(metaclass=EventListener):
+...     pass
+
+>>> vars(User)  # doctest: +SKIP
+mappingproxy({'__module__': '__main__',
+              '__dict__': <attribute '__dict__' of 'User' objects>,
+              '__weakref__': <attribute '__weakref__' of 'User' objects>,
+              '__doc__': None,
+              '_log': <Logger User (INFO)>,
+              '_uuid': '76f8c59b-f934-43e1-8599-aa3c3f6d8fba',
+              '_since': datetime.datetime(1969, 7, 21, 2, 56, 15, 123456, tzinfo=datetime.timezone.utc)})
+
+>>> vars(Admin)  # doctest: +NORMALIZE_WHITESPACE
+mappingproxy({'__module__': '__main__',
+              '__dict__': <attribute '__dict__' of 'Admin' objects>,
+              '__weakref__': <attribute '__weakref__' of 'Admin' objects>,
+              '__doc__': None,
+              '_log': <Logger Admin (WARNING)>})
+
+
+Use Case - 0x06
+---------------
+* Singleton
+
+>>> class Singleton(type):
+...     _instances = {}
+...     def __call__(cls, *args, **kwargs):
+...         if cls not in cls._instances:
+...             cls._instances[cls] = super().__call__(*args, **kwargs)
+...         return cls._instances[cls]
+>>>
+>>>
+>>> class MyClass(metaclass=Singleton):
+...     pass
+
+>>> a = MyClass()
+>>> b = MyClass()
+>>>
+>>> a is b
+True
+
+>>> id(a)  # doctest: +SKIP
+4375248416
+>>>
+>>> id(b)  # doctest: +SKIP
+4375248416
+
+
+Use Case - 0x07
+---------------
+* Final
+
+>>> class Final(type):
+...     def __new__(metacls, classname, base, attrs):
+...         for cls in base:
+...             if isinstance(cls, Final):
+...                 raise TypeError(f'{cls.__name__} is final and cannot inherit from it')
+...         return type.__new__(metacls, classname, base, attrs)
+>>>
+>>>
+>>> class MyClass(metaclass=Final):
+...     pass
+>>>
+>>> class SomeOtherClass(MyClass):
+...    pass
+Traceback (most recent call last):
+TypeError: MyClass is final and cannot inherit from it
+
+
+Use Case - 0x08
+---------------
+* Django
+
+Access static fields of a class, before creating instance:
+
+>>> # doctest: +SKIP
+... from django.db import models
+...
+... # class Model(metaclass=...)
+... #     ...
+...
+...
+... class User(models.Model):
+...     firstname = models.CharField(max_length=255)
+...     lastname = models.CharField(max_length=255)
 
 
 References

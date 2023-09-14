@@ -969,6 +969,49 @@ Use Case - 0x13
 {'min': 1, 'max': 10}
 
 
+Use Case - 0x14
+---------------
+>>> class User:
+...     def __init__(self, firstname, lastname, username, password):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...         self._password = password
+...         self._username = username
+...
+...     def __getattribute__(self, name):
+...         if name == '__dict__':
+...             output = super().__getattribute__(name).copy()
+...             del output['_password']
+...             del output['_username']
+...             return output
+...         if name.startswith('_') and not name.startswith('__'):
+...             raise PermissionError
+...         return super().__getattribute__(name)
+>>>
+>>>
+>>> mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     username='mwatney',
+...     password='Ares3',
+... )
+
+Show ``vars``, note that there is no ``username`` and ``password``:
+
+>>> vars(mark)
+{'firstname': 'Mark', 'lastname': 'Watney'}
+
+Show ``dir``, note that there is no ``username`` and ``password``:
+
+>>> dir(mark)  # doctest: +NORMALIZE_WHITESPACE
+['__class__', '__delattr__', '__dict__', '__dir__', '__doc__', '__eq__',
+ '__format__', '__ge__', '__getattribute__', '__getstate__', '__gt__',
+ '__hash__', '__init__', '__init_subclass__', '__le__', '__lt__',
+ '__module__', '__ne__', '__new__', '__reduce__', '__reduce_ex__',
+ '__repr__', '__setattr__', '__sizeof__', '__str__', '__subclasshook__',
+ '__weakref__', 'firstname', 'lastname']
+
+
 Assignments
 -----------
 .. literalinclude:: assignments/operator_reflection_a.py

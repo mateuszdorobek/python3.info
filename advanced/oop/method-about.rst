@@ -194,3 +194,69 @@ Compare
 >>>
 >>> mark.say_hello  # doctest: +ELLIPSIS
 <bound method User.say_hello of <__main__.User object at 0x...>>
+
+
+Use Case - 0x01
+---------------
+>>> name = 'Mark'
+>>> name.upper()
+'MARK'
+
+Is equivalent to:
+
+>>> str.upper('Mark')
+'MARK'
+
+
+Use Case - 0x02
+---------------
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
+>>> ','.join(data)
+'Mark,Watney,mwatney@nasa.gov'
+
+Is equivalent to:
+
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
+>>> str.join(',', data)
+'Mark,Watney,mwatney@nasa.gov'
+
+
+Use Case - 0x03
+---------------
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
+>>> result = [x.upper() for x in data]
+>>> list(result)
+['MARK', 'WATNEY', 'MWATNEY@NASA.GOV']
+
+Is equivalent to:
+
+>>> data = ['Mark', 'Watney', 'mwatney@nasa.gov']
+>>> result = map(str.upper, data)
+>>> list(result)
+['MARK', 'WATNEY', 'MWATNEY@NASA.GOV']
+
+
+Use Case - 0x04
+---------------
+>>> class User:
+...     def __init__(self, username):
+...         self.username = username
+...
+...     def login(self):
+...         print(f'User {self.username} logged-in')
+
+Create users:
+
+>>> users = [
+...     User('mwatney'),
+...     User('mlewis'),
+...     User('rmartinez'),
+... ]
+
+Login all users:
+
+>>> users = map(User.login, users)
+>>> result = list(users)
+User mwatney logged-in
+User mlewis logged-in
+User rmartinez logged-in

@@ -506,6 +506,52 @@ Pesel(pesel='69072101234',
       gender='male',
       valid=False)
 
+Use Case - 0x0D
+---------------
+>>> from dataclasses import dataclass, InitVar, field
+>>> from datetime import date
+>>> from hashlib import sha256
+>>> from typing import ClassVar
+>>>
+>>>
+>>> @dataclass(kw_only=True, slots=True)
+... class User:
+...     firstname: str
+...     lastname: str
+...     plaintext_password: InitVar[str]
+...     username: str | None = None
+...     password: str | None = field(default=None, repr=False, init=False)
+...     age: int | None = None
+...     weight: float | None = None
+...     birthday: str | date | None = None
+...     AGE_MIN: ClassVar[int] = 30
+...     AGE_MAX: ClassVar[int] = 50
+...
+...     def __post_init__(self, plaintext_password):
+...         self.password = sha256(plaintext_password.encode()).hexdigest()
+...         if isinstance(self.birthday, str):
+...             self.birthday = date.fromisoformat(self.birthday)
+...         if not self.AGE_MIN <= self.age <= self.AGE_MAX:
+...             raise ValueError('Invalid age')
+
+Create an object:
+
+>>> mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     username='mwatney',
+...     plaintext_password='Ares3',
+...     age=40,
+...     weight=56,
+...     birthday='1969-07-21',
+... )
+
+>>> mark
+User(firstname='Mark', lastname='Watney', username='mwatney', age=40, weight=56, birthday=datetime.date(1969, 7, 21))
+
+>>> mark.password
+'31a7f50d4096c10f7d95fec5f8940ed7142a5c582b38551af49b0533fa97d407'
+
 
 Assignments
 -----------

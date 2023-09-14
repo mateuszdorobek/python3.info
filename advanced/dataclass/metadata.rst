@@ -420,3 +420,65 @@ ValueError: Field day value 33 is not between 1 and 31
 >>> d = Date(1969, 'XYZ', 33)
 Traceback (most recent call last):
 ValueError: Field month value XYZ not in ['Jan', 'Feb', 'Mar', 'Apr']
+
+
+Use Case - 0x07
+---------------
+>>> import logging
+>>> from abc import ABC
+>>> from dataclasses import field, dataclass
+>>> from datetime import datetime, timezone
+>>> from uuid import uuid4
+>>>
+>>> DEBUG = True
+>>>
+>>> @dataclass
+... class BaseModel(ABC):
+...     def _validate_range(self, fieldname):
+...         MIN = self.__dataclass_fields__[fieldname].metadata['min']
+...         MAX = self.__dataclass_fields__[fieldname].metadata['max']
+...         UNIT = self.__dataclass_fields__[fieldname].metadata['unit']
+...         value = getattr(self, fieldname)
+...         if not MIN <= value <= MAX:
+...             raise ValueError(f'Field `{fieldname}` not between {MIN} and {MAX}.'
+...                              f'Please remember that values need to be in {UNIT}')
+...
+...     def _validate_choice(self, fieldname):
+...         OPTIONS = self.__dataclass_fields__[fieldname].metadata['options']
+...         value = getattr(self, fieldname)
+...         if value not in OPTIONS:
+...             raise ValueError(f'Field `{fieldname}` not in {OPTIONS}')
+...
+...     def __post_init__(self):
+...         if DEBUG:
+...             self._since = datetime.now(tz=timezone.utc)
+...             self._uuid = str(uuid4())
+...             self._log = logging.getLogger(self.__class__.__name__)
+...
+...         for fieldname in self.__dataclass_fields__.keys():
+...             if 'type' in self.__dataclass_fields__[fieldname].metadata:
+...                 match self.__dataclass_fields__[fieldname].metadata['type']:
+...                     case 'range': self._validate_range(fieldname)
+...                     case 'choice': self._validate_choice(fieldname)
+
+Define a model:
+
+>>> @dataclass
+... class User(BaseModel):
+...     firstname: str
+...     lastname: str
+...     age: int = field(metadata={'type':'range', 'min':30, 'max':50, 'unit':'years'})
+...     weight: float = field(metadata={'type':'range', 'min':50, 'max':100, 'unit':'kg'})
+...     height: float = field(metadata={'type':'range', 'min':150, 'max':200, 'unit':'cm'})
+...     group: str = field(metadata={'type':'choice', 'options':['users','staff','admins']})
+
+Use:
+
+... mark = User(
+...     firstname='Mark',
+...     lastname='Watney',
+...     age=40,
+...     weight=75.5,
+...     height=185.0,
+...     group='users',
+... )

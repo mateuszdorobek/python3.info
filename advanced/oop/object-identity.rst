@@ -179,6 +179,48 @@ Integer Caching
 >>> id(-6)  # doctest: +SKIP
 4463321840
 
+Mind, that address for objects less or equal to 256 is the same, but
+above 256 object address is different:
+
+>>> a = 256
+>>> b = 257
+>>>
+>>> id(a)  # doctest: +SKIP
+4565299048
+>>> id(b)  # doctest: +SKIP
+4602009488
+>>>
+>>> del a
+>>> del b
+>>>
+>>> a = 256
+>>> b = 257
+>>>
+>>> id(a)  # doctest: +SKIP
+4565299048
+>>> id(b)  # doctest: +SKIP
+4602005616
+
+Mind, that address for objects less or equal to 256 is the same, but
+above 256 object address is different:
+
+>>> a = 256
+>>> b = 256
+>>> x = 257
+>>> y = 257
+>>>
+>>> id(a)  # doctest: +SKIP
+4565299048
+>>>
+>>> id(b)  # doctest: +SKIP
+4565299048
+>>>
+>>> id(x)  # doctest: +SKIP
+4602004784
+>>>
+>>> id(y)  # doctest: +SKIP
+4602012112
+
 
 Float Caching
 -------------
@@ -295,6 +337,31 @@ create a new instance of a string each time:
 >>>
 >>> id('Watney')  # doctest: +SKIP
 4354449328
+
+Example:
+
+>>> a = 'Mark'
+>>> b = 'Mark'
+>>> c = format('Mark')
+>>> d = str('Mark')
+>>> e = str('Mark'+'')
+>>> f = str.__new__(str, 'Mark')
+>>> g = a + ''
+>>>
+>>> id(a)  # doctest: +SKIP
+4498017136
+>>> id(b)  # doctest: +SKIP
+4498017136
+>>> id(c)  # doctest: +SKIP
+4498017136
+>>> id(d)  # doctest: +SKIP
+4498017136
+>>> id(e)  # doctest: +SKIP
+4498017136
+>>> id(f)  # doctest: +SKIP
+4498017136
+>>> id(g)  # doctest: +SKIP
+4498017136
 
 
 Type Identity
@@ -430,6 +497,63 @@ False
 True
 >>> c == d
 True
+
+
+Dataclasses Equality
+--------------------
+* By default ``eq=True`` (if not specified)
+
+>>> from dataclasses import dataclass
+
+>>> @dataclass(eq=False)
+... class Fruit:
+...     name: str
+>>>
+>>> a = Fruit('Apple')
+>>> b = Fruit('Apple')
+>>>
+>>> a is b
+False
+>>>
+>>> a == b
+False
+
+>>> @dataclass(eq=True)
+... class Fruit:
+...     name: str
+>>>
+>>> a = Fruit('Apple')
+>>> b = Fruit('Apple')
+>>>
+>>> a is b
+False
+>>>
+>>> a == b
+True
+
+>>> @dataclass
+... class Fruit:
+...     name: str
+>>>
+>>> @dataclass
+... class Company:
+...     name: str
+>>>
+>>> a = Fruit('Apple')
+>>> b = Fruit('Apple')
+>>> c = Company('Apple')
+>>>
+>>> a is b
+False
+>>>
+>>> a is c
+False
+>>>
+>>> a == b
+True
+>>>
+>>> a == c
+False
 
 
 Value Comparison

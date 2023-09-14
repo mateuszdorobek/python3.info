@@ -73,6 +73,22 @@ Multiple Inheritance
 ...
 
 
+Aggregation
+-----------
+>>> class Vehicle:
+...     pass
+...
+>>> class Engine:
+...     pass
+...
+>>> class Windows:
+...     pass
+...
+>>>
+>>> class Car(Vehicle):
+...     parts = [Engine, Windows]
+
+
 Composition
 -----------
 >>> class Vehicle:
@@ -90,23 +106,6 @@ Composition
 ...     windows = Windows
 
 
-Aggregation
------------
->>> class Vehicle:
-...     pass
-...
->>> class Engine:
-...     pass
-...
->>> class Windows:
-...     pass
-...
->>>
->>> class Car(Vehicle):
-...     parts = [Engine, Windows]
-
-
-
 Why Composition?
 ----------------
 >>> class Mother:
@@ -120,14 +119,14 @@ Why Composition?
 ...     mother: Mother
 ...     father: Father
 ...
-...     def __init__(self, mother=Mother(), father=Father()):
-...         self.mother = mother
-...         self.father = father
+...     def __init__(self, mother=Mother, father=Father):
+...         self.mother = mother()
+...         self.father = father()
 
 >>> class StepFather:
 ...     pass
 >>>
->>> me = Child(father=StepFather())
+>>> me = Child(father=StepFather)
 
 
 Use Case - 0x01
@@ -181,6 +180,17 @@ Multiple Inheritance:
 >>> class Child(Mother, Father):
 ...     pass
 
+Aggregation:
+
+>>> class Mother:
+...     pass
+>>>
+>>> class Father:
+...     pass
+>>>
+>>> class Child:
+...     parents = [Father, Mother]
+
 Composition:
 
 >>> class Mother:
@@ -192,17 +202,6 @@ Composition:
 >>> class Child:
 ...     mother = Mother
 ...     father = Father
-
-Aggregation:
-
->>> class Mother:
-...     pass
->>>
->>> class Father:
-...     pass
->>>
->>> class Child:
-...     parents = [Father, Mother]
 
 
 Use Case - 0x02
@@ -218,9 +217,9 @@ Use Case - 0x02
 ...     mother: Mother
 ...     father: Father
 ...
-...     def __init__(self, mother=Mother(), father=Father()):
-...         self.mother = mother
-...         self.father = father
+...     def __init__(self, mother=Mother, father=Father):
+...         self.mother = mother()
+...         self.father = father()
 
 
 Use Case - 0x03
@@ -242,9 +241,9 @@ Use Case - 0x03
 ...     engine: Engine
 ...     windows: Windows
 ...
-...     def __init__(self, windows=Windows(), engine=Engine()):
-...         self.windows = windows
-...         self.engine = engine
+...     def __init__(self, windows=Windows, engine=Engine):
+...         self.windows = windows()
+...         self.engine = engine()
 ...
 ...     def engine_start(self):
 ...         if self.engine:
@@ -279,24 +278,22 @@ Use Case - 0x04
 ...     decoder: Decoder
 ...
 ...     def __init__(self,
-...                  encoder: Encoder = Encoder(),
-...                  decoder: Decoder = Decoder(),
+...                  encoder: Encoder = Encoder,
+...                  decoder: Decoder = Decoder,
 ...                  ) -> None:
-...         self.encoder = encoder
-...         self.decoder = decoder
+...         self.encoder = encoder()
+...         self.decoder = decoder()
 ...
 ...     def encode(self, data):
 ...        return self.encoder.encode(data)
 ...
 ...     def decode(self, data):
 ...         return self.decoder.decode(data)
->>>
->>>
->>> DATA = {'firstname': 'Mark', 'lastname': 'Watney'}
 
 Now, if you want to serialize your data, just create an instance
 and call method ``.encode()`` on it.
 
+>>> DATA = {'firstname': 'Mark', 'lastname': 'Watney'}
 >>> json = JSONSerializer()
 >>> result = json.encode(DATA)
 
@@ -305,9 +302,10 @@ can encode ``datetime`` object. You can create a class which inherits
 from default ``Encoder`` and overwrite ``.encode()`` method.
 
 >>> class MyBetterEncoder(Encoder):
-...     def encode(self):
+...     def encode(self, data):
 ...         ...
 >>>
+>>> DATA = {'firstname': 'Mark', 'lastname': 'Watney'}
 >>> json = JSONSerializer(encoder=MyBetterEncoder)
 >>> result = json.encode(DATA)
 
@@ -317,27 +315,106 @@ Use Case - 0x05
 >>> from datetime import date
 >>> import json
 
+JSON dumps works well, we we don't have any exotic types:
+
 >>> DATA = {'firstname': 'Mark', 'lastname': 'Watney'}
->>>
 >>> json.dumps(DATA)
 '{"firstname": "Mark", "lastname": "Watney"}'
 
+When we introduce ``date`` object, JSON cannot serialize it:
+
 >>> DATA = {'firstname': 'Mark', 'lastname': 'Watney', 'birthday': date(1969, 7, 21)}
->>>
 >>> json.dumps(DATA)
 Traceback (most recent call last):
 TypeError: Object of type date is not JSON serializable
 
->>> class Encoder(json.JSONEncoder):
+We can introduce ``MyEncoder`` and inject it into ``json.dumps()`` function:
+
+>>> class MyEncoder(json.JSONEncoder):
 ...     def default(self, x):
 ...         if isinstance(x, date):
 ...             return x.isoformat()
 ...
 >>>
 >>> DATA = {'firstname': 'Mark', 'lastname': 'Watney', 'birthday': date(1969, 7, 21)}
->>>
->>> json.dumps(DATA, cls=Encoder)
+>>> json.dumps(DATA, cls=MyEncoder)
 '{"firstname": "Mark", "lastname": "Watney", "birthday": "1969-07-21"}'
+
+
+Use Case - 0x06
+---------------
+Base classes:
+
+>>> class Engine:
+...     pass
+>>>
+>>> class Windows:
+...     pass
+>>>
+>>> class Radio:
+...     pass
+
+Standard Classes:
+
+>>> class StandardEngine(Engine):
+...     pass
+>>>
+>>> class StandardWindows(Windows):
+...     pass
+>>>
+>>> class StandardRadio(Radio):
+...     pass
+
+Define ``Vehicle`` using composition:
+
+>>> class Vehicle:
+...     engine: Engine
+...     windows: Windows | None
+...     radio: Radio | None
+...
+...     def __init__(self, engine=StandardEngine, windows=StandardWindows, radio=StandardRadio):
+...         self.engine = engine()
+...         self.windows = windows()
+...         self.radio = radio()
+
+Usage:
+
+>>> class PoorEngine(Engine):
+...     ...
+>>>
+>>> class ElectricEngine(Engine):
+...     ...
+>>>
+>>> class SuperRadio(Radio):
+...     ...
+>>>
+>>> mercedes = Vehicle()
+>>> maluch = Vehicle(engine=PoorEngine)
+>>> tesla = Vehicle(engine=ElectricEngine, radio=SuperRadio)
+
+If not specified, car will use Standard part (such as ``StandardEngine``
+or ``StandardRadio``). Thanks to composition we can override defaults.
+
+
+Use Case - 0x07
+---------------
+>>> class Account:
+...     def __init__(self, username):
+...         self.username = username
+>>>
+>>> class User(Account):
+...     pass
+>>>
+>>> class Admin(Account):
+...     pass
+>>>
+>>>
+>>> class Group:
+...     members: list[Account] = [
+...         User('mwatney'),
+...         Admin('mlewis'),
+...         User('rmartinez'),
+...     ]
 
 
 Further Reading

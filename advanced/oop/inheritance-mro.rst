@@ -40,7 +40,7 @@ super in the methods.
 
 Note that you can see the MRO in python by using the ``.mro()`` method:
 
->>> class Account(object):
+>>> class Account:
 ...     pass
 >>>
 >>> class User(Account):
@@ -65,6 +65,20 @@ In Python 2 you had to specify the current class, but that's not needed
 any more.
 
 .. note:: Source [#StackOverflowSuper]_ [#vanRossum2020]_
+
+In Python 3 all classes inherits from ``object``:
+
+>>> class User:
+...     pass
+...
+>>> User.mro()
+[<class '__main__.User'>, <class 'object'>]
+
+>>> class User(object):
+...     pass
+...
+>>> User.mro()
+[<class '__main__.User'>, <class 'object'>]
 
 
 Problem
