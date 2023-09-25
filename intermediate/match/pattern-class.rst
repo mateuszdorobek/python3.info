@@ -30,6 +30,54 @@ Editing page
 
 Use Case - 0x01
 ---------------
+>>> x = True
+>>>
+>>> match x:
+...     case bool():    print('Is a bool')
+...     case int():     print('Is an int')
+...     case float():   print('Is a float')
+...
+Is a bool
+
+
+Use Case - 0x02
+---------------
+>>> x = True
+>>>
+>>> match x:
+...     case int():     print('Is an int')
+...     case bool():    print('Is a bool')
+...     case float():   print('Is a float')
+...
+Is an int
+
+Is equivalent to:
+
+>>> if isinstance(x, int):
+...     print('Is an int')
+... elif isinstance(x, bool):
+...     print('Is a bool')
+... elif isinstance(x, float):
+...     print('Is a float')
+...
+Is an int
+
+Because:
+
+>>> isinstance(True, bool)
+True
+>>>
+>>> isinstance(True, int)
+True
+
+Every ``bool`` inherits from ``int``:
+
+>>> bool.mro()
+[<class 'bool'>, <class 'int'>, <class 'object'>]
+
+
+Use Case - 0x01
+---------------
 >>> from datetime import datetime
 >>>
 >>> obj = datetime(1969, 7, 21, 2, 56, 15)

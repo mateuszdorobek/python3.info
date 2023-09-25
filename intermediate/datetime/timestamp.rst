@@ -14,6 +14,7 @@ What is timestamp?
 * https://itsfoss.com/linux-kernel-5-6/
 * https://lore.kernel.org/lkml/CAHk-=wi9ZT7Stg-uSpX0UWQzam6OP9Jzz6Xu1CkYu1cicpD5OA@mail.gmail.com/
 * https://en.wikipedia.org/wiki/Year_2038_problem
+* Excel error: https://learn.microsoft.com/en-US/office/troubleshoot/excel/wrongly-assumes-1900-is-leap-year
 
 
 Get current timestamp

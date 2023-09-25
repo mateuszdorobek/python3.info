@@ -2,7 +2,7 @@
 * Assignment: Generator Function Passwd
 * Complexity: medium
 * Lines of code: 10 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Split `DATA` by lines and then by colon `:`

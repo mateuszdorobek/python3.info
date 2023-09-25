@@ -35,6 +35,8 @@ Daylight Saving Time
 * UTC includes leap seconds
 * Astronomical time does not include leap seconds
 * Google invented smear second (on the day of leap second) they add a small fraction of a second to each second that day until midnight
+* Not all cities has DST https://www.timeanddate.com/time/us/arizona-no-dst.html
+
 
 Comparing datetime works only when all has the same timezone (UTC):
 

@@ -2,7 +2,7 @@
 * Assignment: Generator Function Iris
 * Complexity: easy
 * Lines of code: 8 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Write filter for `DATA` which returns `features: list[float]` for given `species: str`

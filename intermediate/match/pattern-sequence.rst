@@ -8,6 +8,27 @@ within it can be any kind of patterns, not just names or sequences. It
 matches only sequences of appropriate length, as long as all the
 sub-patterns also match. It makes all the bindings of its sub-patterns.
 
+
+
+>>> point = (1,2)
+>>>
+>>> match point:
+...     case (x,y):     print(f'Point 2d: {x=}, {y=}')
+...     case (x,y,z):   print(f'Point 3d: {x=}, {y=}, {z=}')
+...
+Point 2d: x=1, y=2
+
+>>> point = (1,2,3)
+>>>
+>>> match point:
+...     case (x,y):     print(f'Point 2d: {x=}, {y=}')
+...     case (x,y,z):   print(f'Point 3d: {x=}, {y=}, {z=}')
+...
+Point 3d: x=1, y=2, z=3
+
+
+Use Case - 0x01
+---------------
 SetUp:
 
 >>> def handle_get(path): ...
@@ -17,33 +38,58 @@ SetUp:
 
 Usage:
 
->>> request = 'GET /index.html HTTP/2.0'
+>>> request = ['GET', '/index.html', 'HTTP/2.0']
 >>>
->>> request.split()
-['GET', '/index.html', 'HTTP/2.0']
->>>
->>> match request.split():
+>>> match request:
 ...     case ['GET', path, 'HTTP/2.0']:     handle_get(path)
 ...     case ['POST', path, 'HTTP/2.0']:    handle_post(path)
 ...     case ['PUT', path, 'HTTP/2.0']:     handle_put(path)
 ...     case ['DELETE', path, 'HTTP/2.0']:  handle_delete(path)
 
 
-Use Case - 0x01
----------------
->>> request = 'GET /index.html HTTP/2.0'
->>>
->>>
->>> match request.split():  # doctest: +SKIP
-...     case ['GET', path, 'HTTP/1.0']:  http10.get(path)
-...     case ['GET', path, 'HTTP/1.1']:  http11.get(path)
-...     case ['GET', path, 'HTTP/2.0']:  http20.get(path)
-
-
 Use Case - 0x02
 ---------------
->>> request = 'GET /index.html HTTP/2.0'
+SetUp:
+
+>>> def http10_get(path): ...
+>>> def http11_get(path): ...
+>>> def http20_get(path): ...
+>>> def http30_get(path): ...
+
+Usage:
+
+>>> request = ['GET', '/index.html', 'HTTP/2.0']
 >>>
+>>> match request:  # doctest: +SKIP
+...     case ['GET', path, 'HTTP/1.0']:  http10_get(path)
+...     case ['GET', path, 'HTTP/1.1']:  http11_get(path)
+...     case ['GET', path, 'HTTP/2.0']:  http20_get(path)
+...     case ['GET', path, 'HTTP/3.0']:  http30_get(path)
+
+
+Use Case - 0x03
+---------------
+SetUp:
+
+>>> def handle_get(path): ...
+>>> def handle_post(path): ...
+>>> def handle_put(path): ...
+>>> def handle_delete(path): ...
+
+Usage:
+
+>>> request = ['GET', '/index.html', 'HTTP/2.0']
+>>>
+>>> match request:
+...     case ['GET', path, _]:     handle_get(path)
+...     case ['POST', path, _]:    handle_post(path)
+...     case ['PUT', path, _]:     handle_put(path)
+...     case ['DELETE', path, _]:  handle_delete(path)
+
+
+Use Case - 0x04
+---------------
+>>> request = 'GET /index.html HTTP/2.0'
 >>>
 >>> match request.split():  # doctest: +SKIP
 ...     case ['GET', uri, 'HTTP/1.0']:     http10.get(uri)
@@ -67,7 +113,7 @@ Use Case - 0x02
 ...     case ['DELETE', uri, 'HTTP/3.0']:  http30.delete(uri)
 
 
-Use Case - 0x03
+Use Case - 0x05
 ---------------
 >>> def values(*data):
 ...     match data:

@@ -16,9 +16,9 @@ Star
     :caption: Star
 
     star/assignment.rst
+    star/signature.rst
     star/parameters.rst
     star/arguments.rst
-    star/signature.rst
 
 
 Match
@@ -36,9 +36,9 @@ Match
     match/pattern-sequence.rst
     match/pattern-mapping.rst
     match/pattern-class.rst
-    match/pattern-walrus.rst
     match/guard.rst
     match/subpattern.rst
+    match/walrus.rst
 
 
 Idiom

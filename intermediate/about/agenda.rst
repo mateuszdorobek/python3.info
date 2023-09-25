@@ -11,7 +11,7 @@ Day 1
 * 60 min - Setup: IDE, Git, repository, Python, doctest
 * 30 min - Placement test: evaluating participant skills
 * 60 min - Placement test: live coding solution, IDE demonstration, ie. debugging, working with VCS, refactoring, quick documentation, type annotations, function signatures
-* 200 min - Star: assignment, parameters, arguments, signature
+* 200 min - Star: assignment, signature, parameters, arguments
 * 60 min - Match: pattern matching (match, case)
 
 
