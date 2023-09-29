@@ -28,6 +28,51 @@ values.
           the highest member value incremented by 1, and will fail if any
           member is an incompatible type.
 
+>>> from enum import IntEnum, auto
+>>>
+>>> class Status(IntEnum):
+...     TODO = auto()
+...     IN_PROGRESS = auto()
+...     IN_REVIEW = auto()
+...     DONE = auto()
+...     REJECTED = auto()
+>>>
+>>>
+>>> Status.DONE.value
+4
+
+Let's add "In Test" status in the middle of an ``Enum``:
+
+>>> class Status(IntEnum):
+...     TODO = auto()
+...     IN_PROGRESS = auto()
+...     IN_TEST = auto()
+...     IN_REVIEW = auto()
+...     DONE = auto()
+...     REJECTED = auto()
+>>>
+>>> Status.DONE.value
+5
+
+Let's change ``Status`` to ``StrEnum``
+
+>>> from enum import StrEnum, auto
+>>>
+>>> class Status(StrEnum):
+...     TODO = auto()
+...     IN_PROGRESS = auto()
+...     IN_TEST = auto()
+...     IN_REVIEW = auto()
+...     DONE = auto()
+...     REJECTED = auto()
+>>>
+>>> Status.DONE.value
+'done'
+>>>
+>>> Status.IN_PROGRESS.value
+'in_progress'
+
+
 
 SetUp
 -----

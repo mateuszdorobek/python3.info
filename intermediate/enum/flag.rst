@@ -28,6 +28,25 @@ is considered an alias.
 True
 
 
+
+>>> from enum import Flag
+>>>
+>>> class Permission(Flag):
+...     READ = 0b100
+...     WRITE = 0b010
+...     EXECUTE = 0b001
+
+>>> Permission(0b110)
+<Permission.READ|WRITE: 6>
+
+>>> Permission(0b110).name
+'READ|WRITE'
+
+>>> Permission(0b110).value
+6
+
+
+
 SetUp
 -----
 >>> from enum import Enum, Flag, IntFlag, FlagBoundary, auto
@@ -133,6 +152,57 @@ used for some stdlib flags:
 
 >>> KeepFlag(2**2 + 2**4)
 <KeepFlag.BLUE|16: 20>
+
+
+Use Case - 0x01
+---------------
+>>> from pathlib import Path
+>>>
+>>>
+>>> file = Path('/tmp/myfile.txt')
+>>> file.touch()
+>>>
+>>> file.stat()  # doctest: +SKIP
+os.stat_result(st_mode=33188, st_ino=243528036, st_dev=16777220, st_nlink=1, st_uid=501, st_gid=0, st_size=0, st_atime=1696002327, st_mtime=1696002327, st_ctime=1696002327)
+>>>
+>>> file.stat().st_mode
+33188
+>>>
+>>>
+>>> oct(file.stat().st_mode)
+'0o100644'
+>>>
+>>> *_, user, group, other = oct(file.stat().st_mode)
+>>>
+>>> user
+'6'
+
+>>> from enum import Flag
+>>>
+>>> class Permission(Flag):
+...     READ = 0b100
+...     WRITE = 0b010
+...     EXECUTE = 0b001
+...
+...
+>>> Permission(int(user))
+<Permission.READ|WRITE: 6>
+>>>
+>>>
+>>> Permission(int(group))
+<Permission.READ: 4>
+
+
+Use Case - 0x02
+---------------
+>>> class Permission(Flag):
+...     READ = 0b100
+...     WRITE = 0b010
+...     EXECUTE = 0b001
+>>>
+>>>
+>>> file.create(permission=Permission.READ | Permission.WRITE)  # doctest: +SKIP
+>>> file.create(permission=6)  # doctest: +SKIP
 
 
 .. todo:: Assignments

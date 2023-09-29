@@ -71,6 +71,42 @@ Methods
 <Color.RED: '#FF0000'>
 
 
+Enum vs Dict
+------------
+Enum:
+
+>>> class Color(Enum):
+...     RED = '#FF0000'
+...     GREEN = '#00FF00'
+...     BLUE = '#0000FF'
+...
+>>>
+>>> Color.RED
+<Color.RED: '#FF0000'>
+>>>
+>>> Color('#FF0000')
+<Color.RED: '#FF0000'>
+
+Dict:
+
+>>> color = {
+...     'RED': '#FF0000',
+...     'GREEN': '#00FF00',
+...     'BLUE': '#0000FF',
+... }
+>>>
+>>> color['RED']
+'#FF0000'
+>>>
+>>> color['#FF0000']
+Traceback (most recent call last):
+KeyError: '#FF0000'
+>>>
+>>> tmp = {v:k for k,v in color.items()}
+>>> tmp['#FF0000']
+'RED'
+
+
 Use Case - 0x01
 ---------------
 * HTML Colors
@@ -125,5 +161,46 @@ Use Case - 0x02
 
 >>> print(f'Total is: {total:.2f} PLN')
 Total is: 18.99 PLN
+
+
+Use Case - 0x03
+---------------
+>>> def open(filename, mode):
+...     ...
+>>>
+>>> open('/tmp/myfile.txt', mode=...)
+
+
+>>> from typing import Literal
+>>>
+>>> def open(filename: str, mode: Literal['r','w','a']):
+...     ...
+>>>
+>>> open('/tmp/myfile.txt', mode=...)
+
+>>> from enum import StrEnum
+>>>
+>>> class Mode(StrEnum):
+...     READ = 'r'
+...     WRITE = 'w'
+...     APPEND = 'a'
+>>>
+>>> def open(filename: str, mode: Mode):
+...     ...
+>>>
+>>> open('myfile.txt', mode=Mode.READ)
+
+More Pythonic way:
+
+>>> def open(filename, read=True, write=False, append=False):
+...     ...
+>>>
+>>> open('myfile.txt', read=True, write=True, append=True)
+
+>>> def open(filename: str, mode: str):
+...     ...
+>>>
+>>> open('myfile.txt', mode='read,write')
+
 
 .. todo:: Assignments
