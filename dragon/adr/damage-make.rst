@@ -106,11 +106,7 @@ Example:
 
 Option 6
 --------
->>> dragon.damage(ENEMY)
->>> dragon.attack(ENEMY)
->>> dragon.hit(ENEMY)
->>> dragon.wound(ENEMY)
->>> dragon.make_damage(ENEMY)
+>>> dragon.make_damage(ENEMY)    # dragon --> enemy
 
 Pros and Cons:
 
@@ -121,7 +117,7 @@ Pros and Cons:
 Use Case:
 
 >>> class BankAccount:
-...     def transfer(destination_account, amount):
+...     def transfer(self, destination_account, amount):
 ...         self.withdraw(amount)
 ...         destination_account.deposit(amount)
 

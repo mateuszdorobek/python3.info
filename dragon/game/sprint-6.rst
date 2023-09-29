@@ -1,7 +1,7 @@
 Dragon Sprint 6
 ===============
 * Assignment: Dragon Sprint 6
-* Complexity: hard
+* Complexity: medium
 * Lines of code: 50 lines
 * Time: 34 min
 * Warning: Don't delete code, assignment will be continued
@@ -28,23 +28,19 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    1. W grze występuje ekwipunek:
+    1. Stwórz bohatera o nazwie "Pan Twardowski":
 
-        a. zbroja i tarcza chroni przed uderzeniami obniżając ilość
-           obrażeń o wartość obrony,
-        b. miecz zwiększa ilość zadawanych obrażeń,
+        a. punkty życia: losowo od 25 do 75
+        b. obrażenia: losowo od 1 do 12
+        c. klasa postaci: domyślnie "Warrior"
+        d. może przyjmować obrażenia
+        e. może zginąć
+        f. może poruszać się po planszy
+        g. tekstura żyjącego: ``img/twardowski/alive.png``
+        h. tekstura martwego: ``img/twardowski/dead.png``
+        i. po śmierci wyrzuca całe złoto i wyświetla ostatnią pozycję
 
-    2. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator:
-
-        a. zbroję (dodatkowe punkty obrony, np. +10%)
-        b. tarczę (dodatkowe punkty obrony, np. +5%)
-        c. miecz (dodatkowe punkty ataku, np. +5%)
-
-    3. Bohater może założyć ekwipunek:
-
-        a. można mieć tylko jedną zbroję i jeden hełm na raz
-        b. bohater dowolnej klasy może używać tylko jednego miecza i tarczy
-        c. wojownicy mogą używać dwóch mieczy, ale wtedy tarczy już nie
+    2. Przeprowadź walkę na śmierć i życie pomiędzy bohaterem a smokiem.
 
 
 Solution

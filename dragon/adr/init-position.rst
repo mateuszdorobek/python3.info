@@ -39,6 +39,8 @@ Use Case:
 >>> knn = KNearestNeighbors(3)  # ok
 >>> knn = KNearestNeighbors(3, [0.75, 0.50, 0.25])  # bad
 
+>>> pt = Point(1, 2)
+
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
 .. figure:: img/ml-knn-3.png
@@ -81,6 +83,8 @@ Use Case:
 
 >>> knn = KNearestNeighbors(k=3)  # ok
 >>> knn = KNearestNeighbors(k=3, w=[0.75, 0.50, 0.25])  # bad
+
+>>> pt = Point(x=1, y=2)
 
 
 Option 3
@@ -303,6 +307,7 @@ Pros and Cons:
 
 Use Case:
 
+>>> Point = namedtuple('Point', ['x', 'y'])
 >>> pt = Point(x=50, y=120)
 >>>
 >>> pt[0], pt[1]
@@ -372,6 +377,10 @@ Pros and Cons:
 
 Use Case:
 
+>>> class Point(TypedDict):
+...     x: int
+...     y: int
+>>>
 >>> pt = Point(x=50, y=120)
 >>>
 >>> pt['x']

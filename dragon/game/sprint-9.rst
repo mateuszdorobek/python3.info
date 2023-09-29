@@ -1,9 +1,9 @@
-Dragon Sprint 1
+Dragon Sprint 9
 ===============
-* Assignment: Dragon Sprint 1
-* Complexity: easy
-* Lines of code: 3 lines
-* Time: 13 min
+* Assignment: Dragon Sprint 9
+* Complexity: hard
+* Lines of code: 50 lines
+* Time: 34 min
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -13,17 +13,7 @@ Dragon Sprint 1
 
 English
 -------
-Non-functional requirements:
-
-     1. Commit and push the current state of the repository
-     2. Modify the game code from the previous version of the task
-     3. Save the code to solve the task in the ``dragon`` directory
-     4. When finished, add all files from ``dragon`` to the repository
-     5. Commit and push changes to a central repository (Github)
-
-Functional requirements:
-
-    1. Create dragon named "Wawelski"
+.. todo:: English Translation
 
 
 Polish
@@ -38,11 +28,17 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    1. Stwórz smoka o nazwie "Wawelski"
+    1. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów
+       od przeciwnika
+
+    2. Obrażenia smoka (zianie ogniem) maleją z sześcianem odległości
+
+    3. Wszystkie istoty mogą levelować a bazowe punty życia i obrażeń się
+       zmieniają z poziomem
 
 
 Solution
 --------
 * EN: Note, that this will spoil your fun and learning
 * PL: Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_1.py>`
+* :download:`Solution <assignments/dragon_sprint_9.py>`

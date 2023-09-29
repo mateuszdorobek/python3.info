@@ -2,8 +2,8 @@ Dragon Sprint 5
 ===============
 * Assignment: Dragon Sprint 5
 * Complexity: medium
-* Lines of code: 50 lines
-* Time: 34 min
+* Lines of code: 20 lines
+* Time: 21 min
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -28,19 +28,24 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    1. Stwórz bohatera o nazwie "Pan Twardowski":
+    1. Dodaj statusy, które są aktualizowane na podstawie życia:
 
-        a. punkty życia: losowo od 25 do 75
-        b. obrażenia: losowo od 1 do 12
-        c. klasa postaci: domyślnie "Warrior"
-        d. może przyjmować obrażenia
-        e. może zginąć
-        f. może poruszać się po planszy
-        g. tekstura żyjącego: ``img/twardowski/alive.png``
-        h. tekstura martwego: ``img/twardowski/dead.png``
-        i. po śmierci wyrzuca całe złoto i wyświetla ostatnią pozycję
+        a. "Full Health" - gdy punkty życia 100%
+        b. "Injured" - gdy punkty życia 99% - 75%
+        c. "Badly Wounded" - gdy punkty życia 74% - 25%
+        d. "Near Death" - gdy punkty życia 24% - 1%
+        e. "Dead" - gdy punkty życia poniżej lub równe 0%
 
-    2. Przeprowadź walkę na śmierć i życie pomiędzy bohaterem a smokiem.
+    2. Dodaj tekstury, które są aktualizowane na podstawie życia:
+
+        a. tekstura żyjącego: ``img/dragon/alive.png``
+        b. tekstura martwego: ``img/dragon/dead.png``
+
+    3. Kiedy punkty życia spadną do lub poniżej zera:
+
+        a. istocie nie można zadawać więcej obrażeń
+        b. istota nie może zadawać obrażeń
+        c. istota nie może się poruszać
 
 
 Solution

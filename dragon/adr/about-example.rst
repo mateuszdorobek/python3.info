@@ -34,9 +34,7 @@ Considerations
 --------------
 * FastAPI
 * Flask
-* Django
-* Django + Ninja
-* Django + RESTFramework
+* Django (+Ninja)
 
 
 Option 1 - FastAPI
@@ -50,6 +48,7 @@ Option 1 - FastAPI
 * Bad: No ORM
 * Bad: No DB schema migration
 * Bad: No Admin
+* Decision: rejected, no ORM
 
 
 Option 2 - Flask
@@ -63,42 +62,19 @@ Option 2 - Flask
 * Bad: No Async
 * Bad: No Admin
 * Bad: No API documentation auto-generation
+* Decision: rejected, no schema migration
 
 
-Option 3 - Django
------------------
-* Good: Easy / Intermediate
-* Good: Worldwide adoption (example: Instagram)
-* Good: Community support
-* Good: Fast onboarding
-* Good: Async
-* Good: ORM
-* Good: DB schema migration
-* Good: Admin
-* Good: Mature project
-* Bad: No API documentation auto-generation
-
-
-Option 4 - Django + Ninja
+Option 3 - Django + Ninja
 -------------------------
 * Good: Easy / Intermediate
 * Good: Async
 * Good: ORM
 * Good: DB schema migration
 * Good: Admin
-* Good: API documentation generation
-* Good: FastAPI style views (API first)
-* Bad: Small adoption, but growing
-* Bad: New project
-
-
-Option 5 - Django + RESTFramework
----------------------------------
-* Good: ORM
-* Good: DB schema migration
-* Good: Admin
-* Good: Own documentation generation
-* Bad: No Async
+* Good: API documentation generation (Ninja)
+* Good: FastAPI style views (Ninja)
+* Decision: accepted
 
 
 Decision
@@ -109,7 +85,7 @@ Django framework is a first class citizen and well known framework in
 Python community. Ninja adds Fast-API style views to Django and automatically
 generates documentation in OpenAPI format. Django has ORM, database schema
 migration and admin panel. Django supports asynchronous code. Good community
-support big players included (Instagram).
+support big players included (Instagram, Youtube).
 
 
 References

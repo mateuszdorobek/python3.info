@@ -28,7 +28,58 @@ Pros and Cons:
 
 Option 2
 --------
->>> dragon.``wound``(DMG)       # dragon  -> enemy
+>>> dragon.set_health(DMG)
+
+Pros and Cons:
+
+* Good: easy to use
+* Good: clear intent
+* Good: encapsulation
+* Bad: the name indicates a setter of a ``health`` attribute
+* Bad: not Pythonic way
+* Decision: rejected, method name indicates something else
+
+
+Option 3
+--------
+>>> dragon.change_health(DELTA_HEALTH)
+
+Pros and Cons:
+
+* Good: easy to use
+* Good: clear intent
+* Good: encapsulation
+* Bad: the name indicates a setter of a ``health`` attribute
+* Bad: not Pythonic way
+* Decision: rejected, method name indicates something else
+
+Example:
+
+>>> dragon.change_health(-10)  # Make 10 points damage to the dragon
+>>> dragon.change_health(-5)  # Make 5 points damage to the dragon
+>>> dragon.change_health(-3)  # Make 3 points damage to the dragon
+>>> dragon.change_health(-2)  # Make 2 points damage to the dragon
+>>> dragon.change_health(-15)  # Make 15 points damage to the dragon
+>>> dragon.change_health(-25)  # Make 25 points damage to the dragon
+>>> dragon.change_health(-75)  # Make 75 points damage to the dragon
+
+Problem:
+
+>>> dmg = hero.make_damage()
+>>> result = dragon.health - dmg
+>>>
+>>> dragon.change_health(result)
+
+Use Case:
+
+>>> file.change_content('hello world')
+
+.. figure:: img/designpatterns-telldontask-1.png
+
+
+Option 4
+--------
+>>> dragon.wound(DMG)       # dragon  -> enemy
 >>> dragon.hurt(DMG)        # dragon <-  enemy
 >>> dragon.hit(DMG)         # dragon <-> enemy
 >>> dragon.damage(DMG)      # dragon  -> enemy
@@ -53,9 +104,10 @@ Rationale:
     dragon <-- enemy
 
 
-Option 3
+Option 5
 --------
 >>> dragon.hurt_self(DMG)
+>>> dragon.hurt_me(DMG)
 >>> dragon.receive_damage(DMG)
 >>> dragon.suffer_damage(DMG)
 
@@ -78,7 +130,7 @@ Example:
 >>> barrel.receive_damage(DMG)
 
 
-Option 4
+Option 6
 --------
 >>> dragon.take_damage(DMG)
 
@@ -95,7 +147,7 @@ Example:
 >>> barrel.take_damage(DMG)
 
 
-Option 5
+Option 7
 --------
 >>> dragon.health - DMG
 >>> dragon.health -= DMG
@@ -109,7 +161,7 @@ Pros and Cons:
 * Decision: rejected, violates encapsulation
 
 
-Option 6
+Option 8
 --------
 >>> dragon.health - Damage(20)
 >>> dragon.health -= Damage(20)
@@ -123,7 +175,7 @@ Pros and Cons:
 * Decision: rejected, violates encapsulation
 
 
-Option 7
+Option 9
 --------
 >>> dragon - DMG
 >>> dragon -= DMG
@@ -136,8 +188,8 @@ Pros and Cons:
 * Decision: rejected, not explicit and requires knowledge of API
 
 
-Option 8
---------
+Option 10
+---------
 >>> dragon - Damage(20)
 >>> dragon -= Damage(20)
 
@@ -149,8 +201,8 @@ Pros and Cons:
 * Decision: rejected, not explicit and requires knowledge of API
 
 
-Option 9
---------
+Option 11
+---------
 >>> dragon < Damage(20)
 >>> dragon <= Damage(20)
 >>> dragon << Damage(20)

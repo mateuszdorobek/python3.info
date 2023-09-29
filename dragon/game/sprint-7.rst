@@ -28,14 +28,23 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    1. Bohater może należeć do drużyny składającej się maksymalnie z 6 postaci
+    1. W grze występuje ekwipunek:
 
-        a. Mag: punkty życia: 10-20, złoto: 20-40, obrażenia: 1-4
-        b. Kapłan: punkty życia: 30-40, złoto: 30-40, obrażenia: 1-6
-        c. Łowca: punkty życia: 40-50, złoto: 10-40, obrażenia: 1-8
-        d. Wojownik: punkty życia: 10-50, złoto: 10-20, obrażenia: 1-12
-        e. Łotrzyk: punkty życia: 20-30, złoto: 0-50, obrażenia: 1-6
-        f. Druid: punkty życia: 30-40, złoto: 0, obrażenia: 1-6
+        a. zbroja i tarcza chroni przed uderzeniami obniżając ilość
+           obrażeń o wartość obrony,
+        b. miecz zwiększa ilość zadawanych obrażeń,
+
+    2. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator:
+
+        a. zbroję (dodatkowe punkty obrony, np. +10%)
+        b. tarczę (dodatkowe punkty obrony, np. +5%)
+        c. miecz (dodatkowe punkty ataku, np. +5%)
+
+    3. Bohater może założyć ekwipunek:
+
+        a. można mieć tylko jedną zbroję i jeden hełm na raz
+        b. bohater dowolnej klasy może używać tylko jednego miecza i tarczy
+        c. wojownicy mogą używać dwóch mieczy, ale wtedy tarczy już nie
 
 
 Solution

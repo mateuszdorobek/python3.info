@@ -13,6 +13,7 @@ Game
     game/sprint-6.rst
     game/sprint-7.rst
     game/sprint-8.rst
+    game/sprint-9.rst
 
 
 ADR

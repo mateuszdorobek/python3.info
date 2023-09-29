@@ -191,14 +191,14 @@ Pros and Cons:
 
 Consequences:
 
->>> dragon.move(0, 10, 0, -20)  # bad
->>> dragon.move(0, 10, 0, -20, 0, 30)  # bad
+>>> dragon.move(0, 10, 0, 20)  # bad
+>>> dragon.move(0, 10, 0, 20, 0, 30)  # bad
 
 >>> dragon.move([
-...     (0, 10, 0, -20),
-...     (0, 10, 0, -20, 0, 30),
-...     (0, 10, 0, -20),
-...     (0, 10, 0, -20, 0, 30),
+...     (0, 10, 0, 20),
+...     (0, 10, 0, 20, 0, 30),
+...     (0, 10, 0, 20),
+...     (0, 10, 0, 20, 0, 30),
 ... ])
 
 Use Case:
@@ -443,6 +443,7 @@ Consequences:
 
 Use Case:
 
+>>> read_csv('iris.csv', ';', 'utf-8', True)
 >>> read_csv('iris.csv', delimiter=';', encoding='utf-8', verbose=True)
 
 >>> user.login_username('mwatney')
@@ -639,6 +640,12 @@ Use Case:
 
 >>> path = calculate_path(from_point, to_point)
 >>> dragon.move(path)
+
+>>> request.get('https://python3.info', traceroute=[
+...     '10.13.37.1',
+...     '212.77.100.101',
+...     '162.13.37.1',
+... ])
 
 
 Option 17

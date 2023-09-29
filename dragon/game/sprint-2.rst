@@ -2,8 +2,8 @@ Dragon Sprint 2
 ===============
 * Assignment: Dragon Sprint 2
 * Complexity: easy
-* Lines of code: 20 lines
-* Time: 21 min
+* Lines of code: 11 lines
+* Time: 34 min
 * Warning: Don't delete code, assignment will be continued
 
 .. figure:: img/dragon.gif
@@ -23,33 +23,27 @@ Non-functional requirements:
 
 Functional requirements:
 
-    1. Create Dragon with:
+    1. Dragon has position on the screen
+    2. Dragon can have position set to any place on the screen
+    3. Dragon can move in any direction by specified value
+    4. Assume left-top screen corner as an initial coordinates position:
 
-        a. Name
-        b. Health points, default random ``int`` in range from 50 to 100
+        a. Going right add to ``x``
+        b. Going left subtract from ``x``
+        c. Going up subtract from ``y``
+        d. Going down add to ``y``
 
-    2. Dragon can:
-
-        a. Make damage in range from 5 to 20
-        b. Take damage
-
-    3. Run the game:
+    5. Run the game:
 
         a. Create dragon named "Wawelski"
-        b. Dragon makes damage
-        c. Make 10 points damage to the dragon
-        d. Make 5 points damage to the dragon
-        e. Make 3 points damage to the dragon
-        f. Make 2 points damage to the dragon
-        g. Make 15 points damage to the dragon
-        h. Make 25 points damage to the dragon
-        i. Make 75 points damage to the dragon
+        b. Set Dragon's initial position to x=50, y=120
+        c. Set new position to x=10, y=20
+        d. Move dragon left by 10 and down by 20
+        e. Move dragon left by 10 and right by 15
+        f. Move dragon right by 15 and up by 5
+        g. Move dragon down by 5
 
-    4. When dragon is dead:
-
-        a. Display ``Dragon NAME is dead``, where NAME is dragon's name
-        b. Display how much gold dropped (random int from 1 to 100)
-        c. Display last position (should be: x=20, y=40)
+    6. End position should be: x=20, y=40
 
 
 Polish
@@ -64,10 +58,16 @@ Wymagania niefunkcjonalne:
 
 Wymagania funkcjonalne:
 
-    1. Wykorzystaj kod z poprzedniego zadania i dopisz nową funkcjonalność
-    2. Smok ma losowe punkty życia z zakresu od 50 do 120
-    3. Smok może zadawać komuś losowe obrażenia z przedziału od 5 do 20
-    4. Smok może otrzymywać obrażenia
+    1. Smok ma pozycję na ekranie
+    2. Smok może być ustawiony w dowolne miejsce ekranu
+    3. Smok może być przesuwany w którymś z kierunków o zadaną wartość
+    4. Przyjmij górny lewy róg ekranu za punkt początkowy:
+
+        a. Idąc w prawo dodajesz ``x``
+        b. Idąc w lewo odejmujesz ``x``
+        c. Idąc w górę odejmujesz ``y``
+        d. Idąc w dół dodajesz ``y``
+
     5. Scenariusz gry:
 
         a. Stwórz smoka o nazwie "Wawelski"
@@ -77,26 +77,12 @@ Wymagania funkcjonalne:
         e. Przesuń smoka w lewo o 10 i w prawo o 15
         f. Przesuń smoka w prawo o 15 i w górę o 5
         g. Przesuń smoka w dół o 5
-        i. Smok zadaje obrażenia (5-20)
-        j. Zadaj 10 obrażeń smokowi
-        k. Zadaj 20 obrażeń smokowi
-        l. Zadaj 30 obrażeń smokowi
-        m. Zadaj 40 obrażeń smokowi
-        n. Zadaj 50 obrażeń smokowi
-
-    6. Gdy smok zginie:
-
-        a. Wyświetl ``Dragon NAME is dead``, gdzie NAME to nazwa smoka
-        b. Wyświetl ile złota wypadło (losowa liczba od 1 do 100)
-        c. Wyświetl ostatnią pozycję (powinna być: x=20, y=40)
+        h. Wyświetl pozycję (powinna być: x=20, y=40)
 
 
 Hints
 -----
-* Shortest solution has 24 lines of code
-* There are no errors in the assignment (testes on more than 300 trainings)
-* ``from random import randint``
-* ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
+* It is not a mistake: 'left by 10 and right by 15'
 
 
 Solution
