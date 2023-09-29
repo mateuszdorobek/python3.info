@@ -2,7 +2,7 @@
 * Assignment: Decorator Syntax About
 * Complexity: easy
 * Lines of code: 5 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Create decorator `mydecorator`

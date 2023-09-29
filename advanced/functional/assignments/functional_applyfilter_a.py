@@ -19,9 +19,12 @@ Polish:
        a. przyjmuje jeden argument
        b. zwraca True jeżeli argument jest nieparzysty
        c. zwraca False jeżeli argument jest parzysty
-    2. Użyj `filter()` zaaplikować funkcję `odd()` do DATA
+    2. Użyj `filter()` aby zaaplikować funkcję `odd()` do DATA
     3. Zdefiniuj `result: filter` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
+
+Hints:
+    * filter()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -52,7 +55,7 @@ DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 
 # Returns if number is odd (modulo divisible by 2 without reminder)
-# type: Callable[[int], int]
+# type: Callable[[int], bool]
 def odd(x):
     ...
 

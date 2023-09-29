@@ -21,6 +21,7 @@ Hints:
     * for fmt in FORMATS
     * helper function
     * 24-hour clock
+    * map(func, iterable1, iterable1)
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

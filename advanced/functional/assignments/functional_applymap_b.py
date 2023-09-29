@@ -14,6 +14,10 @@ Polish:
     2. Użyj `map()` oraz `datetime.fromisoformat()`
     3. Uruchom doctesty - wszystkie muszą się powieść
 
+Hints:
+    * `map()`
+    * `datetime.fromisoformat()`
+
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
@@ -42,7 +46,7 @@ DATA = [
     '1961-04-12 06:07:00',
 ]
 
-# parsed DATA
+# Define `result: map` with parsed `DATA` dates
 # type: map
 result = ...
 

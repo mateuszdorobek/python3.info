@@ -64,7 +64,7 @@ Tests:
 """
 
 from dataclasses import dataclass
-
+from itertools import starmap
 
 DATA = [
     {"firstname": "Mark", "lastname": "Watney", "addresses": [
@@ -124,17 +124,10 @@ result = ...
 
 
 # Solution
-def convert(contact: dict) -> User:
-    addresses = map(lambda x: Address(**x), contact.pop('addresses'))
-    return User(**contact, addresses=list(addresses))
+def convert(user: dict) -> User:
+    addresses = map(dict.values, user.pop('addresses'))
+    addresses = starmap(Address, addresses)
+    return User(**user, addresses=list(addresses))
+
 
 result = map(convert, DATA)
-
-
-# Alaternative Solution
-from itertools import starmap
-
-def parse(user) -> User:
-    values = map(dict.values, user.pop('addresses'))
-    addresses = starmap(Address, values)
-    return User(**user, addresses=list(addresses))

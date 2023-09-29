@@ -2,7 +2,7 @@
 * Assignment: Decorator Syntax Disable
 * Complexity: easy
 * Lines of code: 1 lines
-* Time: 5 min
+* Time: 3 min
 
 English:
     1. Modify decorator `disable`
