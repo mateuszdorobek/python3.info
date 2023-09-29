@@ -1,5 +1,5 @@
 """
-* Assignment: Idiom Zip LabelEncoder
+* Assignment: Idiom Enumerate LabelEncoder
 * Complexity: medium
 * Lines of code: 3 lines
 * Time: 5 min

@@ -1,5 +1,5 @@
 """
-* Assignment: Idioms Reduce Impl
+* Assignment: Idiom Reduce Impl
 * Complexity: medium
 * Lines of code: 4 lines
 * Time: 13 min

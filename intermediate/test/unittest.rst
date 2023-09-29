@@ -170,6 +170,13 @@ Example 11
     :caption: Example ``unittest``
 
 
+Example 12
+----------
+.. literalinclude:: src/unittest-example-12.py
+    :language: python
+    :caption: Example ``unittest``
+
+
 Mock
 ----
 * Mock and MagicMock objects create all attributes and methods as you access them and store details of how they have been used.

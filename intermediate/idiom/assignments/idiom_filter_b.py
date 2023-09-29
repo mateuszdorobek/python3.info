@@ -25,6 +25,9 @@ Polish:
 
 Hints:
     * filter()
+    * str.splitlines()
+    * str.startswith()
+    * len()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -71,7 +74,7 @@ DATA = """##
 # - line has only spaces
 # - starts with # (comment)
 # type: Callable[[str], bool]
-def valid():
+def valid(line):
     ...
 
 # Use `filter()` to apply function `valid()` to DATA

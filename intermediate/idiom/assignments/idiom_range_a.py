@@ -1,5 +1,5 @@
 """
-* Assignment: Idioms Range Impl
+* Assignment: Idiom Range Impl
 * Complexity: medium
 * Lines of code: 7 lines
 * Time: 8 min

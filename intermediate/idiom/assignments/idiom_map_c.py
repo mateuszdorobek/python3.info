@@ -2,18 +2,22 @@
 * Assignment: Idiom Map Apply
 * Required: yes
 * Complexity: easy
-* Lines of code: 1 lines
-* Time: 2 min
+* Lines of code: 3 lines
+* Time: 3 min
 
 English:
-    1. Use `map()` to apply function `str.upper()` to DATA
-    2. Do not define own function
+    1. Define function `upper()`:
+       a. takes one argument (str)
+       b. returns argument uppercased
+    2. Use `map()` to apply function `upper()` to DATA
     3. Define `result: map` with result
     4. Run doctests - all must succeed
 
 Polish:
-    1. Użyj `map()` aby zaaplikować funkcję `str.upper()` do DATA
-    2. Nie definiuj własnej funkcji
+    1. Zdefiniuj funckję `upper()`:
+       a. przyjmuje jeden argument (str)
+       b. zwraca argument dużymi literami
+    2. Użyj `map()` aby zaaplikować funkcję `upper()` do DATA
     3. Zdefiniuj `result: map` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -25,6 +29,8 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
+    >>> assert isfunction(upper), \
+    'Object `upper` must be a function'
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
 
@@ -44,9 +50,19 @@ Tests:
 
 DATA = ['a', 'b', 'c']
 
-# Use `map()` to apply function `str.upper()` to DATA
+# Define function `upper()`:
+# - takes one argument (str)
+# - returns argument uppercased
+# type: Callable[[str], [str]]
+def upper():
+    ...
+
+# Use `map()` to apply function `upper()` to DATA
 # type: map
 result = ...
 
 # Solution
-result = map(str.upper, DATA)
+def upper(x):
+    return x.upper()
+
+result = map(upper, DATA)

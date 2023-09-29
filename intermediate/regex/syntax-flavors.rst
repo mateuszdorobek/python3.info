@@ -26,27 +26,37 @@ Enclosing
 * In Python we use raw-string (``r'...'``)
 * In JavaScript we use ``/pattern/flags`` or ``new RegExp(pattern, flags)``
 
-Inline:
+Python:
 
->>> result = re.search(r'[0-9]+', 'Ares3')
+>>> string = 'hello'
+>>> string = "hello"
+>>> regex = r'[a-z]+'
+>>> regex = r"[a-z]+"
 
-.. code-block:: javascript
-
-    result = /[0-9]+/.exec('Ares3')
-
-.. code-block:: javascript
-
-    result = 'Ares3'.match(/[0-9]+/)
-
-Compilation:
-
->>> pattern = re.compile(r'[0-9]+')
->>> result = pattern.search('Ares3')
+JavaScript:
 
 .. code-block:: javascript
 
-    pattern = new RegExp('[0-9]+')
-    pattern.exec('Ares3')
+    string = "hello"
+    regex = /[a-z]+/
+    regex = new RegExp('[a-z]+)
+
+
+Flags
+-----
+* In Python we use raw-string (``r'...'``)
+* In JavaScript we use ``/pattern/flags`` or ``new RegExp(pattern, flags)``
+
+Python:
+
+>>> # doctest: +SKIP
+... re.findall(r'[a-z]+', TEXT, flags=re.I)
+... re.findall(r'[a-z]+', TEXT, flags=re.IGNORECASE)
+
+.. code-block:: javascript
+
+    /[a-z]+/i
+    new RegExp("[a-z]", 'i')
 
 
 Named Ranges

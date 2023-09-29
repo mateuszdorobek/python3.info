@@ -1,5 +1,5 @@
 """
-* Assignment: Idiom Filter Apply
+* Assignment: Idiom MapFilter Apply
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines

@@ -1,5 +1,5 @@
 """
-* Assignment: Idioms Enumerate Impl
+* Assignment: Idiom Enumerate Impl
 * Complexity: medium
 * Lines of code: 7 lines
 * Time: 13 min

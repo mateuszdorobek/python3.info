@@ -1,5 +1,5 @@
 """
-* Assignment: Idiom Reduce Chain
+* Assignment: Idiom MapFilter Chain
 * Required: yes
 * Complexity: easy
 * Lines of code: 4 lines

@@ -1,5 +1,5 @@
 """
-* Assignment: Idioms Zip Impl
+* Assignment: Idiom Zip Impl
 * Complexity: medium
 * Lines of code: 8 lines
 * Time: 13 min

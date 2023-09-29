@@ -17,6 +17,8 @@ Polish:
 
 Hints:
     * filter()
+    * isinstance()
+    * type()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

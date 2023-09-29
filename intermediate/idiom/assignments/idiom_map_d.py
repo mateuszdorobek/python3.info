@@ -1,24 +1,29 @@
 """
-* Assignment: Datetime ISO List
-* Complexity: medium
+* Assignment: Idiom Map Apply
+* Required: yes
+* Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min
 
 English:
-    1. Define `result: map` with parsed `DATA` dates
-    2. Run doctests - all must succeed
+    1. Use `map()` to apply function `str.upper()` to DATA
+    2. Do not define own function
+    3. Define `result: map` with result
+    4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj `result: map` ze sparsowanymi datami `DATA`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    1. Użyj `map()` aby zaaplikować funkcję `str.upper()` do DATA
+    2. Nie definiuj własnej funkcji
+    3. Zdefiniuj `result: map` z wynikiem
+    4. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * `map()`
-    * `datetime.fromisoformat()`
+    * map()
+    * str.upper()
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from pprint import pprint
+    >>> from inspect import isfunction
 
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
@@ -28,26 +33,20 @@ Tests:
 
     >>> result = list(result)
     >>> assert type(result) is list, \
-    'Variable `result` has invalid type, must be a list'
+    'Evaluated `result` has invalid type, should be list'
 
-    >>> assert all(type(element) is datetime for element in result), \
-    'All elements in `result` must be a datetime'
+    >>> assert all(type(x) is str for x in result), \
+    'All rows in `result` should be str'
 
-    >>> pprint(result, width=30)
-    [datetime.datetime(1961, 4, 12, 6, 7),
-     datetime.datetime(1961, 4, 12, 6, 7)]
+    >>> result
+    ['A', 'B', 'C']
 """
 
-from datetime import datetime
+DATA = ['a', 'b', 'c']
 
-DATA = [
-    '1961-04-12 06:07',
-    '1961-04-12 06:07:00',
-]
-
-# Define `result: map` with parsed `DATA` dates
+# Use `map()` to apply function `str.upper()` to DATA
 # type: map
 result = ...
 
 # Solution
-result = map(datetime.fromisoformat, DATA)
+result = map(str.upper, DATA)

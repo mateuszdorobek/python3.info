@@ -1,37 +1,41 @@
 """
-* Assignment: Idiom Filter Apply
-* Required: yes
+* Assignment: Idiom Map ReadTypeCast
 * Complexity: easy
-* Lines of code: 7 lines
+* Lines of code: 6 lines
 * Time: 8 min
 
 English:
-    1. Filter-out lines from `DATA` when:
-        a. line is empty
-        b. line has only spaces
-        c. starts with # (comment)
-    2. Use `filter()` to apply function `valid()` to DATA
-    3. Define `result: filter` with result
-    4. Run doctests - all must succeed
+    1. Define `class_labels: list[str]` from header (species names)
+    2. Define `label_encoder: dict[int,str]` converting `class_labels`
+       (species name index is the last digit in the line)
+    3. Define function `parse(str) -> list[tuple]`
+    4. Define `result: map` with function `parse()` applied to `DATA`
+    5. Convert numeric values to `float`
+    6. Run doctests - all must succeed
 
 Polish:
-    1. Odfiltruj linie z `DATA` gdy:
-        a. linia jest pusta
-        b. linia ma tylko spacje
-        c. zaczyna się od # (komentarz)
-    2. Użyj `filter()` aby zaaplikować funkcję `valid()` do DATA
-    3. Zdefiniuj `result: filter` z wynikiem
-    4. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj `class_labels: list[str]` z nagłówka (nazwy gatunków)
+    2. Zdefiniuj `label_encoder: dict[int,str]` przekształcając `class_labels`
+       (indeks nazwy gatunku to ostatnia cyfra w linii)
+    3. Zdefiniuj funckję `parse(str) -> list[tuple]`
+    4. Zdefiniuj `result: map` z funkcją `parse()` zaaplikowaną do `DATA`
+    5. Przekonwertuj wartości numeryczne do `float`
+    6. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:
-    * filter()
+    * `str.splitlines()`
+    * `str.strip()`
+    * `str.split()`
+    * `result, *others = 1, 2, 3, 4`
+    * `dict()`
+    * `enumerate()`
+    * `map()`
+    * `float()`
+    * `('hello',)` - one element tuple
+    * `(1, 2, 3) + ('hello',)` - adding tuples
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
-    >>> from inspect import isfunction
-
-    >>> assert isfunction(parse), \
-    'Object `parse` must be a function'
 
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
@@ -39,26 +43,27 @@ Tests:
     >>> assert type(result) is map, \
     'Variable `result` has invalid type, should be map'
 
-    >>> result = list(result)
+    >>> result = list(result)  # expand map object
     >>> assert type(result) is list, \
-    'Evaluated `result` has invalid type, should be list'
+    'Variable `result` has invalid type, should be list'
 
-    >>> assert all(type(x) is dict for x in result), \
-    'All rows in `result` should be dict'
+    >>> assert all(type(x) is tuple for x in result), \
+    'All rows in `result` should be tuple'
 
-    >>> list(result)  # doctest: +NORMALIZE_WHITESPACE
-    [{'ip': '127.0.0.1', 'hosts': ['localhost']},
-     {'ip': '127.0.0.1', 'hosts': ['astromatt']},
-     {'ip': '10.13.37.1', 'hosts': ['nasa.gov', 'esa.int']},
-     {'ip': '255.255.255.255', 'hosts': ['broadcasthost']},
-     {'ip': '::1', 'hosts': ['localhost']}]
+    >>> result  # doctest: +NORMALIZE_WHITESPACE
+    [(5.8, 2.7, 5.1, 1.9, 'virginica'),
+     (5.1, 3.5, 1.4, 0.2, 'setosa'),
+     (5.7, 2.8, 4.1, 1.3, 'versicolor')]
 """
 
-DATA = """127.0.0.1       localhost
-127.0.0.1       astromatt
-10.13.37.1      nasa.gov esa.int
-255.255.255.255 broadcasthost
-::1             localhost"""
+DATA = """3,4,setosa,virginica,versicolor
+5.8,2.7,5.1,1.9,1
+5.1,3.5,1.4,0.2,0
+5.7,2.8,4.1,1.3,2"""
+
+header, *lines = DATA.splitlines()
+nrows, nfeatures, *class_labels = header.strip().split(',')
+label_encoder = dict(enumerate(class_labels))
 
 def parse(line):
     ...
@@ -66,9 +71,10 @@ def parse(line):
 result = ...
 
 # Solution
-def parse(line):
-    ip, *hosts = line.split()
-    return {'ip':ip, 'hosts':hosts}
+def parse(line: str) -> tuple[float,float,float,float,str]:
+    *values, species = line.split(',')
+    values = map(float, values)
+    species = label_encoder[int(species)]
+    return tuple(values) + (species,)
 
-
-result = map(parse, DATA.splitlines())
+result = map(parse, lines)

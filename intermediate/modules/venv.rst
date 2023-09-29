@@ -152,7 +152,7 @@ Directory Naming Convention
 
 .. code-block:: text
 
-    venv  # may be confused with `venv` Python module, mind: `sys.path`
+    venv  # may be confused with ``venv`` Python module, mind: ``sys.path``
     venv-py
     venv-py310
     venv-py311
@@ -165,8 +165,8 @@ Directory Naming Convention
     venv-py311-dj50a1
     venv-py311-dj50b1
     venv-py311-dj50rc1
-    venv-py311-np124-pd15
-    venv-py311-np124-pd20
+    venv-py311-np126-pd15
+    venv-py311-np126-pd21
 
 
 Good Practices

@@ -67,10 +67,9 @@ matrix = ...
 result = ...
 
 # Solution
-result = 0
+matrix = [[randint(0, 9) for column in COLS] for row in ROWS]
 
-matrix = [[randint(0,9) for y in ROWS]
-          for x in COLS]
 
-for row in matrix[6:-6]:
-    result += sum(row[6:-6])
+# sum of inner 4x4 elements
+# type: int
+result = sum(sum(row[6:-6]) for row in matrix[6:-6])

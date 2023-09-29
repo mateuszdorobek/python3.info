@@ -3,21 +3,21 @@
 * Required: yes
 * Complexity: easy
 * Lines of code: 3 lines
-* Time: 3 min
+* Time: 2 min
 
 English:
-    1. Define function `upper()`:
-       a. takes one argument (str)
-       b. returns argument uppercased
-    2. Use `map()` to apply function `upper()` to DATA
+    1. Define function `cube()`:
+       a. takes one argument
+       b. returns its argument cubed (raised to the power of 3)
+    2. Use `map()` to apply function `cube()` to DATA
     3. Define `result: map` with result
     4. Run doctests - all must succeed
 
 Polish:
-    1. Zdefiniuj funckję `upper()`:
-       a. przyjmuje jeden argument (str)
-       b. zwraca argument dużymi literami
-    2. Użyj `map()` aby zaaplikować funkcję `upper()` do DATA
+    1. Zdefiniuj funckję `cube()`:
+       a. przyjmuje jeden argument
+       b. zwraca argument podniesiony do sześcianu (do 3 potęgi)
+    2. Użyj `map()` aby zaaplikować funkcję `cube()` do DATA
     3. Zdefiniuj `result: map` z wynikiem
     4. Uruchom doctesty - wszystkie muszą się powieść
 
@@ -28,8 +28,8 @@ Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from inspect import isfunction
 
-    >>> assert isfunction(upper), \
-    'Object `upper` must be a function'
+    >>> assert isfunction(cube), \
+    'Object `cube` must be a function'
     >>> assert result is not Ellipsis, \
     'Assign result to variable: `result`'
 
@@ -40,28 +40,26 @@ Tests:
     >>> assert type(result) is list, \
     'Evaluated `result` has invalid type, should be list'
 
-    >>> assert all(type(x) is str for x in result), \
-    'All rows in `result` should be str'
+    >>> assert all(type(x) is int for x in result), \
+    'All rows in `result` should be int'
 
     >>> result
-    ['A', 'B', 'C']
+    [0, 1, 8, 27, 64, 125, 216, 343, 512, 729]
 """
 
-DATA = ['a', 'b', 'c']
+DATA = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 
-# Define function `upper()`:
-# - takes one argument (str)
-# - returns argument uppercased
-# type: Callable[[str], [str]]
-def upper():
+# Returns its argument cubed (raised to the power of 3)
+# type: Callable[[int], [int]]
+def cube(x):
     ...
 
-# Use `map()` to apply function `upper()` to DATA
+# Cube numbers in DATA
 # type: map
 result = ...
 
 # Solution
-def upper(x):
-    return x.upper()
+def cube(x):
+    return x ** 3
 
-result = map(upper, DATA)
+result = map(cube, DATA)
