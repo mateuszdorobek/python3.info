@@ -16,7 +16,15 @@ English:
     4. Run doctests - all must succeed
 
 Polish:
-    TODO: Polish translation
+    1. Stwórz klasę `Time` z:
+        a. `hour: int`
+        b. `minute: int`
+        c. `second: int`
+        d. `microsecond: int`
+        e. metodą `.clone()`
+     2. Metoda `.clone()` zwraca kolejny `Time` z tymi samymi wartościami
+     3. Użyj `vars(self)`
+     4. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -39,10 +47,10 @@ from dataclasses import dataclass
 
 @dataclass
 class Time:
-    hour: int
-    minute: int
-    second: int
-    microsecond: int
+    hour: int = 0
+    minute: int = 0
+    second: int = 0
+    microsecond: int = 0
 
 
 # Solution

@@ -2,7 +2,7 @@
 * Assignment: Protocol ContextManager Buffer
 * Complexity: medium
 * Lines of code: 15 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Define class attribute `BUFFER_LIMIT: int = 100` bytes

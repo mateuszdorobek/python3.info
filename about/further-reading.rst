@@ -28,6 +28,7 @@ Python Survey
 -------------
 Python Developer Survey:
 
+* https://lp.jetbrains.com/python-developers-survey-2022/
 * https://lp.jetbrains.com/python-developers-survey-2021/
 * https://www.jetbrains.com/lp/python-developers-survey-2020/
 * https://www.jetbrains.com/lp/python-developers-survey-2019/

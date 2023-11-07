@@ -2,7 +2,7 @@
 * Assignment: DesignPatterns Creational BuilderEmail
 * Complexity: easy
 * Lines of code: 15 lines
-* Time: 13 min
+* Time: 5 min
 
 English:
     1. Create class `Email`
@@ -15,7 +15,14 @@ English:
     3. Run doctests - all must succeed
 
 Polish:
-    TODO: Polish translation
+    1. Stwórz klasę `Email`
+    2. Użyj wzorca builder, aby ustawić:
+         a. `recipient: str` zweryfikuj adres e-mail za pomocą wyrażenia regularnego
+         b. `sender: str` zweryfikuj adres e-mail za pomocą wyrażenia regularnego
+         c. `subject: str` koduje do bajtów
+         d. `body: str` koduje na bajty
+         e. `attachment: bytes` zakodowane w standardzie base64
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -75,4 +82,3 @@ class Email:
     def with_attachment(self, attachment):
         self.attachment = b64encode(attachment)
         return self
-

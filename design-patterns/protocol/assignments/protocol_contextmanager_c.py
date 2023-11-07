@@ -2,7 +2,7 @@
 * Assignment: Protocol Context Manager AutoSave
 * Complexity: hard
 * Lines of code: 13 lines
-* Time: 13 min
+* Time: 8 min
 
 English:
     1. Modify class `File`

@@ -2,7 +2,7 @@
 * Assignment: Protocol ContextManager File
 * Complexity: easy
 * Lines of code: 14 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Define class `File` with parameter: `filename: str`

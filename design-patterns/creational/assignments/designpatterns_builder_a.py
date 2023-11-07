@@ -1,69 +1,76 @@
 """
-* Assignment: DesignPatterns Creational BuilderTexture
+* Assignment: DesignPatterns Creational BuilderEmail
 * Complexity: easy
-* Lines of code: 18 lines
-* Time: 8 min
+* Lines of code: 15 lines
+* Time: 5 min
 
 English:
-    1. Create class `Texture`
+    1. Create class `Email`
     2. Use builder pattern to set:
-        a. `file: Path` convert from `str`
-        b. `width: int` value greater than 0
-        c. `height: int` value greater than 0
-        d. `quality: int` from 1 to 100 percent
+        a. `recipient: str` verify email address using regex
+        b. `sender: str` verify email address using regex
+        c. `subject: str` encode to bytes
+        d. `body: str` encode to bytes
     3. Run doctests - all must succeed
 
 Polish:
-    TODO: Polish translation
+    1. Stwórz klasę `Email`
+    2. Użyj wzorca builder, aby ustawić:
+         a. `recipient: str` zweryfikuj adres e-mail za pomocą wyrażenia regularnego
+         b. `sender: str` zweryfikuj adres e-mail za pomocą wyrażenia regularnego
+         c. `subject: str` koduje do bajtów
+         d. `body: str` koduje na bajty
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
     >>> from pprint import pprint
 
     >>> result = (
-    ...     Texture()
-    ...     .with_file('img/dragon/alive.png')
-    ...     .with_height(100)
-    ...     .with_width(50)
-    ...     .with_quality(75))
-    >>>
-    >>> vars(result)
-    {'file': PosixPath('img/dragon/alive.png'), 'height': 100, 'width': 50, 'quality': 75}
-"""
-from pathlib import Path
+    ...     Email()
+    ...     .with_recipient('mwatney@nasa.gov')
+    ...     .with_sender('mlewis@nasa.gov')
+    ...     .with_subject('Hello from Mars')
+    ...     .with_body('Greetings from Red Planet')
+    ... )
 
-class Texture:
-    file: Path
-    width: int
-    height: int
-    quality: int
+    >>> pprint(vars(result), width=72, sort_dicts=False)
+    {'recipient': 'mwatney@nasa.gov',
+     'sender': 'mlewis@nasa.gov',
+     'subject': 'Hello from Mars',
+     'body': 'Greetings from Red Planet'}
+"""
+from base64 import b64encode
+
+
+class Email:
+    recipient: str
+    sender: str
+    subject: str
+    body: str
+    attachment: bytes
 
 
 # Solution
-class Texture:
-    file: Path
-    width: int
-    height: int
-    quality: int
+class Email:
+    recipient: str
+    sender: str
+    subject: str
+    body: str
+    attachment: bytes
 
-    def with_file(self, file):
-        self.file = Path(file)
+    def with_recipient(self, recipient):
+        self.recipient = recipient
         return self
 
-    def with_width(self, width):
-        if width < 0:
-            raise ValueError
-        self.width = width
+    def with_sender(self, sender):
+        self.sender = sender
         return self
 
-    def with_height(self, height):
-        if height < 0:
-            raise ValueError
-        self.height = height
+    def with_subject(self, subject):
+        self.subject = subject
         return self
 
-    def with_quality(self, quality):
-        if not 1 <= quality < 100:
-            raise ValueError
-        self.quality = quality
+    def with_body(self, body):
+        self.body = body
         return self

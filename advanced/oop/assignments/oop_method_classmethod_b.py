@@ -43,7 +43,7 @@ Tests:
     >>> assert isclass(Virginica)
 
     >>> data = '5.8,2.7,5.1,1.9,virginica'
-    >>> virginica = Iris.from_csv(data)
+    >>> virginica = Virginica.from_csv(data)
     >>> assert type(virginica.sepal_length) is float
     >>> assert type(virginica.sepal_width) is float
     >>> assert type(virginica.petal_length) is float
@@ -56,7 +56,7 @@ Tests:
     >>> assert virginica.species == 'virginica'
 
     >>> data = '5.1,3.5,1.4,0.2,setosa'
-    >>> setosa = Iris.from_csv(data)
+    >>> setosa = Setosa.from_csv(data)
     >>> assert type(setosa.sepal_length) is float
     >>> assert type(setosa.sepal_width) is float
     >>> assert type(setosa.petal_length) is float
@@ -69,7 +69,7 @@ Tests:
     >>> assert setosa.species == 'setosa'
 
     >>> data = '5.7,2.8,4.1,1.3,versicolor'
-    >>> versicolor = Iris.from_csv(data)
+    >>> versicolor = Versicolor.from_csv(data)
     >>> assert type(versicolor.sepal_length) is float
     >>> assert type(versicolor.sepal_width) is float
     >>> assert type(versicolor.petal_length) is float
