@@ -1,23 +1,33 @@
 """
 Dragon game
 ===========
+>>> from dragon import Dragon  # doctest: +SKIP
+>>> import sys; sys.tracebacklimit = 0
+>>> assert sys.version_info >= (3,11), 'Python 3.11+ required'
+
 Stwórz smoka o nazwie "Wawelski"
 Ustaw inicjalną pozycję smoka na x=1, y=2
+
 >>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
 
 Ustaw nową pozycję na x=10, y=20
+
 >>> dragon.set_position(x=10, y=20)
 
 Przesuń smoka w lewo o 10 i w dół o 20
+
 >>> dragon.move(left=10, down=20)
 
 Przesuń smoka w lewo o 10 i w prawo o 15
+
 >>> dragon.move(left=10, down=20)
 
 Przesuń smoka w prawo o 15 i w górę o 5
+
 >>> dragon.move(left=10, down=20)
 
 Przesuń smoka w dół o 5
+
 >>> dragon.move(left=10, down=20)
 """
 from unittest import TestCase

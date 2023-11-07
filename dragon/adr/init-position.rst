@@ -594,11 +594,14 @@ Pros and Cons:
 * Good: simple
 * Good: explicit
 * Good: verbose
-* Good: extensible
+* Good: extensible to 3D
 
 Implementation:
 
 >>> class Dragon:
+...     position_x: int
+...     position_y: int
+...
 ...     def __init__(name: str, /, *, position_x: int, position_y: int) -> None:
 ...         ...
 
@@ -616,5 +619,7 @@ Future
 Implementation:
 
 >>> class Dragon:
+...     position: Position
+...
 ...     def __init__(name: str, /, *, position: Position) -> None:
 ...         ...

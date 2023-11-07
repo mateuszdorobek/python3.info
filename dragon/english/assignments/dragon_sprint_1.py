@@ -1,7 +1,12 @@
 """
 Dragon game
 ===========
+>>> from dragon import Dragon  # doctest: +SKIP
+>>> import sys; sys.tracebacklimit = 0
+>>> assert sys.version_info >= (3,11), 'Python 3.11+ required'
+
 Stwórz smoka o nazwie "Wawelski"
+
 >>> dragon = Dragon('Wawelski')
 """
 from unittest import TestCase

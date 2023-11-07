@@ -41,4 +41,6 @@ Pros and Cons:
 Implementation:
 
 >>> class Dragon:
+...     name: str
+...
 ...     def __init__(self, name: str, /) -> None: ...

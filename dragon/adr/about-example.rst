@@ -74,6 +74,7 @@ Option 3 - Django + Ninja
 * Good: Admin
 * Good: API documentation generation (Ninja)
 * Good: FastAPI style views (Ninja)
+* Bad: More complex than FastAPI and Flask
 * Decision: accepted
 
 
@@ -82,7 +83,7 @@ Decision
 * Django + Ninja
 
 Django framework is a first class citizen and well known framework in
-Python community. Ninja adds Fast-API style views to Django and automatically
+Python community. Ninja adds FastAPI style views to Django and automatically
 generates documentation in OpenAPI format. Django has ORM, database schema
 migration and admin panel. Django supports asynchronous code. Good community
 support big players included (Instagram, Youtube).

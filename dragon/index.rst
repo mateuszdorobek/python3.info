@@ -1,19 +1,42 @@
-Game
-****
+English
+*******
 .. toctree::
     :maxdepth: 1
-    :caption: Game
+    :caption: English
 
-    game/about.rst
-    game/sprint-1.rst
-    game/sprint-2.rst
-    game/sprint-3.rst
-    game/sprint-4.rst
-    game/sprint-5.rst
-    game/sprint-6.rst
-    game/sprint-7.rst
-    game/sprint-8.rst
-    game/sprint-9.rst
+    english/agenda.rst
+    english/about.rst
+    english/sprint-1.rst
+    english/sprint-2.rst
+    english/sprint-3.rst
+    english/sprint-4.rst
+    english/sprint-5.rst
+    english/sprint-6.rst
+    english/sprint-7.rst
+    english/sprint-8.rst
+    english/sprint-9.rst
+    english/sprint-10.rst
+
+
+Polish
+******
+.. toctree::
+    :maxdepth: 1
+    :caption: Polish
+
+    polish/agenda.rst
+    polish/about.rst
+    polish/sprint-1.rst
+    polish/sprint-2.rst
+    polish/sprint-3.rst
+    polish/sprint-4.rst
+    polish/sprint-5.rst
+    polish/sprint-6.rst
+    polish/sprint-7.rst
+    polish/sprint-8.rst
+    polish/sprint-9.rst
+    polish/sprint-10.rst
+
 
 
 ADR

@@ -4,12 +4,10 @@
 ADR Dragon Damage Take
 ======================
 * Make 10 points damage to the dragon
-* Make 5 points damage to the dragon
-* Make 3 points damage to the dragon
-* Make 2 points damage to the dragon
-* Make 15 points damage to the dragon
-* Make 25 points damage to the dragon
-* Make 75 points damage to the dragon
+* Make 20 points damage to the dragon
+* Make 30 points damage to the dragon
+* Make 40 points damage to the dragon
+* Make 50 points damage to the dragon
 
 
 Option 1
@@ -39,30 +37,6 @@ Pros and Cons:
 * Bad: not Pythonic way
 * Decision: rejected, method name indicates something else
 
-
-Option 3
---------
->>> dragon.change_health(DELTA_HEALTH)
-
-Pros and Cons:
-
-* Good: easy to use
-* Good: clear intent
-* Good: encapsulation
-* Bad: the name indicates a setter of a ``health`` attribute
-* Bad: not Pythonic way
-* Decision: rejected, method name indicates something else
-
-Example:
-
->>> dragon.change_health(-10)  # Make 10 points damage to the dragon
->>> dragon.change_health(-5)  # Make 5 points damage to the dragon
->>> dragon.change_health(-3)  # Make 3 points damage to the dragon
->>> dragon.change_health(-2)  # Make 2 points damage to the dragon
->>> dragon.change_health(-15)  # Make 15 points damage to the dragon
->>> dragon.change_health(-25)  # Make 25 points damage to the dragon
->>> dragon.change_health(-75)  # Make 75 points damage to the dragon
-
 Problem:
 
 >>> dmg = hero.make_damage()
@@ -75,6 +49,25 @@ Use Case:
 >>> file.change_content('hello world')
 
 .. figure:: img/designpatterns-telldontask-1.png
+
+
+Option 3
+--------
+>>> dragon.change_health(-10)
+>>> dragon.change_health(-20)
+>>> dragon.change_health(-30)
+>>> dragon.change_health(-40)
+>>> dragon.change_health(-50)
+
+Pros and Cons:
+
+* Good: easy to use
+* Good: clear intent
+* Good: encapsulation
+* Bad: the name indicates a setter of a ``health`` attribute
+* Bad: abstraction
+* Bad: not Pythonic way
+* Decision: rejected, method name indicates something else
 
 
 Option 4
