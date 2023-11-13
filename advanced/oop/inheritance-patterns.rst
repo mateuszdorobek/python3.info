@@ -417,6 +417,213 @@ Use Case - 0x07
 ...     ]
 
 
+Use Case - 0x08
+---------------
+>>> import json
+>>> import pickle
+>>>
+>>>
+>>> class User:
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+...
+...     def to_json(self):
+...         data = vars(self)
+...         return json.dumps(data)
+...
+...     def to_pickle(self):
+...         return pickle.dumps(self)
+...
+...     def to_csv(self):
+...         values = tuple(vars(self).values())
+...         return ','.join(values) + '\n'
+
+>>> mark = User('Mark', 'Watney')
+>>>
+>>> mark.to_json()
+'{"firstname": "Mark", "lastname": "Watney"}'
+>>>
+>>> mark.to_pickle()  # doctest: +SKIP
+b'\x80\x04\x95D\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\x04User\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
+>>>
+>>> mark.to_csv()
+'Mark,Watney\n'
+
+
+Use Case - 0x09
+---------------
+>>> import json
+>>> import pickle
+>>>
+>>>
+>>> class Serializable:
+...     def to_json(self):
+...         data = vars(self)
+...         return json.dumps(data)
+...
+...     def to_pickle(self):
+...         return pickle.dumps(self)
+...
+...     def to_csv(self):
+...         values = tuple(vars(self).values())
+...         return ','.join(values) + '\n'
+
+>>> class User(Serializable):
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+>>>
+>>>
+>>> class Admin(Serializable):
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+>>>
+>>>
+>>> class Group(Serializable):
+...     def __init__(self, members):
+...         self.members = members
+...
+...     def to_csv(self):
+...         raise NotImplementedError
+
+>>> mark = User('Mark', 'Watney')
+>>>
+>>> mark.to_json()
+'{"firstname": "Mark", "lastname": "Watney"}'
+>>>
+>>> mark.to_pickle()  # doctest: +SKIP
+b'\x80\x04\x95D\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\x04User\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
+>>>
+>>> mark.to_csv()
+'Mark,Watney\n'
+
+
+Use Case - 0x0A
+---------------
+>>> import json
+>>> import pickle
+>>>
+>>>
+>>> class JSONSerializable:
+...     def to_json(self):
+...         data = vars(self)
+...         return json.dumps(data)
+>>>
+>>> class PickleSerializable:
+...     def to_pickle(self):
+...         return pickle.dumps(self)
+>>>
+>>> class CSVSerializable:
+...     def to_csv(self):
+...         values = tuple(vars(self).values())
+...         return ','.join(values) + '\n'
+
+>>> class User(JSONSerializable, PickleSerializable, CSVSerializable):
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+>>>
+>>>
+>>> class Admin(JSONSerializable, PickleSerializable, CSVSerializable):
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+>>>
+>>>
+>>> class Group(JSONSerializable, PickleSerializable):
+...     def __init__(self, members):
+...         self.members = members
+
+>>> mark = User('Mark', 'Watney')
+>>>
+>>> mark.to_json()
+'{"firstname": "Mark", "lastname": "Watney"}'
+>>>
+>>> mark.to_pickle()  # doctest: +SKIP
+b'\x80\x04\x95D\x00\x00\x00\x00\x00\x00\x00\x8c\x08__main__\x94\x8c\x04User\x94\x93\x94)\x81\x94}\x94(\x8c\tfirstname\x94\x8c\x04Mark\x94\x8c\x08lastname\x94\x8c\x06Watney\x94ub.'
+>>>
+>>> mark.to_csv()
+'Mark,Watney\n'
+
+
+Use Case - 0x0B
+---------------
+>>> import json
+>>> import pickle
+>>> from typing import Type
+>>>
+>>>
+>>> class JSONSerializer:
+...     @staticmethod
+...     def to_json(instance):
+...         fields = {k:v for k,v in vars(instance).items() if not k.startswith('_')}
+...         return json.dumps(fields)
+>>>
+>>> class PickleSerializer:
+...     @staticmethod
+...     def to_pickle(instance):
+...         fields = {k:v for k,v in vars(instance).items() if not k.startswith('_')}
+...         return pickle.dumps(fields)
+>>>
+>>> class CSVSerializer:
+...     @staticmethod
+...     def to_csv(instance):
+...         fields = {k:v for k,v in vars(instance).items() if not k.startswith('_')}
+...         values = tuple(fields.values())
+...         return ','.join(values) + '\n'
+>>>
+>>>
+>>> class Serializable:
+...     _json_serializer: Type[JSONSerializer] | None = None
+...     _pickle_serializer: Type[PickleSerializer] | None = None
+...     _csv_serializer: Type[CSVSerializer] | None = None
+...
+...     def to_json(self, cls=_json_serializer):
+...         if cls is not None:
+...             return cls.to_json(self)
+...
+...     def to_pickle(self, cls=_pickle_serializer):
+...         if cls is not None:
+...             return cls.to_pickle(self)
+...
+...     def to_csv(self, cls=_csv_serializer):
+...         if cls is not None:
+...             return cls.to_csv(self)
+
+Groups are not CSV serializable:
+
+>>> class Group(Serializable):
+...     _json_serializer = JSONSerializer
+...     _pickle_serializer = PickleSerializer
+...     _csv_serializer = None
+>>>
+>>> class User(Serializable):
+...     _json_serializer = JSONSerializer
+...     _pickle_serializer = PickleSerializer
+...     _csv_serializer = CSVSerializer
+...
+...     def __init__(self, firstname, lastname):
+...         self.firstname = firstname
+...         self.lastname = lastname
+
+Dump to JSON using default serializer:
+
+>>> mark = User('Mark', 'Watney')
+>>> mark.to_json()
+
+Dump to JSON using custom serializer:
+
+>>> class MyJSONSerializer(JSONSerializer):
+...     @staticmethod
+...     def to_json(instance):
+...         ...
+>>>
+>>> mark = User('Mark', 'Watney')
+>>> mark.to_json(cls=MyJSONSerializer)
+
+
 Further Reading
 ---------------
 * https://github.com/django/django/blob/main/django/views/generic/base.py

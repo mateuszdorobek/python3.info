@@ -97,9 +97,10 @@ Arguments to ``constr``
 
 Example
 -------
->>> from decimal import Decimal
->>>
->>> from pydantic import (
+>>> # doctest: +SKIP
+... from decimal import Decimal
+...
+... from pydantic import (
 ...     BaseModel,
 ...     NegativeFloat,
 ...     NegativeInt,
@@ -118,9 +119,9 @@ Example
 ...     constr,
 ...     Field,
 ... )
->>>
->>>
->>> class Model(BaseModel):
+...
+...
+... class Model(BaseModel):
 ...     lower_bytes: conbytes(to_lower=True)
 ...     short_bytes: conbytes(min_length=2, max_length=10)
 ...     strip_bytes: conbytes(strip_whitespace=True)

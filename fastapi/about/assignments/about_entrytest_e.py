@@ -13,8 +13,7 @@ English:
     4. Add `ip` and `hosts` to `result` as a dict, example:
        {'ip': '127.0.0.1', 'hosts': ['localhost', 'astromatt']}
     5. Each line must be a separate dict
-    6. Merge host names with the same IP (important!)
-    7. Run doctests - all must succeed
+    6. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj `result: list[dict]`, gdzie każdy dict ma klucze:
@@ -25,8 +24,7 @@ Polish:
     4. Dodaj `ip` i `hosts` do `result` jako słownik, przykład:
        {'ip': '127.0.0.1', 'hosts': ['localhost', 'astromatt']}
     5. Każda linia ma być osobnym słownikiem
-    6. Scal nazwy hostów dla tego samego IP (ważne)
-    7. Uruchom doctesty - wszystkie muszą się powieść
+    6. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
@@ -41,11 +39,10 @@ Tests:
     'Variable `result` has invalid type, should be list'
     >>> assert all(type(x) is dict for x in result), \
     'All keys in `result` should be dict'
-    >>> assert [x['ip'] for x in result].count('127.0.0.1') == 1, \
-    'You did not merge hostnames for the same ip (127.0.0.1)'
 
     >>> pprint(result, width=120, sort_dicts=False)
-    [{'ip': '127.0.0.1', 'hosts': ['localhost', 'astromatt']},
+    [{'ip': '127.0.0.1', 'hosts': ['localhost']},
+     {'ip': '127.0.0.1', 'hosts': ['astromatt']},
      {'ip': '10.13.37.1', 'hosts': ['nasa.gov', 'esa.int']},
      {'ip': '255.255.255.255', 'hosts': ['broadcasthost']},
      {'ip': '::1', 'hosts': ['localhost']}]
@@ -73,18 +70,10 @@ result = ...
 result = []
 for line in DATA.splitlines():
     line = line.strip()
-
     if len(line) == 0:
         continue
     elif line.startswith('#'):
         continue
-
     ip, *hosts = line.split()
-
-    for row in result:
-        if row['ip'] == ip:
-            row['hosts'] += hosts
-            break
-    else:
-        row = {'ip': ip, 'hosts': hosts}
-        result.append(row)
+    row = {'ip': ip, 'hosts': hosts}
+    result.append(row)

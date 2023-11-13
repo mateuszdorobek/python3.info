@@ -84,6 +84,11 @@ Optional configuration arguments:
 Open browser at ``http://127.0.0.1:8000/``
 
 
+Run Configuration
+-----------------
+.. todo:: Describe how to create "Run Configuration" in PyCharm
+
+
 Debug
 -----
 * PyCharm Run Configuration
