@@ -65,8 +65,8 @@ Whitespaces
 []
 
 
-Anchors
--------
+Word Boundary
+-------------
 * Matches the empty string, but only at the beginning or end of a word
 * ``\b`` - word boundary
 * ``\B`` - anything but word boundary
@@ -88,9 +88,12 @@ Examples:
 >>> re.findall('\b[a-z][a-z]\b', TEXT)  # without raw-string
 []
 
+>>> re.findall(r'\b[a-z][a-z]\B', TEXT)
+['fr', 'mw', 'na', 'go', 're']
 
-String
-------
+
+Word Character
+--------------
 * ``\w`` - any unicode alphabet character (lower or upper, also with diacritics (i.e. ąćęłńóśżź...), numbers and underscores
 * ``\W`` - anything but any unicode alphabet character (i.e. whitespace, dots, comas, dashes)
 * lowercase letters including diacritics (i.e. ąćęłńóśżź...) and accents

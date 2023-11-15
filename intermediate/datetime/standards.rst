@@ -52,11 +52,7 @@ Which format is a formal standard in Poland? [#wikiISO8601]_
 
 Time
 ----
-* What AM stands for?
-* What PM stands for?
 * 24 and 12 hour clock
-* Zero padded minutes, seconds and microseconds but not hours
-* Variable length microseconds
 * Confusion at noon and midnight
 
 24 and 12 hour clock:
@@ -68,43 +64,71 @@ Time
         5:00
         17:00
 
-Zero padded:
 
-    .. code-block:: text
+Zero padded
+-----------
+* Zero padded minutes, seconds and microseconds but not hours
+* Variable length microseconds
 
-        06:07
-        6:07
+.. code-block:: text
 
-        06:07:00
-        6:07:00
+    06:07       # ok
+    6:07        # ok
+    6:7         # error
 
-        6:07:00.000001
-        6:07:00.123456
-        6:07:00.123
-        6:07:00.1
+.. code-block:: text
+
+    06:07:00    # ok
+    6:07:00     # ok
+    6:07:0      # error
+    6:07:       # error
+    6:07        # ok
+
+.. code-block:: text
+
+    6:07:00.000001
+    6:07:00.123456
+    6:07:00.123
+    6:07:00.1
+
 
 Noon and Midnight
+-----------------
+* Which time is a midnight?
+* Which time is a noon?
 
-    * Which time is a midnight?
-    * Which time is a noon?
-    * Confusion at noon and midnight [#wikiNoonMidnight]_
-    * Is 12:00 a noon (in 24h format), or someone just simply forgot to put AM/PM?
+.. code-block:: text
+
+    00:00
+    12:00
+    24:00
+
+
+AM vs PM
+--------
+* What AM stands for?
+* What PM stands for?
+* Which time is a midnight?
+* Which time is a noon?
+* Confusion at noon and midnight [#wikiNoonMidnight]_
 
 .. code-block:: text
 
     12:00 am
     12:00 pm
 
-    12:00
-    24:00
 
-    00:00
-    0:00
+Roman Numerals
+--------------
+.. code-block:: text
+
+    IV
+    IIII
 
 
-Times after 24:00
------------------
-* Times after 24:00 [#wikiTimesAfter2400]_
+
+Leap Second
+-----------
 * UTC leap second [#wikiLeapSecond]_
 * Leap second discontinuation post 2035 [#natureLeapSecond]_
 * Issues created by insertion (or removal) of leap seconds
@@ -114,30 +138,47 @@ Times after 24:00
 * Textual representation of the leap second
 * Binary representation of the leap second
 * Other reported software problems associated with the leap second
+* June 30th or December 31st
+* Introduced in 1972
+* Last leap second in 2016
+
+Normal second:
+
+.. code-block:: text
+
+    23:59:59
+    00:00:00
+
+Leap Second:
 
 .. code-block:: text
 
     23:59:59
     23:59:60
+    00:00:00
+
+
+Times after 24:00
+-----------------
+* Times after 24:00 [#wikiTimesAfter2400]_
 
 .. code-block:: text
 
-    25:00
-    27:45
+    00:00:00 - 23:59:59.999999...   # almost midnight
+    00:00:00 - 24:00:00             # until midnight
 
 .. code-block:: text
 
-    14:00-30:00
+    23:00 - 25:30   # 2h 30m
+    14:00 - 26:00   # 12h
 
 
 Decimal Time
 ------------
 * Unix time gives date and time as the number of seconds since January 1, 1970
-* Microsoft's FILETIME as multiples of 100ns since January 1, 1601
-* VAX/VMS uses the number of 100ns since November 17, 1858
-* RISC OS the number of centiseconds since January 1, 1900
-
-Source: [#wikiMetricTime]_
+* Microsoft's FILETIME as multiples of 100ns since January 1, 1601 [#wikiMetricTime]_
+* VAX/VMS uses the number of 100ns since November 17, 1858 [#wikiMetricTime]_
+* RISC OS the number of centiseconds since January 1, 1900 [#wikiMetricTime]_
 
 
 Other
@@ -152,8 +193,11 @@ Calendars
 ---------
 * Julian Calendar [#wikiJulianCalendar]_
 * Gregorian Calendar [#wikiGregorianCalendar]_
+* Introduced by Pope Gregory XIII in October 1582
+* Last country (Saudi Arabia) adopted Julian calendar in 2016
 * List of adoption dates of the Gregorian calendar by country [#wikiGregorianCalendarAdoption]_
 * There are only four countries which have not adopted the Gregorian calendar: Ethiopia (Ethiopian calendar), Nepal (Vikram Samvat and Nepal Sambat), Iran and Afghanistan (Solar Hijri calendar)
+
 
 Astronomy
 ---------

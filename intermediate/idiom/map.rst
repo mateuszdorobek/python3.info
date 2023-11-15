@@ -111,6 +111,34 @@ Partial
 [1.1, 2.2, 3.3]
 
 
+More Args
+---------
+>>> numbers = [1.1111, 2.2222, 3.3333]
+>>> prec = [1, 2, 3]
+>>>
+>>> result = map(round, numbers, prec)
+>>> list(result)
+[1.1, 2.22, 3.333]
+
+* ``round(1.1111, prec=1)``
+* ``round(2.2222, prec=2)``
+* ``round(3.3333, prec=3)``
+
+>>> numbers = [1.1111, 2.2222, 3.3333]
+>>> prec = [1, 2, 3, 4]
+>>>
+>>> result = map(round, numbers, prec)
+>>> list(result)
+[1.1, 2.22, 3.333]
+
+>>> numbers = [1.1111, 2.2222, 3.3333, 4.444]
+>>> prec = [1, 2, 3]
+>>>
+>>> result = map(round, numbers, prec)
+>>> list(result)
+[1.1, 2.22, 3.333]
+
+
 Performance
 -----------
 >>> def even(x):

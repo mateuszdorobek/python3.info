@@ -56,13 +56,13 @@ Columbia."""
 # Example: 'A'
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find characters at the beginning of each line
 # Example: 'A', 'h', 'p', 'J', 't', 'o', 'T', 'B', 'o', 'f', 'M', 'C'
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Solution
 result_a = r'\A.'

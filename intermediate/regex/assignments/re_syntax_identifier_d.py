@@ -61,13 +61,13 @@ Columbia."""
 # Example: 'on', 'on', 'at', 'to', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find all three-letter conjunctives in text (standalone three-letter words)
 # Example: 'was', 'the', 'the', 'and', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Solution
 result_a = r'\b[a-z][a-z]\b'

@@ -3,7 +3,7 @@
 * Required: yes
 * Complexity: easy
 * Lines of code: 7 lines
-* Time: 8 min
+* Time: 5 min
 
 English:
     1. Filter-out lines from `DATA` when:

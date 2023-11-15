@@ -67,7 +67,7 @@ Columbia."""
 # Example: [('6', '39'), ('2', '31'), ('21', '36')]
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find all duration values, use positional groups
 # DO NOT SKIP durations without hours: 19 minutes later
@@ -75,7 +75,7 @@ result_a = ...
 # Hint: Use non-capturing group
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Solution
 result_a = r'([0-9]+) hours ([0-9]+) minutes'

@@ -48,7 +48,7 @@ Tests:
 # Write own implementation of a built-in `range()` function
 # Define function `myrange` with parameters: `start`, `stop`, `step`
 # type: Callable[[int,int,int], list[int]]
-def myrange():
+def myrange(start=0, stop=None, step=1):
     ...
 
 

@@ -23,6 +23,7 @@ Hints:
     * `zip()`
 
 Tests:
+    >>> assert type(result) is zip
     >>> next(result)
     (0, 'January')
     >>> next(result)
@@ -35,6 +36,7 @@ Tests:
     Traceback (most recent call last):
     StopIteration
 """
+
 DATA = ['January', 'February', 'March', 'April']
 
 result = ...

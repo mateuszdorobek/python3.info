@@ -58,13 +58,13 @@ Columbia."""
 # Example: 'was', 'the', 'on', 'the', 'and', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find all acronyms in text (standalone words with two or three uppercase letters)
 # Example: 'CDR', 'LMP', 'LM', 'UTC', 'EVA', 'EVA', 'UTC', 'CMP', 'CM'
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Solution
 result_a = r'\b[a-z][a-z]\b|\b[a-z][a-z][a-z]\b'

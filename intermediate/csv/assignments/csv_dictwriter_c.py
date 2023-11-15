@@ -10,6 +10,7 @@ English:
         a. Use `,` to separate columns
         b. Use `utf-8` encoding
         c. Use Unix `\n` line terminator
+        d. sort header (fieldnames)
     3. Run doctests - all must succeed
 
 Polish:
@@ -18,6 +19,7 @@ Polish:
         a. Użyj `,` do oddzielenia kolumn
         b. Użyj kodowania `utf-8`
         c. Użyj zakończenia linii Unix `\n`
+        d. posortuj nagłówek (fieldnames)
     3. Uruchom doctesty - wszystkie muszą się powieść
 
 Hints:

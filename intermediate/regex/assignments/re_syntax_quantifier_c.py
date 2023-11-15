@@ -68,19 +68,19 @@ Columbia."""
 # Example: 'Apollo', 'Moon', 'Commander', 'Neil', 'Armstrong', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find all names (two capitalized words) in text
 # Example: 'Neil Armstrong', 'Buzz Aldrin', 'Apollo Lunar', 'Tranquility Base', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Find all names with numbers (capitalized word followed by number)
 # Example: 'Apollo 11', 'July 20', 'July 21'
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_c = ...
+result_c = r''
 
 # Solution
 result_a = r'[A-Z][a-z]+'

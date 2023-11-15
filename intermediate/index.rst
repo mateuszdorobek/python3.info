@@ -50,13 +50,16 @@ Idiom
     idiom/about.rst
     idiom/range.rst
     idiom/reversed.rst
-    idiom/all.rst
-    idiom/any.rst
     idiom/enumerate.rst
     idiom/zip.rst
+    idiom/all.rst
+    idiom/any.rst
+
     idiom/map.rst
     idiom/filter.rst
+    idiom/apply.rst
     idiom/reduce.rst
+
     idiom/next.rst
     idiom/iter.rst
     idiom/chain.rst

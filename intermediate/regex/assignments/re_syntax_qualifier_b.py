@@ -56,7 +56,7 @@ Columbia."""
 # Example: 'A', '1', '1', 'A', 'M', 'C', 'C', 'D', 'R', ...
 # Note: define only regex pattern (str), not re.findall(..., TEXT)
 # type: str
-result = ...
+result = r''
 
 # Solution
 result = r'[A-Z0-9]'

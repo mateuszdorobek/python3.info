@@ -106,17 +106,17 @@ Tranquility Base upon landing. Armstrong and Aldrin collected 47.5 pounds
 Moon's surface for 21 hours 36 minutes before lifting off to rejoin
 Columbia."""
 
-# Find all word characters in text, use \w
+# Find all word characters in text, don't use range [...]
 # Example: 'A', 'A', 'M', 'C', 'C', 'D', 'R', ...
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_a = ...
+result_a = r''
 
 # Find all non-word characters in text
 # Example: '\n', ' ', "'", '(', ')', ',', '.', ':'
 # Note: define only regex pattern (str), not re.findall(...)
 # type: str
-result_b = ...
+result_b = r''
 
 # Solution
 result_a = r'\w'

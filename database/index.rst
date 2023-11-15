@@ -86,6 +86,8 @@ SQL
     sql/sql-select-functions.rst
     sql/sql-join.rst
     sql/sql-injection.rst
+    sql/sql-views.rst
+    sql/sql-explain.rst
     sql/use-cases.rst
 
 
