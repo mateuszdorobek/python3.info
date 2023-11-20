@@ -1,0 +1,182 @@
+#!/usr/bin/env python3
+from itertools import chain
+from pathlib import Path
+import logging
+import asyncio
+from typing import NamedTuple, Literal
+
+logging.basicConfig(
+    level='DEBUG',
+    format='{message}',
+    style='{',
+)
+
+log = logging.getLogger('run.doctests')
+
+EXCLUDED = [
+    'run.py',
+    '__version__.py',
+    'database/casestudy/auth.rst',
+    'database/sqlalchemy/model-dataclass.rst',
+    'database/sqlalchemy/model-define.rst',
+    'database/sqlalchemy/model-relations.rst',
+    'database/sqlalchemy/orm-about.rst',
+    'database/sqlalchemy/orm-session.rst',
+    'database/sqlalchemy/query-about.rst',
+    'database/sqlalchemy/query-count.rst',
+    'database/sqlalchemy/query-execute.rst',
+    'database/sqlalchemy/query-exists.rst',
+    'database/sqlalchemy/query-filter.rst',
+    'database/sqlalchemy/query-groupby.rst',
+    'database/sqlalchemy/query-join.rst',
+    'database/sqlalchemy/query-limit.rst',
+    'database/sqlalchemy/query-orderby.rst',
+    'database/sqlalchemy/schema-metadata.rst',
+    'database/sqlalchemy/schema-reflection.rst',
+    'django/models/assignments/django_model_d.py',
+    'django/orm/about.rst',
+    'django/orm/aggregate.rst',
+    'django/orm/all.rst',
+    'django/orm/annotate.rst',
+    'django/orm/create.rst',
+    'django/orm/delete.rst',
+    'django/orm/f.rst',
+    'django/orm/filter.rst',
+    'django/orm/functions.rst',
+    'django/orm/get.rst',
+    'django/orm/q.rst',
+    'django/orm/update.rst',
+    'dragon/adr/damage-make.rst',
+    'dragon/adr/damage-take.rst',
+    'dragon/adr/init-health.rst',
+    'dragon/adr/init-name.rst',
+    'dragon/adr/init-position.rst',
+    'dragon/adr/position-change.rst',
+    'dragon/adr/position-get.rst',
+    'dragon/adr/position-set.rst',
+    'dragon/english/assignments/dragon/README.rst',
+    'dragon/polish/assignments/dragon/README.rst',
+    'fastapi/fastapi/framework-dependencies.rst',
+    'fastapi/fastapi/framework-routers.rst',
+    'install/doctest.rst',
+    'intermediate/regex/_TODO.rst',
+    'machine-learning/_blog/ml-introduction.rst',
+    'machine-learning/_blog/various-notes.rst',
+    'machine-learning/bayes/naive.rst',
+    'machine-learning/clustering/assignments/clustering_iris.py',
+    'machine-learning/clustering/k-means.rst',
+    'machine-learning/introduction/algorithms.rst',
+    'machine-learning/introduction/assignments/classifiers_threading.py',
+    'machine-learning/introduction/classifiers.rst',
+    'machine-learning/introduction/data.rst',
+    'machine-learning/introduction/datasets.rst',
+    'machine-learning/introduction/features.rst',
+    'machine-learning/introduction/glossary-pl.rst',
+    'machine-learning/introduction/glossary.rst',
+    'machine-learning/introduction/machine-learning.rst',
+    'machine-learning/introduction/statistics.rst',
+    'machine-learning/knn/k-nearest-neighbors.rst',
+    'machine-learning/model-quality/assignments/pca_iris.py',
+    'machine-learning/model-quality/assignments/pca_pima.py',
+    'machine-learning/model-quality/model-quality.rst',
+    'machine-learning/model-quality/principal-component-analysis.rst',
+    'machine-learning/neural-network/convolutional.rst',
+    'machine-learning/neural-network/deep.rst',
+    'machine-learning/regression/assignments/linear_regression.py',
+    'machine-learning/regression/linear.rst',
+    'machine-learning/regression/logistics.rst',
+    'machine-learning/sklearn/assignments/sklearn_classifier.py',
+    'machine-learning/sklearn/assignments/sklearn_classifier_compare.py',
+    'machine-learning/sklearn/assignments/sklearn_validation.py',
+    'machine-learning/sklearn/sklearn.rst',
+    'machine-learning/sklearn/src/ml-sklearn-classifier.py',
+    'machine-learning/sklearn/src/ml-sklearn-cross-validation.py',
+    'machine-learning/sklearn/src/ml-sklearn-datasets.py',
+    'machine-learning/sklearn/src/ml-sklearn-fit-predict.py',
+    'machine-learning/sklearn/src/ml-sklearn-label-encoder.py',
+    'machine-learning/sklearn/src/ml-sklearn-score.py',
+    'machine-learning/svm/support-vector-machines.rst',
+    'machine-learning/tree/assignments/tree_decision.py',
+    'machine-learning/tree/decision-tree.rst',
+    'microservices/protocol/method.rst',
+]
+
+
+class OSResult(NamedTuple):
+    cmd: str
+    status: Literal['success', 'error', 'timeout']
+    stdout: str | None = None
+    stderr: str | None = None
+
+
+async def run(cmd, timeout=45.0) -> OSResult:
+    try:
+        async with asyncio.timeout(timeout):
+            proc = await asyncio.create_subprocess_shell(
+                cmd,
+                stdout=asyncio.subprocess.PIPE,
+                stderr=asyncio.subprocess.PIPE)
+            stdout, stderr = await proc.communicate()
+    except TimeoutError:
+        return OSResult(cmd=cmd, status='timeout')
+    else:
+        stdout = stdout.decode() if stdout else None
+        stderr = stderr.decode() if stderr else None
+        status = 'success' if proc.returncode == 0 else 'error'
+        return OSResult(cmd=cmd, status=status, stdout=stdout, stderr=stderr)
+
+
+def get_files():
+    path = Path('intermediate/')
+    files = chain(
+        path.rglob('*.py'),
+        path.rglob('*.md'),
+        path.rglob('*.rst'))
+    for file in sorted(files):
+        if str(file) in EXCLUDED:
+            log.warning(f'SKIPPED\t{file}')
+            continue
+        if str(file).startswith(('.venv', 'venv')):
+            log.warning(f'VENV\t{file}')
+            continue
+        yield file
+
+
+class Result(NamedTuple):
+    file: str
+    output: OSResult
+
+async def main() -> list[Result]:
+    todo = []
+    async with asyncio.TaskGroup() as tg:
+        for file in get_files():
+            cmd = run(f'python -m doctest {file}')
+            task = tg.create_task(cmd, name=str(file))
+            todo.append(task)
+    return [Result(file=t.get_name(), output=t.result()) for t in todo]
+
+
+if __name__ == '__main__':
+    skipped: list[Result] = []
+    success: list[Result] = []
+    timeout: list[Result] = []
+    error: list[Result] = []
+
+    for result in asyncio.run(main()):
+        match result.output.status:
+            case 'skipped': skipped.append(result)
+            case 'success':  success.append(result)
+            case 'timeout': timeout.append(result)
+            case 'error':  error.append(result)
+
+    for result in skipped:
+        log.error(f'SKIPPED\n{result.file}')
+
+    for result in success:
+        log.error(f'SUCCESS\t{result.file}')
+
+    for result in timeout:
+        log.error(f'TIMEOUT\t{result.file}')
+
+    for result in error:
+        log.error(f'ERROR\t{result.file}\n{result.output.stdout}\n\n\n')

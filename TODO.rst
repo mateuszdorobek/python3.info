@@ -4,6 +4,28 @@ TODO
 * Move webinars (description, scaffolding generation) to the book
 
 
+New run.py
+----------
+* New Script to run doctests (*.py, *.rst, *.md)
+* First, gather files to test
+* Then async/thread run all files at the same time
+* Output all errors sequentially (alphabetically by path)
+* Zapis faili do plików w /tmp, catowanie tych plików na koniec builda
+* Pliki z failami maja strukturę katalogów podobną jak pliki książki (czy napewno ?!)
+
+
+
+Średniozaawansowany
+-------------------
+* wywalić Smoka z Intermediate
+* Smok tylko podczas szkolenia z TDD
+* włączyć rozdział "database" do Intermediate
+* Dodać formatowanie printa
+* Dodać Dataclasses (?!)
+* Dodać część OOP: (atrybuty, metody)
+
+
+
 Bin
 ---
 * New structure for templates
