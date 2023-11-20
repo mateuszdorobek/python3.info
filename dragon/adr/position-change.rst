@@ -371,6 +371,12 @@ Use Case:
 >>> read_csv_with_delimiter_encoding('iris.csv', ';', 'utf-8')
 >>> read_csv_with_delimiter_encoding_verbose('iris.csv', ';', 'utf-8', True)
 
+>>> match get_key_pressed():
+...     case Key.ARROW_LEFT: dragon.move_left()
+...     case Key.ARROW_RIGHT: dragon.move_right()
+...     case Key.ARROW_UP: dragon.move_up()
+...     case Key.ARROW_DOWN: dragon.move_down()
+
 
 Option 10
 ---------
@@ -511,11 +517,17 @@ Option 13
 >>> dragon.position_change(right=15, up=5)      # right by 15 and up by 5
 >>> dragon.position_change(down=5)              # down by 5
 
+>>> dragon.mod_position(left=10, down=20)    # left by 10 and down by 20
+>>> dragon.mod_position(left=10, right=15)   # left by 10 and right by 15
+>>> dragon.mod_position(right=15, up=5)      # right by 15 and up by 5
+>>> dragon.mod_position(down=5)              # down by 5
+
 Pros and Cons:
 
 * Good: extensible to 3D
 * Good: move by relative shifting (left, right, up, down)
 * Good: encapsulation, object knows current position and moves
+* Good: ``mod_position()`` is compatible with ``get_position()`` and ``set_position()``
 * Bad: the method names are a bit too complex for
 * Decision: candidate, method names are a bit too complex for now
 
@@ -769,6 +781,7 @@ Use Case:
 >>> plt.plot(x, y, color='r')
 
 >>> plt.plot(x, y, color='k')  # what color is that?
+>>> plt.plot(x, y, color='black')
 
 >>> df.plot(kind='line')
 >>> df.interpolate('polynomial')
@@ -915,10 +928,12 @@ Option 25
 ...     ARROW_UP = 0x64
 >>>
 >>>
+>>> game = GameEngine()
 >>> game.bind(Key.ARROW_LEFT, dragon.move_left)     # good
 >>> game.bind(Key.ARROW_DOWN, dragon.move_down)     # good
 >>> game.bind(Key.ARROW_RIGHT, dragon.move_right)   # good
 >>> game.bind(Key.ARROW_UP, dragon.move_up)         # good
+>>> game.run()
 
 Pros and Cons:
 

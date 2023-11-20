@@ -22,24 +22,28 @@ Pros and Cons:
 
 Example:
 
->>> dragon = Dragon('Wawelski', 0, 0)  # 2D
->>> dragon = Dragon('Wawelski', 0, 0, 0)  # 3D
+>>> dragon = Dragon('Wawelski', 0, 0)
+>>> dragon = Dragon('Wawelski', 0, 0, 0)
+
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
->>> dragon = Dragon('Wawelski', None, None)  # default point
 >>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', None, None)
+
+>>> dragon = Dragon('Wawelski', None, None)
+>>> dragon = Dragon('Wawelski', None, None, None)
 
 Problem:
 
+>>> dragon = Dragon('Wawelski', 0, 0)  # 2D
+>>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png')
 >>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0)  # 3D
->>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', None)  # 3D
->>> dragon = Dragon('Wawelski', None, None, 'img/dragon/alive.png', None)  # 3D
 
 Use Case:
+
+>>> pt = Point(1, 2)
 
 >>> knn = KNearestNeighbors(3)  # ok
 >>> knn = KNearestNeighbors(3, [0.75, 0.50, 0.25])  # bad
 
->>> pt = Point(1, 2)
 
 .. figure:: img/ml-knn-1.png
 .. figure:: img/ml-knn-2.png
@@ -72,19 +76,20 @@ Example:
 
 >>> dragon = Dragon('Wawelski', x=0, y=0)
 >>> dragon = Dragon('Wawelski', x=0, y=0, z=0)
+
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=0, y=0, z=0)
->>> dragon = Dragon('Wawelski', x=0, y=0, t='img/dragon/alive.png', z=0)
+
 >>> dragon = Dragon('Wawelski', x=None, y=None)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None)
 >>> dragon = Dragon('Wawelski', t='img/dragon/alive.png', x=None, y=None, z=None)
 
 Use Case:
 
+>>> pt = Point(x=1, y=2)
+
 >>> knn = KNearestNeighbors(k=3)  # ok
 >>> knn = KNearestNeighbors(k=3, w=[0.75, 0.50, 0.25])  # bad
-
->>> pt = Point(x=1, y=2)
 
 
 Option 3
@@ -107,6 +112,8 @@ Example:
 
 Use Case:
 
+>>> pt = Point(coordx=1, coordy=2)
+
 >>> knn = KNearestNeighbors(k=3, wgt=[0.75, 0.50, 0.25])  # maybe, bad
 
 
@@ -127,7 +134,7 @@ Example:
 
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0)  # maybe
 >>> dragon = Dragon('Wawelski', positionx=0, positiony=0, positionz=0)  # maybe
->>> dragon = Dragon('Wawelski', positionx=0, positiony=0, texture='img/dragon/alive.png', positionz=0)  # maybe
+>>> dragon = Dragon('Wawelski', positionx=0, positiony=0, positionz=0, texture='img/dragon/alive.png')  # maybe
 
 Use Case:
 
@@ -151,7 +158,7 @@ Pros and Cons:
 
 >>> dragon = Dragon('Wawelski', position_x=0, position_y=0)  # ok
 >>> dragon = Dragon('Wawelski', position_x=0, position_y=0, position_z=0)  # ok
->>> dragon = Dragon('Wawelski', position_x=0, position_y=0, texture='img/dragon/alive.png', position_z=0)  # ok
+>>> dragon = Dragon('Wawelski', position_x=0, position_y=0, position_z=0, texture='img/dragon/alive.png')  # ok
 
 Use Case:
 
@@ -221,7 +228,8 @@ Example:
 Use Case:
 
 >>> np.random.randint(0, 10, (3, 3))  # bad
->>> np.random.randint(0, 10, size=(3, 3))  # ok
+>>> np.random.randint(0, 10, size=(3, 3))  # maybe
+>>> np.random.randint(0, 10, rows=3, cols=3)  # ok, for 2D and 3D, not for ndim
 
 >>> pt = (50, 120)
 >>>

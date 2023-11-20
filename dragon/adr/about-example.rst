@@ -67,13 +67,13 @@ Option 2 - Flask
 
 Option 3 - Django + Ninja
 -------------------------
-* Good: Easy / Intermediate
 * Good: Async
 * Good: ORM
 * Good: DB schema migration
 * Good: Admin
 * Good: API documentation generation (Ninja)
-* Good: FastAPI style views (Ninja)
+* Good: FastAPI style REST/JSON views (Ninja)
+* Bad: Intermediate
 * Bad: More complex than FastAPI and Flask
 * Decision: accepted
 

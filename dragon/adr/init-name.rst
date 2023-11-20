@@ -29,6 +29,20 @@ Pros and Cons:
 * Decision: rejected, too verbose for such simple example
 
 
+Option 3
+--------
+>>> dragon = Dragon()
+>>> dragon.name = 'Wawelski'
+
+Pros and Cons:
+
+* Good: code is readable
+* Good: can use ``@property`` for validation if needed
+* Bad: violates encapsulation (OOP Principle)
+* Bad: violates Tell, Don't Ask (OOP Principle)
+* Decision: rejected, violates OOP principles
+
+
 Decision
 --------
 >>> dragon = Dragon('Wawelski')
