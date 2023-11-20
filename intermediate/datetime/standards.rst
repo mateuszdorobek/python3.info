@@ -120,10 +120,15 @@ AM vs PM
 
 Roman Numerals
 --------------
+* IV - in latin is read as JU (which stands for Jupyter - god)
+* Louis XIV [#watchmaster]_
+
 .. code-block:: text
 
     IV
     IIII
+
+.. figure:: img/datetime-standards-rolex.jpg
 
 
 
@@ -255,3 +260,4 @@ References
 .. [#wikiISO8601] Wikipedia. ISO8601. Year: 2022. Retrieved: 2022-05-10. URL: https://en.wikipedia.org/wiki/ISO_8601
 .. [#wikiDateFormatJapan] Date and time notation in Japan. Wikipedia. Year: 2022. Retrieved: 2019-06-27. URL: https://en.wikipedia.org/wiki/Date_and_time_notation_in_Japan#Date
 .. [#wikiDateFormatUS] Date and time notation in the United States. Wikipedia. Year: 2022. Retrieved: 2019-06-27. URL: https://en.wikipedia.org/wiki/Date_and_time_notation_in_the_United_States
+.. [#watchmaster] Why Do Watches Use the Roman Numeral IIII Instead of IV? Year: 2021. Retrieved: 2023-11-16. URL: https://www.watchmaster.com/en/journal/stories-en/roman-numeral-iiii-on-watches

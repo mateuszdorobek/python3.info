@@ -61,7 +61,6 @@ DATA = """##
 ::1             localhost"""
 
 # Dict keys: ip, hosts
-# Merge hosts for the same ip
 # type: list[dict]
 result = ...
 

@@ -219,31 +219,56 @@ Decimal Type
 >>> a + b
 Decimal('0.3')
 
->>> a = Decimal('0.1')
->>> b = Decimal('0.2')
->>>
->>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
-... a + b
-...
-105 ns ± 36.4 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
->>> a = 0.1
->>> b = 0.2
->>>
->>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
-... a + b
-...
-53.6 ns ± 18.7 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+Performance Comparison
+----------------------
+* Python 3.12.0
 
->>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+>>> # doctest: +SKIP
+... a = Decimal('0.1')
+... b = Decimal('0.2')
+...
+... %%timeit -r1000 -n1000
+... a + b
+85.2 ns ± 16.4 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... a = 0.1
+... b = 0.2
+...
+... # %%timeit -r1000 -n1000
+... a + b
+32.8 ns ± 6.9 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... a = float('0.1')
+... b = float('0.2')
+...
+... %%timeit -r1000 -n1000
+... a + b
+32.9 ns ± 6.26 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+
+>>> # doctest: +SKIP
+... %%timeit -r1000 -n1000
 ... Decimal('0.1') + Decimal('0.2')
-...
-531 ns ± 136 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+415 ns ± 79.6 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
 
->>> %%timeit -r 1000 -n 1000  # doctest: +SKIP
+>>> # doctest: +SKIP
+... %%timeit -r1000 -n1000
 ... 0.1 + 0.2
-...
-11.6 ns ± 6.22 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+9.24 ns ± 5.45 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -r1000 -n1000
+... float(0.1) + float(0.2)
+64.5 ns ± 11.5 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
+>>> # doctest: +SKIP
+... %%timeit -r1000 -n1000
+... float('0.1') + float('0.2')
+160 ns ± 33 ns per loop (mean ± std. dev. of 1000 runs, 1,000 loops each)
+
 
 
 Solutions
