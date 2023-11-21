@@ -24,6 +24,7 @@ Typing
     :maxdepth: 1
     :caption: Typing
 
+    typing/about.rst
     typing/type-basic.rst
     typing/type-annotations.rst
     typing/type-iterable.rst

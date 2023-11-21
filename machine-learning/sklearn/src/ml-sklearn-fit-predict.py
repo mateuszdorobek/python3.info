@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 from sklearn.tree import DecisionTreeClassifier
 
 

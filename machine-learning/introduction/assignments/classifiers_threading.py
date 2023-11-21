@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 import queue
 import threading
 

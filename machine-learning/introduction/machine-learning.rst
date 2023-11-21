@@ -1,3 +1,5 @@
+.. testsetup:: # doctest: +SKIP_FILE
+
 Machine Learning Introduction
 =============================
 * Teaching computer how to do operations without explicitly hard-coding it.

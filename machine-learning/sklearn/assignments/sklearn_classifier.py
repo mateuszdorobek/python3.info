@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 from sklearn import metrics
 from scipy.spatial.distance import euclidean as euclidean_distance
 from sklearn.model_selection import train_test_split

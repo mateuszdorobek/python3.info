@@ -30,21 +30,15 @@ Tests:
     >>> import sqlite3
 
     >>> database = Path(__file__).parent / 'sql.db'
+    >>> sql = 'SELECT name FROM sqlite_master WHERE type="table"'
 
     >>> with sqlite3.connect(database) as db:
     ...     db.row_factory = sqlite3.Row
     ...     _ = db.execute(result)
-    ...     sql = 'SELECT name FROM sqlite_master WHERE type="table"'
-    ...     for table in db.execute(sql):
-    ...         print(table['name'])
-    apollo11
-    addresses
-    sqlite_sequence
-    astronauts
-    missions
-    contacts
+    ...     tables = [table['name'] for table in db.execute(sql)]
 
-    TODO: clear tables
+    >>> assert 'contacts' in tables, \
+    'You need to create table named `contacts`'
 """
 
 

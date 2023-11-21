@@ -148,28 +148,22 @@ Examples
 sys.version_info(major=3, minor=11, micro=0, releaselevel='final', serial=0)
 >>>
 >>>
->>> sys.version_info >= (3, 9)
-True
->>>
->>> sys.version_info >= (3, 10)
-True
->>>
 >>> sys.version_info >= (3, 11)
 True
 >>>
 >>> sys.version_info >= (3, 12)
+True
+>>>
+>>> sys.version_info >= (3, 13)
 False
->>>
->>> sys.version_info >= (3, 9, 0)
-True
->>>
->>> sys.version_info >= (3, 10, 0)
-True
 >>>
 >>> sys.version_info >= (3, 11, 0)
 True
 >>>
 >>> sys.version_info >= (3, 12, 0)
+True
+>>>
+>>> sys.version_info >= (3, 13, 0)
 False
 
 >>> '3.8.0' > '3.9.0'

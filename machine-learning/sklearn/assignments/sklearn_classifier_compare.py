@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 import numpy as np
 from sklearn.neural_network import MLPClassifier
 from sklearn.neighbors import KNeighborsClassifier

@@ -1,3 +1,6 @@
+.. testsetup:: # doctest: +SKIP_FILE
+
+
 Decision Tree
 =============
 

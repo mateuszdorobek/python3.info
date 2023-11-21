@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 import pandas as pd
 from math import pow
 

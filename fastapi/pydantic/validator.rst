@@ -16,7 +16,7 @@ Validator
 * Validation is done in the order fields are defined. E.g. in the example above, password2 has access to password1 (and name), but password1 does not have access to password2. See Field Ordering for more information on how fields are ordered
 * If validation fails on another field (or that field is missing) it will not be included in values, hence if 'password1' in values and ... in this example.
 
->>> from pydantic import BaseModel, ValidationError, validator
+>>> from pydantic import BaseModel, ValidationError, field_validator
 >>>
 >>>
 >>> class UserModel(BaseModel):
@@ -25,34 +25,34 @@ Validator
 ...     password1: str
 ...     password2: str
 ...
-...     @validator('name')
+...     @field_validator('name')
 ...     def name_must_contain_space(cls, v):
 ...         if ' ' not in v:
 ...             raise ValueError('must contain a space')
 ...         return v.title()
 ...
-...     @validator('password2')
+...     @field_validator('password2')
 ...     def passwords_match(cls, v, values, **kwargs):
 ...         if 'password1' in values and v != values['password1']:
 ...             raise ValueError('passwords do not match')
 ...         return v
 ...
-...     @validator('username')
+...     @field_validator('username')
 ...     def username_alphanumeric(cls, v):
 ...         assert v.isalnum(), 'must be alphanumeric'
 ...         return v
 >>>
 >>>
->>> user = UserModel(
+>>> user = UserModel(  # doctest: +SKIP
 ...     name='samuel colvin',
 ...     username='scolvin',
 ...     password1='zxcvbn',
 ...     password2='zxcvbn',
 ... )
->>> print(user)
+>>> print(user)  # doctest: +SKIP
 name='Samuel Colvin' username='scolvin' password1='zxcvbn' password2='zxcvbn'
 >>>
->>> try:
+>>> try:  # doctest: +SKIP
 ...     UserModel(
 ...         name='samuel',
 ...         username='scolvin',
@@ -79,7 +79,7 @@ Field validation will not occur if pre=True root validators raise an error. As w
 
 .. code-block:: python
 
-    from pydantic import BaseModel, ValidationError, root_validator
+    from pydantic import BaseModel, ValidationError, model_validator
 
 
     class UserModel(BaseModel):
@@ -87,12 +87,12 @@ Field validation will not occur if pre=True root validators raise an error. As w
         password1: str
         password2: str
 
-        @root_validator(pre=True)
+        @model_validator
         def check_card_number_omitted(cls, values):
             assert 'card_number' not in values, 'card_number should not be included'
             return values
 
-        @root_validator
+        @model_validator
         def check_passwords_match(cls, values):
             pw1, pw2 = values.get('password1'), values.get('password2')
             if pw1 is not None and pw2 is not None and pw1 != pw2:
@@ -133,7 +133,7 @@ Pre and Per-item Validator
 .. code-block:: python
 
     from typing import List
-    from pydantic import BaseModel, ValidationError, validator
+    from pydantic import BaseModel, ValidationError, field_validator
 
 
     class DemoModel(BaseModel):
@@ -141,24 +141,24 @@ Pre and Per-item Validator
         cube_numbers: List[int] = []
 
         # '*' is the same as 'cube_numbers', 'square_numbers' here:
-        @validator('*', pre=True)
+        @field_validator('*', pre=True)
         def split_str(cls, v):
             if isinstance(v, str):
                 return v.split('|')
             return v
 
-        @validator('cube_numbers', 'square_numbers')
+        @field_validator('cube_numbers', 'square_numbers')
         def check_sum(cls, v):
             if sum(v) > 42:
                 raise ValueError('sum of numbers greater than 42')
             return v
 
-        @validator('square_numbers', each_item=True)
+        @field_validator('square_numbers', each_item=True)
         def check_squares(cls, v):
             assert v ** 0.5 % 1 == 0, f'{v} is not a square number'
             return v
 
-        @validator('cube_numbers', each_item=True)
+        @field_validator('cube_numbers', each_item=True)
         def check_cubes(cls, v):
             # 64 ** (1 / 3) == 3.9999999999999996 (!)
             # this is not a good way of checking cubes

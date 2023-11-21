@@ -1,6 +1,4 @@
-.. testsetup::
-
-    # doctest: +SKIP_FILE
+.. testsetup:: # doctest: +SKIP_FILE
 
 
 Notes

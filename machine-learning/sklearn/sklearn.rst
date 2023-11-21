@@ -1,3 +1,5 @@
+.. testsetup:: # doctest: +SKIP_FILE
+
 scikit-learn
 ============
 

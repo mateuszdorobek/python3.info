@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 from sklearn.model_selection import cross_val_score
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import datasets

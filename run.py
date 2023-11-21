@@ -53,7 +53,7 @@ def run(cmd, timeout=None):
 
 class Gather(Action):
     def __call__(self, parser, namespace, chapter, *args, **kwargs):
-        run('clear && printf "\e[3J"')  # noqa
+        run(r'clear && printf "\e[3J"')  # noqa
         run(f'cat */requirements.txt |sort |uniq > requirements.txt')
         log.info('Requirements Gathered in requirements.txt')
         exit(0)
@@ -63,7 +63,7 @@ class Install(Action):
     def __call__(self, parser, namespace, chapter, *args, **kwargs):
         if chapter is None:
             chapter = '.'
-        run('clear && printf "\e[3J"')  # noqa
+        run(r'clear && printf "\e[3J"')  # noqa
         run(f'pip install -r {chapter}/requirements.txt')
         log.info('Requirements installed')
         exit(0)
@@ -78,14 +78,14 @@ class Build(Action):
             src = BASE_DIR / chapter
             dst = Path('/tmp') / chapter
         rmtree(dst, ignore_errors=True)
-        run('clear && printf "\e[3J"')  # noqa
+        run(r'clear && printf "\e[3J"')  # noqa
         run(f'sphinx-build -a -E -j auto --color -b html {src} {dst}')
         exit(0)
 
 
 class GPT(Action):
     def __call__(self, parser, namespace, paths, *args, **kwargs):
-        run('clear && printf "\e[3J"')  # noqa
+        run(r'clear && printf "\e[3J"')  # noqa
         files = sorted(self.get_files(paths))
         for file in files:
             if file.name == 'run.py':
@@ -112,7 +112,7 @@ class GPT(Action):
 
 class Doctest(Action):
     def __call__(self, parser, namespace, paths, *args, **kwargs):
-        run('clear && printf "\e[3J"')  # noqa
+        run(r'clear && printf "\e[3J"')  # noqa
         all_tests = 0
         files = sorted(self.get_files(paths))
         for file in files:

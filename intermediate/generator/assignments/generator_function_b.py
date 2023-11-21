@@ -38,7 +38,7 @@ Tests:
     >>> from inspect import isfunction, isgenerator, isgeneratorfunction
     >>> assert isfunction(myrange)
     >>> assert isgeneratorfunction(myrange)
-    >>> assert isgenerator(myrange())
+    >>> assert isgenerator(myrange(0,10))
 
     >>> list(myrange(0, 10, 2))
     [0, 2, 4, 6, 8]
@@ -50,12 +50,12 @@ Tests:
 # Write own implementation of a built-in `range()` function
 # Define function `myrange` with parameters: `start`, `stop`, `step`
 # type: Callable[[int,int,int], list[int]]
-def myrange():
+def myrange(start, stop, step=1):
     ...
 
 
 # Solution
-def myrange(start=0, stop=None, step=1):
+def myrange(start, stop, step=1):
     current = start
     while current < stop:
         yield current

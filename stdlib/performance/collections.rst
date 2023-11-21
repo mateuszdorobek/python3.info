@@ -35,7 +35,7 @@ José Jiménez NASA
 >>>
 >>> jose = OrderedDict(firstname='José', lastname='Jiménez', agency='NASA')
 >>> print(jose)
-OrderedDict([('firstname', 'José'), ('lastname', 'Jiménez'), ('agency', 'NASA')])
+OrderedDict({'firstname': 'José', 'lastname': 'Jiménez', 'agency': 'NASA'})
 >>>
 >>> dict(jose)
 {'firstname': 'José', 'lastname': 'Jiménez', 'agency': 'NASA'}

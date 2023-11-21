@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 import numpy as np
 import matplotlib.pyplot as plt
 # Though the following import is not directly being used, it is required

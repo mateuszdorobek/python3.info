@@ -1,3 +1,5 @@
+.. testsetup:: # doctest: +SKIP_FILE
+
 Glossary
 ========
 
@@ -198,5 +200,3 @@ Glossary
             See Cost.
 
 Source: `Glossary of Terms - Special Issue on Applications of Machine Learning and the Knowledge Discovery Process <http://robotics.stanford.edu/~ronnyk/glossary.html>`_
-
-

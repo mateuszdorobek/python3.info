@@ -32,7 +32,7 @@ Simple
 ...     year: int
 ...     name: str
 ...
-def __init__(self, year:_type_year, name:_type_name):
+def __init__(self, year:__dataclass_type_year__, name:__dataclass_type_name__):
     self.year=year
     self.name=name
 <BLANKLINE>
@@ -80,7 +80,7 @@ Complex
 ...         if self.age not in range(self.AGE_MIN, self.AGE_MAX):
 ...             raise ValueError('Age is not valid for a user')
 ...
-def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, birthday:_type_birthday, job:_type_job=_dflt_job, agency:_type_agency=_dflt_agency, age:_type_age=_dflt_age, height:_type_height=_dflt_height, weight:_type_weight=_dflt_weight, groups:_type_groups=_HAS_DEFAULT_FACTORY, friends:_type_friends=_HAS_DEFAULT_FACTORY, assignments:_type_assignments=_dflt_assignments, missions:_type_missions=_HAS_DEFAULT_FACTORY, experience:_type_experience=_dflt_experience, account_last_login:_type_account_last_login=_dflt_account_last_login, account_created:_type_account_created=_dflt_account_created):
+def __init__(self, *, firstname:__dataclass_type_firstname__, lastname:__dataclass_type_lastname__, birthday:__dataclass_type_birthday__, job:__dataclass_type_job__=__dataclass_dflt_job__, agency:__dataclass_type_agency__=__dataclass_dflt_agency__, age:__dataclass_type_age__=__dataclass_dflt_age__, height:__dataclass_type_height__=__dataclass_dflt_height__, weight:__dataclass_type_weight__=__dataclass_dflt_weight__, groups:__dataclass_type_groups__=__dataclass_HAS_DEFAULT_FACTORY__, friends:__dataclass_type_friends__=__dataclass_HAS_DEFAULT_FACTORY__, assignments:__dataclass_type_assignments__=__dataclass_dflt_assignments__, missions:__dataclass_type_missions__=__dataclass_HAS_DEFAULT_FACTORY__, experience:__dataclass_type_experience__=__dataclass_dflt_experience__, account_last_login:__dataclass_type_account_last_login__=__dataclass_dflt_account_last_login__, account_created:__dataclass_type_account_created__=__dataclass_dflt_account_created__):
     __dataclass_builtins_object__.__setattr__(self,'firstname',firstname)
     __dataclass_builtins_object__.__setattr__(self,'lastname',lastname)
     __dataclass_builtins_object__.__setattr__(self,'birthday',birthday)
@@ -89,15 +89,15 @@ def __init__(self, *, firstname:_type_firstname, lastname:_type_lastname, birthd
     __dataclass_builtins_object__.__setattr__(self,'age',age)
     __dataclass_builtins_object__.__setattr__(self,'height',height)
     __dataclass_builtins_object__.__setattr__(self,'weight',weight)
-    __dataclass_builtins_object__.__setattr__(self,'groups',_dflt_groups() if groups is _HAS_DEFAULT_FACTORY else groups)
-    __dataclass_builtins_object__.__setattr__(self,'friends',_dflt_friends() if friends is _HAS_DEFAULT_FACTORY else friends)
+    __dataclass_builtins_object__.__setattr__(self,'groups',__dataclass_dflt_groups__() if groups is __dataclass_HAS_DEFAULT_FACTORY__ else groups)
+    __dataclass_builtins_object__.__setattr__(self,'friends',__dataclass_dflt_friends__() if friends is __dataclass_HAS_DEFAULT_FACTORY__ else friends)
     __dataclass_builtins_object__.__setattr__(self,'assignments',assignments)
-    __dataclass_builtins_object__.__setattr__(self,'missions',_dflt_missions() if missions is _HAS_DEFAULT_FACTORY else missions)
+    __dataclass_builtins_object__.__setattr__(self,'missions',__dataclass_dflt_missions__() if missions is __dataclass_HAS_DEFAULT_FACTORY__ else missions)
     __dataclass_builtins_object__.__setattr__(self,'experience',experience)
     __dataclass_builtins_object__.__setattr__(self,'account_last_login',account_last_login)
     __dataclass_builtins_object__.__setattr__(self,'account_created',account_created)
-    __dataclass_builtins_object__.__setattr__(self,'AGE_MIN',_dflt_AGE_MIN)
-    __dataclass_builtins_object__.__setattr__(self,'AGE_MAX',_dflt_AGE_MAX)
+    __dataclass_builtins_object__.__setattr__(self,'AGE_MIN',__dataclass_dflt_AGE_MIN__)
+    __dataclass_builtins_object__.__setattr__(self,'AGE_MAX',__dataclass_dflt_AGE_MAX__)
     self.__post_init__()
 <BLANKLINE>
 def __repr__(self):
@@ -109,12 +109,12 @@ def __eq__(self, other):
     return NotImplemented
 <BLANKLINE>
 def __setattr__(self, name, value):
-    if type(self) is cls or name in ('firstname','lastname','birthday','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
+    if type(self) is cls or name in {'firstname', 'lastname', 'birthday', 'job', 'agency', 'age', 'height', 'weight', 'groups', 'friends', 'assignments', 'missions', 'experience', 'account_last_login', 'account_created', 'AGE_MIN', 'AGE_MAX'}:
      raise FrozenInstanceError(f"cannot assign to field {name!r}")
     super(cls, self).__setattr__(name, value)
 <BLANKLINE>
 def __delattr__(self, name):
-    if type(self) is cls or name in ('firstname','lastname','birthday','job','agency','age','height','weight','groups','friends','assignments','missions','experience','account_last_login','account_created','AGE_MIN','AGE_MAX',):
+    if type(self) is cls or name in {'firstname', 'lastname', 'birthday', 'job', 'agency', 'age', 'height', 'weight', 'groups', 'friends', 'assignments', 'missions', 'experience', 'account_last_login', 'account_created', 'AGE_MIN', 'AGE_MAX'}:
      raise FrozenInstanceError(f"cannot delete field {name!r}")
     super(cls, self).__delattr__(name)
 <BLANKLINE>

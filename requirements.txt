@@ -1,35 +1,3 @@
-# atlassian-python-api
-# black
-# coverage
-# cython
-# django-extensions
-# django-debug-toolbar
-# dnspython
-# jupyter
-# keras
-# matplotlib
-# mypy
-# numpy
-# pandas
-# paramiko
-# pillow
-# plotly
-# pycodestyle
-# pylama[all]
-# pylint
-# pysftp
-# scikit-learn
-# scipy
-# suds
-# tensorflow
-# torch
-# uvicorn
-# zeep
-## Auth
-## Celery
-## Database
-## Test
-## code examples in oop/operators.rst
 BeautifulSoup4
 IPython
 aiosqlite
@@ -50,14 +18,14 @@ openpyxl
 pandas
 passlib[bcrypt]
 psycopg2-binary
-pydantic[email]  # pip install 'pydantic[email]'
+pydantic[email]
 python-jose[cryptography]
 python-multipart
 pytz
 redis
 requests
 scipy
-sphinx==7.0.*
+sphinx==7.2.*
 sphinx-rtd-theme
 sqlalchemy
 uvicorn[standard]

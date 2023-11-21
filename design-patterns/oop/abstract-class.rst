@@ -46,7 +46,7 @@ this is the abstract class:
 
 >>> mark = Account()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Account with abstract method login
+TypeError: Can't instantiate abstract class Account without an implementation for abstract method 'login'
 
 
 Implement Abstract Methods
@@ -219,7 +219,7 @@ Must implement all abstract methods:
 >>>
 >>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract methods login, logout
+TypeError: Can't instantiate abstract class User without an implementation for abstract methods 'login', 'logout'
 
 The code above will prevent from creating ``User`` instance,
 because class ``User`` does not overwrite all abstract methods.
@@ -247,7 +247,7 @@ All abstract methods must be implemented in child class:
 >>>
 >>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract method logout
+TypeError: Can't instantiate abstract class User without an implementation for abstract method 'logout'
 
 The code above will prevent from creating ``User`` instance, because class
 ``User`` does not overwrite all abstract methods. The ``.login()`` method
@@ -275,7 +275,7 @@ Problem: Child Class has no Abstract Property
 >>>
 >>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
+TypeError: Can't instantiate abstract class User without an implementation for abstract method 'AGE_MAX'
 
 The code above will prevent from creating ``User`` instance, because class
 ``User`` does not overwrite all abstract properties. The ``AGE_MAX`` is
@@ -304,7 +304,7 @@ Problem: Child Class has no Abstract Properties
 >>>
 >>> mark = User()
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class User with abstract method AGE_MAX
+TypeError: Can't instantiate abstract class User without an implementation for abstract method 'AGE_MAX'
 
 The code above will prevent from creating ``User`` instance, because class
 ``User`` does not overwrite all abstract properties. The ``AGE_MAX`` is
@@ -392,7 +392,7 @@ Display file content as Word Document
 
 >>> file = Document('myfile.txt')
 Traceback (most recent call last):
-TypeError: Can't instantiate abstract class Document with abstract method display
+TypeError: Can't instantiate abstract class Document without an implementation for abstract method 'display'
 
 
 Use Case - 0x02

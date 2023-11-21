@@ -1,5 +1,9 @@
 Typing Check
 ============
+* ``mypy`` - the reference implementation for type checkers
+* ``pyre`` - written in OCaml and optimized for performance
+* ``pyright`` - a type checker that emphasizes speed
+* ``pytype`` - checks and infers types for unannotated code
 
 
 Python
@@ -92,4 +96,3 @@ Pyre
 * Pyre is a performant type checker for Python compliant with PEP 484. Pyre can analyze codebases with millions of lines of code incrementally – providing instantaneous feedback to developers as they write code
 * https://pyre-check.org/
 * https://pypi.org/project/pyre-check/
-

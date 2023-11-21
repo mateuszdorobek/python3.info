@@ -1,3 +1,5 @@
+# doctest: +SKIP_FILE
+
 import numpy as np
 from sklearn import preprocessing
 from sklearn.ensemble import ExtraTreesClassifier

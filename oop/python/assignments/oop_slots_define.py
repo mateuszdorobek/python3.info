@@ -44,7 +44,7 @@ Tests:
 
     >>> iris.__dict__
     Traceback (most recent call last):
-    AttributeError: 'Iris' object has no attribute '__dict__'
+    AttributeError: 'Iris' object has no attribute '__dict__'. Did you mean: '__dir__'?
 
     >>> values = tuple(getattr(iris, x) for x in iris.__slots__)
     >>> print(f'Iris{values}')

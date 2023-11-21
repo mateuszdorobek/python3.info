@@ -5,57 +5,50 @@ About Chaining
 SetUp
 -----
 >>> import pandas as pd
->>> import numpy as np
->>>
->>>
->>> DATA = [1, np.nan, 5, np.nan, 1, 2, 1, np.inf]
 
 
 Inplace
 -------
->>> s = pd.Series(DATA)
+>>> s = pd.Series([1, pd.NA, 5, pd.NA, 1, 2, 1])
 >>> s.fillna(0, inplace=True)
 >>> s.drop([2,4,6], inplace=True)
 >>> s.drop_duplicates(inplace=True)
 >>> s.reset_index(drop=True, inplace=True)
 >>> s
-0    1.0
-1    0.0
-2    2.0
-3    inf
-dtype: float64
+0    1
+1    0
+2    2
+dtype: int64
 
 
 Endl
 ----
->>> s = pd.Series(DATA) \
+>>> s = pd.Series([1, pd.NA, 5, pd.NA, 1, 2, 1]) \
 ...       .fillna(0) \
 ...       .drop([2,4,6]) \
 ...       .drop_duplicates() \
 ...       .reset_index(drop=True)
 >>>
 >>> s
-0    1.0
-1    0.0
-2    2.0
-3    inf
-dtype: float64
+0    1
+1    0
+2    2
+dtype: int64
 
 
 Chain
 -----
->>> s = (pd.Series(DATA)
+>>> s = (pd.Series([1, pd.NA, 5, pd.NA, 1, 2, 1])
 ...        .fillna(0)
 ...        .drop([2,4,6])
 ...        .drop_duplicates()
 ...        .reset_index(drop=True))
 >>>
 >>> s
-0    1.0
-1    0.0
-2    2.0
-3    inf
-dtype: float64
+0    1
+1    0
+2    2
+dtype: int64
 
 
 Further Reading
