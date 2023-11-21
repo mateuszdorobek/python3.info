@@ -1,23 +1,13 @@
-Dragon Sprint 11
+Dragon Sprint 19
 ================
-* Assignment: Dragon Sprint 11
-* Complexity: medium
-* Time: 13 min
+* Assignment: Dragon Sprint 19
+* Complexity: hard
+* Time: 34 min
 
 
 Functional Requirements
 -----------------------
-1. Smok
-   w trakcie gry
-   może poruszać się w osi ``x`` w przedziale od 0 do 1920
-
-2. Smok
-   w trakcie gry
-   może poruszać się w osi ``y`` w przedziale od 0 do 1080
-
-3. Smok
-   w trakcie gry
-   może poruszać się w osi ``z`` w przedziale od -100 do +100
+1. Obrażenia smoka (zianie ogniem) maleją z sześcianem odległości
 
 
 Use Case
@@ -49,4 +39,4 @@ Acceptance Criteria
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_11.py>`
+* :download:`Solution <assignments/dragon_sprint_19.py>`

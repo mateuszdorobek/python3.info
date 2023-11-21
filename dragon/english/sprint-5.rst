@@ -3,7 +3,6 @@ Dragon Sprint 5
 * Assignment: Dragon Sprint 5
 * Complexity: medium
 * Time: 34 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements

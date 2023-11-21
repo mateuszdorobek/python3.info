@@ -1,31 +1,23 @@
-Dragon Sprint 11
+Dragon Sprint 09
 ================
-* Assignment: Dragon Sprint 11
-* Complexity: medium
-* Time: 13 min
+* Assignment: Dragon Sprint 09
+* Complexity: easy
+* Time: 8 min
 
 
 Functional Requirements
 -----------------------
 1. Smok
    w trakcie gry
-   może poruszać się w osi ``x`` w przedziale od 0 do 1920
-
-2. Smok
-   w trakcie gry
-   może poruszać się w osi ``y`` w przedziale od 0 do 1080
-
-3. Smok
-   w trakcie gry
-   może poruszać się w osi ``z`` w przedziale od -100 do +100
+   ginie, gdy punkty życia spadną do lub poniżej zera
 
 
 Use Case
 --------
 1. Stwórz smoka o nazwie "Wawelski"
 2. Ustaw inicjalną pozycję smoka na x=50, y=120
-3. Ustaw nową pozycję na x=10, y=20
-4. Wypisz aktualną pozycję
+3. Pobierz aktualną pozycję
+4. Ustaw nową pozycję na x=10, y=20
 5. Przesuń smoka w lewo o 10 i w dół o 20
 6. Przesuń smoka w lewo o 10 i w prawo o 15
 7. Przesuń smoka w prawo o 15 i w górę o 5
@@ -46,7 +38,13 @@ Acceptance Criteria
 4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
 
 
+Hints
+-----
+* ``from random import randint``
+* ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
+
+
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_11.py>`
+* :download:`Solution <assignments/dragon_sprint_09.py>`

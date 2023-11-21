@@ -3,7 +3,6 @@ Dragon Sprint 7
 * Assignment: Dragon Sprint 7
 * Complexity: medium
 * Time: 34 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements

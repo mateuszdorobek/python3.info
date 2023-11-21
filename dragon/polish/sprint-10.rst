@@ -1,28 +1,27 @@
 Dragon Sprint 10
 ================
 * Assignment: Dragon Sprint 10
-* Complexity: hard
-* Time: 34 min
-* Warning: Don't delete code, assignment will be continued
+* Complexity: easy
+* Time: 8 min
 
 
 Functional Requirements
 -----------------------
-1. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów
-   od przeciwnika
+1. Smok
+   gdy zginie
+   na ekranie wyświetla się komunikat ``Dragon NAME is dead``, gdzie `NAME` to nazwa smoka
 
-2. Obrażenia smoka (zianie ogniem) maleją z sześcianem odległości
-
-3. Wszystkie istoty mogą levelować a bazowe punty życia i obrażeń się
-   zmieniają z poziomem
+2. Smok
+   gdy zginie
+   na ekranie wyświetla się ile złota wypadło (losowa liczba od 1 do 100)
 
 
 Use Case
 --------
 1. Stwórz smoka o nazwie "Wawelski"
 2. Ustaw inicjalną pozycję smoka na x=50, y=120
-3. Ustaw nową pozycję na x=10, y=20
-4. Wypisz aktualną pozycję
+3. Pobierz aktualną pozycję
+4. Ustaw nową pozycję na x=10, y=20
 5. Przesuń smoka w lewo o 10 i w dół o 20
 6. Przesuń smoka w lewo o 10 i w prawo o 15
 7. Przesuń smoka w prawo o 15 i w górę o 5
@@ -35,13 +34,35 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
-Non-Functional Requirements
----------------------------
-1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-2. Zmodyfikuj kod gry z poprzedniej wersji zadania
-3. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
-4. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
-5. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
+Tests
+-----
+.. code-block:: bdd
+
+    Title: Dragon dies with message and drops gold.
+
+    Scenario 1: Dragon dies and display message.
+    Given that dragon is alive,
+    When dragon dies,
+    Then text "Dragon NAME is dead" is displayed.
+
+    Scenario 2: Dragon dies and display gold.
+    Given that dragon is alive,
+    When dragon dies,
+    Then text "AMOUNT gold dropped" is displayed.
+
+
+Acceptance Criteria
+-------------------
+1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
+2. Rozwiązanie jest w katalogu ``dragon``
+3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
+4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
+
+
+Hints
+-----
+* ``from random import randint``
+* ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
 
 
 Solution

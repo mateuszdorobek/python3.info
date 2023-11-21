@@ -3,7 +3,6 @@ Dragon Sprint 4
 * Assignment: Dragon Sprint 4
 * Complexity: easy
 * Time: 21 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements

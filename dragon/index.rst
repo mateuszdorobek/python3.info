@@ -26,17 +26,28 @@ Polish
 
     polish/agenda.rst
     polish/about.rst
-    polish/sprint-1.rst
-    polish/sprint-2.rst
-    polish/sprint-3.rst
-    polish/sprint-4.rst
-    polish/sprint-5.rst
-    polish/sprint-6.rst
-    polish/sprint-7.rst
-    polish/sprint-8.rst
-    polish/sprint-9.rst
+    polish/sprint-01.rst
+    polish/sprint-02.rst
+    polish/sprint-03.rst
+    polish/sprint-04.rst
+    polish/sprint-05.rst
+    polish/sprint-06.rst
+    polish/sprint-07.rst
+    polish/sprint-08.rst
+    polish/sprint-09.rst
     polish/sprint-10.rst
-
+    polish/sprint-11.rst
+    polish/sprint-12.rst
+    polish/sprint-13.rst
+    polish/sprint-14.rst
+    polish/sprint-15.rst
+    polish/sprint-16.rst
+    polish/sprint-17.rst
+    polish/sprint-18.rst
+    polish/sprint-19.rst
+    polish/sprint-20.rst
+    polish/sprint-21.rst
+    polish/sprint-22.rst
 
 
 ADR

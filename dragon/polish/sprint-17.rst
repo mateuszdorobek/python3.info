@@ -1,9 +1,8 @@
-Dragon Sprint 7
-===============
-* Assignment: Dragon Sprint 7
-* Complexity: medium
+Dragon Sprint 17
+================
+* Assignment: Dragon Sprint 17
+* Complexity: hard
 * Time: 34 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements
@@ -41,16 +40,15 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
-Non-Functional Requirements
----------------------------
-1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-2. Zmodyfikuj kod gry z poprzedniej wersji zadania
-3. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
-4. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
-5. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
+Acceptance Criteria
+-------------------
+1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
+2. Rozwiązanie jest w katalogu ``dragon``
+3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
+4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
 
 
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_7.py>`
+* :download:`Solution <assignments/dragon_sprint_17.py>`

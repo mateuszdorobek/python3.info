@@ -1,9 +1,19 @@
-Dragon Sprint 12
+Dragon Sprint 14
 ================
-* Assignment: Dragon Sprint 12
-* Complexity: hard
-* Time: 34 min
-* Warning: Don't delete code, assignment will be continued
+* Assignment: Dragon Sprint 14
+* Complexity: medium
+* Time: 13 min
+
+
+Functional Requirements
+-----------------------
+1. Smok
+   gdy żyje
+   ma teksturę ``img/dragon/alive.png``
+
+2. Smok
+   gdy zginie
+   ma teksturę ``img/dragon/dead.png``
 
 
 Use Case
@@ -24,27 +34,15 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
-Functional Requirements
------------------------
-1. Bohater nie może zadawać obrażeń jak jest dalej niż 50 punktów
-   od przeciwnika
-
-2. Obrażenia smoka (zianie ogniem) maleją z sześcianem odległości
-
-3. Wszystkie istoty mogą levelować a bazowe punty życia i obrażeń się
-   zmieniają z poziomem
-
-
-Non-Functional Requirements
----------------------------
-1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-2. Zmodyfikuj kod gry z poprzedniej wersji zadania
-3. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
-4. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
-5. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
+Acceptance Criteria
+-------------------
+1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
+2. Rozwiązanie jest w katalogu ``dragon``
+3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
+4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
 
 
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_12.py>`
+* :download:`Solution <assignments/dragon_sprint_14.py>`

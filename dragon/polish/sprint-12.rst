@@ -1,30 +1,16 @@
-Dragon Sprint 10
+Dragon Sprint 12
 ================
-* Assignment: Dragon Sprint 10
-* Complexity: hard
-* Time: 34 min
-* Warning: Don't delete code, assignment will be continued
+* Assignment: Dragon Sprint 12
+* Complexity: medium
+* Time: 13 min
 
 
 Functional Requirements
 -----------------------
-1. W grze występuje ekwipunek:
-
-    a. zbroja i tarcza chroni przed uderzeniami obniżając ilość
-       obrażeń o wartość obrony,
-    b. miecz zwiększa ilość zadawanych obrażeń,
-
-2. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator:
-
-    a. zbroję (dodatkowe punkty obrony, np. +10%)
-    b. tarczę (dodatkowe punkty obrony, np. +5%)
-    c. miecz (dodatkowe punkty ataku, np. +5%)
-
-3. Bohater może założyć ekwipunek:
-
-    a. można mieć tylko jedną zbroję i jeden hełm na raz
-    b. bohater dowolnej klasy może używać tylko jednego miecza i tarczy
-    c. wojownicy mogą używać dwóch mieczy, ale wtedy tarczy już nie
+1. Jeżeli postać dojdzie do granicy ekranu, to przesuwając dalej,
+   pozycja będzie ustawiona na brzegową wartość w danej osi.
+   Przykładowo, smok jest na pozycji ``x=1, y=2`` i idzie w lewo o 10
+   to po ruchu zakończy się na pozycji ``x=0, y=2``.
 
 
 Use Case
@@ -45,16 +31,15 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
-Non-Functional Requirements
----------------------------
-1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-2. Zmodyfikuj kod gry z poprzedniej wersji zadania
-3. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
-4. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
-5. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
+Acceptance Criteria
+-------------------
+1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
+2. Rozwiązanie jest w katalogu ``dragon``
+3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
+4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
 
 
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_10.py>`
+* :download:`Solution <assignments/dragon_sprint_12.py>`

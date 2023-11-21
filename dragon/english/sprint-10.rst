@@ -3,7 +3,6 @@ Dragon Sprint 10
 * Assignment: Dragon Sprint 10
 * Complexity: hard
 * Time: 34 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements

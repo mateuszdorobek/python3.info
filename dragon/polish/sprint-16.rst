@@ -1,6 +1,6 @@
-Dragon Sprint 11
+Dragon Sprint 16
 ================
-* Assignment: Dragon Sprint 11
+* Assignment: Dragon Sprint 16
 * Complexity: medium
 * Time: 13 min
 
@@ -8,16 +8,16 @@ Dragon Sprint 11
 Functional Requirements
 -----------------------
 1. Smok
-   w trakcie gry
-   może poruszać się w osi ``x`` w przedziale od 0 do 1920
+   który nie żyje
+   nie może zadawać obrażeń
 
 2. Smok
-   w trakcie gry
-   może poruszać się w osi ``y`` w przedziale od 0 do 1080
+   który nie żyje
+   nie może otrzymywać obrażeń
 
 3. Smok
-   w trakcie gry
-   może poruszać się w osi ``z`` w przedziale od -100 do +100
+   który nie żyje
+   nie może się poruszać
 
 
 Use Case
@@ -49,4 +49,4 @@ Acceptance Criteria
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_11.py>`
+* :download:`Solution <assignments/dragon_sprint_16.py>`

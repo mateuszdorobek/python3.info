@@ -3,7 +3,6 @@ Dragon Sprint 1
 * Assignment: Dragon Sprint 1
 * Complexity: easy
 * Time: 13 min
-* Warning: Don't delete code, assignment will be continued
 
 
 Functional Requirements

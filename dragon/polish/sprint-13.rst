@@ -1,21 +1,29 @@
-Dragon Sprint 11
+Dragon Sprint 13
 ================
-* Assignment: Dragon Sprint 11
-* Complexity: hard
-* Time: 34 min
-* Warning: Don't delete code, assignment will be continued
+* Assignment: Dragon Sprint 13
+* Complexity: medium
+* Time: 13 min
 
 
 Functional Requirements
 -----------------------
-1. Bohater może należeć do drużyny składającej się maksymalnie z 6 postaci
+1. Smok
+   w trakcie gry
+   może poruszać się w trzech wymiarach
 
-    a. Mag: punkty życia: 10-20, złoto: 20-40, obrażenia: 1-4
-    b. Kapłan: punkty życia: 30-40, złoto: 30-40, obrażenia: 1-6
-    c. Łowca: punkty życia: 40-50, złoto: 10-40, obrażenia: 1-8
-    d. Wojownik: punkty życia: 10-50, złoto: 10-20, obrażenia: 1-12
-    e. Łotrzyk: punkty życia: 20-30, złoto: 0-50, obrażenia: 1-6
-    f. Druid: punkty życia: 30-40, złoto: 0, obrażenia: 1-6
+2. Smok
+   w trakcie gry
+   może unosić się nad ziemią (latać)
+
+3. Smok
+   w trakcie gry
+   może być pod powierzchnią wody (nurkować)
+
+
+Non-Functional Requirements
+---------------------------
+1. Idąc wyżej dodajesz ``z`` (latanie)
+2. Idąc głębiej odejmujesz ``z`` (nurkowanie)
 
 
 Use Case
@@ -36,16 +44,15 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
-Non-Functional Requirements
----------------------------
-1. Zapisz (commit) i wypchnij (push) aktualny stan repozytorium
-2. Zmodyfikuj kod gry z poprzedniej wersji zadania
-3. Zapisz kod do rozwiązania zadania w katalogu ``dragon``
-4. Po zakończeniu dodaj wszystkie pliki z ``dragon`` do repozytorium
-5. Zapisz i wypchnij zmiany do centralnego repozytorium (Github)
+Acceptance Criteria
+-------------------
+1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
+2. Rozwiązanie jest w katalogu ``dragon``
+3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
+4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
 
 
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_11.py>`
+* :download:`Solution <assignments/dragon_sprint_13.py>`
