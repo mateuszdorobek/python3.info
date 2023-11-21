@@ -34,13 +34,13 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Dragon can take damage.
+    Feature: Dragon can take damage
 
-    Scenario: Dragon can take damage.
+    Scenario: Dragon can take damage
         Given Dragon is created with name "Wawelski"
-          and Dragon health is 2,
-         When Dragon takes damage 1,
-         Then Dragon health is 1.
+          and Dragon health is 2
+         When Dragon takes damage 1
+         Then Dragon health is 1
 
 
 Acceptance Criteria

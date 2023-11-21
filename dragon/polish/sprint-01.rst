@@ -21,18 +21,18 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Create Dragon with name.
+    Feature: Create Dragon with name
 
-    Scenario: Prevent creating Dragon without name.
-        Given Dragon does not exist,
-         When Dragon is created without name,
-         Then display error.
+    Scenario: Prevent creating Dragon without name
+        Given Dragon does not exist
+         When Dragon is created without name
+         Then display error
 
-    Scenario: Create Dragon with name.
-        Given Dragon does not exist,
-         When Dragon is created with name "Wawelski",
-         Then Dragon exists,
-          and Dragon name is "Wawelski".
+    Scenario: Create Dragon with name
+        Given Dragon does not exist
+         When Dragon is created with name "Wawelski"
+         Then Dragon exists
+          and Dragon name is "Wawelski"
 
 
 Acceptance Criteria

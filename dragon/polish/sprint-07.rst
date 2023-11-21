@@ -29,12 +29,12 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Dragon can make random damage.
+    Feature: Dragon can make random damage
 
-    Scenario: Dragon can make random damage between 5 and 20.
-        Given Dragon is created with name "Wawelski",
-         When Dragon is makes damage,
-         Then value is between 5 and 20.
+    Scenario: Dragon can make random damage between 5 and 20
+        Given Dragon is created with name "Wawelski"
+         When Dragon is makes damage
+         Then value is between 5 and 20
 
 
 Acceptance Criteria

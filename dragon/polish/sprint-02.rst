@@ -21,13 +21,13 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Create Dragon with random health points.
+    Feature: Create Dragon with random health points
 
-    Scenario: Create Dragon with random health points.
-        Given Dragon does not exist,
-         When Dragon is created with name "Wawelski",
-         Then Dragon exists,
-          and Dragon health is between 50 and 100.
+    Scenario: Create Dragon with random health points
+        Given Dragon does not exist
+         When Dragon is created with name "Wawelski"
+         Then Dragon exists
+          and Dragon health is between 50 and 100
 
 
 Acceptance Criteria

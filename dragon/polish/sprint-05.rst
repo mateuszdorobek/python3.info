@@ -24,12 +24,12 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Dragon can be set at any position.
+    Feature: Dragon can be set at any position
 
-    Scenario: Dragon can be set at any position.
-        Given Dragon is created with name "Wawelski",
-         When Dragon is set at position x=1 y=2,
-         Then Dragon position is x=1 y=2.
+    Scenario: Dragon can be set at any position
+        Given Dragon is created with name "Wawelski"
+         When Dragon is set at position x=1 y=2
+         Then Dragon position is x=1 y=2
 
 
 Acceptance Criteria
