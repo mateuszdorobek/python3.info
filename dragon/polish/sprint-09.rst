@@ -34,17 +34,17 @@ Tests
 -----
 .. code-block:: bdd
 
-    Title: Dragon is dead when health is zero or less.
+    Feature: Dragon is dead when health is zero or less.
 
-    Scenario 1: Dragon is dead when health is zero.
-    Given Dragon is created with name "Wawelski",
-    When Dragon health is 0,
-    Then Dragon is dead.
+    Scenario: Dragon is dead when health is zero.
+        Given Dragon is created with name "Wawelski",
+         When Dragon health is 0,
+         Then Dragon is dead.
 
-    Scenario 2: Dragon is dead when health is negative.
-    Given Dragon is created with name "Wawelski",
-    When Dragon health is -1,
-    Then Dragon is dead.
+    Scenario: Dragon is dead when health is negative.
+        Given Dragon is created with name "Wawelski",
+         When Dragon health is -1,
+         Then Dragon is dead.
 
 
 Acceptance Criteria

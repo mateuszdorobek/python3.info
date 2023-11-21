@@ -38,17 +38,17 @@ Tests
 -----
 .. code-block:: bdd
 
-    Title: Dragon dies with message and drops gold.
+    Feature: Dragon dies with message and drops gold.
 
-    Scenario 1: Dragon dies and display message.
-    Given Dragon is created with name "Wawelski",
-    When Dragon health is 0,
-    Then display "Dragon NAME is dead".
+    Scenario: Dragon dies and display message.
+        Given Dragon is created with name "Wawelski",
+         When Dragon health is 0,
+         Then display "Dragon NAME is dead".
 
-    Scenario 2: Dragon dies and display gold.
-    Given Dragon is created with name "Wawelski",
-    When Dragon health is 0,
-    Then display "AMOUNT gold dropped".
+    Scenario: Dragon dies and display gold.
+        Given Dragon is created with name "Wawelski",
+         When Dragon health is 0,
+         Then display "AMOUNT gold dropped".
 
 
 Acceptance Criteria

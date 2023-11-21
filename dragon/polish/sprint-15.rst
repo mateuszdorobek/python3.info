@@ -50,32 +50,32 @@ Testy
 -----
 .. code-block:: bdd
 
-    Title: Set Dragon status based on health.
+    Feature: Set Dragon status based on health.
 
-    Scenario 1: Dragon with status "Full Health".
-    Given Dragon is created with name "Wawelski",
-    When Health is 100%,
-    Then Status is "Full Health".
+    Scenario: Dragon with status "Full Health".
+        Given Dragon is created with name "Wawelski",
+         When Health is 100%,
+         Then Status is "Full Health".
 
-    Scenario 2: Dragon with status "Injured".
-    Given Dragon is created with name "Wawelski",
-    When Health is between 75% and 99%,
-    Then Status is "Injured".
+    Scenario: Dragon with status "Injured".
+        Given Dragon is created with name "Wawelski",
+         When Health is between 75% and 99%,
+         Then Status is "Injured".
 
-    Scenario 3: Dragon with status "Badly Wounded".
-    Given Dragon is created with name "Wawelski",
-    When Health is between 25% and 74%,
-    Then Status is "Badly Wounded".
+    Scenario: Dragon with status "Badly Wounded".
+        Given Dragon is created with name "Wawelski",
+         When Health is between 25% and 74%,
+         Then Status is "Badly Wounded".
 
-    Scenario 4: Dragon with status "Near Death".
-    Given Dragon is created with name "Wawelski",
-    When Health is between 1% and 24%,
-    Then Status is "Near Death".
+    Scenario: Dragon with status "Near Death".
+        Given Dragon is created with name "Wawelski",
+         When Health is between 1% and 24%,
+         Then Status is "Near Death".
 
-    Scenario 5: Dragon with status "Dead".
-    Given Dragon is created with name "Wawelski",
-    When Health is 0%,
-    Then Status is "Dead".
+    Scenario: Dragon with status "Dead".
+        Given Dragon is created with name "Wawelski",
+         When Health is 0%,
+         Then Status is "Dead".
 
 
 Acceptance Criteria

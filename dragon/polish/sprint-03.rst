@@ -22,19 +22,19 @@ Tests
 -----
 .. code-block:: bdd
 
-    Title: Create Dragon with position.
+    Feature: Create Dragon with position.
 
-    Scenario 1: Create Dragon with default position.
-    Given Dragon does not exist,
-    When Dragon is created with name "Wawelski",
-    Then Dragon exists,
-    and position is x=0 y=0.
+    Scenario: Create Dragon with default position.
+        Given Dragon does not exist,
+         When Dragon is created with name "Wawelski",
+         Then Dragon exists,
+          and position is x=0 y=0.
 
-    Scenario 2: Create Dragon with initial position.
-    Given Dragon does not exist,
-    When Dragon is created with name "Wawelski" and position x=50 y=120,
-    Then Dragon exists,
-    and Dragon position is x=50 y=120.
+    Scenario: Create Dragon with initial position.
+        Given Dragon does not exist,
+         When Dragon is created with name "Wawelski" and position x=50 y=120,
+         Then Dragon exists,
+          and Dragon position is x=50 y=120.
 
 
 Acceptance Criteria
