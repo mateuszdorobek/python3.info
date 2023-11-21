@@ -77,7 +77,7 @@ Implementacja
 Możesz wprowadzać dodatkowe pola, metody, funkcje, zmienne, stałe,
 klasy, obiekty, unittest lub doctest, type annotation - co tylko
 chcesz, ale `nie korzystaj z modułów spoza biblioteki standardowej`.
-Wyjątkiem są frameworki do testów (``pytest``, ``hypothesis``, itp).
+Wyjątkiem są frameworki do testów (``pytest``, ``behave``, ``hypothesis``, itp).
 
 Nie przeglądaj rozwiązań ani treści kolejnych części zadania.
 Jeżeli zaglądniesz w przód, to zepsujesz sobie zabawę i naukę.
