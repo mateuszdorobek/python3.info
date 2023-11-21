@@ -54,28 +54,28 @@ Testy
 
     Scenario: Dragon with status "Full Health"
         Given Dragon is created with name "Wawelski"
-         When Health is 100%
-         Then Status is "Full Health"
+         When Dragon health is 100%
+         Then Dragon status is "Full Health"
 
     Scenario: Dragon with status "Injured"
         Given Dragon is created with name "Wawelski"
-         When Health is between 75% and 99%
-         Then Status is "Injured"
+         When Dragon health is between 75% and 99%
+         Then Dragon status is "Injured"
 
     Scenario: Dragon with status "Badly Wounded"
         Given Dragon is created with name "Wawelski"
-         When Health is between 25% and 74%
-         Then Status is "Badly Wounded"
+         When Dragon health is between 25% and 74%
+         Then Dragon status is "Badly Wounded"
 
     Scenario: Dragon with status "Near Death"
         Given Dragon is created with name "Wawelski"
-         When Health is between 1% and 24%
-         Then Status is "Near Death"
+         When Dragon health is between 1% and 24%
+         Then Dragon status is "Near Death"
 
     Scenario: Dragon with status "Dead"
         Given Dragon is created with name "Wawelski"
-         When Health is 0%
-         Then Status is "Dead"
+         When Dragon health is 0%
+         Then Dragon status is "Dead"
 
 
 Acceptance Criteria

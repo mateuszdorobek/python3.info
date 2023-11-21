@@ -38,8 +38,8 @@ Tests
 
     Scenario: Dragon can take damage
         Given Dragon is created with name "Wawelski"
-          and Dragon health is 2
-         When Dragon takes damage 1
+          and Dragon health is 3
+         When Dragon takes damage 2
          Then Dragon health is 1
 
 

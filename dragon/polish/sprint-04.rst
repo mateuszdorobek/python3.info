@@ -26,7 +26,7 @@ Tests
     Feature: Dragon can return its position
 
     Scenario: Dragon returns its position
-        Given Dragon is created with name "Wawelski" and position x=50 y=120
+        Given Dragon is created with name "Wawelski" and position x=1 y=2
          When Dragon gets position
          Then value is x=1 y=2
 

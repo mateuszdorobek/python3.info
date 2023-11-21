@@ -43,12 +43,12 @@ Tests
     Scenario: Dragon dies and display message
         Given Dragon is created with name "Wawelski"
          When Dragon health is 0
-         Then display "Dragon NAME is dead"
+         Then text "Dragon NAME is dead" is displayed
 
     Scenario: Dragon dies and display gold
         Given Dragon is created with name "Wawelski"
          When Dragon health is 0
-         Then display "AMOUNT gold dropped"
+         Then text "AMOUNT gold dropped" is displayed
 
 
 Acceptance Criteria

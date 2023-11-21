@@ -53,12 +53,42 @@ Tests
 -----
 .. code-block:: bdd
 
-    Feature: Dragon can be set at any position
+    Feature: Dragon can move left, right, up, down by value
 
-    Scenario: Dragon can be set at any position
-        Given Dragon is created with name "Wawelski"
-         When Dragon is set at position x=1 y=2
-         Then Dragon position is x=1 y=2
+    Scenario: Dragon moves left
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move left by 1
+         Then Dragon position is x=9 y=20
+
+    Scenario: Dragon moves right
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move right by 1
+         Then Dragon position is x=11 y=20
+
+    Scenario: Dragon moves down
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move down by 1
+         Then Dragon position is x=10 y=21
+
+    Scenario: Dragon moves up
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move up by 1
+         Then Dragon position is x=10 y=19
+
+    Scenario: Dragon moves horizontal
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move left by 1 and right by 2
+         Then Dragon position is x=11 y=20
+
+    Scenario: Dragon moves vertical
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move up by 1 and down by 2
+         Then Dragon position is x=10 y=21
+
+    Scenario: Dragon moves omnidirectional
+        Given Dragon is created with name "Wawelski" and position x=10 y=20
+         When Dragon move left by 1 and right by 2 and up by 3 and left by 4
+         Then Dragon position is x=11 y=21
 
 
 Acceptance Criteria

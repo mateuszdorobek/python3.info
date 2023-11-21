@@ -33,7 +33,7 @@ Tests
 
     Scenario: Dragon can make random damage between 5 and 20
         Given Dragon is created with name "Wawelski"
-         When Dragon is makes damage
+         When Dragon makes damage
          Then value is between 5 and 20
 
 

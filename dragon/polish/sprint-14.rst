@@ -34,6 +34,23 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
+Tests
+-----
+.. code-block:: bdd
+
+    Feature: Dragon sets texture based on health
+
+    Scenario: Dragon texture when alive
+        Given Dragon is created with name "Wawelski"
+         When Dragon health is 1
+         Then Dragon texture is ``img/dragon/alive.png``
+
+    Scenario: Dragon texture when dead
+        Given Dragon is created with name "Wawelski"
+         When Dragon health is 0
+         Then Dragon texture is ``img/dragon/dead.png``
+
+
 Acceptance Criteria
 -------------------
 1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
