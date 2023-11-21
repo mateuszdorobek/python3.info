@@ -7,9 +7,9 @@ Dragon Sprint 05
 
 Functional Requirements
 -----------------------
-1. Użytkownik
+1. Smok
    w trakcie gry
-   może ustawić smoka w dowolne miejsce ekranu
+   może być ustawiony w dowolne miejsce ekranu
 
 
 Use Case

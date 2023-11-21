@@ -7,9 +7,9 @@ Dragon Sprint 04
 
 Functional Requirements
 -----------------------
-1. Użytkownik
+1. Smok
    w trakcie gry
-   może pobrać obecną pozycję smoka
+   może zwrócić pozycję którą zajmuje
 
 
 Use Case

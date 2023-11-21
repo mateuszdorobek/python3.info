@@ -7,9 +7,9 @@ Dragon Sprint 03
 
 Functional Requirements
 -----------------------
-1. Użytkownik
-   przy tworzeniu smoka
-   może ustawić pozycję smoka na ekranie
+1. Smok
+   przy tworzeniu
+   może mieć ustawioną inicjalną pozycję na ekranie
 
 
 Use Case

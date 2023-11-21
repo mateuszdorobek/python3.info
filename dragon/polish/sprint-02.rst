@@ -8,7 +8,7 @@ Dragon Sprint 02
 Functional Requirements
 -----------------------
 1. Smok
-   po stworzeniu
+   przy tworzeniu
    ma losowe punkty życia z zakresu 50 do 100
 
 
