@@ -41,14 +41,14 @@ Tests
     Title: Dragon dies with message and drops gold.
 
     Scenario 1: Dragon dies and display message.
-    Given that dragon is alive,
-    When dragon dies,
-    Then text "Dragon NAME is dead" is displayed.
+    Given Dragon is created with name "Wawelski",
+    When Dragon health is 0,
+    Then display "Dragon NAME is dead".
 
     Scenario 2: Dragon dies and display gold.
-    Given that dragon is alive,
-    When dragon dies,
-    Then text "AMOUNT gold dropped" is displayed.
+    Given Dragon is created with name "Wawelski",
+    When Dragon health is 0,
+    Then display "AMOUNT gold dropped".
 
 
 Acceptance Criteria

@@ -30,18 +30,29 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
+Tests
+-----
+.. code-block:: bdd
+
+    Title: Dragon is dead when health is zero or less.
+
+    Scenario 1: Dragon is dead when health is zero.
+    Given Dragon is created with name "Wawelski",
+    When Dragon health is 0,
+    Then Dragon is dead.
+
+    Scenario 2: Dragon is dead when health is negative.
+    Given Dragon is created with name "Wawelski",
+    When Dragon health is -1,
+    Then Dragon is dead.
+
+
 Acceptance Criteria
 -------------------
 1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu
 2. Rozwiązanie jest w katalogu ``dragon``
 3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
 4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
-
-
-Hints
------
-* ``from random import randint``
-* ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
 
 
 Solution

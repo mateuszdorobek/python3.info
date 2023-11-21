@@ -27,7 +27,7 @@ Tests
     Given Dragon does not exist,
     When Dragon is created with name "Wawelski",
     Then Dragon exists,
-    and health is between 50 and 100.
+    and Dragon health is between 50 and 100.
 
 
 Acceptance Criteria

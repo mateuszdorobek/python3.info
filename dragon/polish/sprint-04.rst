@@ -26,9 +26,9 @@ Tests
     Title: Dragon can return its position.
 
     Scenario 1: Dragon returns its position.
-    When Dragon is created with name "Wawelski" and position x=50 y=120,
+    Given Dragon is created with name "Wawelski" and position x=50 y=120,
     When Dragon gets position,
-    Then display x=1 y=2.
+    Then value is x=1 y=2.
 
 
 Acceptance Criteria

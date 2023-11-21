@@ -30,6 +30,19 @@ Use Case
 14. Zadaj 50 obrażeń smokowi
 
 
+Tests
+-----
+.. code-block:: bdd
+
+    Title: Dragon can take damage.
+
+    Scenario 1: Dragon can take damage.
+    Given Dragon is created with name "Wawelski"
+    and Dragon health is 2,
+    When Dragon takes damage 1,
+    Then Dragon health is 1.
+
+
 Acceptance Criteria
 -------------------
 1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu

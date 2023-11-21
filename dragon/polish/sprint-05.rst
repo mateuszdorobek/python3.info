@@ -27,7 +27,7 @@ Tests
     Title: Dragon can be set at any position.
 
     Scenario 1: Dragon can be set at any position.
-    When Dragon is created with name "Wawelski",
+    Given Dragon is created with name "Wawelski",
     When Dragon is set at position x=1 y=2,
     Then Dragon position is x=1 y=2.
 

@@ -32,7 +32,7 @@ Tests
     Given Dragon does not exist,
     When Dragon is created with name "Wawelski",
     Then Dragon exists,
-    and name is "Wawelski".
+    and Dragon name is "Wawelski".
 
 
 Acceptance Criteria

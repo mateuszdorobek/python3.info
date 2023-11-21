@@ -25,6 +25,18 @@ Use Case
 9. Smok zadaje obrażenia (losowo 5-20)
 
 
+Tests
+-----
+.. code-block:: bdd
+
+    Title: Dragon can make random damage.
+
+    Scenario 1: Dragon can make random damage between 5 and 20.
+    Given Dragon is created with name "Wawelski",
+    When Dragon is makes damage,
+    Then value is between 5 and 20.
+
+
 Acceptance Criteria
 -------------------
 1. Rozwiązanie jest rozwinięciem kodu z poprzedniego sprintu

@@ -34,7 +34,7 @@ Tests
     Given Dragon does not exist,
     When Dragon is created with name "Wawelski" and position x=50 y=120,
     Then Dragon exists,
-    and position is x=50 y=120.
+    and Dragon position is x=50 y=120.
 
 
 Acceptance Criteria
