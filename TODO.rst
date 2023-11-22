@@ -6,10 +6,7 @@ TODO
 
 New run.py
 ----------
-* New Script to run doctests (*.py, *.rst, *.md)
-* First, gather files to test
-* Then async/thread run all files at the same time
-* Output all errors sequentially (alphabetically by path)
+* Uruchamianie tylko żądanych plików, a nie wszystkich
 * Zapis faili do plików w /tmp, catowanie tych plików na koniec builda
 * Pliki z failami maja strukturę katalogów podobną jak pliki książki (czy napewno ?!)
 
@@ -23,6 +20,16 @@ New run.py
 * Dodać formatowanie printa
 * Dodać Dataclasses (?!)
 * Dodać część OOP: (atrybuty, metody)
+* Dodać systemu numeryczne hex, octal, binary
+* Dodać locale i encoding
+* Rozbić doctest i unittest osobno
+* Dodać generatory
+* Dodać zadania z TOML
+
+
+Advanced
+--------
+* Wywalić atrybuty i metody
 
 
 

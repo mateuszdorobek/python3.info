@@ -152,6 +152,7 @@ Regex
     regex/syntax-look-ahead-behind.rst
     regex/syntax-flavors.rst
     regex/syntax-usecases.rst
+    regex/syntax-recap.rst
     regex/re-match.rst
     regex/re-search.rst
     regex/re-find.rst

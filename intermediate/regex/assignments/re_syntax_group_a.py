@@ -1,6 +1,6 @@
 """
 * Assignment: RE Syntax Group
-* Complexity: easy
+* Complexity: medium
 * Lines of code: 1 lines
 * Time: 3 min
 

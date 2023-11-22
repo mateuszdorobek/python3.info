@@ -5,28 +5,28 @@ Datetime Standards
 
 Date
 ----
-Formal date format in USA [#wikiDateFormatUS]_:
+Formal date format in USA [#wikiDateFormatUS]_
 
 .. code-block:: text
 
-    4/12/61
-    April 12, 1961
+    4/12/61         # US short date format
+    April 12, 1961  # US long date format
 
 Formal date format in Japan [#wikiDateFormatJapan]_:
 
 .. code-block:: text
 
-    61/04/12
-    1961年04月12日
+    61/04/12        # Japanese short date format
+    1961年04月12日   # Japanese long date format
 
-    20/12/31
-    平成20年12月31日
+    20/12/31        # Japanese short date format
+    平成20年12月31日  # Japanese long date format
 
 Formal date format in Germany:
 
 .. code-block:: text
 
-    12.04.1961
+    12.04.1961      # only date format
 
 Date format in Poland:
 
@@ -48,69 +48,48 @@ Date format in Poland:
     1961-04-12
 
 Which format is a formal standard in Poland? [#wikiISO8601]_
+There is no formal standard for date format in Poland.
+There is only a recommendation to write dates using ISO-8601 format (yyyy-mm-dd).
+However hardly anyone including government is using it.
 
 
-Time
-----
-* 24 and 12 hour clock
-* Confusion at noon and midnight
+24 Hour Clock
+-------------
+.. code-block:: text
 
-24 and 12 hour clock:
+    07:00       # morning
+    19:00       # evening
 
-    .. code-block:: text
-
-        5:00 AM
-        5:00 PM
-        5:00
-        17:00
+.. figure:: img/datetime-standards-clock-24h.jpg
 
 
-Zero padded
------------
-* Zero padded minutes, seconds and microseconds but not hours
-* Variable length microseconds
+12 Hour Clock
+-------------
+* What AM stands for?
+* What PM stands for?
 
 .. code-block:: text
 
-    06:07       # ok
-    6:07        # ok
-    6:7         # error
+    7:00 AM     # morning
+    7:00 PM     # evening
 
-.. code-block:: text
-
-    06:07:00    # ok
-    6:07:00     # ok
-    6:07:0      # error
-    6:07:       # error
-    6:07        # ok
-
-.. code-block:: text
-
-    6:07:00.000001
-    6:07:00.123456
-    6:07:00.123
-    6:07:00.1
+.. figure:: img/datetime-standards-clock-12h.jpg
 
 
 Noon and Midnight
 -----------------
+* Confusion at noon and midnight [#wikiNoonMidnight]_
 * Which time is a midnight?
 * Which time is a noon?
+
+24 hour clock:
 
 .. code-block:: text
 
     00:00
     12:00
-    24:00
 
-
-AM vs PM
---------
-* What AM stands for?
-* What PM stands for?
-* Which time is a midnight?
-* Which time is a noon?
-* Confusion at noon and midnight [#wikiNoonMidnight]_
+12 hour clock:
 
 .. code-block:: text
 
@@ -118,18 +97,35 @@ AM vs PM
     12:00 pm
 
 
-Roman Numerals
---------------
-* IV - in latin is read as JU (which stands for Jupyter - god)
-* Louis XIV [#watchmaster]_
+Exactly Midnight
+----------------
+* ``00:00:00.000000`` - day start, exactly midnight
+* ``23:59:59.999999`` - day end, excluding last microsecond
+* ``24:00:00.000000`` - day end, including last microsecond
+
+Day end, excluding last microsecond:
 
 .. code-block:: text
 
-    IV
-    IIII
+    start = 2000-01-01 00:00:00.000000
+      end = 2000-12-31 23:59:59.999999
 
-.. figure:: img/datetime-standards-rolex.jpg
+Day end, including last microsecond:
 
+.. code-block:: text
+
+    start = 2000-01-01 00:00:00.000000
+      end = 2000-12-31 24:00:00.000000
+
+
+After Midnight
+--------------
+* Times after Midnight [#wikiTimesAfter2400]_
+
+.. code-block:: text
+
+    23:00 - 25:30   # 23:00-01:30 --> 2h 30m
+    14:00 - 26:00   # 14:00-02:00 --> 12h 0m
 
 
 Leap Second
@@ -147,35 +143,103 @@ Leap Second
 * Introduced in 1972
 * Last leap second in 2016
 
-Normal second:
+.. code-block:: text
+
+    23:59:59 -> 00:00:00                # Normal second
+    23:59:59 -> 23:59:60 -> 00:00:00    # Leap Second
+
+
+Zero Padded
+-----------
+* Zero padded minutes, seconds and microseconds but not hours
+* Variable length microseconds
+
+Hours:
 
 .. code-block:: text
 
-    23:59:59
-    00:00:00
+    06:07               # ok
+    6:07                # ok
 
-Leap Second:
-
-.. code-block:: text
-
-    23:59:59
-    23:59:60
-    00:00:00
-
-
-Times after 24:00
------------------
-* Times after 24:00 [#wikiTimesAfter2400]_
+Minutes:
 
 .. code-block:: text
 
-    00:00:00 - 23:59:59.999999...   # almost midnight
-    00:00:00 - 24:00:00             # until midnight
+    06:07               # ok
+    06:7                # error
+
+Seconds:
 
 .. code-block:: text
 
-    23:00 - 25:30   # 2h 30m
-    14:00 - 26:00   # 12h
+    06:07:00            # ok
+    06:07:0             # error
+    06:07:              # error
+    06:07               # ok
+
+Microseconds:
+
+.. code-block:: text
+
+    06:07:00.000000     # ok
+    06:07:00.00000      # ok
+    06:07:00.0000       # ok
+    06:07:00.000        # ok
+    06:07:00.00         # ok
+    06:07:00.0          # ok
+    06:07:00            # ok
+
+Microseconds:
+
+.. code-block:: text
+
+    06:07:00.100000     # same time
+    06:07:00.10000      # same time
+    06:07:00.1000       # same time
+    06:07:00.100        # same time
+    06:07:00.10         # same time
+    06:07:00.1          # same time
+
+    06:07:00.000001     # different time
+    06:07:00.00001      # different time
+    06:07:00.0001       # different time
+    06:07:00.001        # different time
+    06:07:00.01         # different time
+    06:07:00.1          # different time
+    06:07:00            # different time
+
+
+Roman Numerals
+--------------
+* In latin ``V`` is read as ``U``
+* In latin ``I`` is read as ``J``
+* In latin ``IV`` is read as ``JU``
+* ``JU`` stands for Jupyter - roman god
+* Louis XIV did not like ``IV`` and changed to ``IIII`` [#watchmaster]_
+* There is a symetry in groups of four ``I, II, III, IIII``, ``V, VI, VII, VIII``, ``IX, X, XI, XII``
+
+.. figure:: img/datetime-standards-roman-watch.jpg
+
+.. code-block:: text
+
+    IV
+    IIII
+
+.. code-block:: text
+
+    I,   II,  III,  IIII    # Group with I and I
+    V,   VI,  VII,  VIII    # Group with V and I
+    IX,  X,   XI,   XII     # Group with X and I
+
+.. figure:: img/datetime-standards-roman-inscription.jpg
+
+
+Military Time
+-------------
+* Military time [#wikiMilitaryTime]_
+* Military time zones [#wikiMilitaryTimezones]_
+
+.. figure:: img/datetime-standards-militarytime.webp
 
 
 Decimal Time
@@ -188,8 +252,6 @@ Decimal Time
 
 Other
 -----
-* Military time [#wikiMilitaryTime]_
-* Military time zones [#wikiMilitaryTimezones]_
 * Swatch Internet Time - Beats @300 [#wikiSwatchInternetTime]_
 * sidereal day on Earth is approximately 86164.0905 seconds (23 h 56 min 4.0905 s or 23.9344696 h)
 
@@ -199,9 +261,33 @@ Calendars
 * Julian Calendar [#wikiJulianCalendar]_
 * Gregorian Calendar [#wikiGregorianCalendar]_
 * Introduced by Pope Gregory XIII in October 1582
-* Last country (Saudi Arabia) adopted Julian calendar in 2016
-* List of adoption dates of the Gregorian calendar by country [#wikiGregorianCalendarAdoption]_
+* Saudi Arabia was the last country to adopt Gregorian calendar in 2016
 * There are only four countries which have not adopted the Gregorian calendar: Ethiopia (Ethiopian calendar), Nepal (Vikram Samvat and Nepal Sambat), Iran and Afghanistan (Solar Hijri calendar)
+* List of adoption dates of the Gregorian calendar by country [#wikiGregorianCalendarAdoption]_
+
+.. csv-table:: Brief summary of adoption dates of the Gregorian calendar per country [#wikiGregorianCalendarAdoption]_
+    :header: "Year", "Country/-ies/Areas"
+
+    "1582", "Spain, Portugal, France, Polish-Lithuanian Commonwealth, Italy, Catholic Low Countries, Luxembourg, and colonies thereof"
+    "1584", "Kingdom of Bohemia, some Catholic Swiss cantons"
+    "1610", "Prussia"
+    "1648", "Alsace"
+    "1682", "Strasbourg"
+    "1700", "Protestant Low Countries, Norway, Denmark, some Protestant Swiss cantons"
+    "1752", "Great Britain, Ireland, and the 'First' British Empire (1707–1783)"
+    "1753", "Sweden and Finland"
+    "1873", "Japan"
+    "1875", "Egypt"
+    "1896", "Korea"
+    "1912", "China, Albania"
+    "1915", "Latvia, Lithuania"
+    "1916", "Bulgaria"
+    "1917", "Ottoman Empire"
+    "1918", "Ukraine, Russia, Estonia"
+    "1919", "Romania, Yugoslavia"
+    "1923", "Greece"
+    "1926", "Turkey (common era years; Gregorian dates in use since 1917 Ottoman adoption)"
+    "2016", "Saudi Arabia"
 
 
 Astronomy
