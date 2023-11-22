@@ -27,6 +27,31 @@ New run.py
 * Dodać zadania z TOML
 
 
+Day 4
+-----
+* 60 min - Modules: project layout, venv, pip, requirements.txt, pyproject.toml
+* 30 min - Logging: debugging messages
+* 30 min - Print Formatting
+* 45 min - Numbers: bin, hex, oct
+* 45 min - Encoding: ascii, cp1250, iso-8859-2, utf-8
+* 30 min - Locale: i18n, l10n
+* 60 min - Operating system: os, tempfile, sys, platform
+* 60 min - Ścieżki: os.path, pathlib, os
+* 60 min - Parametry: sys.argv, argparse
+
+
+Day 5
+-----
+* 180 min - Database: (SQL, create, index, alter, update, delete, drop, select)
+* 60 min - OOP attributes: mutability, instance/class variables, access modifiers
+* 15 min - Decimal: float precision problem (IEEE 754)
+* 15 min - Random: pseudorandom numbers, random seed
+* 60 min - Doctest: using doctests and testing problems
+* 90 min - Unittest: introduction to TDD
+
+
+
+
 Advanced
 --------
 * Wywalić atrybuty i metody
