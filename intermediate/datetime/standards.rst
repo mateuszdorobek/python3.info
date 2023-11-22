@@ -9,24 +9,24 @@ Formal date format in USA [#wikiDateFormatUS]_
 
 .. code-block:: text
 
-    4/12/61         # US short date format
-    April 12, 1961  # US long date format
+    4/12/61         # short
+    April 12, 1961  # long
 
 Formal date format in Japan [#wikiDateFormatJapan]_:
 
 .. code-block:: text
 
-    61/04/12        # Japanese short date format
-    1961年04月12日   # Japanese long date format
+    61/04/12        # short
+    1961年04月12日   # long
 
-    20/12/31        # Japanese short date format
-    平成20年12月31日  # Japanese long date format
+    20/12/31        # short
+    平成20年12月31日  # long
 
 Formal date format in Germany:
 
 .. code-block:: text
 
-    12.04.1961      # only date format
+    12.04.1961      # only
 
 Date format in Poland:
 
@@ -47,10 +47,10 @@ Date format in Poland:
     12-04-1961
     1961-04-12
 
-Which format is a formal standard in Poland? [#wikiISO8601]_
-There is no formal standard for date format in Poland.
-There is only a recommendation to write dates using ISO-8601 format (yyyy-mm-dd).
-However hardly anyone including government is using it.
+Which format is a formal standard in Poland? There is no formal standard
+for date format in Poland. There is only a recommendation to write dates
+using ISO-8601 format (yyyy-mm-dd) [#wikiISO8601]_. However hardly anyone
+including government in official documents and forms is using it.
 
 
 24 Hour Clock
@@ -225,11 +225,16 @@ Roman Numerals
     IV
     IIII
 
+There is a symetry in groups of four:
+
 .. code-block:: text
 
     I,   II,  III,  IIII    # Group with I and I
     V,   VI,  VII,  VIII    # Group with V and I
     IX,  X,   XI,   XII     # Group with X and I
+
+In latin ``V`` is read as ``U``, ``I`` is read as ``J``, therefore
+``IV`` is read as ``JU`` which stands for Jupyter - roman god.
 
 .. figure:: img/datetime-standards-roman-inscription.jpg
 
@@ -238,6 +243,7 @@ Military Time
 -------------
 * Military time [#wikiMilitaryTime]_
 * Military time zones [#wikiMilitaryTimezones]_
+* 24 hour clock
 
 .. figure:: img/datetime-standards-militarytime.webp
 
