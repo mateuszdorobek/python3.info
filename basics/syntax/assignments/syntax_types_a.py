@@ -1,5 +1,6 @@
 """
 * Assignment: Syntax Types Int
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

@@ -1,5 +1,6 @@
 """
 * Assignment: Syntax Comments Line
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 1 line
 * Time: 2 min

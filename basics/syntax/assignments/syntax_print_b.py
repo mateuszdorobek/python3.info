@@ -1,5 +1,6 @@
 """
 * Assignment: Syntax Print Interpolation
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 2 min
