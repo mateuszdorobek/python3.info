@@ -1,6 +1,6 @@
 """
 * Assignment: Operator String Nested
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 9 lines
 * Time: 13 min

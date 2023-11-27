@@ -1,6 +1,6 @@
 """
 * Assignment: Unpack Assignment Split
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

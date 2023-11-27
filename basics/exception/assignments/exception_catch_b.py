@@ -1,6 +1,6 @@
 """
 * Assignment: Exception Catch Else
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 7 lines
 * Time: 5 min

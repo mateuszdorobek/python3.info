@@ -1,6 +1,6 @@
 """
 * Assignment: Iterable Tuple Select
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 5 min

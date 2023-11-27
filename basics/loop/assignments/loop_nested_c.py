@@ -1,6 +1,6 @@
 """
 * Assignment: Loop For Text
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 14 lines
 * Time: 13 min

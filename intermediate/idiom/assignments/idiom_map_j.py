@@ -1,6 +1,6 @@
 """
 * Assignment: Idiom Map Parse
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 7 lines
 * Time: 8 min

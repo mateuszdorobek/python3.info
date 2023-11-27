@@ -1,6 +1,6 @@
 """
 * Assignment: Type Float Tax
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 3 min

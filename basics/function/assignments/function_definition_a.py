@@ -1,6 +1,6 @@
 """
 * Assignment: Function Definition Define
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 2 min

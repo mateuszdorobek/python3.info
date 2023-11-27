@@ -1,6 +1,6 @@
 """
 * Assignment: String Methods Join
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 3 min

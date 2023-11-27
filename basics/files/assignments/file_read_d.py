@@ -1,6 +1,6 @@
 """
 * Assignment: File Read CleanFile
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 10 lines
 * Time: 8 min

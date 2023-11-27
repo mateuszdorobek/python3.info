@@ -1,6 +1,6 @@
 """
 * Assignment: String Normalization Address
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 8 lines
 * Time: 13 min

@@ -1,6 +1,6 @@
 """
 * Assignment: Loop Nested Unique Keys
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 3 lines
 * Time: 8 min

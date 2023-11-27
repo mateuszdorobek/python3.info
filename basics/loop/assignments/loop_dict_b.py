@@ -1,6 +1,6 @@
 """
 * Assignment: Loop Dict To List
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 4 lines
 * Time: 5 min

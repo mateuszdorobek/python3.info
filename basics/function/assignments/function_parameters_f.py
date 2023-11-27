@@ -1,6 +1,6 @@
 """
 * Assignment: Function Parameters BloodPressure
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 10 lines
 * Time: 13 min

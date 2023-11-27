@@ -1,6 +1,6 @@
 """
 * Assignment: Type Int Bandwidth
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 3 min

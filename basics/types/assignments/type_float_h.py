@@ -1,6 +1,6 @@
 """
 * Assignment: Type Float Gradient
-* Required: no
+* Type: homework
 * Complexity: hard
 * Lines of code: 7 lines
 * Time: 8 min

@@ -1,6 +1,6 @@
 """
 * Assignment: Loop Unpacking Endswith
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 4 lines
 * Time: 8 min

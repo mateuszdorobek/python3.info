@@ -1,6 +1,6 @@
 """
 * Assignment: OOP Init SetAttrKeyword
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 3 min

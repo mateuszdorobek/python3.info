@@ -1,6 +1,6 @@
 """
 * Assignment: Type Float Pressure
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 2 lines
 * Time: 3 min

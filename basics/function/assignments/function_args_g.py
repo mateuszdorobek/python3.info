@@ -1,6 +1,6 @@
 """
 * Assignment: Function Arguments Range
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 7 lines
 * Time: 13 min

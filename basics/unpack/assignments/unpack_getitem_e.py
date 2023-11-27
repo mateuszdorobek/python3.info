@@ -1,6 +1,6 @@
 """
 * Assignment: Iterable GetItem Header/Data
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 11 lines
 * Time: 5 min

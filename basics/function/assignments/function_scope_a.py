@@ -1,6 +1,6 @@
 """
 * Assignment: Function Scope Global
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 8 min

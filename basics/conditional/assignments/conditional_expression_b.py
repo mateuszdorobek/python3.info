@@ -1,6 +1,6 @@
 """
 * Assignment: Conditional Expression IPv4/IPv6
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 3 min

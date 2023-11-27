@@ -1,6 +1,6 @@
 """
 * Assignment: File Write CSV
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 6 lines
 * Time: 5 min

@@ -1,6 +1,6 @@
 """
 * Assignment: OOP Class Define B
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 2 min

@@ -1,6 +1,6 @@
 """
 * Assignment: Loop For Segmentation
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 10 lines
 * Time: 8 min

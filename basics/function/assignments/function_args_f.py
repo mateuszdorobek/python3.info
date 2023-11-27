@@ -1,6 +1,6 @@
 """
 * Assignment: Function Arguments Num2Str
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 5 lines
 * Time: 8 min

@@ -1,6 +1,6 @@
 """
 * Assignment: String Methods Normalize
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 8 min

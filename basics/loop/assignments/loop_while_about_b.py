@@ -1,6 +1,6 @@
 """
 * Assignment: Loop For Count
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 13 lines
 * Time: 8 min

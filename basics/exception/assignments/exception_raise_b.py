@@ -1,6 +1,6 @@
 """
 * Assignment: Exception Raise Many
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 6 lines
 * Time: 3 min

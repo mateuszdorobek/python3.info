@@ -1,6 +1,6 @@
 """
 * Assignment: Type Float Volume
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 3 min

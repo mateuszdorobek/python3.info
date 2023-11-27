@@ -1,6 +1,6 @@
 """
 * Assignment: File Read Passwd
-* Required: no
+* Type: homework
 * Complexity: hard
 * Lines of code: 100 lines
 * Time: 55 min

@@ -1,6 +1,6 @@
 """
 * Assignment: File Read List of Dicts
-* Required: no
+* Type: homework
 * Complexity: hard
 * Lines of code: 19 lines
 * Time: 21 min

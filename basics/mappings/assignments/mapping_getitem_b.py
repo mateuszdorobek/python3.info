@@ -1,6 +1,6 @@
 """
 * Assignment: Mapping Switch Default
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 5 min

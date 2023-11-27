@@ -1,6 +1,6 @@
 """
 * Assignment: Mapping Define Dict
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 3 min

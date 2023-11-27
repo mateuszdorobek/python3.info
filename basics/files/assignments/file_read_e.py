@@ -1,6 +1,6 @@
 """
 * Assignment: File Read DirtyFile
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 3 min

@@ -1,6 +1,6 @@
 """
 * Assignment: String Define Quotes
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 5 min

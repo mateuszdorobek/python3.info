@@ -1,6 +1,6 @@
 """
 * Assignment: Type Int Bits
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 3 lines
 * Time: 3 min

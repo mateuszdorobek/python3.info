@@ -1,6 +1,6 @@
 """
 * Assignment: Performance Compexity SplitTrainTest
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 4 lines
 * Time: 5 min

@@ -1,6 +1,6 @@
 """
 * Assignment: File Read CSV
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 15 lines
 * Time: 8 min

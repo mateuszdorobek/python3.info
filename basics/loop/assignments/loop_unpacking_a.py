@@ -1,6 +1,6 @@
 """
 * Assignment: Loop Unpacking Months
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 2 lines
 * Time: 5 min

@@ -1,6 +1,6 @@
 """
 * Assignment: Sequence Frozenset Create
-* Required: no
+* Type: homework
 * Complexity: easy
 * Lines of code: 5 lines
 * Time: 5 min

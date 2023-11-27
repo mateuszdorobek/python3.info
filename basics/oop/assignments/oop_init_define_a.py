@@ -1,6 +1,6 @@
 """
 * Assignment: OOP Init Define
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 3 lines
 * Time: 2 min

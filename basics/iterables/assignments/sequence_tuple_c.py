@@ -1,6 +1,6 @@
 """
 * Assignment: Iterable Tuple Mean
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 8 lines
 * Time: 8 min
@@ -55,10 +55,10 @@ Tests:
     'Variable `petal_width` has invalid type, should be float'
 
     >>> sepal_length
-    5.859999999999999
+    5.86
 
     >>> sepal_width
-    3.0200000000000005
+    3.02
 
     >>> petal_length
     4.14

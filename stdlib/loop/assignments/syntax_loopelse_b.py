@@ -1,6 +1,6 @@
 """
 * Assignment: Loop WhileElse Else
-* Required: no
+* Type: homework
 * Complexity: medium
 * Lines of code: 5 lines
 * Time: 5 min

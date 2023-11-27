@@ -1,6 +1,6 @@
 """
 * Assignment: Performance Compexity Segmentation
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 8 lines
 * Time: 5 min

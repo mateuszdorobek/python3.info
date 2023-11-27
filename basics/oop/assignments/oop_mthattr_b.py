@@ -1,6 +1,6 @@
 """
 * Assignment: OOP Method Nested
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 17 lines
 * Time: 13 min

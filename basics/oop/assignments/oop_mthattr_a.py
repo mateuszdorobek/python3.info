@@ -1,6 +1,6 @@
 """
 * Assignment: OOP Method Sequence
-* Required: yes
+* Type: class assignment
 * Complexity: easy
 * Lines of code: 9 lines
 * Time: 8 min
@@ -24,10 +24,8 @@ Polish:
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> result  # doctest: +NORMALIZE_WHITESPACE
-    {'setosa': 9.4,
-     'versicolor': 16.299999999999997,
-     'virginica': 19.3}
+    >>> result
+    {'setosa': 9.4, 'versicolor': 16.3, 'virginica': 19.3}
 """
 
 DATA = [

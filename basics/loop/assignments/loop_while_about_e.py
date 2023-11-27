@@ -1,6 +1,6 @@
 """
 * Assignment: Loop While Translate
-* Required: yes
+* Type: class assignment
 * Complexity: medium
 * Lines of code: 5 lines
 * Time: 5 min
