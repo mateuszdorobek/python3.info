@@ -195,9 +195,6 @@ Assignments
     :caption: :download:`Solution <assignments/type_int_e.py>`
     :end-before: # Solution
 
-
-Homework
---------
 .. literalinclude:: assignments/type_int_f.py
     :caption: :download:`Solution <assignments/type_int_f.py>`
     :end-before: # Solution
@@ -208,6 +205,37 @@ Homework
 
 .. literalinclude:: assignments/type_int_h.py
     :caption: :download:`Solution <assignments/type_int_h.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_i.py
+    :caption: :download:`Solution <assignments/type_int_i.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_j.py
+    :caption: :download:`Solution <assignments/type_int_j.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_k.py
+    :caption: :download:`Solution <assignments/type_int_k.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_l.py
+    :caption: :download:`Solution <assignments/type_int_l.py>`
+    :end-before: # Solution
+
+
+Homework
+--------
+.. literalinclude:: assignments/type_int_m.py
+    :caption: :download:`Solution <assignments/type_int_m.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_n.py
+    :caption: :download:`Solution <assignments/type_int_n.py>`
+    :end-before: # Solution
+
+.. literalinclude:: assignments/type_int_o.py
+    :caption: :download:`Solution <assignments/type_int_o.py>`
     :end-before: # Solution
 
 

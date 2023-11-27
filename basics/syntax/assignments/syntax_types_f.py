@@ -8,13 +8,13 @@ English:
     1. Define variable `result` with
        result of type cheking of DATA
     2. Use `type()`
-    2. Run doctests - all must succeed
+    3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj zmienną `result` z
        rezultatem sprawdzania typu DATA
     2. Użyj `type()`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

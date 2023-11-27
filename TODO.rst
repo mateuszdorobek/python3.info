@@ -2,6 +2,7 @@ TODO
 ====
 * Newsletter, once a month, what changed in the book
 * Move webinars (description, scaffolding generation) to the book
+* Podzielić zadania na: ca - class assignment, hw - homework
 
 
 New run.py

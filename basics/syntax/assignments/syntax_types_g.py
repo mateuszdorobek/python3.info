@@ -8,13 +8,13 @@ English:
     1. Define variable `result` with
        result of checking if DATA is an instance of an int
     2. Use `isinstnace()`
-    2. Run doctests - all must succeed
+    3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj zmienną `result` z
        rezultatem sprawdzania czy DATA jest instancją int
     2. Użyj `isinstnace()`
-    2. Uruchom doctesty - wszystkie muszą się powieść
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0

@@ -1,88 +1,96 @@
 """
-* Assignment: Type Int Mul
+* Assignment: Type Int Time
 * Required: yes
 * Complexity: easy
-* Lines of code: 3 lines
+* Lines of code: 5 lines
 * Time: 3 min
 
 English:
-    1. Calculate altitude in meters:
-        a. Armstrong Limit: 19 km
-        b. Stratosphere: 20 km
-        c. USAF Space Line: 80 km
-        d. IAF Space Line: 100 km
-    2. Run doctests - all must succeed
+    1. Define variables for:
+        a. result_a: 69 seconds
+        b. result_b: 13 minutes 37 seconds
+        c. result_c: 2 hours 56 minutes
+        d. result_d: 1 day 2 hours 8 minutes
+        e. result_e: 3 weeks 1 day 3 hours 3 minutes 7 seconds
+    2. All variables must be in seconds
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Oblicz wysokości w metrach:
-        a. Linia Armstronga: 19 km
-        b. Stratosfera: 20 km
-        c. Granica kosmosu wg. USAF: 80 km
-        d. Granica kosmosu wg. IAF 100 km
-    2. Uruchom doctesty - wszystkie muszą się powieść
-
-References:
-    * USAF - United States Air Force
-    * IAF - International Astronautical Federation
-    * Kármán line (100 km) - boundary between Earth's atmosphere and space
-    * Armstrong limit (19 km) - altitude above which atmospheric pressure is
-      sufficiently low that water boils at the temperature of the human body
-
-Hints:
-    * 1 km = 1000 m
-    * Use // to get floor division as int
+    1. Zdefiniuj zmienne dla:
+        a. result_a: 69 sekunda
+        b. result_b: 13 minut 37 sekund
+        c. result_c: 2 godziny 56 minut
+        d. result_d: 1 dzień 2 godziny 8 minut
+        e. result_e: 3 tygodnie 1 dzień 3 godziny 3 minuty 7 sekund
+    2. Wszystkie zmienne muszą być wyrażone w sekundach
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> assert armstrong_limit is not Ellipsis, \
-    'Assign your result to variable `armstrong_limit`'
-    >>> assert stratosphere is not Ellipsis, \
-    'Assign your result to variable `stratosphere`'
-    >>> assert usaf_space is not Ellipsis, \
-    'Assign your result to variable `usaf_space`'
-    >>> assert iaf_space is not Ellipsis, \
-    'Assign your result to variable `iaf_space`'
-    >>> assert type(armstrong_limit) is int, \
-    'Variable `armstrong_limit` has invalid type, should be int'
-    >>> assert type(stratosphere) is int, \
-    'Variable `stratosphere` has invalid type, should be int'
-    >>> assert type(usaf_space) is int, \
-    'Variable `usaf_space` has invalid type, should be int'
-    >>> assert type(iaf_space) is int, \
-    'Variable `iaf_space` has invalid type, should be int'
+    >>> assert result_a is not Ellipsis, \
+    'Assign your result to variable `result_a`'
+    >>> assert result_b is not Ellipsis, \
+    'Assign your result to variable `result_b`'
+    >>> assert result_c is not Ellipsis, \
+    'Assign your result to variable `result_c`'
+    >>> assert result_d is not Ellipsis, \
+    'Assign your result to variable `result_d`'
+    >>> assert result_e is not Ellipsis, \
+    'Assign your result to variable `result_e`'
+    >>> assert type(result_a) is int, \
+    'Variable `result_a` has invalid type, should be int'
+    >>> assert type(result_b) is int, \
+    'Variable `result_b` has invalid type, should be int'
+    >>> assert type(result_c) is int, \
+    'Variable `result_c` has invalid type, should be int'
+    >>> assert type(result_d) is int, \
+    'Variable `result_d` has invalid type, should be int'
+    >>> assert type(result_e) is int, \
+    'Variable `result_e` has invalid type, should be int'
 
-    >>> armstrong_limit
-    19000
-    >>> stratosphere
-    20000
-    >>> usaf_space
-    80000
-    >>> iaf_space
-    100000
+    >>> assert result_a == 69, \
+    'Variable `result_a` has invalid value. Check your calculation.'
+    >>> assert result_b == 817, \
+    'Variable `result_b` has invalid value. Check your calculation.'
+    >>> assert result_c == 10560, \
+    'Variable `result_c` has invalid value. Check your calculation.'
+    >>> assert result_d == 94080, \
+    'Variable `result_d` has invalid value. Check your calculation.'
+    >>> assert result_e == 1911787, \
+    'Variable `result_e` has invalid value. Check your calculation.'
 """
 
-m = 1
-km = 1000 * m
 
-# 19 kilometers in meters
-# type: int
-armstrong_limit = ...
+SECOND = 1
+MINUTE = 60 * SECOND
+HOUR = 60 * MINUTE
+DAY = 24 * HOUR
+WEEK = 7 * DAY
 
-# 20 kilometers in meters
+# 69 seconds
 # type: int
-stratosphere = ...
+result_a = ...
 
-# 80 kilometers in meters
+# 13 minutes 37 seconds
 # type: int
-usaf_space = ...
+result_b = ...
 
-# 100 kilometers in meters
+# 2 hours 56 minutes
 # type: int
-iaf_space = ...
+result_c = ...
+
+# 1 day 2 hours 8 minutes
+# type: int
+result_d = ...
+
+# 3 weeks 1 day 3 hours 3 minutes 7 seconds
+# type: int
+result_e = ...
 
 # Solution
-armstrong_limit = 19*km // m
-stratosphere = 20*km // m
-usaf_space = 80*km // m
-iaf_space = 100*km // m
+result_a = 69 * SECOND
+result_b = 13*MINUTE + 37*SECOND
+result_c = 2*HOUR + 56*MINUTE
+result_d = 1*DAY + 2*HOUR + 8*MINUTE
+result_e = 3*WEEK + 1*DAY + 3*HOUR + 3*MINUTE + 7*SECOND

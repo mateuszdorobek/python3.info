@@ -1,67 +1,84 @@
 """
-* Assignment: Type Int Sub
+* Assignment: Type Int Time
 * Required: yes
 * Complexity: easy
-* Lines of code: 3 lines
+* Lines of code: 4 lines
 * Time: 3 min
 
 English:
-    1. One Kelvin is equal to 1 Celsius degree (1K = 1°C)
-    2. Zero Kelvin (absolute) is equal to -273.15 Celsius degrees
-    3. For calculation use round number -273 (0K = -273°C)
-    4. How many Celsius degrees has average temperatures at surface [1]:
-        a. Lunar day: 453 K
-        b. Lunar night: 93 K
-    5. Run doctests - all must succeed
+    1. Define variables for:
+        a. workbreak: 10 minutes
+        b. workday: 8 hours
+        c. workweek: 5 days
+        d. workmonth: 4 weeks
+    2. All variables must be in seconds
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Jeden Kelwin to jeden stopień Celsiusza (1K = 1°C)
-    2. Zero Kelwina (bezwzględne) to -273.15 stopni Celsiusza
-    3. W zadaniu przyjmij równe -273°C (0K = -273°C)
-    4. Ile stopni Celsiusza wynoszą średnie temperatury powierzchni [1]:
-        a. Księżyca w dzień: 453 K
-        b. Księżyca w nocy: 93 K
-    5. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * Use only +273 and -273
-
-References:
-    [1] Centro de Astrobiología (CSIC-INTA).
-        Rover Environmental Monitoring Station, Mars Science Laboratory (NASA).
-        Year: 2019.
-        Retrieved: 2019-08-06.
-        URL: http://cab.inta-csic.es/rems/marsweather.html
+    1. Zdefiniuj zmienne dla:
+        a. workbreak: 10 minut
+        b. workday: 8 godzin
+        c. workweek: 5 dni
+        d. workmonth: 4 tygodnie
+    2. Wszystkie zmienne muszą być wyrażone w sekundach
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> assert lunar_day is not Ellipsis, \
-    'Assign your result to variable `lunar_day`'
-    >>> assert lunar_night is not Ellipsis, \
-    'Assign your result to variable `lunar_night`'
-    >>> assert type(lunar_day) is int, \
-    'Variable `lunar_day` has invalid type, should be int'
-    >>> assert type(lunar_night) is int, \
-    'Variable `lunar_night` has invalid type, should be int'
+    >>> assert workbreak is not Ellipsis, \
+    'Assign your result to variable `workbreak`'
+    >>> assert workday is not Ellipsis, \
+    'Assign your result to variable `workday`'
+    >>> assert workweek is not Ellipsis, \
+    'Assign your result to variable `workweek`'
+    >>> assert workmonth is not Ellipsis, \
+    'Assign your result to variable `workmonth`'
 
-    >>> lunar_day
-    180
-    >>> lunar_night
-    -180
+    >>> assert type(workbreak) is int, \
+    'Variable `workbreak` has invalid type, should be int'
+    >>> assert type(workday) is int, \
+    'Variable `workday` has invalid type, should be int'
+    >>> assert type(workweek) is int, \
+    'Variable `workweek` has invalid type, should be int'
+    >>> assert type(workmonth) is int, \
+    'Variable `workmonth` has invalid type, should be int'
+
+    >>> assert workbreak == 600, \
+    'Variable `workbreak` has invalid value. Check your calculation.'
+    >>> assert workday == 28_800, \
+    'Variable `workday` has invalid value. Check your calculation.'
+    >>> assert workweek == 432_000, \
+    'Variable `workweek` has invalid value. Check your calculation.'
+    >>> assert workmonth == 2_419_200, \
+    'Variable `workmonth` has invalid value. Check your calculation.'
 """
 
-Celsius = 273
-Kelvin = 1
 
-# 453 Kelvins in Celsius
-# type: int
-lunar_day = ...
+SECOND = 1
+MINUTE = 60 * SECOND
+HOUR = 60 * MINUTE
+DAY = 24 * HOUR
+WEEK = 7 * DAY
 
-# 93 Kelvins in Celsius
+# workbreak: 10 minutes
 # type: int
-lunar_night = ...
+workbreak = ...
+
+# workday: 8 hours
+# type: int
+workday = ...
+
+# workweek: 5 days
+# type: int
+workweek = ...
+
+# workmonth: 4 weeks
+# type: int
+workmonth = ...
 
 # Solution
-lunar_day = 453*Kelvin - Celsius
-lunar_night = 93*Kelvin - Celsius
+workbreak = 10*MINUTE
+workday = 8*HOUR
+workweek = 5*DAY
+workmonth = 4*WEEK

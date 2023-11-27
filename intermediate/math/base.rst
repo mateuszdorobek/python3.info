@@ -1,5 +1,6 @@
-Int
-===
+Math Base
+=========
+
 
 Binary
 ------
@@ -103,3 +104,27 @@ Other examples:
 >>>
 >>> int('0x3C', base=16)
 60
+
+
+Errors
+------
+>>> data = 'abc'
+>>>
+>>> int(data, base=10)
+Traceback (most recent call last):
+ValueError: invalid literal for int() with base 10: 'abc'
+>>>
+>>>
+>>> int(data, base=16)
+2748
+>>>
+>>> import string
+>>> string.hexdigits
+'0123456789abcdefABCDEF'
+
+
+Assignments
+===========
+.. todo:: assignments with bin()
+.. todo:: assignments with hex()
+.. todo:: assignments with oct()

@@ -1,108 +1,71 @@
 """
-* Assignment: Type Int Time
+* Assignment: Type Int Add
 * Required: yes
 * Complexity: easy
-* Lines of code: 12 lines
-* Time: 8 min
+* Lines of code: 3 lines
+* Time: 3 min
 
 English:
-    1. Calculate how many seconds is one day (24 hours)
-    2. Calculate how many minutes is one week (7 days)
-    3. Calculate how many hours is in one month (31 days)
-    4. Calculate how many seconds is work day (8 hours)
-    5. Calculate how many minutes is work week (5 work days)
-    6. Calculate how many hours is work month (22 work days)
-    7. In Calculations use floordiv (`//`)
-    8. Run doctests - all must succeed
+    1. Define average temperatures at surface of Mars [1]:
+        a. highest: 20 °C
+        b. lowest: -153 °C
+        c. average: −63 °C
+    2. Run doctests - all must succeed
 
 Polish:
-    1. Oblicz ile sekund to jedna doba (24 godziny)
-    2. Oblicz ile minut to jeden tydzień (7 dni)
-    3. Oblicz ile godzin to jeden miesiąc (31 dni)
-    4. Oblicz ile sekund to dzień pracy (8 godzin)
-    5. Oblicz ile minut to tydzień pracy (5 dni pracy)
-    6. Oblicz ile godzin to miesiąc pracy (22 dni pracy)
-    7. W obliczeniach użyj floordiv (`//`)
-    8. Uruchom doctesty - wszystkie muszą się powieść
+    1. Zdefiniuj średnie temperatury powierzchni Marsa [1]:
+        a. najwyższa: 20 °C
+        b. najniższa: -153 °C
+        c. średnia: −63 °C
+    2. Uruchom doctesty - wszystkie muszą się powieść
 
-Hint:
-    * Use // to get floor division as int
+References:
+    [1] Centro de Astrobiología (CSIC-INTA).
+        Rover Environmental Monitoring Station, Mars Science Laboratory (NASA).
+        Year: 2019.
+        Retrieved: 2019-08-06.
+        URL: http://cab.inta-csic.es/rems/marsweather.html
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> assert day is not Ellipsis, \
-    'Assign your result to variable `day`'
-    >>> assert week is not Ellipsis, \
-    'Assign your result to variable `week`'
-    >>> assert month is not Ellipsis, \
-    'Assign your result to variable `month`'
-    >>> assert workday is not Ellipsis, \
-    'Assign your result to variable `workday`'
-    >>> assert workweek is not Ellipsis, \
-    'Assign your result to variable `workweek`'
-    >>> assert workmonth is not Ellipsis, \
-    'Assign your result to variable `workmonth`'
-    >>> assert type(day) is int, \
-    'Variable `day` has invalid type, should be int'
-    >>> assert type(week) is int, \
-    'Variable `week` has invalid type, should be int'
-    >>> assert type(month) is int, \
-    'Variable `month` has invalid type, should be int'
-    >>> assert type(workday) is int, \
-    'Variable `workday` has invalid type, should be int'
-    >>> assert type(workweek) is int, \
-    'Variable `workweek` has invalid type, should be int'
-    >>> assert type(workmonth) is int, \
-    'Variable `workmonth` has invalid type, should be int'
+    >>> assert mars_highest is not Ellipsis, \
+    'Assign your result to variable `mars_highest`'
+    >>> assert mars_lowest is not Ellipsis, \
+    'Assign your result to variable `mars_lowest`'
+    >>> assert mars_lowest is not Ellipsis, \
+    'Assign your result to variable `mars_lowest`'
+    >>> assert type(mars_highest) is int, \
+    'Variable `mars_highest` has invalid type, should be int'
+    >>> assert type(mars_lowest) is int, \
+    'Variable `mars_lowest` has invalid type, should be int'
+    >>> assert type(mars_lowest) is int, \
+    'Variable `mars_average` has invalid type, should be int'
 
-    >>> day
-    86400
-    >>> week
-    10080
-    >>> month
-    744
-    >>> workday
-    28800
-    >>> workweek
-    2400
-    >>> workmonth
-    176
+    >>> assert mars_highest == 20, \
+    'Invalid value for `mars_highest`, should be 20. Check you calculation'
+    >>> assert mars_lowest == -153, \
+    'Invalid value for `mars_lowest`, should be -153. Check you calculation'
+    >>> assert mars_average == -63, \
+    'Invalid value for `mars_average`, should be -63. Check you calculation'
+
 """
 
-SECOND = 1
-MINUTE = 60 * SECOND
-HOUR = 60 * MINUTE
-DAY = 24 * HOUR
+Celsius = 1
 
-# 1 day in seconds
+# Martian highest temperature: 20 Celsius
 # type: int
-day = ...
+mars_highest = ...
 
-# 7 days in minutes
+# Martian lowest temperature: -153 Celsius
 # type: int
-week = ...
+mars_lowest = ...
 
-# 31 days in hours
+# Martian average temperature: -63 Celsius
 # type: int
-month = ...
-
-# 8 hours in seconds
-# type: int
-workday = ...
-
-# 5 workdays in minutes
-# type: int
-workweek = ...
-
-# 22 workdays in hours
-# type: int
-workmonth = ...
+mars_average = ...
 
 # Solution
-day = (1 * DAY) // SECOND
-week = (7 * DAY) // MINUTE
-month = (31 * DAY) // HOUR
-workday = (8 * HOUR) // SECOND
-workweek = (5 * workday) // MINUTE
-workmonth = (22 * workday) // HOUR
+mars_highest = 20*Celsius
+mars_lowest = -153*Celsius
+mars_average = -63*Celsius

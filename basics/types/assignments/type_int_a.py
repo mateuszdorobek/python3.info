@@ -1,81 +1,89 @@
 """
-* Assignment: Type Int Add
+* Assignment: Type Int Time
 * Required: yes
 * Complexity: easy
-* Lines of code: 4 lines
+* Lines of code: 5 lines
 * Time: 3 min
 
 English:
-    1. One Kelvin is equal to 1 Celsius degree (1K = 1°C)
-    2. Zero Celsius degrees is equal to 273.15 Kelvins
-    3. For calculation use round number 273 (0°C = 273K)
-    4. How many Kelvins has average temperatures at surface [1]:
-        a. Mars highest: 20 °C
-        b. Mars lowest: -153 °C
-        c. Mars average: −63 °C
-    5. Run doctests - all must succeed
+    1. Define variables for:
+        a. second: 1 second
+        b: minute: 60 seconds
+        c. hour: 60 minutes
+        d. day: 24 hours
+        e. week: 7 days
+    2. All variables must be in seconds
+    3. Run doctests - all must succeed
 
 Polish:
-    1. Jeden Kelwin to jeden stopień Celsiusza (1K = 1°C)
-    2. Zero stopni Celsiusza to 273.15 Kelwiny
-    3. W zadaniu przyjmij równe 273°C (0°C = 273K)
-    4. Ile Kelwinów wynoszą średnie temperatury powierzchni [1]:
-        a. Mars najwyższa: 20 °C
-        b. Mars najniższa: -153 °C
-        c. Mars średnia: −63 °C
-    5. Uruchom doctesty - wszystkie muszą się powieść
-
-Hint:
-    * Use only +273 and -273
-
-References:
-    [1] Centro de Astrobiología (CSIC-INTA).
-        Rover Environmental Monitoring Station, Mars Science Laboratory (NASA).
-        Year: 2019.
-        Retrieved: 2019-08-06.
-        URL: http://cab.inta-csic.es/rems/marsweather.html
+    1. Zdefiniuj zmienne dla:
+        a. second: 1 sekunda
+        b: minute: 60 sekund
+        c. hour: 60 minut
+        d. day: 24 godzin
+        e. week: 7 dni
+    2. Wszystkie zmienne muszą być wyrażone w sekundach
+    3. Uruchom doctesty - wszystkie muszą się powieść
 
 Tests:
     >>> import sys; sys.tracebacklimit = 0
 
-    >>> assert mars_max is not Ellipsis, \
-    'Assign your result to variable `mars_max`'
-    >>> assert mars_min is not Ellipsis, \
-    'Assign your result to variable `mars_min`'
-    >>> assert mars_min is not Ellipsis, \
-    'Assign your result to variable `mars_min`'
-    >>> assert type(mars_max) is int, \
-    'Variable `mars_max` has invalid type, should be int'
-    >>> assert type(mars_min) is int, \
-    'Variable `mars_min` has invalid type, should be int'
-    >>> assert type(mars_min) is int, \
-    'Variable `mars_avg` has invalid type, should be int'
+    >>> assert second is not Ellipsis, \
+    'Assign your result to variable `second`'
+    >>> assert minute is not Ellipsis, \
+    'Assign your result to variable `minute`'
+    >>> assert hour is not Ellipsis, \
+    'Assign your result to variable `hour`'
+    >>> assert day is not Ellipsis, \
+    'Assign your result to variable `day`'
+    >>> assert week is not Ellipsis, \
+    'Assign your result to variable `week`'
+    >>> assert type(second) is int, \
+    'Variable `second` has invalid type, should be int'
+    >>> assert type(minute) is int, \
+    'Variable `minute` has invalid type, should be int'
+    >>> assert type(hour) is int, \
+    'Variable `hour` has invalid type, should be int'
+    >>> assert type(day) is int, \
+    'Variable `day` has invalid type, should be int'
+    >>> assert type(week) is int, \
+    'Variable `week` has invalid type, should be int'
 
-    >>> assert mars_max == 293, \
-    'Invalid value for `mars_max`, should be 293. Check you calculation'
-    >>> assert mars_min == 120, \
-    'Invalid value for `mars_min`, should be 120. Check you calculation'
-    >>> assert mars_avg == 210, \
-    'Invalid value for `mars_avg`, should be 210. Check you calculation'
-
+    >>> assert second == 1, \
+    'Variable `second` has invalid value. Check your calculation.'
+    >>> assert minute == 60, \
+    'Variable `minute` has invalid value. Check your calculation.'
+    >>> assert hour == 3600, \
+    'Variable `hour` has invalid value. Check your calculation.'
+    >>> assert day == 86400, \
+    'Variable `day` has invalid value. Check your calculation.'
+    >>> assert week == 604800, \
+    'Variable `week` has invalid value. Check your calculation.'
 """
 
-Celsius = 1
-Kelvin = 273
-
-# 20 Celsius in Kelvin
+# second: 1 second
 # type: int
-mars_max = ...
+second = ...
 
-# -153 Celsius in Kelvin
+# minute: 60 seconds
 # type: int
-mars_min = ...
+minute = ...
 
-# -63 Celsius in Kelvin
+# hour: 60 minutes
 # type: int
-mars_avg = ...
+hour = ...
+
+# day: 24 hours
+# type: int
+day = ...
+
+# week: 7 days
+# type: int
+week = ...
 
 # Solution
-mars_max = 20*Celsius + Kelvin
-mars_min = -153*Celsius + Kelvin
-mars_avg = -63*Celsius + Kelvin
+second = 1
+minute = 60 * second
+hour = 60 * minute
+day = 24 * hour
+week = 7 * day
