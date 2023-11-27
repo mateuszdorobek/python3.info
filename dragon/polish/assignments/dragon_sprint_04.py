@@ -14,9 +14,9 @@ Smok ma punkty życia (losowa liczba od 50 do 100)
 
 >>> dragon = Dragon('Wawelski')
 
-Ustaw inicjalną pozycję smoka na x=50, y=120
+Ustaw inicjalną pozycję smoka na x=50, y=100
 
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
 Ustaw nową pozycję na x=10, y=20
 

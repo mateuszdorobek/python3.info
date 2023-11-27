@@ -34,8 +34,6 @@ Tests:
     ...     for table in db.execute(sql):
     ...         print(table['name'])
     ix_apollo11_datetime
-    lastname_index
-    missions_name_uindex
     idx_contacts_lastname
 
     TODO: unify index names
@@ -59,6 +57,6 @@ result = """
 result = """
 
 CREATE INDEX IF NOT EXISTS idx_contacts_lastname
-ON contacts(lastname)
+ON contacts (lastname)
 
 """

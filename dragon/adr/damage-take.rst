@@ -35,7 +35,7 @@ Pros and Cons:
 * Good: encapsulation
 * Bad: the name indicates a setter of a ``health`` attribute
 * Bad: not Pythonic way
-* Decision: rejected, method name indicates something else
+* Decision: rejected, telldontask
 
 Problem:
 

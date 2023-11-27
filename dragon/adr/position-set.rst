@@ -49,7 +49,7 @@ Pros and Cons:
 * Good: easy to add validation if needed
 * Good: easy to extend to 3D - add parameter with default value ``0``
 * Bad: arguments are implicit, require knowledge of an API what are the values provided as arguments
-* Decision: maybe, could be done better
+* Decision: candidate
 
 Example:
 
@@ -149,8 +149,7 @@ Pros and Cons:
 * Good: arguments are explicit
 * Good: can use ``@property`` for validation if needed
 * Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles
+* Decision: rejected, violates encapsulation
 
 Use Case:
 
@@ -176,8 +175,7 @@ Pros and Cons:
 * Bad: flat is better than nested (PEP 20)
 * Bad: require knowledge of an API
 * Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles and Python convention (PEP 20)
+* Decision: rejected, violates encapsulation and Python convention (PEP 20)
 
 Use Case:
 
@@ -234,7 +232,7 @@ Use Case:
 
 Option 10
 ---------
->>> dragon.position = Point(x=10, y=20)
+>>> dragon.position = Position(x=10, y=20)
 
 Pros and Cons:
 
@@ -257,7 +255,7 @@ Use Case:
 
 Option 11
 ---------
->>> dragon @ Point(x=10, y=20)
+>>> dragon @ Position(x=10, y=20)
 
 Pros and Cons:
 

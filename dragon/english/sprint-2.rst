@@ -15,7 +15,7 @@ Functional Requirements
 Use Case
 --------
 1. Create dragon with name "Wawelski"
-2. Set Dragon's initial position to x=50, y=120
+2. Set Dragon's initial position to x=50, y=100
 3. Set new position to x=10, y=20
 4. Get current position
 

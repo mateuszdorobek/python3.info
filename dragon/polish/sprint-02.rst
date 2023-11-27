@@ -9,25 +9,26 @@ Functional Requirements
 -----------------------
 1. Smok
    przy tworzeniu
-   ma losowe punkty życia z zakresu 50 do 100
+   wyświetla błąd jeżeli nie ma imienia
 
 
 Use Case
 --------
-1. Stwórz smoka o nazwie "Wawelski"
+1. Stwórz smoka
+2. Stwórz smoka o nazwie "Wawelski"
+3. Stwórz smoka bez nazwy
 
 
 Tests
 -----
 .. code-block:: bdd
 
-    Feature: Create Dragon with random health points
+    Feature: Dragon create
 
-    Scenario: Create Dragon with random health points
+    Scenario: Create Dragon without name (display an error)
         Given Dragon does not exist
-         When Dragon is created with name "Wawelski"
-         Then Dragon exists
-          and Dragon health is between 50 and 100
+         When Dragon is created without name
+         Then display error
 
 
 Acceptance Criteria
@@ -36,12 +37,6 @@ Acceptance Criteria
 2. Rozwiązanie jest w katalogu ``dragon``
 3. Rozwiązanie jest zapisane w lokalnym repozytorium (``git commit``)
 4. Rozwiązanie jest wypchnięta do centralnego repozytorium (``git push``)
-
-
-Hints
------
-* ``from random import randint``
-* ``randint(a, b)`` - random integer between ``a`` and ``b`` (inclusive!)
 
 
 Solution

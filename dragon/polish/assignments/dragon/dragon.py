@@ -8,7 +8,7 @@ from unittest import TestCase
 
 class Dragon(HasPosition, HasDrop, HasHealth, MakesDamage):
     HEALTH_MIN = 50
-    HEALTH_MAX = 120
+    HEALTH_MAX = 100
     DAMAGE_MIN = 5
     DAMAGE_MAX = 20
     GOLD_MIN = 1

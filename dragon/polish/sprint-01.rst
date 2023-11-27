@@ -9,35 +9,26 @@ Functional Requirements
 -----------------------
 1. Smok
    przy tworzeniu
-   musi mieć nadane imię
-
-2. Smok
-   przy tworzeniu
-   wyświetla błąd jeżeli nie ma imienia
+   ma imię
 
 
 Use Case
 --------
-1. Stwórz smoka o nazwie "Wawelski"
+1. Stwórz smoka
+2. Stwórz smoka o nazwie "Wawelski"
 
 
 Tests
 -----
 .. code-block:: bdd
 
-    Feature: Create Dragon with name
+    Feature: Dragon create
 
     Scenario: Create Dragon with name
         Given Dragon does not exist
          When Dragon is created with name "Wawelski"
          Then Dragon exists
           and Dragon name is "Wawelski"
-
-    Scenario: Prevent creating Dragon without name
-        Given Dragon does not exist
-         When Dragon is created without name
-         Then display error
-
 
 
 Acceptance Criteria

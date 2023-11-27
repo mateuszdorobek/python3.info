@@ -2,33 +2,42 @@ Dragon Sprint 04
 ================
 * Assignment: Dragon Sprint 04
 * Complexity: easy
-* Time: 8 min
+* Time: 13 min
 
 
 Functional Requirements
 -----------------------
 1. Smok
-   w trakcie gry
-   może zwrócić pozycję którą zajmuje
+   przy tworzeniu
+   może mieć ustawioną pozycję na ekranie
 
 
 Use Case
 --------
-1. Stwórz smoka o nazwie "Wawelski"
-2. Ustaw inicjalną pozycję smoka na x=50, y=120
-3. Pobierz aktualną pozycję
+1. Stwórz smoka
+2. Stwórz smoka o nazwie "Wawelski"
+3. Stwórz smoka bez nazwy
+4. Smok przy tworzeniu ma losowe punkty życia
+5. Ustaw inicjalną pozycję smoka na x=50, y=100
 
 
 Tests
 -----
 .. code-block:: bdd
 
-    Feature: Dragon can return its position
+    Feature: Dragon's position
 
-    Scenario: Dragon returns its position
-        Given Dragon is created with name "Wawelski" and position x=1 y=2
-         When Dragon gets position
-         Then value is x=1 y=2
+    Scenario: Create Dragon with default position
+        Given Dragon does not exist
+         When Dragon is created with name "Wawelski"
+         Then Dragon exists
+          and position is x=0 y=0
+
+    Scenario: Create Dragon with initial position
+        Given Dragon does not exist
+         When Dragon is created with name "Wawelski" and position x=50 y=100
+         Then Dragon exists
+          and Dragon position is x=50 y=100
 
 
 Acceptance Criteria

@@ -11,7 +11,7 @@ Dragon game
 Stwórz smoka o nazwie "Wawelski"
 Ustaw inicjalną pozycję smoka na x=1, y=2
 
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
 Ustaw nową pozycję na x=10, y=20
 
@@ -372,7 +372,7 @@ from unittest import TestCase
 
 class Dragon(HasPosition, HasDrop, HasHealth, MakesDamage):
     HEALTH_MIN = 50
-    HEALTH_MAX = 120
+    HEALTH_MAX = 100
     DAMAGE_MIN = 5
     DAMAGE_MAX = 20
     GOLD_MIN = 1

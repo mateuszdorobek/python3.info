@@ -24,7 +24,6 @@ Polish
     :maxdepth: 1
     :caption: Polish
 
-    polish/agenda.rst
     polish/about.rst
     polish/sprint-01.rst
     polish/sprint-02.rst
@@ -48,6 +47,7 @@ Polish
     polish/sprint-20.rst
     polish/sprint-21.rst
     polish/sprint-22.rst
+    polish/sprint-23.rst
 
 
 ADR
@@ -58,8 +58,11 @@ ADR
 
     adr/about.rst
     adr/about-example.rst
-    adr/init-name.rst
-    adr/init-position.rst
+    adr/create-name.rst
+    adr/create-noname.rst
+    adr/health-init.rst
+    adr/position-init.rst
+    adr/position-get.rst
     adr/position-set.rst
     adr/position-change.rst
     adr/damage-make.rst

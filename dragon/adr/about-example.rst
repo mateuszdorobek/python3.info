@@ -16,7 +16,7 @@ Motivation
 ----------
 * Codebase become unmaintainable
 * Current documentation in old
-* Need documentation
+* Need API documentation auto-generation
 * Need REST/JSON API
 * Need authorization and authentication
 * Need admin panel
@@ -27,7 +27,7 @@ Motivation
 * Need more time-effective way for on-boarding of new employees
 * Onboarding takes too much time
 * ORM makes refactoring easier
-* ORM standardizes model
+* ORM standardizes data model
 
 
 Considerations
@@ -35,6 +35,8 @@ Considerations
 * FastAPI
 * Flask
 * Django (+Ninja)
+
+Source: https://lp.jetbrains.com/python-developers-survey-2022/#FrameworksLibraries
 
 
 Option 1 - FastAPI
@@ -48,6 +50,8 @@ Option 1 - FastAPI
 * Bad: No ORM
 * Bad: No DB schema migration
 * Bad: No Admin
+* Bad: Single-person driven project (single point of failure)
+* Bad: No steering committee
 * Decision: rejected, no ORM
 
 
@@ -57,9 +61,9 @@ Option 2 - Flask
 * Good: Fast onboarding
 * Good: ORM (as separate package)
 * Good: Mature project
+* Good: Async since 2.0
 * Bad: FastAPI took his hype
 * Bad: No DB schema migration
-* Bad: No Async
 * Bad: No Admin
 * Bad: No API documentation auto-generation
 * Decision: rejected, no schema migration
@@ -71,11 +75,12 @@ Option 3 - Django + Ninja
 * Good: ORM
 * Good: DB schema migration
 * Good: Admin
-* Good: API documentation generation (Ninja)
+* Good: API documentation auto-generation (Ninja)
 * Good: FastAPI style REST/JSON views (Ninja)
+* Good: Steering committee (no single point of failure)
 * Bad: Intermediate
 * Bad: More complex than FastAPI and Flask
-* Decision: accepted
+* Decision: candidate
 
 
 Decision
@@ -91,6 +96,7 @@ support big players included (Instagram, Youtube).
 
 References
 ----------
+* https://lp.jetbrains.com/python-developers-survey-2022/#FrameworksLibraries
 * https://www.djangoproject.com/
 * https://django-ninja.rest-framework.com/
 * https://www.django-rest-framework.org/

@@ -34,10 +34,11 @@ Tests:
 
     >>> with sqlite3.connect(database) as db:
     ...     db.row_factory = sqlite3.Row
-    ...     _ = db.execute(result)
-    ...     tables = [table['name'] for table in db.execute(sql)]
+    ...     create = db.execute(result)
+    ...     select = db.execute(sql)
+    ...     result = [table['name'] for table in select]
 
-    >>> assert 'contacts' in tables, \
+    >>> assert 'contacts' in result, \
     'You need to create table named `contacts`'
 """
 

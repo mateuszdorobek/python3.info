@@ -9,7 +9,7 @@ Dragon game
 Stwórz smoka o nazwie "Wawelski"
 Ustaw inicjalną pozycję smoka na x=1, y=2
 
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
 Ustaw nową pozycję na x=10, y=20
 
@@ -61,7 +61,7 @@ from unittest import TestCase
 
 class Dragon:
     HEALTH_MIN = 50
-    HEALTH_MAX = 120
+    HEALTH_MAX = 100
     DAMAGE_MIN = 5
     DAMAGE_MAX = 20
     GOLD_MIN = 1
@@ -207,7 +207,7 @@ class HealthTest(TestCase):
 
     def test_health_range(self):
         self.assertEqual(self.dragon.HEALTH_MIN, 50)
-        self.assertEqual(self.dragon.HEALTH_MAX, 120)
+        self.assertEqual(self.dragon.HEALTH_MAX, 100)
 
 
 class GoldTest(TestCase):

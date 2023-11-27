@@ -1,43 +1,44 @@
 Dragon Sprint 17
 ================
 * Assignment: Dragon Sprint 17
-* Complexity: hard
-* Time: 34 min
+* Complexity: medium
+* Time: 21 min
 
 
 Functional Requirements
 -----------------------
-1. Stwórz bohatera o nazwie "Pan Twardowski":
+1. Smok
+   który nie żyje
+   nie może zadawać obrażeń
 
-    a. punkty życia: losowo od 25 do 75
-    b. obrażenia: losowo od 1 do 12
-    c. klasa postaci: domyślnie "Warrior"
-    d. może przyjmować obrażenia
-    e. może zginąć
-    f. może poruszać się po planszy
-    g. tekstura żyjącego: ``img/twardowski/alive.png``
-    h. tekstura martwego: ``img/twardowski/dead.png``
-    i. po śmierci wyrzuca całe złoto i wyświetla ostatnią pozycję
+2. Smok
+   który nie żyje
+   nie może otrzymywać obrażeń
 
-2. Przeprowadź walkę na śmierć i życie pomiędzy bohaterem a smokiem.
+3. Smok
+   który nie żyje
+   nie może się poruszać
 
 
 Use Case
 --------
-1. Stwórz smoka o nazwie "Wawelski"
-2. Ustaw inicjalną pozycję smoka na x=50, y=120
-3. Ustaw nową pozycję na x=10, y=20
-4. Wypisz aktualną pozycję
-5. Przesuń smoka w lewo o 10 i w dół o 20
-6. Przesuń smoka w lewo o 10 i w prawo o 15
-7. Przesuń smoka w prawo o 15 i w górę o 5
-8. Przesuń smoka w dół o 5
-9. Smok zadaje obrażenia (losowo 5-20)
-10. Zadaj 10 obrażeń smokowi
-11. Zadaj 20 obrażeń smokowi
-12. Zadaj 30 obrażeń smokowi
-13. Zadaj 40 obrażeń smokowi
-14. Zadaj 50 obrażeń smokowi
+1. Stwórz smoka
+2. Stwórz smoka o nazwie "Wawelski"
+3. Stwórz smoka bez nazwy
+4. Smok przy tworzeniu ma losowe punkty życia
+5. Ustaw inicjalną pozycję smoka na x=50, y=100
+6. Pobierz aktualną pozycję
+7. Ustaw nową pozycję na x=10, y=20
+8. Przesuń smoka w lewo o 10 i w dół o 20
+9. Przesuń smoka w lewo o 10 i w prawo o 15
+10. Przesuń smoka w prawo o 15 i w górę o 5
+11. Przesuń smoka w dół o 5
+12. Smok zadaje obrażenia (losowo 5-20)
+13. Zadaj 10 obrażeń smokowi
+14. Zadaj 20 obrażeń smokowi
+15. Zadaj 30 obrażeń smokowi
+16. Zadaj 40 obrażeń smokowi
+17. Zadaj 50 obrażeń smokowi
 
 
 Acceptance Criteria

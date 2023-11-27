@@ -8,7 +8,7 @@ Dragon game
 Stwórz smoka o nazwie "Wawelski"
 Ustaw inicjalną pozycję smoka na x=1, y=2
 
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
 Ustaw nową pozycję na x=10, y=20
 

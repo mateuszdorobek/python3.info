@@ -1,29 +1,14 @@
-Dragon Sprint 21
+Dragon Sprint 23
 ================
-* Assignment: Dragon Sprint 21
+* Assignment: Dragon Sprint 23
 * Complexity: hard
 * Time: 34 min
 
 
 Functional Requirements
 -----------------------
-1. W grze występuje ekwipunek:
-
-    a. zbroja i tarcza chroni przed uderzeniami obniżając ilość
-       obrażeń o wartość obrony,
-    b. miecz zwiększa ilość zadawanych obrażeń,
-
-2. Każdy z przedmiotów ma swoją nazwę, typ oraz modyfikator:
-
-    a. zbroję (dodatkowe punkty obrony, np. +10%)
-    b. tarczę (dodatkowe punkty obrony, np. +5%)
-    c. miecz (dodatkowe punkty ataku, np. +5%)
-
-3. Bohater może założyć ekwipunek:
-
-    a. można mieć tylko jedną zbroję i jeden hełm na raz
-    b. bohater dowolnej klasy może używać tylko jednego miecza i tarczy
-    c. wojownicy mogą używać dwóch mieczy, ale wtedy tarczy już nie
+1. Wszystkie istoty mogą levelować a bazowe punty życia i obrażeń się
+   zmieniają z poziomem
 
 
 Use Case
@@ -71,4 +56,4 @@ Acceptance Criteria
 Solution
 --------
 * Zwróć uwagę, że to zepsuje Twoją zabawę i naukę
-* :download:`Solution <assignments/dragon_sprint_21.py>`
+* :download:`Solution <assignments/dragon_sprint_23.py>`

@@ -10,14 +10,20 @@ Option 1
 --------
 >>> dragon.get_damage()
 
-Pros and Cons:
+Good:
 
-* Good: easy use
-* Good: readability
-* Good: clear intent
-* Good: easy to add validation if needed
-* Bad: name ``get_damage()`` indicate a getter of ``damage`` attribute
-* Decision: rejected, bad method name
+* Easy use
+* Readability
+* Clear intent
+* Easy to add validation if needed
+
+Bad:
+
+* Name ``get_damage()`` indicate a getter of ``damage`` attribute
+
+Decision:
+
+* rejected, bad method name
 
 
 Option 2
@@ -28,19 +34,10 @@ Option 2
 >>> dragon.damage()  # dragon <-  enemy
 >>> dragon.wound()   # dragon <-  enemy
 
-Pros and Cons:
+Good:
 
-* Bad: Indication of direction is too weak ``dragon <-> enemy``
-* Bad: not directed, all methods could mean making damage or receiving damage
-* Decision: rejected, bad method names
-
-Example:
-
->>> dragon.make_damage()    # dragon --> enemy
->>> dragon.attack()         # dragon  -> enemy
->>> dragon.hit()            # dragon <-> enemy
->>> dragon.hurt()           # dragon <-  enemy
->>> dragon.take_damage()    # dragon <-- enemy
+* Indication of direction is too weak ``dragon <-> enemy``
+* Not directed, all methods could mean making damage or receiving damage
 
 Rationale:
 
@@ -48,24 +45,32 @@ Some method names has stronger emphasis on who is making damage to whom.
 Consider this: ``dragon.hurt()`` - is that dragon who makes damage or takes
 damage?
 
-.. code-block:: text
+>>> dragon.make_damage()    # dragon --> enemy
+>>> dragon.attack()         # dragon  -> enemy
+>>> dragon.hit()            # dragon <-> enemy
+>>> dragon.hurt()           # dragon <-  enemy
+>>> dragon.take_damage()    # dragon <-- enemy
 
-    dragon --> enemy
-    dragon  -> enemy
-    dragon <-> enemy
-    dragon <-  enemy
-    dragon <-- enemy
+Decision:
+
+* rejected, bad method names
 
 
 Option 3
 --------
 >>> dragon.take_damage()    # dragon <-- enemy
 
-Pros and Cons:
+Good:
 
-* Good: Simple
-* Bad: Relation is other way around ``dragon <-- enemy``
-* Decision: rejected, relation is other way around
+* Simple
+
+Bad:
+
+* Relation is other way around ``dragon <-- enemy``
+
+Decision:
+
+* Rejected, relation is other way around
 
 
 Option 4
@@ -74,11 +79,13 @@ Option 4
 >>> dragon.hurt_someone()   # dragon --> enemy
 >>> dragon.attack_enemy()   # dragon --> enemy
 
-Pros and Cons:
+Good:
 
-* Good: Strong indication of direction ``dragon --> enemy``
-* Bad: ``hurt_someone()`` method name is too use-case specific
-* Decision: rejected, method names are too use-case specific
+* Strong indication of direction ``dragon --> enemy``
+
+Bad:
+
+* ``hurt_someone()`` method name is too use-case specific
 
 Example:
 
@@ -86,16 +93,19 @@ Example:
 >>> magic_arrow.attack_enemy()  # bad
 >>> explosion.attack_enemy()  # bad
 
+Decision:
+
+* Rejected, method names are too use-case specific
+
 
 Option 5
 --------
 >>> dragon.make_damage()    # dragon --> enemy
 
-Pros and Cons:
+Good:
 
-* Good: Strong indication of direction ``dragon --> enemy``
-* Good: Name indicates intent
-* Decision: candidate
+* Strong indication of direction ``dragon --> enemy``
+* Name indicates intent
 
 Example:
 
@@ -103,18 +113,25 @@ Example:
 >>> magic_arrow.make_damage()
 >>> explosion.make_damage()
 
+Decision:
+
+* Candidate
+
 
 Option 6
 --------
 >>> dragon.make_damage(ENEMY)    # dragon --> enemy
 
-Pros and Cons:
+Bad:
 
-* Bad: violates Model-View-Controller (MVC)
-* Bad: each ENEMY will get different (random) damage
-* Decision: rejected, violates Model-View-Controller (MVC)
+* Model-View-Controller (MVC)
+* Each ENEMY will get different (random) damage
 
-Use Case:
+Decision:
+
+* Rejected, violates Model-View-Controller (MVC)
+
+Rationale:
 
 >>> class BankAccount:
 ...     def transfer(self, destination_account, amount):
@@ -128,8 +145,6 @@ Use Case:
 ...     from_account.withdraw(amount)
 ...     to_account.deposit(amount)
 
-Rationale:
-
 .. figure:: img/dragon-firkraag-01.jpg
 .. figure:: img/designpatterns-mvc-10.png
 .. figure:: img/designpatterns-mvc-usecase-10.png
@@ -139,11 +154,17 @@ Option 7
 --------
 >>> hero.health -= dragon.damage()
 
-Pros and Cons:
+Good:
 
-* Good: simple
-* Good: can use ``@property`` for validation if needed
-* Bad: violates encapsulation
+* Simple
+* Can use ``@property`` for validation if needed
+
+Bad:
+
+* Violates encapsulation
+
+Decision:
+
 * Decision: rejected, violates encapsulation
 
 
@@ -151,39 +172,48 @@ Option 8
 --------
 >>> dragon << Damage(20)
 
-Pros and Cons:
+Good:
 
-* Good: easy to use
-* Good: using ``<<`` (lshift) it is easy to add validation
-* Bad: require knowledge of an API
-* Bad: violates abstraction (OOP Principle)
-* Bad: violates encapsulation (OOP Principle)
-* Bad: violates Tell, Don't Ask (OOP Principle)
-* Decision: rejected, violates OOP principles
+* Easy to use
+* Using ``<<`` (lshift) it is easy to add validation
+
+Bad:
+
+* Require knowledge of an API
+* Violates abstraction (OOP Principle)
+* Violates encapsulation (OOP Principle)
+* Violates Tell, Don't Ask (OOP Principle)
+
+Decision:
+
+* Rejected, violates OOP principles
 
 
 Option 9
 --------
 >>> hero.wound(dragon.hit())
 
-Pros and Cons:
+Bad:
 
-* Bad: readability
-* Bad: requires knowledge of API
-* Bad: this is responsibility of a controller
-* Decision: rejected, violates Model-View-Controller (MVC)
+* Readability
+* Requires knowledge of API
+* This is responsibility of a controller
+
+Decision:
+
+* Rejected, violates Model-View-Controller (MVC)
 
 
 Decision
 --------
 >>> dmg = dragon.make_damage()
 
-Pros and Cons:
+Rationale:
 
-* Good: clear intent
-* Good: ``dragon --> enemy``
-* Good: readability
-* Good: encapsulation
+* Clear intent
+* ``dragon --> enemy``
+* Readability
+* Encapsulation
 
 Implementation:
 

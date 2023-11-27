@@ -11,6 +11,21 @@ New run.py
 * Pliki z failami maja strukturę katalogów podobną jak pliki książki (czy napewno ?!)
 
 
+Advanced
+--------
+* Wywalić atrybuty i metody
+* Properties, Refleksja, Deskryptory razem w jednym rozdziale
+* ABC dekorator przed Metaklasami
+* Wywalić Context Manager i Iterator z Advanced i przenieść do Wzorce Projektowe
+
+
+Regex
+-----
+* kropka (.) to nie jest anchor
+* przenieść \b do anchorów
+* zamienić identifier na character classes
+* zadanie identifier_d zrobić przykład z samym \B oraz \b i \B w jednym
+
 
 Średniozaawansowany
 -------------------
@@ -49,12 +64,6 @@ Day 5
 * 60 min - Doctest: using doctests and testing problems
 * 90 min - Unittest: introduction to TDD
 
-
-
-
-Advanced
---------
-* Wywalić atrybuty i metody
 
 
 

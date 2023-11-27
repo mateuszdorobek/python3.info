@@ -2,33 +2,43 @@ Dragon Sprint 12
 ================
 * Assignment: Dragon Sprint 12
 * Complexity: medium
-* Time: 13 min
+* Time: 21 min
 
 
 Functional Requirements
 -----------------------
-1. Jeżeli postać dojdzie do granicy ekranu, to przesuwając dalej,
-   pozycja będzie ustawiona na brzegową wartość w danej osi.
-   Przykładowo, smok jest na pozycji ``x=1, y=2`` i idzie w lewo o 10
-   to po ruchu zakończy się na pozycji ``x=0, y=2``.
+1. Smok
+   w trakcie gry
+   może poruszać się w osi ``x`` w przedziale od 0 do 1920
+
+2. Smok
+   w trakcie gry
+   może poruszać się w osi ``y`` w przedziale od 0 do 1080
+
+3. Smok
+   w trakcie gry
+   może poruszać się w osi ``z`` w przedziale od -100 do +100
 
 
 Use Case
 --------
-1. Stwórz smoka o nazwie "Wawelski"
-2. Ustaw inicjalną pozycję smoka na x=50, y=120
-3. Ustaw nową pozycję na x=10, y=20
-4. Wypisz aktualną pozycję
-5. Przesuń smoka w lewo o 10 i w dół o 20
-6. Przesuń smoka w lewo o 10 i w prawo o 15
-7. Przesuń smoka w prawo o 15 i w górę o 5
-8. Przesuń smoka w dół o 5
-9. Smok zadaje obrażenia (losowo 5-20)
-10. Zadaj 10 obrażeń smokowi
-11. Zadaj 20 obrażeń smokowi
-12. Zadaj 30 obrażeń smokowi
-13. Zadaj 40 obrażeń smokowi
-14. Zadaj 50 obrażeń smokowi
+1. Stwórz smoka
+2. Stwórz smoka o nazwie "Wawelski"
+3. Stwórz smoka bez nazwy
+4. Smok przy tworzeniu ma losowe punkty życia
+5. Ustaw inicjalną pozycję smoka na x=50, y=100
+6. Pobierz aktualną pozycję
+7. Ustaw nową pozycję na x=10, y=20
+8. Przesuń smoka w lewo o 10 i w dół o 20
+9. Przesuń smoka w lewo o 10 i w prawo o 15
+10. Przesuń smoka w prawo o 15 i w górę o 5
+11. Przesuń smoka w dół o 5
+12. Smok zadaje obrażenia (losowo 5-20)
+13. Zadaj 10 obrażeń smokowi
+14. Zadaj 20 obrażeń smokowi
+15. Zadaj 30 obrażeń smokowi
+16. Zadaj 40 obrażeń smokowi
+17. Zadaj 50 obrażeń smokowi
 
 
 Acceptance Criteria

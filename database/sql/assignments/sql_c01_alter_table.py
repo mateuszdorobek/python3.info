@@ -43,7 +43,7 @@ Tests:
         birthday DATE DEFAULT NULL
     , mission TEXT DEFAULT NULL)
     CREATE INDEX idx_contacts_lastname
-    ON contacts(lastname)
+    ON contacts (lastname)
     <BLANKLINE>
     <BLANKLINE>
 """

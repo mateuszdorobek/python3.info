@@ -547,16 +547,16 @@ Option 14
 * Move by setting absolute position along path
 
 >>> dragon.move_to(10, -20)
->>> dragon.move_to(50, -120)
+>>> dragon.move_to(50, -100)
 >>> dragon.move_to(5, 0)
 
 >>> dragon.move_to((10, -20))
->>> dragon.move_to((50, -120))
+>>> dragon.move_to((50, -100))
 >>> dragon.move_to((5, 0))
 
 >>> dragon.move_to([
 ...     (10, -20),
-...     (50, -120),
+...     (50, -100),
 ...     (5, 0),
 ... ])
 
@@ -582,13 +582,13 @@ Example:
 
 >>> dragon.move_to([
 ...     (10, -20),
-...     (50, -120),
+...     (50, -100),
 ...     (5),
 ... ])
 
 >>> dragon.move_to([
 ...     (10, -20, 0),
-...     (50, -120, 0),
+...     (50, -100, 0),
 ...     (5, 0, 0),
 ... ])
 
@@ -598,8 +598,8 @@ Option 15
 * Move by setting absolute position along path
 
 >>> dragon.move_to({'x':-10, 'y':20})
->>> dragon.move_to({'x':10, 'y':-120})
->>> dragon.move_to({'x':50, 'y':-120})
+>>> dragon.move_to({'x':10, 'y':-100})
+>>> dragon.move_to({'x':50, 'y':-100})
 
 >>> dragon.move_to([
 ...     {'x':10, 'y':-20},
@@ -619,10 +619,6 @@ Pros and Cons:
 
 Option 16
 ---------
->>> dragon.move(Point(x=10, y=20))
->>> dragon.move(Point(x=10, y=20))
->>> dragon.move(Point(x=10, y=20))
-
 >>> dragon.move([
 ...     Point(x=10, y=20),
 ...     Point(x=10, y=15),
@@ -687,13 +683,13 @@ Option 18
 ---------
 * Move by relative shifting to the sides
 
->>> dragon.move({'left':50, 'down':120})
->>> dragon.move({'left':50, 'down':120})
->>> dragon.move({'left':50, 'down':120})
+>>> dragon.move({'left':50, 'down':100})
+>>> dragon.move({'left':50, 'down':100})
+>>> dragon.move({'left':50, 'down':100})
 
 >>> dragon.move([
-...     {'left':50, 'down':120},
-...     {'left':50, 'right':120},
+...     {'left':50, 'down':100},
+...     {'left':50, 'right':100},
 ...     {'down':50}])
 
 Pros and Cons:

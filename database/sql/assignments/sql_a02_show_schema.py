@@ -23,16 +23,20 @@ Tests:
 
     >>> with sqlite3.connect(database) as db:
     ...     db.row_factory = sqlite3.Row
-    ...     for schema in db.execute(result):
-    ...         print(schema['sql'], sep='')
+    ...     table = db.execute(result).fetchall()
+    ...     result = [column['sql'] for column in table]
+
+    >>> print(result[0])  # doctest: +NORMALIZE_WHITESPACE
     CREATE TABLE "apollo11" (
-    "datetime" TIMESTAMP,
+      "datetime" TIMESTAMP,
       "date" DATE,
       "time" TIME,
       "met" INTEGER,
       "category" TEXT,
       "event" TEXT
     )
+
+    >>> print(result[1])
     CREATE INDEX "ix_apollo11_datetime"ON "apollo11" ("datetime")
 """
 

@@ -5,6 +5,21 @@ Dragon About
     Firkraag dragon from game Baldur's Gate II: Shadows of Amn
 
 
+Agenda
+------
+* 5 min - omówienie wymagań funkcjonalnych
+* X min - sprint (easy: 13min, medium: 21min, hard: 34min)
+* 10 min - code review
+* 20 min - omówienie rozwiązania
+* 5 min - przerwa
+
+Długość sprintu wraz z przerwą to:
+
+    * 53 min - zadania easy (sprinty: 01-11)
+    * 61 min - zadania medium (sprinty: 12-17)
+    * 74 min - zadania hard (sprinty: 17-23)
+
+
 Opis
 ----
 * Nie piszemy gry, motyw gry jest tylko narracją do demonstracji OOP
