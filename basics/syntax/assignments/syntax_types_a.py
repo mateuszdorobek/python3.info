@@ -1,5 +1,5 @@
 """
-* Assignment: Syntax Variables Int
+* Assignment: Syntax Types Int
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

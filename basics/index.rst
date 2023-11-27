@@ -9,6 +9,7 @@ About
     about/ide.rst
     about/language.rst
 
+
 Syntax
 ******
 .. toctree::
@@ -16,6 +17,7 @@ Syntax
     :caption: Syntax
 
     syntax/assignment.rst
+    syntax/types.rst
     syntax/print.rst
     syntax/comments.rst
     syntax/indentation.rst

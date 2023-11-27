@@ -26,7 +26,7 @@ Technology:
 
 Python Survey
 -------------
-Python Developer Survey:
+Python Developers Survey (by Jetbrains and PSF):
 
 * https://lp.jetbrains.com/python-developers-survey-2022/
 * https://lp.jetbrains.com/python-developers-survey-2021/
@@ -34,6 +34,12 @@ Python Developer Survey:
 * https://www.jetbrains.com/lp/python-developers-survey-2019/
 * https://www.jetbrains.com/research/python-developers-survey-2018/
 * https://www.jetbrains.com/research/python-developers-survey-2017/
+
+State of Developer Ecosystem for Python (by Jetbrains):
+
+* https://www.jetbrains.com/lp/devecosystem-2022/python/
+* https://www.jetbrains.com/lp/devecosystem-2021/python/
+* https://www.jetbrains.com/lp/devecosystem-2020/python/
 
 StackOverflow Survey:
 
@@ -51,14 +57,9 @@ StackOverflow Survey:
 * https://stackoverflow.blog/2012/02/survey-results/
 * https://stackoverflow.blog/2011/01/11/survey-says/
 
-Python Ecosystem Survey:
+State of Developer Ecosystem:
 
-* https://www.jetbrains.com/lp/devecosystem-2022/python/
-* https://www.jetbrains.com/lp/devecosystem-2021/python/
-* https://www.jetbrains.com/lp/devecosystem-2020/python/
-
-Development Ecosystem Survey:
-
+* https://www.jetbrains.com/lp/devecosystem-2023/
 * https://www.jetbrains.com/lp/devecosystem-2022/
 * https://www.jetbrains.com/lp/devecosystem-2021/
 * https://www.jetbrains.com/lp/devecosystem-2020/

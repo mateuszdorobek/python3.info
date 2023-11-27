@@ -103,8 +103,9 @@ Example:
 >>> NAME = 'Mark Watney'  # constant
 >>> Name = 'Mark Watney'  # class
 
-Use Case:
 
+Use Case - 0x01
+---------------
 Definition of second, minute or hour does not change based on location
 or country (those values should be constants).
 
@@ -119,6 +120,9 @@ variables).
 >>> workday = 8 * HOUR
 >>> workweek = 40 * HOUR
 
+
+Use Case - 0x02
+---------------
 For physical units it is ok to use proper cased names. It is better to be
 compliant with well known standard, than to enforce something which will
 mislead everyone.
@@ -138,57 +142,3 @@ The code above is far more readable, than the following snippet:
 Note, that the only change was in variable names. As you can see, this could
 have a huge impact on describing the intent of what you want to achieve with
 the code.
-
-
-Types
------
-This concept is only briefly described here. More information will be in
-upcoming chapters:
-
-Basic types:
-
->>> data = 1                 # int
->>> data = 1.2               # float
->>> data = True              # bool
->>> data = False             # bool
->>> data = None              # NoneType
->>> data = 'abc'             # str
-
-Sequences:
-
->>> data = [1, 2, 3]         # list
->>> data = (1, 2, 3)         # tuple
->>> data = {1, 2, 3}         # set
->>> data = {'a': 1, 'b': 2}  # dict
-
-
-Use Case - 0x01
----------------
->>> name = 'Mark Watney'
->>> age = 42
->>> height = 178.0
->>> is_astronaut = True
->>> friends = None
-
-
-Assignments
------------
-.. literalinclude:: assignments/syntax_assignment_a.py
-    :caption: :download:`assignments/syntax_assignment_a.py`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/syntax_assignment_b.py
-    :caption: :download:`assignments/syntax_assignment_b.py`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/syntax_assignment_c.py
-    :caption: :download:`assignments/syntax_assignment_c.py`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/syntax_assignment_d.py
-    :caption: :download:`assignments/syntax_assignment_d.py`
-    :end-before: # Solution
-
-.. literalinclude:: assignments/syntax_assignment_e.py
-    :caption: :download:`assignments/syntax_assignment_e.py`
-    :end-before: # Solution

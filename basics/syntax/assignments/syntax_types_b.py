@@ -1,5 +1,5 @@
 """
-* Assignment: Syntax Variables Float
+* Assignment: Syntax Types Float
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

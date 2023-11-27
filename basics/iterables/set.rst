@@ -82,8 +82,8 @@ but it's not a universal truth.
 * More information in `OOP Object Identity`.
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 * ``set()`` converts argument to ``set``
 
 >>> data = 'abcd'

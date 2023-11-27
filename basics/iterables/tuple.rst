@@ -37,8 +37,8 @@ Performance:
 28.1 ns ± 8.17 ns per loop (mean ± std. dev. of 10000 runs, 1,000 loops each)
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 * ``tuple()`` - will convert its argument to ``tuple``
 * Takes one iterable as an argument
 * Multiple arguments are not allowed

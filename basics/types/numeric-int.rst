@@ -25,8 +25,8 @@ You can use ``_`` for easier read especially with big numbers:
 1000000
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 * Builtin function ``int()`` converts argument to ``int``
 * It is not rounding
 * Works with strings, if all characters could be converted to ``int``
@@ -63,25 +63,13 @@ Builtin function ``int()`` converts argument to ``int``:
 
 >>> int('1_000_000')
 1000000
+>>>
+>>> int('-1_000_000')
+-1000000
 
 
->>> data = 'abc'
->>>
->>> int(data, base=10)
-Traceback (most recent call last):
-ValueError: invalid literal for int() with base 10: 'abc'
->>>
->>>
->>> int(data, base=16)
-2748
->>>
->>> import string
->>> string.hexdigits
-'0123456789abcdefABCDEF'
-
-
-Type Casting Errors
--------------------
+Type Conversion Errors
+----------------------
 * Works with strings, if all characters could be converted to ``int``
 * It is not validator or parser to extract all numbers from ``str``
 
@@ -113,27 +101,6 @@ Traceback (most recent call last):
 ValueError: invalid literal for int() with base 10: '-3,1337'
 
 
-Type Checking
--------------
-* ``type()`` - Returns type of an argument
-* ``isinstance()`` - Allows for checking if value is expected type
-* To check if type is what you expected use ``type()`` or ``isinstance()``
-* Later you will learn the difference
-
->>> x = 1
->>> type(x)
-<class 'int'>
-
-
->>> x = 1
->>> type(x) is int
-True
-
->>> x = 1
->>> isinstance(x, int)
-True
-
-
 Rounding
 --------
 * Builtin function ``int()`` does not round numbers - only converts to ``int``
@@ -154,28 +121,6 @@ Builtin function ``round()`` does that:
 >>>
 >>> round(1.999)
 2
-
-
-Built-in Functions
-------------------
-* ``abs()`` - Absolute value
-* ``pow()`` - Raise number to the power of exponential (the same as ``**``)
-
-Absolute value:
-
->>> abs(1)
-1
->>>
->>> abs(-1)
-1
-
-Power (the same as ``**``):
-
->>> pow(2, 4)
-16
->>>
->>> pow(16, 1/2)
-4.0
 
 
 Use Case - 0x01
@@ -269,6 +214,3 @@ Homework
 .. todo:: assignments with sum(values)
 .. todo:: assignments with isinstance() and type()
 .. todo:: assignments with round()
-.. todo:: assignments with bin()
-.. todo:: assignments with hex()
-.. todo:: assignments with oct()

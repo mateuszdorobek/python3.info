@@ -33,7 +33,7 @@ Mark Watney
 Input Int
 ---------
 ``input()`` always returns a ``str``.
-To get numeric value type casting to ``int`` is needed.
+To get numeric value type conversion to ``int`` is needed.
 
 >>> age = input('What is your age: ')  #input: 42
 >>>

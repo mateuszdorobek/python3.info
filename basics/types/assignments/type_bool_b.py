@@ -37,23 +37,23 @@ Tests:
     >>> assert type(h) is bool, 'Variable `h` has invalid type, should be bool'
     >>> assert type(i) is bool, 'Variable `i` has invalid type, should be bool'
 
-    >>> a
+    >>> True is a
     True
-    >>> b
-    False
-    >>> c
-    False
-    >>> d
+    >>> True is not b
     True
-    >>> e
-    False
-    >>> f
-    False
-    >>> g
+    >>> not c
     True
-    >>> h
+    >>> bool(d) == True
     True
-    >>> i
+    >>> bool(e) == False
+    True
+    >>> f or False
+    False
+    >>> True and g
+    True
+    >>> bool(bool(h) == h) or False
+    True
+    >>> bool(i) is not bool(False)
     False
 """
 
@@ -61,11 +61,11 @@ Tests:
 # type: bool
 example = False
 
-# Result of `True == ...` must be True
+# Result of `True is ...` must be True
 # type: bool
 a = ...
 
-# Result of `True != ...` must be True
+# Result of `True is not ...` must be True
 # type: bool
 b = ...
 

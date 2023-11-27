@@ -237,6 +237,7 @@ Math
 
     math/ieee754.rst
     math/random.rst
+    math/base.rst
 
 
 Tests

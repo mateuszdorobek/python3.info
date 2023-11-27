@@ -1,6 +1,18 @@
 String Literals
 ===============
 
+>>> text = 'hello'      # unicode
+>>>
+>>> text = u'hello'     # unicode
+>>> text = b'hello'     # bytes
+>>> text = f'hello'     # f-string
+>>> text = r'hello'     # raw-string
+>>>
+>>> text = U'hello'     # unicode
+>>> text = B'hello'     # bytes
+>>> text = F'hello'     # f-string
+>>> text = R'hello'     # raw-string
+
 
 Escape Characters
 -----------------

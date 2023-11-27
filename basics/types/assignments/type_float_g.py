@@ -62,7 +62,7 @@ kPa = 1000 * Pa
 # type: float
 ata = ...
 
-# 20.946% of pressure at sea level in hPa, round to one decimal place
+# 20.946% of pressure at sea level in hPa
 # type: float
 pO2 = ...
 

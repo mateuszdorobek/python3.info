@@ -60,8 +60,8 @@ Performance:
 23.9 ns ± 4.23 ns per loop (mean ± std. dev. of 10000 runs, 10,000 loops each)
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 * ``list()`` converts argument to ``list``
 * Takes one iterable as an argument
 * Multiple arguments are not allowed

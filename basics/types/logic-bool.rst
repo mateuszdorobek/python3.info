@@ -22,8 +22,8 @@ Traceback (most recent call last):
 NameError: name 'TRUE' is not defined
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 * Builtin function ``bool()`` converts argument to ``bool``
 
 >>> bool(True)

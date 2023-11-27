@@ -1,5 +1,5 @@
 """
-* Assignment: Syntax Variables Bool
+* Assignment: Syntax Types Bool
 * Complexity: easy
 * Lines of code: 1 lines
 * Time: 2 min

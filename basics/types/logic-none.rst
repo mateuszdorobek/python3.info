@@ -70,8 +70,8 @@ True
 False
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 With ``if`` statements behaves like negative values
 
 >>> bool(None)

@@ -1,14 +1,14 @@
 .. testsetup:: # doctest: +SKIP_FILE
 
 
-ADR Dragon Init Position
+ADR Dragon Position Init
 ========================
-* Set Dragon's initial position to x=50, y=120
+* Set Dragon's initial position to x=50, y=100
 
 
 Option 1
 --------
->>> dragon = Dragon('Wawelski', 50, 120)
+>>> dragon = Dragon('Wawelski', 50, 100)
 
 Pros and Cons:
 
@@ -22,20 +22,19 @@ Pros and Cons:
 
 Example:
 
->>> dragon = Dragon('Wawelski', 0, 0)
->>> dragon = Dragon('Wawelski', 0, 0, 0)
-
->>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', 0, 0)
->>> dragon = Dragon('Wawelski', 'img/dragon/alive.png', None, None)
-
->>> dragon = Dragon('Wawelski', None, None)
->>> dragon = Dragon('Wawelski', None, None, None)
+>>> dragon = Dragon('Wawelski', 50, 100)
+>>> dragon = Dragon('Wawelski', 50, 100, 0)
 
 Problem:
 
->>> dragon = Dragon('Wawelski', 0, 0)  # 2D
->>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png')
->>> dragon = Dragon('Wawelski', 0, 0, 'img/dragon/alive.png', 0)  # 3D
+>>> dragon = Dragon('Wawelski', 50, 100)  # health or position?
+
+>>> dragon = Dragon('Wawelski', None, None)  # 2D
+>>> dragon = Dragon('Wawelski', None, None, None)  # 3D
+
+>>> dragon = Dragon('Wawelski', 50, 100, 'img/dragon/alive.png')  # 2D
+>>> dragon = Dragon('Wawelski', 50, 100, 'img/dragon/alive.png', 0)  # 3D
+
 
 Use Case:
 
@@ -58,7 +57,7 @@ Use Case:
 
 Option 2
 --------
->>> dragon = Dragon('Wawelski', x=50, y=120)
+>>> dragon = Dragon('Wawelski', x=50, y=100)
 
 Pros and Cons:
 
@@ -94,7 +93,7 @@ Use Case:
 
 Option 3
 --------
->>> dragon = Dragon('Wawelski', posx=50, posy=120)
+>>> dragon = Dragon('Wawelski', posx=50, posy=100)
 
 Pros and Cons:
 
@@ -112,14 +111,14 @@ Example:
 
 Use Case:
 
->>> pt = Point(coordx=1, coordy=2)
+>>> pt = Point(coordx=1, coordy=2)  # bad, overkill
 
 >>> knn = KNearestNeighbors(k=3, wgt=[0.75, 0.50, 0.25])  # maybe, bad
 
 
 Option 4
 --------
->>> dragon = Dragon('Wawelski', positionx=50, positiony=120)
+>>> dragon = Dragon('Wawelski', positionx=50, positiony=100)
 
 Pros and Cons:
 
@@ -145,7 +144,7 @@ Use Case:
 
 Option 5
 --------
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
 Pros and Cons:
 
@@ -165,7 +164,7 @@ Use Case:
 >>> df.plot(kind='line', subplots=True, color='grey', share_y=True)       # ok
 >>> df.plot(kind='line', subplots=True, color='grey', share_y_axis=True)  # ok
 >>> df.plot(kind='line', subplots=True, color='grey', share_axis_y=True)  # ok
->>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # overkill
+>>> df.plot(kind='line', sub_plots=True, color='grey', share_axis_y=True) # ok, overkill
 
 Implementation:
 
@@ -180,10 +179,10 @@ Implementation:
 
 Option 6
 --------
->>> dragon = Dragon('Wawelski', (50, 120))
->>> dragon = Dragon('Wawelski', [50, 120])
->>> dragon = Dragon('Wawelski', position=(50, 120))
->>> dragon = Dragon('Wawelski', position=[50, 120])
+>>> dragon = Dragon('Wawelski', (50, 100))
+>>> dragon = Dragon('Wawelski', [50, 100])
+>>> dragon = Dragon('Wawelski', position=(50, 100))
+>>> dragon = Dragon('Wawelski', position=[50, 100])
 
 Pros and Cons:
 
@@ -197,7 +196,7 @@ Pros and Cons:
 * Bad: order is important, you cannot change it
 * Bad: unpacking
 * Bad: not extensible, ``position`` will always be 2D
-* Bad: could be refactored to 3D using regexp: ``pattern = r'[\(\[(\s*?:\d+|None\s*)\s*,\s*(\s*?:\d+|None\s*)[\)\]]'``
+* Bad: could be refactored to 3D using regexp: ``pattern = r'[\(\]]\s*(?:\d+|None)\s*,\s*(?:\d+|None)\s*[\)\]]'``
 * Decision: rejected, not extensible
 
 Example:
@@ -220,32 +219,32 @@ Example:
 >>> pt = (None, None)
 >>> pt = (None, None, None)
 
->>> pt = (50, 120)
->>> pt = (50, 120, 0)
->>> pt = [50, 120]
->>> pt = [50, 120, 0]
+>>> pt = (50, 100)
+>>> pt = (50, 100, 0)
+>>> pt = [50, 100]
+>>> pt = [50, 100, 0]
 
 Use Case:
 
 >>> np.random.randint(0, 10, (3, 3))  # bad
->>> np.random.randint(0, 10, size=(3, 3))  # maybe
+>>> np.random.randint(0, 10, size=(3, 3))  # ok
 >>> np.random.randint(0, 10, rows=3, cols=3)  # ok, for 2D and 3D, not for ndim
 
->>> pt = (50, 120)
+>>> pt = (50, 100)
 >>>
 >>> pt[0], pt[1]
-(50, 120)
+(50, 100)
 
->>> x, y = (50, 120)
+>>> x, y = (50, 100)
 >>>
 >>> x, y
-(50, 120)
+(50, 100)
 
 
 Option 7
 --------
->>> dragon = Dragon('Wawelski', {'x':50, 'y':120})
->>> dragon = Dragon('Wawelski', position={'x':50, 'y':120})
+>>> dragon = Dragon('Wawelski', {'x':50, 'y':100})
+>>> dragon = Dragon('Wawelski', position={'x':50, 'y':100})
 
 Pros and Cons:
 
@@ -254,7 +253,7 @@ Pros and Cons:
 * Good: order is not important
 * Good: always has to pass both ``x`` and ``y``
 * Good: possible to extend to 3D with refactoring
-* Good: easier to refactor than tuple - ``pattern = r'\{\s*"x"\s*:\s*(?:\d+|None)\s*,\s*"y"\s*:\s*(?:\d+|None)\s*\}'``
+* Good: easier to refactor than tuple - ``pattern = r'\{\s*['"][xy]['"]\s*:\s*(?:\d+|None)\s*,\s*['"][xy]['"]\s*:\s*(?:\d+|None)\s*\}'``
 * Bad: always has to pass both ``x`` and ``y``
 * Bad: unpacking
 * Bad: not extensible, ``position`` will always be 2D
@@ -276,17 +275,17 @@ Example:
 >>> pt = {'x':None, 'y':None}
 >>> pt = {'x':None, 'y':None, 'z':None}
 
->>> pt = {'x':50, 'y':120}
->>> pt = {'x':50, 'y':120, 'z':0}
+>>> pt = {'x':50, 'y':100}
+>>> pt = {'x':50, 'y':100, 'z':0}
 
 Use Case:
 
->>> pt = {'x':50, 'y':120}
+>>> pt = {'x':50, 'y':100}
 >>>
 >>> pt['x']
 50
 >>> pt['y']
-120
+100
 
 
 Option 8
@@ -296,10 +295,10 @@ Option 8
 >>>
 >>> Position = namedtuple('Point', ['x', 'y'])
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -316,13 +315,13 @@ Pros and Cons:
 Use Case:
 
 >>> Point = namedtuple('Point', ['x', 'y'])
->>> pt = Point(x=50, y=120)
+>>> pt = Point(x=50, y=100)
 >>>
 >>> pt[0], pt[1]
-(50, 120)
+(50, 100)
 >>>
 >>> pt.x, pt.y
-(50, 120)
+(50, 100)
 
 
 Option 9
@@ -334,10 +333,10 @@ Option 9
 ...     x: int
 ...     y: int
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -352,13 +351,13 @@ Pros and Cons:
 
 Use Case:
 
->>> pt = Point(x=50, y=120)
+>>> pt = Point(x=50, y=100)
 >>>
 >>> pt[0], pt[1]
-(50, 120)
+(50, 100)
 >>>
 >>> pt.x, pt.y
-(50, 120)
+(50, 100)
 
 
 Option 10
@@ -370,8 +369,8 @@ Option 10
 ...     x: int
 ...     y: int
 >>>
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -381,7 +380,7 @@ Pros and Cons:
 * Good: relatively easy to extend to 3D
 * Good: keyword argument is not required, class name is verbose enough
 * Bad: ``TypeDict`` does not support default values
-* Decision: rejected, better than dict, does not support default values
+* Decision: rejected, does not support default values
 
 Use Case:
 
@@ -389,12 +388,12 @@ Use Case:
 ...     x: int
 ...     y: int
 >>>
->>> pt = Point(x=50, y=120)
+>>> pt = Point(x=50, y=100)
 >>>
 >>> pt['x']
 50
 >>> pt['y']
-120
+100
 
 
 Option 11
@@ -407,8 +406,8 @@ Option 11
 ...     y: Required[int]
 ...     z: NotRequired[int]
 >>>
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 * Good: data is stored together (``x`` and ``y`` coordinates)
 * Good: simple
@@ -421,12 +420,12 @@ Option 11
 
 Use Case:
 
->>> pt = Point(x=50, y=120)
+>>> pt = Point(x=50, y=100)
 >>>
 >>> pt['x']
 50
 >>> pt['y']
-120
+100
 
 
 Option 12
@@ -440,10 +439,10 @@ Option 12
 ...         self.y = y
 >>>
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -482,10 +481,10 @@ Option 13
 ...         self.x = x
 ...         self.y = y
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -523,10 +522,10 @@ Option 14
 ...     x: int
 ...     y: int
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -562,10 +561,10 @@ Option 15
 ...     x: int = 0
 ...     y: int = 0
 >>>
->>> dragon = Dragon('Wawelski', Position(50, 120))
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
->>> dragon = Dragon('Wawelski', position=Position(50, 120))
->>> dragon = Dragon('Wawelski', position=Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(50, 100))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
+>>> dragon = Dragon('Wawelski', position=Position(50, 100))
+>>> dragon = Dragon('Wawelski', position=Position(x=50, y=100))
 
 Pros and Cons:
 
@@ -595,14 +594,14 @@ Use Case:
 
 Decision
 --------
->>> dragon = Dragon('Wawelski', position_x=50, position_y=120)
+>>> dragon = Dragon('Wawelski', position_x=50, position_y=100)
 
-Pros and Cons:
+Rationale:
 
-* Good: simple
-* Good: explicit
-* Good: verbose
-* Good: extensible to 3D
+* Simple
+* Explicit
+* Verbose
+* Extensible
 
 Implementation:
 
@@ -616,13 +615,18 @@ Implementation:
 
 Future
 ------
->>> dragon = Dragon('Wawelski', Position(x=50, y=120))
+>>> dragon = Dragon('Wawelski', Position(x=50, y=100))
 
-* Choices: ``NameTuple``, ``dataclass(slots=True)``
-* Good: explicit
-* Good: verbose
-* Good: extensible
-* Bad: to complicated for now
+Reconsider:
+
+* ``NameTuple``
+* ``dataclass(slots=True)``
+
+Rationale:
+
+* Explicit
+* Verbose
+* Extensible
 
 Implementation:
 

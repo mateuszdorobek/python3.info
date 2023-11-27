@@ -8,7 +8,7 @@ English:
     1. Define `result: list[int]` with 6 random
        integers without repetition in range from 1 to 49 (inclusive)
     2. Use `random.sample()`
-    2. Run doctests - all must succeed
+    3. Run doctests - all must succeed
 
 Polish:
     1. Zdefiniuj `result: list[int]` z 6-oma losowymi

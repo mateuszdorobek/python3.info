@@ -26,7 +26,6 @@ Math
     :caption: Math
 
     math/precision.rst
-    math/int.rst
     math/math.rst
     math/statistics.rst
     math/fractions.rst

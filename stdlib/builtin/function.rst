@@ -2,6 +2,98 @@ Builtin Functions
 =================
 
 
+Power - ``pow()``
+-----------------
+* ``pow()`` - Raise number to the power of exponential (the same as ``**``)
+
+>>> pow(2, 4)
+16
+>>>
+>>> pow(16, 1/2)
+4.0
+
+Builtin function ``pow()`` raises number to the ``n-th`` power.
+Note, that arithmetic operator ``**`` also raises number to the power:
+
+>>> pow(10, 2)
+100
+>>>
+>>> pow(2, -1)
+0.5
+
+>>> pow(1.337, 3)
+2.389979753
+>>>
+>>> pow(4, 0.5)
+2.0
+>>>
+>>> pow(2, 0.5)
+1.4142135623730951
+
+Builtin function ``pow()`` can be used to calculate roots of a number:
+
+>>> pow(4, 1/2)
+2.0
+>>>
+>>> pow(2, 1/2)
+1.4142135623730951
+>>>
+>>> pow(27, 1/3)
+3.0
+
+>>> pow(4, -1/2)
+0.5
+>>>
+>>> pow(2, -1/2)
+0.7071067811865476
+>>>
+>>> pow(27, -1/3)
+0.33333333333333337
+
+>>> pow(-2, -1)
+-0.5
+>>>
+>>> pow(-4, -1)
+-0.25
+
+Builtin function ``pow()`` can return ``complex`` numbers.
+Note that Python has special ``complex()`` numeric type.
+
+>>> pow(-2, -1/2)
+(4.329780281177467e-17-0.7071067811865476j)
+>>>
+>>> pow(-2, 1/2)
+(8.659560562354934e-17+1.4142135623730951j)
+>>>
+>>> pow(-4, -1/2)
+(3.061616997868383e-17-0.5j)
+>>>
+>>> pow(-4, 1/2)
+(1.2246467991473532e-16+2j)
+
+
+``abs()`` - Absolute value
+--------------------------
+* ``abs()`` - Absolute value
+
+>>> abs(1)
+1
+>>>
+>>> abs(-1)
+1
+
+>>> abs(1.2)
+1.2
+>>>
+>>> abs(-1.2)
+1.2
+
+>>> abs(+0)
+0
+>>> abs(-0)
+0
+
+
 ``range()``
 -----------
 * Tworzy **iterator**, który zwraca liczby w sekwencji.

@@ -21,6 +21,18 @@ Multiline string:
 ... Second line
 ... Third line"""
 
+Longer strings (mind space at the end):
+
+>>> data = text = (
+...     'First part '
+...     'Second part '
+...     'Third part'
+... )
+
+>>> data = 'First part ' \
+...        'Second part ' \
+...        'Third part'
+
 
 Quotes or Apostrophes
 ---------------------
@@ -120,8 +132,8 @@ it's a docstring:
 ... and the others, too."""
 
 
-Type Casting
-------------
+Type Conversion
+---------------
 Builtin function  ``str()`` converts argument to ``str``
 
 >>> str('Moon')
