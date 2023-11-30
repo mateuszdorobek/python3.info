@@ -340,7 +340,7 @@ resources:
 
 You can define multiple assignment expressions if needed.
 
->>> result = [{'firstname': name[0], 'lastname': name[1]}
+>>> result = [{'firstname': firstname, 'lastname': lastname}
 ...           for fullname in DATA
 ...           if (name := fullname.split())
 ...           and (firstname := name[0])
