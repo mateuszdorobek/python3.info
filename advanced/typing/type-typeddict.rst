@@ -32,7 +32,7 @@ TypedDict
 >>>
 >>> pt = Point(x=1, y=2)  # ok
 >>> pt = Point(x=1, y=2, z=3)  # error, Extra key 'z' for TypedDict 'Point'
->>> pt = Point(x=1, y=2)  # error, TypedDict 'Point' has missing keys: 'x', 'y'
+>>> pt = Point()  # error, TypedDict 'Point' has missing keys: 'x', 'y'
 
 
 Optional Values
