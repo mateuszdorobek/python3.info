@@ -223,7 +223,7 @@ class as final:
 ... class User:
 ...     pass
 
-Error: 'Astronaut' is marked as ``@final`` and should not be subclassed:
+Error: 'Person' is marked as ``@final`` and should not be subclassed:
 
 >>> from typing import final
 >>>
